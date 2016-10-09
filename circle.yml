@@ -1,0 +1,12 @@
+machine:
+  node:
+    version: 4.2.6
+
+dependencies:
+  override:
+    - npm install -g angular-cli
+    - npm install
+
+test:
+  override:
+    - ng github-pages:deploy --message "Autodeploy gh-pages"
