@@ -1,14 +1,20 @@
 {
   "project": {
-    "version": "1.0.0-beta.17",
+    "version": "1.0.0-beta.26",
     "name": "quietthyme.web"
   },
   "apps": [
     {
       "root": "src",
       "outDir": "dist",
-      "assets": "assets",
-      "index": "index.html",
+      "assets": [
+        "assets",
+        "index.html",
+        "CNAME",
+
+        "favicon.ico"
+      ],
+      "index": "angular.html",
       "main": "main.ts",
       "test": "test.ts",
       "tsconfig": "tsconfig.json",
@@ -64,6 +70,18 @@
   },
   "defaults": {
     "styleExt": "less",
-    "prefixInterfaces": false
+    "prefixInterfaces": false,
+    "inline": {
+      "style": false,
+      "template": false
+    },
+    "spec": {
+      "class": false,
+      "component": true,
+      "directive": true,
+      "module": false,
+      "pipe": true,
+      "service": true
+    }
   }
 }
