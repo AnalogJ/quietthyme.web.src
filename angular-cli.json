@@ -21,17 +21,13 @@
       "prefix": "app",
       "mobile": false,
       "styles": [
-
-        "../node_modules/bootstrap/dist/css/bootstrap.css",
         "styles.less",
         "less/dark.less",
+        "styles-ext.less",
         "assets/app-landing/app-landing.css",
 
         "assets/one-page/css/et-line.css",
-        "../node_modules/animate.css/animate.min.css",
-        "../node_modules/magnific-popup/dist/magnific-popup.css",
         "assets/app-landing/css/fonts.css",
-        "../node_modules/bootstrap-switch/dist/css/bootstrap3/bootstrap-switch.min.css",
         "assets/css/bs-switch.css",
         "assets/css/responsive.css",
         "assets/app-landing/css/colors.css",
@@ -39,15 +35,9 @@
 
       ],
       "scripts": [
-        "../node_modules/jquery/dist/jquery.js",
         "assets/js/plugins.js",
-
         "assets/js/functions.js",
-        "assets/js/start.js",
-
-        "../node_modules/tether/dist/js/tether.js",
-        "../node_modules/bootstrap/dist/js/bootstrap.js"
-
+        "assets/js/start.js"
       ],
       "environments": {
         "source": "environments/environment.ts",
