@@ -11,7 +11,7 @@ general:
 dependencies:
   override:
     - npm install npm@latest -g
-    - npm install angular-cli@1.0.0-beta.26 -g
+    - npm install @angular/cli@latest -g
     - npm install
     - npm ls
 
