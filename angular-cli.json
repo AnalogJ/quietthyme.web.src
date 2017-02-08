@@ -16,6 +16,7 @@
       ],
       "index": "angular.html",
       "main": "main.ts",
+      "polyfills": "polyfills.ts",
       "test": "test.ts",
       "tsconfig": "tsconfig.json",
       "prefix": "app",
@@ -33,11 +34,7 @@
         "less/overrides.less"
 
       ],
-      "scripts": [
-        "assets/js/plugins.js",
-        "assets/js/functions.js",
-        "assets/js/start.js"
-      ],
+      "scripts": [],
       "environments": {
         "source": "environments/environment.ts",
         "dev": "environments/environment.ts",
