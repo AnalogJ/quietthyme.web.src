@@ -13,7 +13,7 @@ dependencies:
     - npm install npm@latest -g
     - npm install @angular/cli@latest -g
     - npm install
-    - npm ls
+    - ng version
 
 test:
   override:

@@ -1,10 +1,10 @@
-import { QuietthymePage } from './app.po';
+import { QuietthymeWebPage } from './app.po';
 
-describe('quietthyme App', function() {
-  let page: QuietthymePage;
+describe('quietthyme-web App', function() {
+  let page: QuietthymeWebPage;
 
   beforeEach(() => {
-    page = new QuietthymePage();
+    page = new QuietthymeWebPage();
   });
 
   it('should display message saying app works', () => {

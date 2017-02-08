@@ -1,6 +1,6 @@
 import { browser, element, by } from 'protractor';
 
-export class QuietthymePage {
+export class QuietthymeWebPage {
   navigateTo() {
     return browser.get('/');
   }

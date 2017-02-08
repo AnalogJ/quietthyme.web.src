@@ -1,5 +1,5 @@
 {
-  "name": "quietthyme.web",
+  "name": "quietthyme-web",
   "version": "0.0.0",
   "license": "MIT",
   "angular-cli": {},
@@ -31,12 +31,11 @@
     "ng2-bootstrap": "^1.1.16"
   },
   "devDependencies": {
+    "@angular/cli": "1.0.0-beta.30",
     "@angular/compiler-cli": "^2.3.1",
     "@types/jasmine": "2.5.38",
     "@types/node": "^6.0.42",
-    "angular-cli": "1.0.0-beta.26",
     "codelyzer": "~2.0.0-beta.1",
-    "extract-text-webpack-plugin": "2.0.0-rc.0",
     "jasmine-core": "2.5.2",
     "jasmine-spec-reporter": "2.5.0",
     "karma": "1.2.0",
