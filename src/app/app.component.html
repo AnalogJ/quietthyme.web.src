@@ -1,22 +1,10 @@
-<!-- HEADER -->
-<header>
-    <a href="/" id="logo"><img src="assets/logo_white_medium.png" alt=""/><img class="act" src="assets/logo_black_medium.png" alt=""/></a>
-    <div class="mob-icon">
-        <span></span>
-    </div>
-    <nav>
-        <ul>
-            <li><a routerLink="/dashboard" routerLinkActive="act" class="scroll-to-link">Dashboard</a></li>
-            <li><a routerLink="/project/create" routerLinkActive="act" class="scroll-to-link">Add Project</a></li>
-        </ul>
-    </nav>
-</header>
-
-
-<div id="content-wrapper">
+<div id="wrapper" class="clearfix" style="opacity: 1;">
     <!-- Routed views go here -->
     <router-outlet></router-outlet>
 
 </div>
 
 
+<!-- Go To Top
+============================================= -->
+<div id="gotoTop" class="icon-angle-up"></div>
