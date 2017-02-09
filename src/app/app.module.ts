@@ -7,22 +7,24 @@ import { RouterModule }   from '@angular/router';
 import { AppComponent } from './app.component';
 import { AccountLoginComponent } from './account-login/account-login.component';
 import { AccountRegisterComponent } from './account-register/account-register.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
 import { KloudlessAuthenticatorDirective } from './shared/kloudless-authenticator.directive';
 import { FooterComponent } from './partials/footer/footer.component';
 import { PageTitleComponent } from './partials/page-title/page-title.component';
 import { HeaderComponent } from './partials/header/header.component';
+import { StorageComponent } from './storage/storage.component';
+import { LibraryComponent } from './library/library.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AccountLoginComponent,
     AccountRegisterComponent,
-    DashboardComponent,
     KloudlessAuthenticatorDirective,
     FooterComponent,
     PageTitleComponent,
-    HeaderComponent
+    HeaderComponent,
+    StorageComponent,
+    LibraryComponent
   ],
   imports: [
     BrowserModule,
@@ -34,13 +36,14 @@ import { HeaderComponent } from './partials/header/header.component';
       { path: 'register', component: AccountRegisterComponent },
 
 
-      { path: 'dashboard', component: DashboardComponent }, //, canActivate: [AuthGuard] },
+      { path: 'storage', component: StorageComponent }, //, canActivate: [AuthGuard] },
+      { path: 'library', component: LibraryComponent }, //, canActivate: [AuthGuard] },
       // { path: 'project/create', component: ProjectCreateComponent, canActivate: [AuthGuard] },
       // { path: 'project/:serviceType/:orgId/:repoId/edit', component: ProjectEditComponent, canActivate: [AuthGuard] },
       // { path: 'project/:serviceType/:orgId/:repoId/pullrequests/:prNumber', component: ProjectDeployComponent, canActivate: [AuthGuard] },
       // { path: 'project/:serviceType/:orgId/:repoId/pullrequests/:prNumber/logs', component: ProjectDeployLogsComponent, canActivate: [AuthGuard] },
 
-      { path: '', pathMatch: 'full', redirectTo: 'dashboard' },
+      { path: '', pathMatch: 'full', redirectTo: 'storage' },
       // { path: '**', component: PageNotFoundComponent }
       { path: '**', redirectTo: 'login' }
     ])
