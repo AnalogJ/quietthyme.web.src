@@ -9,6 +9,9 @@ import { AccountLoginComponent } from './account-login/account-login.component';
 import { AccountRegisterComponent } from './account-register/account-register.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { KloudlessAuthenticatorDirective } from './shared/kloudless-authenticator.directive';
+import { FooterComponent } from './partials/footer/footer.component';
+import { PageTitleComponent } from './partials/page-title/page-title.component';
+import { HeaderComponent } from './partials/header/header.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +19,10 @@ import { KloudlessAuthenticatorDirective } from './shared/kloudless-authenticato
     AccountLoginComponent,
     AccountRegisterComponent,
     DashboardComponent,
-    KloudlessAuthenticatorDirective
+    KloudlessAuthenticatorDirective,
+    FooterComponent,
+    PageTitleComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
