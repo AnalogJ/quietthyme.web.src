@@ -8,13 +8,15 @@ import { AppComponent } from './app.component';
 import { AccountLoginComponent } from './account-login/account-login.component';
 import { AccountRegisterComponent } from './account-register/account-register.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { KloudlessAuthenticatorDirective } from './shared/kloudless-authenticator.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     AccountLoginComponent,
     AccountRegisterComponent,
-    DashboardComponent
+    DashboardComponent,
+    KloudlessAuthenticatorDirective
   ],
   imports: [
     BrowserModule,
