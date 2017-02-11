@@ -41,7 +41,7 @@ export class ApiService {
   }
 
   authRegister(name:string, email:string, password:string): Observable<any> {
-    return this.http.put(`${AppSettings.API_ENDPOINT}/auth/register`,
+    return this.http.post(`${AppSettings.API_ENDPOINT}/auth/register`,
         {
           "name":name,
           "email": email,
@@ -51,5 +51,13 @@ export class ApiService {
         .catch(this.handleError);
   }
 
-
+  authLogin(email:string, password:string): Observable<any> {
+    return this.http.post(`${AppSettings.API_ENDPOINT}/auth/login`,
+        {
+          "email": email,
+          "password": password
+        })
+        .map(this.extractData)
+        .catch(this.handleError);
+  }
 }
