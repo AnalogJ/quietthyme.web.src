@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from '../services/api.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-account-register',
@@ -7,9 +9,32 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AccountRegisterComponent implements OnInit {
 
-  constructor() { }
+  regName: string;
+  regEmail: string;
+  regPassword: string;
+  regConfirmPassword: string;
+
+  loginEmail: string;
+  loginPassword: string;
+
+  constructor(private apiService: ApiService, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
   }
 
+  register(){
+
+    // this.loading.saveSettings = true;
+    this.apiService.authRegister(this.regName, this.regEmail, this.regPassword)
+        .subscribe(
+            data => {
+              console.log(data)
+            },
+            error => {console.log(error)}
+        );
+  }
+
+  login(){
+    
+  }
 }

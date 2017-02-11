@@ -14,6 +14,21 @@ import { HeaderComponent } from './partials/header/header.component';
 import { StorageComponent } from './storage/storage.component';
 import { LibraryComponent } from './library/library.component';
 
+import { ApiService } from './services/api.service'
+import { AuthGuard } from './services/auth-guard.service'
+import { AuthHttp, AuthConfig } from 'angular2-jwt';
+import { Ng2BootstrapModule } from 'ng2-bootstrap';
+
+
+export function getAuthHttp(http: any) {
+  return new AuthHttp(new AuthConfig({
+    noJwtError: true,
+    headerPrefix: 'JWT',
+    tokenGetter: (() => localStorage.getItem('id_token')),
+    globalHeaders: [{'Content-Type':'application/json'}]
+  }), http);
+}
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +45,7 @@ import { LibraryComponent } from './library/library.component';
     BrowserModule,
     FormsModule,
     HttpModule,
-
+    Ng2BootstrapModule.forRoot(),
     RouterModule.forRoot([
       { path: 'login', component: AccountLoginComponent },
       { path: 'register', component: AccountRegisterComponent },
@@ -48,7 +63,14 @@ import { LibraryComponent } from './library/library.component';
       { path: '**', redirectTo: 'login' }
     ])
   ],
-  providers: [],
+  providers: [
+    ApiService,
+    AuthGuard,
+    {
+      provide: AuthHttp,
+      useFactory: getAuthHttp,
+      deps: [Http]
+    }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
