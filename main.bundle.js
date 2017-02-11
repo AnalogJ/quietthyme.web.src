@@ -103665,7 +103665,7 @@ var AppSettings = (function () {
     function AppSettings() {
     }
     Object.defineProperty(AppSettings, "API_ENDPOINT", {
-        get: function () { return 'https://api.capsulecd.com/' + __WEBPACK_IMPORTED_MODULE_0__environments_environment__["a" /* environment */].apiVersion; },
+        get: function () { return 'https://api.quietthyme.com/' + __WEBPACK_IMPORTED_MODULE_0__environments_environment__["a" /* environment */].apiVersion; },
         enumerable: true,
         configurable: true
     });
