@@ -27,7 +27,7 @@
                     <div class="widget subscribe-widget clearfix">
                         <div class="dark" style="padding: 25px; background-color: #383838; border-radius: 2px;">
                             <div class="fancy-title title-border">
-                                <h4>Subscribe</h4>
+                                <h4>Connect</h4>
                             </div>
 
                             <p style="font-size: 15px; line-height: 1.5; color: #999;">Subscribe to Our Newsletter to get Important News, Amazing Offers &amp; Inside Scoops:</p>
@@ -37,7 +37,16 @@
                                     <span class="input-group-addon"><i class="icon-email2"></i></span>
                                     <input type="email" id="widget-subscribe-form-email2" name="widget-subscribe-form-email" class="form-control required email" placeholder="Enter your Email">
                                 </div>
-                                <button class="button button-3d btn-block button-small nomargin" style="margin-top: 15px !important;" type="submit">Subscribe</button>
+
+                                <button class="button button-3d btn-block button-small nomargin" style="margin-top: 15px !important;"
+                                        kloudlessAuthenticator
+                                        [clientId]="'mddXeszdchTlRQEFN3LGhxLzqaTjgYwbXGLHCeXOqJdrzRyd'"
+                                        [scope]="'gdrive box dropbox skydrive'"
+                                        (onAuthenticated)="kloudlessAuthenticatedStorage($event)"
+                                >
+                                    Add Storage
+                                </button>
+
                             </form>
                         </div>
                     </div>
@@ -51,13 +60,7 @@
 </section><!-- #content end -->
 
 
-<kloudless-authenticator
-        clientId="mddXeszdchTlRQEFN3LGhxLzqaTjgYwbXGLHCeXOqJdrzRyd"
-        scope="gdrive box dropbox skydrive"
-        (onAuthenticated)="kloudlessAuthenticated($event)"
->
-    Kloudless
-</kloudless-authenticator>
+
 
 
 <quietthyme-footer></quietthyme-footer>

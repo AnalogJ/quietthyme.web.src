@@ -1,24 +1,30 @@
 // based off of http://stackoverflow.com/questions/37412398/creating-angular2-component-directive-wrapper-for-dygraphs
-import { Component, Input, ViewChild, ElementRef, AfterViewInit, EventEmitter, Output } from '@angular/core';
+import { Directive, Input, ViewChild, ElementRef, AfterViewInit, EventEmitter, Output } from '@angular/core';
 
 declare var Kloudless:any;
 
 
-@Component({
-  selector: 'kloudless-authenticator',
-  template: `
-    <button #authenticator><ng-content></ng-content></button>
-  `
+@Directive({
+  selector: '[kloudlessAuthenticator]',
+  // template: `
+  //   <button #authenticator><ng-content></ng-content></button>
+  // `
 })
 export class KloudlessAuthenticatorDirective {
 
-  @ViewChild('authenticator')
-  elt:ElementRef;
+  // @ViewChild('authenticator')
+  // elt:ElementRef;
 
   @Input() scope : string;
   @Input() clientId : string;
 
   @Output() onAuthenticated: EventEmitter<any> = new EventEmitter();
+
+
+  elt:ElementRef
+  constructor(_elt: ElementRef) {
+    this.elt = _elt;
+  }
 
   ngAfterViewInit() {
 

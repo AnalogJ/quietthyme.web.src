@@ -60,4 +60,13 @@ export class ApiService {
         .map(this.extractData)
         .catch(this.handleError);
   }
+
+  // Authenticated functions
+
+
+  storageLink(kloudlessData:any){
+    return this.authHttp.post(`${AppSettings.API_ENDPOINT}/storage/link`, kloudlessData)
+        .map(this.extractData)
+        .catch(this.handleError);
+  }
 }
