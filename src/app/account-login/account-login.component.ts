@@ -18,6 +18,8 @@ export class AccountLoginComponent implements OnInit {
   }
 
   login(){
+
+
     // this.loading.saveSettings = true;
     this.apiService.authLogin(this.loginEmail, this.loginPassword)
         .subscribe(
@@ -25,7 +27,12 @@ export class AccountLoginComponent implements OnInit {
               console.log(data)
               localStorage.setItem('id_token', data.token); //set the JWT token
 
-              this.router.navigate(['/storage'])
+                if(this.activatedRoute.snapshot.params['requested']){
+                    this.router.navigate([this.activatedRoute.snapshot.params['requested']])
+                }
+                else{
+                    this.router.navigate(['/storage'])
+                }
             },
             error => {console.log(error)}
         );

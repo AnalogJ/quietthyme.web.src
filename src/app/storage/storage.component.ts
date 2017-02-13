@@ -8,9 +8,18 @@ import { ApiService } from '../services/api.service';
 })
 export class StorageComponent implements OnInit {
 
+
+
   constructor(private apiService: ApiService) { }
 
   ngOnInit() {
+      this.apiService.storageStatus()
+          .subscribe(
+              settings => {
+                  console.log(settings)
+              },
+              error => {console.log(error)}
+          );
   }
 
   kloudlessAuthenticatedStorage(kloudlessData){
