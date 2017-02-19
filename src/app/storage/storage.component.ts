@@ -7,7 +7,7 @@ import { ApiService } from '../services/api.service';
   styleUrls: ['./storage.component.less']
 })
 export class StorageComponent implements OnInit {
-
+    storageStatus: any = {}
 
 
   constructor(private apiService: ApiService) { }
@@ -17,6 +17,7 @@ export class StorageComponent implements OnInit {
           .subscribe(
               settings => {
                   console.log(settings)
+                  this.storageStatus = settings
               },
               error => {console.log(error)}
           );

@@ -18,6 +18,7 @@ import { ApiService } from './services/api.service'
 import { AuthGuard } from './services/auth-guard.service'
 import { AuthHttp, AuthConfig } from 'angular2-jwt';
 import { Ng2BootstrapModule } from 'ng2-bootstrap';
+import { BookDetailsComponent } from './book-details/book-details.component';
 
 
 export function getAuthHttp(http: any) {
@@ -39,7 +40,8 @@ export function getAuthHttp(http: any) {
     PageTitleComponent,
     HeaderComponent,
     StorageComponent,
-    LibraryComponent
+    LibraryComponent,
+    BookDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -53,6 +55,7 @@ export function getAuthHttp(http: any) {
       { path: 'storage', component: StorageComponent, canActivate: [AuthGuard] },
       { path: 'storage/:source', component: StorageComponent, canActivate: [AuthGuard] },
       { path: 'library', component: LibraryComponent, canActivate: [AuthGuard] },
+      { path: 'book/:bookId', component: BookDetailsComponent, canActivate: [AuthGuard] },
       // { path: 'project/create', component: ProjectCreateComponent, canActivate: [AuthGuard] },
       // { path: 'project/:serviceType/:orgId/:repoId/edit', component: ProjectEditComponent, canActivate: [AuthGuard] },
       // { path: 'project/:serviceType/:orgId/:repoId/pullrequests/:prNumber', component: ProjectDeployComponent, canActivate: [AuthGuard] },

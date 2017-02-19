@@ -73,4 +73,20 @@ export class ApiService {
         .map(this.extractData)
         .catch(this.handleError);
   }
+
+  bookList(): Observable<any> {
+    return this.authHttp.get(`${AppSettings.API_ENDPOINT}/book`)
+        .map(this.extractData)
+        .catch(this.handleError);
+  }
+
+  book(bookId:string): Observable<any>{
+    let params: URLSearchParams = new URLSearchParams();
+    params.set('id', bookId.toString());
+
+    return this.authHttp.get(`${AppSettings.API_ENDPOINT}/book`,{search: params})
+        .map(this.extractData)
+        .catch(this.handleError);
+  }
+
 }
