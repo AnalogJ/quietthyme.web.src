@@ -31,7 +31,10 @@
         "assets/css/bs-switch.css",
         "assets/css/responsive.css",
         "assets/app-landing/css/colors.css",
-        "less/overrides.less"
+        "less/overrides.less",
+
+
+        "assets/css/font-icons.css"
 
       ],
       "scripts": [],

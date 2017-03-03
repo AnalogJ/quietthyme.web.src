@@ -8,7 +8,10 @@ import {Router} from '@angular/router'
   styleUrls: ['./account-login.component.less']
 })
 export class AccountLoginComponent implements OnInit {
-
+    loading = {
+        login: false,
+        oauth: true
+    };
   loginEmail: string;
   loginPassword: string;
 
@@ -18,13 +21,12 @@ export class AccountLoginComponent implements OnInit {
   }
 
   login(){
+    if(this.loading.login) return
 
-
-    // this.loading.saveSettings = true;
+    this.loading.login = true
     this.apiService.authLogin(this.loginEmail, this.loginPassword)
         .subscribe(
             data => {
-              console.log(data)
               localStorage.setItem('id_token', data.token); //set the JWT token
 
                 if(this.activatedRoute.snapshot.params['requested']){
@@ -34,7 +36,9 @@ export class AccountLoginComponent implements OnInit {
                     this.router.navigate(['/storage'])
                 }
             },
-            error => {console.log(error)}
+            error => {console.log(error)},
+            () => this.loading.login = false
+
         );
   }
 
