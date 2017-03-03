@@ -24,13 +24,10 @@
         "styles.less",
         "less/dark.less",
         "styles-ext.less",
-        "assets/app-landing/app-landing.css",
 
         "assets/one-page/css/et-line.css",
-        "assets/app-landing/css/fonts.css",
         "assets/css/bs-switch.css",
         "assets/css/responsive.css",
-        "assets/app-landing/css/colors.css",
         "less/overrides.less",
 
 

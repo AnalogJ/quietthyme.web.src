@@ -3,12 +3,10 @@
 <section id="page-title">
 
     <div class="container clearfix">
-        <h1>Left Sidebar</h1>
-        <span>Page Content on the Right &amp; Sidebar on the Left</span>
-        <ol class="breadcrumb">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Pages</a></li>
-            <li class="active">Left Sidebar</li>
+        <h1>{{ title }}</h1>
+        <span>{{ subtitle }}</span>
+        <ol class="breadcrumb" *ngIf="breadcrumbs.length > 0">
+            <li [ngClass]="{'active':bc.active }" *ngFor="let bc of breadcrumbs; let i = index;"><a>{{ bc.name }}</a></li>
         </ol>
     </div>
 
