@@ -1,4 +1,5 @@
 <quietthyme-header></quietthyme-header>
+<ng2-slim-loading-bar [color]="'#128950'" [height]="'3px'"></ng2-slim-loading-bar>
 <quietthyme-page-title title="Storage" subtitle="Connect your cloud storage"></quietthyme-page-title>
 
 <!-- Content
@@ -83,6 +84,7 @@
                             <div class="widget-subscribe-form-result"></div>
                             <form id="widget-subscribe-form2" action="include/subscribe.php" role="form" method="post" class="nobottommargin">
                                 <button class="button button-3d btn-block button-small nomargin" style="margin-top: 15px !important;"
+                                        [disabled]="loading.link"
                                         kloudlessAuthenticator
                                         [clientId]="'mddXeszdchTlRQEFN3LGhxLzqaTjgYwbXGLHCeXOqJdrzRyd'"
                                         [scope]="'gdrive box dropbox skydrive'"

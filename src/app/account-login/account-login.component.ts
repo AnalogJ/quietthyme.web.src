@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../services/api.service';
 import { ActivatedRoute } from '@angular/router';
 import {Router} from '@angular/router'
+import {SlimLoadingBarService} from 'ng2-slim-loading-bar';
+
 @Component({
   selector: 'app-account-login',
   templateUrl: './account-login.component.html',
@@ -15,15 +17,19 @@ export class AccountLoginComponent implements OnInit {
   loginEmail: string;
   loginPassword: string;
 
-  constructor(private apiService: ApiService, private router: Router, private activatedRoute: ActivatedRoute) { }
+  constructor(private slimLoadingBarService: SlimLoadingBarService, private apiService: ApiService, private router: Router, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
   }
+
 
   login(){
     if(this.loading.login) return
 
     this.loading.login = true
+    this.slimLoadingBarService.start(() => {
+      console.log('Loading complete');
+    });
     this.apiService.authLogin(this.loginEmail, this.loginPassword)
         .subscribe(
             data => {
@@ -37,7 +43,10 @@ export class AccountLoginComponent implements OnInit {
                 }
             },
             error => {console.log(error)},
-            () => this.loading.login = false
+            () => {
+                this.loading.login = false
+                this.slimLoadingBarService.complete();
+            }
 
         );
   }

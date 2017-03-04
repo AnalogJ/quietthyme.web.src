@@ -13,12 +13,13 @@ import { PageTitleComponent } from './partials/page-title/page-title.component';
 import { HeaderComponent } from './partials/header/header.component';
 import { StorageComponent } from './storage/storage.component';
 import { LibraryComponent } from './library/library.component';
+import { BookDetailsComponent } from './book-details/book-details.component';
 
 import { ApiService } from './services/api.service'
 import { AuthGuard } from './services/auth-guard.service'
 import { AuthHttp, AuthConfig } from 'angular2-jwt';
 import { Ng2BootstrapModule } from 'ng2-bootstrap';
-import { BookDetailsComponent } from './book-details/book-details.component';
+import { SlimLoadingBarModule } from 'ng2-slim-loading-bar';
 
 
 export function getAuthHttp(http: any) {
@@ -48,6 +49,7 @@ export function getAuthHttp(http: any) {
     FormsModule,
     HttpModule,
     Ng2BootstrapModule.forRoot(),
+    SlimLoadingBarModule.forRoot(),
     RouterModule.forRoot([
       { path: 'login', component: AccountLoginComponent },
       { path: 'register', component: AccountRegisterComponent },
