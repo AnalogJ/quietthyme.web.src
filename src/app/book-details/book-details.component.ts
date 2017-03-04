@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../services/api.service';
 import { BookModel } from '../models/book';
 import { ActivatedRoute, Router } from '@angular/router';
+import { MarkdownModule } from 'angular2-markdown';
 
 @Component({
   selector: 'app-book-details',

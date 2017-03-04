@@ -20,6 +20,7 @@ import { AuthGuard } from './services/auth-guard.service'
 import { AuthHttp, AuthConfig } from 'angular2-jwt';
 import { Ng2BootstrapModule } from 'ng2-bootstrap';
 import { SlimLoadingBarModule } from 'ng2-slim-loading-bar';
+import { MarkdownModule } from 'angular2-markdown';
 
 
 export function getAuthHttp(http: any) {
@@ -50,6 +51,7 @@ export function getAuthHttp(http: any) {
     HttpModule,
     Ng2BootstrapModule.forRoot(),
     SlimLoadingBarModule.forRoot(),
+    MarkdownModule.forRoot(),
     RouterModule.forRoot([
       { path: 'login', component: AccountLoginComponent },
       { path: 'register', component: AccountRegisterComponent },

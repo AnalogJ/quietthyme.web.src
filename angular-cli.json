@@ -31,7 +31,9 @@
         "less/overrides.less",
 
 
-        "assets/css/font-icons.css"
+        "assets/css/font-icons.css",
+
+        "../node_modules/prismjs/themes/prism-okaidia.css"
 
       ],
       "scripts": [],

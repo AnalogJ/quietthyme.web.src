@@ -23,6 +23,7 @@
     "@angular/router": "^3.3.1",
     "angular2-infinite-scroll": "^0.2.6",
     "angular2-jwt": "^0.1.25",
+    "angular2-markdown": "^1.4.0",
     "angular2-moment": "^1.0.0-beta.rc.1",
     "core-js": "^2.4.1",
     "ng2-bootstrap": "^1.1.16",

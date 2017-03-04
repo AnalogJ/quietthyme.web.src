@@ -1,5 +1,5 @@
 <quietthyme-header></quietthyme-header>
-<quietthyme-page-title></quietthyme-page-title>
+<quietthyme-page-title *ngIf="book" title="Book Details"></quietthyme-page-title>
 
 <!-- Content
 		============================================= -->
@@ -40,12 +40,13 @@
                             <!-- Entry Image
 							============================================= -->
                             <div class="entry-image alignleft">
-                                <a href="#"><img src="https://s3.amazonaws.com/{{ book.cover }}" alt="Blog Single"></a>
+                                <a href="#">
+                                    <img *ngIf="book.cover" src="https://s3.amazonaws.com/{{ book.cover }}" alt="{{ book.title }}">
+                                    <img *ngIf="!book.cover" src="assets/images/noart.png" alt="{{ book.title }}">
+                                </a>
                             </div><!-- .entry-image end -->
 
-                            <div>
-                                {{ book.short_summary }}
-                            </div>
+                            <markdown [data]="book.short_summary"></markdown>
                             <!-- Post Single - Content End -->
 
                             <!-- Tag Cloud
