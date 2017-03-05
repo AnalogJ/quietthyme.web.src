@@ -15,4 +15,6 @@ export class AppComponent {
     // You need this small hack in order to catch application root view container ref
     this.viewContainerRef = viewContainerRef;
   }
+
+
 }

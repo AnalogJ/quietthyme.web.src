@@ -4,11 +4,11 @@
 
 <!-- Content
 ============================================= -->
-<section id="content" class="footer-padding">
+<section id="content" class="footer-padding" scrollSpy>
 
     <div class="content-wrap">
 
-        <div class="container clearfix">
+        <div class="container clearfix" >
 
             <!-- Post Content
 			============================================= -->
@@ -43,7 +43,7 @@
 
             <!-- Sidebar
 			============================================= -->
-            <div class="sidebar nobottommargin">
+            <div class="sidebar-books nobottommargin" [scrollSpyAffix]="{topMargin: 0, bottomMargin: 0}">
                 <div class="sidebar-widgets-wrap">
 
                     <div class="widget widget-filter-links clearfix">
@@ -63,11 +63,11 @@
                         <h4>Storage</h4>
                         <ul class="custom-filter">
                             <li [ngClass]="{'active-filter': !filter.storage}"><a class="cursor-pointer" (click)="setStorage(null)">All</a></li>
-                            <li [ngClass]="{'active-filter': !filter.storage}"><a class="cursor-pointer" (click)="setStorage('quietthyme')">QuietThyme</a></li>
-                            <li [ngClass]="{'active-filter': !filter.storage}"><a class="cursor-pointer" (click)="setStorage('box')">Box</a></li>
-                            <li [ngClass]="{'active-filter': !filter.storage}"><a class="cursor-pointer" (click)="setStorage('dropbox')">Dropbox</a></li>
-                            <li [ngClass]="{'active-filter': !filter.storage}"><a class="cursor-pointer" (click)="setStorage('gdrive')">Google Drive</a></li>
-                            <li [ngClass]="{'active-filter': !filter.storage}"><a class="cursor-pointer" (click)="setStorage('skydrive')">OneDrive</a></li>
+                            <li [ngClass]="{'active-filter': filter.storage == 'quietthyme'}"><a class="cursor-pointer" (click)="setStorage('quietthyme')">QuietThyme</a></li>
+                            <li *ngIf="connected.box" [ngClass]="{'active-filter': filter.storage == 'box'}"><a class="cursor-pointer" (click)="setStorage('box')">Box</a></li>
+                            <li *ngIf="connected.dropbox" [ngClass]="{'active-filter': filter.storage == 'dropbox'}"><a class="cursor-pointer" (click)="setStorage('dropbox')">Dropbox</a></li>
+                            <li *ngIf="connected.gdrive" [ngClass]="{'active-filter': filter.storage == 'gdrive'}"><a class="cursor-pointer" (click)="setStorage('gdrive')">Google Drive</a></li>
+                            <li *ngIf="connected.skydrive" [ngClass]="{'active-filter': filter.storage == 'skydrive'}"><a class="cursor-pointer" (click)="setStorage('skydrive')">OneDrive</a></li>
                         </ul>
 
                     </div>

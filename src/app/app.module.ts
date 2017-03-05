@@ -23,6 +23,8 @@ import { Ng2BootstrapModule } from 'ng2-bootstrap';
 import { SlimLoadingBarModule } from 'ng2-slim-loading-bar';
 import { MarkdownModule } from 'angular2-markdown';
 import { MasonryModule } from 'angular2-masonry';
+import { ScrollSpyModule } from 'ng2-scrollspy';
+import { ScrollSpyAffixDirective } from 'ng2-scrollspy/dist/plugin/affix.directive';
 
 
 export function getAuthHttp(http: any) {
@@ -45,7 +47,8 @@ export function getAuthHttp(http: any) {
     HeaderComponent,
     StorageComponent,
     LibraryComponent,
-    BookDetailsComponent
+    BookDetailsComponent,
+    ScrollSpyAffixDirective
   ],
   imports: [
     BrowserModule,
@@ -55,6 +58,7 @@ export function getAuthHttp(http: any) {
     SlimLoadingBarModule.forRoot(),
     MarkdownModule.forRoot(),
     MasonryModule,
+    ScrollSpyModule.forRoot(),
     RouterModule.forRoot([
       { path: 'login', component: AccountLoginComponent },
       { path: 'register', component: AccountRegisterComponent },
