@@ -749,7 +749,7 @@ exports.push([module.i, "@import url(https://cdnjs.cloudflare.com/ajax/libs/magn
 exports.push([module.i, "@import url(https://cdnjs.cloudflare.com/ajax/libs/bootstrap-switch/3.3.3/css/bootstrap3/bootstrap-switch.min.css);", ""]);
 
 // module
-exports.push([module.i, "button.disabled,\nbutton[disabled],\nbutton.disabled:hover,\nbutton[disabled]:hover {\n  opacity: 0.50 !important;\n  cursor: not-allowed;\n}\n", ""]);
+exports.push([module.i, "button.disabled,\nbutton[disabled],\nbutton.disabled:hover,\nbutton[disabled]:hover {\n  opacity: 0.50 !important;\n  cursor: not-allowed;\n}\nimg.service-disabled {\n  -webkit-filter: grayscale(100%);\n  /* Safari 6.0 - 9.0 */\n  filter: grayscale(100%);\n}\n", ""]);
 
 // exports
 
