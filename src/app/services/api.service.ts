@@ -62,13 +62,13 @@ export class ApiService {
   }
 
   // Authenticated functions
-  storageStatus(){
+  storageStatus(): Observable<any>{
     return this.authHttp.get(`${AppSettings.API_ENDPOINT}/storage/status`)
         .map(this.extractData)
         .catch(this.handleError);
   }
 
-  storageLink(kloudlessData:any){
+  storageLink(kloudlessData:any): Observable<any>{
     return this.authHttp.post(`${AppSettings.API_ENDPOINT}/storage/link`, kloudlessData)
         .map(this.extractData)
         .catch(this.handleError);
@@ -85,6 +85,11 @@ export class ApiService {
     params.set('id', bookId.toString());
 
     return this.authHttp.get(`${AppSettings.API_ENDPOINT}/book`,{search: params})
+        .map(this.extractData)
+        .catch(this.handleError);
+  }
+  download(bookId:string): Observable<any>{
+    return this.authHttp.get(`${AppSettings.API_ENDPOINT}/storage/${bookId}`)
         .map(this.extractData)
         .catch(this.handleError);
   }

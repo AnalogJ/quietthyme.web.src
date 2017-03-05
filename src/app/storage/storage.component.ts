@@ -8,7 +8,15 @@ import {SlimLoadingBarService} from 'ng2-slim-loading-bar';
   styleUrls: ['./storage.component.less']
 })
 export class StorageComponent implements OnInit {
-    storageStatus: any = {}
+    connected: any = {
+        quietthyme: false,
+        dropbox: false,
+        gdrive: false,
+        skydrive: false,
+        box: false
+    }
+
+    statuses: any = {}
     loading = {
         status: false,
         link: false
@@ -19,11 +27,17 @@ export class StorageComponent implements OnInit {
   ngOnInit() {
       this.loading.status = true;
       this.slimLoadingBarService.start()
+      var self = this;
+
       this.apiService.storageStatus()
           .subscribe(
-              settings => {
-                  console.log(settings)
-                  this.storageStatus = settings
+              response => {
+                  console.log(response)
+                  response.forEach(function(status){
+                      self.connected[status.storage_type] = true
+
+                      self.statuses[status.storage_type] = status
+                  })
               },
               error => {console.log(error)},
               () => {

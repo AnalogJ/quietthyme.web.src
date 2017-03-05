@@ -20,14 +20,14 @@
 
                     <div *ngFor="let book of bookList; let myIndex = index" class="product ">
                         <div class="product-image">
-                            <a href="#">
+                            <a routerLink="/book/{{ book.id }}">
                                 <img *ngIf="book.cover" src="https://s3.amazonaws.com/{{ book.cover }}" alt="{{ book.title }}">
                                 <img *ngIf="!book.cover" src="assets/images/noart.png" alt="{{ book.title }}">
                             </a>
                             <div class="sale-flash">{{ book.storage_format }}</div>
                             <div class="product-overlay">
-                                <a href="/download/{{ book.id }}" class="add-to-cart"><i class="icon-shopping-cart"></i><span> Download</span></a>
-                                <a routerLink="/book/{{ book.id }}" class="item-quick-view" data-lightbox="ajax"><i class="icon-zoom-in2"></i><span> Details</span></a>
+                                <a (click)="downloadBook(book.id)" class="add-to-cart" href="javascript:void(0)"><i class="icon-cloud-download"></i><span> Download</span></a>
+                                <a routerLink="/book/{{ book.id }}" class="item-quick-view" data-lightbox="ajax"><i class="icon-info-sign"></i><span> Details</span></a>
                             </div>
                         </div>
                         <div class="product-desc center">

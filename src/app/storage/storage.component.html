@@ -1,6 +1,6 @@
 <quietthyme-header></quietthyme-header>
 <ng2-slim-loading-bar [color]="'#128950'" [height]="'3px'"></ng2-slim-loading-bar>
-<quietthyme-page-title title="Storage" subtitle="Connect your cloud storage"></quietthyme-page-title>
+<quietthyme-page-title title="Storage" subtitle="Connect your cloud storage accounts"></quietthyme-page-title>
 
 <!-- Content
 		============================================= -->
@@ -18,50 +18,45 @@
                     <div class="col-md-4 col-sm-2">
                         <div class="feature-box fbox-center fbox-outline fbox-effect fbox-light">
                             <div class="fbox-icon">
-                                <a href="#"><i class="icon-hand-up i-alt"></i></a>
+                                <a href="#"><img src="assets/images/services/quietthyme.png"  [ngClass]="{'service-disabled': !connected.quietthyme}"/></a>
                             </div>
                             <h3>Quietthyme</h3>
-                            <p></p>
                         </div>
                     </div>
 
                     <div class="col-md-2 col-sm-2">
                         <div class="feature-box fbox-center fbox-outline fbox-effect fbox-light">
                             <div class="fbox-icon">
-                                <a href="#"><i class="icon-share i-alt"></i></a>
+                                <a href="#"><img src="assets/images/services/dropbox.png"  [ngClass]="{'service-disabled': !connected.dropbox}"/></a>
                             </div>
                             <h3>Dropbox</h3>
-                            <p>Get ready to make your presence felt socially with some awesome included social features.</p>
                         </div>
                     </div>
 
                     <div class="col-md-2 col-sm-2">
                         <div class="feature-box fbox-center fbox-outline fbox-effect fbox-light">
                             <div class="fbox-icon">
-                                <a href="#"><i class="icon-search3 i-alt"></i></a>
+                                <a href="#"><img src="assets/images/services/google.png"  [ngClass]="{'service-disabled': !connected.gdrive}"/></a>
                             </div>
                             <h3>Google Drive</h3>
-                            <p>Canvas uses the best SEO optimization practises to give your website a Good Rank in Search Engines.</p>
                         </div>
                     </div>
 
                     <div class="col-md-2 col-sm-2">
                         <div class="feature-box fbox-center fbox-outline fbox-effect fbox-light">
                             <div class="fbox-icon">
-                                <a href="#"><i class="icon-hand-up i-alt"></i></a>
+                                <a href="#"><img src="assets/images/services/skydrive.png"  [ngClass]="{'service-disabled': !connected.skydrive}"/></a>
                             </div>
                             <h3>OneDrive</h3>
-                            <p>All the Sliders &amp; Carousels are touch enabled to allow uniform experience across all major devices.</p>
                         </div>
                     </div>
 
                     <div class="col-md-2 col-sm-2 col_last">
                         <div class="feature-box fbox-center fbox-outline fbox-effect fbox-light">
                             <div class="fbox-icon">
-                                <a href="#"><i class="icon-hand-up i-alt"></i></a>
+                                <a href="#"><img src="assets/images/services/box.png"  [ngClass]="{'service-disabled': !connected.onedrive}"/></a>
                             </div>
                             <h3>Box</h3>
-                            <p>All the Sliders &amp; Carousels are touch enabled to allow uniform experience across all major devices.</p>
                         </div>
                     </div>
 
