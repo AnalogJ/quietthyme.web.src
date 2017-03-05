@@ -21,6 +21,7 @@ import { AuthHttp, AuthConfig } from 'angular2-jwt';
 import { Ng2BootstrapModule } from 'ng2-bootstrap';
 import { SlimLoadingBarModule } from 'ng2-slim-loading-bar';
 import { MarkdownModule } from 'angular2-markdown';
+import { MasonryModule } from 'angular2-masonry';
 
 
 export function getAuthHttp(http: any) {
@@ -52,6 +53,7 @@ export function getAuthHttp(http: any) {
     Ng2BootstrapModule.forRoot(),
     SlimLoadingBarModule.forRoot(),
     MarkdownModule.forRoot(),
+    MasonryModule,
     RouterModule.forRoot([
       { path: 'login', component: AccountLoginComponent },
       { path: 'register', component: AccountRegisterComponent },
