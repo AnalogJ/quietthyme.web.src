@@ -3,12 +3,13 @@ import { AuthHttp, tokenNotExpired } from 'angular2-jwt';
 import { Http, Response, Headers, RequestOptions, URLSearchParams} from '@angular/http';
 import { Observable }     from 'rxjs/Observable';
 import {AppSettings} from '../app-settings';
+import { CacheService } from '../services/cache.service'
 import {Observer} from "rxjs";
 
 @Injectable()
 export class ApiService {
 
-  constructor(public authHttp: AuthHttp, private http: Http) { }
+  constructor(public authHttp: AuthHttp, private http: Http, private cacheService: CacheService) { }
 
   //Helper functions
   private extractData(res: Response) {
@@ -35,7 +36,6 @@ export class ApiService {
 
 
   // Unauthenticated functions
-
   loggedIn() {
     return tokenNotExpired();
   }
@@ -63,30 +63,45 @@ export class ApiService {
 
   // Authenticated functions
   storageStatus(): Observable<any>{
-    return this.authHttp.get(`${AppSettings.API_ENDPOINT}/storage/status`)
+    var url = `${AppSettings.API_ENDPOINT}/storage/status`
+
+    var cacheKey = this.cacheKey('GET', url);
+    return this.cacheService.get(cacheKey) || this.cacheService.put(cacheKey, this.authHttp.get(url)
         .map(this.extractData)
-        .catch(this.handleError);
+        .catch(this.handleError));
   }
 
   storageLink(kloudlessData:any): Observable<any>{
+    //TODO: this should bust the /storage/status cache
     return this.authHttp.post(`${AppSettings.API_ENDPOINT}/storage/link`, kloudlessData)
         .map(this.extractData)
         .catch(this.handleError);
   }
 
-  bookList(): Observable<any> {
-    return this.authHttp.get(`${AppSettings.API_ENDPOINT}/book`)
+  bookList(filter): Observable<any> {
+    var url = `${AppSettings.API_ENDPOINT}/book`
+    let params: URLSearchParams = new URLSearchParams();
+    if(filter.sort) params.set('sort', filter.sort.toString());
+    if(filter.storage) params.set('storage', filter.storage.toString());
+    if(filter.page) params.set('page', filter.page.toString());
+
+    var cacheKey = this.cacheKey('GET', url, params);
+    return this.cacheService.get(cacheKey) || this.cacheService.put(cacheKey, this.authHttp.get(url,{search: params})
         .map(this.extractData)
-        .catch(this.handleError);
+        .catch(this.handleError));
   }
 
   book(bookId:string): Observable<any>{
+    var url = `${AppSettings.API_ENDPOINT}/book`
+
     let params: URLSearchParams = new URLSearchParams();
     params.set('id', bookId.toString());
 
-    return this.authHttp.get(`${AppSettings.API_ENDPOINT}/book`,{search: params})
+
+    var cacheKey = this.cacheKey('GET', url, params);
+    return this.cacheService.get(cacheKey) || this.cacheService.put(cacheKey, this.authHttp.get(url,{search: params})
         .map(this.extractData)
-        .catch(this.handleError);
+        .catch(this.handleError));
   }
   download(bookId:string): Observable<any>{
     return this.authHttp.get(`${AppSettings.API_ENDPOINT}/storage/${bookId}`)

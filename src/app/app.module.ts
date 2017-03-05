@@ -16,6 +16,7 @@ import { LibraryComponent } from './library/library.component';
 import { BookDetailsComponent } from './book-details/book-details.component';
 
 import { ApiService } from './services/api.service'
+import { CacheService } from './services/cache.service'
 import { AuthGuard } from './services/auth-guard.service'
 import { AuthHttp, AuthConfig } from 'angular2-jwt';
 import { Ng2BootstrapModule } from 'ng2-bootstrap';
@@ -74,6 +75,7 @@ export function getAuthHttp(http: any) {
   ],
   providers: [
     ApiService,
+    CacheService,
     AuthGuard,
     {
       provide: AuthHttp,

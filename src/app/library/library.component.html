@@ -4,7 +4,7 @@
 
 <!-- Content
 ============================================= -->
-<section id="content">
+<section id="content" class="footer-padding">
 
     <div class="content-wrap">
 
@@ -20,18 +20,19 @@
 
                     <masonry-brick *ngFor="let book of bookList; let myIndex = index" class="product brick">
                         <div class="product-image">
-                            <a routerLink="/book/{{ book.id }}">
+                            <a routerLink="/book/{{ book.id }}" >
                                 <img *ngIf="book.cover" src="https://s3.amazonaws.com/{{ book.cover }}" alt="{{ book.title }}">
                                 <img *ngIf="!book.cover" src="assets/images/noart.png" alt="{{ book.title }}">
                             </a>
-                            <div class="sale-flash">{{ book.storage_format }}</div>
+                            <div class="book-tag" *ngIf="book.series_name">{{ book.series_name }}</div>
+
                             <div class="product-overlay">
-                                <a (click)="downloadBook(book.id)" class="add-to-cart" href="javascript:void(0)"><i class="icon-cloud-download"></i><span> Download</span></a>
-                                <a routerLink="/book/{{ book.id }}" class="item-quick-view" data-lightbox="ajax"><i class="icon-info-sign"></i><span> Details</span></a>
+                                <a (click)="downloadBook(book.id)" class="add-to-cart cursor-pointer"><i class="icon-cloud-download"></i><span> Download</span></a>
+                                <a routerLink="/book/{{ book.id }}" class="item-quick-view cursor-pointer" data-lightbox="ajax"><i class="icon-info-sign"></i><span> Details</span></a>
                             </div>
                         </div>
                         <div class="product-desc center">
-                            <div class="product-title"><h3><a href="#">{{ book.title }}</a></h3></div>
+                            <div class="product-title cursor-pointer"><h3><a routerLink="/book/{{ book.id }}">{{ book.title }}</a></h3></div>
                             <div class="product-price">{{ book.authors }}</div>
                         </div>
                     </masonry-brick>
@@ -49,10 +50,10 @@
 
                         <h4>Sort By</h4>
                         <ul class="shop-sorting">
-                            <li class="widget-filter-reset active-filter"><a href="#" data-sort-by="original-order">Clear</a></li>
-                            <li><a href="#" data-sort-by="name">Name</a></li>
-                            <li><a href="#" data-sort-by="price_lh">Author</a></li>
-                            <li><a href="#" data-sort-by="price_hl">Series</a></li>
+                            <li [ngClass]="{'active-filter': !filter.sort}"><a class="cursor-pointer" (click)="setSort(null)">Title</a></li>
+                            <li [ngClass]="{'active-filter': filter.sort == 'authors'}"><a class="cursor-pointer" (click)="setSort('authors')">Author</a></li>
+                            <li [ngClass]="{'active-filter': filter.sort == 'series_name'}"><a class="cursor-pointer" (click)="setSort('series_name')">Series</a></li>
+                            <li [ngClass]="{'active-filter': filter.sort == 'created_at'}"><a class="cursor-pointer" (click)="setSort('created_at')">Added Date</a></li>
                         </ul>
 
                     </div>
@@ -60,14 +61,13 @@
                     <div class="widget widget-filter-links clearfix">
 
                         <h4>Storage</h4>
-                        <ul class="custom-filter" data-container="#shop" data-active-class="active-filter">
-                            <li class="widget-filter-reset active-filter"><a href="#" data-filter="*">Clear</a></li>
-                            <li><a href="#" data-filter=".sf-dress">All</a></li>
-                            <li><a href="#" data-filter=".sf-dress">QuietThyme</a></li>
-                            <li><a href="#" data-filter=".sf-tshirt">Box</a></li>
-                            <li><a href="#" data-filter=".sf-pant">Dropbox</a></li>
-                            <li><a href="#" data-filter=".sf-sunglass">Google Drive</a></li>
-                            <li><a href="#" data-filter=".sf-shoes">OneDrive</a></li>
+                        <ul class="custom-filter">
+                            <li [ngClass]="{'active-filter': !filter.storage}"><a class="cursor-pointer" (click)="setStorage(null)">All</a></li>
+                            <li [ngClass]="{'active-filter': !filter.storage}"><a class="cursor-pointer" (click)="setStorage('quietthyme')">QuietThyme</a></li>
+                            <li [ngClass]="{'active-filter': !filter.storage}"><a class="cursor-pointer" (click)="setStorage('box')">Box</a></li>
+                            <li [ngClass]="{'active-filter': !filter.storage}"><a class="cursor-pointer" (click)="setStorage('dropbox')">Dropbox</a></li>
+                            <li [ngClass]="{'active-filter': !filter.storage}"><a class="cursor-pointer" (click)="setStorage('gdrive')">Google Drive</a></li>
+                            <li [ngClass]="{'active-filter': !filter.storage}"><a class="cursor-pointer" (click)="setStorage('skydrive')">OneDrive</a></li>
                         </ul>
 
                     </div>
