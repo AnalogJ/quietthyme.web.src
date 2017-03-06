@@ -11,89 +11,46 @@
 
         <div class="container clearfix">
 
-            <!-- Post Content
-			============================================= -->
-            <div class="postcontent nobottommargin col_last clearfix">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="sidebar-widgets-wrap">
 
-                <div class="row">
-                    <div class="col-md-4 col-sm-2">
-                        <div class="feature-box fbox-center fbox-outline fbox-effect fbox-light">
-                            <div class="fbox-icon">
-                                <a href="#"><img src="assets/images/services/quietthyme.png"  [ngClass]="{'service-disabled': !connected.quietthyme}"/></a>
+                        <div class="widget subscribe-widget clearfix">
+                            <div class="dark" style="padding: 25px; background-color: #383838; border-radius: 2px;">
+                                <div class="fancy-title title-border">
+                                    <h4>Connect</h4>
+                                </div>
+
+                                <p style="font-size: 15px; line-height: 1.5; color: #999;">Before using QuietThyme, you should connect your personal cloud storage providers.</p>
+                                <div class="widget-subscribe-form-result"></div>
+                                <form id="widget-subscribe-form2" action="include/subscribe.php" role="form" method="post" class="nobottommargin">
+                                    <button class="button button-3d btn-block button-small nomargin" style="margin-top: 15px !important;"
+                                            [disabled]="loading.link"
+                                            kloudlessAuthenticator
+                                            [clientId]="'mddXeszdchTlRQEFN3LGhxLzqaTjgYwbXGLHCeXOqJdrzRyd'"
+                                            [scope]="'gdrive box dropbox skydrive'"
+                                            (onAuthenticated)="kloudlessAuthenticatedStorage($event)"
+                                    >
+                                        Add Storage
+                                    </button>
+
+                                </form>
                             </div>
-                            <h3>Quietthyme</h3>
-                        </div>
-                    </div>
-
-                    <div class="col-md-2 col-sm-2">
-                        <div class="feature-box fbox-center fbox-outline fbox-effect fbox-light">
-                            <div class="fbox-icon">
-                                <a href="#"><img src="assets/images/services/dropbox.png"  [ngClass]="{'service-disabled': !connected.dropbox}"/></a>
-                            </div>
-                            <h3>Dropbox</h3>
-                        </div>
-                    </div>
-
-                    <div class="col-md-2 col-sm-2">
-                        <div class="feature-box fbox-center fbox-outline fbox-effect fbox-light">
-                            <div class="fbox-icon">
-                                <a href="#"><img src="assets/images/services/google.png"  [ngClass]="{'service-disabled': !connected.gdrive}"/></a>
-                            </div>
-                            <h3>GDrive</h3>
-                        </div>
-                    </div>
-
-                    <div class="col-md-2 col-sm-2">
-                        <div class="feature-box fbox-center fbox-outline fbox-effect fbox-light">
-                            <div class="fbox-icon">
-                                <a href="#"><img src="assets/images/services/skydrive.png"  [ngClass]="{'service-disabled': !connected.skydrive}"/></a>
-                            </div>
-                            <h3>OneDrive</h3>
-                        </div>
-                    </div>
-
-                    <div class="col-md-2 col-sm-2 col_last">
-                        <div class="feature-box fbox-center fbox-outline fbox-effect fbox-light">
-                            <div class="fbox-icon">
-                                <a href="#"><img src="assets/images/services/box.png"  [ngClass]="{'service-disabled': !connected.onedrive}"/></a>
-                            </div>
-                            <h3>Box</h3>
-                        </div>
-                    </div>
-
-
-                </div>
-            </div><!-- .postcontent end -->
-
-            <!-- Sidebar
-			============================================= -->
-            <div class="sidebar nobottommargin clearfix">
-                <div class="sidebar-widgets-wrap">
-
-                    <div class="widget subscribe-widget clearfix">
-                        <div class="dark" style="padding: 25px; background-color: #383838; border-radius: 2px;">
-                            <div class="fancy-title title-border">
-                                <h4>Connect</h4>
-                            </div>
-
-                            <p style="font-size: 15px; line-height: 1.5; color: #999;">Before using QuietThyme, you should connect your personal cloud storage providers.</p>
-                            <div class="widget-subscribe-form-result"></div>
-                            <form id="widget-subscribe-form2" action="include/subscribe.php" role="form" method="post" class="nobottommargin">
-                                <button class="button button-3d btn-block button-small nomargin" style="margin-top: 15px !important;"
-                                        [disabled]="loading.link"
-                                        kloudlessAuthenticator
-                                        [clientId]="'mddXeszdchTlRQEFN3LGhxLzqaTjgYwbXGLHCeXOqJdrzRyd'"
-                                        [scope]="'gdrive box dropbox skydrive'"
-                                        (onAuthenticated)="kloudlessAuthenticatedStorage($event)"
-                                >
-                                    Add Storage
-                                </button>
-
-                            </form>
                         </div>
                     </div>
                 </div>
-            </div><!-- .sidebar end -->
+
+                <div class="col-md-9">
+                    <div class="row">
+                        <div class="col-md-4" *ngFor="let storageType of allNames; let myIndex = index">
+                            <quietthyme-storage-panel [storageType]="storageType" [storageData]="connected[storageType]"></quietthyme-storage-panel>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
 
         </div>
 

@@ -43,3 +43,40 @@ img.service-disabled {
   margin-right: 4%;
   float: left;
 }
+
+.chart {display: block;}
+
+
+div.storage_container {
+  position: relative;
+  left: 0;
+  top: 0;
+
+  .graph {
+    position: relative;
+    top: 0;
+    left: 0;
+  }
+
+  img.logo {
+    max-width: 45px;
+    position: absolute;
+    top: 50%;
+    left: 50%; /* position the left edge of the element at the middle of the parent */
+    //max-width: 45px;
+    -ms-transform: translate(-50%, -50%); /* IE 9 */
+    -webkit-transform: translate(-50%, -50%); /* Safari */
+    transform: translate(-50%, -50%); /* This is a shorthand of
+                                         translateX(-50%) and translateY(-50%) */
+  }
+
+  img.disconnected {
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+  }
+}
+
+.affix {
+  top: 20px;
+  z-index: 10000;
+}

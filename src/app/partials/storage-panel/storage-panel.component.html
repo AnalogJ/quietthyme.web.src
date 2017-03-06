@@ -1,0 +1,21 @@
+<div class="row" style="padding-bottom: 50px">
+    <div class="col-md-6">
+        <div class="storage_container">
+            <canvas *ngIf="storageData" class="graph"
+                    baseChart
+                    [datasets]="chartDatasets"
+                    [chartType]="'doughnut'"
+                    [options]="chartOptions"
+                    [colors]="chartColors"
+                    [legend]="false"
+                    (chartHover)="chartHovered($event)"
+                    (chartClick)="chartClicked($event)"></canvas>
+
+            <img class="logo" [ngClass]="{'disconnected': !storageData}" [src]="storageLogo">
+
+        </div>
+    </div>
+    <div class="col-md-6">
+    </div>
+</div>
+

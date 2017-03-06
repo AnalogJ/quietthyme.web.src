@@ -3,6 +3,7 @@ import { ApiService } from '../services/api.service';
 import {SlimLoadingBarService} from 'ng2-slim-loading-bar';
 import { BookModel } from '../models/book'
 import { ScrollSpyModule, ScrollSpyService } from 'ng2-scrollspy';
+import {ScrollSpyAffixModule} from "ng2-scrollspy/dist/plugin/affix";
 
 @Component({
   selector: 'app-library',

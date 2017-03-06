@@ -14,6 +14,7 @@ import { HeaderComponent } from './partials/header/header.component';
 import { StorageComponent } from './storage/storage.component';
 import { LibraryComponent } from './library/library.component';
 import { BookDetailsComponent } from './book-details/book-details.component';
+import { StoragePanelComponent } from './partials/storage-panel/storage-panel.component';
 
 import { ApiService } from './services/api.service'
 import { CacheService } from './services/cache.service'
@@ -25,7 +26,7 @@ import { MarkdownModule } from 'angular2-markdown';
 import { MasonryModule } from 'angular2-masonry';
 import { ScrollSpyModule } from 'ng2-scrollspy';
 import { ScrollSpyAffixDirective } from 'ng2-scrollspy/dist/plugin/affix.directive';
-
+import { ChartsModule } from 'ng2-charts/ng2-charts';
 
 export function getAuthHttp(http: any) {
   return new AuthHttp(new AuthConfig({
@@ -48,7 +49,8 @@ export function getAuthHttp(http: any) {
     StorageComponent,
     LibraryComponent,
     BookDetailsComponent,
-    ScrollSpyAffixDirective
+    ScrollSpyAffixDirective,
+    StoragePanelComponent
   ],
   imports: [
     BrowserModule,
@@ -59,6 +61,8 @@ export function getAuthHttp(http: any) {
     MarkdownModule.forRoot(),
     MasonryModule,
     ScrollSpyModule.forRoot(),
+    ChartsModule,
+
     RouterModule.forRoot([
       { path: 'login', component: AccountLoginComponent },
       { path: 'register', component: AccountRegisterComponent },
