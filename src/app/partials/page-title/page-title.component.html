@@ -2,12 +2,19 @@
 ============================================= -->
 <section id="page-title">
 
-    <div class="container clearfix">
-        <h1>{{ title }}</h1>
-        <span>{{ subtitle }}</span>
-        <ol class="breadcrumb" *ngIf="breadcrumbs.length > 0">
-            <li [ngClass]="{'active':bc.active }" *ngFor="let bc of breadcrumbs; let i = index;"><a>{{ bc.name }}</a></li>
-        </ol>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h1>{{ title }}</h1>
+                <span>{{ subtitle }}</span>
+            </div>
+            <div class="col-md-6 valign">
+                <div class="text-center">
+                    <i class="icon-question-sign"></i>Your <strong>personal OPDS catalog</strong> is available at: <br/> http://api.quietthyme.com/beta/catalog/<strong>{{ catalogToken }}</strong></div>
+            </div>
+        </div>
+
     </div>
 
 </section><!-- #page-title end -->
+

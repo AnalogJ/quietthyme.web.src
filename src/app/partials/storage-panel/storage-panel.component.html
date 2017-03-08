@@ -1,12 +1,24 @@
 <div class="row" style="padding-bottom: 50px">
-    <div class="col-md-6">
+    <div class="col-md-6 col-sm-6">
         <div class="storage_container">
+            <!-- populated doughnut chart -->
             <canvas *ngIf="storageData" class="graph"
                     baseChart
-                    [datasets]="chartDatasets"
+                    [data]="chartData"
                     [chartType]="'doughnut'"
                     [options]="chartOptions"
                     [colors]="chartColors"
+                    [legend]="false"
+                    (chartHover)="chartHovered($event)"
+                    (chartClick)="chartClicked($event)"></canvas>
+
+            <!-- disconnected doughnut chart -->
+            <canvas *ngIf="!storageData" class="graph"
+                    baseChart
+                    [data]="disconnectedData"
+                    [chartType]="'doughnut'"
+                    [options]="chartOptions"
+                    [colors]="disconnectedChartColors"
                     [legend]="false"
                     (chartHover)="chartHovered($event)"
                     (chartClick)="chartClicked($event)"></canvas>
@@ -15,7 +27,21 @@
 
         </div>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-6 col-sm-6">
+        <h3>{{ storageType }}</h3>
+        <p *ngIf="storageData">{{ storageData.free_space |  fileSize}} free</p>
+        <div *ngIf="storageData" class="btn-group" dropdown>
+            <button [ngClass]="{'button-border': !storageData.location_code}" type="button" class="button button-mini button-rounded" dropdownToggle>
+                {{ storageData.location_code ? storageData.location_code : 'Calibre' }}
+            </button>
+            <ul dropdownMenu role="menu" aria-labelledby="single-button">
+                <li role="menuitem"><a class="dropdown-item" href="#">Main Drive</a></li>
+                <li role="menuitem"><a class="dropdown-item" href="#">A Drive</a></li>
+                <li role="menuitem"><a class="dropdown-item" href="#">B Drive</a></li>
+                <li class="divider dropdown-divider"></li>
+                <li role="menuitem"><a class="dropdown-item" href="#">Clear</a></li>
+            </ul>
+        </div>
     </div>
 </div>
 

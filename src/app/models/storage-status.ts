@@ -5,5 +5,6 @@ export class StorageStatus {
     device_name: string
     storage_id: number
     storage_type: string
+    location_code: string
 
 }

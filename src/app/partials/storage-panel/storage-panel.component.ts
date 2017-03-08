@@ -9,12 +9,27 @@ export class StoragePanelComponent implements OnInit {
   @Input() storageData : StorageStatus;
   @Input() storageType : string;
 
-  public chartDatasets: any;
 
+
+  //common component settings
   public chartOptions: any;
-  public chartColors: Array<any>
-
   public storageLogo: string
+
+  //connected component settings
+  public chartData: number[];
+  public chartColors: any[] = [
+  { //free, used
+    backgroundColor: ['#128950','lightgrey'] ,
+    hoverBackgroundColor: ['#18b66a', 'red']
+  }
+
+]
+
+  //disconnected component settings
+  public disconnectedData: number[] = [1]
+  public disconnectedChartColors: any[] = [{
+    backgroundColor: ['lightgrey']
+  }]
 
   constructor() { }
 
@@ -29,36 +44,15 @@ export class StoragePanelComponent implements OnInit {
   }
 
   resetComp(){
-    // this.chartLabels =  ['Free', 'Used'] : ['Disconnected']
-    // this.chartData =  [this.storageData.free_space, ] : [1]
-
-    this.chartDatasets = this.storageData ?[{
-      data: [300, 50],
-      backgroundColor: [
-        '#46BFBD', //free
-        'lightgrey' //used
-      ],
-      hoverBackgroundColor: [
-        '#5AD3D1', //free
-        'red' //free
-      ]
-    }] : [{
-      data: [1]
-    }];
+    if(this.storageData){
+      this.chartData = [this.storageData.free_space, this.storageData.total_space - this.storageData.free_space];
+    }
 
     this.chartOptions = {
       cutoutPercentage: this.storageData ? 83 : 87,
       tooltips: { enabled: false }
     };
-    this.chartColors = this.storageData ? [
-      { //free, used
-        backgroundColor: ['#46BFBD','lightgrey'] ,
-        hoverBackgroundColor: ['#5AD3D1', 'red']
-      }
 
-    ] : [{ //disconnected
-      backgroundColor: ['lightgrey']
-    }]
     this.storageLogo ='assets/images/services/' + this.storageType + '.png'
   }
 
