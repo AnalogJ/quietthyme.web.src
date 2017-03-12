@@ -72,6 +72,7 @@ export function getAuthHttp(http: any) {
       { path: 'register', component: AccountRegisterComponent },
 
       { path: 'storage', component: StorageComponent, canActivate: [AuthGuard] },
+      { path: 'settings', component: SettingsComponent, canActivate: [AuthGuard] },
       { path: 'storage/:source', component: StorageComponent, canActivate: [AuthGuard] },
       { path: 'library', component: LibraryComponent, canActivate: [AuthGuard] },
       { path: 'book/:bookId', component: BookDetailsComponent, canActivate: [AuthGuard] },
