@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AuthHttp, tokenNotExpired } from 'angular2-jwt';
-import { Http, Response, Headers, RequestOptions, URLSearchParams} from '@angular/http';
+import { Http, Response, Headers, RequestOptions, URLSearchParams, ResponseContentType} from '@angular/http';
 import { Observable }     from 'rxjs/Observable';
 import {AppSettings} from '../app-settings';
 import { CacheService } from '../services/cache.service'
@@ -104,9 +104,16 @@ export class ApiService {
         .catch(this.handleError));
   }
   download(bookId:string): Observable<any>{
+    //http://stackoverflow.com/a/41252342
+    let headers = new Headers({ 'Accept': '*' });
+    let options = new RequestOptions({ headers: headers });
+    options.responseType = ResponseContentType.Blob;
+
+
     return this.authHttp.get(`${AppSettings.API_ENDPOINT}/storage/${bookId}`)
         .map(this.extractData)
-        .catch(this.handleError);
+        .flatMap((resp:Response) => this.http.get(resp.url, options))
+        .catch(this.handleError)
   }
 
 }

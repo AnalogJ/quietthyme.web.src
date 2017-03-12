@@ -62,7 +62,7 @@
                                 <div class="book-tag" *ngIf="book.series_name">{{ book.series_name }}</div>
 
                                 <div class="product-overlay">
-                                    <a (click)="downloadBook(book.id)" class="add-to-cart cursor-pointer"><i class="icon-cloud-download"></i><span> Download</span></a>
+                                    <a (click)="downloadBook(book)" class="add-to-cart cursor-pointer"><i class="icon-cloud-download"></i><span> Download</span></a>
                                     <a routerLink="/book/{{ book.id }}" class="item-quick-view cursor-pointer" data-lightbox="ajax"><i class="icon-info-sign"></i><span> Details</span></a>
 
                                 </div>

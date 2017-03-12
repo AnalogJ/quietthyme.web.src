@@ -16,6 +16,9 @@ import { LibraryComponent } from './library/library.component';
 import { BookDetailsComponent } from './book-details/book-details.component';
 import { StoragePanelComponent } from './partials/storage-panel/storage-panel.component';
 import { SettingsComponent } from './settings/settings.component';
+import { PlansComponent } from './partials/plans/plans.component';
+import { PrivacyComponent } from './privacy/privacy.component';
+
 
 import { ApiService } from './services/api.service'
 import { CacheService } from './services/cache.service'
@@ -54,7 +57,9 @@ export function getAuthHttp(http: any) {
     ScrollSpyAffixDirective,
     StoragePanelComponent,
     FileSizePipe,
-    SettingsComponent
+    SettingsComponent,
+    PlansComponent,
+    PrivacyComponent
   ],
   imports: [
     BrowserModule,
@@ -68,9 +73,12 @@ export function getAuthHttp(http: any) {
     ChartsModule,
 
     RouterModule.forRoot([
+        //Public Endpoints
       { path: 'login', component: AccountLoginComponent },
       { path: 'register', component: AccountRegisterComponent },
+      { path: 'privacy', component: PrivacyComponent },
 
+        //Auth Endpoints
       { path: 'storage', component: StorageComponent, canActivate: [AuthGuard] },
       { path: 'settings', component: SettingsComponent, canActivate: [AuthGuard] },
       { path: 'storage/:source', component: StorageComponent, canActivate: [AuthGuard] },

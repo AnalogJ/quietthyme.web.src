@@ -4,6 +4,7 @@ import {SlimLoadingBarService} from 'ng2-slim-loading-bar';
 import { BookModel } from '../models/book'
 import { ScrollSpyModule, ScrollSpyService } from 'ng2-scrollspy';
 import {ScrollSpyAffixModule} from "ng2-scrollspy/dist/plugin/affix";
+import * as FileSaver from "file-saver";
 
 @Component({
   selector: 'app-library',
@@ -84,19 +85,18 @@ export class LibraryComponent implements AfterViewInit {
           );
   }
 
-  downloadBook(bookId){
-        console.log(bookId)
+  downloadBook(book){
+        console.log(book.id)
 
       this.loading.download = true
       this.slimLoadingBarService.start()
-      this.apiService.download(bookId)
+      this.apiService.download(book.id)
           .subscribe(
-              book => {
-                  console.log(book)
-                  // .map(function(book){
-                  //     book.cover = encodeURI(book.cover).replace(/%20/g, '+')
-                  //     return book
-                  // })
+              response => {
+                  var filename = book.storage_filename +book.storage_format;
+                  let file = response.blob();
+                  console.log(file.size + " bytes file downloaded. File type: ", file.type);
+                  FileSaver.saveAs(file, filename);
               },
               error => {console.log(error)},
               () => {
