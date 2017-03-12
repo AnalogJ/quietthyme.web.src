@@ -9314,7 +9314,7 @@ ul.tab-nav-lg.tab-nav-section li.ui-tabs-active:before {
 /* Tabs - Content Area
 -----------------------------------------------------------------*/
 
-.tab-container {
+.tab-content {
 	position: relative;
 	padding: 20px 0 0;
 }
