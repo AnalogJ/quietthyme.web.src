@@ -123,7 +123,7 @@ var CacheService = (function () {
     ], CacheService);
     return CacheService;
 }());
-//# sourceMappingURL=/home/ubuntu/quietthyme.web.src/src/cache.service.js.map
+//# sourceMappingURL=/Users/jason/repos/quietthyme.web/src/cache.service.js.map
 
 /***/ }),
 
@@ -140,7 +140,7 @@ var environment = {
     production: false,
     apiVersion: 'beta'
 };
-//# sourceMappingURL=/home/ubuntu/quietthyme.web.src/src/environment.js.map
+//# sourceMappingURL=/Users/jason/repos/quietthyme.web/src/environment.js.map
 
 /***/ }),
 
@@ -175,7 +175,7 @@ if (__WEBPACK_IMPORTED_MODULE_2__environments_environment__["a" /* environment *
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_core__["enableProdMode"])();
 }
 __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_3__app_app_module__["a" /* AppModule */]);
-//# sourceMappingURL=/home/ubuntu/quietthyme.web.src/src/main.js.map
+//# sourceMappingURL=/Users/jason/repos/quietthyme.web/src/main.js.map
 
 /***/ }),
 
@@ -186,7 +186,7 @@ __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dyna
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angular2_jwt__ = __webpack_require__(164);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angular2_jwt___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_angular2_jwt__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(86);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(85);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_settings__ = __webpack_require__(754);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_cache_service__ = __webpack_require__(382);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ApiService; });
@@ -309,7 +309,7 @@ var ApiService = (function () {
     return ApiService;
     var _a, _b, _c;
 }());
-//# sourceMappingURL=/home/ubuntu/quietthyme.web.src/src/api.service.js.map
+//# sourceMappingURL=/Users/jason/repos/quietthyme.web/src/api.service.js.map
 
 /***/ }),
 
@@ -382,7 +382,7 @@ var AccountLoginComponent = (function () {
     return AccountLoginComponent;
     var _a, _b, _c, _d;
 }());
-//# sourceMappingURL=/home/ubuntu/quietthyme.web.src/src/account-login.component.js.map
+//# sourceMappingURL=/Users/jason/repos/quietthyme.web/src/account-login.component.js.map
 
 /***/ }),
 
@@ -446,7 +446,7 @@ var AccountRegisterComponent = (function () {
     return AccountRegisterComponent;
     var _a, _b, _c;
 }());
-//# sourceMappingURL=/home/ubuntu/quietthyme.web.src/src/account-register.component.js.map
+//# sourceMappingURL=/Users/jason/repos/quietthyme.web/src/account-register.component.js.map
 
 /***/ }),
 
@@ -467,7 +467,7 @@ var AppSettings = (function () {
     });
     return AppSettings;
 }());
-//# sourceMappingURL=/home/ubuntu/quietthyme.web.src/src/app-settings.js.map
+//# sourceMappingURL=/Users/jason/repos/quietthyme.web/src/app-settings.js.map
 
 /***/ }),
 
@@ -506,7 +506,7 @@ var AppComponent = (function () {
     return AppComponent;
     var _a;
 }());
-//# sourceMappingURL=/home/ubuntu/quietthyme.web.src/src/app.component.js.map
+//# sourceMappingURL=/Users/jason/repos/quietthyme.web/src/app.component.js.map
 
 /***/ }),
 
@@ -517,7 +517,7 @@ var AppComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(160);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(27);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(86);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(85);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_router__ = __webpack_require__(72);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_component__ = __webpack_require__(755);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__account_login_account_login_component__ = __webpack_require__(752);
@@ -667,7 +667,7 @@ var AppModule = (function () {
     ], AppModule);
     return AppModule;
 }());
-//# sourceMappingURL=/home/ubuntu/quietthyme.web.src/src/app.module.js.map
+//# sourceMappingURL=/Users/jason/repos/quietthyme.web/src/app.module.js.map
 
 /***/ }),
 
@@ -716,7 +716,7 @@ var BookDetailsComponent = (function () {
     return BookDetailsComponent;
     var _a, _b, _c;
 }());
-//# sourceMappingURL=/home/ubuntu/quietthyme.web.src/src/book-details.component.js.map
+//# sourceMappingURL=/Users/jason/repos/quietthyme.web/src/book-details.component.js.map
 
 /***/ }),
 
@@ -859,7 +859,7 @@ var LibraryComponent = (function () {
     return LibraryComponent;
     var _a, _b, _c;
 }());
-//# sourceMappingURL=/home/ubuntu/quietthyme.web.src/src/library.component.js.map
+//# sourceMappingURL=/Users/jason/repos/quietthyme.web/src/library.component.js.map
 
 /***/ }),
 
@@ -873,7 +873,7 @@ var StorageStatus = (function () {
     }
     return StorageStatus;
 }());
-//# sourceMappingURL=/home/ubuntu/quietthyme.web.src/src/storage-status.js.map
+//# sourceMappingURL=/Users/jason/repos/quietthyme.web/src/storage-status.js.map
 
 /***/ }),
 
@@ -908,7 +908,7 @@ var FooterComponent = (function () {
     ], FooterComponent);
     return FooterComponent;
 }());
-//# sourceMappingURL=/home/ubuntu/quietthyme.web.src/src/footer.component.js.map
+//# sourceMappingURL=/Users/jason/repos/quietthyme.web/src/footer.component.js.map
 
 /***/ }),
 
@@ -943,7 +943,7 @@ var HeaderComponent = (function () {
     ], HeaderComponent);
     return HeaderComponent;
 }());
-//# sourceMappingURL=/home/ubuntu/quietthyme.web.src/src/header.component.js.map
+//# sourceMappingURL=/Users/jason/repos/quietthyme.web/src/header.component.js.map
 
 /***/ }),
 
@@ -997,7 +997,7 @@ var PageTitleComponent = (function () {
     ], PageTitleComponent);
     return PageTitleComponent;
 }());
-//# sourceMappingURL=/home/ubuntu/quietthyme.web.src/src/page-title.component.js.map
+//# sourceMappingURL=/Users/jason/repos/quietthyme.web/src/page-title.component.js.map
 
 /***/ }),
 
@@ -1032,7 +1032,7 @@ var PlansComponent = (function () {
     ], PlansComponent);
     return PlansComponent;
 }());
-//# sourceMappingURL=/home/ubuntu/quietthyme.web.src/src/plans.component.js.map
+//# sourceMappingURL=/Users/jason/repos/quietthyme.web/src/plans.component.js.map
 
 /***/ }),
 
@@ -1112,7 +1112,7 @@ var StoragePanelComponent = (function () {
     return StoragePanelComponent;
     var _a;
 }());
-//# sourceMappingURL=/home/ubuntu/quietthyme.web.src/src/storage-panel.component.js.map
+//# sourceMappingURL=/Users/jason/repos/quietthyme.web/src/storage-panel.component.js.map
 
 /***/ }),
 
@@ -1147,7 +1147,7 @@ var PrivacyComponent = (function () {
     ], PrivacyComponent);
     return PrivacyComponent;
 }());
-//# sourceMappingURL=/home/ubuntu/quietthyme.web.src/src/privacy.component.js.map
+//# sourceMappingURL=/Users/jason/repos/quietthyme.web/src/privacy.component.js.map
 
 /***/ }),
 
@@ -1180,7 +1180,7 @@ var PrivacyComponent = (function () {
 
 
 
-//# sourceMappingURL=/home/ubuntu/quietthyme.web.src/src/rxjs-operators.js.map
+//# sourceMappingURL=/Users/jason/repos/quietthyme.web/src/rxjs-operators.js.map
 
 /***/ }),
 
@@ -1226,7 +1226,7 @@ var AuthGuard = (function () {
     return AuthGuard;
     var _a, _b;
 }());
-//# sourceMappingURL=/home/ubuntu/quietthyme.web.src/src/auth-guard.service.js.map
+//# sourceMappingURL=/Users/jason/repos/quietthyme.web/src/auth-guard.service.js.map
 
 /***/ }),
 
@@ -1267,7 +1267,7 @@ var SettingsComponent = (function () {
     ], SettingsComponent);
     return SettingsComponent;
 }());
-//# sourceMappingURL=/home/ubuntu/quietthyme.web.src/src/settings.component.js.map
+//# sourceMappingURL=/Users/jason/repos/quietthyme.web/src/settings.component.js.map
 
 /***/ }),
 
@@ -1326,7 +1326,7 @@ var FileSizePipe = (function () {
     ], FileSizePipe);
     return FileSizePipe;
 }());
-//# sourceMappingURL=/home/ubuntu/quietthyme.web.src/src/file-size.pipe.js.map
+//# sourceMappingURL=/Users/jason/repos/quietthyme.web/src/file-size.pipe.js.map
 
 /***/ }),
 
@@ -1383,7 +1383,7 @@ var KloudlessAuthenticatorDirective = (function () {
     return KloudlessAuthenticatorDirective;
     var _a, _b;
 }());
-//# sourceMappingURL=/home/ubuntu/quietthyme.web.src/src/kloudless-authenticator.directive.js.map
+//# sourceMappingURL=/Users/jason/repos/quietthyme.web/src/kloudless-authenticator.directive.js.map
 
 /***/ }),
 
@@ -1461,7 +1461,7 @@ var StorageComponent = (function () {
     return StorageComponent;
     var _a, _b;
 }());
-//# sourceMappingURL=/home/ubuntu/quietthyme.web.src/src/storage.component.js.map
+//# sourceMappingURL=/Users/jason/repos/quietthyme.web/src/storage.component.js.map
 
 /***/ }),
 
