@@ -59,7 +59,7 @@ module.exports = "<ng2-slim-loading-bar class=\"navbar-fixed-top\" [color]=\"'#1
 /***/ 1008:
 /***/ (function(module, exports) {
 
-module.exports = "<ng2-slim-loading-bar class=\"navbar-fixed-top\" [color]=\"'#128950'\" [height]=\"'3px'\"></ng2-slim-loading-bar>\n\n<quietthyme-header></quietthyme-header>\n<!-- Content\n============================================= -->\n<section id=\"content\">\n\n    <div class=\"content-wrap\">\n\n        <div class=\"container clearfix\">\n\n            <div class=\"row clearfix\">\n\n                <div class=\"col-md-offset-2 col-md-8\">\n\n                    <img src=\"assets/images/icons/avatar.jpg\" class=\"alignleft img-circle img-thumbnail notopmargin nobottommargin\" alt=\"Avatar\" style=\"max-width: 84px;\">\n\n                    <div class=\"heading-block noborder\">\n                        <h3>{{ userData.name }}</h3>\n                        <span>Settings</span>\n                    </div>\n\n                    <div class=\"clear\"></div>\n\n                    <div class=\"row clearfix\">\n\n                        <div class=\"col-md-12\">\n                            <tabset>\n                                <tab>\n                                    <template tabHeading>\n                                        <i class=\"icon-bookmark2\"></i> Catalog\n                                    </template>\n\n                                    <p class=\"\">The Open Publication Distribution System (OPDS) catalog format is a syndication\n                                        format for electronic publications based on Atom and HTTP. Every QuietThyme user\n                                        gets their own unique Catalog url. When paired with a OPDS compatible ebook reader,\n                                        like Marvin (iOS), Aldiko (Android), Bluefire (Both), you can access your ebook\n                                        library anytime, anywhere, on any device.\n\n                                    </p>\n\n                                    <div class=\"table-responsive\">\n                                        <table class=\"table table-bordered table-striped\">\n                                            <colgroup>\n                                                <col class=\"col-xs-1\">\n                                                <col class=\"col-xs-7\">\n                                            </colgroup>\n                                            <thead>\n                                            <tr>\n                                                <th>Time</th>\n                                                <th>Activity</th>\n                                            </tr>\n                                            </thead>\n                                            <tbody>\n                                            <tr>\n                                                <td>\n                                                    <code>5/23/2016</code>\n                                                </td>\n                                                <td>Payment for VPS2 completed</td>\n                                            </tr>\n                                            <tr>\n                                                <td>\n                                                    <code>5/23/2016</code>\n                                                </td>\n                                                <td>Logged in to the Account at 16:33:01</td>\n                                            </tr>\n                                            <tr>\n                                                <td>\n                                                    <code>5/22/2016</code>\n                                                </td>\n                                                <td>Logged in to the Account at 09:41:58</td>\n                                            </tr>\n                                            <tr>\n                                                <td>\n                                                    <code>5/21/2016</code>\n                                                </td>\n                                                <td>Logged in to the Account at 17:16:32</td>\n                                            </tr>\n                                            <tr>\n                                                <td>\n                                                    <code>5/18/2016</code>\n                                                </td>\n                                                <td>Logged in to the Account at 22:53:41</td>\n                                            </tr>\n                                            </tbody>\n                                        </table>\n                                    </div>\n\n                                </tab>\n                                <tab>\n                                    <template tabHeading>\n                                        <i class=\"icon-credit\"></i> Plans\n                                    </template>\n                                    <quietthyme-plans></quietthyme-plans>\n                                </tab>\n                            </tabset>\n                        </div>\n\n                    </div>\n\n                </div>\n\n\n            </div>\n\n        </div>\n\n    </div>\n\n</section><!-- #content end -->\n\n<quietthyme-footer class=\"navbar-fixed-bottom\"></quietthyme-footer>\n"
+module.exports = "<ng2-slim-loading-bar class=\"navbar-fixed-top\" [color]=\"'#128950'\" [height]=\"'3px'\"></ng2-slim-loading-bar>\n\n<quietthyme-header></quietthyme-header>\n<!-- Content\n============================================= -->\n<section id=\"content\">\n\n    <div class=\"content-wrap\">\n\n        <div class=\"container clearfix\">\n\n            <div class=\"row clearfix\">\n\n                <div class=\"col-md-offset-2 col-md-8\">\n\n                    <img src=\"assets/images/icons/avatar.jpg\" class=\"alignleft img-circle img-thumbnail notopmargin nobottommargin\" alt=\"Avatar\" style=\"max-width: 84px;\">\n\n                    <div class=\"heading-block noborder\">\n                        <h3>{{ userData.name }}</h3>\n                        <span>Settings</span>\n                    </div>\n\n                    <div class=\"clear\"></div>\n\n                    <div class=\"row clearfix\">\n\n                        <div class=\"col-md-12\">\n                            <tabset #settingsTabs>\n                                <tab>\n                                    <template tabHeading>\n                                        <i class=\"icon-bookmark2\"></i> Catalog\n                                    </template>\n\n                                    <p class=\"\">The Open Publication Distribution System (OPDS) catalog format is a syndication\n                                        format for electronic publications based on Atom and HTTP. Every QuietThyme user\n                                        gets their own unique Catalog url. When paired with a OPDS compatible ebook reader,\n                                        like Marvin (iOS), Aldiko (Android), Bluefire (Both), you can access your ebook\n                                        library anytime, anywhere, on any device.\n\n                                    </p>\n\n                                    <div class=\"well\">http://catalog.quietthyme.com/beta/<strong>{{ userData.catalog_token }}</strong></div>\n\n                                </tab>\n                                <tab>\n                                    <template tabHeading>\n                                        <i class=\"icon-credit\"></i> Plans\n                                    </template>\n                                    <quietthyme-plans></quietthyme-plans>\n                                </tab>\n                            </tabset>\n                        </div>\n\n                    </div>\n\n                </div>\n\n\n            </div>\n\n        </div>\n\n    </div>\n\n</section><!-- #content end -->\n\n<quietthyme-footer></quietthyme-footer>\n"
 
 /***/ }),
 
@@ -73,7 +73,7 @@ module.exports = "<ng2-slim-loading-bar class=\"navbar-fixed-top\" [color]=\"'#1
 /***/ 1062:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(624);
+module.exports = __webpack_require__(625);
 
 
 /***/ }),
@@ -144,7 +144,7 @@ var environment = {
 
 /***/ }),
 
-/***/ 623:
+/***/ 624:
 /***/ (function(module, exports) {
 
 function webpackEmptyContext(req) {
@@ -153,20 +153,20 @@ function webpackEmptyContext(req) {
 webpackEmptyContext.keys = function() { return []; };
 webpackEmptyContext.resolve = webpackEmptyContext;
 module.exports = webpackEmptyContext;
-webpackEmptyContext.id = 623;
+webpackEmptyContext.id = 624;
 
 
 /***/ }),
 
-/***/ 624:
+/***/ 625:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(720);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(721);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__environments_environment__ = __webpack_require__(383);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_app_module__ = __webpack_require__(756);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_app_module__ = __webpack_require__(757);
 
 
 
@@ -179,15 +179,15 @@ __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dyna
 
 /***/ }),
 
-/***/ 73:
+/***/ 63:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angular2_jwt__ = __webpack_require__(164);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angular2_jwt__ = __webpack_require__(241);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angular2_jwt___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_angular2_jwt__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(85);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_settings__ = __webpack_require__(754);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(86);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_settings__ = __webpack_require__(755);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_cache_service__ = __webpack_require__(382);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ApiService; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -325,14 +325,14 @@ var ApiService = (function () {
 
 /***/ }),
 
-/***/ 752:
+/***/ 753:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_api_service__ = __webpack_require__(73);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__(87);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ng2_slim_loading_bar__ = __webpack_require__(180);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_api_service__ = __webpack_require__(63);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__(73);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ng2_slim_loading_bar__ = __webpack_require__(179);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AccountLoginComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -398,13 +398,13 @@ var AccountLoginComponent = (function () {
 
 /***/ }),
 
-/***/ 753:
+/***/ 754:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_api_service__ = __webpack_require__(73);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__(87);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_api_service__ = __webpack_require__(63);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__(73);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AccountRegisterComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -461,7 +461,7 @@ var AccountRegisterComponent = (function () {
 
 /***/ }),
 
-/***/ 754:
+/***/ 755:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -482,12 +482,12 @@ var AppSettings = (function () {
 
 /***/ }),
 
-/***/ 755:
+/***/ 756:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__rxjs_operators__ = __webpack_require__(766);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__rxjs_operators__ = __webpack_require__(767);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -521,45 +521,45 @@ var AppComponent = (function () {
 
 /***/ }),
 
-/***/ 756:
+/***/ 757:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(160);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(27);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(85);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_router__ = __webpack_require__(87);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_component__ = __webpack_require__(755);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__account_login_account_login_component__ = __webpack_require__(752);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__account_register_account_register_component__ = __webpack_require__(753);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__shared_kloudless_authenticator_directive__ = __webpack_require__(770);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__partials_footer_footer_component__ = __webpack_require__(760);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__partials_page_title_page_title_component__ = __webpack_require__(762);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__partials_header_header_component__ = __webpack_require__(761);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__storage_storage_component__ = __webpack_require__(771);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__library_library_component__ = __webpack_require__(758);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__book_details_book_details_component__ = __webpack_require__(757);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__partials_storage_panel_storage_panel_component__ = __webpack_require__(764);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__settings_settings_component__ = __webpack_require__(768);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__partials_plans_plans_component__ = __webpack_require__(763);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__privacy_privacy_component__ = __webpack_require__(765);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__services_api_service__ = __webpack_require__(73);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(86);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_router__ = __webpack_require__(73);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_component__ = __webpack_require__(756);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__account_login_account_login_component__ = __webpack_require__(753);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__account_register_account_register_component__ = __webpack_require__(754);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__shared_kloudless_authenticator_directive__ = __webpack_require__(771);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__partials_footer_footer_component__ = __webpack_require__(761);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__partials_page_title_page_title_component__ = __webpack_require__(763);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__partials_header_header_component__ = __webpack_require__(762);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__storage_storage_component__ = __webpack_require__(772);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__library_library_component__ = __webpack_require__(759);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__book_details_book_details_component__ = __webpack_require__(758);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__partials_storage_panel_storage_panel_component__ = __webpack_require__(765);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__settings_settings_component__ = __webpack_require__(769);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__partials_plans_plans_component__ = __webpack_require__(764);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__privacy_privacy_component__ = __webpack_require__(766);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__services_api_service__ = __webpack_require__(63);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__services_cache_service__ = __webpack_require__(382);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__services_auth_guard_service__ = __webpack_require__(767);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22_angular2_jwt__ = __webpack_require__(164);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__services_auth_guard_service__ = __webpack_require__(768);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22_angular2_jwt__ = __webpack_require__(241);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_22_angular2_jwt___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_22_angular2_jwt__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23_ng2_bootstrap__ = __webpack_require__(950);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24_ng2_slim_loading_bar__ = __webpack_require__(180);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25_angular2_markdown__ = __webpack_require__(772);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26_angular2_masonry__ = __webpack_require__(750);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23_ng2_bootstrap__ = __webpack_require__(556);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24_ng2_slim_loading_bar__ = __webpack_require__(179);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25_angular2_markdown__ = __webpack_require__(773);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26_angular2_masonry__ = __webpack_require__(751);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_27_ng2_scrollspy__ = __webpack_require__(284);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_27_ng2_scrollspy___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_27_ng2_scrollspy__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_28_ng2_scrollspy_dist_plugin_affix_directive__ = __webpack_require__(969);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_28_ng2_scrollspy_dist_plugin_affix_directive___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_28_ng2_scrollspy_dist_plugin_affix_directive__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_29_ng2_charts_ng2_charts__ = __webpack_require__(968);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_29_ng2_charts_ng2_charts___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_29_ng2_charts_ng2_charts__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__shared_file_size_pipe__ = __webpack_require__(769);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__shared_file_size_pipe__ = __webpack_require__(770);
 /* unused harmony export getAuthHttp */
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -682,13 +682,13 @@ var AppModule = (function () {
 
 /***/ }),
 
-/***/ 757:
+/***/ 758:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_api_service__ = __webpack_require__(73);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__(87);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_api_service__ = __webpack_require__(63);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__(73);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BookDetailsComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -731,16 +731,16 @@ var BookDetailsComponent = (function () {
 
 /***/ }),
 
-/***/ 758:
+/***/ 759:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_api_service__ = __webpack_require__(73);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ng2_slim_loading_bar__ = __webpack_require__(180);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_api_service__ = __webpack_require__(63);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ng2_slim_loading_bar__ = __webpack_require__(179);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ng2_scrollspy__ = __webpack_require__(284);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ng2_scrollspy___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_ng2_scrollspy__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_file_saver__ = __webpack_require__(936);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_file_saver__ = __webpack_require__(937);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_file_saver___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_file_saver__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LibraryComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -874,7 +874,7 @@ var LibraryComponent = (function () {
 
 /***/ }),
 
-/***/ 759:
+/***/ 760:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -888,7 +888,7 @@ var StorageStatus = (function () {
 
 /***/ }),
 
-/***/ 760:
+/***/ 761:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -923,7 +923,7 @@ var FooterComponent = (function () {
 
 /***/ }),
 
-/***/ 761:
+/***/ 762:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -958,12 +958,12 @@ var HeaderComponent = (function () {
 
 /***/ }),
 
-/***/ 762:
+/***/ 763:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angular2_jwt__ = __webpack_require__(164);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angular2_jwt__ = __webpack_require__(241);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angular2_jwt___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_angular2_jwt__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PageTitleComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -1012,7 +1012,7 @@ var PageTitleComponent = (function () {
 
 /***/ }),
 
-/***/ 763:
+/***/ 764:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1047,12 +1047,12 @@ var PlansComponent = (function () {
 
 /***/ }),
 
-/***/ 764:
+/***/ 765:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__models_storage_status__ = __webpack_require__(759);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__models_storage_status__ = __webpack_require__(760);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return StoragePanelComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1127,7 +1127,7 @@ var StoragePanelComponent = (function () {
 
 /***/ }),
 
-/***/ 765:
+/***/ 766:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1162,15 +1162,15 @@ var PrivacyComponent = (function () {
 
 /***/ }),
 
-/***/ 766:
+/***/ 767:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_rxjs_add_observable_throw__ = __webpack_require__(593);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_rxjs_add_observable_throw__ = __webpack_require__(594);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_rxjs_add_observable_throw___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_rxjs_add_observable_throw__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_catch__ = __webpack_require__(594);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_catch__ = __webpack_require__(595);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_catch___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_catch__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_debounceTime__ = __webpack_require__(595);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_debounceTime__ = __webpack_require__(596);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_debounceTime___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_debounceTime__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_distinctUntilChanged__ = __webpack_require__(1015);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_distinctUntilChanged___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_distinctUntilChanged__);
@@ -1195,13 +1195,13 @@ var PrivacyComponent = (function () {
 
 /***/ }),
 
-/***/ 767:
+/***/ 768:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__(87);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__api_service__ = __webpack_require__(73);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__(73);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__api_service__ = __webpack_require__(63);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AuthGuard; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1222,6 +1222,12 @@ var AuthGuard = (function () {
     }
     AuthGuard.prototype.canActivate = function (route, state) {
         if (this.apiService.loggedIn()) {
+            if (this.apiService.tokenPayload().plan == 'none') {
+                //redirect the user to the plans page.
+                console.log(route, state);
+                this.router.navigate(['/settings', { 'tab': 'plans' }]);
+                return false;
+            }
             return true;
         }
         else {
@@ -1241,13 +1247,14 @@ var AuthGuard = (function () {
 
 /***/ }),
 
-/***/ 768:
+/***/ 769:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angular2_jwt__ = __webpack_require__(164);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angular2_jwt___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_angular2_jwt__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_api_service__ = __webpack_require__(63);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__(73);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ng2_bootstrap__ = __webpack_require__(556);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SettingsComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1260,29 +1267,42 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
+
 var SettingsComponent = (function () {
-    function SettingsComponent() {
+    function SettingsComponent(apiService, activatedRoute) {
+        this.apiService = apiService;
+        this.activatedRoute = activatedRoute;
         this.userData = {};
     }
     SettingsComponent.prototype.ngOnInit = function () {
-        var jwtHelper = new __WEBPACK_IMPORTED_MODULE_1_angular2_jwt__["JwtHelper"]();
-        this.userData = jwtHelper.decodeToken(localStorage.getItem('id_token'));
+        this.userData = this.apiService.tokenPayload();
     };
+    SettingsComponent.prototype.ngAfterViewInit = function () {
+        if (this.activatedRoute.snapshot.params['tab'] == 'plans') {
+            this.settingsTabs.tabs[1].active = true;
+        }
+    };
+    __decorate([
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])('settingsTabs'), 
+        __metadata('design:type', (typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3_ng2_bootstrap__["b" /* TabsetComponent */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_3_ng2_bootstrap__["b" /* TabsetComponent */]) === 'function' && _a) || Object)
+    ], SettingsComponent.prototype, "settingsTabs", void 0);
     SettingsComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-settings',
             template: __webpack_require__(1008),
             styles: [__webpack_require__(994)]
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [(typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */]) === 'function' && _b) || Object, (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["c" /* ActivatedRoute */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__angular_router__["c" /* ActivatedRoute */]) === 'function' && _c) || Object])
     ], SettingsComponent);
     return SettingsComponent;
+    var _a, _b, _c;
 }());
 //# sourceMappingURL=/home/ubuntu/quietthyme.web.src/src/settings.component.js.map
 
 /***/ }),
 
-/***/ 769:
+/***/ 770:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1341,7 +1361,7 @@ var FileSizePipe = (function () {
 
 /***/ }),
 
-/***/ 770:
+/***/ 771:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1398,13 +1418,13 @@ var KloudlessAuthenticatorDirective = (function () {
 
 /***/ }),
 
-/***/ 771:
+/***/ 772:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_api_service__ = __webpack_require__(73);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ng2_slim_loading_bar__ = __webpack_require__(180);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_api_service__ = __webpack_require__(63);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ng2_slim_loading_bar__ = __webpack_require__(179);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return StorageComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1476,7 +1496,7 @@ var StorageComponent = (function () {
 
 /***/ }),
 
-/***/ 942:
+/***/ 943:
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
@@ -1711,7 +1731,7 @@ webpackContext.keys = function webpackContextKeys() {
 };
 webpackContext.resolve = webpackContextResolve;
 module.exports = webpackContext;
-webpackContext.id = 942;
+webpackContext.id = 943;
 
 
 /***/ }),
