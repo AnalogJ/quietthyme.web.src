@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AuthHttp, tokenNotExpired } from 'angular2-jwt';
+import { AuthHttp, tokenNotExpired, JwtHelper } from 'angular2-jwt';
 import { Http, Response, Headers, RequestOptions, URLSearchParams, ResponseContentType} from '@angular/http';
 import { Observable }     from 'rxjs/Observable';
 import {AppSettings} from '../app-settings';
@@ -11,7 +11,10 @@ export class ApiService {
 
   constructor(public authHttp: AuthHttp, private http: Http, private cacheService: CacheService) { }
 
+  /////////////////////////////////////////////////////////////////////////////
   //Helper functions
+  /////////////////////////////////////////////////////////////////////////////
+
   private extractData(res: Response) {
     let body = res.json();
     console.log("RAW BODY", body);
@@ -34,12 +37,21 @@ export class ApiService {
     return '[' + method + ']' + url + '?' + (query || {}).toString()
   }
 
-
-  // Unauthenticated functions
   loggedIn() {
     return tokenNotExpired();
   }
 
+  tokenPayload(){
+    var token = localStorage.getItem('id_token')
+    var jwtHelper = new JwtHelper();
+    var payload = jwtHelper.decodeToken(token);
+    return payload
+  }
+
+
+  /////////////////////////////////////////////////////////////////////////////
+  // Unauthenticated functions
+  /////////////////////////////////////////////////////////////////////////////
   authRegister(name:string, email:string, password:string): Observable<any> {
     return this.http.post(`${AppSettings.API_ENDPOINT}/auth/register`,
         {
@@ -61,7 +73,9 @@ export class ApiService {
         .catch(this.handleError);
   }
 
+  /////////////////////////////////////////////////////////////////////////////
   // Authenticated functions
+  /////////////////////////////////////////////////////////////////////////////
   storageStatus(): Observable<any>{
     var url = `${AppSettings.API_ENDPOINT}/storage/status`
 

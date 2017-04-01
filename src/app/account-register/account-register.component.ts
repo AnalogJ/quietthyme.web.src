@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../services/api.service';
-import { ActivatedRoute } from '@angular/router';
-import {Router} from '@angular/router'
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-account-register',
@@ -32,7 +31,7 @@ export class AccountRegisterComponent implements OnInit {
               console.log(data)
               localStorage.setItem('id_token', data.token); //set the JWT token
 
-              this.router.navigate(['/storage'])
+              this.router.navigate(['/settings', {'tab':"plans"}])
             },
             error => {console.log(error)}
         );
