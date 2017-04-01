@@ -14,8 +14,15 @@ export class AuthGuard implements CanActivate {
               state: RouterStateSnapshot
   ) {
     if(this.apiService.loggedIn()) {
+      if(this.apiService.tokenPayload().plan == 'none'){
+        //redirect the user to the plans page.
+        console.log(route, state)
+        this.router.navigate(['/settings', {'tab': 'plans'}]);
+        return false;
+      }
       return true;
-    } else {
+    }
+    else {
       console.log(route, state)
       this.router.navigate(['/login', {'requested': state.url}]);
       return false;

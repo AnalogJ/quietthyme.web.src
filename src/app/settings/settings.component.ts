@@ -1,19 +1,28 @@
-import { Component, OnInit } from '@angular/core';
-import { JwtHelper } from 'angular2-jwt'
+import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
+import { ApiService } from '../services/api.service';
+import { ActivatedRoute } from '@angular/router';
+import { TabsetComponent } from 'ng2-bootstrap';
+
 
 @Component({
   selector: 'app-settings',
   templateUrl: './settings.component.html',
   styleUrls: ['./settings.component.less']
 })
-export class SettingsComponent implements OnInit {
+export class SettingsComponent implements OnInit, AfterViewInit {
   userData: any = {}
 
-  constructor() { }
+  @ViewChild('settingsTabs') settingsTabs: TabsetComponent;
+
+  constructor(private apiService: ApiService, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
-    var jwtHelper = new JwtHelper();
-    this.userData = jwtHelper.decodeToken(localStorage.getItem('id_token'))
+    this.userData = this.apiService.tokenPayload()
   }
+    ngAfterViewInit() {
+        if(this.activatedRoute.snapshot.params['tab'] == 'plans' ){
+            this.settingsTabs.tabs[1].active = true;
+        }
+    }
 
 }
