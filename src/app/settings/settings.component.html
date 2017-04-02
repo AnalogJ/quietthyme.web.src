@@ -113,7 +113,7 @@
                                                             [planName]="'Reader Plan'"
                                                             [planCost]="1000"
                                                             (onCheckout)="stripeCheckoutCompleted($event)"
-                                                            [ngClass]="{'button-border button-dark noleftmargin' : userData.plan != 'none'}"
+                                                            [ngClass]="{'button-border button-dark noleftmargin' : userData.plan == 'none'}"
                                                             class="button button-large button-rounded">Subscribe</button>
                                                 </div>
                                             </div>
