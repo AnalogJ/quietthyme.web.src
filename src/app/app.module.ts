@@ -16,13 +16,14 @@ import { LibraryComponent } from './library/library.component';
 import { BookDetailsComponent } from './book-details/book-details.component';
 import { StoragePanelComponent } from './partials/storage-panel/storage-panel.component';
 import { SettingsComponent } from './settings/settings.component';
-import { PlansComponent } from './partials/plans/plans.component';
 import { PrivacyComponent } from './privacy/privacy.component';
-
-
+import { StripeCheckoutButtonDirective } from './shared/stripe-checkout-button.directive';
+import { FileSizePipe } from './shared/file-size.pipe';
 import { ApiService } from './services/api.service'
 import { CacheService } from './services/cache.service'
 import { AuthGuard } from './services/auth-guard.service'
+
+//Third party
 import { AuthHttp, AuthConfig } from 'angular2-jwt';
 import { Ng2BootstrapModule } from 'ng2-bootstrap';
 import { SlimLoadingBarModule } from 'ng2-slim-loading-bar';
@@ -31,7 +32,7 @@ import { MasonryModule } from 'angular2-masonry';
 import { ScrollSpyModule } from 'ng2-scrollspy';
 import { ScrollSpyAffixDirective } from 'ng2-scrollspy/dist/plugin/affix.directive';
 import { ChartsModule } from 'ng2-charts/ng2-charts';
-import { FileSizePipe } from './shared/file-size.pipe';
+import {Gravatar} from 'ng2-gravatar-directive';
 
 export function getAuthHttp(http: any) {
   return new AuthHttp(new AuthConfig({
@@ -58,8 +59,9 @@ export function getAuthHttp(http: any) {
     StoragePanelComponent,
     FileSizePipe,
     SettingsComponent,
-    PlansComponent,
-    PrivacyComponent
+    PrivacyComponent,
+    StripeCheckoutButtonDirective,
+    Gravatar
   ],
   imports: [
     BrowserModule,

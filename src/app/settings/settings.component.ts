@@ -9,7 +9,7 @@ import { TabsetComponent } from 'ng2-bootstrap';
   templateUrl: './settings.component.html',
   styleUrls: ['./settings.component.less']
 })
-export class SettingsComponent implements OnInit, AfterViewInit {
+export class SettingsComponent implements OnInit {
   userData: any = {}
 
   @ViewChild('settingsTabs') settingsTabs: TabsetComponent;
@@ -25,4 +25,23 @@ export class SettingsComponent implements OnInit, AfterViewInit {
         }
     }
 
+    stripeCheckoutCompleted(stripeCheckoutData){
+        console.log(stripeCheckoutData)
+
+        // if(this.loading.link) return;
+        // this.slimLoadingBarService.start()
+        //
+        // this.apiService.storageLink(kloudlessData)
+        //     .subscribe(
+        //         data => {
+        //             console.log(data)
+        //         },
+        //         error => {console.log(error)},
+        //         () => {
+        //             this.loading.status = false
+        //             this.slimLoadingBarService.complete();
+        //         }
+        //     );
+
+    }
 }

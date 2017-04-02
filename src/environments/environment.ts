@@ -5,5 +5,7 @@
 
 export const environment = {
   production: false,
-  apiVersion: 'beta'
+  apiVersion: 'beta',
+
+  stripeAccount: 'pk_test_uApReS8yYqD5v6CajPSuXj3Z'
 };
