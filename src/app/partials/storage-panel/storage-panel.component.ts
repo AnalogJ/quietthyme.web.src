@@ -19,7 +19,8 @@ export class StoragePanelComponent implements OnInit {
   public chartData: number[];
   public chartColors: any[] = [
   { //free, used
-    backgroundColor: ['#128950','lightgrey'] ,
+    //TODO: we should use a different color for each service
+    backgroundColor: ['#36A2EB','lightgrey'] ,
     hoverBackgroundColor: ['#18b66a', 'red']
   }
 
@@ -39,7 +40,7 @@ export class StoragePanelComponent implements OnInit {
   }
 
   ngOnChanges() {
-    console.log("StorageDta changed!", this.storageData)
+    console.log("StorageData changed!", this.storageData)
     this.resetComp()
   }
 
