@@ -76,6 +76,14 @@ export class ApiService {
   /////////////////////////////////////////////////////////////////////////////
   // Authenticated functions
   /////////////////////////////////////////////////////////////////////////////
+    userPlan(stripePlanData:string): Observable<any>{
+        var url = `${AppSettings.API_ENDPOINT}/user/plan`
+        return this.authHttp.post(url, stripePlanData)
+            .map(this.extractData)
+            .catch(this.handleError);
+    }
+
+
   storageStatus(): Observable<any>{
     var url = `${AppSettings.API_ENDPOINT}/storage/status`
 

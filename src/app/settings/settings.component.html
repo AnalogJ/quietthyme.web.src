@@ -65,17 +65,19 @@
                                                     </ul>
                                                 </div>
                                                 <div class="pricing-action">
-                                                    <button stripeCheckoutButton
+
+                                                    <button *ngIf="userData.plan == 'basic'" class="button button-large button-rounded disabled" >Current</button>
+                                                    <button *ngIf="userData.plan != 'basic'"
+                                                            stripeCheckoutButton
                                                             [planId]="'basic_1'"
                                                             [planName]="'Basic Plan'"
                                                             [planCost]="500"
                                                             (onCheckout)="stripeCheckoutCompleted($event)"
-                                                            class="button button-border button-rounded button-large button-dark noleftmargin">Subscribe</button>
+                                                            class="button button-large button-rounded button-border button-dark noleftmargin">Subscribe</button>
                                                 </div>
                                             </div>
 
                                         </div>
-
                                         <div class="col-sm-4">
 
                                             <div class="pricing-box best-price">
@@ -103,11 +105,15 @@
                                                     </ul>
                                                 </div>
                                                 <div class="pricing-action">
-                                                    <button stripeCheckoutButton
+                                                    <button *ngIf="userData.plan == 'reader'" class="button button-large button-rounded disabled" >Current</button>
+
+                                                    <button *ngIf="userData.plan != 'reader'"
+                                                            stripeCheckoutButton
                                                             [planId]="'reader_1'"
                                                             [planName]="'Reader Plan'"
                                                             [planCost]="1000"
                                                             (onCheckout)="stripeCheckoutCompleted($event)"
+                                                            [ngClass]="{'button-border button-dark noleftmargin' : userData.plan != 'none'}"
                                                             class="button button-large button-rounded">Subscribe</button>
                                                 </div>
                                             </div>
@@ -136,7 +142,10 @@
                                                     </ul>
                                                 </div>
                                                 <div class="pricing-action">
-                                                    <button stripeCheckoutButton
+                                                    <button *ngIf="userData.plan == 'library'" class="button button-large button-rounded disabled" >Current</button>
+
+                                                    <button *ngIf="userData.plan != 'library'"
+                                                            stripeCheckoutButton
                                                             [planId]="'library_1'"
                                                             [planName]="'Library Plan'"
                                                             [planCost]="2000"

@@ -2,6 +2,7 @@ import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
 import { ApiService } from '../services/api.service';
 import { ActivatedRoute } from '@angular/router';
 import { TabsetComponent } from 'ng2-bootstrap';
+import {SlimLoadingBarService} from 'ng2-slim-loading-bar';
 
 
 @Component({
@@ -11,10 +12,13 @@ import { TabsetComponent } from 'ng2-bootstrap';
 })
 export class SettingsComponent implements OnInit {
   userData: any = {}
+    loading = {
+        setPlan: false,
+    };
 
   @ViewChild('settingsTabs') settingsTabs: TabsetComponent;
 
-  constructor(private apiService: ApiService, private activatedRoute: ActivatedRoute) { }
+  constructor(private slimLoadingBarService: SlimLoadingBarService, private apiService: ApiService, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
     this.userData = this.apiService.tokenPayload()
@@ -28,20 +32,20 @@ export class SettingsComponent implements OnInit {
     stripeCheckoutCompleted(stripeCheckoutData){
         console.log(stripeCheckoutData)
 
-        // if(this.loading.link) return;
-        // this.slimLoadingBarService.start()
-        //
-        // this.apiService.storageLink(kloudlessData)
-        //     .subscribe(
-        //         data => {
-        //             console.log(data)
-        //         },
-        //         error => {console.log(error)},
-        //         () => {
-        //             this.loading.status = false
-        //             this.slimLoadingBarService.complete();
-        //         }
-        //     );
+        if(this.loading.setPlan) return;
+        this.slimLoadingBarService.start()
+
+        this.apiService.userPlan(stripeCheckoutData)
+            .subscribe(
+                data => {
+                    console.log(data)
+                },
+                error => {console.log(error)},
+                () => {
+                    this.loading.setPlan = false
+                    this.slimLoadingBarService.complete();
+                }
+            );
 
     }
 }
