@@ -1,42 +1,43 @@
 <!-- Header
 		============================================= -->
-<header id="header" class="full-header">
+    <header affix [affix-class-top]="testclass"  id="header" class="full-header">
 
-    <div id="header-wrap">
+        <div id="header-wrap">
 
-        <div class="container clearfix">
+            <div class="container clearfix">
 
-            <div id="primary-menu-trigger"><i class="icon-reorder"></i></div>
+                <div id="primary-menu-trigger"><i class="icon-reorder"></i></div>
 
-            <!-- Logo
+                <!-- Logo
+					============================================= -->
+                <div id="logo">
+                    <a href="/" class="standard-logo" data-dark-logo="assets/images/logo/logo_condensed.png"><img style="padding: 7%;" src="assets/images/logo/logo-large.png.svg" alt="Canvas Logo"></a>
+                    <a href="/" class="retina-logo" data-dark-logo="assets/images/logo/logo_condensed.png"><img style="padding: 7%;" src="assets/images/logo/logo-large.png.svg" alt="Canvas Logo"></a>
+                </div><!-- #logo end -->
+
+                <!-- Primary Navigation
 				============================================= -->
-            <div id="logo">
-                <a href="/" class="standard-logo" data-dark-logo="assets/images/logo/logo_condensed.png"><img style="padding: 7%;" src="assets/images/logo/logo-large.png.svg" alt="Canvas Logo"></a>
-                <a href="/" class="retina-logo" data-dark-logo="assets/images/logo/logo_condensed.png"><img style="padding: 7%;" src="assets/images/logo/logo-large.png.svg" alt="Canvas Logo"></a>
-            </div><!-- #logo end -->
+                <nav id="primary-menu">
 
-            <!-- Primary Navigation
-			============================================= -->
-            <nav id="primary-menu">
-
-                <ul>
-                    <li><a href="/storage"><div>Storage</div></a></li>
-                    <li><a href="/library"><div>Library</div></a></li>
-                    <li><a href="/settings"><div>Settings</div></a></li>
-                </ul>
+                    <ul>
+                        <li><a href="/storage"><div>Storage</div></a></li>
+                        <li><a href="/library"><div>Library</div></a></li>
+                        <li><a href="/settings"><div>Settings</div></a></li>
+                    </ul>
 
 
-                <ul style="margin-right: 0px;padding-right: 0px;border-right: none;">
-                    <li><a href="/storage"><div>Logout</div></a></li>
-                </ul>
+                    <ul style="margin-right: 0px;padding-right: 0px;border-right: none;">
+                        <li><a href="/storage"><div>Logout</div></a></li>
+                    </ul>
 
 
 
 
-            </nav><!-- #primary-menu end -->
+                </nav><!-- #primary-menu end -->
+
+            </div>
 
         </div>
 
-    </div>
+    </header><!-- #header end -->
 
-</header><!-- #header end -->

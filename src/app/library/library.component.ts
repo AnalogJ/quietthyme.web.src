@@ -2,8 +2,6 @@ import { Component, AfterViewInit } from '@angular/core';
 import { ApiService } from '../services/api.service';
 import {SlimLoadingBarService} from 'ng2-slim-loading-bar';
 import { BookModel } from '../models/book'
-import { ScrollSpyModule, ScrollSpyService } from 'ng2-scrollspy';
-import {ScrollSpyAffixModule} from "ng2-scrollspy/dist/plugin/affix";
 import * as FileSaver from "file-saver";
 
 @Component({
@@ -32,7 +30,7 @@ export class LibraryComponent implements AfterViewInit {
         box: false
     }
     storages: any = {}
-  constructor(private slimLoadingBarService: SlimLoadingBarService, private apiService: ApiService, private scrollSpyService: ScrollSpyService) { }
+  constructor(private slimLoadingBarService: SlimLoadingBarService, private apiService: ApiService) { }
 
     ngAfterViewInit() {
         this.getBookList();

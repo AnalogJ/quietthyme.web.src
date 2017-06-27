@@ -16,5 +16,11 @@ export class AppComponent {
     this.viewContainerRef = viewContainerRef;
   }
 
+  ngAfterViewInit() {
+    // this.scrollSpyService.getObservable('window').subscribe((e: any) => {
+    //   console.log('ScrollSpy::window: ', e);
+    // });
+  }
+
 
 }

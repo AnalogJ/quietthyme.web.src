@@ -29,10 +29,13 @@ import { Ng2BootstrapModule } from 'ng2-bootstrap';
 import { SlimLoadingBarModule } from 'ng2-slim-loading-bar';
 import { MarkdownModule } from 'angular2-markdown';
 import { MasonryModule } from 'angular2-masonry';
-import { ScrollSpyModule } from 'ng2-scrollspy';
-import { ScrollSpyAffixDirective } from 'ng2-scrollspy/dist/plugin/affix.directive';
+import {StickyModule} from 'ng2-sticky-kit/ng2-sticky-kit';
 import { ChartsModule } from 'ng2-charts/ng2-charts';
 import {Gravatar} from 'ng2-gravatar-directive';
+
+
+import { AffixDirective, AffixModule } from 'ng2-affix';
+
 
 export function getAuthHttp(http: any) {
   return new AuthHttp(new AuthConfig({
@@ -55,13 +58,13 @@ export function getAuthHttp(http: any) {
     StorageComponent,
     LibraryComponent,
     BookDetailsComponent,
-    ScrollSpyAffixDirective,
     StoragePanelComponent,
     FileSizePipe,
     SettingsComponent,
     PrivacyComponent,
     StripeCheckoutButtonDirective,
-    Gravatar
+    Gravatar,
+    AffixDirective
   ],
   imports: [
     BrowserModule,
@@ -71,7 +74,7 @@ export function getAuthHttp(http: any) {
     SlimLoadingBarModule.forRoot(),
     MarkdownModule.forRoot(),
     MasonryModule,
-    ScrollSpyModule.forRoot(),
+    StickyModule,
     ChartsModule,
 
     RouterModule.forRoot([
