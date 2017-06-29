@@ -104,6 +104,7 @@ export class ApiService {
     var url = `${AppSettings.API_ENDPOINT}/book`
     let params: URLSearchParams = new URLSearchParams();
     if(filter.sort) params.set('sort', filter.sort.toString());
+    if(filter.storage_id) params.set('storage_id', filter.storage_id.toString());
     if(filter.storage) params.set('storage', filter.storage.toString());
     if(filter.page) params.set('page', filter.page.toString());
 
