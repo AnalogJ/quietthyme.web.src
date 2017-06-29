@@ -24,7 +24,7 @@
                                 <li [ngClass]="{'active-filter': !filter.sort}"><a class="cursor-pointer" (click)="setSort(null)">Title</a></li>
                                 <li [ngClass]="{'active-filter': filter.sort == 'authors'}"><a class="cursor-pointer" (click)="setSort('authors')">Author</a></li>
                                 <li [ngClass]="{'active-filter': filter.sort == 'series_name'}"><a class="cursor-pointer" (click)="setSort('series_name')">Series</a></li>
-                                <li [ngClass]="{'active-filter': filter.sort == 'created_at'}"><a class="cursor-pointer" (click)="setSort('created_at')">Added Date</a></li>
+                                <li [ngClass]="{'active-filter': filter.sort == 'updated_at'}"><a class="cursor-pointer" (click)="setSort('updated_at')">Added Date</a></li>
                             </ul>
 
                         </div>
