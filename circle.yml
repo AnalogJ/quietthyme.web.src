@@ -28,7 +28,7 @@ deployment:
     commands:
       - ng build --base-href "/" --dev
       - cp dist/angular.html dist/404.html
-      - angular-cli-ghpages --message "Autodeploy to gh-pages" --no-silent
+      - angular-cli-ghpages --message "Autodeploy to gh-pages" --no-silent --name "Jason Kulatunga" --email "jason@thesparktree.com"
 
   # the following command deploys to www.capsulecd.com domain if the change is made on the master branch.
   production:
