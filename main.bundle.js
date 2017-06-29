@@ -609,6 +609,8 @@ var ApiService = (function () {
         var params = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["URLSearchParams"]();
         if (filter.sort)
             params.set('sort', filter.sort.toString());
+        if (filter.storage_id)
+            params.set('storage_id', filter.storage_id.toString());
         if (filter.storage)
             params.set('storage', filter.storage.toString());
         if (filter.page)
