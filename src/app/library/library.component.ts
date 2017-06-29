@@ -22,7 +22,7 @@ export class LibraryComponent implements AfterViewInit {
         sort: null,
         storage: null,
         storage_id: null,
-        page: '0'
+        page: ''
     }
     connected: any = {
         quietthyme: false,
@@ -59,7 +59,7 @@ export class LibraryComponent implements AfterViewInit {
                 },
                 error => {console.log(error)},
                 () => {
-                    this.loading.status = false
+                    this.loading.status = false;
                     this.slimLoadingBarService.complete();
                 }
             );
@@ -69,9 +69,10 @@ export class LibraryComponent implements AfterViewInit {
       this.slimLoadingBarService.start()
       this.apiService.bookList(this.filter)
           .subscribe(
-              books => {
-                  console.log(books)
-                  this.bookList = books
+              book_data => {
+                  console.log(book_data)
+                  this.bookList = book_data.Items;
+                  this.filter.page = book_data.LastEvaluatedKey;
                   // .map(function(book){
                   //     book.cover = encodeURI(book.cover).replace(/%20/g, '+')
                   //     return book
@@ -110,7 +111,7 @@ export class LibraryComponent implements AfterViewInit {
         if(storage == this.filter.storage) return; //user clicked an active filter
         this.filter.storage = storage || null;
         this.filter.storage_id = this.storages[storage] ? this.storages[storage].storage_id : null;
-        this.filter.page = '0'
+        this.filter.page = ''
 
         console.log("CHANGED STORAGE FILTER", this.filter.storage)
         this.bookList = []
@@ -120,7 +121,7 @@ export class LibraryComponent implements AfterViewInit {
         if(sort == this.filter.sort) return; //user clicked an active filter
 
         this.filter.sort = sort || null
-        this.filter.page = '0'
+        this.filter.page = ''
         console.log("CHANGED SORT FILTER", this.filter.sort)
         this.bookList = []
         this.getBookList()
