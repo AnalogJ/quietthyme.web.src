@@ -1,105 +1,436 @@
 webpackJsonp([1,5],{
 
-/***/ 1000:
+/***/ 1006:
+/***/ (function(module, exports, __webpack_require__) {
+
+var map = {
+	"./af": 428,
+	"./af.js": 428,
+	"./ar": 435,
+	"./ar-dz": 429,
+	"./ar-dz.js": 429,
+	"./ar-kw": 430,
+	"./ar-kw.js": 430,
+	"./ar-ly": 431,
+	"./ar-ly.js": 431,
+	"./ar-ma": 432,
+	"./ar-ma.js": 432,
+	"./ar-sa": 433,
+	"./ar-sa.js": 433,
+	"./ar-tn": 434,
+	"./ar-tn.js": 434,
+	"./ar.js": 435,
+	"./az": 436,
+	"./az.js": 436,
+	"./be": 437,
+	"./be.js": 437,
+	"./bg": 438,
+	"./bg.js": 438,
+	"./bn": 439,
+	"./bn.js": 439,
+	"./bo": 440,
+	"./bo.js": 440,
+	"./br": 441,
+	"./br.js": 441,
+	"./bs": 442,
+	"./bs.js": 442,
+	"./ca": 443,
+	"./ca.js": 443,
+	"./cs": 444,
+	"./cs.js": 444,
+	"./cv": 445,
+	"./cv.js": 445,
+	"./cy": 446,
+	"./cy.js": 446,
+	"./da": 447,
+	"./da.js": 447,
+	"./de": 450,
+	"./de-at": 448,
+	"./de-at.js": 448,
+	"./de-ch": 449,
+	"./de-ch.js": 449,
+	"./de.js": 450,
+	"./dv": 451,
+	"./dv.js": 451,
+	"./el": 452,
+	"./el.js": 452,
+	"./en-au": 453,
+	"./en-au.js": 453,
+	"./en-ca": 454,
+	"./en-ca.js": 454,
+	"./en-gb": 455,
+	"./en-gb.js": 455,
+	"./en-ie": 456,
+	"./en-ie.js": 456,
+	"./en-nz": 457,
+	"./en-nz.js": 457,
+	"./eo": 458,
+	"./eo.js": 458,
+	"./es": 460,
+	"./es-do": 459,
+	"./es-do.js": 459,
+	"./es.js": 460,
+	"./et": 461,
+	"./et.js": 461,
+	"./eu": 462,
+	"./eu.js": 462,
+	"./fa": 463,
+	"./fa.js": 463,
+	"./fi": 464,
+	"./fi.js": 464,
+	"./fo": 465,
+	"./fo.js": 465,
+	"./fr": 468,
+	"./fr-ca": 466,
+	"./fr-ca.js": 466,
+	"./fr-ch": 467,
+	"./fr-ch.js": 467,
+	"./fr.js": 468,
+	"./fy": 469,
+	"./fy.js": 469,
+	"./gd": 470,
+	"./gd.js": 470,
+	"./gl": 471,
+	"./gl.js": 471,
+	"./gom-latn": 472,
+	"./gom-latn.js": 472,
+	"./he": 473,
+	"./he.js": 473,
+	"./hi": 474,
+	"./hi.js": 474,
+	"./hr": 475,
+	"./hr.js": 475,
+	"./hu": 476,
+	"./hu.js": 476,
+	"./hy-am": 477,
+	"./hy-am.js": 477,
+	"./id": 478,
+	"./id.js": 478,
+	"./is": 479,
+	"./is.js": 479,
+	"./it": 480,
+	"./it.js": 480,
+	"./ja": 481,
+	"./ja.js": 481,
+	"./jv": 482,
+	"./jv.js": 482,
+	"./ka": 483,
+	"./ka.js": 483,
+	"./kk": 484,
+	"./kk.js": 484,
+	"./km": 485,
+	"./km.js": 485,
+	"./kn": 486,
+	"./kn.js": 486,
+	"./ko": 487,
+	"./ko.js": 487,
+	"./ky": 488,
+	"./ky.js": 488,
+	"./lb": 489,
+	"./lb.js": 489,
+	"./lo": 490,
+	"./lo.js": 490,
+	"./lt": 491,
+	"./lt.js": 491,
+	"./lv": 492,
+	"./lv.js": 492,
+	"./me": 493,
+	"./me.js": 493,
+	"./mi": 494,
+	"./mi.js": 494,
+	"./mk": 495,
+	"./mk.js": 495,
+	"./ml": 496,
+	"./ml.js": 496,
+	"./mr": 497,
+	"./mr.js": 497,
+	"./ms": 499,
+	"./ms-my": 498,
+	"./ms-my.js": 498,
+	"./ms.js": 499,
+	"./my": 500,
+	"./my.js": 500,
+	"./nb": 501,
+	"./nb.js": 501,
+	"./ne": 502,
+	"./ne.js": 502,
+	"./nl": 504,
+	"./nl-be": 503,
+	"./nl-be.js": 503,
+	"./nl.js": 504,
+	"./nn": 505,
+	"./nn.js": 505,
+	"./pa-in": 506,
+	"./pa-in.js": 506,
+	"./pl": 507,
+	"./pl.js": 507,
+	"./pt": 509,
+	"./pt-br": 508,
+	"./pt-br.js": 508,
+	"./pt.js": 509,
+	"./ro": 510,
+	"./ro.js": 510,
+	"./ru": 511,
+	"./ru.js": 511,
+	"./sd": 512,
+	"./sd.js": 512,
+	"./se": 513,
+	"./se.js": 513,
+	"./si": 514,
+	"./si.js": 514,
+	"./sk": 515,
+	"./sk.js": 515,
+	"./sl": 516,
+	"./sl.js": 516,
+	"./sq": 517,
+	"./sq.js": 517,
+	"./sr": 519,
+	"./sr-cyrl": 518,
+	"./sr-cyrl.js": 518,
+	"./sr.js": 519,
+	"./ss": 520,
+	"./ss.js": 520,
+	"./sv": 521,
+	"./sv.js": 521,
+	"./sw": 522,
+	"./sw.js": 522,
+	"./ta": 523,
+	"./ta.js": 523,
+	"./te": 524,
+	"./te.js": 524,
+	"./tet": 525,
+	"./tet.js": 525,
+	"./th": 526,
+	"./th.js": 526,
+	"./tl-ph": 527,
+	"./tl-ph.js": 527,
+	"./tlh": 528,
+	"./tlh.js": 528,
+	"./tr": 529,
+	"./tr.js": 529,
+	"./tzl": 530,
+	"./tzl.js": 530,
+	"./tzm": 532,
+	"./tzm-latn": 531,
+	"./tzm-latn.js": 531,
+	"./tzm.js": 532,
+	"./uk": 533,
+	"./uk.js": 533,
+	"./ur": 534,
+	"./ur.js": 534,
+	"./uz": 536,
+	"./uz-latn": 535,
+	"./uz-latn.js": 535,
+	"./uz.js": 536,
+	"./vi": 537,
+	"./vi.js": 537,
+	"./x-pseudo": 538,
+	"./x-pseudo.js": 538,
+	"./yo": 539,
+	"./yo.js": 539,
+	"./zh-cn": 540,
+	"./zh-cn.js": 540,
+	"./zh-hk": 541,
+	"./zh-hk.js": 541,
+	"./zh-tw": 542,
+	"./zh-tw.js": 542
+};
+function webpackContext(req) {
+	return __webpack_require__(webpackContextResolve(req));
+};
+function webpackContextResolve(req) {
+	var id = map[req];
+	if(!(id + 1)) // check for number
+		throw new Error("Cannot find module '" + req + "'.");
+	return id;
+};
+webpackContext.keys = function webpackContextKeys() {
+	return Object.keys(map);
+};
+webpackContext.resolve = webpackContextResolve;
+module.exports = webpackContext;
+webpackContext.id = 1006;
+
+
+/***/ }),
+
+/***/ 1052:
 /***/ (function(module, exports) {
 
 module.exports = ""
 
 /***/ }),
 
-/***/ 1001:
+/***/ 1053:
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ 1054:
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ 1055:
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ 1056:
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ 1057:
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ 1058:
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ 1059:
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ 1060:
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ 1061:
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ 1062:
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ 1063:
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ 1064:
 /***/ (function(module, exports) {
 
 module.exports = "<ng2-slim-loading-bar class=\"navbar-fixed-top\" [color]=\"'#128950'\" [height]=\"'3px'\"></ng2-slim-loading-bar>\n\n<!-- Content\n============================================= -->\n<section id=\"content\" style=\"margin-bottom: 0px;\">\n\n    <div class=\"content-wrap nopadding\">\n\n        <div class=\"section nopadding nomargin\" style=\"width: 100%; height: 100%; position: absolute; left: 0; top: 0; background: url('assets/images/bg/login_splash.jpg') center center no-repeat; background-size: cover;\"></div>\n\n        <div class=\"section nobg full-screen nopadding nomargin\" style=\"height:100vh;\">\n            <div class=\"container vertical-middle divcenter clearfix\" style=\"position: absolute; top: 50%; width: 100%; padding-top: 0px; padding-bottom: 0px; margin-top: -330px;\">\n\n                <div class=\"row center\">\n                    <a href=\"/\"><img style=\"max-width:200px\" src=\"assets/images/logo/logo-white-large.png.svg\" alt=\"QuietThyme Logo\"></a>\n                </div>\n\n                <div class=\"panel panel-default divcenter noradius noborder\" style=\"max-width: 400px; background-color: rgba(255,255,255,0.93);\">\n                    <div class=\"panel-body\" style=\"padding: 40px;\">\n                        <form id=\"login-form\" name=\"login-form\" class=\"nobottommargin\" (ngSubmit)=\"login()\">\n                            <h3>Login to your Account</h3>\n\n                            <div class=\"col_full\">\n                                <label for=\"login-form-email\">Email:</label>\n                                <input [(ngModel)]=\"loginEmail\" type=\"email\" id=\"login-form-email\" name=\"login-form-email\" class=\"form-control not-dark\" required/>\n                            </div>\n\n                            <div class=\"col_full\">\n                                <label for=\"login-form-password\">Password:</label>\n                                <input [(ngModel)]=\"loginPassword\" type=\"password\" id=\"login-form-password\" name=\"login-form-password\" class=\"form-control not-dark\" required/>\n                            </div>\n\n                            <div class=\"col_full nobottommargin\">\n                                <button type=\"submit\" class=\"button button-3d button-black nomargin\" id=\"login-form-submit\" name=\"login-form-submit\" [disabled]=\"loading.login\">\n                                    <span>Login</span>\n                                </button>\n                                <a href=\"/register\" class=\"fright\">Need an Account?</a>\n                            </div>\n                        </form>\n\n                        <div class=\"line line-sm\"></div>\n\n                        <div class=\"center\">\n                            <h4 style=\"margin-bottom: 15px;\">or Login with:</h4>\n                            <a href=\"#\" class=\"button button-rounded si-facebook si-colored\">Facebook</a>\n                            <span class=\"hidden-xs\">or</span>\n                            <a href=\"#\" class=\"button button-rounded si-twitter si-colored\">Twitter</a>\n                        </div>\n                    </div>\n                </div>\n\n                <div class=\"row center dark\"><small>Copyrights &copy; All Rights Reserved by QuietThyme Inc.</small></div>\n\n            </div>\n        </div>\n\n    </div>\n\n</section><!-- #content end -->\n"
 
 /***/ }),
 
-/***/ 1002:
+/***/ 1065:
 /***/ (function(module, exports) {
 
 module.exports = "<quietthyme-header></quietthyme-header>\n<quietthyme-page-title></quietthyme-page-title>\n\n<!-- Content\n============================================= -->\n<section id=\"content\" class=\"footer-padding\">\n\n    <div class=\"content-wrap\">\n\n        <div class=\"container clearfix\">\n\n            <div class=\"col_one_third nobottommargin\">\n\n                <div class=\"well well-lg nobottommargin\">\n                    <form id=\"login-form\" name=\"login-form\" class=\"nobottommargin\" action=\"#\" method=\"post\">\n\n                        <h3>Login to your Account</h3>\n\n                        <div class=\"col_full\">\n                            <label for=\"login-form-username\">Email:</label>\n                            <input [(ngModel)]=\"loginEmail\" type=\"text\" id=\"login-form-email\" name=\"login-form-email\" class=\"form-control\" />\n                        </div>\n\n                        <div class=\"col_full\">\n                            <label for=\"login-form-password\">Password:</label>\n                            <input [(ngModel)]=\"loginPassword\" type=\"password\" id=\"login-form-password\" name=\"login-form-password\" class=\"form-control\" />\n                        </div>\n\n                        <div class=\"col_full nobottommargin\">\n                            <button (click)=\"login()\" class=\"button button-3d nomargin\" id=\"login-form-submit\" name=\"login-form-submit\" value=\"login\">Login</button>\n                        </div>\n\n                    </form>\n                </div>\n\n            </div>\n\n            <div class=\"col_two_third col_last nobottommargin\">\n\n\n                <h3>Don't have an Account? Register Now.</h3>\n\n                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde, vel odio non dicta provident sint ex autem mollitia dolorem illum repellat ipsum aliquid illo similique sapiente fugiat minus ratione.</p>\n\n                <form id=\"register-form\" name=\"register-form\" class=\"nobottommargin\" action=\"#\" method=\"post\">\n\n                    <div class=\"col_half\">\n                        <label for=\"register-form-name\">Name:</label>\n                        <input [(ngModel)]=\"regName\" type=\"text\" id=\"register-form-name\" name=\"register-form-name\" class=\"form-control\" />\n                    </div>\n\n                    <div class=\"col_half col_last\">\n                        <label for=\"register-form-email\">Email Address:</label>\n                        <input [(ngModel)]=\"regEmail\" type=\"text\" id=\"register-form-email\" name=\"register-form-email\" class=\"form-control\" />\n                    </div>\n\n\n                    <div class=\"clear\"></div>\n\n                    <div class=\"col_half\">\n                        <label for=\"register-form-password\">Choose Password:</label>\n                        <input [(ngModel)]=\"regPassword\" type=\"password\" id=\"register-form-password\" name=\"register-form-password\" class=\"form-control\" />\n                    </div>\n\n                    <div class=\"col_half col_last\">\n                        <label for=\"register-form-repassword\">Re-enter Password:</label>\n                        <input [(ngModel)]=\"regConfirmPassword\" type=\"password\" id=\"register-form-repassword\" name=\"register-form-repassword\" class=\"form-control\" />\n                    </div>\n\n                    <div class=\"clear\"></div>\n\n                    <div class=\"col_full nobottommargin\">\n                        <button (click)=\"register()\" class=\"button button-3d button-black nomargin\" id=\"register-form-submit\" name=\"register-form-submit\" value=\"register\">Register Now</button>\n                    </div>\n\n                </form>\n\n            </div>\n\n        </div>\n\n    </div>\n\n</section><!-- #content end -->\n\n<quietthyme-footer></quietthyme-footer>"
 
 /***/ }),
 
-/***/ 1003:
+/***/ 1066:
 /***/ (function(module, exports) {
 
 module.exports = "<div scrollSpy id=\"wrapper\" class=\"clearfix\" style=\"opacity: 1;\">\n    <!-- Routed views go here -->\n    <router-outlet></router-outlet>\n\n</div>\n\n\n<!-- Go To Top\n============================================= -->\n<div id=\"gotoTop\" class=\"icon-angle-up\"></div>"
 
 /***/ }),
 
-/***/ 1004:
+/***/ 1067:
 /***/ (function(module, exports) {
 
 module.exports = "<quietthyme-header></quietthyme-header>\n<quietthyme-page-title *ngIf=\"book\" title=\"Book Details\"></quietthyme-page-title>\n\n<!-- Content\n\t\t============================================= -->\n<section id=\"content\" class=\"footer-padding\">\n\n    <div class=\"content-wrap\">\n\n        <div class=\"container clearfix\">\n\n            <div class=\"row\">\n                <div class=\"col-md-offset-2 col-md-8\">\n                    <div class=\"single-post nobottommargin\">\n\n                        <!-- Single Post\n\t\t\t\t\t\t============================================= -->\n                        <div class=\"entry clearfix\" *ngIf=\"book\">\n\n                            <!-- Entry Title\n\t\t\t\t\t\t\t============================================= -->\n                            <div class=\"entry-title\">\n                                <h2>{{ book.title }}</h2>\n                            </div><!-- .entry-title end -->\n\n                            <!-- Entry Meta\n\t\t\t\t\t\t\t============================================= -->\n                            <ul class=\"entry-meta clearfix\">\n                                <li><i class=\"icon-calendar3\"></i> {{ book.created_at }}</li>\n                                <li><a href=\"#\"><i class=\"icon-user\"></i> {{ book.authors }}</a></li>\n                                <li *ngIf=\"book.series_name\"><i class=\"icon-folder-open\"></i> <a href=\"#\">{{ book.series_name }}</a> #{{ book.series_number }}</li>\n                                <li *ngIf=\"book.isbn || book.isbn10\"><i class=\"icon-bookmark2\"></i> <a href=\"#\">{{ book.isbn || book.isbn10 }}</a></li>\n                            </ul><!-- .entry-meta end -->\n\n                            <!-- Entry Content\n\t\t\t\t\t\t\t============================================= -->\n                            <div class=\"entry-content notopmargin\">\n\n                                <!-- Entry Image\n\t\t\t\t\t\t\t\t============================================= -->\n                                <div class=\"entry-image alignleft\">\n                                    <a href=\"#\">\n                                        <img *ngIf=\"book.cover\" src=\"https://s3.amazonaws.com/{{ book.cover }}\" alt=\"{{ book.title }}\">\n                                        <img *ngIf=\"!book.cover\" src=\"assets/images/noart.png\" alt=\"{{ book.title }}\">\n                                    </a>\n                                </div><!-- .entry-image end -->\n\n                                <markdown [data]=\"book.short_summary\"></markdown>\n                                <!-- Post Single - Content End -->\n\n                                <!-- Tag Cloud\n\t\t\t\t\t\t\t\t============================================= -->\n                                <div class=\"tagcloud clearfix bottommargin\">\n                                    <a href=\"#\" *ngFor=\"let tag of book.tags; let myIndex = index\">{{ tag }}</a>\n                                </div><!-- .tagcloud end -->\n\n                                <div class=\"clear\"></div>\n\n                                <!-- Post Single - Share\n\t\t\t\t\t\t\t\t============================================= -->\n                                <div class=\"si-share noborder clearfix\">\n                                    <span>Find on:</span>\n                                    <div>\n                                        <a *ngIf=\"book.amazon_id\" href=\"http://www.amazon.com/exec/obidos/ASIN/{{ book.amazon_id }}\" class=\"social-icon si-borderless si-amazon\">\n                                            <i class=\"icon-amazon\"></i>\n                                            <i class=\"icon-amazon\"></i>\n                                        </a>\n                                        <a *ngIf=\"book.google_id\" href=\"https://books.google.com/books?id={{ book.google_id }}\" class=\"social-icon si-borderless si-google\">\n                                            <i class=\"icon-google\"></i>\n                                            <i class=\"icon-google\"></i>\n                                        </a>\n                                        <a *ngIf=\"book.goodreads_id\" href=\"https://www.goodreads.com/book/show/{{ book.goodreads_id }}\" class=\"social-icon si-borderless si-goodreads\">\n                                            <i>g</i>\n                                            <i>g</i>\n                                        </a>\n                                    </div>\n                                </div><!-- Post Single - Share End -->\n\n                            </div>\n                        </div><!-- .entry end -->\n\n                    </div>\n                </div>\n            </div>\n\n\n        </div>\n\n    </div>\n\n</section><!-- #content end -->\n\n<quietthyme-footer></quietthyme-footer>"
 
 /***/ }),
 
-/***/ 1005:
+/***/ 1068:
 /***/ (function(module, exports) {
 
 module.exports = "<ng2-slim-loading-bar class=\"navbar-fixed-top\" [color]=\"'#128950'\" [height]=\"'3px'\"></ng2-slim-loading-bar>\n<quietthyme-header></quietthyme-header>\n<quietthyme-page-title title=\"Library\" subtitle=\"Your library is accessible anytime, anywhere, on any device\"></quietthyme-page-title>\n\n<!-- Content\n============================================= -->\n<section id=\"content\" class=\"footer-padding\" >\n\n    <div class=\"content-wrap\">\n\n        <div class=\"container clearfix\" >\n\n            <div class=\"row\" >\n\n                <!-- Sidebar\n\t            ============================================= -->\n                <div class=\"col-md-3\">\n                    <div class=\"sidebar-widgets-wrap\" [scrollSpyAffix]=\"{topMargin: 330}\">\n\n                        <div class=\"widget widget-filter-links clearfix\">\n\n                            <h4>Sort By</h4>\n                            <ul class=\"shop-sorting\">\n                                <li [ngClass]=\"{'active-filter': !filter.sort}\"><a class=\"cursor-pointer\" (click)=\"setSort(null)\">Title</a></li>\n                                <li [ngClass]=\"{'active-filter': filter.sort == 'authors'}\"><a class=\"cursor-pointer\" (click)=\"setSort('authors')\">Author</a></li>\n                                <li [ngClass]=\"{'active-filter': filter.sort == 'series_name'}\"><a class=\"cursor-pointer\" (click)=\"setSort('series_name')\">Series</a></li>\n                                <li [ngClass]=\"{'active-filter': filter.sort == 'created_at'}\"><a class=\"cursor-pointer\" (click)=\"setSort('created_at')\">Added Date</a></li>\n                            </ul>\n\n                        </div>\n\n                        <div class=\"widget widget-filter-links clearfix\">\n\n                            <h4>Storage</h4>\n                            <ul class=\"custom-filter\">\n                                <li [ngClass]=\"{'active-filter': !filter.storage}\"><a class=\"cursor-pointer\" (click)=\"setStorage(null)\">All</a></li>\n                                <li [ngClass]=\"{'active-filter': filter.storage == 'quietthyme'}\"><a class=\"cursor-pointer\" (click)=\"setStorage('quietthyme')\">QuietThyme</a></li>\n                                <li *ngIf=\"connected.box\" [ngClass]=\"{'active-filter': filter.storage == 'box'}\"><a class=\"cursor-pointer\" (click)=\"setStorage('box')\">Box</a></li>\n                                <li *ngIf=\"connected.dropbox\" [ngClass]=\"{'active-filter': filter.storage == 'dropbox'}\"><a class=\"cursor-pointer\" (click)=\"setStorage('dropbox')\">Dropbox</a></li>\n                                <li *ngIf=\"connected.gdrive\" [ngClass]=\"{'active-filter': filter.storage == 'gdrive'}\"><a class=\"cursor-pointer\" (click)=\"setStorage('gdrive')\">Google Drive</a></li>\n                                <li *ngIf=\"connected.skydrive\" [ngClass]=\"{'active-filter': filter.storage == 'skydrive'}\"><a class=\"cursor-pointer\" (click)=\"setStorage('skydrive')\">OneDrive</a></li>\n                            </ul>\n\n                        </div>\n\n\n\n                    </div>\n                </div><!-- .sidebar end -->\n\n                <div class=\"col-md-9\">\n                    <!-- Shop\n\t\t\t\t============================================= -->\n                    <masonry [useImagesLoaded]=\"true\" id=\"shop\" class=\"shop product-4 grid-container clearfix\" >\n\n                        <masonry-brick *ngFor=\"let book of bookList; let myIndex = index\" class=\"product brick\">\n                            <div class=\"product-image\">\n                                <a routerLink=\"/book/{{ book.id }}\" >\n                                    <img *ngIf=\"book.cover\" src=\"https://s3.amazonaws.com/{{ book.cover }}\" alt=\"{{ book.title }}\">\n                                    <img *ngIf=\"!book.cover\" src=\"assets/images/noart.png\" alt=\"{{ book.title }}\">\n                                </a>\n                                <div class=\"book-tag\" *ngIf=\"book.series_name\">{{ book.series_name }}</div>\n\n                                <div class=\"product-overlay\">\n                                    <a (click)=\"downloadBook(book)\" class=\"add-to-cart cursor-pointer\"><i class=\"icon-cloud-download\"></i><span> Download</span></a>\n                                    <a routerLink=\"/book/{{ book.id }}\" class=\"item-quick-view cursor-pointer\" data-lightbox=\"ajax\"><i class=\"icon-info-sign\"></i><span> Details</span></a>\n\n                                </div>\n                            </div>\n                            <div class=\"product-desc center\">\n                                <div class=\"product-title cursor-pointer\"><h3><a routerLink=\"/book/{{ book.id }}\">{{ book.title }}</a></h3></div>\n                                <div class=\"product-price\">{{ book.authors }}</div>\n                            </div>\n                        </masonry-brick>\n\n                    </masonry><!-- #shop end -->\n\n                </div>\n\n            </div>\n\n\n        </div>\n\n    </div>\n\n</section><!-- #content end -->\n\n<quietthyme-footer></quietthyme-footer>"
 
 /***/ }),
 
-/***/ 1006:
+/***/ 1069:
 /***/ (function(module, exports) {
 
 module.exports = "<!-- Footer\n============================================= -->\n<footer id=\"footer\" class=\"dark\">\n\n    <!-- Copyrights\n\t============================================= -->\n    <div id=\"copyrights\">\n\n        <div class=\"container clearfix\">\n\n            <div class=\"col_half\">\n                <img src=\"assets/images/logo/logo_2x.png\" style=\"max-width:150px\" class=\"footer-logo\">\n\n                Copyrights &copy; 2014 All Rights Reserved by QuietThyme Inc.\n            </div>\n\n            <div class=\"col_half col_last tright\">\n                <div class=\"copyrights-menu copyright-links fright clearfix\">\n                    <a href=\"#\">Home</a>/<a href=\"#\">About</a>/<a href=\"#\">Features</a>/<a href=\"#\">Portfolio</a>/<a href=\"#\">FAQs</a>/<a href=\"#\">Contact</a>\n                </div>\n                <div class=\"fright clearfix\">\n                    <a href=\"#\" class=\"social-icon si-small si-borderless nobottommargin si-facebook\">\n                        <i class=\"icon-facebook\"></i>\n                        <i class=\"icon-facebook\"></i>\n                    </a>\n\n                    <a href=\"#\" class=\"social-icon si-small si-borderless nobottommargin si-twitter\">\n                        <i class=\"icon-twitter\"></i>\n                        <i class=\"icon-twitter\"></i>\n                    </a>\n\n                    <a href=\"#\" class=\"social-icon si-small si-borderless nobottommargin si-gplus\">\n                        <i class=\"icon-gplus\"></i>\n                        <i class=\"icon-gplus\"></i>\n                    </a>\n\n                    <a href=\"#\" class=\"social-icon si-small si-borderless nobottommargin si-pinterest\">\n                        <i class=\"icon-pinterest\"></i>\n                        <i class=\"icon-pinterest\"></i>\n                    </a>\n\n                    <a href=\"#\" class=\"social-icon si-small si-borderless nobottommargin si-vimeo\">\n                        <i class=\"icon-vimeo\"></i>\n                        <i class=\"icon-vimeo\"></i>\n                    </a>\n\n                    <a href=\"#\" class=\"social-icon si-small si-borderless nobottommargin si-github\">\n                        <i class=\"icon-github\"></i>\n                        <i class=\"icon-github\"></i>\n                    </a>\n\n                    <a href=\"#\" class=\"social-icon si-small si-borderless nobottommargin si-yahoo\">\n                        <i class=\"icon-yahoo\"></i>\n                        <i class=\"icon-yahoo\"></i>\n                    </a>\n\n                    <a href=\"#\" class=\"social-icon si-small si-borderless nobottommargin si-linkedin\">\n                        <i class=\"icon-linkedin\"></i>\n                        <i class=\"icon-linkedin\"></i>\n                    </a>\n                </div>\n            </div>\n\n        </div>\n\n    </div><!-- #copyrights end -->\n\n</footer><!-- #footer end -->\n"
 
 /***/ }),
 
-/***/ 1007:
+/***/ 1070:
 /***/ (function(module, exports) {
 
 module.exports = "<!-- Header\n\t\t============================================= -->\n<header id=\"header\" class=\"full-header\">\n\n    <div id=\"header-wrap\">\n\n        <div class=\"container clearfix\">\n\n            <div id=\"primary-menu-trigger\"><i class=\"icon-reorder\"></i></div>\n\n            <!-- Logo\n\t\t\t\t============================================= -->\n            <div id=\"logo\">\n                <a href=\"/\" class=\"standard-logo\" data-dark-logo=\"assets/images/logo/logo_condensed.png\"><img style=\"padding: 7%;\" src=\"assets/images/logo/logo-large.png.svg\" alt=\"Canvas Logo\"></a>\n                <a href=\"/\" class=\"retina-logo\" data-dark-logo=\"assets/images/logo/logo_condensed.png\"><img style=\"padding: 7%;\" src=\"assets/images/logo/logo-large.png.svg\" alt=\"Canvas Logo\"></a>\n            </div><!-- #logo end -->\n\n            <!-- Primary Navigation\n\t\t\t============================================= -->\n            <nav id=\"primary-menu\">\n\n                <ul>\n                    <li><a href=\"/storage\"><div>Storage</div></a></li>\n                    <li><a href=\"/library\"><div>Library</div></a></li>\n                    <li><a href=\"/settings\"><div>Settings</div></a></li>\n                </ul>\n\n\n                <ul style=\"margin-right: 0px;padding-right: 0px;border-right: none;\">\n                    <li><a href=\"/storage\"><div>Logout</div></a></li>\n                </ul>\n\n\n\n\n            </nav><!-- #primary-menu end -->\n\n        </div>\n\n    </div>\n\n</header><!-- #header end -->"
 
 /***/ }),
 
-/***/ 1008:
+/***/ 1071:
 /***/ (function(module, exports) {
 
 module.exports = "<!-- Page Title\n============================================= -->\n<section id=\"page-title\">\n\n    <div class=\"container\">\n        <div class=\"row\">\n            <div class=\"col-md-6\">\n                <h1>{{ title }}</h1>\n                <span>{{ subtitle }}</span>\n            </div>\n            <div class=\"col-md-6 valign\">\n                <div class=\"text-center\">\n                    <i class=\"icon-question-sign\"></i>Your <strong>personal OPDS catalog</strong> is available at: <br/> http://catalog.quietthyme.com/beta/<strong>{{ catalogToken }}</strong></div>\n            </div>\n        </div>\n\n    </div>\n\n</section><!-- #page-title end -->\n\n"
 
 /***/ }),
 
-/***/ 1009:
+/***/ 1072:
 /***/ (function(module, exports) {
 
 module.exports = "<div class=\"row\" style=\"padding-bottom: 50px\">\n    <div class=\"card\">\n\n        <div class=\"card-img-top storage_container\">\n            <!-- populated doughnut chart -->\n            <canvas *ngIf=\"storageData\" class=\"graph\"\n                    baseChart\n                    [data]=\"chartData\"\n                    [chartType]=\"'doughnut'\"\n                    [options]=\"chartOptions\"\n                    [colors]=\"chartColors\"\n                    [legend]=\"false\"\n                    (chartHover)=\"chartHovered($event)\"\n                    (chartClick)=\"chartClicked($event)\"></canvas>\n\n            <!-- disconnected doughnut chart -->\n            <canvas *ngIf=\"!storageData\" class=\"graph\"\n                    baseChart\n                    [data]=\"disconnectedData\"\n                    [chartType]=\"'doughnut'\"\n                    [options]=\"chartOptions\"\n                    [colors]=\"disconnectedChartColors\"\n                    [legend]=\"false\"\n                    (chartHover)=\"chartHovered($event)\"\n                    (chartClick)=\"chartClicked($event)\"></canvas>\n\n            <img class=\"logo\" [ngClass]=\"{'disconnected': !storageData}\" [src]=\"storageLogo\">\n\n        </div>\n\n        <div class=\"card-block\">\n            <h4 class=\"card-title\">{{ storageType }}</h4>\n            <div class=\"card-text\">\n                <span *ngIf=\"storageType == 'quietthyme'\">This storage type is not available during beta.</span>\n\n                <span *ngIf=\"!storageData && storageType != 'quietthyme'\">Use the <strong>Add Storage</strong> button to connect this service.</span>\n                <span *ngIf=\"storageData\">{{ storageData.free_space |  fileSize}} free</span>\n\n\n            </div>\n        </div>\n        <div class=\"card-footer\" *ngIf=\"storageData\">\n            <div *ngIf=\"storageData\" class=\"btn-group\" dropdown>\n                <button [ngClass]=\"{'button-border': !storageData.location_code}\" type=\"button\" class=\"button button-mini button-rounded\" dropdownToggle>\n                    {{ storageData.location_code ? storageData.location_code : 'Calibre' }}\n                </button>\n                <ul dropdownMenu role=\"menu\" aria-labelledby=\"single-button\">\n                    <li role=\"menuitem\"><a class=\"dropdown-item\" href=\"#\">Main Drive</a></li>\n                    <li role=\"menuitem\"><a class=\"dropdown-item\" href=\"#\">A Drive</a></li>\n                    <li role=\"menuitem\"><a class=\"dropdown-item\" href=\"#\">B Drive</a></li>\n                    <li class=\"divider dropdown-divider\"></li>\n                    <li role=\"menuitem\"><a class=\"dropdown-item\" href=\"#\">Clear</a></li>\n                </ul>\n            </div>\n        </div>\n    </div>\n</div>\n\n"
 
 /***/ }),
 
-/***/ 1010:
+/***/ 1073:
 /***/ (function(module, exports) {
 
 module.exports = "<ng2-slim-loading-bar class=\"navbar-fixed-top\" [color]=\"'#128950'\" [height]=\"'3px'\"></ng2-slim-loading-bar>\n\n<quietthyme-header></quietthyme-header>\n<!-- Content\n============================================= -->\n<section id=\"content\">\n\n    <div class=\"content-wrap\">\n\n        <div class=\"container clearfix\">\n\n            <div class=\"row clearfix\">\n\n                <div class=\"col-md-offset-2 col-md-8\">\n                    <h1 class=\"text-center\">Privacy Policy</h1>\n\n\n                    <p>At QuietThyme, we collect and manage user data according to the following Privacy Policy, with the goal of incorporating our company values: transparency, accessibility, sanity, usability. This document is part of QuietThyme's Terms of Service, and by using QuietThyme.com (the \"Website\"), you agree to the terms of this Privacy Policy and the Terms of Service. Please read the Terms of Service in their entirety, and refer to those for definitions and contacts.</p>\n                    <p><strong>Data Collected</strong></p>\n                    <p>We collect anonymous data from every visitor of the Website to monitor traffic and fix bugs. For example, we collect information like web requests, the data sent in response to such requests, the Internet Protocol address, the browser type, the browser language, and a timestamp for the request.</p>\n                    <p>We ask you to log in and provide certain personal information (such as your email address and/or full name) in order to be able to save your profile and the ebooks, catalog, invoices, and other data associated with it.  In order to enable these or any other login based features, we use cookies to store session information for your convenience. Cookies are required to use the Website.</p>\n                    <p>You are able to view, change and remove your data associated with your profile. Should you choose to delete your account, please contact us at support@QuietThyme.com and we will follow up with such request as soon as possible. </p>\n                    <p><strong>Use of the Data</strong></p>\n                    <p>We only use your personal information to provide you the QuietThyme services or to communicate with you about the services or the Website.</p>\n                    <p>With respect to any data you may upload to QuietThyme, we take the privacy and confidentiality of such data seriously.</p>\n                    <p>We employ industry standard security techniques to protect against unauthorized access of data about you that we store, including personal information.</p>\n                    <p><strong>We do not share personal information you have provided to us without your consent</strong>, unless:</p>\n                    <ul>\n                        <li>doing so is appropriate to carry out a user’s request;</li>\n                        <li>we believe it's needed to enforce our Terms of Service, or that is legally required;</li>\n                        <li>we believe it's needed to detect, prevent or address fraud, security or technical issues;</li>\n                        <li>otherwise protect our property, legal rights, or that of others.</li>\n                    </ul>\n                    <p>QuietThyme is operated from Canada. If you are visiting the Website from outside Canada, you agree to any processing of any personal information you provide us according to this policy.</p>\n                    <p>QuietThyme may contact you, by email or other means. For example, QuietThyme may send you promotional emails relating to QuietThyme that we feel you would be interested in, or communicate with you about your use of the QuietThyme website. QuietThyme may also use technology to alert us via a confirmation email when you open an email from us. If you do not want to receive email from QuietThyme, please opt out of receiving emails at the bottom of any QuietThyme emails or by editing you profile preferences.</p>\n                    <p><strong>Sharing of Data</strong></p>\n                    <p>We don't sell your personal information to third parties. Aggregated, anonymized data is periodically transmitted to external services to help us improve the QuietThyme Website and service, and in some cases your user identifiers (your username or email address) may be transmitted to external services for the same reason. We currently use Google Analytics (traffic analysis, SEO optimization) but we reserve the right to include other third party analytics services in the future. We listed below what data these third parties extract exactly. Feel free to check out their own Privacy Policies to find out more.</p>\n                    <ul>\n                        <li>Google Analytics: anonymous (ad serving domains, browser type, demographics, language settings, page views, time/date), pseudonymous (IP address)</li>\n                    </ul>\n                    <p>We may also use social buttons provided by services like Twitter, Google+ and Facebook. Your use of these third party services is entirely optional. We are not responsible for the privacy policies and/or practices of these third party services, and you are responsible for reading and understanding those third party services’ privacy policies.</p>\n                    <p><strong>Changes to the Privacy Policy</strong></p>\n                    <p>We may amend this Privacy Policy from time to time. Use of information we collect now is subject to the Privacy Policy in effect at the time such information is used. If we make changes in the way we collect or use information, we will notify you by posting an announcement on the Website or sending you an email. A user is bound by any changes to the Privacy Policy when he or she uses the Services after such changes have been first posted.</p>\n                    <p>Should you have any question or concern, please write to support@QuietThyme.com</p>\n\n\n\n\n                </div>\n\n\n            </div>\n\n        </div>\n\n    </div>\n\n</section><!-- #content end -->\n\n<quietthyme-footer></quietthyme-footer>\n"
 
 /***/ }),
 
-/***/ 1011:
+/***/ 1074:
 /***/ (function(module, exports) {
 
 module.exports = "<ng2-slim-loading-bar class=\"navbar-fixed-top\" [color]=\"'#128950'\" [height]=\"'3px'\"></ng2-slim-loading-bar>\n\n<quietthyme-header></quietthyme-header>\n<!-- Content\n============================================= -->\n<section id=\"content\">\n\n    <div class=\"content-wrap\">\n\n        <div class=\"container clearfix\">\n\n            <div class=\"row clearfix\">\n\n                <div class=\"col-md-offset-1 col-md-10\">\n\n                    <img gravatar [email]=\"userData.email\"  [size]=\"84\" class=\"alignleft img-circle img-thumbnail notopmargin nobottommargin\" alt=\"Avatar\" style=\"max-width: 84px;\">\n\n                    <div class=\"heading-block noborder\">\n                        <h3>{{ userData.name }}</h3>\n                        <span>Settings</span>\n                    </div>\n\n                    <div class=\"clear\"></div>\n\n                    <div class=\"row clearfix\">\n\n                        <div class=\"col-md-12\">\n                            <tabset #settingsTabs>\n                                <tab>\n                                    <template tabHeading>\n                                        <i class=\"icon-bookmark2\"></i> Catalog\n                                    </template>\n\n                                    <p class=\"\">The Open Publication Distribution System (OPDS) catalog format is a syndication\n                                        format for electronic publications based on Atom and HTTP. Every QuietThyme user\n                                        gets their own unique Catalog url. When paired with a OPDS compatible ebook reader,\n                                        like Marvin (iOS), Aldiko (Android), Bluefire (Both), you can access your ebook\n                                        library anytime, anywhere, on any device.\n\n                                    </p>\n\n                                    <div class=\"well\">http://catalog.quietthyme.com/beta/<strong>{{ userData.catalog_token }}</strong></div>\n\n                                </tab>\n                                <tab>\n                                    <template tabHeading>\n                                        <i class=\"icon-credit\"></i> Plans\n                                    </template>\n                                    <div class=\"pricing bottommargin clearfix\">\n                                        <div class=\"col-sm-4\">\n\n                                            <div class=\"pricing-box\">\n                                                <div class=\"pricing-title\">\n                                                    <h3>Basic</h3>\n                                                </div>\n                                                <div class=\"pricing-price\">\n                                                    <span class=\"price-unit\">$</span>5<span class=\"price-tenure\">/mo</span>\n                                                </div>\n                                                <div class=\"pricing-features\">\n                                                    <ul>\n                                                        <li>Personal <strong>OPDS</strong> Catalog</li>\n                                                        <li><strong>1</strong> Cloud Connector <br><small>Dropbox, GDrive, OneDrive, Box</small></li>\n                                                        <li><strong>Drag & Drop</strong> Book Uploads<br/><small>Using Blackhole folders</small></li>\n                                                        <li>Chat &amp; Email Support</li>\n                                                    </ul>\n                                                </div>\n                                                <div class=\"pricing-action\">\n\n                                                    <button *ngIf=\"userData.plan == 'basic'\" class=\"button button-large button-rounded disabled\" >Current</button>\n                                                    <button *ngIf=\"userData.plan != 'basic'\"\n                                                            stripeCheckoutButton\n                                                            [planId]=\"'basic_1'\"\n                                                            [planName]=\"'Basic Plan'\"\n                                                            [planCost]=\"500\"\n                                                            (onCheckout)=\"stripeCheckoutCompleted($event)\"\n                                                            class=\"button button-large button-rounded button-border button-dark noleftmargin\">Subscribe</button>\n                                                </div>\n                                            </div>\n\n                                        </div>\n                                        <div class=\"col-sm-4\">\n\n                                            <div class=\"pricing-box best-price\">\n                                                <div class=\"pricing-title\">\n                                                    <h3>Reader</h3>\n                                                    <span>Most Popular</span>\n                                                </div>\n                                                <div class=\"pricing-price\">\n                                                    <span class=\"price-unit\">$</span>10<span class=\"price-tenure\">/mo</span>\n                                                </div>\n                                                <div class=\"pricing-features\">\n                                                    <ul>\n                                                        <li>Personal <strong>OPDS</strong> Catalog</li>\n                                                        <li><strong>2</strong> Cloud Connectors <br><small>Dropbox, GDrive, OneDrive, Box</small></li>\n                                                        <li><strong>Drag & Drop</strong> Book Uploads<br/><small>Using Blackhole folders</small></li>\n                                                        <li><strong>Calibre</strong> Integration</li>\n\n                                                        <li><strong>100mb</strong> QuietThyme Storage</li>\n                                                        <li>Chat &amp; Email Support</li>\n                                                        <li><i class=\"icon-star3\"></i>\n                                                            <i class=\"icon-star3\"></i>\n                                                            <i class=\"icon-star3\"></i>\n                                                            <i class=\"icon-star3\"></i>\n                                                            <i class=\"icon-star3\"></i></li>\n                                                    </ul>\n                                                </div>\n                                                <div class=\"pricing-action\">\n                                                    <button *ngIf=\"userData.plan == 'reader'\" class=\"button button-large button-rounded disabled\" >Current</button>\n\n                                                    <button *ngIf=\"userData.plan != 'reader'\"\n                                                            stripeCheckoutButton\n                                                            [planId]=\"'reader_1'\"\n                                                            [planName]=\"'Reader Plan'\"\n                                                            [planCost]=\"1000\"\n                                                            (onCheckout)=\"stripeCheckoutCompleted($event)\"\n                                                            [ngClass]=\"{'button-border button-dark noleftmargin' : userData.plan != 'none' && userData.plan != 'reader'}\"\n                                                            class=\"button button-large button-rounded\">Subscribe</button>\n                                                </div>\n                                            </div>\n\n                                        </div>\n\n                                        <div class=\"col-sm-4\">\n\n                                            <div class=\"pricing-box\">\n                                                <div class=\"pricing-title\">\n                                                    <h3>Library</h3>\n                                                </div>\n                                                <div class=\"pricing-price\">\n                                                    <span class=\"price-unit\">$</span>30<span class=\"price-tenure\">/mo</span>\n                                                </div>\n                                                <div class=\"pricing-features\">\n                                                    <ul>\n                                                        <li>Personal <strong>OPDS</strong> Catalog</li>\n                                                        <li><strong>All</strong> Cloud Connectors <br><small>Dropbox, GDrive, OneDrive, Box</small></li>\n                                                        <li><strong>Drag & Drop</strong> Book Uploads<br/><small>Using Blackhole folders</small></li>\n\n                                                        <li><strong>Calibre</strong> Integration</li>\n\n                                                        <li><strong>Unlimited!</strong> QuietThyme Storage</li>\n                                                        <li>Chat &amp; Email Support</li>\n                                                    </ul>\n                                                </div>\n                                                <div class=\"pricing-action\">\n                                                    <button *ngIf=\"userData.plan == 'library'\" class=\"button button-large button-rounded disabled\" >Current</button>\n\n                                                    <button *ngIf=\"userData.plan != 'library'\"\n                                                            stripeCheckoutButton\n                                                            [planId]=\"'library_1'\"\n                                                            [planName]=\"'Library Plan'\"\n                                                            [planCost]=\"2000\"\n                                                            (onCheckout)=\"stripeCheckoutCompleted($event)\"\n                                                            class=\"button button-border button-rounded button-large button-dark noleftmargin\">Subscribe</button>\n                                                </div>\n                                            </div>\n                                        </div>\n                                    </div>\n                                </tab>\n                            </tabset>\n                        </div>\n\n                    </div>\n\n                </div>\n\n\n            </div>\n\n        </div>\n\n    </div>\n\n</section><!-- #content end -->\n\n<quietthyme-footer></quietthyme-footer>\n"
 
 /***/ }),
 
-/***/ 1012:
+/***/ 1075:
 /***/ (function(module, exports) {
 
 module.exports = "<ng2-slim-loading-bar class=\"navbar-fixed-top\" [color]=\"'#128950'\" [height]=\"'3px'\"></ng2-slim-loading-bar>\n\n<quietthyme-header></quietthyme-header>\n<quietthyme-page-title title=\"Storage\" subtitle=\"Connect your cloud storage accounts\"></quietthyme-page-title>\n\n<!-- Content\n\t\t============================================= -->\n<section id=\"content\" class=\"footer-padding\">\n\n    <div class=\"content-wrap\">\n\n        <div class=\"container clearfix\">\n\n            <div class=\"row\">\n                <div class=\"col-md-3\">\n                    <div class=\"sidebar-widgets-wrap\">\n\n                        <div class=\"widget subscribe-widget clearfix\">\n                            <div class=\"dark\" style=\"padding: 25px; background-color: #383838; border-radius: 2px;\">\n                                <div class=\"fancy-title title-border\">\n                                    <h4>Connect</h4>\n                                </div>\n\n                                <p style=\"font-size: 15px; line-height: 1.5; color: #999;\">Before using QuietThyme, you should connect your personal cloud storage providers.</p>\n                                <div class=\"widget-subscribe-form-result\"></div>\n                                <form id=\"widget-subscribe-form2\" action=\"include/subscribe.php\" role=\"form\" method=\"post\" class=\"nobottommargin\">\n                                    <button class=\"button button-3d btn-block button-small nomargin\" style=\"margin-top: 15px !important;\"\n                                            [disabled]=\"loading.link\"\n                                            kloudlessAuthenticator\n                                            [clientId]=\"'mddXeszdchTlRQEFN3LGhxLzqaTjgYwbXGLHCeXOqJdrzRyd'\"\n                                            [scope]=\"'gdrive box dropbox skydrive'\"\n                                            (onAuthenticated)=\"kloudlessAuthenticatedStorage($event)\"\n                                    >\n                                        Add Storage\n                                    </button>\n\n                                </form>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n\n                <div class=\"col-md-9\">\n                    <div class=\"row\">\n                        <div class=\"col-md-4\" *ngFor=\"let storageType of allNames; let myIndex = index\">\n                            <quietthyme-storage-panel [storageType]=\"storageType\" [storageData]=\"connected[storageType]\"></quietthyme-storage-panel>\n                        </div>\n                    </div>\n                </div>\n\n\n\n            </div>\n\n        </div>\n\n    </div>\n\n</section><!-- #content end -->\n\n\n\n\n\n<quietthyme-footer></quietthyme-footer>"
 
 /***/ }),
 
-/***/ 1065:
+/***/ 1127:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(626);
+module.exports = __webpack_require__(637);
 
 
 /***/ }),
 
-/***/ 241:
+/***/ 240:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -121,7 +452,7 @@ var environment = {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_rxjs_ReplaySubject__ = __webpack_require__(288);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_rxjs_ReplaySubject__ = __webpack_require__(287);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_rxjs_ReplaySubject___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_rxjs_ReplaySubject__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CacheService; });
@@ -166,15 +497,15 @@ var CacheService = (function () {
 
 /***/ }),
 
-/***/ 47:
+/***/ 48:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angular2_jwt__ = __webpack_require__(242);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angular2_jwt__ = __webpack_require__(241);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angular2_jwt___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_angular2_jwt__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(86);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_settings__ = __webpack_require__(756);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(87);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_settings__ = __webpack_require__(767);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_cache_service__ = __webpack_require__(383);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ApiService; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -318,7 +649,7 @@ var ApiService = (function () {
 
 /***/ }),
 
-/***/ 625:
+/***/ 636:
 /***/ (function(module, exports) {
 
 function webpackEmptyContext(req) {
@@ -327,20 +658,20 @@ function webpackEmptyContext(req) {
 webpackEmptyContext.keys = function() { return []; };
 webpackEmptyContext.resolve = webpackEmptyContext;
 module.exports = webpackEmptyContext;
-webpackEmptyContext.id = 625;
+webpackEmptyContext.id = 636;
 
 
 /***/ }),
 
-/***/ 626:
+/***/ 637:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(722);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(733);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__environments_environment__ = __webpack_require__(241);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_app_module__ = __webpack_require__(758);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__environments_environment__ = __webpack_require__(240);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_app_module__ = __webpack_require__(769);
 
 
 
@@ -353,14 +684,14 @@ __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dyna
 
 /***/ }),
 
-/***/ 754:
+/***/ 765:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_api_service__ = __webpack_require__(47);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_api_service__ = __webpack_require__(48);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__(73);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ng2_slim_loading_bar__ = __webpack_require__(123);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ng2_slim_loading_bar__ = __webpack_require__(124);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AccountLoginComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -414,8 +745,8 @@ var AccountLoginComponent = (function () {
     AccountLoginComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-account-login',
-            template: __webpack_require__(1001),
-            styles: [__webpack_require__(989)]
+            template: __webpack_require__(1064),
+            styles: [__webpack_require__(1052)]
         }), 
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_3_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */]) === 'function' && _b) || Object, (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */]) === 'function' && _c) || Object, (typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["c" /* ActivatedRoute */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__angular_router__["c" /* ActivatedRoute */]) === 'function' && _d) || Object])
     ], AccountLoginComponent);
@@ -426,12 +757,12 @@ var AccountLoginComponent = (function () {
 
 /***/ }),
 
-/***/ 755:
+/***/ 766:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_api_service__ = __webpack_require__(47);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_api_service__ = __webpack_require__(48);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__(73);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AccountRegisterComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -477,8 +808,8 @@ var AccountRegisterComponent = (function () {
     AccountRegisterComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-account-register',
-            template: __webpack_require__(1002),
-            styles: [__webpack_require__(990)]
+            template: __webpack_require__(1065),
+            styles: [__webpack_require__(1053)]
         }), 
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */]) === 'function' && _b) || Object, (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["c" /* ActivatedRoute */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__angular_router__["c" /* ActivatedRoute */]) === 'function' && _c) || Object])
     ], AccountRegisterComponent);
@@ -489,11 +820,11 @@ var AccountRegisterComponent = (function () {
 
 /***/ }),
 
-/***/ 756:
+/***/ 767:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__environments_environment__ = __webpack_require__(241);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__environments_environment__ = __webpack_require__(240);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppSettings; });
 
 var AppSettings = (function () {
@@ -510,12 +841,12 @@ var AppSettings = (function () {
 
 /***/ }),
 
-/***/ 757:
+/***/ 768:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__rxjs_operators__ = __webpack_require__(767);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__rxjs_operators__ = __webpack_require__(778);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -537,8 +868,8 @@ var AppComponent = (function () {
     AppComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-root',
-            template: __webpack_require__(1003),
-            styles: [__webpack_require__(1000)]
+            template: __webpack_require__(1066),
+            styles: [__webpack_require__(1063)]
         }), 
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewContainerRef"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewContainerRef"]) === 'function' && _a) || Object])
     ], AppComponent);
@@ -549,46 +880,46 @@ var AppComponent = (function () {
 
 /***/ }),
 
-/***/ 758:
+/***/ 769:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(161);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(162);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(27);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(86);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(87);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_router__ = __webpack_require__(73);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_component__ = __webpack_require__(757);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__account_login_account_login_component__ = __webpack_require__(754);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__account_register_account_register_component__ = __webpack_require__(755);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__shared_kloudless_authenticator_directive__ = __webpack_require__(771);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__partials_footer_footer_component__ = __webpack_require__(762);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__partials_page_title_page_title_component__ = __webpack_require__(764);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__partials_header_header_component__ = __webpack_require__(763);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__storage_storage_component__ = __webpack_require__(773);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__library_library_component__ = __webpack_require__(760);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__book_details_book_details_component__ = __webpack_require__(759);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__partials_storage_panel_storage_panel_component__ = __webpack_require__(765);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__settings_settings_component__ = __webpack_require__(769);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__privacy_privacy_component__ = __webpack_require__(766);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__shared_stripe_checkout_button_directive__ = __webpack_require__(772);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__shared_file_size_pipe__ = __webpack_require__(770);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__services_api_service__ = __webpack_require__(47);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_component__ = __webpack_require__(768);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__account_login_account_login_component__ = __webpack_require__(765);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__account_register_account_register_component__ = __webpack_require__(766);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__shared_kloudless_authenticator_directive__ = __webpack_require__(782);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__partials_footer_footer_component__ = __webpack_require__(773);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__partials_page_title_page_title_component__ = __webpack_require__(775);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__partials_header_header_component__ = __webpack_require__(774);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__storage_storage_component__ = __webpack_require__(784);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__library_library_component__ = __webpack_require__(771);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__book_details_book_details_component__ = __webpack_require__(770);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__partials_storage_panel_storage_panel_component__ = __webpack_require__(776);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__settings_settings_component__ = __webpack_require__(780);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__privacy_privacy_component__ = __webpack_require__(777);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__shared_stripe_checkout_button_directive__ = __webpack_require__(783);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__shared_file_size_pipe__ = __webpack_require__(781);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__services_api_service__ = __webpack_require__(48);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__services_cache_service__ = __webpack_require__(383);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__services_auth_guard_service__ = __webpack_require__(768);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23_angular2_jwt__ = __webpack_require__(242);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__services_auth_guard_service__ = __webpack_require__(779);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23_angular2_jwt__ = __webpack_require__(241);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_23_angular2_jwt___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_23_angular2_jwt__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24_ng2_bootstrap__ = __webpack_require__(557);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25_ng2_slim_loading_bar__ = __webpack_require__(123);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26_angular2_markdown__ = __webpack_require__(774);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27_angular2_masonry__ = __webpack_require__(752);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28_ng2_scrollspy__ = __webpack_require__(285);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24_ng2_bootstrap__ = __webpack_require__(566);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25_ng2_slim_loading_bar__ = __webpack_require__(124);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26_angular2_markdown__ = __webpack_require__(785);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27_angular2_masonry__ = __webpack_require__(763);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28_ng2_scrollspy__ = __webpack_require__(284);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_28_ng2_scrollspy___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_28_ng2_scrollspy__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29_ng2_scrollspy_dist_plugin_affix_directive__ = __webpack_require__(974);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29_ng2_scrollspy_dist_plugin_affix_directive__ = __webpack_require__(1032);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_29_ng2_scrollspy_dist_plugin_affix_directive___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_29_ng2_scrollspy_dist_plugin_affix_directive__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30_ng2_charts_ng2_charts__ = __webpack_require__(972);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30_ng2_charts_ng2_charts__ = __webpack_require__(1030);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_30_ng2_charts_ng2_charts___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_30_ng2_charts_ng2_charts__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31_ng2_gravatar_directive__ = __webpack_require__(973);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31_ng2_gravatar_directive__ = __webpack_require__(1031);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_31_ng2_gravatar_directive___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_31_ng2_gravatar_directive__);
 /* unused harmony export getAuthHttp */
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
@@ -714,12 +1045,12 @@ var AppModule = (function () {
 
 /***/ }),
 
-/***/ 759:
+/***/ 770:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_api_service__ = __webpack_require__(47);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_api_service__ = __webpack_require__(48);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__(73);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BookDetailsComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -751,8 +1082,8 @@ var BookDetailsComponent = (function () {
     BookDetailsComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-book-details',
-            template: __webpack_require__(1004),
-            styles: [__webpack_require__(991)]
+            template: __webpack_require__(1067),
+            styles: [__webpack_require__(1054)]
         }), 
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */]) === 'function' && _b) || Object, (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["c" /* ActivatedRoute */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__angular_router__["c" /* ActivatedRoute */]) === 'function' && _c) || Object])
     ], BookDetailsComponent);
@@ -763,16 +1094,16 @@ var BookDetailsComponent = (function () {
 
 /***/ }),
 
-/***/ 760:
+/***/ 771:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_api_service__ = __webpack_require__(47);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ng2_slim_loading_bar__ = __webpack_require__(123);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ng2_scrollspy__ = __webpack_require__(285);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_api_service__ = __webpack_require__(48);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ng2_slim_loading_bar__ = __webpack_require__(124);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ng2_scrollspy__ = __webpack_require__(284);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ng2_scrollspy___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_ng2_scrollspy__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_file_saver__ = __webpack_require__(939);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_file_saver__ = __webpack_require__(998);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_file_saver___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_file_saver__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LibraryComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -804,7 +1135,7 @@ var LibraryComponent = (function () {
             sort: null,
             storage: null,
             storage_id: null,
-            page: '0'
+            page: ''
         };
         this.connected = {
             quietthyme: false,
@@ -844,9 +1175,10 @@ var LibraryComponent = (function () {
         this.loading.list = true;
         this.slimLoadingBarService.start();
         this.apiService.bookList(this.filter)
-            .subscribe(function (books) {
-            console.log(books);
-            _this.bookList = books;
+            .subscribe(function (book_data) {
+            console.log(book_data);
+            _this.bookList = book_data.Items;
+            _this.filter.page = book_data.LastEvaluatedKey;
             // .map(function(book){
             //     book.cover = encodeURI(book.cover).replace(/%20/g, '+')
             //     return book
@@ -877,7 +1209,7 @@ var LibraryComponent = (function () {
             return; //user clicked an active filter
         this.filter.storage = storage || null;
         this.filter.storage_id = this.storages[storage] ? this.storages[storage].storage_id : null;
-        this.filter.page = '0';
+        this.filter.page = '';
         console.log("CHANGED STORAGE FILTER", this.filter.storage);
         this.bookList = [];
         this.getBookList();
@@ -886,7 +1218,7 @@ var LibraryComponent = (function () {
         if (sort == this.filter.sort)
             return; //user clicked an active filter
         this.filter.sort = sort || null;
-        this.filter.page = '0';
+        this.filter.page = '';
         console.log("CHANGED SORT FILTER", this.filter.sort);
         this.bookList = [];
         this.getBookList();
@@ -894,8 +1226,8 @@ var LibraryComponent = (function () {
     LibraryComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-library',
-            template: __webpack_require__(1005),
-            styles: [__webpack_require__(992)]
+            template: __webpack_require__(1068),
+            styles: [__webpack_require__(1055)]
         }), 
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */]) === 'function' && _b) || Object, (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3_ng2_scrollspy__["ScrollSpyService"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_3_ng2_scrollspy__["ScrollSpyService"]) === 'function' && _c) || Object])
     ], LibraryComponent);
@@ -906,7 +1238,7 @@ var LibraryComponent = (function () {
 
 /***/ }),
 
-/***/ 761:
+/***/ 772:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -920,7 +1252,7 @@ var StorageStatus = (function () {
 
 /***/ }),
 
-/***/ 762:
+/***/ 773:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -944,8 +1276,8 @@ var FooterComponent = (function () {
     FooterComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'quietthyme-footer',
-            template: __webpack_require__(1006),
-            styles: [__webpack_require__(993)]
+            template: __webpack_require__(1069),
+            styles: [__webpack_require__(1056)]
         }), 
         __metadata('design:paramtypes', [])
     ], FooterComponent);
@@ -955,7 +1287,7 @@ var FooterComponent = (function () {
 
 /***/ }),
 
-/***/ 763:
+/***/ 774:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -979,8 +1311,8 @@ var HeaderComponent = (function () {
     HeaderComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'quietthyme-header',
-            template: __webpack_require__(1007),
-            styles: [__webpack_require__(994)]
+            template: __webpack_require__(1070),
+            styles: [__webpack_require__(1057)]
         }), 
         __metadata('design:paramtypes', [])
     ], HeaderComponent);
@@ -990,12 +1322,12 @@ var HeaderComponent = (function () {
 
 /***/ }),
 
-/***/ 764:
+/***/ 775:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angular2_jwt__ = __webpack_require__(242);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angular2_jwt__ = __webpack_require__(241);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angular2_jwt___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_angular2_jwt__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PageTitleComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -1033,8 +1365,8 @@ var PageTitleComponent = (function () {
     PageTitleComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'quietthyme-page-title',
-            template: __webpack_require__(1008),
-            styles: [__webpack_require__(995)]
+            template: __webpack_require__(1071),
+            styles: [__webpack_require__(1058)]
         }), 
         __metadata('design:paramtypes', [])
     ], PageTitleComponent);
@@ -1044,12 +1376,12 @@ var PageTitleComponent = (function () {
 
 /***/ }),
 
-/***/ 765:
+/***/ 776:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__models_storage_status__ = __webpack_require__(761);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__models_storage_status__ = __webpack_require__(772);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return StoragePanelComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1113,8 +1445,8 @@ var StoragePanelComponent = (function () {
     StoragePanelComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'quietthyme-storage-panel',
-            template: __webpack_require__(1009),
-            styles: [__webpack_require__(996)]
+            template: __webpack_require__(1072),
+            styles: [__webpack_require__(1059)]
         }), 
         __metadata('design:paramtypes', [])
     ], StoragePanelComponent);
@@ -1125,7 +1457,7 @@ var StoragePanelComponent = (function () {
 
 /***/ }),
 
-/***/ 766:
+/***/ 777:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1149,8 +1481,8 @@ var PrivacyComponent = (function () {
     PrivacyComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-privacy',
-            template: __webpack_require__(1010),
-            styles: [__webpack_require__(997)]
+            template: __webpack_require__(1073),
+            styles: [__webpack_require__(1060)]
         }), 
         __metadata('design:paramtypes', [])
     ], PrivacyComponent);
@@ -1160,25 +1492,25 @@ var PrivacyComponent = (function () {
 
 /***/ }),
 
-/***/ 767:
+/***/ 778:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_rxjs_add_observable_throw__ = __webpack_require__(595);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_rxjs_add_observable_throw__ = __webpack_require__(604);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_rxjs_add_observable_throw___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_rxjs_add_observable_throw__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_catch__ = __webpack_require__(596);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_catch__ = __webpack_require__(605);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_catch___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_catch__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_debounceTime__ = __webpack_require__(597);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_debounceTime__ = __webpack_require__(606);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_debounceTime___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_debounceTime__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_distinctUntilChanged__ = __webpack_require__(1018);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_distinctUntilChanged__ = __webpack_require__(1081);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_distinctUntilChanged___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_distinctUntilChanged__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map__ = __webpack_require__(289);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map__ = __webpack_require__(288);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_switchMap__ = __webpack_require__(1020);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_switchMap__ = __webpack_require__(1082);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_switchMap___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_switchMap__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_toPromise__ = __webpack_require__(1022);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_toPromise__ = __webpack_require__(1084);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_toPromise___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_toPromise__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_rxjs_observable_TimerObservable__ = __webpack_require__(1027);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_rxjs_observable_TimerObservable__ = __webpack_require__(1089);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_rxjs_observable_TimerObservable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_rxjs_observable_TimerObservable__);
 // import 'rxjs/Rx'; // adds ALL RxJS statics & operators to Observable
 
@@ -1193,13 +1525,13 @@ var PrivacyComponent = (function () {
 
 /***/ }),
 
-/***/ 768:
+/***/ 779:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__(73);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__api_service__ = __webpack_require__(47);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__api_service__ = __webpack_require__(48);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AuthGuard; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1250,15 +1582,15 @@ var AuthGuard = (function () {
 
 /***/ }),
 
-/***/ 769:
+/***/ 780:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_api_service__ = __webpack_require__(47);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_api_service__ = __webpack_require__(48);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__(73);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ng2_bootstrap__ = __webpack_require__(557);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ng2_slim_loading_bar__ = __webpack_require__(123);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ng2_bootstrap__ = __webpack_require__(566);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ng2_slim_loading_bar__ = __webpack_require__(124);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SettingsComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1313,8 +1645,8 @@ var SettingsComponent = (function () {
     SettingsComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-settings',
-            template: __webpack_require__(1011),
-            styles: [__webpack_require__(998)]
+            template: __webpack_require__(1074),
+            styles: [__webpack_require__(1061)]
         }), 
         __metadata('design:paramtypes', [(typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_4_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_4_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */]) === 'function' && _b) || Object, (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */]) === 'function' && _c) || Object, (typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["c" /* ActivatedRoute */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__angular_router__["c" /* ActivatedRoute */]) === 'function' && _d) || Object])
     ], SettingsComponent);
@@ -1325,7 +1657,7 @@ var SettingsComponent = (function () {
 
 /***/ }),
 
-/***/ 770:
+/***/ 781:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1384,7 +1716,7 @@ var FileSizePipe = (function () {
 
 /***/ }),
 
-/***/ 771:
+/***/ 782:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1441,13 +1773,13 @@ var KloudlessAuthenticatorDirective = (function () {
 
 /***/ }),
 
-/***/ 772:
+/***/ 783:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__environments_environment__ = __webpack_require__(241);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_api_service__ = __webpack_require__(47);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__environments_environment__ = __webpack_require__(240);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_api_service__ = __webpack_require__(48);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return StripeCheckoutButtonDirective; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1527,13 +1859,13 @@ var StripeCheckoutButtonDirective = (function () {
 
 /***/ }),
 
-/***/ 773:
+/***/ 784:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_api_service__ = __webpack_require__(47);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ng2_slim_loading_bar__ = __webpack_require__(123);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_api_service__ = __webpack_require__(48);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ng2_slim_loading_bar__ = __webpack_require__(124);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return StorageComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1593,8 +1925,8 @@ var StorageComponent = (function () {
     StorageComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-storage',
-            template: __webpack_require__(1012),
-            styles: [__webpack_require__(999)]
+            template: __webpack_require__(1075),
+            styles: [__webpack_require__(1062)]
         }), 
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */]) === 'function' && _b) || Object])
     ], StorageComponent);
@@ -1603,324 +1935,7 @@ var StorageComponent = (function () {
 }());
 //# sourceMappingURL=/home/ubuntu/quietthyme.web.src/src/storage.component.js.map
 
-/***/ }),
-
-/***/ 947:
-/***/ (function(module, exports, __webpack_require__) {
-
-var map = {
-	"./af": 427,
-	"./af.js": 427,
-	"./ar": 433,
-	"./ar-dz": 428,
-	"./ar-dz.js": 428,
-	"./ar-ly": 429,
-	"./ar-ly.js": 429,
-	"./ar-ma": 430,
-	"./ar-ma.js": 430,
-	"./ar-sa": 431,
-	"./ar-sa.js": 431,
-	"./ar-tn": 432,
-	"./ar-tn.js": 432,
-	"./ar.js": 433,
-	"./az": 434,
-	"./az.js": 434,
-	"./be": 435,
-	"./be.js": 435,
-	"./bg": 436,
-	"./bg.js": 436,
-	"./bn": 437,
-	"./bn.js": 437,
-	"./bo": 438,
-	"./bo.js": 438,
-	"./br": 439,
-	"./br.js": 439,
-	"./bs": 440,
-	"./bs.js": 440,
-	"./ca": 441,
-	"./ca.js": 441,
-	"./cs": 442,
-	"./cs.js": 442,
-	"./cv": 443,
-	"./cv.js": 443,
-	"./cy": 444,
-	"./cy.js": 444,
-	"./da": 445,
-	"./da.js": 445,
-	"./de": 447,
-	"./de-at": 446,
-	"./de-at.js": 446,
-	"./de.js": 447,
-	"./dv": 448,
-	"./dv.js": 448,
-	"./el": 449,
-	"./el.js": 449,
-	"./en-au": 450,
-	"./en-au.js": 450,
-	"./en-ca": 451,
-	"./en-ca.js": 451,
-	"./en-gb": 452,
-	"./en-gb.js": 452,
-	"./en-ie": 453,
-	"./en-ie.js": 453,
-	"./en-nz": 454,
-	"./en-nz.js": 454,
-	"./eo": 455,
-	"./eo.js": 455,
-	"./es": 457,
-	"./es-do": 456,
-	"./es-do.js": 456,
-	"./es.js": 457,
-	"./et": 458,
-	"./et.js": 458,
-	"./eu": 459,
-	"./eu.js": 459,
-	"./fa": 460,
-	"./fa.js": 460,
-	"./fi": 461,
-	"./fi.js": 461,
-	"./fo": 462,
-	"./fo.js": 462,
-	"./fr": 465,
-	"./fr-ca": 463,
-	"./fr-ca.js": 463,
-	"./fr-ch": 464,
-	"./fr-ch.js": 464,
-	"./fr.js": 465,
-	"./fy": 466,
-	"./fy.js": 466,
-	"./gd": 467,
-	"./gd.js": 467,
-	"./gl": 468,
-	"./gl.js": 468,
-	"./he": 469,
-	"./he.js": 469,
-	"./hi": 470,
-	"./hi.js": 470,
-	"./hr": 471,
-	"./hr.js": 471,
-	"./hu": 472,
-	"./hu.js": 472,
-	"./hy-am": 473,
-	"./hy-am.js": 473,
-	"./id": 474,
-	"./id.js": 474,
-	"./is": 475,
-	"./is.js": 475,
-	"./it": 476,
-	"./it.js": 476,
-	"./ja": 477,
-	"./ja.js": 477,
-	"./jv": 478,
-	"./jv.js": 478,
-	"./ka": 479,
-	"./ka.js": 479,
-	"./kk": 480,
-	"./kk.js": 480,
-	"./km": 481,
-	"./km.js": 481,
-	"./ko": 482,
-	"./ko.js": 482,
-	"./ky": 483,
-	"./ky.js": 483,
-	"./lb": 484,
-	"./lb.js": 484,
-	"./lo": 485,
-	"./lo.js": 485,
-	"./lt": 486,
-	"./lt.js": 486,
-	"./lv": 487,
-	"./lv.js": 487,
-	"./me": 488,
-	"./me.js": 488,
-	"./mi": 489,
-	"./mi.js": 489,
-	"./mk": 490,
-	"./mk.js": 490,
-	"./ml": 491,
-	"./ml.js": 491,
-	"./mr": 492,
-	"./mr.js": 492,
-	"./ms": 494,
-	"./ms-my": 493,
-	"./ms-my.js": 493,
-	"./ms.js": 494,
-	"./my": 495,
-	"./my.js": 495,
-	"./nb": 496,
-	"./nb.js": 496,
-	"./ne": 497,
-	"./ne.js": 497,
-	"./nl": 499,
-	"./nl-be": 498,
-	"./nl-be.js": 498,
-	"./nl.js": 499,
-	"./nn": 500,
-	"./nn.js": 500,
-	"./pa-in": 501,
-	"./pa-in.js": 501,
-	"./pl": 502,
-	"./pl.js": 502,
-	"./pt": 504,
-	"./pt-br": 503,
-	"./pt-br.js": 503,
-	"./pt.js": 504,
-	"./ro": 505,
-	"./ro.js": 505,
-	"./ru": 506,
-	"./ru.js": 506,
-	"./se": 507,
-	"./se.js": 507,
-	"./si": 508,
-	"./si.js": 508,
-	"./sk": 509,
-	"./sk.js": 509,
-	"./sl": 510,
-	"./sl.js": 510,
-	"./sq": 511,
-	"./sq.js": 511,
-	"./sr": 513,
-	"./sr-cyrl": 512,
-	"./sr-cyrl.js": 512,
-	"./sr.js": 513,
-	"./ss": 514,
-	"./ss.js": 514,
-	"./sv": 515,
-	"./sv.js": 515,
-	"./sw": 516,
-	"./sw.js": 516,
-	"./ta": 517,
-	"./ta.js": 517,
-	"./te": 518,
-	"./te.js": 518,
-	"./tet": 519,
-	"./tet.js": 519,
-	"./th": 520,
-	"./th.js": 520,
-	"./tl-ph": 521,
-	"./tl-ph.js": 521,
-	"./tlh": 522,
-	"./tlh.js": 522,
-	"./tr": 523,
-	"./tr.js": 523,
-	"./tzl": 524,
-	"./tzl.js": 524,
-	"./tzm": 526,
-	"./tzm-latn": 525,
-	"./tzm-latn.js": 525,
-	"./tzm.js": 526,
-	"./uk": 527,
-	"./uk.js": 527,
-	"./uz": 528,
-	"./uz.js": 528,
-	"./vi": 529,
-	"./vi.js": 529,
-	"./x-pseudo": 530,
-	"./x-pseudo.js": 530,
-	"./yo": 531,
-	"./yo.js": 531,
-	"./zh-cn": 532,
-	"./zh-cn.js": 532,
-	"./zh-hk": 533,
-	"./zh-hk.js": 533,
-	"./zh-tw": 534,
-	"./zh-tw.js": 534
-};
-function webpackContext(req) {
-	return __webpack_require__(webpackContextResolve(req));
-};
-function webpackContextResolve(req) {
-	var id = map[req];
-	if(!(id + 1)) // check for number
-		throw new Error("Cannot find module '" + req + "'.");
-	return id;
-};
-webpackContext.keys = function webpackContextKeys() {
-	return Object.keys(map);
-};
-webpackContext.resolve = webpackContextResolve;
-module.exports = webpackContext;
-webpackContext.id = 947;
-
-
-/***/ }),
-
-/***/ 989:
-/***/ (function(module, exports) {
-
-module.exports = ""
-
-/***/ }),
-
-/***/ 990:
-/***/ (function(module, exports) {
-
-module.exports = ""
-
-/***/ }),
-
-/***/ 991:
-/***/ (function(module, exports) {
-
-module.exports = ""
-
-/***/ }),
-
-/***/ 992:
-/***/ (function(module, exports) {
-
-module.exports = ""
-
-/***/ }),
-
-/***/ 993:
-/***/ (function(module, exports) {
-
-module.exports = ""
-
-/***/ }),
-
-/***/ 994:
-/***/ (function(module, exports) {
-
-module.exports = ""
-
-/***/ }),
-
-/***/ 995:
-/***/ (function(module, exports) {
-
-module.exports = ""
-
-/***/ }),
-
-/***/ 996:
-/***/ (function(module, exports) {
-
-module.exports = ""
-
-/***/ }),
-
-/***/ 997:
-/***/ (function(module, exports) {
-
-module.exports = ""
-
-/***/ }),
-
-/***/ 998:
-/***/ (function(module, exports) {
-
-module.exports = ""
-
-/***/ }),
-
-/***/ 999:
-/***/ (function(module, exports) {
-
-module.exports = ""
-
 /***/ })
 
-},[1065]);
+},[1127]);
 //# sourceMappingURL=main.bundle.map
