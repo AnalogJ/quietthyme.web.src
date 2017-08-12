@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpModule, Http } from '@angular/http';
+import { Http, HttpModule, RequestOptions } from '@angular/http';
 import { RouterModule }   from '@angular/router';
 
 import { AppComponent } from './app.component';
@@ -25,22 +25,24 @@ import { AuthGuard } from './services/auth-guard.service'
 
 //Third party
 import { AuthHttp, AuthConfig } from 'angular2-jwt';
-import { Ng2BootstrapModule } from 'ng2-bootstrap';
+import { Ng2BootstrapModule } from 'ngx-bootstrap';
 import { SlimLoadingBarModule } from 'ng2-slim-loading-bar';
 import { MarkdownModule } from 'angular2-markdown';
 import { MasonryModule } from 'angular2-masonry';
 import { ScrollSpyModule } from 'ng2-scrollspy';
 import { ScrollSpyAffixDirective } from 'ng2-scrollspy/dist/plugin/affix.directive';
 import { ChartsModule } from 'ng2-charts/ng2-charts';
-import {Gravatar} from 'ng2-gravatar-directive';
+import { AccountRegisterPlanComponent } from './account-register-plan/account-register-plan.component';
+// import {Gravatar} from 'ng2-gravatar-directive';
 
-export function getAuthHttp(http: any) {
+export function getAuthHttp(http: Http, options: RequestOptions) {
   return new AuthHttp(new AuthConfig({
+    tokenName: 'id_token',
     noJwtError: true,
     headerPrefix: 'JWT',
     tokenGetter: (() => localStorage.getItem('id_token')),
     globalHeaders: [{'Content-Type':'application/json'}]
-  }), http);
+  }), http, options);
 }
 
 @NgModule({
@@ -61,7 +63,7 @@ export function getAuthHttp(http: any) {
     SettingsComponent,
     PrivacyComponent,
     StripeCheckoutButtonDirective,
-    Gravatar
+    AccountRegisterPlanComponent
   ],
   imports: [
     BrowserModule,
@@ -81,6 +83,7 @@ export function getAuthHttp(http: any) {
       { path: 'privacy', component: PrivacyComponent },
 
         //Auth Endpoints
+      { path: 'register/plan', component: AccountRegisterPlanComponent, canActivate: [AuthGuard] },
       { path: 'storage', component: StorageComponent, canActivate: [AuthGuard] },
       { path: 'settings', component: SettingsComponent, canActivate: [AuthGuard] },
       { path: 'storage/:source', component: StorageComponent, canActivate: [AuthGuard] },
@@ -103,7 +106,7 @@ export function getAuthHttp(http: any) {
     {
       provide: AuthHttp,
       useFactory: getAuthHttp,
-      deps: [Http]
+      deps: [Http, RequestOptions]
     }],
   bootstrap: [AppComponent]
 })

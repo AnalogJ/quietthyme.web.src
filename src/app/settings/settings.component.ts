@@ -1,7 +1,7 @@
 import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
 import { ApiService } from '../services/api.service';
 import { ActivatedRoute } from '@angular/router';
-import { TabsetComponent } from 'ng2-bootstrap';
+import { TabsetComponent } from 'ngx-bootstrap';
 import {SlimLoadingBarService} from 'ng2-slim-loading-bar';
 
 

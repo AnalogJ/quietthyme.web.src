@@ -38,7 +38,7 @@ export class ApiService {
   }
 
   loggedIn() {
-    return tokenNotExpired();
+    return tokenNotExpired('id_token');
   }
 
   tokenPayload(){

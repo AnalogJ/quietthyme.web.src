@@ -1,59 +1,51 @@
 <ng2-slim-loading-bar class="navbar-fixed-top" [color]="'#128950'" [height]="'3px'"></ng2-slim-loading-bar>
-
-<!-- Content
-============================================= -->
-<section id="content" style="margin-bottom: 0px;">
-
-    <div class="content-wrap nopadding">
-
-        <div class="section nopadding nomargin" style="width: 100%; height: 100%; position: absolute; left: 0; top: 0; background: url('assets/images/bg/login_splash.jpg') center center no-repeat; background-size: cover;"></div>
-
-        <div class="section nobg full-screen nopadding nomargin" style="height:100vh;">
-            <div class="container vertical-middle divcenter clearfix" style="position: absolute; top: 50%; width: 100%; padding-top: 0px; padding-bottom: 0px; margin-top: -330px;">
-
-                <div class="row center">
-                    <a href="/"><img style="max-width:200px" src="assets/images/logo/logo-white-large.png.svg" alt="QuietThyme Logo"></a>
-                </div>
-
-                <div class="panel panel-default divcenter noradius noborder" style="max-width: 400px; background-color: rgba(255,255,255,0.93);">
-                    <div class="panel-body" style="padding: 40px;">
-                        <form id="login-form" name="login-form" class="nobottommargin" (ngSubmit)="login()">
-                            <h3>Login to your Account</h3>
-
-                            <div class="col_full">
-                                <label for="login-form-email">Email:</label>
-                                <input [(ngModel)]="loginEmail" type="email" id="login-form-email" name="login-form-email" class="form-control not-dark" required/>
-                            </div>
-
-                            <div class="col_full">
-                                <label for="login-form-password">Password:</label>
-                                <input [(ngModel)]="loginPassword" type="password" id="login-form-password" name="login-form-password" class="form-control not-dark" required/>
-                            </div>
-
-                            <div class="col_full nobottommargin">
-                                <button type="submit" class="button button-3d button-black nomargin" id="login-form-submit" name="login-form-submit" [disabled]="loading.login">
-                                    <span>Login</span>
-                                </button>
-                                <a href="/register" class="fright">Need an Account?</a>
-                            </div>
-                        </form>
-
-                        <div class="line line-sm"></div>
-
-                        <div class="center">
-                            <h4 style="margin-bottom: 15px;">or Login with:</h4>
-                            <a href="#" class="button button-rounded si-facebook si-colored">Facebook</a>
-                            <span class="hidden-xs">or</span>
-                            <a href="#" class="button button-rounded si-twitter si-colored">Twitter</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row center dark"><small>Copyrights &copy; All Rights Reserved by QuietThyme Inc.</small></div>
-
-            </div>
+<div class="main-container">
+    <section class="height-100 imagebg text-center" data-overlay="4">
+        <div class="background-image-holder login-bg">
         </div>
+        <div class="container pos-vertical-center">
+            <div class="row">
+                <div class="col-sm-7 col-md-5">
+                    <h2>Login to continue</h2>
 
-    </div>
+                    <div style="display:none;">
+                        <a class="btn block btn--icon bg--facebook type--uppercase" href="#">
+                                <span class="btn__text">
+                                    <i class="socicon-facebook"></i>
+                                    Login with GoodReads
+                                </span>
+                        </a>
+                        <hr>
+                    </div>
 
-</section><!-- #content end -->
+                    <div >
+                        <p class="lead">Welcome back, sign in with your existing QuietThyme account credentials</p>
+                        <form (ngSubmit)="login()">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <input [(ngModel)]="loginEmail" name="email" type="email" placeholder="Email" required/>
+                                </div>
+                                <div class="col-sm-12">
+                                    <input [(ngModel)]="loginPassword" name="password" type="password" placeholder="Password" required/>
+                                </div>
+                                <div class="col-sm-12">
+                                    <button [disabled]="loading.login" class="btn btn--primary type--uppercase" type="submit" >Login</button>
+                                </div>
+                            </div>
+                            <!--end of row-->
+                        </form>
+                        <span class="type--fine-print block">Dont have an account yet?
+                                <a href="/register">Create account</a>
+                            </span>
+                        <span style="display:none;" class="type--fine-print block">Forgot your username or password?
+                                <a href="#">Recover account</a>
+                            </span>
+                    </div>
+
+                </div>
+            </div>
+            <!--end of row-->
+        </div>
+        <!--end of container-->
+    </section>
+</div>

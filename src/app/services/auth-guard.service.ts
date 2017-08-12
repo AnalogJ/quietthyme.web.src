@@ -15,13 +15,13 @@ export class AuthGuard implements CanActivate {
   ) {
     if(this.apiService.loggedIn()) {
 
-      //if the user is logged in, always let them go to the settings page if requested.
-      if(state.url == '/settings;tab=plans'){
+      //if the user is logged in, always let them go to the register/plan page if requested.
+      if(state.url == '/register/plan'){
         return true;
       }
       else if(this.apiService.tokenPayload().plan == 'none' ){
         //user doesnt have a plan, redirec them to the settings page.
-        this.router.navigate(['/settings', {'tab': 'plans'}]);
+        this.router.navigate(['/register/plan']);
         return false;
       }
       else{

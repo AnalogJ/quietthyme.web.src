@@ -1,0 +1,79 @@
+<ng2-slim-loading-bar class="navbar-fixed-top" [color]="'#128950'" [height]="'3px'"></ng2-slim-loading-bar>
+<div class="main-container">
+    <section class="pricing imagebg" data-overlay='4'>
+        <div class="background-image-holder register-plan-bg">
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-sm-6">
+                    <div class="row">
+                        <div class="col-md-5 col-sm-6">
+                            <div class="feature feature-6">
+                                <i class="icon icon--sm icon-Preview color--primary"></i>
+                                <h5>2 Cloud Connectors</h5>
+                                <p>
+                                    Store your books on Google Drive, Dropbox, SkyDrive or Box.net Or use our unlimited storage.
+                                </p>
+                            </div>
+                            <!--end feature-->
+                        </div>
+                        <div class="col-md-5 col-sm-6">
+                            <div class="feature feature-6">
+                                <i class="icon icon--sm icon-Road-3 color--primary"></i>
+                                <h5>OPDS Catalog</h5>
+                                <p>
+                                    Your whole library is accessible via any OPDS compatible reader. Marvin, Moon+, Aldiko, QuickReader, or any other ebook reader.
+                                </p>
+                            </div>
+                            <!--end feature-->
+                        </div>
+                        <div class="col-md-5 col-sm-6">
+                            <div class="feature feature-6">
+                                <i class="icon icon--sm icon-Pen color--primary"></i>
+                                <h5>Drag & Drop</h5>
+                                <p>
+                                    Want to add a book to QuietThyme? Just drag it into the blackhole folder of your connected cloud storage. We'll handle the rest
+                                </p>
+                            </div>
+                            <!--end feature-->
+                        </div>
+                        <div class="col-md-5 col-sm-6">
+                            <div class="feature feature-6">
+                                <i class="icon icon--sm icon-Post-Mail2 color--primary"></i>
+                                <h5>Calibre Integration</h5>
+                                <p>
+                                    OCD about coverart & book metadata? We are too! QuietThyme integrates with Calibre and lets you import and export books (and metadata) with a single click
+                                </p>
+                            </div>
+                            <!--end feature-->
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4 col-xs-12">
+                    <div class="pricing pricing-1 boxed boxed--border boxed--lg text-center">
+                        <h4>Reader Plan</h4>
+                        <span class="h1">
+                                                        <span class="pricing__dollar">$</span>10</span>
+                        <p>
+                            The regular license allows you to customize, store and even host your website using your platform
+                        </p>
+                        <span class="label">Monthly</span>
+                        <a stripeCheckoutButton
+                           [planId]="'reader_1'"
+                           [planName]="'Reader Plan'"
+                           [planCost]="1000"
+                           (onCheckout)="stripeCheckoutCompleted($event)"
+                           class="btn btn--primary">
+                            <span class="btn__text">
+                                Purchase Now
+                            </span>
+                        </a>
+                    </div>
+                    <!--end pricing-->
+                </div>
+            </div>
+            <!--end of row-->
+        </div>
+        <!--end of container-->
+    </section>
+</div>
