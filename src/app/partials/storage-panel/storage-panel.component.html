@@ -1,58 +1,14 @@
-<div class="row" style="padding-bottom: 50px">
-    <div class="card">
+<div [ngClass]="{'feature--featured': storageData}" class="feature feature-1 boxed boxed--border">
+    <h5>{{ storageType }}</h5>
+    <p>
+        <span *ngIf="storageType == 'quietthyme'">This storage type is not available during beta.</span>
 
-        <div class="card-img-top storage_container">
-            <!-- populated doughnut chart -->
-            <canvas *ngIf="storageData" class="graph"
-                    baseChart
-                    [data]="chartData"
-                    [chartType]="'doughnut'"
-                    [options]="chartOptions"
-                    [colors]="chartColors"
-                    [legend]="false"
-                    (chartHover)="chartHovered($event)"
-                    (chartClick)="chartClicked($event)"></canvas>
+        <span *ngIf="!storageData && storageType != 'quietthyme'">Use the <strong>Add Storage</strong> button to connect this service.</span>
+        <span *ngIf="storageData">{{ storageData.free_space |  fileSize}} free</span>
+    </p>
+    <a href="#">
+        Learn More
+    </a>
 
-            <!-- disconnected doughnut chart -->
-            <canvas *ngIf="!storageData" class="graph"
-                    baseChart
-                    [data]="disconnectedData"
-                    [chartType]="'doughnut'"
-                    [options]="chartOptions"
-                    [colors]="disconnectedChartColors"
-                    [legend]="false"
-                    (chartHover)="chartHovered($event)"
-                    (chartClick)="chartClicked($event)"></canvas>
-
-            <img class="logo" [ngClass]="{'disconnected': !storageData}" [src]="storageLogo">
-
-        </div>
-
-        <div class="card-block">
-            <h4 class="card-title">{{ storageType }}</h4>
-            <div class="card-text">
-                <span *ngIf="storageType == 'quietthyme'">This storage type is not available during beta.</span>
-
-                <span *ngIf="!storageData && storageType != 'quietthyme'">Use the <strong>Add Storage</strong> button to connect this service.</span>
-                <span *ngIf="storageData">{{ storageData.free_space |  fileSize}} free</span>
-
-
-            </div>
-        </div>
-        <div class="card-footer" *ngIf="storageData">
-            <div *ngIf="storageData" class="btn-group" dropdown>
-                <button [ngClass]="{'button-border': !storageData.location_code}" type="button" class="button button-mini button-rounded" dropdownToggle>
-                    {{ storageData.location_code ? storageData.location_code : 'Calibre' }}
-                </button>
-                <ul dropdownMenu role="menu" aria-labelledby="single-button">
-                    <li role="menuitem"><a class="dropdown-item" href="#">Main Drive</a></li>
-                    <li role="menuitem"><a class="dropdown-item" href="#">A Drive</a></li>
-                    <li role="menuitem"><a class="dropdown-item" href="#">B Drive</a></li>
-                    <li class="divider dropdown-divider"></li>
-                    <li role="menuitem"><a class="dropdown-item" href="#">Clear</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
+    <span *ngIf="storageData" class="label">{{ storageData.free_space |  fileSize}}</span>
 </div>
-

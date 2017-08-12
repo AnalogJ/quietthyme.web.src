@@ -1,65 +1,91 @@
-<ng2-slim-loading-bar class="navbar-fixed-top" [color]="'#128950'" [height]="'3px'"></ng2-slim-loading-bar>
-
 <quietthyme-header></quietthyme-header>
-<quietthyme-page-title title="Storage" subtitle="Connect your cloud storage accounts"></quietthyme-page-title>
+<div class="main-container">
 
-<!-- Content
-		============================================= -->
-<section id="content" class="footer-padding">
-
-    <div class="content-wrap">
-
-        <div class="container clearfix">
-
+    <section class="switchable feature-large ">
+        <div class="container">
             <div class="row">
-                <div class="col-md-3">
-                    <div class="sidebar-widgets-wrap">
-
-                        <div class="widget subscribe-widget clearfix">
-                            <div class="dark" style="padding: 25px; background-color: #383838; border-radius: 2px;">
-                                <div class="fancy-title title-border">
-                                    <h4>Connect</h4>
-                                </div>
-
-                                <p style="font-size: 15px; line-height: 1.5; color: #999;">Before using QuietThyme, you should connect your personal cloud storage providers.</p>
-                                <div class="widget-subscribe-form-result"></div>
-                                <form id="widget-subscribe-form2" action="include/subscribe.php" role="form" method="post" class="nobottommargin">
-                                    <button class="button button-3d btn-block button-small nomargin" style="margin-top: 15px !important;"
-                                            [disabled]="loading.link"
-                                            kloudlessAuthenticator
-                                            [clientId]="'mddXeszdchTlRQEFN3LGhxLzqaTjgYwbXGLHCeXOqJdrzRyd'"
-                                            [scope]="'gdrive box dropbox skydrive'"
-                                            (onAuthenticated)="kloudlessAuthenticatedStorage($event)"
-                                    >
-                                        Add Storage
-                                    </button>
-
-                                </form>
-                            </div>
+                <div class="col-md-5 col-sm-6 switchable__text">
+                    <h2>Storage</h2>
+                    <p class="lead">
+                        Connecting your cloud storage providers ensure that you always have access to your books. QuietThyme will only have access to a custom folder on each provider, ensuring that your other data is always safe.
+                    </p>
+                    <button kloudlessAuthenticator
+                       [disabled]="loading.link"
+                       [clientId]="'mddXeszdchTlRQEFN3LGhxLzqaTjgYwbXGLHCeXOqJdrzRyd'"
+                       [scope]="'gdrive box dropbox skydrive'"
+                       (onAuthenticated)="kloudlessAuthenticatedStorage($event)"
+                       class="btn btn--primary type--uppercase">
+                                                    <span class="btn__text">
+                                                        Connect Storage
+                                                    </span>
+                    </button>
+                </div>
+                <div class="col-md-4 col-sm-6 col-md-pull-1 col-xs-12">
+                    <div class="boxed boxed--lg boxed--border box-shadow-wide">
+                        <div class="slider" data-paging="true">
+                            <ul class="slides">
+                                <li class="col-xs-12">
+                                    <div class="feature feature-3 text-center">
+                                        <i class="icon icon--lg icon-Twister color--primary"></i>
+                                        <h4>Blackhole Folder</h4>
+                                        <p>
+                                            Stack comes with integration for Mail Chimp and Campaign Monitor forms - ideal for modern marketing campaigns
+                                        </p>
+                                        <a href="#">
+                                            Learn More
+                                        </a>
+                                    </div>
+                                    <!--end feature-->
+                                </li>
+                                <li class="col-xs-12">
+                                    <div class="feature feature-3 text-center">
+                                        <i class="icon icon--lg icon-Data-Cloud color--primary"></i>
+                                        <h4>Calibre Support</h4>
+                                        <p>
+                                            Including the premium Icons Mind icon kit, Stack features a highly diverse set of icons suitable for all purposes.
+                                        </p>
+                                        <a href="#">
+                                            Learn More
+                                        </a>
+                                    </div>
+                                    <!--end feature-->
+                                </li>
+                                <li class="col-xs-12">
+                                    <div class="feature feature-3 text-center">
+                                        <i class="icon icon--lg icon-Folder-Archive color--primary"></i>
+                                        <h4>QuietThyme Storage</h4>
+                                        <p>
+                                            Combine blocks from a range of categories to build pages that are rich in visual style and interactivity
+                                        </p>
+                                        <a href="#">
+                                            Learn More
+                                        </a>
+                                    </div>
+                                    <!--end feature-->
+                                </li>
+                            </ul>
+                            <!--end of slides-->
                         </div>
+                        <!--end of slider-->
                     </div>
                 </div>
-
-                <div class="col-md-9">
-                    <div class="row">
-                        <div class="col-md-4" *ngFor="let storageType of allNames; let myIndex = index">
-                            <quietthyme-storage-panel [storageType]="storageType" [storageData]="connected[storageType]"></quietthyme-storage-panel>
-                        </div>
-                    </div>
-                </div>
-
-
-
             </div>
-
+            <!--end of row-->
         </div>
+        <!--end of container-->
+    </section>
 
-    </div>
+    <section class=" ">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4" *ngFor="let storageType of allNames; let myIndex = index">
+                    <quietthyme-storage-panel [storageType]="storageType" [storageData]="connected[storageType]"></quietthyme-storage-panel>
+                </div>
+            </div>
+            <!--end of row-->
+        </div>
+        <!--end of container-->
+    </section>
 
-</section><!-- #content end -->
-
-
-
-
-
-<quietthyme-footer></quietthyme-footer>
+    <quietthyme-footer></quietthyme-footer>
+</div>

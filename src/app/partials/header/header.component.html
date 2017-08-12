@@ -1,42 +1,54 @@
-<!-- Header
-		============================================= -->
-<header id="header" class="full-header">
+<nav class="bar bar--sm bg--dark" id="menu3">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-1 hidden-xs hidden-sm">
+                <div class="bar__module">
+                    <a href="index.html">
+                        <img class="logo logo-dark" alt="logo" src="assets/images/logo/logo-large.png.svg" />
+                        <img class="logo logo-light" alt="logo" src="assets/images/logo/logo-white-large.png.svg" />
+                    </a>
+                </div>
+                <!--end module-->
+            </div>
+            <div class="col-md-4 col-md-push-2">
+                <div class="bar__module">
+                    <form>
+                        <input type="search" placeholder="Search site" name="query" />
+                    </form>
+                </div>
+            </div>
 
-    <div id="header-wrap">
-
-        <div class="container clearfix">
-
-            <div id="primary-menu-trigger"><i class="icon-reorder"></i></div>
-
-            <!-- Logo
-				============================================= -->
-            <div id="logo">
-                <a href="/" class="standard-logo" data-dark-logo="assets/images/logo/logo_condensed.png"><img style="padding: 7%;" src="assets/images/logo/logo-large.png.svg" alt="Canvas Logo"></a>
-                <a href="/" class="retina-logo" data-dark-logo="assets/images/logo/logo_condensed.png"><img style="padding: 7%;" src="assets/images/logo/logo-large.png.svg" alt="Canvas Logo"></a>
-            </div><!-- #logo end -->
-
-            <!-- Primary Navigation
-			============================================= -->
-            <nav id="primary-menu">
-
-                <ul>
-                    <li><a href="/storage"><div>Storage</div></a></li>
-                    <li><a href="/library"><div>Library</div></a></li>
-                    <li><a href="/settings"><div>Settings</div></a></li>
-                </ul>
-
-
-                <ul style="margin-right: 0px;padding-right: 0px;border-right: none;">
-                    <li><a href="/storage"><div>Logout</div></a></li>
-                </ul>
-
-
-
-
-            </nav><!-- #primary-menu end -->
-
+            <!--end columns-->
+            <div class="col-md-2 col-md-pull-4">
+                <div class="bar__module"></div>
+            </div>
+            <div class="col-md-5 text-right text-left-xs">
+                <div class="bar__module">
+                    <ul class="menu-horizontal text-left">
+                        <li>
+                            <a routerLink="/storage">Storage</a>
+                        </li>
+                        <li>
+                            <a routerLink="/library">Library</a>
+                        </li>
+                        <li>
+                            <a routerLink="/settings">Account</a>
+                        </li>
+                    </ul>
+                </div>
+                <!--end module-->
+                <div class="bar__module">
+                    <a class="btn btn--primary btn--sm type--uppercase" href="#">
+                                    <span class="btn__text">
+                                        Logout
+                                    </span>
+                    </a>
+                </div>
+                <!--end module-->
+            </div>
+            <!--end columns-->
         </div>
-
+        <!--end of row-->
     </div>
-
-</header><!-- #header end -->
+    <!--end of container-->
+</nav>

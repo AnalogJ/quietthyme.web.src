@@ -1,89 +1,166 @@
 <ng2-slim-loading-bar class="navbar-fixed-top" [color]="'#128950'" [height]="'3px'"></ng2-slim-loading-bar>
 <quietthyme-header></quietthyme-header>
-<quietthyme-page-title title="Library" subtitle="Your library is accessible anytime, anywhere, on any device"></quietthyme-page-title>
-
-<!-- Content
-============================================= -->
-<section id="content" class="footer-padding" >
-
-    <div class="content-wrap">
-
-        <div class="container clearfix" >
-
-            <div class="row" >
-
-                <!-- Sidebar
-	            ============================================= -->
-                <div class="col-md-3">
-                    <div class="sidebar-widgets-wrap" [scrollSpyAffix]="{topMargin: 330}">
-
-                        <div class="widget widget-filter-links clearfix">
-
-                            <h4>Sort By</h4>
-                            <ul class="shop-sorting">
-                                <li [ngClass]="{'active-filter': !filter.sort}"><a class="cursor-pointer" (click)="setSort(null)">Title</a></li>
-                                <li [ngClass]="{'active-filter': filter.sort == 'authors'}"><a class="cursor-pointer" (click)="setSort('authors')">Author</a></li>
-                                <li [ngClass]="{'active-filter': filter.sort == 'series_name'}"><a class="cursor-pointer" (click)="setSort('series_name')">Series</a></li>
-                                <li [ngClass]="{'active-filter': filter.sort == 'updated_at'}"><a class="cursor-pointer" (click)="setSort('updated_at')">Added Date</a></li>
-                            </ul>
-
+<div class="main-container">
+    <section class="space--sm switchable switchable--switch  ">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="height-50 imagebg border--round" data-overlay="2">
+                        <div class="background-image-holder library-bg">
                         </div>
+                        <div class="pos-vertical-center col-sm-6 boxed boxed--lg bg--none">
+                            <h2>Library</h2>
+                            <p class="lead">
+                                Your library is accessible anytime, anywhere, on any device
 
-                        <div class="widget widget-filter-links clearfix">
-
-                            <h4>Storage</h4>
-                            <ul class="custom-filter">
-                                <li [ngClass]="{'active-filter': !filter.storage}"><a class="cursor-pointer" (click)="setStorage(null)">All</a></li>
-                                <li [ngClass]="{'active-filter': filter.storage == 'quietthyme'}"><a class="cursor-pointer" (click)="setStorage('quietthyme')">QuietThyme</a></li>
-                                <li *ngIf="connected.box" [ngClass]="{'active-filter': filter.storage == 'box'}"><a class="cursor-pointer" (click)="setStorage('box')">Box</a></li>
-                                <li *ngIf="connected.dropbox" [ngClass]="{'active-filter': filter.storage == 'dropbox'}"><a class="cursor-pointer" (click)="setStorage('dropbox')">Dropbox</a></li>
-                                <li *ngIf="connected.gdrive" [ngClass]="{'active-filter': filter.storage == 'gdrive'}"><a class="cursor-pointer" (click)="setStorage('gdrive')">Google Drive</a></li>
-                                <li *ngIf="connected.skydrive" [ngClass]="{'active-filter': filter.storage == 'skydrive'}"><a class="cursor-pointer" (click)="setStorage('skydrive')">OneDrive</a></li>
-                            </ul>
-
+                                It doesn't matter if your have 10 books or 1000's of books. Quietthyme can help you easily manage a library of any size.
+                            </p>
                         </div>
-
-
-
                     </div>
-                </div><!-- .sidebar end -->
+                </div>
+            </div>
+            <!--end of row-->
+        </div>
+        <!--end of container-->
+    </section>
 
-                <div class="col-md-9">
-                    <!-- Shop
-				============================================= -->
-                    <masonry [useImagesLoaded]="true" id="shop" class="shop product-4 grid-container clearfix" >
 
-                        <masonry-brick *ngFor="let book of bookList; let myIndex = index" class="product brick">
-                            <div class="product-image">
+    <section class="text-center cta cta-4 space--xxs border--bottom imagebg" data-gradient-bg='#4876BD,#5448BD,#8F48BD,#BD48B1'>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <span class="label label--inline">OPDS</span>
+                    <span>http://catalog.quietthyme.com/beta/massy-wedders-twenties-wickeder</span>
+                </div>
+            </div>
+            <!--end of row-->
+        </div>
+        <!--end of container-->
+    </section>
+
+
+    <section class=" ">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="masonry-filter-container">
+                        <span>Storage:</span>
+                        <div class="masonry-filter-holder">
+                            <div class="masonry__filters" data-filter-all-text="Storage">
+                                <ul>
+                                    <li [ngClass]="{'active': !filter.storage}" (click)="setStorage(null)">All Storage</li>
+                                    <li [ngClass]="{'active': filter.storage == 'quietthyme'}" (click)="setStorage('quietthyme')">QuietThyme</li>
+                                    <li *ngIf="connected.box" [ngClass]="{'active': filter.storage == 'box'}" (click)="setStorage('box')">Box</li>
+                                    <li *ngIf="connected.dropbox" [ngClass]="{'active': filter.storage == 'dropbox'}" (click)="setStorage('dropbox')">Dropbox</li>
+                                    <li *ngIf="connected.gdrive" [ngClass]="{'active': filter.storage == 'gdrive'}" (click)="setStorage('gdrive')">Google Drive</li>
+                                    <li *ngIf="connected.skydrive" [ngClass]="{'active': filter.storage == 'skydrive'}" (click)="setStorage('skydrive')">OneDrive</li>
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="masonry-filter-container">
+                        <span>Sort By:</span>
+                        <div class="masonry-filter-holder">
+                            <div class="masonry__filters" data-filter-all-text="Storage">
+                                <ul>
+                                    <li [ngClass]="{'active': !filter.sort}" (click)="setSort(null)">Title</li>
+                                    <li [ngClass]="{'active': filter.sort == 'authors'}" (click)="setSort('authors')">Author</li>
+                                    <li [ngClass]="{'active': filter.sort == 'series_name'}" (click)="setSort('series_name')">Series</li>
+                                    <li [ngClass]="{'active': filter.sort == 'updated_at'}" (click)="setSort('updated_at')">Added Date</li>
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="row">
+
+
+                <masonry [useImagesLoaded]="true">
+
+
+                    <masonry-brick *ngFor="let book of bookList; let myIndex = index" class="col-sm-3 masonry__item">
+                        <div class="card card-2 text-center">
+                            <div class="card__top">
+                                <span class="label" *ngIf="book.series_name">{{ book.series_name }}</span>
+
                                 <a routerLink="/book/{{ book.id }}" >
                                     <img *ngIf="book.cover" src="https://s3.amazonaws.com/{{ book.cover }}" alt="{{ book.title }}">
                                     <img *ngIf="!book.cover" src="assets/images/noart.png" alt="{{ book.title }}">
                                 </a>
-                                <div class="book-tag" *ngIf="book.series_name">{{ book.series_name }}</div>
+                            </div>
+                            <div class="card__body">
+                                <h4>{{ book.title }}</h4>
+                                <span class="type--fade">{{ book.authors}}</span>
 
-                                <div class="product-overlay">
-                                    <a (click)="downloadBook(book)" class="add-to-cart cursor-pointer"><i class="icon-cloud-download"></i><span> Download</span></a>
-                                    <a routerLink="/book/{{ book.id }}" class="item-quick-view cursor-pointer" data-lightbox="ajax"><i class="icon-info-sign"></i><span> Details</span></a>
-
+                            </div>
+                            <div class="card__bottom text-center">
+                                <div class="card__action">
+                                    <span class="h6 type--uppercase">Info</span>
+                                    <a routerLink="/book/{{ book.id }}">
+                                        <i class="glyphicon glyphicon-info-sign"></i>
+                                    </a>
+                                </div>
+                                <div class="card__action">
+                                    <span class="h6 type--uppercase">Download</span>
+                                    <a (click)="downloadBook(book)">
+                                        <i class="glyphicon glyphicon-download"></i>
+                                    </a>
                                 </div>
                             </div>
-                            <div class="product-desc center">
-                                <div class="product-title cursor-pointer"><h3><a routerLink="/book/{{ book.id }}">{{ book.title }}</a></h3></div>
-                                <div class="product-price">{{ book.authors }}</div>
+                        </div>
+                    </masonry-brick>
+
+                </masonry><!-- #shop end -->
+
+
+                <div class="masonry">
+                    <div class="masonry__container">
+
+
+                        <div class="col-sm-4 masonry__item">
+                            <div class="card card-2 text-center">
+                                <div class="card__top">
+                                    <a href="#">
+                                        <img alt="Image" src="img/blog-6.jpg">
+                                    </a>
+                                </div>
+                                <div class="card__body">
+                                    <h4>Online Marketing</h4>
+                                    <span class="type--fade">Tips you'll want to know</span>
+                                    <p>
+                                        Construct mockups or production-ready pages in-browser with Variant Page Builder
+                                    </p>
+                                </div>
+                                <div class="card__bottom text-center">
+                                    <div class="card__action">
+                                        <span class="h6 type--uppercase">Explore</span>
+                                        <a href="#">
+                                            <i class="material-icons">flip_to_front</i>
+                                        </a>
+                                    </div>
+                                    <div class="card__action">
+                                        <span class="h6 type--uppercase">Save</span>
+                                        <a href="#">
+                                            <i class="material-icons">favorite_border</i>
+                                        </a>
+                                    </div>
+                                </div>
                             </div>
-                        </masonry-brick>
-
-                    </masonry><!-- #shop end -->
-
+                        </div>
+                    </div>
+                    <!--end of masonry__container-->
                 </div>
-
+                <!--end of masonry-->
             </div>
-
-
+            <!--end of row-->
         </div>
-
-    </div>
-
-</section><!-- #content end -->
-
-<quietthyme-footer></quietthyme-footer>
+        <!--end of container-->
+    </section>
+    <quietthyme-footer></quietthyme-footer>
+</div>
