@@ -29,65 +29,59 @@
     <section class="space--lg">
         <div class="container">
             <div class="row">
-                <div class="col-sm-7 col-md-6">
-                    <img *ngIf="book.cover" src="https://s3.amazonaws.com/{{ book.cover }}" alt="{{ book.title }}">
-                    <img *ngIf="!book.cover" src="assets/images/noart.png" alt="{{ book.title }}">
+                <div class="col-sm-5 col-md-4">
+                    <img *ngIf="book.cover" class="border--round box-shadow-wide" src="https://s3.amazonaws.com/{{ book.cover }}" alt="{{ book.title }}">
+                    <img *ngIf="!book.cover" class="border--round box-shadow-wide" src="assets/images/noart.png" alt="{{ book.title }}">
 
                 </div>
-                <div class="col-sm-5 col-md-4 col-md-offset-1">
+                <div class="col-sm-7 col-md-6 col-md-offset-1">
                     <h2>{{ book.title }}</h2>
                     <div class="text-block">
                         <span class="h4 inline-block">{{ book.authors }}</span>
                     </div>
                     <markdown [data]="book.short_summary"></markdown>
-                    <ul class="accordion accordion-2 accordion--oneopen">
-                        <li>
-                            <div class="accordion__title">
-                                <span class="h5">Info</span>
-                            </div>
-                            <div class="accordion__content">
-                                <ul class="bullets">
-                                    <li>
-                                        <span>IDB &mdash; 24,000KHz</span>
-                                    </li>
-                                    <li>
-                                        <span>DAB+ / FM / AM</span>
-                                    </li>
-                                    <li>
-                                        <span>16,000 mAh Internal Rehcargable Battery</span>
-                                    </li>
-                                    <li>
-                                        <span>10 Watts</span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="active">
-                            <div class="accordion__title">
-                                <span class="h5">Tags</span>
-                            </div>
-                            <div class="accordion__content">
-                                <ul>
-                                    <li>
-                                        <span>Product: 3.5”W X 3.0”H X 3.0”D</span>
-                                    </li>
-                                    <li>
-                                        <span>Packaging: 7”W X 6”H X 5”D </span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="accordion__title">
-                                <span class="h5">External</span>
-                            </div>
-                            <div class="accordion__content">
-                                <p>
-                                    Generally ships between 2 - 4 working days from order confirmation. Orders only confirmed once payment has successfully processed. NOTE: When using services such as Skrill, payments can take longer to process (approx. 4 days).
-                                </p>
-                            </div>
-                        </li>
-                    </ul>
+
+                    <accordion class="accordion accordion-2 accordion--oneopen">
+
+                        <accordion-group heading="Info">
+                            <ul class="bullets">
+                                <li>
+                                    <span>IDB &mdash; 24,000KHz</span>
+                                </li>
+                                <li>
+                                    <span>DAB+ / FM / AM</span>
+                                </li>
+                                <li>
+                                    <span>16,000 mAh Internal Rehcargable Battery</span>
+                                </li>
+                                <li>
+                                    <span>10 Watts</span>
+                                </li>
+                            </ul>
+                        </accordion-group>
+
+                        <accordion-group heading="Tags">
+                            <a href="#" *ngFor="let tag of book.tags; let myIndex = index">{{ tag }}</a>
+                        </accordion-group>
+
+                        <accordion-group heading="External">
+                            <a *ngIf="book.amazon_id" href="http://www.amazon.com/exec/obidos/ASIN/{{ book.amazon_id }}" class="social-icon si-borderless si-amazon">
+                                <i class="icon-amazon"></i>
+                                <i class="icon-amazon"></i>
+                            </a>
+                            <a *ngIf="book.google_id" href="https://books.google.com/books?id={{ book.google_id }}" class="social-icon si-borderless si-google">
+                                <i class="icon-google"></i>
+                                <i class="icon-google"></i>
+                            </a>
+                            <a *ngIf="book.goodreads_id" href="https://www.goodreads.com/book/show/{{ book.goodreads_id }}" class="social-icon si-borderless si-goodreads">
+                                <i>g</i>
+                                <i>g</i>
+                            </a>
+
+                        </accordion-group>
+
+                    </accordion>
+
                     <!--end accordion-->
                     <div class="col-sm-6 col-md-8">
                         <button class="btn btn--primary">Download</button>
@@ -98,7 +92,7 @@
         </div>
         <!--end of container-->
     </section>
-    <section>
+    <section class="hidden">
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
