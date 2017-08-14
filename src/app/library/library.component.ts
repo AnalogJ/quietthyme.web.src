@@ -15,7 +15,7 @@ export class LibraryComponent implements AfterViewInit {
     bookList: BookModel[] = []
     loading = {
         list: false,
-        download: false,
+        download: {},
         status: false
     }
     filter = {
@@ -88,8 +88,11 @@ export class LibraryComponent implements AfterViewInit {
 
   downloadBook(book){
         console.log(book.id)
+      if(this.loading.download[book.id]){
+          return //dont do anything if we're already downloading this book.
+      }
 
-      this.loading.download = true
+      this.loading.download[book.id] = true
       this.slimLoadingBarService.start()
       this.apiService.download(book.id)
           .subscribe(
@@ -101,7 +104,7 @@ export class LibraryComponent implements AfterViewInit {
               },
               error => {console.log(error)},
               () => {
-                  this.loading.download = false
+                  this.loading.download[book.id] = false
                   this.slimLoadingBarService.complete();
               }
           );

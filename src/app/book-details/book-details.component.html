@@ -39,7 +39,7 @@
                     </div>
                     <div class="row" style="padding-top:40px">
                         <div class="col-md-12">
-                            <button class="btn btn--primary">Download</button>
+                            <button [disabled]="loading.download" (click)="downloadBook()" class="btn btn--primary" >Download</button>
                         </div>
                     </div>
 
