@@ -29792,6 +29792,493 @@ var Utils = (function () {
 
 /***/ }),
 
+/***/ "../../../../ngx-infinite-scroll/modules/ngx-infinite-scroll.es5.js":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return InfiniteScrollModule; });
+/* unused harmony export ɵa */
+/* unused harmony export ɵb */
+/* unused harmony export ɵc */
+/* unused harmony export ɵd */
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Observable__ = __webpack_require__("../../../../rxjs/Observable.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_Observable__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_observable_fromEvent__ = __webpack_require__("../../../../rxjs/add/observable/fromEvent.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_observable_fromEvent___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_observable_fromEvent__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_observable_of__ = __webpack_require__("../../../../rxjs/add/observable/of.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_observable_of___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_observable_of__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_sampleTime__ = __webpack_require__("../../../../rxjs/add/operator/sampleTime.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_sampleTime___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_sampleTime__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_filter__ = __webpack_require__("../../../../rxjs/add/operator/filter.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_filter___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_filter__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_mergeMap__ = __webpack_require__("../../../../rxjs/add/operator/mergeMap.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_mergeMap___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_mergeMap__);
+
+
+
+
+
+
+
+var PositionResolver = (function () {
+    function PositionResolver() {
+    }
+    /**
+     * @param {?} options
+     * @return {?}
+     */
+    PositionResolver.prototype.create = function (options) {
+        var /** @type {?} */ isWindow = this.isElementWindow(options.windowElement);
+        var /** @type {?} */ resolver = {
+            axis: options.axis,
+            container: this.defineContainer(options.windowElement, isWindow),
+            isWindow: isWindow,
+        };
+        return resolver;
+    };
+    /**
+     * @param {?} windowElement
+     * @param {?} isContainerWindow
+     * @return {?}
+     */
+    PositionResolver.prototype.defineContainer = function (windowElement, isContainerWindow) {
+        var /** @type {?} */ container = (isContainerWindow || !windowElement.nativeElement)
+            ? windowElement
+            : windowElement.nativeElement;
+        return container;
+    };
+    /**
+     * @param {?} windowElement
+     * @return {?}
+     */
+    PositionResolver.prototype.isElementWindow = function (windowElement) {
+        var /** @type {?} */ isWindow = Object.prototype.toString.call(windowElement).includes('Window');
+        return isWindow;
+    };
+    /**
+     * @param {?} isContainerWindow
+     * @param {?} windowElement
+     * @return {?}
+     */
+    PositionResolver.prototype.getDocumentElement = function (isContainerWindow, windowElement) {
+        return isContainerWindow
+            ? windowElement.document.documentElement
+            : null;
+    };
+    /**
+     * @param {?} element
+     * @param {?} resolver
+     * @return {?}
+     */
+    PositionResolver.prototype.calculatePoints = function (element, resolver) {
+        return resolver.isWindow
+            ? this.calculatePointsForWindow(element, resolver)
+            : this.calculatePointsForElement(element, resolver);
+    };
+    /**
+     * @param {?} element
+     * @param {?} resolver
+     * @return {?}
+     */
+    PositionResolver.prototype.calculatePointsForWindow = function (element, resolver) {
+        var axis = resolver.axis, container = resolver.container, isWindow = resolver.isWindow;
+        var /** @type {?} */ offsetHeightKey = axis.offsetHeightKey();
+        var /** @type {?} */ clientHeightKey = axis.clientHeightKey();
+        var /** @type {?} */ topKey = axis.topKey();
+        // container's height
+        var /** @type {?} */ height = this.height(container, isWindow, offsetHeightKey, clientHeightKey);
+        // scrolled until now / current y point
+        var /** @type {?} */ scrolledUntilNow = height + this.pageYOffset(this.getDocumentElement(isWindow, container), axis, isWindow);
+        // total height / most bottom y point
+        var /** @type {?} */ nativeElementHeight = this.height(element.nativeElement, isWindow, offsetHeightKey, clientHeightKey);
+        var /** @type {?} */ totalToScroll = this.offsetTop(element.nativeElement, axis, isWindow) + nativeElementHeight;
+        return { height: height, scrolledUntilNow: scrolledUntilNow, totalToScroll: totalToScroll };
+    };
+    /**
+     * @param {?} element
+     * @param {?} resolver
+     * @return {?}
+     */
+    PositionResolver.prototype.calculatePointsForElement = function (element, resolver) {
+        var axis = resolver.axis, container = resolver.container, isWindow = resolver.isWindow;
+        var /** @type {?} */ offsetHeightKey = axis.offsetHeightKey();
+        var /** @type {?} */ clientHeightKey = axis.clientHeightKey();
+        var /** @type {?} */ scrollTop = axis.scrollTopKey();
+        var /** @type {?} */ scrollHeight = axis.scrollHeightKey();
+        var /** @type {?} */ topKey = axis.topKey();
+        var /** @type {?} */ height = this.height(container, isWindow, offsetHeightKey, clientHeightKey);
+        // perhaps use this.container.offsetTop instead of 'scrollTop'
+        var /** @type {?} */ scrolledUntilNow = container[scrollTop];
+        var /** @type {?} */ containerTopOffset = 0;
+        var /** @type {?} */ offsetTop = this.offsetTop(container, axis, isWindow);
+        if (offsetTop !== void 0) {
+            containerTopOffset = offsetTop;
+        }
+        var /** @type {?} */ totalToScroll = container[scrollHeight];
+        return { height: height, scrolledUntilNow: scrolledUntilNow, totalToScroll: totalToScroll };
+    };
+    /**
+     * @param {?} elem
+     * @param {?} isWindow
+     * @param {?} offsetHeightKey
+     * @param {?} clientHeightKey
+     * @return {?}
+     */
+    PositionResolver.prototype.height = function (elem, isWindow, offsetHeightKey, clientHeightKey) {
+        if (isNaN(elem[offsetHeightKey])) {
+            return this.getDocumentElement(isWindow, elem)[clientHeightKey];
+        }
+        else {
+            return elem[offsetHeightKey];
+        }
+    };
+    /**
+     * @param {?} elem
+     * @param {?} axis
+     * @param {?} isWindow
+     * @return {?}
+     */
+    PositionResolver.prototype.offsetTop = function (elem, axis, isWindow) {
+        var /** @type {?} */ topKey = axis.topKey();
+        // elem = elem.nativeElement;
+        if (!elem.getBoundingClientRect) {
+            return;
+        }
+        return elem.getBoundingClientRect()[topKey] + this.pageYOffset(elem, axis, isWindow);
+    };
+    /**
+     * @param {?} elem
+     * @param {?} axis
+     * @param {?} isWindow
+     * @return {?}
+     */
+    PositionResolver.prototype.pageYOffset = function (elem, axis, isWindow) {
+        var /** @type {?} */ pageYOffset = axis.pageYOffsetKey();
+        var /** @type {?} */ scrollTop = axis.scrollTopKey();
+        var /** @type {?} */ offsetTop = axis.offsetTopKey();
+        if (isNaN(window[pageYOffset])) {
+            return this.getDocumentElement(isWindow, elem)[scrollTop];
+        }
+        else if (elem.ownerDocument) {
+            return elem.ownerDocument.defaultView[pageYOffset];
+        }
+        else {
+            return elem[offsetTop];
+        }
+    };
+    return PositionResolver;
+}());
+PositionResolver.decorators = [
+    { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"] },
+];
+/**
+ * @nocollapse
+ */
+PositionResolver.ctorParameters = function () { return []; };
+var ScrollRegister = (function () {
+    function ScrollRegister() {
+    }
+    /**
+     * @param {?} options
+     * @return {?}
+     */
+    ScrollRegister.prototype.attachEvent = function (options) {
+        var /** @type {?} */ scroller$ = __WEBPACK_IMPORTED_MODULE_1_rxjs_Observable__["Observable"].fromEvent(options.container, 'scroll')
+            .sampleTime(options.throttleDuration)
+            .filter(options.filterBefore)
+            .mergeMap(function (ev) { return __WEBPACK_IMPORTED_MODULE_1_rxjs_Observable__["Observable"].of(options.mergeMap(ev)); })
+            .subscribe(options.scrollHandler);
+        return scroller$;
+    };
+    return ScrollRegister;
+}());
+ScrollRegister.decorators = [
+    { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"] },
+];
+/**
+ * @nocollapse
+ */
+ScrollRegister.ctorParameters = function () { return []; };
+var ScrollResolver = (function () {
+    function ScrollResolver() {
+        this.lastScrollPosition = 0;
+    }
+    /**
+     * @param {?} container
+     * @param {?} config
+     * @param {?} scrollingDown
+     * @return {?}
+     */
+    ScrollResolver.prototype.shouldScroll = function (container, config, scrollingDown) {
+        var /** @type {?} */ distance = config.distance;
+        var /** @type {?} */ remaining;
+        var /** @type {?} */ containerBreakpoint;
+        if (scrollingDown) {
+            remaining = container.totalToScroll - container.scrolledUntilNow;
+            containerBreakpoint = container.height * distance.down + 1;
+        }
+        else {
+            remaining = container.scrolledUntilNow;
+            containerBreakpoint = container.height * distance.up + 1;
+        }
+        var /** @type {?} */ shouldScroll = remaining <= containerBreakpoint;
+        this.lastScrollPosition = container.scrolledUntilNow;
+        return shouldScroll;
+    };
+    /**
+     * @param {?} container
+     * @return {?}
+     */
+    ScrollResolver.prototype.isScrollingDown = function (container) {
+        return this.lastScrollPosition < container.scrolledUntilNow;
+    };
+    /**
+     * @param {?} container
+     * @param {?} config
+     * @return {?}
+     */
+    ScrollResolver.prototype.getScrollStats = function (container, config) {
+        var /** @type {?} */ isScrollingDown = this.isScrollingDown(container);
+        var /** @type {?} */ shouldScroll = this.shouldScroll(container, config, isScrollingDown);
+        return { isScrollingDown: isScrollingDown, shouldScroll: shouldScroll };
+    };
+    return ScrollResolver;
+}());
+ScrollResolver.decorators = [
+    { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"] },
+];
+/**
+ * @nocollapse
+ */
+ScrollResolver.ctorParameters = function () { return []; };
+var AxisResolver = (function () {
+    /**
+     * @param {?=} vertical
+     */
+    function AxisResolver(vertical) {
+        if (vertical === void 0) { vertical = true; }
+        this.vertical = vertical;
+    }
+    /**
+     * @return {?}
+     */
+    AxisResolver.prototype.clientHeightKey = function () { return this.vertical ? 'clientHeight' : 'clientWidth'; };
+    /**
+     * @return {?}
+     */
+    AxisResolver.prototype.offsetHeightKey = function () { return this.vertical ? 'offsetHeight' : 'offsetWidth'; };
+    /**
+     * @return {?}
+     */
+    AxisResolver.prototype.scrollHeightKey = function () { return this.vertical ? 'scrollHeight' : 'scrollWidth'; };
+    /**
+     * @return {?}
+     */
+    AxisResolver.prototype.pageYOffsetKey = function () { return this.vertical ? 'pageYOffset' : 'pageXOffset'; };
+    /**
+     * @return {?}
+     */
+    AxisResolver.prototype.offsetTopKey = function () { return this.vertical ? 'offsetTop' : 'offsetLeft'; };
+    /**
+     * @return {?}
+     */
+    AxisResolver.prototype.scrollTopKey = function () { return this.vertical ? 'scrollTop' : 'scrollLeft'; };
+    /**
+     * @return {?}
+     */
+    AxisResolver.prototype.topKey = function () { return this.vertical ? 'top' : 'left'; };
+    return AxisResolver;
+}());
+var InfiniteScrollDirective = (function () {
+    /**
+     * @param {?} element
+     * @param {?} zone
+     * @param {?} positionResolver
+     * @param {?} scrollRegister
+     * @param {?} scrollerResolver
+     */
+    function InfiniteScrollDirective(element, zone, positionResolver, scrollRegister, scrollerResolver) {
+        this.element = element;
+        this.zone = zone;
+        this.positionResolver = positionResolver;
+        this.scrollRegister = scrollRegister;
+        this.scrollerResolver = scrollerResolver;
+        this.scrolled = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]();
+        this.scrolledUp = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]();
+        this.infiniteScrollDistance = 2;
+        this.infiniteScrollUpDistance = 1.5;
+        this.infiniteScrollThrottle = 300;
+        this.infiniteScrollDisabled = false;
+        this.infiniteScrollContainer = null;
+        this.scrollWindow = true;
+        this.immediateCheck = false;
+        this.horizontal = false;
+        this.alwaysCallback = false;
+    }
+    /**
+     * @return {?}
+     */
+    InfiniteScrollDirective.prototype.ngOnInit = function () {
+        var _this = this;
+        if (typeof window !== 'undefined') {
+            this.zone.runOutsideAngular(function () {
+                var /** @type {?} */ containerElement = _this.resolveContainerElement();
+                var /** @type {?} */ resolver = _this.positionResolver.create({
+                    axis: new AxisResolver(!_this.horizontal),
+                    windowElement: containerElement,
+                });
+                var /** @type {?} */ options = {
+                    container: resolver.container,
+                    filterBefore: function () { return !_this.infiniteScrollDisabled; },
+                    mergeMap: function () { return _this.positionResolver.calculatePoints(_this.element, resolver); },
+                    scrollHandler: function (container) { return _this.handleOnScroll(container); },
+                    throttleDuration: _this.infiniteScrollThrottle
+                };
+                _this.disposeScroller = _this.scrollRegister.attachEvent(options);
+            });
+        }
+    };
+    /**
+     * @param {?} container
+     * @return {?}
+     */
+    InfiniteScrollDirective.prototype.handleOnScroll = function (container) {
+        var /** @type {?} */ distance = {
+            down: this.infiniteScrollDistance,
+            up: this.infiniteScrollUpDistance
+        };
+        var /** @type {?} */ scrollStats = this.scrollerResolver.getScrollStats(container, { distance: distance });
+        if (this.shouldTriggerEvents(scrollStats.shouldScroll)) {
+            var /** @type {?} */ infiniteScrollEvent = {
+                currentScrollPosition: container.scrolledUntilNow
+            };
+            if (scrollStats.isScrollingDown) {
+                this.onScrollDown(infiniteScrollEvent);
+            }
+            else {
+                this.onScrollUp(infiniteScrollEvent);
+            }
+        }
+    };
+    /**
+     * @param {?} shouldScroll
+     * @return {?}
+     */
+    InfiniteScrollDirective.prototype.shouldTriggerEvents = function (shouldScroll) {
+        return (this.alwaysCallback || shouldScroll) && !this.infiniteScrollDisabled;
+    };
+    /**
+     * @return {?}
+     */
+    InfiniteScrollDirective.prototype.ngOnDestroy = function () {
+        if (this.disposeScroller) {
+            this.disposeScroller.unsubscribe();
+        }
+    };
+    /**
+     * @param {?=} data
+     * @return {?}
+     */
+    InfiniteScrollDirective.prototype.onScrollDown = function (data) {
+        var _this = this;
+        if (data === void 0) { data = { currentScrollPosition: 0 }; }
+        this.zone.run(function () { return _this.scrolled.emit(data); });
+    };
+    /**
+     * @param {?=} data
+     * @return {?}
+     */
+    InfiniteScrollDirective.prototype.onScrollUp = function (data) {
+        var _this = this;
+        if (data === void 0) { data = { currentScrollPosition: 0 }; }
+        this.zone.run(function () { return _this.scrolledUp.emit(data); });
+    };
+    /**
+     * @return {?}
+     */
+    InfiniteScrollDirective.prototype.resolveContainerElement = function () {
+        var /** @type {?} */ selector = this.infiniteScrollContainer;
+        var /** @type {?} */ hasWindow = window && window.hasOwnProperty('document');
+        var /** @type {?} */ containerIsString = selector && hasWindow && typeof (this.infiniteScrollContainer) === 'string';
+        var /** @type {?} */ container = containerIsString
+            ? window.document.querySelector(selector)
+            : selector;
+        if (!selector) {
+            container = this.scrollWindow ? window : this.element;
+        }
+        return container;
+    };
+    return InfiniteScrollDirective;
+}());
+InfiniteScrollDirective.decorators = [
+    { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Directive"], args: [{
+                selector: '[infiniteScroll], [infinite-scroll], [data-infinite-scroll]'
+            },] },
+];
+/**
+ * @nocollapse
+ */
+InfiniteScrollDirective.ctorParameters = function () { return [
+    { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"], },
+    { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["NgZone"], },
+    { type: PositionResolver, },
+    { type: ScrollRegister, },
+    { type: ScrollResolver, },
+]; };
+InfiniteScrollDirective.propDecorators = {
+    'scrolled': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"] },],
+    'scrolledUp': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"] },],
+    'infiniteScrollDistance': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
+    'infiniteScrollUpDistance': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
+    'infiniteScrollThrottle': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
+    'infiniteScrollDisabled': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
+    'infiniteScrollContainer': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
+    'scrollWindow': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
+    'immediateCheck': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
+    'horizontal': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
+    'alwaysCallback': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
+};
+var InfiniteScrollModule = (function () {
+    function InfiniteScrollModule() {
+    }
+    return InfiniteScrollModule;
+}());
+InfiniteScrollModule.decorators = [
+    { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"], args: [{
+                declarations: [InfiniteScrollDirective],
+                exports: [InfiniteScrollDirective],
+                imports: [],
+                providers: [
+                    PositionResolver,
+                    ScrollRegister,
+                    ScrollResolver
+                ]
+            },] },
+];
+/**
+ * @nocollapse
+ */
+InfiniteScrollModule.ctorParameters = function () { return []; };
+/**
+ * Angular library starter.
+ * Build an Angular library compatible with AoT compilation & Tree shaking.
+ * Written by Roberto Simonetti.
+ * MIT license.
+ * https://github.com/robisim74/angular-library-starter
+ */
+/**
+ * Entry point for all public APIs of the package.
+ */
+/**
+ * Generated bundle index. Do not edit.
+ */
+
+//# sourceMappingURL=ngx-infinite-scroll.es5.js.map
+
+
+/***/ }),
+
 /***/ "../../../../outlayer/item.js":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -34260,6 +34747,18 @@ Observable_1.Observable.from = from_1.from;
 
 /***/ }),
 
+/***/ "../../../../rxjs/add/observable/fromEvent.js":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var Observable_1 = __webpack_require__("../../../../rxjs/Observable.js");
+var fromEvent_1 = __webpack_require__("../../../../rxjs/observable/fromEvent.js");
+Observable_1.Observable.fromEvent = fromEvent_1.fromEvent;
+//# sourceMappingURL=fromEvent.js.map
+
+/***/ }),
+
 /***/ "../../../../rxjs/add/observable/fromPromise.js":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -34269,6 +34768,18 @@ var Observable_1 = __webpack_require__("../../../../rxjs/Observable.js");
 var fromPromise_1 = __webpack_require__("../../../../rxjs/observable/fromPromise.js");
 Observable_1.Observable.fromPromise = fromPromise_1.fromPromise;
 //# sourceMappingURL=fromPromise.js.map
+
+/***/ }),
+
+/***/ "../../../../rxjs/add/observable/of.js":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var Observable_1 = __webpack_require__("../../../../rxjs/Observable.js");
+var of_1 = __webpack_require__("../../../../rxjs/observable/of.js");
+Observable_1.Observable.of = of_1.of;
+//# sourceMappingURL=of.js.map
 
 /***/ }),
 
@@ -34355,6 +34866,18 @@ var mergeMap_1 = __webpack_require__("../../../../rxjs/operator/mergeMap.js");
 Observable_1.Observable.prototype.mergeMap = mergeMap_1.mergeMap;
 Observable_1.Observable.prototype.flatMap = mergeMap_1.mergeMap;
 //# sourceMappingURL=mergeMap.js.map
+
+/***/ }),
+
+/***/ "../../../../rxjs/add/operator/sampleTime.js":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var Observable_1 = __webpack_require__("../../../../rxjs/Observable.js");
+var sampleTime_1 = __webpack_require__("../../../../rxjs/operator/sampleTime.js");
+Observable_1.Observable.prototype.sampleTime = sampleTime_1.sampleTime;
+//# sourceMappingURL=sampleTime.js.map
 
 /***/ }),
 
@@ -35179,6 +35702,153 @@ var ForkJoinSubscriber = (function (_super) {
 
 /***/ }),
 
+/***/ "../../../../rxjs/observable/FromEventObservable.js":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __extends = (this && this.__extends) || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
+var Observable_1 = __webpack_require__("../../../../rxjs/Observable.js");
+var tryCatch_1 = __webpack_require__("../../../../rxjs/util/tryCatch.js");
+var isFunction_1 = __webpack_require__("../../../../rxjs/util/isFunction.js");
+var errorObject_1 = __webpack_require__("../../../../rxjs/util/errorObject.js");
+var Subscription_1 = __webpack_require__("../../../../rxjs/Subscription.js");
+var toString = Object.prototype.toString;
+function isNodeStyleEventEmitter(sourceObj) {
+    return !!sourceObj && typeof sourceObj.addListener === 'function' && typeof sourceObj.removeListener === 'function';
+}
+function isJQueryStyleEventEmitter(sourceObj) {
+    return !!sourceObj && typeof sourceObj.on === 'function' && typeof sourceObj.off === 'function';
+}
+function isNodeList(sourceObj) {
+    return !!sourceObj && toString.call(sourceObj) === '[object NodeList]';
+}
+function isHTMLCollection(sourceObj) {
+    return !!sourceObj && toString.call(sourceObj) === '[object HTMLCollection]';
+}
+function isEventTarget(sourceObj) {
+    return !!sourceObj && typeof sourceObj.addEventListener === 'function' && typeof sourceObj.removeEventListener === 'function';
+}
+/**
+ * We need this JSDoc comment for affecting ESDoc.
+ * @extends {Ignored}
+ * @hide true
+ */
+var FromEventObservable = (function (_super) {
+    __extends(FromEventObservable, _super);
+    function FromEventObservable(sourceObj, eventName, selector, options) {
+        _super.call(this);
+        this.sourceObj = sourceObj;
+        this.eventName = eventName;
+        this.selector = selector;
+        this.options = options;
+    }
+    /* tslint:enable:max-line-length */
+    /**
+     * Creates an Observable that emits events of a specific type coming from the
+     * given event target.
+     *
+     * <span class="informal">Creates an Observable from DOM events, or Node
+     * EventEmitter events or others.</span>
+     *
+     * <img src="./img/fromEvent.png" width="100%">
+     *
+     * Creates an Observable by attaching an event listener to an "event target",
+     * which may be an object with `addEventListener` and `removeEventListener`,
+     * a Node.js EventEmitter, a jQuery style EventEmitter, a NodeList from the
+     * DOM, or an HTMLCollection from the DOM. The event handler is attached when
+     * the output Observable is subscribed, and removed when the Subscription is
+     * unsubscribed.
+     *
+     * @example <caption>Emits clicks happening on the DOM document</caption>
+     * var clicks = Rx.Observable.fromEvent(document, 'click');
+     * clicks.subscribe(x => console.log(x));
+     *
+     * // Results in:
+     * // MouseEvent object logged to console everytime a click
+     * // occurs on the document.
+     *
+     * @see {@link from}
+     * @see {@link fromEventPattern}
+     *
+     * @param {EventTargetLike} target The DOMElement, event target, Node.js
+     * EventEmitter, NodeList or HTMLCollection to attach the event handler to.
+     * @param {string} eventName The event name of interest, being emitted by the
+     * `target`.
+     * @param {EventListenerOptions} [options] Options to pass through to addEventListener
+     * @param {SelectorMethodSignature<T>} [selector] An optional function to
+     * post-process results. It takes the arguments from the event handler and
+     * should return a single value.
+     * @return {Observable<T>}
+     * @static true
+     * @name fromEvent
+     * @owner Observable
+     */
+    FromEventObservable.create = function (target, eventName, options, selector) {
+        if (isFunction_1.isFunction(options)) {
+            selector = options;
+            options = undefined;
+        }
+        return new FromEventObservable(target, eventName, selector, options);
+    };
+    FromEventObservable.setupSubscription = function (sourceObj, eventName, handler, subscriber, options) {
+        var unsubscribe;
+        if (isNodeList(sourceObj) || isHTMLCollection(sourceObj)) {
+            for (var i = 0, len = sourceObj.length; i < len; i++) {
+                FromEventObservable.setupSubscription(sourceObj[i], eventName, handler, subscriber, options);
+            }
+        }
+        else if (isEventTarget(sourceObj)) {
+            var source_1 = sourceObj;
+            sourceObj.addEventListener(eventName, handler, options);
+            unsubscribe = function () { return source_1.removeEventListener(eventName, handler); };
+        }
+        else if (isJQueryStyleEventEmitter(sourceObj)) {
+            var source_2 = sourceObj;
+            sourceObj.on(eventName, handler);
+            unsubscribe = function () { return source_2.off(eventName, handler); };
+        }
+        else if (isNodeStyleEventEmitter(sourceObj)) {
+            var source_3 = sourceObj;
+            sourceObj.addListener(eventName, handler);
+            unsubscribe = function () { return source_3.removeListener(eventName, handler); };
+        }
+        else {
+            throw new TypeError('Invalid event target');
+        }
+        subscriber.add(new Subscription_1.Subscription(unsubscribe));
+    };
+    FromEventObservable.prototype._subscribe = function (subscriber) {
+        var sourceObj = this.sourceObj;
+        var eventName = this.eventName;
+        var options = this.options;
+        var selector = this.selector;
+        var handler = selector ? function () {
+            var args = [];
+            for (var _i = 0; _i < arguments.length; _i++) {
+                args[_i - 0] = arguments[_i];
+            }
+            var result = tryCatch_1.tryCatch(selector).apply(void 0, args);
+            if (result === errorObject_1.errorObject) {
+                subscriber.error(errorObject_1.errorObject.e);
+            }
+            else {
+                subscriber.next(result);
+            }
+        } : function (e) { return subscriber.next(e); };
+        FromEventObservable.setupSubscription(sourceObj, eventName, handler, subscriber, options);
+    };
+    return FromEventObservable;
+}(Observable_1.Observable));
+exports.FromEventObservable = FromEventObservable;
+//# sourceMappingURL=FromEventObservable.js.map
+
+/***/ }),
+
 /***/ "../../../../rxjs/observable/FromObservable.js":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -35815,6 +36485,17 @@ exports.forkJoin = ForkJoinObservable_1.ForkJoinObservable.create;
 var FromObservable_1 = __webpack_require__("../../../../rxjs/observable/FromObservable.js");
 exports.from = FromObservable_1.FromObservable.create;
 //# sourceMappingURL=from.js.map
+
+/***/ }),
+
+/***/ "../../../../rxjs/observable/fromEvent.js":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var FromEventObservable_1 = __webpack_require__("../../../../rxjs/observable/FromEventObservable.js");
+exports.fromEvent = FromEventObservable_1.FromEventObservable.create;
+//# sourceMappingURL=fromEvent.js.map
 
 /***/ }),
 
@@ -37681,6 +38362,104 @@ var ReduceSubscriber = (function (_super) {
 }(Subscriber_1.Subscriber));
 exports.ReduceSubscriber = ReduceSubscriber;
 //# sourceMappingURL=reduce.js.map
+
+/***/ }),
+
+/***/ "../../../../rxjs/operator/sampleTime.js":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __extends = (this && this.__extends) || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
+var Subscriber_1 = __webpack_require__("../../../../rxjs/Subscriber.js");
+var async_1 = __webpack_require__("../../../../rxjs/scheduler/async.js");
+/**
+ * Emits the most recently emitted value from the source Observable within
+ * periodic time intervals.
+ *
+ * <span class="informal">Samples the source Observable at periodic time
+ * intervals, emitting what it samples.</span>
+ *
+ * <img src="./img/sampleTime.png" width="100%">
+ *
+ * `sampleTime` periodically looks at the source Observable and emits whichever
+ * value it has most recently emitted since the previous sampling, unless the
+ * source has not emitted anything since the previous sampling. The sampling
+ * happens periodically in time every `period` milliseconds (or the time unit
+ * defined by the optional `scheduler` argument). The sampling starts as soon as
+ * the output Observable is subscribed.
+ *
+ * @example <caption>Every second, emit the most recent click at most once</caption>
+ * var clicks = Rx.Observable.fromEvent(document, 'click');
+ * var result = clicks.sampleTime(1000);
+ * result.subscribe(x => console.log(x));
+ *
+ * @see {@link auditTime}
+ * @see {@link debounceTime}
+ * @see {@link delay}
+ * @see {@link sample}
+ * @see {@link throttleTime}
+ *
+ * @param {number} period The sampling period expressed in milliseconds or the
+ * time unit determined internally by the optional `scheduler`.
+ * @param {Scheduler} [scheduler=async] The {@link IScheduler} to use for
+ * managing the timers that handle the sampling.
+ * @return {Observable<T>} An Observable that emits the results of sampling the
+ * values emitted by the source Observable at the specified time interval.
+ * @method sampleTime
+ * @owner Observable
+ */
+function sampleTime(period, scheduler) {
+    if (scheduler === void 0) { scheduler = async_1.async; }
+    return this.lift(new SampleTimeOperator(period, scheduler));
+}
+exports.sampleTime = sampleTime;
+var SampleTimeOperator = (function () {
+    function SampleTimeOperator(period, scheduler) {
+        this.period = period;
+        this.scheduler = scheduler;
+    }
+    SampleTimeOperator.prototype.call = function (subscriber, source) {
+        return source.subscribe(new SampleTimeSubscriber(subscriber, this.period, this.scheduler));
+    };
+    return SampleTimeOperator;
+}());
+/**
+ * We need this JSDoc comment for affecting ESDoc.
+ * @ignore
+ * @extends {Ignored}
+ */
+var SampleTimeSubscriber = (function (_super) {
+    __extends(SampleTimeSubscriber, _super);
+    function SampleTimeSubscriber(destination, period, scheduler) {
+        _super.call(this, destination);
+        this.period = period;
+        this.scheduler = scheduler;
+        this.hasValue = false;
+        this.add(scheduler.schedule(dispatchNotification, period, { subscriber: this, period: period }));
+    }
+    SampleTimeSubscriber.prototype._next = function (value) {
+        this.lastValue = value;
+        this.hasValue = true;
+    };
+    SampleTimeSubscriber.prototype.notifyNext = function () {
+        if (this.hasValue) {
+            this.hasValue = false;
+            this.destination.next(this.lastValue);
+        }
+    };
+    return SampleTimeSubscriber;
+}(Subscriber_1.Subscriber));
+function dispatchNotification(state) {
+    var subscriber = state.subscriber, period = state.period;
+    subscriber.notifyNext();
+    this.schedule(state, period);
+}
+//# sourceMappingURL=sampleTime.js.map
 
 /***/ }),
 
