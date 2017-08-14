@@ -31,7 +31,6 @@ import { MarkdownModule } from 'angular2-markdown';
 import { MasonryModule } from 'angular2-masonry';
 import { ScrollSpyModule } from 'ng2-scrollspy';
 import { ScrollSpyAffixDirective } from 'ng2-scrollspy/dist/plugin/affix.directive';
-import { ChartsModule } from 'ng2-charts/ng2-charts';
 import { AccountRegisterPlanComponent } from './account-register-plan/account-register-plan.component';
 import { MomentModule } from 'angular2-moment';
 
@@ -74,7 +73,6 @@ export function getAuthHttp(http: Http, options: RequestOptions) {
     MarkdownModule.forRoot(),
     MasonryModule,
     ScrollSpyModule.forRoot(),
-    ChartsModule,
     MomentModule,
     RouterModule.forRoot([
         //Public Endpoints
