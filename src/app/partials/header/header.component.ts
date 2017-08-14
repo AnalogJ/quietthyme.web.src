@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from '../../services/api.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'quietthyme-header',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(private apiService: ApiService, private router: Router) { }
 
   ngOnInit() {
   }
 
+
+  logout(){
+    //remove token, and redirect to login page.
+    this.apiService.logout();
+    this.router.navigate(['/login'])
+  }
 }

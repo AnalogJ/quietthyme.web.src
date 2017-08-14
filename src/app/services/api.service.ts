@@ -52,6 +52,10 @@ export class ApiService {
   /////////////////////////////////////////////////////////////////////////////
   // Unauthenticated functions
   /////////////////////////////////////////////////////////////////////////////
+  logout(){
+    localStorage.removeItem('id_token')
+  }
+
   authRegister(name:string, email:string, password:string): Observable<any> {
     return this.http.post(`${AppSettings.API_ENDPOINT}/auth/register`,
         {

@@ -33,7 +33,7 @@ import { ScrollSpyModule } from 'ng2-scrollspy';
 import { ScrollSpyAffixDirective } from 'ng2-scrollspy/dist/plugin/affix.directive';
 import { ChartsModule } from 'ng2-charts/ng2-charts';
 import { AccountRegisterPlanComponent } from './account-register-plan/account-register-plan.component';
-// import {Gravatar} from 'ng2-gravatar-directive';
+import { MomentModule } from 'angular2-moment';
 
 export function getAuthHttp(http: Http, options: RequestOptions) {
   return new AuthHttp(new AuthConfig({
@@ -75,7 +75,7 @@ export function getAuthHttp(http: Http, options: RequestOptions) {
     MasonryModule,
     ScrollSpyModule.forRoot(),
     ChartsModule,
-
+    MomentModule,
     RouterModule.forRoot([
         //Public Endpoints
       { path: 'login', component: AccountLoginComponent },

@@ -17,3 +17,69 @@
 
 // Initialize
 @import "less/theme.less";
+
+//style the valor-software.com accordion
+
+
+/*! -- Stack Accordions -- */
+.accordion .panel-title.card-title {
+  transition: 0.5s ease;
+  -webkit-transition: 0.5s ease;
+  -moz-transition: 0.5s ease;
+  opacity: .5;
+  margin-bottom: 0.92857143em;
+  font-weight: 600;
+}
+.accordion .panel-title.card-title:hover {
+  opacity: 1;
+}
+.accordion .panel-title.card-title .accordion-toggle div:first-child:before {
+  font-family: "stack-interface";
+  content: '◹';
+  margin-right: 6px;
+  color: #252525;
+}
+.accordion .panel-title.card-title span {
+  display: inline-block;
+}
+.accordion .panel-open {
+  margin-bottom: 0.92857143em;
+}
+.accordion .panel-open .panel-title.card-title {
+  opacity: 1;
+}
+.accordion .panel-open .panel-title.card-title .accordion-toggle div:first-child:before {
+  content: '◺';
+}
+.accordion .panel-open .panel-body {
+  animation: fadeUp .5s ease forwards;
+  -webkit-animation: fadeUp .5s ease forwards;
+}
+.accordion-1 .panel-open .panel-title.card-title {
+  border-color: #4a90e2;
+}
+.accordion-1 .panel-open .panel-title.card-title span {
+  color: #fff;
+}
+.accordion-1 .panel-open .panel-title.card-title:before {
+  color: #fff;
+}
+.accordion-1 .panel-title.card-title {
+  border-radius: 6px;
+  border-bottom: 1px solid #ECECEC;
+}
+.accordion-2 .panel-title.card-title {
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  border-bottom: 1px solid #ECECEC;
+  padding-left: 0;
+}
+.accordion-2 .panel-open .panel-title.card-title {
+  background: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0);
+}
+
+.accordion .label {
+  position: inherit;
+}

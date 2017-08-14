@@ -30,8 +30,18 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-5 col-md-4">
-                    <img *ngIf="book.cover" class="border--round box-shadow-wide" src="https://s3.amazonaws.com/{{ book.cover }}" alt="{{ book.title }}">
-                    <img *ngIf="!book.cover" class="border--round box-shadow-wide" src="assets/images/noart.png" alt="{{ book.title }}">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <img *ngIf="book.cover" class="border--round box-shadow-wide book-details-cover-image" src="https://s3.amazonaws.com/{{ book.cover }}" alt="{{ book.title }}">
+                            <img *ngIf="!book.cover" class="border--round box-shadow-wide" src="assets/images/noart.png" alt="{{ book.title }}">
+
+                        </div>
+                    </div>
+                    <div class="row" style="padding-top:40px">
+                        <div class="col-md-12">
+                            <button class="btn btn--primary">Download</button>
+                        </div>
+                    </div>
 
                 </div>
                 <div class="col-sm-7 col-md-6 col-md-offset-1">
@@ -41,121 +51,63 @@
                     </div>
                     <markdown [data]="book.short_summary"></markdown>
 
-                    <accordion class="accordion accordion-2 accordion--oneopen">
+                    <accordion style="padding-top: 30px;" class="accordion accordion-2 accordion--oneopen">
 
-                        <accordion-group heading="Info">
+                        <accordion-group heading="Details">
                             <ul class="bullets">
                                 <li>
-                                    <span>IDB &mdash; 24,000KHz</span>
+                                    <span>Title &mdash; {{ book.title }}</span>
                                 </li>
                                 <li>
-                                    <span>DAB+ / FM / AM</span>
+                                    <span>Authors &mdash; {{ book.authors }}</span>
                                 </li>
-                                <li>
-                                    <span>16,000 mAh Internal Rehcargable Battery</span>
+                                <li *ngIf="book.series_name">
+                                    <span>Series &mdash; {{ book.series_name }} #{{ book.series_number }}</span>
                                 </li>
+
                                 <li>
-                                    <span>10 Watts</span>
+                                    <span>ISBN &mdash; {{ book.isbn || book.isbn10 }}</span>
+                                </li>
+                                <li *ngIf="book.published_date">
+                                    <span>Published &mdash; {{ book.published_date | amDateFormat:'LL' }}</span>
+                                </li>
+                                <li *ngIf="book.language">
+                                    <span>Language &mdash; {{ book.language }}</span>
+                                </li>
+                                <li *ngIf="book.pages">
+                                    <span>Pages &mdash; {{ book.pages }}</span>
                                 </li>
                             </ul>
                         </accordion-group>
 
                         <accordion-group heading="Tags">
-                            <a href="#" *ngFor="let tag of book.tags; let myIndex = index">{{ tag }}</a>
+                            <span class="label label-default" *ngFor="let tag of book.tags; let myIndex = index">{{ tag }}</span>
                         </accordion-group>
 
-                        <accordion-group heading="External">
-                            <a *ngIf="book.amazon_id" href="http://www.amazon.com/exec/obidos/ASIN/{{ book.amazon_id }}" class="social-icon si-borderless si-amazon">
-                                <i class="icon-amazon"></i>
-                                <i class="icon-amazon"></i>
-                            </a>
-                            <a *ngIf="book.google_id" href="https://books.google.com/books?id={{ book.google_id }}" class="social-icon si-borderless si-google">
-                                <i class="icon-google"></i>
-                                <i class="icon-google"></i>
-                            </a>
-                            <a *ngIf="book.goodreads_id" href="https://www.goodreads.com/book/show/{{ book.goodreads_id }}" class="social-icon si-borderless si-goodreads">
-                                <i>g</i>
-                                <i>g</i>
+                        <accordion-group heading="External Links">
+                            <a *ngIf="book.amazon_id" href="http://www.amazon.com/exec/obidos/ASIN/{{ book.amazon_id }}" class="book-details-icons">
+                                <i class="socicon socicon-amazon icon icon--s"></i>
                             </a>
 
+                            <a *ngIf="book.google_id" href="https://books.google.com/books?id={{ book.google_id }}" class="book-details-icons">
+                                <i class="socicon socicon-google icon icon--s"></i>
+                            </a>
+
+                            <a *ngIf="book.goodreads_id" href="https://www.goodreads.com/book/show/{{ book.goodreads_id }}" class="book-details-icons">
+                                <i class="socicon socicon-goodreads icon icon--s"></i>
+                            </a>
                         </accordion-group>
 
                     </accordion>
 
                     <!--end accordion-->
-                    <div class="col-sm-6 col-md-8">
-                        <button class="btn btn--primary">Download</button>
-                    </div>
                 </div>
             </div>
             <!--end of row-->
         </div>
         <!--end of container-->
     </section>
-    <section class="hidden">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-12">
-                    <div class="text-block">
-                        <h3>Related Products</h3>
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="product">
-                        <a href="#">
-                            <img alt="Image" src="img/product-small-2.png" />
-                        </a>
-                        <a class="block" href="#">
-                            <div>
-                                <h5>Apple Keyboard</h5>
-                                <span> Wireless Bluetooth</span>
-                            </div>
-                            <div>
-                                <span class="h4 inline-block">$99</span>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <!--end item-->
-                <div class="col-sm-4">
-                    <div class="product">
-                        <a href="#">
-                            <img alt="Image" src="img/product-small-12.png" />
-                        </a>
-                        <a class="block" href="#">
-                            <div>
-                                <h5>Magic Mouse</h5>
-                                <span> Wireless Bluetooth</span>
-                            </div>
-                            <div>
-                                <span class="h4 inline-block">$69</span>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <!--end item-->
-                <div class="col-sm-4">
-                    <div class="product">
-                        <a href="#">
-                            <img alt="Image" src="img/product-small-10.png" />
-                        </a>
-                        <a class="block" href="#">
-                            <div>
-                                <h5>DALI Xensor 2</h5>
-                                <span> Desktop Speaker</span>
-                            </div>
-                            <div>
-                                <span class="h4 inline-block">$269</span>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <!--end item-->
-            </div>
-            <!--end of row-->
-        </div>
-        <!--end of container-->
-    </section>
+
     <quietthyme-footer></quietthyme-footer>
 </div>
 
