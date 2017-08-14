@@ -1,700 +1,52 @@
-webpackJsonp([1,5],{
+webpackJsonp(["main"],{
 
-/***/ 1006:
+/***/ "../../../../../src lazy recursive":
+/***/ (function(module, exports) {
+
+function webpackEmptyAsyncContext(req) {
+	return new Promise(function(resolve, reject) { reject(new Error("Cannot find module '" + req + "'.")); });
+}
+webpackEmptyAsyncContext.keys = function() { return []; };
+webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
+module.exports = webpackEmptyAsyncContext;
+webpackEmptyAsyncContext.id = "../../../../../src lazy recursive";
+
+/***/ }),
+
+/***/ "../../../../../src/app/account-login/account-login.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<ng2-slim-loading-bar class=\"navbar-fixed-top\" [color]=\"'#128950'\" [height]=\"'3px'\"></ng2-slim-loading-bar>\n<div class=\"main-container\">\n    <section class=\"height-100 imagebg text-center\" data-overlay=\"4\">\n        <div class=\"background-image-holder login-bg\">\n        </div>\n        <div class=\"container pos-vertical-center\">\n            <div class=\"row\">\n                <div class=\"col-sm-7 col-md-5\">\n                    <h2>Login to continue</h2>\n\n                    <div style=\"display:none;\">\n                        <a class=\"btn block btn--icon bg--facebook type--uppercase\" href=\"#\">\n                                <span class=\"btn__text\">\n                                    <i class=\"socicon-facebook\"></i>\n                                    Login with GoodReads\n                                </span>\n                        </a>\n                        <hr>\n                    </div>\n\n                    <div >\n                        <p class=\"lead\">Welcome back, sign in with your existing QuietThyme account credentials</p>\n                        <form (ngSubmit)=\"login()\">\n                            <div class=\"row\">\n                                <div class=\"col-sm-12\">\n                                    <input [(ngModel)]=\"loginEmail\" name=\"email\" type=\"email\" placeholder=\"Email\" required/>\n                                </div>\n                                <div class=\"col-sm-12\">\n                                    <input [(ngModel)]=\"loginPassword\" name=\"password\" type=\"password\" placeholder=\"Password\" required/>\n                                </div>\n                                <div class=\"col-sm-12\">\n                                    <button [disabled]=\"loading.login\" class=\"btn btn--primary type--uppercase\" type=\"submit\" >Login</button>\n                                </div>\n                            </div>\n                            <!--end of row-->\n                        </form>\n                        <span class=\"type--fine-print block\">Dont have an account yet?\n                                <a href=\"/register\">Create account</a>\n                            </span>\n                        <span style=\"display:none;\" class=\"type--fine-print block\">Forgot your username or password?\n                                <a href=\"#\">Recover account</a>\n                            </span>\n                    </div>\n\n                </div>\n            </div>\n            <!--end of row-->\n        </div>\n        <!--end of container-->\n    </section>\n</div>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/account-login/account-login.component.less":
 /***/ (function(module, exports, __webpack_require__) {
 
-var map = {
-	"./af": 428,
-	"./af.js": 428,
-	"./ar": 435,
-	"./ar-dz": 429,
-	"./ar-dz.js": 429,
-	"./ar-kw": 430,
-	"./ar-kw.js": 430,
-	"./ar-ly": 431,
-	"./ar-ly.js": 431,
-	"./ar-ma": 432,
-	"./ar-ma.js": 432,
-	"./ar-sa": 433,
-	"./ar-sa.js": 433,
-	"./ar-tn": 434,
-	"./ar-tn.js": 434,
-	"./ar.js": 435,
-	"./az": 436,
-	"./az.js": 436,
-	"./be": 437,
-	"./be.js": 437,
-	"./bg": 438,
-	"./bg.js": 438,
-	"./bn": 439,
-	"./bn.js": 439,
-	"./bo": 440,
-	"./bo.js": 440,
-	"./br": 441,
-	"./br.js": 441,
-	"./bs": 442,
-	"./bs.js": 442,
-	"./ca": 443,
-	"./ca.js": 443,
-	"./cs": 444,
-	"./cs.js": 444,
-	"./cv": 445,
-	"./cv.js": 445,
-	"./cy": 446,
-	"./cy.js": 446,
-	"./da": 447,
-	"./da.js": 447,
-	"./de": 450,
-	"./de-at": 448,
-	"./de-at.js": 448,
-	"./de-ch": 449,
-	"./de-ch.js": 449,
-	"./de.js": 450,
-	"./dv": 451,
-	"./dv.js": 451,
-	"./el": 452,
-	"./el.js": 452,
-	"./en-au": 453,
-	"./en-au.js": 453,
-	"./en-ca": 454,
-	"./en-ca.js": 454,
-	"./en-gb": 455,
-	"./en-gb.js": 455,
-	"./en-ie": 456,
-	"./en-ie.js": 456,
-	"./en-nz": 457,
-	"./en-nz.js": 457,
-	"./eo": 458,
-	"./eo.js": 458,
-	"./es": 460,
-	"./es-do": 459,
-	"./es-do.js": 459,
-	"./es.js": 460,
-	"./et": 461,
-	"./et.js": 461,
-	"./eu": 462,
-	"./eu.js": 462,
-	"./fa": 463,
-	"./fa.js": 463,
-	"./fi": 464,
-	"./fi.js": 464,
-	"./fo": 465,
-	"./fo.js": 465,
-	"./fr": 468,
-	"./fr-ca": 466,
-	"./fr-ca.js": 466,
-	"./fr-ch": 467,
-	"./fr-ch.js": 467,
-	"./fr.js": 468,
-	"./fy": 469,
-	"./fy.js": 469,
-	"./gd": 470,
-	"./gd.js": 470,
-	"./gl": 471,
-	"./gl.js": 471,
-	"./gom-latn": 472,
-	"./gom-latn.js": 472,
-	"./he": 473,
-	"./he.js": 473,
-	"./hi": 474,
-	"./hi.js": 474,
-	"./hr": 475,
-	"./hr.js": 475,
-	"./hu": 476,
-	"./hu.js": 476,
-	"./hy-am": 477,
-	"./hy-am.js": 477,
-	"./id": 478,
-	"./id.js": 478,
-	"./is": 479,
-	"./is.js": 479,
-	"./it": 480,
-	"./it.js": 480,
-	"./ja": 481,
-	"./ja.js": 481,
-	"./jv": 482,
-	"./jv.js": 482,
-	"./ka": 483,
-	"./ka.js": 483,
-	"./kk": 484,
-	"./kk.js": 484,
-	"./km": 485,
-	"./km.js": 485,
-	"./kn": 486,
-	"./kn.js": 486,
-	"./ko": 487,
-	"./ko.js": 487,
-	"./ky": 488,
-	"./ky.js": 488,
-	"./lb": 489,
-	"./lb.js": 489,
-	"./lo": 490,
-	"./lo.js": 490,
-	"./lt": 491,
-	"./lt.js": 491,
-	"./lv": 492,
-	"./lv.js": 492,
-	"./me": 493,
-	"./me.js": 493,
-	"./mi": 494,
-	"./mi.js": 494,
-	"./mk": 495,
-	"./mk.js": 495,
-	"./ml": 496,
-	"./ml.js": 496,
-	"./mr": 497,
-	"./mr.js": 497,
-	"./ms": 499,
-	"./ms-my": 498,
-	"./ms-my.js": 498,
-	"./ms.js": 499,
-	"./my": 500,
-	"./my.js": 500,
-	"./nb": 501,
-	"./nb.js": 501,
-	"./ne": 502,
-	"./ne.js": 502,
-	"./nl": 504,
-	"./nl-be": 503,
-	"./nl-be.js": 503,
-	"./nl.js": 504,
-	"./nn": 505,
-	"./nn.js": 505,
-	"./pa-in": 506,
-	"./pa-in.js": 506,
-	"./pl": 507,
-	"./pl.js": 507,
-	"./pt": 509,
-	"./pt-br": 508,
-	"./pt-br.js": 508,
-	"./pt.js": 509,
-	"./ro": 510,
-	"./ro.js": 510,
-	"./ru": 511,
-	"./ru.js": 511,
-	"./sd": 512,
-	"./sd.js": 512,
-	"./se": 513,
-	"./se.js": 513,
-	"./si": 514,
-	"./si.js": 514,
-	"./sk": 515,
-	"./sk.js": 515,
-	"./sl": 516,
-	"./sl.js": 516,
-	"./sq": 517,
-	"./sq.js": 517,
-	"./sr": 519,
-	"./sr-cyrl": 518,
-	"./sr-cyrl.js": 518,
-	"./sr.js": 519,
-	"./ss": 520,
-	"./ss.js": 520,
-	"./sv": 521,
-	"./sv.js": 521,
-	"./sw": 522,
-	"./sw.js": 522,
-	"./ta": 523,
-	"./ta.js": 523,
-	"./te": 524,
-	"./te.js": 524,
-	"./tet": 525,
-	"./tet.js": 525,
-	"./th": 526,
-	"./th.js": 526,
-	"./tl-ph": 527,
-	"./tl-ph.js": 527,
-	"./tlh": 528,
-	"./tlh.js": 528,
-	"./tr": 529,
-	"./tr.js": 529,
-	"./tzl": 530,
-	"./tzl.js": 530,
-	"./tzm": 532,
-	"./tzm-latn": 531,
-	"./tzm-latn.js": 531,
-	"./tzm.js": 532,
-	"./uk": 533,
-	"./uk.js": 533,
-	"./ur": 534,
-	"./ur.js": 534,
-	"./uz": 536,
-	"./uz-latn": 535,
-	"./uz-latn.js": 535,
-	"./uz.js": 536,
-	"./vi": 537,
-	"./vi.js": 537,
-	"./x-pseudo": 538,
-	"./x-pseudo.js": 538,
-	"./yo": 539,
-	"./yo.js": 539,
-	"./zh-cn": 540,
-	"./zh-cn.js": 540,
-	"./zh-hk": 541,
-	"./zh-hk.js": 541,
-	"./zh-tw": 542,
-	"./zh-tw.js": 542
-};
-function webpackContext(req) {
-	return __webpack_require__(webpackContextResolve(req));
-};
-function webpackContextResolve(req) {
-	var id = map[req];
-	if(!(id + 1)) // check for number
-		throw new Error("Cannot find module '" + req + "'.");
-	return id;
-};
-webpackContext.keys = function webpackContextKeys() {
-	return Object.keys(map);
-};
-webpackContext.resolve = webpackContextResolve;
-module.exports = webpackContext;
-webpackContext.id = 1006;
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
 
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 1052:
-/***/ (function(module, exports) {
-
-module.exports = ""
-
-/***/ }),
-
-/***/ 1053:
-/***/ (function(module, exports) {
-
-module.exports = ""
-
-/***/ }),
-
-/***/ 1054:
-/***/ (function(module, exports) {
-
-module.exports = ""
-
-/***/ }),
-
-/***/ 1055:
-/***/ (function(module, exports) {
-
-module.exports = ""
-
-/***/ }),
-
-/***/ 1056:
-/***/ (function(module, exports) {
-
-module.exports = ""
-
-/***/ }),
-
-/***/ 1057:
-/***/ (function(module, exports) {
-
-module.exports = ""
-
-/***/ }),
-
-/***/ 1058:
-/***/ (function(module, exports) {
-
-module.exports = ""
-
-/***/ }),
-
-/***/ 1059:
-/***/ (function(module, exports) {
-
-module.exports = ""
-
-/***/ }),
-
-/***/ 1060:
-/***/ (function(module, exports) {
-
-module.exports = ""
-
-/***/ }),
-
-/***/ 1061:
-/***/ (function(module, exports) {
-
-module.exports = ""
-
-/***/ }),
-
-/***/ 1062:
-/***/ (function(module, exports) {
-
-module.exports = ""
-
-/***/ }),
-
-/***/ 1063:
-/***/ (function(module, exports) {
-
-module.exports = ""
-
-/***/ }),
-
-/***/ 1064:
-/***/ (function(module, exports) {
-
-module.exports = "<ng2-slim-loading-bar class=\"navbar-fixed-top\" [color]=\"'#128950'\" [height]=\"'3px'\"></ng2-slim-loading-bar>\n\n<!-- Content\n============================================= -->\n<section id=\"content\" style=\"margin-bottom: 0px;\">\n\n    <div class=\"content-wrap nopadding\">\n\n        <div class=\"section nopadding nomargin\" style=\"width: 100%; height: 100%; position: absolute; left: 0; top: 0; background: url('assets/images/bg/login_splash.jpg') center center no-repeat; background-size: cover;\"></div>\n\n        <div class=\"section nobg full-screen nopadding nomargin\" style=\"height:100vh;\">\n            <div class=\"container vertical-middle divcenter clearfix\" style=\"position: absolute; top: 50%; width: 100%; padding-top: 0px; padding-bottom: 0px; margin-top: -330px;\">\n\n                <div class=\"row center\">\n                    <a href=\"/\"><img style=\"max-width:200px\" src=\"assets/images/logo/logo-white-large.png.svg\" alt=\"QuietThyme Logo\"></a>\n                </div>\n\n                <div class=\"panel panel-default divcenter noradius noborder\" style=\"max-width: 400px; background-color: rgba(255,255,255,0.93);\">\n                    <div class=\"panel-body\" style=\"padding: 40px;\">\n                        <form id=\"login-form\" name=\"login-form\" class=\"nobottommargin\" (ngSubmit)=\"login()\">\n                            <h3>Login to your Account</h3>\n\n                            <div class=\"col_full\">\n                                <label for=\"login-form-email\">Email:</label>\n                                <input [(ngModel)]=\"loginEmail\" type=\"email\" id=\"login-form-email\" name=\"login-form-email\" class=\"form-control not-dark\" required/>\n                            </div>\n\n                            <div class=\"col_full\">\n                                <label for=\"login-form-password\">Password:</label>\n                                <input [(ngModel)]=\"loginPassword\" type=\"password\" id=\"login-form-password\" name=\"login-form-password\" class=\"form-control not-dark\" required/>\n                            </div>\n\n                            <div class=\"col_full nobottommargin\">\n                                <button type=\"submit\" class=\"button button-3d button-black nomargin\" id=\"login-form-submit\" name=\"login-form-submit\" [disabled]=\"loading.login\">\n                                    <span>Login</span>\n                                </button>\n                                <a href=\"/register\" class=\"fright\">Need an Account?</a>\n                            </div>\n                        </form>\n\n                        <div class=\"line line-sm\"></div>\n\n                        <div class=\"center\">\n                            <h4 style=\"margin-bottom: 15px;\">or Login with:</h4>\n                            <a href=\"#\" class=\"button button-rounded si-facebook si-colored\">Facebook</a>\n                            <span class=\"hidden-xs\">or</span>\n                            <a href=\"#\" class=\"button button-rounded si-twitter si-colored\">Twitter</a>\n                        </div>\n                    </div>\n                </div>\n\n                <div class=\"row center dark\"><small>Copyrights &copy; All Rights Reserved by QuietThyme Inc.</small></div>\n\n            </div>\n        </div>\n\n    </div>\n\n</section><!-- #content end -->\n"
-
-/***/ }),
-
-/***/ 1065:
-/***/ (function(module, exports) {
-
-module.exports = "<quietthyme-header></quietthyme-header>\n<quietthyme-page-title></quietthyme-page-title>\n\n<!-- Content\n============================================= -->\n<section id=\"content\" class=\"footer-padding\">\n\n    <div class=\"content-wrap\">\n\n        <div class=\"container clearfix\">\n\n            <div class=\"col_one_third nobottommargin\">\n\n                <div class=\"well well-lg nobottommargin\">\n                    <form id=\"login-form\" name=\"login-form\" class=\"nobottommargin\" action=\"#\" method=\"post\">\n\n                        <h3>Login to your Account</h3>\n\n                        <div class=\"col_full\">\n                            <label for=\"login-form-username\">Email:</label>\n                            <input [(ngModel)]=\"loginEmail\" type=\"text\" id=\"login-form-email\" name=\"login-form-email\" class=\"form-control\" />\n                        </div>\n\n                        <div class=\"col_full\">\n                            <label for=\"login-form-password\">Password:</label>\n                            <input [(ngModel)]=\"loginPassword\" type=\"password\" id=\"login-form-password\" name=\"login-form-password\" class=\"form-control\" />\n                        </div>\n\n                        <div class=\"col_full nobottommargin\">\n                            <button (click)=\"login()\" class=\"button button-3d nomargin\" id=\"login-form-submit\" name=\"login-form-submit\" value=\"login\">Login</button>\n                        </div>\n\n                    </form>\n                </div>\n\n            </div>\n\n            <div class=\"col_two_third col_last nobottommargin\">\n\n\n                <h3>Don't have an Account? Register Now.</h3>\n\n                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde, vel odio non dicta provident sint ex autem mollitia dolorem illum repellat ipsum aliquid illo similique sapiente fugiat minus ratione.</p>\n\n                <form id=\"register-form\" name=\"register-form\" class=\"nobottommargin\" action=\"#\" method=\"post\">\n\n                    <div class=\"col_half\">\n                        <label for=\"register-form-name\">Name:</label>\n                        <input [(ngModel)]=\"regName\" type=\"text\" id=\"register-form-name\" name=\"register-form-name\" class=\"form-control\" />\n                    </div>\n\n                    <div class=\"col_half col_last\">\n                        <label for=\"register-form-email\">Email Address:</label>\n                        <input [(ngModel)]=\"regEmail\" type=\"text\" id=\"register-form-email\" name=\"register-form-email\" class=\"form-control\" />\n                    </div>\n\n\n                    <div class=\"clear\"></div>\n\n                    <div class=\"col_half\">\n                        <label for=\"register-form-password\">Choose Password:</label>\n                        <input [(ngModel)]=\"regPassword\" type=\"password\" id=\"register-form-password\" name=\"register-form-password\" class=\"form-control\" />\n                    </div>\n\n                    <div class=\"col_half col_last\">\n                        <label for=\"register-form-repassword\">Re-enter Password:</label>\n                        <input [(ngModel)]=\"regConfirmPassword\" type=\"password\" id=\"register-form-repassword\" name=\"register-form-repassword\" class=\"form-control\" />\n                    </div>\n\n                    <div class=\"clear\"></div>\n\n                    <div class=\"col_full nobottommargin\">\n                        <button (click)=\"register()\" class=\"button button-3d button-black nomargin\" id=\"register-form-submit\" name=\"register-form-submit\" value=\"register\">Register Now</button>\n                    </div>\n\n                </form>\n\n            </div>\n\n        </div>\n\n    </div>\n\n</section><!-- #content end -->\n\n<quietthyme-footer></quietthyme-footer>"
-
-/***/ }),
-
-/***/ 1066:
-/***/ (function(module, exports) {
-
-module.exports = "<div scrollSpy id=\"wrapper\" class=\"clearfix\" style=\"opacity: 1;\">\n    <!-- Routed views go here -->\n    <router-outlet></router-outlet>\n\n</div>\n\n\n<!-- Go To Top\n============================================= -->\n<div id=\"gotoTop\" class=\"icon-angle-up\"></div>"
-
-/***/ }),
-
-/***/ 1067:
-/***/ (function(module, exports) {
-
-module.exports = "<quietthyme-header></quietthyme-header>\n<quietthyme-page-title *ngIf=\"book\" title=\"Book Details\"></quietthyme-page-title>\n\n<!-- Content\n\t\t============================================= -->\n<section id=\"content\" class=\"footer-padding\">\n\n    <div class=\"content-wrap\">\n\n        <div class=\"container clearfix\">\n\n            <div class=\"row\">\n                <div class=\"col-md-offset-2 col-md-8\">\n                    <div class=\"single-post nobottommargin\">\n\n                        <!-- Single Post\n\t\t\t\t\t\t============================================= -->\n                        <div class=\"entry clearfix\" *ngIf=\"book\">\n\n                            <!-- Entry Title\n\t\t\t\t\t\t\t============================================= -->\n                            <div class=\"entry-title\">\n                                <h2>{{ book.title }}</h2>\n                            </div><!-- .entry-title end -->\n\n                            <!-- Entry Meta\n\t\t\t\t\t\t\t============================================= -->\n                            <ul class=\"entry-meta clearfix\">\n                                <li><i class=\"icon-calendar3\"></i> {{ book.created_at }}</li>\n                                <li><a href=\"#\"><i class=\"icon-user\"></i> {{ book.authors }}</a></li>\n                                <li *ngIf=\"book.series_name\"><i class=\"icon-folder-open\"></i> <a href=\"#\">{{ book.series_name }}</a> #{{ book.series_number }}</li>\n                                <li *ngIf=\"book.isbn || book.isbn10\"><i class=\"icon-bookmark2\"></i> <a href=\"#\">{{ book.isbn || book.isbn10 }}</a></li>\n                            </ul><!-- .entry-meta end -->\n\n                            <!-- Entry Content\n\t\t\t\t\t\t\t============================================= -->\n                            <div class=\"entry-content notopmargin\">\n\n                                <!-- Entry Image\n\t\t\t\t\t\t\t\t============================================= -->\n                                <div class=\"entry-image alignleft\">\n                                    <a href=\"#\">\n                                        <img *ngIf=\"book.cover\" src=\"https://s3.amazonaws.com/{{ book.cover }}\" alt=\"{{ book.title }}\">\n                                        <img *ngIf=\"!book.cover\" src=\"assets/images/noart.png\" alt=\"{{ book.title }}\">\n                                    </a>\n                                </div><!-- .entry-image end -->\n\n                                <markdown [data]=\"book.short_summary\"></markdown>\n                                <!-- Post Single - Content End -->\n\n                                <!-- Tag Cloud\n\t\t\t\t\t\t\t\t============================================= -->\n                                <div class=\"tagcloud clearfix bottommargin\">\n                                    <a href=\"#\" *ngFor=\"let tag of book.tags; let myIndex = index\">{{ tag }}</a>\n                                </div><!-- .tagcloud end -->\n\n                                <div class=\"clear\"></div>\n\n                                <!-- Post Single - Share\n\t\t\t\t\t\t\t\t============================================= -->\n                                <div class=\"si-share noborder clearfix\">\n                                    <span>Find on:</span>\n                                    <div>\n                                        <a *ngIf=\"book.amazon_id\" href=\"http://www.amazon.com/exec/obidos/ASIN/{{ book.amazon_id }}\" class=\"social-icon si-borderless si-amazon\">\n                                            <i class=\"icon-amazon\"></i>\n                                            <i class=\"icon-amazon\"></i>\n                                        </a>\n                                        <a *ngIf=\"book.google_id\" href=\"https://books.google.com/books?id={{ book.google_id }}\" class=\"social-icon si-borderless si-google\">\n                                            <i class=\"icon-google\"></i>\n                                            <i class=\"icon-google\"></i>\n                                        </a>\n                                        <a *ngIf=\"book.goodreads_id\" href=\"https://www.goodreads.com/book/show/{{ book.goodreads_id }}\" class=\"social-icon si-borderless si-goodreads\">\n                                            <i>g</i>\n                                            <i>g</i>\n                                        </a>\n                                    </div>\n                                </div><!-- Post Single - Share End -->\n\n                            </div>\n                        </div><!-- .entry end -->\n\n                    </div>\n                </div>\n            </div>\n\n\n        </div>\n\n    </div>\n\n</section><!-- #content end -->\n\n<quietthyme-footer></quietthyme-footer>"
-
-/***/ }),
-
-/***/ 1068:
-/***/ (function(module, exports) {
-
-module.exports = "<ng2-slim-loading-bar class=\"navbar-fixed-top\" [color]=\"'#128950'\" [height]=\"'3px'\"></ng2-slim-loading-bar>\n<quietthyme-header></quietthyme-header>\n<quietthyme-page-title title=\"Library\" subtitle=\"Your library is accessible anytime, anywhere, on any device\"></quietthyme-page-title>\n\n<!-- Content\n============================================= -->\n<section id=\"content\" class=\"footer-padding\" >\n\n    <div class=\"content-wrap\">\n\n        <div class=\"container clearfix\" >\n\n            <div class=\"row\" >\n\n                <!-- Sidebar\n\t            ============================================= -->\n                <div class=\"col-md-3\">\n                    <div class=\"sidebar-widgets-wrap\" [scrollSpyAffix]=\"{topMargin: 330}\">\n\n                        <div class=\"widget widget-filter-links clearfix\">\n\n                            <h4>Sort By</h4>\n                            <ul class=\"shop-sorting\">\n                                <li [ngClass]=\"{'active-filter': !filter.sort}\"><a class=\"cursor-pointer\" (click)=\"setSort(null)\">Title</a></li>\n                                <li [ngClass]=\"{'active-filter': filter.sort == 'authors'}\"><a class=\"cursor-pointer\" (click)=\"setSort('authors')\">Author</a></li>\n                                <li [ngClass]=\"{'active-filter': filter.sort == 'series_name'}\"><a class=\"cursor-pointer\" (click)=\"setSort('series_name')\">Series</a></li>\n                                <li [ngClass]=\"{'active-filter': filter.sort == 'updated_at'}\"><a class=\"cursor-pointer\" (click)=\"setSort('updated_at')\">Added Date</a></li>\n                            </ul>\n\n                        </div>\n\n                        <div class=\"widget widget-filter-links clearfix\">\n\n                            <h4>Storage</h4>\n                            <ul class=\"custom-filter\">\n                                <li [ngClass]=\"{'active-filter': !filter.storage}\"><a class=\"cursor-pointer\" (click)=\"setStorage(null)\">All</a></li>\n                                <li [ngClass]=\"{'active-filter': filter.storage == 'quietthyme'}\"><a class=\"cursor-pointer\" (click)=\"setStorage('quietthyme')\">QuietThyme</a></li>\n                                <li *ngIf=\"connected.box\" [ngClass]=\"{'active-filter': filter.storage == 'box'}\"><a class=\"cursor-pointer\" (click)=\"setStorage('box')\">Box</a></li>\n                                <li *ngIf=\"connected.dropbox\" [ngClass]=\"{'active-filter': filter.storage == 'dropbox'}\"><a class=\"cursor-pointer\" (click)=\"setStorage('dropbox')\">Dropbox</a></li>\n                                <li *ngIf=\"connected.gdrive\" [ngClass]=\"{'active-filter': filter.storage == 'gdrive'}\"><a class=\"cursor-pointer\" (click)=\"setStorage('gdrive')\">Google Drive</a></li>\n                                <li *ngIf=\"connected.skydrive\" [ngClass]=\"{'active-filter': filter.storage == 'skydrive'}\"><a class=\"cursor-pointer\" (click)=\"setStorage('skydrive')\">OneDrive</a></li>\n                            </ul>\n\n                        </div>\n\n\n\n                    </div>\n                </div><!-- .sidebar end -->\n\n                <div class=\"col-md-9\">\n                    <!-- Shop\n\t\t\t\t============================================= -->\n                    <masonry [useImagesLoaded]=\"true\" id=\"shop\" class=\"shop product-4 grid-container clearfix\" >\n\n                        <masonry-brick *ngFor=\"let book of bookList; let myIndex = index\" class=\"product brick\">\n                            <div class=\"product-image\">\n                                <a routerLink=\"/book/{{ book.id }}\" >\n                                    <img *ngIf=\"book.cover\" src=\"https://s3.amazonaws.com/{{ book.cover }}\" alt=\"{{ book.title }}\">\n                                    <img *ngIf=\"!book.cover\" src=\"assets/images/noart.png\" alt=\"{{ book.title }}\">\n                                </a>\n                                <div class=\"book-tag\" *ngIf=\"book.series_name\">{{ book.series_name }}</div>\n\n                                <div class=\"product-overlay\">\n                                    <a (click)=\"downloadBook(book)\" class=\"add-to-cart cursor-pointer\"><i class=\"icon-cloud-download\"></i><span> Download</span></a>\n                                    <a routerLink=\"/book/{{ book.id }}\" class=\"item-quick-view cursor-pointer\" data-lightbox=\"ajax\"><i class=\"icon-info-sign\"></i><span> Details</span></a>\n\n                                </div>\n                            </div>\n                            <div class=\"product-desc center\">\n                                <div class=\"product-title cursor-pointer\"><h3><a routerLink=\"/book/{{ book.id }}\">{{ book.title }}</a></h3></div>\n                                <div class=\"product-price\">{{ book.authors }}</div>\n                            </div>\n                        </masonry-brick>\n\n                    </masonry><!-- #shop end -->\n\n                </div>\n\n            </div>\n\n\n        </div>\n\n    </div>\n\n</section><!-- #content end -->\n\n<quietthyme-footer></quietthyme-footer>"
-
-/***/ }),
-
-/***/ 1069:
-/***/ (function(module, exports) {
-
-module.exports = "<!-- Footer\n============================================= -->\n<footer id=\"footer\" class=\"dark\">\n\n    <!-- Copyrights\n\t============================================= -->\n    <div id=\"copyrights\">\n\n        <div class=\"container clearfix\">\n\n            <div class=\"col_half\">\n                <img src=\"assets/images/logo/logo_2x.png\" style=\"max-width:150px\" class=\"footer-logo\">\n\n                Copyrights &copy; 2014 All Rights Reserved by QuietThyme Inc.\n            </div>\n\n            <div class=\"col_half col_last tright\">\n                <div class=\"copyrights-menu copyright-links fright clearfix\">\n                    <a href=\"#\">Home</a>/<a href=\"#\">About</a>/<a href=\"#\">Features</a>/<a href=\"#\">Portfolio</a>/<a href=\"#\">FAQs</a>/<a href=\"#\">Contact</a>\n                </div>\n                <div class=\"fright clearfix\">\n                    <a href=\"#\" class=\"social-icon si-small si-borderless nobottommargin si-facebook\">\n                        <i class=\"icon-facebook\"></i>\n                        <i class=\"icon-facebook\"></i>\n                    </a>\n\n                    <a href=\"#\" class=\"social-icon si-small si-borderless nobottommargin si-twitter\">\n                        <i class=\"icon-twitter\"></i>\n                        <i class=\"icon-twitter\"></i>\n                    </a>\n\n                    <a href=\"#\" class=\"social-icon si-small si-borderless nobottommargin si-gplus\">\n                        <i class=\"icon-gplus\"></i>\n                        <i class=\"icon-gplus\"></i>\n                    </a>\n\n                    <a href=\"#\" class=\"social-icon si-small si-borderless nobottommargin si-pinterest\">\n                        <i class=\"icon-pinterest\"></i>\n                        <i class=\"icon-pinterest\"></i>\n                    </a>\n\n                    <a href=\"#\" class=\"social-icon si-small si-borderless nobottommargin si-vimeo\">\n                        <i class=\"icon-vimeo\"></i>\n                        <i class=\"icon-vimeo\"></i>\n                    </a>\n\n                    <a href=\"#\" class=\"social-icon si-small si-borderless nobottommargin si-github\">\n                        <i class=\"icon-github\"></i>\n                        <i class=\"icon-github\"></i>\n                    </a>\n\n                    <a href=\"#\" class=\"social-icon si-small si-borderless nobottommargin si-yahoo\">\n                        <i class=\"icon-yahoo\"></i>\n                        <i class=\"icon-yahoo\"></i>\n                    </a>\n\n                    <a href=\"#\" class=\"social-icon si-small si-borderless nobottommargin si-linkedin\">\n                        <i class=\"icon-linkedin\"></i>\n                        <i class=\"icon-linkedin\"></i>\n                    </a>\n                </div>\n            </div>\n\n        </div>\n\n    </div><!-- #copyrights end -->\n\n</footer><!-- #footer end -->\n"
-
-/***/ }),
-
-/***/ 1070:
-/***/ (function(module, exports) {
-
-module.exports = "<!-- Header\n\t\t============================================= -->\n<header id=\"header\" class=\"full-header\">\n\n    <div id=\"header-wrap\">\n\n        <div class=\"container clearfix\">\n\n            <div id=\"primary-menu-trigger\"><i class=\"icon-reorder\"></i></div>\n\n            <!-- Logo\n\t\t\t\t============================================= -->\n            <div id=\"logo\">\n                <a href=\"/\" class=\"standard-logo\" data-dark-logo=\"assets/images/logo/logo_condensed.png\"><img style=\"padding: 7%;\" src=\"assets/images/logo/logo-large.png.svg\" alt=\"Canvas Logo\"></a>\n                <a href=\"/\" class=\"retina-logo\" data-dark-logo=\"assets/images/logo/logo_condensed.png\"><img style=\"padding: 7%;\" src=\"assets/images/logo/logo-large.png.svg\" alt=\"Canvas Logo\"></a>\n            </div><!-- #logo end -->\n\n            <!-- Primary Navigation\n\t\t\t============================================= -->\n            <nav id=\"primary-menu\">\n\n                <ul>\n                    <li><a href=\"/storage\"><div>Storage</div></a></li>\n                    <li><a href=\"/library\"><div>Library</div></a></li>\n                    <li><a href=\"/settings\"><div>Settings</div></a></li>\n                </ul>\n\n\n                <ul style=\"margin-right: 0px;padding-right: 0px;border-right: none;\">\n                    <li><a href=\"/storage\"><div>Logout</div></a></li>\n                </ul>\n\n\n\n\n            </nav><!-- #primary-menu end -->\n\n        </div>\n\n    </div>\n\n</header><!-- #header end -->"
-
-/***/ }),
-
-/***/ 1071:
-/***/ (function(module, exports) {
-
-module.exports = "<!-- Page Title\n============================================= -->\n<section id=\"page-title\">\n\n    <div class=\"container\">\n        <div class=\"row\">\n            <div class=\"col-md-6\">\n                <h1>{{ title }}</h1>\n                <span>{{ subtitle }}</span>\n            </div>\n            <div class=\"col-md-6 valign\">\n                <div class=\"text-center\">\n                    <i class=\"icon-question-sign\"></i>Your <strong>personal OPDS catalog</strong> is available at: <br/> http://catalog.quietthyme.com/beta/<strong>{{ catalogToken }}</strong></div>\n            </div>\n        </div>\n\n    </div>\n\n</section><!-- #page-title end -->\n\n"
-
-/***/ }),
-
-/***/ 1072:
-/***/ (function(module, exports) {
-
-module.exports = "<div class=\"row\" style=\"padding-bottom: 50px\">\n    <div class=\"card\">\n\n        <div class=\"card-img-top storage_container\">\n            <!-- populated doughnut chart -->\n            <canvas *ngIf=\"storageData\" class=\"graph\"\n                    baseChart\n                    [data]=\"chartData\"\n                    [chartType]=\"'doughnut'\"\n                    [options]=\"chartOptions\"\n                    [colors]=\"chartColors\"\n                    [legend]=\"false\"\n                    (chartHover)=\"chartHovered($event)\"\n                    (chartClick)=\"chartClicked($event)\"></canvas>\n\n            <!-- disconnected doughnut chart -->\n            <canvas *ngIf=\"!storageData\" class=\"graph\"\n                    baseChart\n                    [data]=\"disconnectedData\"\n                    [chartType]=\"'doughnut'\"\n                    [options]=\"chartOptions\"\n                    [colors]=\"disconnectedChartColors\"\n                    [legend]=\"false\"\n                    (chartHover)=\"chartHovered($event)\"\n                    (chartClick)=\"chartClicked($event)\"></canvas>\n\n            <img class=\"logo\" [ngClass]=\"{'disconnected': !storageData}\" [src]=\"storageLogo\">\n\n        </div>\n\n        <div class=\"card-block\">\n            <h4 class=\"card-title\">{{ storageType }}</h4>\n            <div class=\"card-text\">\n                <span *ngIf=\"storageType == 'quietthyme'\">This storage type is not available during beta.</span>\n\n                <span *ngIf=\"!storageData && storageType != 'quietthyme'\">Use the <strong>Add Storage</strong> button to connect this service.</span>\n                <span *ngIf=\"storageData\">{{ storageData.free_space |  fileSize}} free</span>\n\n\n            </div>\n        </div>\n        <div class=\"card-footer\" *ngIf=\"storageData\">\n            <div *ngIf=\"storageData\" class=\"btn-group\" dropdown>\n                <button [ngClass]=\"{'button-border': !storageData.location_code}\" type=\"button\" class=\"button button-mini button-rounded\" dropdownToggle>\n                    {{ storageData.location_code ? storageData.location_code : 'Calibre' }}\n                </button>\n                <ul dropdownMenu role=\"menu\" aria-labelledby=\"single-button\">\n                    <li role=\"menuitem\"><a class=\"dropdown-item\" href=\"#\">Main Drive</a></li>\n                    <li role=\"menuitem\"><a class=\"dropdown-item\" href=\"#\">A Drive</a></li>\n                    <li role=\"menuitem\"><a class=\"dropdown-item\" href=\"#\">B Drive</a></li>\n                    <li class=\"divider dropdown-divider\"></li>\n                    <li role=\"menuitem\"><a class=\"dropdown-item\" href=\"#\">Clear</a></li>\n                </ul>\n            </div>\n        </div>\n    </div>\n</div>\n\n"
-
-/***/ }),
-
-/***/ 1073:
-/***/ (function(module, exports) {
-
-module.exports = "<ng2-slim-loading-bar class=\"navbar-fixed-top\" [color]=\"'#128950'\" [height]=\"'3px'\"></ng2-slim-loading-bar>\n\n<quietthyme-header></quietthyme-header>\n<!-- Content\n============================================= -->\n<section id=\"content\">\n\n    <div class=\"content-wrap\">\n\n        <div class=\"container clearfix\">\n\n            <div class=\"row clearfix\">\n\n                <div class=\"col-md-offset-2 col-md-8\">\n                    <h1 class=\"text-center\">Privacy Policy</h1>\n\n\n                    <p>At QuietThyme, we collect and manage user data according to the following Privacy Policy, with the goal of incorporating our company values: transparency, accessibility, sanity, usability. This document is part of QuietThyme's Terms of Service, and by using QuietThyme.com (the \"Website\"), you agree to the terms of this Privacy Policy and the Terms of Service. Please read the Terms of Service in their entirety, and refer to those for definitions and contacts.</p>\n                    <p><strong>Data Collected</strong></p>\n                    <p>We collect anonymous data from every visitor of the Website to monitor traffic and fix bugs. For example, we collect information like web requests, the data sent in response to such requests, the Internet Protocol address, the browser type, the browser language, and a timestamp for the request.</p>\n                    <p>We ask you to log in and provide certain personal information (such as your email address and/or full name) in order to be able to save your profile and the ebooks, catalog, invoices, and other data associated with it.  In order to enable these or any other login based features, we use cookies to store session information for your convenience. Cookies are required to use the Website.</p>\n                    <p>You are able to view, change and remove your data associated with your profile. Should you choose to delete your account, please contact us at support@QuietThyme.com and we will follow up with such request as soon as possible. </p>\n                    <p><strong>Use of the Data</strong></p>\n                    <p>We only use your personal information to provide you the QuietThyme services or to communicate with you about the services or the Website.</p>\n                    <p>With respect to any data you may upload to QuietThyme, we take the privacy and confidentiality of such data seriously.</p>\n                    <p>We employ industry standard security techniques to protect against unauthorized access of data about you that we store, including personal information.</p>\n                    <p><strong>We do not share personal information you have provided to us without your consent</strong>, unless:</p>\n                    <ul>\n                        <li>doing so is appropriate to carry out a user’s request;</li>\n                        <li>we believe it's needed to enforce our Terms of Service, or that is legally required;</li>\n                        <li>we believe it's needed to detect, prevent or address fraud, security or technical issues;</li>\n                        <li>otherwise protect our property, legal rights, or that of others.</li>\n                    </ul>\n                    <p>QuietThyme is operated from Canada. If you are visiting the Website from outside Canada, you agree to any processing of any personal information you provide us according to this policy.</p>\n                    <p>QuietThyme may contact you, by email or other means. For example, QuietThyme may send you promotional emails relating to QuietThyme that we feel you would be interested in, or communicate with you about your use of the QuietThyme website. QuietThyme may also use technology to alert us via a confirmation email when you open an email from us. If you do not want to receive email from QuietThyme, please opt out of receiving emails at the bottom of any QuietThyme emails or by editing you profile preferences.</p>\n                    <p><strong>Sharing of Data</strong></p>\n                    <p>We don't sell your personal information to third parties. Aggregated, anonymized data is periodically transmitted to external services to help us improve the QuietThyme Website and service, and in some cases your user identifiers (your username or email address) may be transmitted to external services for the same reason. We currently use Google Analytics (traffic analysis, SEO optimization) but we reserve the right to include other third party analytics services in the future. We listed below what data these third parties extract exactly. Feel free to check out their own Privacy Policies to find out more.</p>\n                    <ul>\n                        <li>Google Analytics: anonymous (ad serving domains, browser type, demographics, language settings, page views, time/date), pseudonymous (IP address)</li>\n                    </ul>\n                    <p>We may also use social buttons provided by services like Twitter, Google+ and Facebook. Your use of these third party services is entirely optional. We are not responsible for the privacy policies and/or practices of these third party services, and you are responsible for reading and understanding those third party services’ privacy policies.</p>\n                    <p><strong>Changes to the Privacy Policy</strong></p>\n                    <p>We may amend this Privacy Policy from time to time. Use of information we collect now is subject to the Privacy Policy in effect at the time such information is used. If we make changes in the way we collect or use information, we will notify you by posting an announcement on the Website or sending you an email. A user is bound by any changes to the Privacy Policy when he or she uses the Services after such changes have been first posted.</p>\n                    <p>Should you have any question or concern, please write to support@QuietThyme.com</p>\n\n\n\n\n                </div>\n\n\n            </div>\n\n        </div>\n\n    </div>\n\n</section><!-- #content end -->\n\n<quietthyme-footer></quietthyme-footer>\n"
-
-/***/ }),
-
-/***/ 1074:
-/***/ (function(module, exports) {
-
-module.exports = "<ng2-slim-loading-bar class=\"navbar-fixed-top\" [color]=\"'#128950'\" [height]=\"'3px'\"></ng2-slim-loading-bar>\n\n<quietthyme-header></quietthyme-header>\n<!-- Content\n============================================= -->\n<section id=\"content\">\n\n    <div class=\"content-wrap\">\n\n        <div class=\"container clearfix\">\n\n            <div class=\"row clearfix\">\n\n                <div class=\"col-md-offset-1 col-md-10\">\n\n                    <img gravatar [email]=\"userData.email\"  [size]=\"84\" class=\"alignleft img-circle img-thumbnail notopmargin nobottommargin\" alt=\"Avatar\" style=\"max-width: 84px;\">\n\n                    <div class=\"heading-block noborder\">\n                        <h3>{{ userData.name }}</h3>\n                        <span>Settings</span>\n                    </div>\n\n                    <div class=\"clear\"></div>\n\n                    <div class=\"row clearfix\">\n\n                        <div class=\"col-md-12\">\n                            <tabset #settingsTabs>\n                                <tab>\n                                    <template tabHeading>\n                                        <i class=\"icon-bookmark2\"></i> Catalog\n                                    </template>\n\n                                    <p class=\"\">The Open Publication Distribution System (OPDS) catalog format is a syndication\n                                        format for electronic publications based on Atom and HTTP. Every QuietThyme user\n                                        gets their own unique Catalog url. When paired with a OPDS compatible ebook reader,\n                                        like Marvin (iOS), Aldiko (Android), Bluefire (Both), you can access your ebook\n                                        library anytime, anywhere, on any device.\n\n                                    </p>\n\n                                    <div class=\"well\">http://catalog.quietthyme.com/beta/<strong>{{ userData.catalog_token }}</strong></div>\n\n                                </tab>\n                                <tab>\n                                    <template tabHeading>\n                                        <i class=\"icon-credit\"></i> Plans\n                                    </template>\n                                    <div class=\"pricing bottommargin clearfix\">\n                                        <div class=\"col-sm-4\">\n\n                                            <div class=\"pricing-box\">\n                                                <div class=\"pricing-title\">\n                                                    <h3>Basic</h3>\n                                                </div>\n                                                <div class=\"pricing-price\">\n                                                    <span class=\"price-unit\">$</span>5<span class=\"price-tenure\">/mo</span>\n                                                </div>\n                                                <div class=\"pricing-features\">\n                                                    <ul>\n                                                        <li>Personal <strong>OPDS</strong> Catalog</li>\n                                                        <li><strong>1</strong> Cloud Connector <br><small>Dropbox, GDrive, OneDrive, Box</small></li>\n                                                        <li><strong>Drag & Drop</strong> Book Uploads<br/><small>Using Blackhole folders</small></li>\n                                                        <li>Chat &amp; Email Support</li>\n                                                    </ul>\n                                                </div>\n                                                <div class=\"pricing-action\">\n\n                                                    <button *ngIf=\"userData.plan == 'basic'\" class=\"button button-large button-rounded disabled\" >Current</button>\n                                                    <button *ngIf=\"userData.plan != 'basic'\"\n                                                            stripeCheckoutButton\n                                                            [planId]=\"'basic_1'\"\n                                                            [planName]=\"'Basic Plan'\"\n                                                            [planCost]=\"500\"\n                                                            (onCheckout)=\"stripeCheckoutCompleted($event)\"\n                                                            class=\"button button-large button-rounded button-border button-dark noleftmargin\">Subscribe</button>\n                                                </div>\n                                            </div>\n\n                                        </div>\n                                        <div class=\"col-sm-4\">\n\n                                            <div class=\"pricing-box best-price\">\n                                                <div class=\"pricing-title\">\n                                                    <h3>Reader</h3>\n                                                    <span>Most Popular</span>\n                                                </div>\n                                                <div class=\"pricing-price\">\n                                                    <span class=\"price-unit\">$</span>10<span class=\"price-tenure\">/mo</span>\n                                                </div>\n                                                <div class=\"pricing-features\">\n                                                    <ul>\n                                                        <li>Personal <strong>OPDS</strong> Catalog</li>\n                                                        <li><strong>2</strong> Cloud Connectors <br><small>Dropbox, GDrive, OneDrive, Box</small></li>\n                                                        <li><strong>Drag & Drop</strong> Book Uploads<br/><small>Using Blackhole folders</small></li>\n                                                        <li><strong>Calibre</strong> Integration</li>\n\n                                                        <li><strong>100mb</strong> QuietThyme Storage</li>\n                                                        <li>Chat &amp; Email Support</li>\n                                                        <li><i class=\"icon-star3\"></i>\n                                                            <i class=\"icon-star3\"></i>\n                                                            <i class=\"icon-star3\"></i>\n                                                            <i class=\"icon-star3\"></i>\n                                                            <i class=\"icon-star3\"></i></li>\n                                                    </ul>\n                                                </div>\n                                                <div class=\"pricing-action\">\n                                                    <button *ngIf=\"userData.plan == 'reader'\" class=\"button button-large button-rounded disabled\" >Current</button>\n\n                                                    <button *ngIf=\"userData.plan != 'reader'\"\n                                                            stripeCheckoutButton\n                                                            [planId]=\"'reader_1'\"\n                                                            [planName]=\"'Reader Plan'\"\n                                                            [planCost]=\"1000\"\n                                                            (onCheckout)=\"stripeCheckoutCompleted($event)\"\n                                                            [ngClass]=\"{'button-border button-dark noleftmargin' : userData.plan != 'none' && userData.plan != 'reader'}\"\n                                                            class=\"button button-large button-rounded\">Subscribe</button>\n                                                </div>\n                                            </div>\n\n                                        </div>\n\n                                        <div class=\"col-sm-4\">\n\n                                            <div class=\"pricing-box\">\n                                                <div class=\"pricing-title\">\n                                                    <h3>Library</h3>\n                                                </div>\n                                                <div class=\"pricing-price\">\n                                                    <span class=\"price-unit\">$</span>30<span class=\"price-tenure\">/mo</span>\n                                                </div>\n                                                <div class=\"pricing-features\">\n                                                    <ul>\n                                                        <li>Personal <strong>OPDS</strong> Catalog</li>\n                                                        <li><strong>All</strong> Cloud Connectors <br><small>Dropbox, GDrive, OneDrive, Box</small></li>\n                                                        <li><strong>Drag & Drop</strong> Book Uploads<br/><small>Using Blackhole folders</small></li>\n\n                                                        <li><strong>Calibre</strong> Integration</li>\n\n                                                        <li><strong>Unlimited!</strong> QuietThyme Storage</li>\n                                                        <li>Chat &amp; Email Support</li>\n                                                    </ul>\n                                                </div>\n                                                <div class=\"pricing-action\">\n                                                    <button *ngIf=\"userData.plan == 'library'\" class=\"button button-large button-rounded disabled\" >Current</button>\n\n                                                    <button *ngIf=\"userData.plan != 'library'\"\n                                                            stripeCheckoutButton\n                                                            [planId]=\"'library_1'\"\n                                                            [planName]=\"'Library Plan'\"\n                                                            [planCost]=\"2000\"\n                                                            (onCheckout)=\"stripeCheckoutCompleted($event)\"\n                                                            class=\"button button-border button-rounded button-large button-dark noleftmargin\">Subscribe</button>\n                                                </div>\n                                            </div>\n                                        </div>\n                                    </div>\n                                </tab>\n                            </tabset>\n                        </div>\n\n                    </div>\n\n                </div>\n\n\n            </div>\n\n        </div>\n\n    </div>\n\n</section><!-- #content end -->\n\n<quietthyme-footer></quietthyme-footer>\n"
-
-/***/ }),
-
-/***/ 1075:
-/***/ (function(module, exports) {
-
-module.exports = "<ng2-slim-loading-bar class=\"navbar-fixed-top\" [color]=\"'#128950'\" [height]=\"'3px'\"></ng2-slim-loading-bar>\n\n<quietthyme-header></quietthyme-header>\n<quietthyme-page-title title=\"Storage\" subtitle=\"Connect your cloud storage accounts\"></quietthyme-page-title>\n\n<!-- Content\n\t\t============================================= -->\n<section id=\"content\" class=\"footer-padding\">\n\n    <div class=\"content-wrap\">\n\n        <div class=\"container clearfix\">\n\n            <div class=\"row\">\n                <div class=\"col-md-3\">\n                    <div class=\"sidebar-widgets-wrap\">\n\n                        <div class=\"widget subscribe-widget clearfix\">\n                            <div class=\"dark\" style=\"padding: 25px; background-color: #383838; border-radius: 2px;\">\n                                <div class=\"fancy-title title-border\">\n                                    <h4>Connect</h4>\n                                </div>\n\n                                <p style=\"font-size: 15px; line-height: 1.5; color: #999;\">Before using QuietThyme, you should connect your personal cloud storage providers.</p>\n                                <div class=\"widget-subscribe-form-result\"></div>\n                                <form id=\"widget-subscribe-form2\" action=\"include/subscribe.php\" role=\"form\" method=\"post\" class=\"nobottommargin\">\n                                    <button class=\"button button-3d btn-block button-small nomargin\" style=\"margin-top: 15px !important;\"\n                                            [disabled]=\"loading.link\"\n                                            kloudlessAuthenticator\n                                            [clientId]=\"'mddXeszdchTlRQEFN3LGhxLzqaTjgYwbXGLHCeXOqJdrzRyd'\"\n                                            [scope]=\"'gdrive box dropbox skydrive'\"\n                                            (onAuthenticated)=\"kloudlessAuthenticatedStorage($event)\"\n                                    >\n                                        Add Storage\n                                    </button>\n\n                                </form>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n\n                <div class=\"col-md-9\">\n                    <div class=\"row\">\n                        <div class=\"col-md-4\" *ngFor=\"let storageType of allNames; let myIndex = index\">\n                            <quietthyme-storage-panel [storageType]=\"storageType\" [storageData]=\"connected[storageType]\"></quietthyme-storage-panel>\n                        </div>\n                    </div>\n                </div>\n\n\n\n            </div>\n\n        </div>\n\n    </div>\n\n</section><!-- #content end -->\n\n\n\n\n\n<quietthyme-footer></quietthyme-footer>"
-
-/***/ }),
-
-/***/ 1127:
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(637);
-
-
-/***/ }),
-
-/***/ 240:
+/***/ "../../../../../src/app/account-login/account-login.component.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return environment; });
-// The file contents for the current environment will overwrite these during build.
-// The build system defaults to the dev environment which uses `environment.ts`, but if you do
-// `ng build --env=prod` then `environment.prod.ts` will be used instead.
-// The list of which env maps to which file can be found in `angular-cli.json`.
-var environment = {
-    production: false,
-    apiVersion: 'beta',
-    stripeAccount: 'pk_test_uApReS8yYqD5v6CajPSuXj3Z'
-};
-//# sourceMappingURL=/home/ubuntu/quietthyme.web.src/src/environment.js.map
-
-/***/ }),
-
-/***/ 383:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_rxjs_ReplaySubject__ = __webpack_require__(287);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_rxjs_ReplaySubject___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_rxjs_ReplaySubject__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CacheService; });
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-//Designed around http://stackoverflow.com/a/36413003/1157633
-var CacheService = (function () {
-    function CacheService() {
-        this._cache = {};
-    }
-    CacheService.prototype.get = function (cacheKey) {
-        return this._cache[cacheKey];
-    };
-    CacheService.prototype.put = function (cacheKey, observable) {
-        var currentSubject = this.get(cacheKey);
-        if (!currentSubject) {
-            this._cache[cacheKey] = new __WEBPACK_IMPORTED_MODULE_0_rxjs_ReplaySubject__["ReplaySubject"](1);
-            currentSubject = this._cache[cacheKey]; //if the current cacheKey doesn't exist in the cache, lets ensure that we create it.
-        }
-        observable.subscribe(function (data) { return currentSubject.next(data); }, function (error) { return currentSubject.error(error); }, function () { return currentSubject.complete(); });
-        return currentSubject;
-    };
-    CacheService.prototype.delete = function (cacheKey) {
-        delete this._cache[cacheKey];
-    };
-    CacheService = __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_core__["Injectable"])(), 
-        __metadata('design:paramtypes', [])
-    ], CacheService);
-    return CacheService;
-}());
-//# sourceMappingURL=/home/ubuntu/quietthyme.web.src/src/cache.service.js.map
-
-/***/ }),
-
-/***/ 48:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angular2_jwt__ = __webpack_require__(241);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angular2_jwt___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_angular2_jwt__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(87);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_settings__ = __webpack_require__(767);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_cache_service__ = __webpack_require__(383);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ApiService; });
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-
-var ApiService = (function () {
-    function ApiService(authHttp, http, cacheService) {
-        this.authHttp = authHttp;
-        this.http = http;
-        this.cacheService = cacheService;
-    }
-    /////////////////////////////////////////////////////////////////////////////
-    //Helper functions
-    /////////////////////////////////////////////////////////////////////////////
-    ApiService.prototype.extractData = function (res) {
-        var body = res.json();
-        console.log("RAW BODY", body);
-        return body.data || {};
-    };
-    ApiService.prototype.handleError = function (error) {
-        // In a real world app, we might use a remote logging infrastructure
-        var errMsg;
-        if (error instanceof __WEBPACK_IMPORTED_MODULE_2__angular_http__["Response"]) {
-            var body = error.json() || '';
-            var err = body.error || JSON.stringify(body);
-            errMsg = error.status + " - " + (error.statusText || '') + " " + err;
-        }
-        else {
-            errMsg = error.message ? error.message : error.toString();
-        }
-        console.error(errMsg);
-        return errMsg;
-    };
-    ApiService.prototype.cacheKey = function (method, url, query) {
-        return '[' + method + ']' + url + '?' + (query || {}).toString();
-    };
-    ApiService.prototype.loggedIn = function () {
-        return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_angular2_jwt__["tokenNotExpired"])();
-    };
-    ApiService.prototype.tokenPayload = function () {
-        var token = localStorage.getItem('id_token');
-        var jwtHelper = new __WEBPACK_IMPORTED_MODULE_1_angular2_jwt__["JwtHelper"]();
-        var payload = jwtHelper.decodeToken(token);
-        return payload;
-    };
-    /////////////////////////////////////////////////////////////////////////////
-    // Unauthenticated functions
-    /////////////////////////////////////////////////////////////////////////////
-    ApiService.prototype.authRegister = function (name, email, password) {
-        return this.http.post(__WEBPACK_IMPORTED_MODULE_3__app_settings__["a" /* AppSettings */].API_ENDPOINT + "/auth/register", {
-            "name": name,
-            "email": email,
-            "password": password
-        })
-            .map(this.extractData)
-            .catch(this.handleError);
-    };
-    ApiService.prototype.authLogin = function (email, password) {
-        return this.http.post(__WEBPACK_IMPORTED_MODULE_3__app_settings__["a" /* AppSettings */].API_ENDPOINT + "/auth/login", {
-            "email": email,
-            "password": password
-        })
-            .map(this.extractData)
-            .catch(this.handleError);
-    };
-    /////////////////////////////////////////////////////////////////////////////
-    // Authenticated functions
-    /////////////////////////////////////////////////////////////////////////////
-    ApiService.prototype.userPlan = function (stripePlanData) {
-        var url = __WEBPACK_IMPORTED_MODULE_3__app_settings__["a" /* AppSettings */].API_ENDPOINT + "/user/plan";
-        return this.authHttp.post(url, stripePlanData)
-            .map(this.extractData)
-            .catch(this.handleError);
-    };
-    ApiService.prototype.storageStatus = function () {
-        var url = __WEBPACK_IMPORTED_MODULE_3__app_settings__["a" /* AppSettings */].API_ENDPOINT + "/storage/status";
-        var cacheKey = this.cacheKey('GET', url);
-        return this.cacheService.get(cacheKey) || this.cacheService.put(cacheKey, this.authHttp.get(url)
-            .map(this.extractData)
-            .catch(this.handleError));
-    };
-    ApiService.prototype.storageLink = function (kloudlessData) {
-        //TODO: this should bust the /storage/status cache
-        return this.authHttp.post(__WEBPACK_IMPORTED_MODULE_3__app_settings__["a" /* AppSettings */].API_ENDPOINT + "/storage/link", kloudlessData)
-            .map(this.extractData)
-            .catch(this.handleError);
-    };
-    ApiService.prototype.bookList = function (filter) {
-        var url = __WEBPACK_IMPORTED_MODULE_3__app_settings__["a" /* AppSettings */].API_ENDPOINT + "/book";
-        var params = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["URLSearchParams"]();
-        if (filter.sort)
-            params.set('sort', filter.sort.toString());
-        if (filter.storage_id)
-            params.set('storage_id', filter.storage_id.toString());
-        if (filter.storage)
-            params.set('storage', filter.storage.toString());
-        if (filter.page)
-            params.set('page', filter.page.toString());
-        var cacheKey = this.cacheKey('GET', url, params);
-        return this.cacheService.get(cacheKey) || this.cacheService.put(cacheKey, this.authHttp.get(url, { search: params })
-            .map(this.extractData)
-            .catch(this.handleError));
-    };
-    ApiService.prototype.book = function (bookId) {
-        var url = __WEBPACK_IMPORTED_MODULE_3__app_settings__["a" /* AppSettings */].API_ENDPOINT + "/book";
-        var params = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["URLSearchParams"]();
-        params.set('id', bookId.toString());
-        var cacheKey = this.cacheKey('GET', url, params);
-        return this.cacheService.get(cacheKey) || this.cacheService.put(cacheKey, this.authHttp.get(url, { search: params })
-            .map(this.extractData)
-            .catch(this.handleError));
-    };
-    ApiService.prototype.download = function (bookId) {
-        var _this = this;
-        //http://stackoverflow.com/a/41252342
-        var headers = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["Headers"]({ 'Accept': '*' });
-        var options = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["RequestOptions"]({ headers: headers });
-        options.responseType = __WEBPACK_IMPORTED_MODULE_2__angular_http__["ResponseContentType"].Blob;
-        return this.authHttp.get(__WEBPACK_IMPORTED_MODULE_3__app_settings__["a" /* AppSettings */].API_ENDPOINT + "/storage/" + bookId)
-            .map(this.extractData)
-            .flatMap(function (resp) { return _this.http.get(resp.url, options); })
-            .catch(this.handleError);
-    };
-    ApiService = __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(), 
-        __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_angular2_jwt__["AuthHttp"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1_angular2_jwt__["AuthHttp"]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_http__["Http"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__angular_http__["Http"]) === 'function' && _b) || Object, (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4__services_cache_service__["a" /* CacheService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_4__services_cache_service__["a" /* CacheService */]) === 'function' && _c) || Object])
-    ], ApiService);
-    return ApiService;
-    var _a, _b, _c;
-}());
-//# sourceMappingURL=/home/ubuntu/quietthyme.web.src/src/api.service.js.map
-
-/***/ }),
-
-/***/ 636:
-/***/ (function(module, exports) {
-
-function webpackEmptyContext(req) {
-	throw new Error("Cannot find module '" + req + "'.");
-}
-webpackEmptyContext.keys = function() { return []; };
-webpackEmptyContext.resolve = webpackEmptyContext;
-module.exports = webpackEmptyContext;
-webpackEmptyContext.id = 636;
-
-
-/***/ }),
-
-/***/ 637:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(733);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__environments_environment__ = __webpack_require__(240);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_app_module__ = __webpack_require__(769);
-
-
-
-
-if (__WEBPACK_IMPORTED_MODULE_2__environments_environment__["a" /* environment */].production) {
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_core__["enableProdMode"])();
-}
-__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_3__app_app_module__["a" /* AppModule */]);
-//# sourceMappingURL=/home/ubuntu/quietthyme.web.src/src/main.js.map
-
-/***/ }),
-
-/***/ 765:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_api_service__ = __webpack_require__(48);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__(73);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ng2_slim_loading_bar__ = __webpack_require__(124);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AccountLoginComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_api_service__ = __webpack_require__("../../../../../src/app/services/api.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ng2_slim_loading_bar__ = __webpack_require__("../../../../ng2-slim-loading-bar/index.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -744,29 +96,56 @@ var AccountLoginComponent = (function () {
             _this.slimLoadingBarService.complete();
         });
     };
-    AccountLoginComponent = __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'app-account-login',
-            template: __webpack_require__(1064),
-            styles: [__webpack_require__(1052)]
-        }), 
-        __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_3_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */]) === 'function' && _b) || Object, (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */]) === 'function' && _c) || Object, (typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["c" /* ActivatedRoute */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__angular_router__["c" /* ActivatedRoute */]) === 'function' && _d) || Object])
-    ], AccountLoginComponent);
     return AccountLoginComponent;
-    var _a, _b, _c, _d;
 }());
-//# sourceMappingURL=/home/ubuntu/quietthyme.web.src/src/account-login.component.js.map
+AccountLoginComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+        selector: 'app-account-login',
+        template: __webpack_require__("../../../../../src/app/account-login/account-login.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/account-login/account-login.component.less")]
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* ActivatedRoute */]) === "function" && _d || Object])
+], AccountLoginComponent);
+
+var _a, _b, _c, _d;
+//# sourceMappingURL=account-login.component.js.map
 
 /***/ }),
 
-/***/ 766:
+/***/ "../../../../../src/app/account-register-plan/account-register-plan.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<ng2-slim-loading-bar class=\"navbar-fixed-top\" [color]=\"'#128950'\" [height]=\"'3px'\"></ng2-slim-loading-bar>\n<div class=\"main-container\">\n    <section class=\"pricing imagebg\" data-overlay='4'>\n        <div class=\"background-image-holder register-plan-bg\">\n        </div>\n        <div class=\"container\">\n            <div class=\"row\">\n                <div class=\"col-md-8 col-sm-6\">\n                    <div class=\"row\">\n                        <div class=\"col-md-5 col-sm-6\">\n                            <div class=\"feature feature-6\">\n                                <i class=\"icon icon--sm icon-Preview color--primary\"></i>\n                                <h5>2 Cloud Connectors</h5>\n                                <p>\n                                    Store your books on Google Drive, Dropbox, SkyDrive or Box.net Or use our unlimited storage.\n                                </p>\n                            </div>\n                            <!--end feature-->\n                        </div>\n                        <div class=\"col-md-5 col-sm-6\">\n                            <div class=\"feature feature-6\">\n                                <i class=\"icon icon--sm icon-Road-3 color--primary\"></i>\n                                <h5>OPDS Catalog</h5>\n                                <p>\n                                    Your whole library is accessible via any OPDS compatible reader. Marvin, Moon+, Aldiko, QuickReader, or any other ebook reader.\n                                </p>\n                            </div>\n                            <!--end feature-->\n                        </div>\n                        <div class=\"col-md-5 col-sm-6\">\n                            <div class=\"feature feature-6\">\n                                <i class=\"icon icon--sm icon-Pen color--primary\"></i>\n                                <h5>Drag & Drop</h5>\n                                <p>\n                                    Want to add a book to QuietThyme? Just drag it into the blackhole folder of your connected cloud storage. We'll handle the rest\n                                </p>\n                            </div>\n                            <!--end feature-->\n                        </div>\n                        <div class=\"col-md-5 col-sm-6\">\n                            <div class=\"feature feature-6\">\n                                <i class=\"icon icon--sm icon-Post-Mail2 color--primary\"></i>\n                                <h5>Calibre Integration</h5>\n                                <p>\n                                    OCD about coverart & book metadata? We are too! QuietThyme integrates with Calibre and lets you import and export books (and metadata) with a single click\n                                </p>\n                            </div>\n                            <!--end feature-->\n                        </div>\n                    </div>\n                </div>\n                <div class=\"col-sm-6 col-md-4 col-xs-12\">\n                    <div class=\"pricing pricing-1 boxed boxed--border boxed--lg text-center\">\n                        <h4>Reader Plan</h4>\n                        <span class=\"h1\">\n                                                        <span class=\"pricing__dollar\">$</span>10</span>\n                        <p>\n                            The regular license allows you to customize, store and even host your website using your platform\n                        </p>\n                        <span class=\"label\">Monthly</span>\n                        <a stripeCheckoutButton\n                           [planId]=\"'reader_1'\"\n                           [planName]=\"'Reader Plan'\"\n                           [planCost]=\"1000\"\n                           (onCheckout)=\"stripeCheckoutCompleted($event)\"\n                           class=\"btn btn--primary\">\n                            <span class=\"btn__text\">\n                                Purchase Now\n                            </span>\n                        </a>\n                    </div>\n                    <!--end pricing-->\n                </div>\n            </div>\n            <!--end of row-->\n        </div>\n        <!--end of container-->\n    </section>\n</div>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/account-register-plan/account-register-plan.component.less":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/account-register-plan/account-register-plan.component.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_api_service__ = __webpack_require__(48);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__(73);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AccountRegisterComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AccountRegisterPlanComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ng2_slim_loading_bar__ = __webpack_require__("../../../../ng2-slim-loading-bar/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_api_service__ = __webpack_require__("../../../../../src/app/services/api.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -779,55 +158,150 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
+var AccountRegisterPlanComponent = (function () {
+    function AccountRegisterPlanComponent(slimLoadingBarService, apiService, activatedRoute) {
+        this.slimLoadingBarService = slimLoadingBarService;
+        this.apiService = apiService;
+        this.activatedRoute = activatedRoute;
+        this.loading = {
+            setPlan: false,
+        };
+    }
+    AccountRegisterPlanComponent.prototype.ngOnInit = function () {
+    };
+    AccountRegisterPlanComponent.prototype.stripeCheckoutCompleted = function (stripeCheckoutData) {
+        var _this = this;
+        console.log(stripeCheckoutData);
+        if (this.loading.setPlan)
+            return;
+        this.slimLoadingBarService.start();
+        this.apiService.userPlan(stripeCheckoutData)
+            .subscribe(function (data) {
+            //TODO: we should update the Token here too.
+            console.log(data);
+            //todo: redirect user to storage page
+        }, function (error) { console.log(error); }, function () {
+            _this.loading.setPlan = false;
+            _this.slimLoadingBarService.complete();
+        });
+    };
+    return AccountRegisterPlanComponent;
+}());
+AccountRegisterPlanComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+        selector: 'app-account-register-plan',
+        template: __webpack_require__("../../../../../src/app/account-register-plan/account-register-plan.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/account-register-plan/account-register-plan.component.less")]
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__services_api_service__["a" /* ApiService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_api_service__["a" /* ApiService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* ActivatedRoute */]) === "function" && _c || Object])
+], AccountRegisterPlanComponent);
+
+var _a, _b, _c;
+//# sourceMappingURL=account-register-plan.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/account-register/account-register.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<ng2-slim-loading-bar class=\"navbar-fixed-top\" [color]=\"'#128950'\" [height]=\"'3px'\"></ng2-slim-loading-bar>\n<div class=\"main-container\">\n    <section class=\"imageblock switchable feature-large height-100\">\n        <div class=\"imageblock__content col-md-6 col-sm-4 pos-right\">\n            <div class=\"background-image-holder register-bg\" >\n            </div>\n        </div>\n        <div class=\"container pos-vertical-center\">\n            <div class=\"row\">\n                <div class=\"col-md-5 col-sm-7\">\n                    <h2>Create a Stack account</h2>\n                    <p class=\"lead\">Get started with a 14 day free trial, No credit card required &mdash; cancel at any time.</p>\n\n                    <div style=\"display:none;\">\n                        <a class=\"btn block btn--icon bg--facebook type--uppercase\" href=\"#\">\n                                    <span class=\"btn__text\">\n                                        <i class=\"socicon-facebook\"></i>\n                                        Sign up with Facebook\n                                    </span>\n                        </a>\n                        <a class=\"btn block btn--icon bg--twitter type--uppercase\" href=\"#\">\n                                    <span class=\"btn__text\">\n                                        <i class=\"socicon-twitter\"></i>\n                                        Sign up with Twitter\n                                    </span>\n                        </a>\n                        <hr data-title=\"OR\">\n                    </div>\n                    <form (ngSubmit)=\"register()\" >\n                        <div class=\"row\">\n                            <div class=\"col-xs-12\">\n                                <input [(ngModel)]=\"regName\" name=\"name\" type=\"text\" name=\"Name \" placeholder=\"Name\" required/>\n                            </div>\n                            <div class=\"col-xs-12\">\n                                <input [(ngModel)]=\"regEmail\" name=\"email\" type=\"email\" name=\"Email Address\" placeholder=\"Email Address\" required/>\n                            </div>\n                            <div class=\"col-xs-12\">\n                                <input [(ngModel)]=\"regPassword\" name=\"password\" type=\"password\" name=\"Password\" placeholder=\"Password\" required/>\n                            </div>\n                            <div class=\"col-xs-12\">\n                                <button [disabled]=\"loading.register\" type=\"submit\" class=\"btn btn--primary type--uppercase\">Create Account</button>\n                            </div>\n                            <div class=\"col-xs-12\">\n                                        <span class=\"type--fine-print\">By signing up, you agree to the\n                                            <a href=\"#\">Terms of Service</a>\n                                        </span>\n                            </div>\n                        </div>\n                        <!--end row-->\n                    </form>\n                </div>\n            </div>\n            <!--end of row-->\n        </div>\n        <!--end of container-->\n    </section>\n</div>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/account-register/account-register.component.less":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/account-register/account-register.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AccountRegisterComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_api_service__ = __webpack_require__("../../../../../src/app/services/api.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ng2_slim_loading_bar__ = __webpack_require__("../../../../ng2-slim-loading-bar/index.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
 var AccountRegisterComponent = (function () {
-    function AccountRegisterComponent(apiService, router, activatedRoute) {
+    function AccountRegisterComponent(slimLoadingBarService, apiService, router, activatedRoute) {
+        this.slimLoadingBarService = slimLoadingBarService;
         this.apiService = apiService;
         this.router = router;
         this.activatedRoute = activatedRoute;
+        this.loading = {
+            register: false,
+            oauth: false
+        };
     }
     AccountRegisterComponent.prototype.ngOnInit = function () {
     };
     AccountRegisterComponent.prototype.register = function () {
         var _this = this;
-        // this.loading.saveSettings = true;
+        if (this.loading.register)
+            return;
+        this.loading.register = true;
+        this.slimLoadingBarService.start(function () {
+            console.log('Loading complete');
+        });
         this.apiService.authRegister(this.regName, this.regEmail, this.regPassword)
             .subscribe(function (data) {
             console.log(data);
             localStorage.setItem('id_token', data.token); //set the JWT token
-            _this.router.navigate(['/settings', { 'tab': "plans" }]);
-        }, function (error) { console.log(error); });
+            _this.router.navigate(['/register/plan']);
+        }, function (error) { console.log(error); }, function () {
+            _this.loading.register = false;
+            _this.slimLoadingBarService.complete();
+        });
     };
-    AccountRegisterComponent.prototype.login = function () {
-        var _this = this;
-        // this.loading.saveSettings = true;
-        this.apiService.authLogin(this.loginEmail, this.loginPassword)
-            .subscribe(function (data) {
-            console.log(data);
-            localStorage.setItem('id_token', data.token); //set the JWT token
-            _this.router.navigate(['/storage']);
-        }, function (error) { console.log(error); });
-    };
-    AccountRegisterComponent = __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'app-account-register',
-            template: __webpack_require__(1065),
-            styles: [__webpack_require__(1053)]
-        }), 
-        __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */]) === 'function' && _b) || Object, (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["c" /* ActivatedRoute */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__angular_router__["c" /* ActivatedRoute */]) === 'function' && _c) || Object])
-    ], AccountRegisterComponent);
     return AccountRegisterComponent;
-    var _a, _b, _c;
 }());
-//# sourceMappingURL=/home/ubuntu/quietthyme.web.src/src/account-register.component.js.map
+AccountRegisterComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+        selector: 'app-account-register',
+        template: __webpack_require__("../../../../../src/app/account-register/account-register.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/account-register/account-register.component.less")]
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* ActivatedRoute */]) === "function" && _d || Object])
+], AccountRegisterComponent);
+
+var _a, _b, _c, _d;
+//# sourceMappingURL=account-register.component.js.map
 
 /***/ }),
 
-/***/ 767:
+/***/ "../../../../../src/app/app-settings.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__environments_environment__ = __webpack_require__(240);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppSettings; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__environments_environment__ = __webpack_require__("../../../../../src/environments/environment.ts");
 
 var AppSettings = (function () {
     function AppSettings() {
@@ -839,17 +313,43 @@ var AppSettings = (function () {
     });
     return AppSettings;
 }());
-//# sourceMappingURL=/home/ubuntu/quietthyme.web.src/src/app-settings.js.map
+
+//# sourceMappingURL=app-settings.js.map
 
 /***/ }),
 
-/***/ 768:
+/***/ "../../../../../src/app/app.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/app.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div scrollSpy id=\"wrapper\" class=\"clearfix\" style=\"opacity: 1;\">\n    <!-- Routed views go here -->\n    <router-outlet></router-outlet>\n\n</div>\n\n\n<!-- Go To Top\n============================================= -->\n<div id=\"gotoTop\" class=\"icon-angle-up\"></div>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/app.component.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__rxjs_operators__ = __webpack_require__(778);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__rxjs_operators__ = __webpack_require__("../../../../../src/app/rxjs-operators.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -867,73 +367,72 @@ var AppComponent = (function () {
         // You need this small hack in order to catch application root view container ref
         this.viewContainerRef = viewContainerRef;
     }
-    AppComponent = __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'app-root',
-            template: __webpack_require__(1066),
-            styles: [__webpack_require__(1063)]
-        }), 
-        __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewContainerRef"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewContainerRef"]) === 'function' && _a) || Object])
-    ], AppComponent);
     return AppComponent;
-    var _a;
 }());
-//# sourceMappingURL=/home/ubuntu/quietthyme.web.src/src/app.component.js.map
+AppComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+        selector: 'app-root',
+        template: __webpack_require__("../../../../../src/app/app.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/app.component.css")]
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewContainerRef"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewContainerRef"]) === "function" && _a || Object])
+], AppComponent);
+
+var _a;
+//# sourceMappingURL=app.component.js.map
 
 /***/ }),
 
-/***/ 769:
+/***/ "../../../../../src/app/app.module.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(162);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(26);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(87);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_router__ = __webpack_require__(73);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_component__ = __webpack_require__(768);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__account_login_account_login_component__ = __webpack_require__(765);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__account_register_account_register_component__ = __webpack_require__(766);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__shared_kloudless_authenticator_directive__ = __webpack_require__(782);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__partials_footer_footer_component__ = __webpack_require__(773);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__partials_page_title_page_title_component__ = __webpack_require__(775);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__partials_header_header_component__ = __webpack_require__(774);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__storage_storage_component__ = __webpack_require__(784);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__library_library_component__ = __webpack_require__(771);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__book_details_book_details_component__ = __webpack_require__(770);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__partials_storage_panel_storage_panel_component__ = __webpack_require__(776);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__settings_settings_component__ = __webpack_require__(780);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__privacy_privacy_component__ = __webpack_require__(777);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__shared_stripe_checkout_button_directive__ = __webpack_require__(783);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__shared_file_size_pipe__ = __webpack_require__(781);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__services_api_service__ = __webpack_require__(48);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__services_cache_service__ = __webpack_require__(383);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__services_auth_guard_service__ = __webpack_require__(779);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23_angular2_jwt__ = __webpack_require__(241);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23_angular2_jwt___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_23_angular2_jwt__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24_ng2_bootstrap__ = __webpack_require__(566);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25_ng2_slim_loading_bar__ = __webpack_require__(124);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26_angular2_markdown__ = __webpack_require__(785);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27_angular2_masonry__ = __webpack_require__(763);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28_ng2_scrollspy__ = __webpack_require__(284);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28_ng2_scrollspy___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_28_ng2_scrollspy__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29_ng2_scrollspy_dist_plugin_affix_directive__ = __webpack_require__(1032);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29_ng2_scrollspy_dist_plugin_affix_directive___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_29_ng2_scrollspy_dist_plugin_affix_directive__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30_ng2_charts_ng2_charts__ = __webpack_require__(1030);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30_ng2_charts_ng2_charts___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_30_ng2_charts_ng2_charts__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31_ng2_gravatar_directive__ = __webpack_require__(1031);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31_ng2_gravatar_directive___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_31_ng2_gravatar_directive__);
 /* unused harmony export getAuthHttp */
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__("../../../platform-browser/@angular/platform-browser.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__("../../../forms/@angular/forms.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__account_login_account_login_component__ = __webpack_require__("../../../../../src/app/account-login/account-login.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__account_register_account_register_component__ = __webpack_require__("../../../../../src/app/account-register/account-register.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__shared_kloudless_authenticator_directive__ = __webpack_require__("../../../../../src/app/shared/kloudless-authenticator.directive.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__partials_footer_footer_component__ = __webpack_require__("../../../../../src/app/partials/footer/footer.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__partials_page_title_page_title_component__ = __webpack_require__("../../../../../src/app/partials/page-title/page-title.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__partials_header_header_component__ = __webpack_require__("../../../../../src/app/partials/header/header.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__storage_storage_component__ = __webpack_require__("../../../../../src/app/storage/storage.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__library_library_component__ = __webpack_require__("../../../../../src/app/library/library.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__book_details_book_details_component__ = __webpack_require__("../../../../../src/app/book-details/book-details.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__partials_storage_panel_storage_panel_component__ = __webpack_require__("../../../../../src/app/partials/storage-panel/storage-panel.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__settings_settings_component__ = __webpack_require__("../../../../../src/app/settings/settings.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__privacy_privacy_component__ = __webpack_require__("../../../../../src/app/privacy/privacy.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__shared_stripe_checkout_button_directive__ = __webpack_require__("../../../../../src/app/shared/stripe-checkout-button.directive.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__shared_file_size_pipe__ = __webpack_require__("../../../../../src/app/shared/file-size.pipe.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__services_api_service__ = __webpack_require__("../../../../../src/app/services/api.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__services_cache_service__ = __webpack_require__("../../../../../src/app/services/cache.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__services_auth_guard_service__ = __webpack_require__("../../../../../src/app/services/auth-guard.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23_angular2_jwt__ = __webpack_require__("../../../../angular2-jwt/angular2-jwt.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23_angular2_jwt___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_23_angular2_jwt__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24_ngx_bootstrap__ = __webpack_require__("../../../../ngx-bootstrap/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25_ng2_slim_loading_bar__ = __webpack_require__("../../../../ng2-slim-loading-bar/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26_angular2_markdown__ = __webpack_require__("../../../../angular2-markdown/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27_angular2_masonry__ = __webpack_require__("../../../../angular2-masonry/index.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28_ng2_scrollspy__ = __webpack_require__("../../../../ng2-scrollspy/dist/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28_ng2_scrollspy___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_28_ng2_scrollspy__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29_ng2_scrollspy_dist_plugin_affix_directive__ = __webpack_require__("../../../../ng2-scrollspy/dist/plugin/affix.directive.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29_ng2_scrollspy_dist_plugin_affix_directive___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_29_ng2_scrollspy_dist_plugin_affix_directive__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30_ng2_charts_ng2_charts__ = __webpack_require__("../../../../ng2-charts/ng2-charts.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30_ng2_charts_ng2_charts___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_30_ng2_charts_ng2_charts__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__account_register_plan_account_register_plan_component__ = __webpack_require__("../../../../../src/app/account-register-plan/account-register-plan.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32_angular2_moment__ = __webpack_require__("../../../../angular2-moment/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32_angular2_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_32_angular2_moment__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
 
 
 
@@ -957,6 +456,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+//Third party
 
 
 
@@ -966,95 +466,125 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-function getAuthHttp(http) {
+
+function getAuthHttp(http, options) {
     return new __WEBPACK_IMPORTED_MODULE_23_angular2_jwt__["AuthHttp"](new __WEBPACK_IMPORTED_MODULE_23_angular2_jwt__["AuthConfig"]({
+        tokenName: 'id_token',
         noJwtError: true,
         headerPrefix: 'JWT',
         tokenGetter: (function () { return localStorage.getItem('id_token'); }),
         globalHeaders: [{ 'Content-Type': 'application/json' }]
-    }), http);
+    }), http, options);
 }
 var AppModule = (function () {
     function AppModule() {
     }
-    AppModule = __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_core__["NgModule"])({
-            declarations: [
-                __WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* AppComponent */],
-                __WEBPACK_IMPORTED_MODULE_6__account_login_account_login_component__["a" /* AccountLoginComponent */],
-                __WEBPACK_IMPORTED_MODULE_7__account_register_account_register_component__["a" /* AccountRegisterComponent */],
-                __WEBPACK_IMPORTED_MODULE_8__shared_kloudless_authenticator_directive__["a" /* KloudlessAuthenticatorDirective */],
-                __WEBPACK_IMPORTED_MODULE_9__partials_footer_footer_component__["a" /* FooterComponent */],
-                __WEBPACK_IMPORTED_MODULE_10__partials_page_title_page_title_component__["a" /* PageTitleComponent */],
-                __WEBPACK_IMPORTED_MODULE_11__partials_header_header_component__["a" /* HeaderComponent */],
-                __WEBPACK_IMPORTED_MODULE_12__storage_storage_component__["a" /* StorageComponent */],
-                __WEBPACK_IMPORTED_MODULE_13__library_library_component__["a" /* LibraryComponent */],
-                __WEBPACK_IMPORTED_MODULE_14__book_details_book_details_component__["a" /* BookDetailsComponent */],
-                __WEBPACK_IMPORTED_MODULE_29_ng2_scrollspy_dist_plugin_affix_directive__["ScrollSpyAffixDirective"],
-                __WEBPACK_IMPORTED_MODULE_15__partials_storage_panel_storage_panel_component__["a" /* StoragePanelComponent */],
-                __WEBPACK_IMPORTED_MODULE_19__shared_file_size_pipe__["a" /* FileSizePipe */],
-                __WEBPACK_IMPORTED_MODULE_16__settings_settings_component__["a" /* SettingsComponent */],
-                __WEBPACK_IMPORTED_MODULE_17__privacy_privacy_component__["a" /* PrivacyComponent */],
-                __WEBPACK_IMPORTED_MODULE_18__shared_stripe_checkout_button_directive__["a" /* StripeCheckoutButtonDirective */],
-                __WEBPACK_IMPORTED_MODULE_31_ng2_gravatar_directive__["Gravatar"]
-            ],
-            imports: [
-                __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
-                __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormsModule */],
-                __WEBPACK_IMPORTED_MODULE_3__angular_http__["HttpModule"],
-                __WEBPACK_IMPORTED_MODULE_24_ng2_bootstrap__["a" /* Ng2BootstrapModule */].forRoot(),
-                __WEBPACK_IMPORTED_MODULE_25_ng2_slim_loading_bar__["a" /* SlimLoadingBarModule */].forRoot(),
-                __WEBPACK_IMPORTED_MODULE_26_angular2_markdown__["a" /* MarkdownModule */].forRoot(),
-                __WEBPACK_IMPORTED_MODULE_27_angular2_masonry__["a" /* MasonryModule */],
-                __WEBPACK_IMPORTED_MODULE_28_ng2_scrollspy__["ScrollSpyModule"].forRoot(),
-                __WEBPACK_IMPORTED_MODULE_30_ng2_charts_ng2_charts__["ChartsModule"],
-                __WEBPACK_IMPORTED_MODULE_4__angular_router__["a" /* RouterModule */].forRoot([
-                    //Public Endpoints
-                    { path: 'login', component: __WEBPACK_IMPORTED_MODULE_6__account_login_account_login_component__["a" /* AccountLoginComponent */] },
-                    { path: 'register', component: __WEBPACK_IMPORTED_MODULE_7__account_register_account_register_component__["a" /* AccountRegisterComponent */] },
-                    { path: 'privacy', component: __WEBPACK_IMPORTED_MODULE_17__privacy_privacy_component__["a" /* PrivacyComponent */] },
-                    //Auth Endpoints
-                    { path: 'storage', component: __WEBPACK_IMPORTED_MODULE_12__storage_storage_component__["a" /* StorageComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_22__services_auth_guard_service__["a" /* AuthGuard */]] },
-                    { path: 'settings', component: __WEBPACK_IMPORTED_MODULE_16__settings_settings_component__["a" /* SettingsComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_22__services_auth_guard_service__["a" /* AuthGuard */]] },
-                    { path: 'storage/:source', component: __WEBPACK_IMPORTED_MODULE_12__storage_storage_component__["a" /* StorageComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_22__services_auth_guard_service__["a" /* AuthGuard */]] },
-                    { path: 'library', component: __WEBPACK_IMPORTED_MODULE_13__library_library_component__["a" /* LibraryComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_22__services_auth_guard_service__["a" /* AuthGuard */]] },
-                    { path: 'book/:bookId', component: __WEBPACK_IMPORTED_MODULE_14__book_details_book_details_component__["a" /* BookDetailsComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_22__services_auth_guard_service__["a" /* AuthGuard */]] },
-                    // { path: 'project/create', component: ProjectCreateComponent, canActivate: [AuthGuard] },
-                    // { path: 'project/:serviceType/:orgId/:repoId/edit', component: ProjectEditComponent, canActivate: [AuthGuard] },
-                    // { path: 'project/:serviceType/:orgId/:repoId/pullrequests/:prNumber', component: ProjectDeployComponent, canActivate: [AuthGuard] },
-                    // { path: 'project/:serviceType/:orgId/:repoId/pullrequests/:prNumber/logs', component: ProjectDeployLogsComponent, canActivate: [AuthGuard] },
-                    { path: '', pathMatch: 'full', redirectTo: 'storage' },
-                    // { path: '**', component: PageNotFoundComponent }
-                    { path: '**', redirectTo: 'login' }
-                ])
-            ],
-            providers: [
-                __WEBPACK_IMPORTED_MODULE_20__services_api_service__["a" /* ApiService */],
-                __WEBPACK_IMPORTED_MODULE_21__services_cache_service__["a" /* CacheService */],
-                __WEBPACK_IMPORTED_MODULE_22__services_auth_guard_service__["a" /* AuthGuard */],
-                {
-                    provide: __WEBPACK_IMPORTED_MODULE_23_angular2_jwt__["AuthHttp"],
-                    useFactory: getAuthHttp,
-                    deps: [__WEBPACK_IMPORTED_MODULE_3__angular_http__["Http"]]
-                }],
-            bootstrap: [__WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* AppComponent */]]
-        }), 
-        __metadata('design:paramtypes', [])
-    ], AppModule);
     return AppModule;
 }());
-//# sourceMappingURL=/home/ubuntu/quietthyme.web.src/src/app.module.js.map
+AppModule = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["NgModule"])({
+        declarations: [
+            __WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* AppComponent */],
+            __WEBPACK_IMPORTED_MODULE_6__account_login_account_login_component__["a" /* AccountLoginComponent */],
+            __WEBPACK_IMPORTED_MODULE_7__account_register_account_register_component__["a" /* AccountRegisterComponent */],
+            __WEBPACK_IMPORTED_MODULE_8__shared_kloudless_authenticator_directive__["a" /* KloudlessAuthenticatorDirective */],
+            __WEBPACK_IMPORTED_MODULE_9__partials_footer_footer_component__["a" /* FooterComponent */],
+            __WEBPACK_IMPORTED_MODULE_10__partials_page_title_page_title_component__["a" /* PageTitleComponent */],
+            __WEBPACK_IMPORTED_MODULE_11__partials_header_header_component__["a" /* HeaderComponent */],
+            __WEBPACK_IMPORTED_MODULE_12__storage_storage_component__["a" /* StorageComponent */],
+            __WEBPACK_IMPORTED_MODULE_13__library_library_component__["a" /* LibraryComponent */],
+            __WEBPACK_IMPORTED_MODULE_14__book_details_book_details_component__["a" /* BookDetailsComponent */],
+            __WEBPACK_IMPORTED_MODULE_29_ng2_scrollspy_dist_plugin_affix_directive__["ScrollSpyAffixDirective"],
+            __WEBPACK_IMPORTED_MODULE_15__partials_storage_panel_storage_panel_component__["a" /* StoragePanelComponent */],
+            __WEBPACK_IMPORTED_MODULE_19__shared_file_size_pipe__["a" /* FileSizePipe */],
+            __WEBPACK_IMPORTED_MODULE_16__settings_settings_component__["a" /* SettingsComponent */],
+            __WEBPACK_IMPORTED_MODULE_17__privacy_privacy_component__["a" /* PrivacyComponent */],
+            __WEBPACK_IMPORTED_MODULE_18__shared_stripe_checkout_button_directive__["a" /* StripeCheckoutButtonDirective */],
+            __WEBPACK_IMPORTED_MODULE_31__account_register_plan_account_register_plan_component__["a" /* AccountRegisterPlanComponent */]
+        ],
+        imports: [
+            __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
+            __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormsModule */],
+            __WEBPACK_IMPORTED_MODULE_3__angular_http__["HttpModule"],
+            __WEBPACK_IMPORTED_MODULE_24_ngx_bootstrap__["a" /* Ng2BootstrapModule */].forRoot(),
+            __WEBPACK_IMPORTED_MODULE_25_ng2_slim_loading_bar__["a" /* SlimLoadingBarModule */].forRoot(),
+            __WEBPACK_IMPORTED_MODULE_26_angular2_markdown__["a" /* MarkdownModule */].forRoot(),
+            __WEBPACK_IMPORTED_MODULE_27_angular2_masonry__["a" /* MasonryModule */],
+            __WEBPACK_IMPORTED_MODULE_28_ng2_scrollspy__["ScrollSpyModule"].forRoot(),
+            __WEBPACK_IMPORTED_MODULE_30_ng2_charts_ng2_charts__["ChartsModule"],
+            __WEBPACK_IMPORTED_MODULE_32_angular2_moment__["MomentModule"],
+            __WEBPACK_IMPORTED_MODULE_4__angular_router__["c" /* RouterModule */].forRoot([
+                //Public Endpoints
+                { path: 'login', component: __WEBPACK_IMPORTED_MODULE_6__account_login_account_login_component__["a" /* AccountLoginComponent */] },
+                { path: 'register', component: __WEBPACK_IMPORTED_MODULE_7__account_register_account_register_component__["a" /* AccountRegisterComponent */] },
+                { path: 'privacy', component: __WEBPACK_IMPORTED_MODULE_17__privacy_privacy_component__["a" /* PrivacyComponent */] },
+                //Auth Endpoints
+                { path: 'register/plan', component: __WEBPACK_IMPORTED_MODULE_31__account_register_plan_account_register_plan_component__["a" /* AccountRegisterPlanComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_22__services_auth_guard_service__["a" /* AuthGuard */]] },
+                { path: 'storage', component: __WEBPACK_IMPORTED_MODULE_12__storage_storage_component__["a" /* StorageComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_22__services_auth_guard_service__["a" /* AuthGuard */]] },
+                { path: 'settings', component: __WEBPACK_IMPORTED_MODULE_16__settings_settings_component__["a" /* SettingsComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_22__services_auth_guard_service__["a" /* AuthGuard */]] },
+                { path: 'storage/:source', component: __WEBPACK_IMPORTED_MODULE_12__storage_storage_component__["a" /* StorageComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_22__services_auth_guard_service__["a" /* AuthGuard */]] },
+                { path: 'library', component: __WEBPACK_IMPORTED_MODULE_13__library_library_component__["a" /* LibraryComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_22__services_auth_guard_service__["a" /* AuthGuard */]] },
+                { path: 'book/:bookId', component: __WEBPACK_IMPORTED_MODULE_14__book_details_book_details_component__["a" /* BookDetailsComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_22__services_auth_guard_service__["a" /* AuthGuard */]] },
+                // { path: 'project/create', component: ProjectCreateComponent, canActivate: [AuthGuard] },
+                // { path: 'project/:serviceType/:orgId/:repoId/edit', component: ProjectEditComponent, canActivate: [AuthGuard] },
+                // { path: 'project/:serviceType/:orgId/:repoId/pullrequests/:prNumber', component: ProjectDeployComponent, canActivate: [AuthGuard] },
+                // { path: 'project/:serviceType/:orgId/:repoId/pullrequests/:prNumber/logs', component: ProjectDeployLogsComponent, canActivate: [AuthGuard] },
+                { path: '', pathMatch: 'full', redirectTo: 'storage' },
+                // { path: '**', component: PageNotFoundComponent }
+                { path: '**', redirectTo: 'login' }
+            ])
+        ],
+        providers: [
+            __WEBPACK_IMPORTED_MODULE_20__services_api_service__["a" /* ApiService */],
+            __WEBPACK_IMPORTED_MODULE_21__services_cache_service__["a" /* CacheService */],
+            __WEBPACK_IMPORTED_MODULE_22__services_auth_guard_service__["a" /* AuthGuard */],
+            {
+                provide: __WEBPACK_IMPORTED_MODULE_23_angular2_jwt__["AuthHttp"],
+                useFactory: getAuthHttp,
+                deps: [__WEBPACK_IMPORTED_MODULE_3__angular_http__["Http"], __WEBPACK_IMPORTED_MODULE_3__angular_http__["RequestOptions"]]
+            }
+        ],
+        bootstrap: [__WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* AppComponent */]]
+    })
+], AppModule);
+
+//# sourceMappingURL=app.module.js.map
 
 /***/ }),
 
-/***/ 770:
+/***/ "../../../../../src/app/book-details/book-details.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<quietthyme-header></quietthyme-header>\n<div class=\"main-container\">\n    <section>\n        <div class=\"container\">\n            <div class=\"row\">\n                <div class=\"col-sm-12\">\n                    <h1>{{ book.title }}</h1>\n                    <ol class=\"breadcrumbs\">\n                        <li>\n                            <a routerLink=\"/library\">Library</a>\n                        </li>\n                        <li>\n                            <a href=\"#\">{{ book.authors }}</a>\n                        </li>\n                        <li *ngIf=\"book.series_name\">\n                            <a href=\"#\">{{ book.series_name }}</a> #{{ book.series_number }}\n                        </li>\n                        <li *ngIf=\"book.isbn || book.isbn10\">\n                            ISBN &mdash; {{ book.isbn || book.isbn10 }}\n                        </li>\n                    </ol>\n                    <hr>\n                </div>\n            </div>\n            <!--end of row-->\n        </div>\n        <!--end of container-->\n    </section>\n    <section class=\"space--lg\">\n        <div class=\"container\">\n            <div class=\"row\">\n                <div class=\"col-sm-5 col-md-4\">\n                    <div class=\"row\">\n                        <div class=\"col-md-12\">\n                            <img *ngIf=\"book.cover\" class=\"border--round box-shadow-wide book-details-cover-image\" src=\"https://s3.amazonaws.com/{{ book.cover }}\" alt=\"{{ book.title }}\">\n                            <img *ngIf=\"!book.cover\" class=\"border--round box-shadow-wide\" src=\"assets/images/noart.png\" alt=\"{{ book.title }}\">\n\n                        </div>\n                    </div>\n                    <div class=\"row\" style=\"padding-top:40px\">\n                        <div class=\"col-md-12\">\n                            <button class=\"btn btn--primary\">Download</button>\n                        </div>\n                    </div>\n\n                </div>\n                <div class=\"col-sm-7 col-md-6 col-md-offset-1\">\n                    <h2>{{ book.title }}</h2>\n                    <div class=\"text-block\">\n                        <span class=\"h4 inline-block\">{{ book.authors }}</span>\n                    </div>\n                    <markdown [data]=\"book.short_summary\"></markdown>\n\n                    <accordion style=\"padding-top: 30px;\" class=\"accordion accordion-2 accordion--oneopen\">\n\n                        <accordion-group heading=\"Details\">\n                            <ul class=\"bullets\">\n                                <li>\n                                    <span>Title &mdash; {{ book.title }}</span>\n                                </li>\n                                <li>\n                                    <span>Authors &mdash; {{ book.authors }}</span>\n                                </li>\n                                <li *ngIf=\"book.series_name\">\n                                    <span>Series &mdash; {{ book.series_name }} #{{ book.series_number }}</span>\n                                </li>\n\n                                <li>\n                                    <span>ISBN &mdash; {{ book.isbn || book.isbn10 }}</span>\n                                </li>\n                                <li *ngIf=\"book.published_date\">\n                                    <span>Published &mdash; {{ book.published_date | amDateFormat:'LL' }}</span>\n                                </li>\n                                <li *ngIf=\"book.language\">\n                                    <span>Language &mdash; {{ book.language }}</span>\n                                </li>\n                                <li *ngIf=\"book.pages\">\n                                    <span>Pages &mdash; {{ book.pages }}</span>\n                                </li>\n                            </ul>\n                        </accordion-group>\n\n                        <accordion-group heading=\"Tags\">\n                            <span class=\"label label-default\" *ngFor=\"let tag of book.tags; let myIndex = index\">{{ tag }}</span>\n                        </accordion-group>\n\n                        <accordion-group heading=\"External Links\">\n                            <a *ngIf=\"book.amazon_id\" href=\"http://www.amazon.com/exec/obidos/ASIN/{{ book.amazon_id }}\" class=\"book-details-icons\">\n                                <i class=\"socicon socicon-amazon icon icon--s\"></i>\n                            </a>\n\n                            <a *ngIf=\"book.google_id\" href=\"https://books.google.com/books?id={{ book.google_id }}\" class=\"book-details-icons\">\n                                <i class=\"socicon socicon-google icon icon--s\"></i>\n                            </a>\n\n                            <a *ngIf=\"book.goodreads_id\" href=\"https://www.goodreads.com/book/show/{{ book.goodreads_id }}\" class=\"book-details-icons\">\n                                <i class=\"socicon socicon-goodreads icon icon--s\"></i>\n                            </a>\n                        </accordion-group>\n\n                    </accordion>\n\n                    <!--end accordion-->\n                </div>\n            </div>\n            <!--end of row-->\n        </div>\n        <!--end of container-->\n    </section>\n\n    <quietthyme-footer></quietthyme-footer>\n</div>\n\n\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/book-details/book-details.component.less":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/book-details/book-details.component.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_api_service__ = __webpack_require__(48);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__(73);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BookDetailsComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_api_service__ = __webpack_require__("../../../../../src/app/services/api.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1081,33 +611,59 @@ var BookDetailsComponent = (function () {
             _this.book = book;
         }, function (error) { console.log(error); });
     };
-    BookDetailsComponent = __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'app-book-details',
-            template: __webpack_require__(1067),
-            styles: [__webpack_require__(1054)]
-        }), 
-        __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */]) === 'function' && _b) || Object, (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["c" /* ActivatedRoute */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__angular_router__["c" /* ActivatedRoute */]) === 'function' && _c) || Object])
-    ], BookDetailsComponent);
     return BookDetailsComponent;
-    var _a, _b, _c;
 }());
-//# sourceMappingURL=/home/ubuntu/quietthyme.web.src/src/book-details.component.js.map
+BookDetailsComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+        selector: 'app-book-details',
+        template: __webpack_require__("../../../../../src/app/book-details/book-details.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/book-details/book-details.component.less")]
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* ActivatedRoute */]) === "function" && _c || Object])
+], BookDetailsComponent);
+
+var _a, _b, _c;
+//# sourceMappingURL=book-details.component.js.map
 
 /***/ }),
 
-/***/ 771:
+/***/ "../../../../../src/app/library/library.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<ng2-slim-loading-bar class=\"navbar-fixed-top\" [color]=\"'#128950'\" [height]=\"'3px'\"></ng2-slim-loading-bar>\n<quietthyme-header></quietthyme-header>\n<div class=\"main-container\">\n    <section class=\"space--sm switchable switchable--switch  \">\n        <div class=\"container\">\n            <div class=\"row\">\n                <div class=\"col-sm-12\">\n                    <div class=\"height-50 imagebg border--round\" data-overlay=\"2\">\n                        <div class=\"background-image-holder library-bg\">\n                        </div>\n                        <div class=\"pos-vertical-center col-sm-6 boxed boxed--lg bg--none\">\n                            <h2>Library</h2>\n                            <p class=\"lead\">\n                                Your library is accessible anytime, anywhere, on any device\n\n                                It doesn't matter if your have 10 books or 1000's of books. Quietthyme can help you easily manage a library of any size.\n                            </p>\n                        </div>\n                    </div>\n                </div>\n            </div>\n            <!--end of row-->\n        </div>\n        <!--end of container-->\n    </section>\n\n\n    <section class=\"text-center cta cta-4 space--xxs border--bottom imagebg\" data-gradient-bg='#4876BD,#5448BD,#8F48BD,#BD48B1'>\n        <div class=\"container\">\n            <div class=\"row\">\n                <div class=\"col-sm-12\">\n                    <span class=\"label label--inline\">OPDS</span>\n                    <span>http://catalog.quietthyme.com/beta/massy-wedders-twenties-wickeder</span>\n                </div>\n            </div>\n            <!--end of row-->\n        </div>\n        <!--end of container-->\n    </section>\n\n\n    <section class=\" \">\n        <div class=\"container\">\n            <div class=\"row\">\n                <div class=\"col-sm-4\">\n                    <div class=\"masonry-filter-container\">\n                        <span>Storage:</span>\n                        <div class=\"masonry-filter-holder\">\n                            <div class=\"masonry__filters\" data-filter-all-text=\"Storage\">\n                                <ul>\n                                    <li [ngClass]=\"{'active': !filter.storage}\" (click)=\"setStorage(null)\">All Storage</li>\n                                    <li [ngClass]=\"{'active': filter.storage == 'quietthyme'}\" (click)=\"setStorage('quietthyme')\">QuietThyme</li>\n                                    <li *ngIf=\"connected.box\" [ngClass]=\"{'active': filter.storage == 'box'}\" (click)=\"setStorage('box')\">Box</li>\n                                    <li *ngIf=\"connected.dropbox\" [ngClass]=\"{'active': filter.storage == 'dropbox'}\" (click)=\"setStorage('dropbox')\">Dropbox</li>\n                                    <li *ngIf=\"connected.gdrive\" [ngClass]=\"{'active': filter.storage == 'gdrive'}\" (click)=\"setStorage('gdrive')\">Google Drive</li>\n                                    <li *ngIf=\"connected.skydrive\" [ngClass]=\"{'active': filter.storage == 'skydrive'}\" (click)=\"setStorage('skydrive')\">OneDrive</li>\n\n                                </ul>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"col-sm-4\">\n                    <div class=\"masonry-filter-container\">\n                        <span>Sort By:</span>\n                        <div class=\"masonry-filter-holder\">\n                            <div class=\"masonry__filters\" data-filter-all-text=\"Storage\">\n                                <ul>\n                                    <li [ngClass]=\"{'active': !filter.sort}\" (click)=\"setSort(null)\">Title</li>\n                                    <li [ngClass]=\"{'active': filter.sort == 'authors'}\" (click)=\"setSort('authors')\">Author</li>\n                                    <li [ngClass]=\"{'active': filter.sort == 'series_name'}\" (click)=\"setSort('series_name')\">Series</li>\n                                    <li [ngClass]=\"{'active': filter.sort == 'updated_at'}\" (click)=\"setSort('updated_at')\">Added Date</li>\n\n                                </ul>\n                            </div>\n                        </div>\n                    </div>\n\n                </div>\n            </div>\n            <div class=\"row\">\n\n\n                <masonry [useImagesLoaded]=\"true\">\n\n\n                    <masonry-brick *ngFor=\"let book of bookList; let myIndex = index\" class=\"col-sm-3 masonry__item\">\n                        <div class=\"card card-2 text-center\">\n                            <div class=\"card__top\">\n                                <span class=\"label\" *ngIf=\"book.series_name\">{{ book.series_name }}</span>\n\n                                <a routerLink=\"/book/{{ book.id }}\" >\n                                    <img *ngIf=\"book.cover\" src=\"https://s3.amazonaws.com/{{ book.cover }}\" alt=\"{{ book.title }}\">\n                                    <img *ngIf=\"!book.cover\" src=\"assets/images/noart.png\" alt=\"{{ book.title }}\">\n                                </a>\n                            </div>\n                            <div class=\"card__body\">\n                                <h4>{{ book.title }}</h4>\n                                <span class=\"type--fade\">{{ book.authors}}</span>\n\n                            </div>\n                            <div class=\"card__bottom text-center\">\n                                <div class=\"card__action\">\n                                    <span class=\"h6 type--uppercase\">Info</span>\n                                    <a routerLink=\"/book/{{ book.id }}\">\n                                        <i class=\"glyphicon glyphicon-info-sign\"></i>\n                                    </a>\n                                </div>\n                                <div class=\"card__action\">\n                                    <span class=\"h6 type--uppercase\">Download</span>\n                                    <a (click)=\"downloadBook(book)\">\n                                        <i class=\"glyphicon glyphicon-download\"></i>\n                                    </a>\n                                </div>\n                            </div>\n                        </div>\n                    </masonry-brick>\n\n                </masonry><!-- #shop end -->\n\n\n                <div class=\"masonry\">\n                    <div class=\"masonry__container\">\n\n\n                        <div class=\"col-sm-4 masonry__item\">\n                            <div class=\"card card-2 text-center\">\n                                <div class=\"card__top\">\n                                    <a href=\"#\">\n                                        <img alt=\"Image\" src=\"img/blog-6.jpg\">\n                                    </a>\n                                </div>\n                                <div class=\"card__body\">\n                                    <h4>Online Marketing</h4>\n                                    <span class=\"type--fade\">Tips you'll want to know</span>\n                                    <p>\n                                        Construct mockups or production-ready pages in-browser with Variant Page Builder\n                                    </p>\n                                </div>\n                                <div class=\"card__bottom text-center\">\n                                    <div class=\"card__action\">\n                                        <span class=\"h6 type--uppercase\">Explore</span>\n                                        <a href=\"#\">\n                                            <i class=\"material-icons\">flip_to_front</i>\n                                        </a>\n                                    </div>\n                                    <div class=\"card__action\">\n                                        <span class=\"h6 type--uppercase\">Save</span>\n                                        <a href=\"#\">\n                                            <i class=\"material-icons\">favorite_border</i>\n                                        </a>\n                                    </div>\n                                </div>\n                            </div>\n                        </div>\n                    </div>\n                    <!--end of masonry__container-->\n                </div>\n                <!--end of masonry-->\n            </div>\n            <!--end of row-->\n        </div>\n        <!--end of container-->\n    </section>\n    <quietthyme-footer></quietthyme-footer>\n</div>\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/library/library.component.less":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/library/library.component.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_api_service__ = __webpack_require__(48);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ng2_slim_loading_bar__ = __webpack_require__(124);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ng2_scrollspy__ = __webpack_require__(284);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ng2_scrollspy___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_ng2_scrollspy__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_file_saver__ = __webpack_require__(998);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_file_saver___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_file_saver__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LibraryComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_api_service__ = __webpack_require__("../../../../../src/app/services/api.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ng2_slim_loading_bar__ = __webpack_require__("../../../../ng2-slim-loading-bar/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ng2_scrollspy__ = __webpack_require__("../../../../ng2-scrollspy/dist/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ng2_scrollspy___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_ng2_scrollspy__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_file_saver__ = __webpack_require__("../../../../file-saver/FileSaver.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_file_saver___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_file_saver__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1225,22 +781,23 @@ var LibraryComponent = (function () {
         this.bookList = [];
         this.getBookList();
     };
-    LibraryComponent = __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'app-library',
-            template: __webpack_require__(1068),
-            styles: [__webpack_require__(1055)]
-        }), 
-        __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */]) === 'function' && _b) || Object, (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3_ng2_scrollspy__["ScrollSpyService"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_3_ng2_scrollspy__["ScrollSpyService"]) === 'function' && _c) || Object])
-    ], LibraryComponent);
     return LibraryComponent;
-    var _a, _b, _c;
 }());
-//# sourceMappingURL=/home/ubuntu/quietthyme.web.src/src/library.component.js.map
+LibraryComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+        selector: 'app-library',
+        template: __webpack_require__("../../../../../src/app/library/library.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/library/library.component.less")]
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3_ng2_scrollspy__["ScrollSpyService"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ng2_scrollspy__["ScrollSpyService"]) === "function" && _c || Object])
+], LibraryComponent);
+
+var _a, _b, _c;
+//# sourceMappingURL=library.component.js.map
 
 /***/ }),
 
-/***/ 772:
+/***/ "../../../../../src/app/models/storage-status.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1250,16 +807,42 @@ var StorageStatus = (function () {
     }
     return StorageStatus;
 }());
-//# sourceMappingURL=/home/ubuntu/quietthyme.web.src/src/storage-status.js.map
+
+//# sourceMappingURL=storage-status.js.map
 
 /***/ }),
 
-/***/ 773:
+/***/ "../../../../../src/app/partials/footer/footer.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<footer class=\"text-center-xs space--xs \">\n    <div class=\"container\">\n        <div class=\"row\">\n            <div class=\"col-sm-7\">\n                <ul class=\"list-inline\">\n                    <li>\n                        <a href=\"#\">\n                            <span class=\"h6 type--uppercase\">About</span>\n                        </a>\n                    </li>\n                    <li>\n                        <a href=\"#\">\n                            <span class=\"h6 type--uppercase\">Careers</span>\n                        </a>\n                    </li>\n                    <li>\n                        <a href=\"#\">\n                            <span class=\"h6 type--uppercase\">Support</span>\n                        </a>\n                    </li>\n                </ul>\n            </div>\n            <div class=\"col-sm-5 text-right text-center-xs\">\n                <ul class=\"social-list list-inline list--hover\">\n                    <li>\n                        <a href=\"#\">\n                            <i class=\"socicon socicon-google icon icon--xs\"></i>\n                        </a>\n                    </li>\n                    <li>\n                        <a href=\"#\">\n                            <i class=\"socicon socicon-twitter icon icon--xs\"></i>\n                        </a>\n                    </li>\n                    <li>\n                        <a href=\"#\">\n                            <i class=\"socicon socicon-facebook icon icon--xs\"></i>\n                        </a>\n                    </li>\n                    <li>\n                        <a href=\"#\">\n                            <i class=\"socicon socicon-instagram icon icon--xs\"></i>\n                        </a>\n                    </li>\n                </ul>\n            </div>\n        </div>\n        <!--end of row-->\n        <div class=\"row\">\n            <div class=\"col-sm-7\">\n                <span class=\"type--fine-print\">&copy;\n                <span class=\"update-year\"></span> QuietThyme Inc.</span>\n                <a class=\"type--fine-print\" routerLink=\"/privacy\">Privacy Policy</a>\n                <a class=\"type--fine-print\" routerLink=\"/privacy\">Legal</a>\n            </div>\n            <div class=\"col-sm-5 text-right text-center-xs\">\n                <a class=\"type--fine-print\" href=\"#\">hello@quietthyme.com</a>\n            </div>\n        </div>\n        <!--end of row-->\n    </div>\n    <!--end of container-->\n</footer>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/partials/footer/footer.component.less":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/partials/footer/footer.component.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FooterComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1275,26 +858,54 @@ var FooterComponent = (function () {
     }
     FooterComponent.prototype.ngOnInit = function () {
     };
-    FooterComponent = __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'quietthyme-footer',
-            template: __webpack_require__(1069),
-            styles: [__webpack_require__(1056)]
-        }), 
-        __metadata('design:paramtypes', [])
-    ], FooterComponent);
     return FooterComponent;
 }());
-//# sourceMappingURL=/home/ubuntu/quietthyme.web.src/src/footer.component.js.map
+FooterComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+        selector: 'quietthyme-footer',
+        template: __webpack_require__("../../../../../src/app/partials/footer/footer.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/partials/footer/footer.component.less")]
+    }),
+    __metadata("design:paramtypes", [])
+], FooterComponent);
+
+//# sourceMappingURL=footer.component.js.map
 
 /***/ }),
 
-/***/ 774:
+/***/ "../../../../../src/app/partials/header/header.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<nav class=\"bar bar--sm bg--dark\" id=\"menu3\">\n    <div class=\"container\">\n        <div class=\"row\">\n            <div class=\"col-md-1 hidden-xs hidden-sm\">\n                <div class=\"bar__module\">\n                    <a href=\"index.html\">\n                        <img class=\"logo logo-dark\" alt=\"logo\" src=\"assets/images/logo/logo-large.png.svg\" />\n                        <img class=\"logo logo-light\" alt=\"logo\" src=\"assets/images/logo/logo-white-large.png.svg\" />\n                    </a>\n                </div>\n                <!--end module-->\n            </div>\n            <div class=\"col-md-4 col-md-push-2\">\n                <div class=\"bar__module\">\n                    <form class=\"hidden\">\n                        <input type=\"search\" placeholder=\"Search site\" name=\"query\" />\n                    </form>\n                </div>\n            </div>\n\n            <!--end columns-->\n            <div class=\"col-md-2 col-md-pull-4\">\n                <div class=\"bar__module\"></div>\n            </div>\n            <div class=\"col-md-5 text-right text-left-xs\">\n                <div class=\"bar__module\">\n                    <ul class=\"menu-horizontal text-left\">\n                        <li>\n                            <a routerLink=\"/storage\">Storage</a>\n                        </li>\n                        <li>\n                            <a routerLink=\"/library\">Library</a>\n                        </li>\n                        <li>\n                            <a routerLink=\"/settings\">Account</a>\n                        </li>\n                    </ul>\n                </div>\n                <!--end module-->\n                <div class=\"bar__module\">\n                    <a class=\"btn btn--primary btn--sm type--uppercase\" (click)=\"logout()\">\n                                    <span class=\"btn__text\">\n                                        Logout\n                                    </span>\n                    </a>\n                </div>\n                <!--end module-->\n            </div>\n            <!--end columns-->\n        </div>\n        <!--end of row-->\n    </div>\n    <!--end of container-->\n</nav>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/partials/header/header.component.less":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/partials/header/header.component.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HeaderComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_api_service__ = __webpack_require__("../../../../../src/app/services/api.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1305,33 +916,69 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
+
 var HeaderComponent = (function () {
-    function HeaderComponent() {
+    function HeaderComponent(apiService, router) {
+        this.apiService = apiService;
+        this.router = router;
     }
     HeaderComponent.prototype.ngOnInit = function () {
     };
-    HeaderComponent = __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'quietthyme-header',
-            template: __webpack_require__(1070),
-            styles: [__webpack_require__(1057)]
-        }), 
-        __metadata('design:paramtypes', [])
-    ], HeaderComponent);
+    HeaderComponent.prototype.logout = function () {
+        //remove token, and redirect to login page.
+        this.apiService.logout();
+        this.router.navigate(['/login']);
+    };
     return HeaderComponent;
 }());
-//# sourceMappingURL=/home/ubuntu/quietthyme.web.src/src/header.component.js.map
+HeaderComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+        selector: 'quietthyme-header',
+        template: __webpack_require__("../../../../../src/app/partials/header/header.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/partials/header/header.component.less")]
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */]) === "function" && _b || Object])
+], HeaderComponent);
+
+var _a, _b;
+//# sourceMappingURL=header.component.js.map
 
 /***/ }),
 
-/***/ 775:
+/***/ "../../../../../src/app/partials/page-title/page-title.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<!-- Page Title\n============================================= -->\n<section id=\"page-title\">\n\n    <div class=\"container\">\n        <div class=\"row\">\n            <div class=\"col-md-6\">\n                <h1>{{ title }}</h1>\n                <span>{{ subtitle }}</span>\n            </div>\n            <div class=\"col-md-6 valign\">\n                <div class=\"text-center\">\n                    <i class=\"icon-question-sign\"></i>Your <strong>personal OPDS catalog</strong> is available at: <br/> http://catalog.quietthyme.com/beta/<strong>{{ catalogToken }}</strong></div>\n            </div>\n        </div>\n\n    </div>\n\n</section><!-- #page-title end -->\n\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/partials/page-title/page-title.component.less":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/partials/page-title/page-title.component.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angular2_jwt__ = __webpack_require__(241);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angular2_jwt___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_angular2_jwt__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PageTitleComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angular2_jwt__ = __webpack_require__("../../../../angular2-jwt/angular2-jwt.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angular2_jwt___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_angular2_jwt__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1352,39 +999,65 @@ var PageTitleComponent = (function () {
         var jwtHelper = new __WEBPACK_IMPORTED_MODULE_1_angular2_jwt__["JwtHelper"]();
         this.catalogToken = jwtHelper.decodeToken(localStorage.getItem('id_token')).catalog_token;
     };
-    __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(), 
-        __metadata('design:type', String)
-    ], PageTitleComponent.prototype, "title", void 0);
-    __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(), 
-        __metadata('design:type', String)
-    ], PageTitleComponent.prototype, "subtitle", void 0);
-    __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(), 
-        __metadata('design:type', Object)
-    ], PageTitleComponent.prototype, "breadcrumbs", void 0);
-    PageTitleComponent = __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'quietthyme-page-title',
-            template: __webpack_require__(1071),
-            styles: [__webpack_require__(1058)]
-        }), 
-        __metadata('design:paramtypes', [])
-    ], PageTitleComponent);
     return PageTitleComponent;
 }());
-//# sourceMappingURL=/home/ubuntu/quietthyme.web.src/src/page-title.component.js.map
+__decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+    __metadata("design:type", String)
+], PageTitleComponent.prototype, "title", void 0);
+__decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+    __metadata("design:type", String)
+], PageTitleComponent.prototype, "subtitle", void 0);
+__decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+    __metadata("design:type", Object)
+], PageTitleComponent.prototype, "breadcrumbs", void 0);
+PageTitleComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+        selector: 'quietthyme-page-title',
+        template: __webpack_require__("../../../../../src/app/partials/page-title/page-title.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/partials/page-title/page-title.component.less")]
+    }),
+    __metadata("design:paramtypes", [])
+], PageTitleComponent);
+
+//# sourceMappingURL=page-title.component.js.map
 
 /***/ }),
 
-/***/ 776:
+/***/ "../../../../../src/app/partials/storage-panel/storage-panel.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div [ngClass]=\"{'feature--featured': storageData}\" class=\"feature feature-1 boxed boxed--border\">\n    <h5>{{ storageType }}</h5>\n    <p>\n        <span *ngIf=\"storageType == 'quietthyme'\">This storage type is not available during beta.</span>\n\n        <span *ngIf=\"!storageData && storageType != 'quietthyme'\">Use the <strong>Add Storage</strong> button to connect this service.</span>\n        <span *ngIf=\"storageData\">{{ storageData.free_space |  fileSize}} free</span>\n    </p>\n    <a href=\"#\">\n        Learn More\n    </a>\n\n    <span *ngIf=\"storageData\" class=\"label\">{{ storageData.free_space |  fileSize}}</span>\n</div>\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/partials/storage-panel/storage-panel.component.less":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/partials/storage-panel/storage-panel.component.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__models_storage_status__ = __webpack_require__(772);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return StoragePanelComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__models_storage_status__ = __webpack_require__("../../../../../src/app/models/storage-status.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1436,35 +1109,61 @@ var StoragePanelComponent = (function () {
     StoragePanelComponent.prototype.chartHovered = function (e) {
         console.log(e);
     };
-    __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(), 
-        __metadata('design:type', (typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__models_storage_status__["a" /* StorageStatus */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__models_storage_status__["a" /* StorageStatus */]) === 'function' && _a) || Object)
-    ], StoragePanelComponent.prototype, "storageData", void 0);
-    __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(), 
-        __metadata('design:type', String)
-    ], StoragePanelComponent.prototype, "storageType", void 0);
-    StoragePanelComponent = __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'quietthyme-storage-panel',
-            template: __webpack_require__(1072),
-            styles: [__webpack_require__(1059)]
-        }), 
-        __metadata('design:paramtypes', [])
-    ], StoragePanelComponent);
     return StoragePanelComponent;
-    var _a;
 }());
-//# sourceMappingURL=/home/ubuntu/quietthyme.web.src/src/storage-panel.component.js.map
+__decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+    __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__models_storage_status__["a" /* StorageStatus */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__models_storage_status__["a" /* StorageStatus */]) === "function" && _a || Object)
+], StoragePanelComponent.prototype, "storageData", void 0);
+__decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+    __metadata("design:type", String)
+], StoragePanelComponent.prototype, "storageType", void 0);
+StoragePanelComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+        selector: 'quietthyme-storage-panel',
+        template: __webpack_require__("../../../../../src/app/partials/storage-panel/storage-panel.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/partials/storage-panel/storage-panel.component.less")]
+    }),
+    __metadata("design:paramtypes", [])
+], StoragePanelComponent);
+
+var _a;
+//# sourceMappingURL=storage-panel.component.js.map
 
 /***/ }),
 
-/***/ 777:
+/***/ "../../../../../src/app/privacy/privacy.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<ng2-slim-loading-bar class=\"navbar-fixed-top\" [color]=\"'#128950'\" [height]=\"'3px'\"></ng2-slim-loading-bar>\n\n<quietthyme-header></quietthyme-header>\n<!-- Content\n============================================= -->\n<section id=\"content\">\n\n    <div class=\"content-wrap\">\n\n        <div class=\"container clearfix\">\n\n            <div class=\"row clearfix\">\n\n                <div class=\"col-md-offset-2 col-md-8\">\n                    <h1 class=\"text-center\">Privacy Policy</h1>\n\n\n                    <p>At QuietThyme, we collect and manage user data according to the following Privacy Policy, with the goal of incorporating our company values: transparency, accessibility, sanity, usability. This document is part of QuietThyme's Terms of Service, and by using QuietThyme.com (the \"Website\"), you agree to the terms of this Privacy Policy and the Terms of Service. Please read the Terms of Service in their entirety, and refer to those for definitions and contacts.</p>\n                    <p><strong>Data Collected</strong></p>\n                    <p>We collect anonymous data from every visitor of the Website to monitor traffic and fix bugs. For example, we collect information like web requests, the data sent in response to such requests, the Internet Protocol address, the browser type, the browser language, and a timestamp for the request.</p>\n                    <p>We ask you to log in and provide certain personal information (such as your email address and/or full name) in order to be able to save your profile and the ebooks, catalog, invoices, and other data associated with it.  In order to enable these or any other login based features, we use cookies to store session information for your convenience. Cookies are required to use the Website.</p>\n                    <p>You are able to view, change and remove your data associated with your profile. Should you choose to delete your account, please contact us at support@QuietThyme.com and we will follow up with such request as soon as possible. </p>\n                    <p><strong>Use of the Data</strong></p>\n                    <p>We only use your personal information to provide you the QuietThyme services or to communicate with you about the services or the Website.</p>\n                    <p>With respect to any data you may upload to QuietThyme, we take the privacy and confidentiality of such data seriously.</p>\n                    <p>We employ industry standard security techniques to protect against unauthorized access of data about you that we store, including personal information.</p>\n                    <p><strong>We do not share personal information you have provided to us without your consent</strong>, unless:</p>\n                    <ul>\n                        <li>doing so is appropriate to carry out a user’s request;</li>\n                        <li>we believe it's needed to enforce our Terms of Service, or that is legally required;</li>\n                        <li>we believe it's needed to detect, prevent or address fraud, security or technical issues;</li>\n                        <li>otherwise protect our property, legal rights, or that of others.</li>\n                    </ul>\n                    <p>QuietThyme is operated from Canada. If you are visiting the Website from outside Canada, you agree to any processing of any personal information you provide us according to this policy.</p>\n                    <p>QuietThyme may contact you, by email or other means. For example, QuietThyme may send you promotional emails relating to QuietThyme that we feel you would be interested in, or communicate with you about your use of the QuietThyme website. QuietThyme may also use technology to alert us via a confirmation email when you open an email from us. If you do not want to receive email from QuietThyme, please opt out of receiving emails at the bottom of any QuietThyme emails or by editing you profile preferences.</p>\n                    <p><strong>Sharing of Data</strong></p>\n                    <p>We don't sell your personal information to third parties. Aggregated, anonymized data is periodically transmitted to external services to help us improve the QuietThyme Website and service, and in some cases your user identifiers (your username or email address) may be transmitted to external services for the same reason. We currently use Google Analytics (traffic analysis, SEO optimization) but we reserve the right to include other third party analytics services in the future. We listed below what data these third parties extract exactly. Feel free to check out their own Privacy Policies to find out more.</p>\n                    <ul>\n                        <li>Google Analytics: anonymous (ad serving domains, browser type, demographics, language settings, page views, time/date), pseudonymous (IP address)</li>\n                    </ul>\n                    <p>We may also use social buttons provided by services like Twitter, Google+ and Facebook. Your use of these third party services is entirely optional. We are not responsible for the privacy policies and/or practices of these third party services, and you are responsible for reading and understanding those third party services’ privacy policies.</p>\n                    <p><strong>Changes to the Privacy Policy</strong></p>\n                    <p>We may amend this Privacy Policy from time to time. Use of information we collect now is subject to the Privacy Policy in effect at the time such information is used. If we make changes in the way we collect or use information, we will notify you by posting an announcement on the Website or sending you an email. A user is bound by any changes to the Privacy Policy when he or she uses the Services after such changes have been first posted.</p>\n                    <p>Should you have any question or concern, please write to support@QuietThyme.com</p>\n\n\n\n\n                </div>\n\n\n            </div>\n\n        </div>\n\n    </div>\n\n</section><!-- #content end -->\n\n<quietthyme-footer></quietthyme-footer>\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/privacy/privacy.component.less":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/privacy/privacy.component.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PrivacyComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1480,41 +1179,47 @@ var PrivacyComponent = (function () {
     }
     PrivacyComponent.prototype.ngOnInit = function () {
     };
-    PrivacyComponent = __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'app-privacy',
-            template: __webpack_require__(1073),
-            styles: [__webpack_require__(1060)]
-        }), 
-        __metadata('design:paramtypes', [])
-    ], PrivacyComponent);
     return PrivacyComponent;
 }());
-//# sourceMappingURL=/home/ubuntu/quietthyme.web.src/src/privacy.component.js.map
+PrivacyComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+        selector: 'app-privacy',
+        template: __webpack_require__("../../../../../src/app/privacy/privacy.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/privacy/privacy.component.less")]
+    }),
+    __metadata("design:paramtypes", [])
+], PrivacyComponent);
+
+//# sourceMappingURL=privacy.component.js.map
 
 /***/ }),
 
-/***/ 778:
+/***/ "../../../../../src/app/rxjs-operators.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_rxjs_add_observable_throw__ = __webpack_require__(604);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_rxjs_add_observable_throw__ = __webpack_require__("../../../../rxjs/add/observable/throw.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_rxjs_add_observable_throw___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_rxjs_add_observable_throw__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_catch__ = __webpack_require__(605);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_catch__ = __webpack_require__("../../../../rxjs/add/operator/catch.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_catch___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_catch__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_debounceTime__ = __webpack_require__(606);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_debounceTime__ = __webpack_require__("../../../../rxjs/add/operator/debounceTime.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_debounceTime___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_debounceTime__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_distinctUntilChanged__ = __webpack_require__(1081);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_distinctUntilChanged__ = __webpack_require__("../../../../rxjs/add/operator/distinctUntilChanged.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_distinctUntilChanged___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_distinctUntilChanged__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map__ = __webpack_require__(288);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map__ = __webpack_require__("../../../../rxjs/add/operator/map.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_switchMap__ = __webpack_require__(1082);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_switchMap__ = __webpack_require__("../../../../rxjs/add/operator/switchMap.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_switchMap___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_switchMap__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_toPromise__ = __webpack_require__(1084);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_toPromise__ = __webpack_require__("../../../../rxjs/add/operator/toPromise.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_toPromise___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_toPromise__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_rxjs_observable_TimerObservable__ = __webpack_require__(1089);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_rxjs_observable_TimerObservable__ = __webpack_require__("../../../../rxjs/observable/TimerObservable.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_rxjs_observable_TimerObservable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_rxjs_observable_TimerObservable__);
 // import 'rxjs/Rx'; // adds ALL RxJS statics & operators to Observable
+// See node_module/rxjs/Rxjs.js
+// Import just the rxjs statics and operators needed for THIS app.
+// Statics
+
+// Operators
 
 
 
@@ -1522,19 +1227,176 @@ var PrivacyComponent = (function () {
 
 
 
-
-//# sourceMappingURL=/home/ubuntu/quietthyme.web.src/src/rxjs-operators.js.map
+//# sourceMappingURL=rxjs-operators.js.map
 
 /***/ }),
 
-/***/ 779:
+/***/ "../../../../../src/app/services/api.service.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__(73);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__api_service__ = __webpack_require__(48);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ApiService; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angular2_jwt__ = __webpack_require__("../../../../angular2-jwt/angular2-jwt.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angular2_jwt___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_angular2_jwt__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_settings__ = __webpack_require__("../../../../../src/app/app-settings.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_cache_service__ = __webpack_require__("../../../../../src/app/services/cache.service.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var ApiService = (function () {
+    function ApiService(authHttp, http, cacheService) {
+        this.authHttp = authHttp;
+        this.http = http;
+        this.cacheService = cacheService;
+    }
+    /////////////////////////////////////////////////////////////////////////////
+    //Helper functions
+    /////////////////////////////////////////////////////////////////////////////
+    ApiService.prototype.extractData = function (res) {
+        var body = res.json();
+        console.log("RAW BODY", body);
+        return body.data || {};
+    };
+    ApiService.prototype.handleError = function (error) {
+        // In a real world app, we might use a remote logging infrastructure
+        var errMsg;
+        if (error instanceof __WEBPACK_IMPORTED_MODULE_2__angular_http__["Response"]) {
+            var body = error.json() || '';
+            var err = body.error || JSON.stringify(body);
+            errMsg = error.status + " - " + (error.statusText || '') + " " + err;
+        }
+        else {
+            errMsg = error.message ? error.message : error.toString();
+        }
+        console.error(errMsg);
+        return errMsg;
+    };
+    ApiService.prototype.cacheKey = function (method, url, query) {
+        return '[' + method + ']' + url + '?' + (query || {}).toString();
+    };
+    ApiService.prototype.loggedIn = function () {
+        return Object(__WEBPACK_IMPORTED_MODULE_1_angular2_jwt__["tokenNotExpired"])('id_token');
+    };
+    ApiService.prototype.tokenPayload = function () {
+        var token = localStorage.getItem('id_token');
+        var jwtHelper = new __WEBPACK_IMPORTED_MODULE_1_angular2_jwt__["JwtHelper"]();
+        var payload = jwtHelper.decodeToken(token);
+        return payload;
+    };
+    /////////////////////////////////////////////////////////////////////////////
+    // Unauthenticated functions
+    /////////////////////////////////////////////////////////////////////////////
+    ApiService.prototype.logout = function () {
+        localStorage.removeItem('id_token');
+    };
+    ApiService.prototype.authRegister = function (name, email, password) {
+        return this.http.post(__WEBPACK_IMPORTED_MODULE_3__app_settings__["a" /* AppSettings */].API_ENDPOINT + "/auth/register", {
+            "name": name,
+            "email": email,
+            "password": password
+        })
+            .map(this.extractData)
+            .catch(this.handleError);
+    };
+    ApiService.prototype.authLogin = function (email, password) {
+        return this.http.post(__WEBPACK_IMPORTED_MODULE_3__app_settings__["a" /* AppSettings */].API_ENDPOINT + "/auth/login", {
+            "email": email,
+            "password": password
+        })
+            .map(this.extractData)
+            .catch(this.handleError);
+    };
+    /////////////////////////////////////////////////////////////////////////////
+    // Authenticated functions
+    /////////////////////////////////////////////////////////////////////////////
+    ApiService.prototype.userPlan = function (stripePlanData) {
+        var url = __WEBPACK_IMPORTED_MODULE_3__app_settings__["a" /* AppSettings */].API_ENDPOINT + "/user/plan";
+        return this.authHttp.post(url, stripePlanData)
+            .map(this.extractData)
+            .catch(this.handleError);
+    };
+    ApiService.prototype.storageStatus = function () {
+        var url = __WEBPACK_IMPORTED_MODULE_3__app_settings__["a" /* AppSettings */].API_ENDPOINT + "/storage/status";
+        var cacheKey = this.cacheKey('GET', url);
+        return this.cacheService.get(cacheKey) || this.cacheService.put(cacheKey, this.authHttp.get(url)
+            .map(this.extractData)
+            .catch(this.handleError));
+    };
+    ApiService.prototype.storageLink = function (kloudlessData) {
+        //TODO: this should bust the /storage/status cache
+        return this.authHttp.post(__WEBPACK_IMPORTED_MODULE_3__app_settings__["a" /* AppSettings */].API_ENDPOINT + "/storage/link", kloudlessData)
+            .map(this.extractData)
+            .catch(this.handleError);
+    };
+    ApiService.prototype.bookList = function (filter) {
+        var url = __WEBPACK_IMPORTED_MODULE_3__app_settings__["a" /* AppSettings */].API_ENDPOINT + "/book";
+        var params = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["URLSearchParams"]();
+        if (filter.sort)
+            params.set('sort', filter.sort.toString());
+        if (filter.storage_id)
+            params.set('storage_id', filter.storage_id.toString());
+        if (filter.storage)
+            params.set('storage', filter.storage.toString());
+        if (filter.page)
+            params.set('page', filter.page.toString());
+        var cacheKey = this.cacheKey('GET', url, params);
+        return this.cacheService.get(cacheKey) || this.cacheService.put(cacheKey, this.authHttp.get(url, { search: params })
+            .map(this.extractData)
+            .catch(this.handleError));
+    };
+    ApiService.prototype.book = function (bookId) {
+        var url = __WEBPACK_IMPORTED_MODULE_3__app_settings__["a" /* AppSettings */].API_ENDPOINT + "/book";
+        var params = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["URLSearchParams"]();
+        params.set('id', bookId.toString());
+        var cacheKey = this.cacheKey('GET', url, params);
+        return this.cacheService.get(cacheKey) || this.cacheService.put(cacheKey, this.authHttp.get(url, { search: params })
+            .map(this.extractData)
+            .catch(this.handleError));
+    };
+    ApiService.prototype.download = function (bookId) {
+        var _this = this;
+        //http://stackoverflow.com/a/41252342
+        var headers = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["Headers"]({ 'Accept': '*' });
+        var options = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["RequestOptions"]({ headers: headers });
+        options.responseType = __WEBPACK_IMPORTED_MODULE_2__angular_http__["ResponseContentType"].Blob;
+        return this.authHttp.get(__WEBPACK_IMPORTED_MODULE_3__app_settings__["a" /* AppSettings */].API_ENDPOINT + "/storage/" + bookId)
+            .map(this.extractData)
+            .flatMap(function (resp) { return _this.http.get(resp.url, options); })
+            .catch(this.handleError);
+    };
+    return ApiService;
+}());
+ApiService = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_angular2_jwt__["AuthHttp"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_angular2_jwt__["AuthHttp"]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_http__["Http"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_http__["Http"]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4__services_cache_service__["a" /* CacheService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__services_cache_service__["a" /* CacheService */]) === "function" && _c || Object])
+], ApiService);
+
+var _a, _b, _c;
+//# sourceMappingURL=api.service.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/services/auth-guard.service.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AuthGuard; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__api_service__ = __webpack_require__("../../../../../src/app/services/api.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1554,13 +1416,13 @@ var AuthGuard = (function () {
     }
     AuthGuard.prototype.canActivate = function (route, state) {
         if (this.apiService.loggedIn()) {
-            //if the user is logged in, always let them go to the settings page if requested.
-            if (state.url == '/settings;tab=plans') {
+            //if the user is logged in, always let them go to the register/plan page if requested.
+            if (state.url == '/register/plan') {
                 return true;
             }
             else if (this.apiService.tokenPayload().plan == 'none') {
                 //user doesnt have a plan, redirec them to the settings page.
-                this.router.navigate(['/settings', { 'tab': 'plans' }]);
+                this.router.navigate(['/register/plan']);
                 return false;
             }
             else {
@@ -1573,27 +1435,26 @@ var AuthGuard = (function () {
             return false;
         }
     };
-    AuthGuard = __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(), 
-        __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__api_service__["a" /* ApiService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__api_service__["a" /* ApiService */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]) === 'function' && _b) || Object])
-    ], AuthGuard);
     return AuthGuard;
-    var _a, _b;
 }());
-//# sourceMappingURL=/home/ubuntu/quietthyme.web.src/src/auth-guard.service.js.map
+AuthGuard = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__api_service__["a" /* ApiService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__api_service__["a" /* ApiService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]) === "function" && _b || Object])
+], AuthGuard);
+
+var _a, _b;
+//# sourceMappingURL=auth-guard.service.js.map
 
 /***/ }),
 
-/***/ 780:
+/***/ "../../../../../src/app/services/cache.service.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_api_service__ = __webpack_require__(48);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__(73);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ng2_bootstrap__ = __webpack_require__(566);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ng2_slim_loading_bar__ = __webpack_require__(124);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SettingsComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CacheService; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_rxjs_ReplaySubject__ = __webpack_require__("../../../../rxjs/ReplaySubject.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_rxjs_ReplaySubject___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_rxjs_ReplaySubject__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1604,6 +1465,81 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
+//Designed around http://stackoverflow.com/a/36413003/1157633
+var CacheService = (function () {
+    function CacheService() {
+        this._cache = {};
+    }
+    CacheService.prototype.get = function (cacheKey) {
+        return this._cache[cacheKey];
+    };
+    CacheService.prototype.put = function (cacheKey, observable) {
+        var currentSubject = this.get(cacheKey);
+        if (!currentSubject) {
+            this._cache[cacheKey] = new __WEBPACK_IMPORTED_MODULE_0_rxjs_ReplaySubject__["ReplaySubject"](1);
+            currentSubject = this._cache[cacheKey]; //if the current cacheKey doesn't exist in the cache, lets ensure that we create it.
+        }
+        observable.subscribe(function (data) { return currentSubject.next(data); }, function (error) { return currentSubject.error(error); }, function () { return currentSubject.complete(); });
+        return currentSubject;
+    };
+    CacheService.prototype.delete = function (cacheKey) {
+        delete this._cache[cacheKey];
+    };
+    return CacheService;
+}());
+CacheService = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["Injectable"])(),
+    __metadata("design:paramtypes", [])
+], CacheService);
+
+//# sourceMappingURL=cache.service.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/settings/settings.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<ng2-slim-loading-bar class=\"navbar-fixed-top\" [color]=\"'#128950'\" [height]=\"'3px'\"></ng2-slim-loading-bar>\n\n<quietthyme-header></quietthyme-header>\n\n<div class=\"main-container\">\n    <section class=\"bg--secondary space--sm\">\n        <div class=\"container\">\n            <div class=\"row\">\n                <div class=\"col-md-8 col-md-offset-2\">\n                    <div class=\"boxed boxed--lg boxed--border\">\n                        <div class=\"text-block text-center\">\n                            <img alt=\"avatar\" [src]=\"gravatarUrl(userData.email)\" class=\"border--round box-shadow-wide\" />\n                            <span class=\"h5\">{{ userData.name }}</span>\n\n                            <span class=\"label\">{{ userData.plan }}</span>\n                        </div>\n                        <div class=\"text-block clearfix text-center\">\n                            <ul class=\"row row--list\">\n                                <li class=\"col-sm-4\">\n                                    <span class=\"type--fine-print block\">OPDS:</span>\n                                    <a href=\"http://catalog.quietthyme.com/beta/{{ userData.catalog_token }}\">Catalog URL</a>\n                                </li>\n                                <li class=\"col-sm-4\">\n                                    <span class=\"type--fine-print block\">Member Since:</span>\n                                    <span>June 2016</span>\n                                </li>\n                                <li class=\"col-sm-4\">\n                                    <span class=\"type--fine-print block\">Email:</span>\n                                    <a href=\"#\">{{  userData.email }}</a>\n                                </li>\n                            </ul>\n                        </div>\n                    </div>\n                    <div class=\"boxed boxed--border\">\n                        <ul class=\"row row--list clearfix text-center\">\n                            <li class=\"col-sm-3 col-xs-6\">\n                                <span class=\"h6 type--uppercase type--fade\">Books</span>\n                                <span class=\"h3\">220</span>\n                            </li>\n                            <li class=\"col-sm-3 col-xs-6\">\n                                <span class=\"h6 type--uppercase type--fade\">Authors</span>\n                                <span class=\"h3\">14</span>\n                            </li>\n                            <li class=\"col-sm-3 col-xs-6\">\n                                <span class=\"h6 type--uppercase type--fade\">Tags</span>\n                                <span class=\"h3\">2,129</span>\n                            </li>\n                            <li class=\"col-sm-3 col-xs-6\">\n                                <span class=\"h6 type--uppercase type--fade\">Series</span>\n                                <span class=\"h3\">119</span>\n                            </li>\n                        </ul>\n                    </div>\n                    <div class=\"boxed boxed--border hidden\">\n                        <h4>Recent Activity</h4>\n                        <ul>\n                            <li class=\"clearfix\">\n                                <div class=\"row\">\n                                    <div class=\"col-md-2 col-xs-3 text-center\">\n                                        <div class=\"icon-circle\">\n                                            <i class=\"icon icon--lg material-icons\">comment</i>\n                                        </div>\n                                    </div>\n                                    <div class=\"col-md-8 col-xs-7\">\n                                        <span class=\"type--fine-print\">21st July, 2017</span>\n                                        <a href=\"#\" class=\"block color--primary\">Check out the relaunched Scope</a>\n                                        <p>\n                                            Discourse in writing dealing with a particular point or idea.\n                                        </p>\n                                    </div>\n                                </div>\n                                <hr>\n                            </li>\n                            <li class=\"clearfix\">\n                                <div class=\"row\">\n                                    <div class=\"col-md-2 col-xs-3 text-center\">\n                                        <div class=\"icon-circle\">\n                                            <i class=\"icon icon--lg material-icons\">mode_edit</i>\n                                        </div>\n                                    </div>\n                                    <div class=\"col-sm-8 col-xs-7\">\n                                        <span class=\"type--fine-print\">14th July, 2017</span>\n                                        <a href=\"#\" class=\"block color--primary\">Tips for web typography</a>\n                                        <p>\n                                            To write beside or \"written beside\" is a self-contained unit of a discourse in writing dealing with a particular point or idea.\n                                        </p>\n                                    </div>\n                                </div>\n                                <hr>\n                            </li>\n                            <li class=\"clearfix\">\n                                <div class=\"row\">\n                                    <div class=\"col-md-2 col-xs-3 text-center\">\n                                        <div class=\"icon-circle\">\n                                            <i class=\"icon icon--lg material-icons\">favorite</i>\n                                        </div>\n                                    </div>\n                                    <div class=\"col-sm-8 col-xs-7\">\n                                        <span class=\"type--fine-print\">12th July, 2017</span>\n                                        <a href=\"#\" class=\"block color--primary\">Where do you source your stock photography?</a>\n                                    </div>\n                                </div>\n                                <hr>\n                            </li>\n                            <li class=\"clearfix\">\n                                <div class=\"row\">\n                                    <div class=\"col-md-2 col-xs-3 text-center\">\n                                        <div class=\"icon-circle\">\n                                            <i class=\"icon icon--lg material-icons\">comment</i>\n                                        </div>\n                                    </div>\n                                    <div class=\"col-sm-8 col-xs-7\">\n                                        <span class=\"type--fine-print\">3rd July, 2017</span>\n                                        <a href=\"#\" class=\"block color--primary\">Share your rapid development workflow</a>\n                                        <p>\n                                            Of a discourse in writing dealing with a particular point or idea.\n                                        </p>\n                                    </div>\n                                </div>\n                            </li>\n                        </ul>\n                        <a href=\"#\" class=\"type--fine-print pull-right\">View All</a>\n                    </div>\n                </div>\n            </div>\n            <!--end of row-->\n        </div>\n        <!--end of container-->\n    </section>\n    <quietthyme-footer></quietthyme-footer>\n\n</div>\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/settings/settings.component.less":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/settings/settings.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SettingsComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_api_service__ = __webpack_require__("../../../../../src/app/services/api.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ng2_slim_loading_bar__ = __webpack_require__("../../../../ng2-slim-loading-bar/index.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
 
 
 
@@ -1621,58 +1557,151 @@ var SettingsComponent = (function () {
     SettingsComponent.prototype.ngOnInit = function () {
         this.userData = this.apiService.tokenPayload();
     };
-    SettingsComponent.prototype.ngAfterViewInit = function () {
-        if (this.activatedRoute.snapshot.params['tab'] == 'plans') {
-            this.settingsTabs.tabs[1].active = true;
+    SettingsComponent.prototype.ngAfterViewInit = function () { };
+    SettingsComponent.prototype.gravatarUrl = function (email, size) {
+        // MD5 (Message-Digest Algorithm) by WebToolkit
+        //
+        var MD5 = function (s) { function L(k, d) { return (k << d) | (k >>> (32 - d)); } function K(G, k) { var I, d, F, H, x; F = (G & 2147483648); H = (k & 2147483648); I = (G & 1073741824); d = (k & 1073741824); x = (G & 1073741823) + (k & 1073741823); if (I & d) {
+            return (x ^ 2147483648 ^ F ^ H);
+        } if (I | d) {
+            if (x & 1073741824) {
+                return (x ^ 3221225472 ^ F ^ H);
+            }
+            else {
+                return (x ^ 1073741824 ^ F ^ H);
+            }
         }
+        else {
+            return (x ^ F ^ H);
+        } } function r(d, F, k) { return (d & F) | ((~d) & k); } function q(d, F, k) { return (d & k) | (F & (~k)); } function p(d, F, k) { return (d ^ F ^ k); } function n(d, F, k) { return (F ^ (d | (~k))); } function u(G, F, aa, Z, k, H, I) { G = K(G, K(K(r(F, aa, Z), k), I)); return K(L(G, H), F); } function f(G, F, aa, Z, k, H, I) { G = K(G, K(K(q(F, aa, Z), k), I)); return K(L(G, H), F); } function D(G, F, aa, Z, k, H, I) { G = K(G, K(K(p(F, aa, Z), k), I)); return K(L(G, H), F); } function t(G, F, aa, Z, k, H, I) { G = K(G, K(K(n(F, aa, Z), k), I)); return K(L(G, H), F); } function e(G) { var Z; var F = G.length; var x = F + 8; var k = (x - (x % 64)) / 64; var I = (k + 1) * 16; var aa = Array(I - 1); var d = 0; var H = 0; while (H < F) {
+            Z = (H - (H % 4)) / 4;
+            d = (H % 4) * 8;
+            aa[Z] = (aa[Z] | (G.charCodeAt(H) << d));
+            H++;
+        } Z = (H - (H % 4)) / 4; d = (H % 4) * 8; aa[Z] = aa[Z] | (128 << d); aa[I - 2] = F << 3; aa[I - 1] = F >>> 29; return aa; } function B(x) { var k = "", F = "", G, d; for (d = 0; d <= 3; d++) {
+            G = (x >>> (d * 8)) & 255;
+            F = "0" + G.toString(16);
+            k = k + F.substr(F.length - 2, 2);
+        } return k; } function J(k) { k = k.replace(/rn/g, "n"); var d = ""; for (var F = 0; F < k.length; F++) {
+            var x = k.charCodeAt(F);
+            if (x < 128) {
+                d += String.fromCharCode(x);
+            }
+            else {
+                if ((x > 127) && (x < 2048)) {
+                    d += String.fromCharCode((x >> 6) | 192);
+                    d += String.fromCharCode((x & 63) | 128);
+                }
+                else {
+                    d += String.fromCharCode((x >> 12) | 224);
+                    d += String.fromCharCode(((x >> 6) & 63) | 128);
+                    d += String.fromCharCode((x & 63) | 128);
+                }
+            }
+        } return d; } var C = Array(); var P, h, E, v, g, Y, X, W, V; var S = 7, Q = 12, N = 17, M = 22; var A = 5, z = 9, y = 14, w = 20; var o = 4, m = 11, l = 16, j = 23; var U = 6, T = 10, R = 15, O = 21; s = J(s); C = e(s); Y = 1732584193; X = 4023233417; W = 2562383102; V = 271733878; for (P = 0; P < C.length; P += 16) {
+            h = Y;
+            E = X;
+            v = W;
+            g = V;
+            Y = u(Y, X, W, V, C[P + 0], S, 3614090360);
+            V = u(V, Y, X, W, C[P + 1], Q, 3905402710);
+            W = u(W, V, Y, X, C[P + 2], N, 606105819);
+            X = u(X, W, V, Y, C[P + 3], M, 3250441966);
+            Y = u(Y, X, W, V, C[P + 4], S, 4118548399);
+            V = u(V, Y, X, W, C[P + 5], Q, 1200080426);
+            W = u(W, V, Y, X, C[P + 6], N, 2821735955);
+            X = u(X, W, V, Y, C[P + 7], M, 4249261313);
+            Y = u(Y, X, W, V, C[P + 8], S, 1770035416);
+            V = u(V, Y, X, W, C[P + 9], Q, 2336552879);
+            W = u(W, V, Y, X, C[P + 10], N, 4294925233);
+            X = u(X, W, V, Y, C[P + 11], M, 2304563134);
+            Y = u(Y, X, W, V, C[P + 12], S, 1804603682);
+            V = u(V, Y, X, W, C[P + 13], Q, 4254626195);
+            W = u(W, V, Y, X, C[P + 14], N, 2792965006);
+            X = u(X, W, V, Y, C[P + 15], M, 1236535329);
+            Y = f(Y, X, W, V, C[P + 1], A, 4129170786);
+            V = f(V, Y, X, W, C[P + 6], z, 3225465664);
+            W = f(W, V, Y, X, C[P + 11], y, 643717713);
+            X = f(X, W, V, Y, C[P + 0], w, 3921069994);
+            Y = f(Y, X, W, V, C[P + 5], A, 3593408605);
+            V = f(V, Y, X, W, C[P + 10], z, 38016083);
+            W = f(W, V, Y, X, C[P + 15], y, 3634488961);
+            X = f(X, W, V, Y, C[P + 4], w, 3889429448);
+            Y = f(Y, X, W, V, C[P + 9], A, 568446438);
+            V = f(V, Y, X, W, C[P + 14], z, 3275163606);
+            W = f(W, V, Y, X, C[P + 3], y, 4107603335);
+            X = f(X, W, V, Y, C[P + 8], w, 1163531501);
+            Y = f(Y, X, W, V, C[P + 13], A, 2850285829);
+            V = f(V, Y, X, W, C[P + 2], z, 4243563512);
+            W = f(W, V, Y, X, C[P + 7], y, 1735328473);
+            X = f(X, W, V, Y, C[P + 12], w, 2368359562);
+            Y = D(Y, X, W, V, C[P + 5], o, 4294588738);
+            V = D(V, Y, X, W, C[P + 8], m, 2272392833);
+            W = D(W, V, Y, X, C[P + 11], l, 1839030562);
+            X = D(X, W, V, Y, C[P + 14], j, 4259657740);
+            Y = D(Y, X, W, V, C[P + 1], o, 2763975236);
+            V = D(V, Y, X, W, C[P + 4], m, 1272893353);
+            W = D(W, V, Y, X, C[P + 7], l, 4139469664);
+            X = D(X, W, V, Y, C[P + 10], j, 3200236656);
+            Y = D(Y, X, W, V, C[P + 13], o, 681279174);
+            V = D(V, Y, X, W, C[P + 0], m, 3936430074);
+            W = D(W, V, Y, X, C[P + 3], l, 3572445317);
+            X = D(X, W, V, Y, C[P + 6], j, 76029189);
+            Y = D(Y, X, W, V, C[P + 9], o, 3654602809);
+            V = D(V, Y, X, W, C[P + 12], m, 3873151461);
+            W = D(W, V, Y, X, C[P + 15], l, 530742520);
+            X = D(X, W, V, Y, C[P + 2], j, 3299628645);
+            Y = t(Y, X, W, V, C[P + 0], U, 4096336452);
+            V = t(V, Y, X, W, C[P + 7], T, 1126891415);
+            W = t(W, V, Y, X, C[P + 14], R, 2878612391);
+            X = t(X, W, V, Y, C[P + 5], O, 4237533241);
+            Y = t(Y, X, W, V, C[P + 12], U, 1700485571);
+            V = t(V, Y, X, W, C[P + 3], T, 2399980690);
+            W = t(W, V, Y, X, C[P + 10], R, 4293915773);
+            X = t(X, W, V, Y, C[P + 1], O, 2240044497);
+            Y = t(Y, X, W, V, C[P + 8], U, 1873313359);
+            V = t(V, Y, X, W, C[P + 15], T, 4264355552);
+            W = t(W, V, Y, X, C[P + 6], R, 2734768916);
+            X = t(X, W, V, Y, C[P + 13], O, 1309151649);
+            Y = t(Y, X, W, V, C[P + 4], U, 4149444226);
+            V = t(V, Y, X, W, C[P + 11], T, 3174756917);
+            W = t(W, V, Y, X, C[P + 2], R, 718787259);
+            X = t(X, W, V, Y, C[P + 9], O, 3951481745);
+            Y = K(Y, h);
+            X = K(X, E);
+            W = K(W, v);
+            V = K(V, g);
+        } var i = B(Y) + B(X) + B(W) + B(V); return i.toLowerCase(); };
+        var size = size || 100;
+        return 'http://www.gravatar.com/avatar/' + MD5(email) + '.jpg?d=mm&s=' + size;
     };
-    SettingsComponent.prototype.stripeCheckoutCompleted = function (stripeCheckoutData) {
-        var _this = this;
-        console.log(stripeCheckoutData);
-        if (this.loading.setPlan)
-            return;
-        this.slimLoadingBarService.start();
-        this.apiService.userPlan(stripeCheckoutData)
-            .subscribe(function (data) {
-            console.log(data);
-        }, function (error) { console.log(error); }, function () {
-            _this.loading.setPlan = false;
-            _this.slimLoadingBarService.complete();
-        });
-    };
-    __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])('settingsTabs'), 
-        __metadata('design:type', (typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3_ng2_bootstrap__["b" /* TabsetComponent */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_3_ng2_bootstrap__["b" /* TabsetComponent */]) === 'function' && _a) || Object)
-    ], SettingsComponent.prototype, "settingsTabs", void 0);
-    SettingsComponent = __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'app-settings',
-            template: __webpack_require__(1074),
-            styles: [__webpack_require__(1061)]
-        }), 
-        __metadata('design:paramtypes', [(typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_4_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_4_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */]) === 'function' && _b) || Object, (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */]) === 'function' && _c) || Object, (typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["c" /* ActivatedRoute */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__angular_router__["c" /* ActivatedRoute */]) === 'function' && _d) || Object])
-    ], SettingsComponent);
     return SettingsComponent;
-    var _a, _b, _c, _d;
 }());
-//# sourceMappingURL=/home/ubuntu/quietthyme.web.src/src/settings.component.js.map
+SettingsComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+        selector: 'app-settings',
+        template: __webpack_require__("../../../../../src/app/settings/settings.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/settings/settings.component.less")]
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* ActivatedRoute */]) === "function" && _c || Object])
+], SettingsComponent);
+
+var _a, _b, _c;
+//# sourceMappingURL=settings.component.js.map
 
 /***/ }),
 
-/***/ 781:
+/***/ "../../../../../src/app/shared/file-size.pipe.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FileSizePipe; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
 //https://gist.github.com/JonCatmull/ecdf9441aaa37336d9ae2c7f9cb7289a
@@ -1708,22 +1737,22 @@ var FileSizePipe = (function () {
         }
         return bytes.toFixed(+precision) + ' ' + this.units[unit];
     };
-    FileSizePipe = __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Pipe"])({ name: 'fileSize' }), 
-        __metadata('design:paramtypes', [])
-    ], FileSizePipe);
     return FileSizePipe;
 }());
-//# sourceMappingURL=/home/ubuntu/quietthyme.web.src/src/file-size.pipe.js.map
+FileSizePipe = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Pipe"])({ name: 'fileSize' })
+], FileSizePipe);
+
+//# sourceMappingURL=file-size.pipe.js.map
 
 /***/ }),
 
-/***/ 782:
+/***/ "../../../../../src/app/shared/kloudless-authenticator.directive.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return KloudlessAuthenticatorDirective; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1733,6 +1762,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+// based off of http://stackoverflow.com/questions/37412398/creating-angular2-component-directive-wrapper-for-dygraphs
 
 var KloudlessAuthenticatorDirective = (function () {
     function KloudlessAuthenticatorDirective(_elt) {
@@ -1750,39 +1780,40 @@ var KloudlessAuthenticatorDirective = (function () {
             self.onAuthenticated.emit(auth_result);
         });
     };
-    __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(), 
-        __metadata('design:type', String)
-    ], KloudlessAuthenticatorDirective.prototype, "scope", void 0);
-    __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(), 
-        __metadata('design:type', String)
-    ], KloudlessAuthenticatorDirective.prototype, "clientId", void 0);
-    __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"])(), 
-        __metadata('design:type', (typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]) === 'function' && _a) || Object)
-    ], KloudlessAuthenticatorDirective.prototype, "onAuthenticated", void 0);
-    KloudlessAuthenticatorDirective = __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Directive"])({
-            selector: '[kloudlessAuthenticator]',
-        }), 
-        __metadata('design:paramtypes', [(typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"]) === 'function' && _b) || Object])
-    ], KloudlessAuthenticatorDirective);
     return KloudlessAuthenticatorDirective;
-    var _a, _b;
 }());
-//# sourceMappingURL=/home/ubuntu/quietthyme.web.src/src/kloudless-authenticator.directive.js.map
+__decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+    __metadata("design:type", String)
+], KloudlessAuthenticatorDirective.prototype, "scope", void 0);
+__decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+    __metadata("design:type", String)
+], KloudlessAuthenticatorDirective.prototype, "clientId", void 0);
+__decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"])(),
+    __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]) === "function" && _a || Object)
+], KloudlessAuthenticatorDirective.prototype, "onAuthenticated", void 0);
+KloudlessAuthenticatorDirective = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Directive"])({
+        selector: '[kloudlessAuthenticator]',
+    }),
+    __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"]) === "function" && _b || Object])
+], KloudlessAuthenticatorDirective);
+
+var _a, _b;
+//# sourceMappingURL=kloudless-authenticator.directive.js.map
 
 /***/ }),
 
-/***/ 783:
+/***/ "../../../../../src/app/shared/stripe-checkout-button.directive.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__environments_environment__ = __webpack_require__(240);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_api_service__ = __webpack_require__(48);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return StripeCheckoutButtonDirective; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__environments_environment__ = __webpack_require__("../../../../../src/environments/environment.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_api_service__ = __webpack_require__("../../../../../src/app/services/api.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1826,49 +1857,75 @@ var StripeCheckoutButtonDirective = (function () {
         });
         event.preventDefault();
     };
-    __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"])(), 
-        __metadata('design:type', (typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]) === 'function' && _a) || Object)
-    ], StripeCheckoutButtonDirective.prototype, "onCheckout", void 0);
-    __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(), 
-        __metadata('design:type', String)
-    ], StripeCheckoutButtonDirective.prototype, "planName", void 0);
-    __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(), 
-        __metadata('design:type', String)
-    ], StripeCheckoutButtonDirective.prototype, "planId", void 0);
-    __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(), 
-        __metadata('design:type', Number)
-    ], StripeCheckoutButtonDirective.prototype, "planCost", void 0);
-    __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["HostListener"])('click', ['$event']), 
-        __metadata('design:type', Function), 
-        __metadata('design:paramtypes', [Object]), 
-        __metadata('design:returntype', void 0)
-    ], StripeCheckoutButtonDirective.prototype, "onClick", null);
-    StripeCheckoutButtonDirective = __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Directive"])({
-            selector: '[stripeCheckoutButton]'
-        }), 
-        __metadata('design:paramtypes', [(typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"]) === 'function' && _b) || Object, (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__services_api_service__["a" /* ApiService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__services_api_service__["a" /* ApiService */]) === 'function' && _c) || Object])
-    ], StripeCheckoutButtonDirective);
     return StripeCheckoutButtonDirective;
-    var _a, _b, _c;
 }());
-//# sourceMappingURL=/home/ubuntu/quietthyme.web.src/src/stripe-checkout-button.directive.js.map
+__decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"])(),
+    __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]) === "function" && _a || Object)
+], StripeCheckoutButtonDirective.prototype, "onCheckout", void 0);
+__decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+    __metadata("design:type", String)
+], StripeCheckoutButtonDirective.prototype, "planName", void 0);
+__decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+    __metadata("design:type", String)
+], StripeCheckoutButtonDirective.prototype, "planId", void 0);
+__decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+    __metadata("design:type", Number)
+], StripeCheckoutButtonDirective.prototype, "planCost", void 0);
+__decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["HostListener"])('click', ['$event']),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", void 0)
+], StripeCheckoutButtonDirective.prototype, "onClick", null);
+StripeCheckoutButtonDirective = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Directive"])({
+        selector: '[stripeCheckoutButton]'
+    }),
+    __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__services_api_service__["a" /* ApiService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_api_service__["a" /* ApiService */]) === "function" && _c || Object])
+], StripeCheckoutButtonDirective);
+
+var _a, _b, _c;
+//# sourceMappingURL=stripe-checkout-button.directive.js.map
 
 /***/ }),
 
-/***/ 784:
+/***/ "../../../../../src/app/storage/storage.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<quietthyme-header></quietthyme-header>\n<div class=\"main-container\">\n\n    <section class=\"switchable feature-large \">\n        <div class=\"container\">\n            <div class=\"row\">\n                <div class=\"col-md-5 col-sm-6 switchable__text\">\n                    <h2>Storage</h2>\n                    <p class=\"lead\">\n                        Connecting your cloud storage providers ensure that you always have access to your books. QuietThyme will only have access to a custom folder on each provider, ensuring that your other data is always safe.\n                    </p>\n                    <button kloudlessAuthenticator\n                       [disabled]=\"loading.link\"\n                       [clientId]=\"'mddXeszdchTlRQEFN3LGhxLzqaTjgYwbXGLHCeXOqJdrzRyd'\"\n                       [scope]=\"'gdrive box dropbox skydrive'\"\n                       (onAuthenticated)=\"kloudlessAuthenticatedStorage($event)\"\n                       class=\"btn btn--primary type--uppercase\">\n                                                    <span class=\"btn__text\">\n                                                        Connect Storage\n                                                    </span>\n                    </button>\n                </div>\n                <div class=\"col-md-4 col-sm-6 col-md-pull-1 col-xs-12\">\n                    <div class=\"boxed boxed--lg boxed--border box-shadow-wide\">\n\n                        <carousel id=\"storage-carousel\">\n                            <slide>\n                                <div class=\"feature feature-3 text-center\">\n                                    <i class=\"icon icon--lg icon-Twister color--primary\"></i>\n                                    <h4>Blackhole Folder</h4>\n                                    <p>\n                                        Stack comes with integration for Mail Chimp and Campaign Monitor forms - ideal for modern marketing campaigns\n                                    </p>\n                                    <a href=\"#\">\n                                        Learn More\n                                    </a>\n                                </div>\n                            </slide>\n                            <slide>\n                                <div class=\"feature feature-3 text-center\">\n                                    <i class=\"icon icon--lg icon-Data-Cloud color--primary\"></i>\n                                    <h4>Calibre Support</h4>\n                                    <p>\n                                        Including the premium Icons Mind icon kit, Stack features a highly diverse set of icons suitable for all purposes.\n                                    </p>\n                                    <a href=\"#\">\n                                        Learn More\n                                    </a>\n                                </div>\n                            </slide>\n                            <slide>\n                                <div class=\"feature feature-3 text-center\">\n                                    <i class=\"icon icon--lg icon-Folder-Archive color--primary\"></i>\n                                    <h4>QuietThyme Storage</h4>\n                                    <p>\n                                        Combine blocks from a range of categories to build pages that are rich in visual style and interactivity\n                                    </p>\n                                    <a href=\"#\">\n                                        Learn More\n                                    </a>\n                                </div>\n                            </slide>\n\n                        </carousel>\n                    </div>\n                </div>\n            </div>\n            <!--end of row-->\n        </div>\n        <!--end of container-->\n    </section>\n\n    <section class=\" \">\n        <div class=\"container\">\n            <div class=\"row\">\n                <div class=\"col-sm-4\" *ngFor=\"let storageType of allNames; let myIndex = index\">\n                    <quietthyme-storage-panel [storageType]=\"storageType\" [storageData]=\"connected[storageType]\"></quietthyme-storage-panel>\n                </div>\n            </div>\n            <!--end of row-->\n        </div>\n        <!--end of container-->\n    </section>\n\n    <quietthyme-footer></quietthyme-footer>\n</div>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/storage/storage.component.less":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/storage/storage.component.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_api_service__ = __webpack_require__(48);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ng2_slim_loading_bar__ = __webpack_require__(124);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return StorageComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_api_service__ = __webpack_require__("../../../../../src/app/services/api.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ng2_slim_loading_bar__ = __webpack_require__("../../../../ng2-slim-loading-bar/index.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1924,20 +1981,322 @@ var StorageComponent = (function () {
             _this.slimLoadingBarService.complete();
         });
     };
-    StorageComponent = __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'app-storage',
-            template: __webpack_require__(1075),
-            styles: [__webpack_require__(1062)]
-        }), 
-        __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */]) === 'function' && _b) || Object])
-    ], StorageComponent);
     return StorageComponent;
-    var _a, _b;
 }());
-//# sourceMappingURL=/home/ubuntu/quietthyme.web.src/src/storage.component.js.map
+StorageComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+        selector: 'app-storage',
+        template: __webpack_require__("../../../../../src/app/storage/storage.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/storage/storage.component.less")]
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */]) === "function" && _b || Object])
+], StorageComponent);
+
+var _a, _b;
+//# sourceMappingURL=storage.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/environments/environment.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return environment; });
+// The file contents for the current environment will overwrite these during build.
+// The build system defaults to the dev environment which uses `environment.ts`, but if you do
+// `ng build --env=prod` then `environment.prod.ts` will be used instead.
+// The list of which env maps to which file can be found in `angular-cli.json`.
+// The file contents for the current environment will overwrite these during build.
+var environment = {
+    production: false,
+    apiVersion: 'beta',
+    stripeAccount: 'pk_test_uApReS8yYqD5v6CajPSuXj3Z'
+};
+//# sourceMappingURL=environment.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/main.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dynamic__ = __webpack_require__("../../../platform-browser-dynamic/@angular/platform-browser-dynamic.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_app_module__ = __webpack_require__("../../../../../src/app/app.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__environments_environment__ = __webpack_require__("../../../../../src/environments/environment.ts");
+
+
+
+
+if (__WEBPACK_IMPORTED_MODULE_3__environments_environment__["a" /* environment */].production) {
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["enableProdMode"])();
+}
+Object(__WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_2__app_app_module__["a" /* AppModule */]);
+//# sourceMappingURL=main.js.map
+
+/***/ }),
+
+/***/ "../../../../moment/locale recursive ^\\.\\/.*$":
+/***/ (function(module, exports, __webpack_require__) {
+
+var map = {
+	"./af": "../../../../moment/locale/af.js",
+	"./af.js": "../../../../moment/locale/af.js",
+	"./ar": "../../../../moment/locale/ar.js",
+	"./ar-dz": "../../../../moment/locale/ar-dz.js",
+	"./ar-dz.js": "../../../../moment/locale/ar-dz.js",
+	"./ar-kw": "../../../../moment/locale/ar-kw.js",
+	"./ar-kw.js": "../../../../moment/locale/ar-kw.js",
+	"./ar-ly": "../../../../moment/locale/ar-ly.js",
+	"./ar-ly.js": "../../../../moment/locale/ar-ly.js",
+	"./ar-ma": "../../../../moment/locale/ar-ma.js",
+	"./ar-ma.js": "../../../../moment/locale/ar-ma.js",
+	"./ar-sa": "../../../../moment/locale/ar-sa.js",
+	"./ar-sa.js": "../../../../moment/locale/ar-sa.js",
+	"./ar-tn": "../../../../moment/locale/ar-tn.js",
+	"./ar-tn.js": "../../../../moment/locale/ar-tn.js",
+	"./ar.js": "../../../../moment/locale/ar.js",
+	"./az": "../../../../moment/locale/az.js",
+	"./az.js": "../../../../moment/locale/az.js",
+	"./be": "../../../../moment/locale/be.js",
+	"./be.js": "../../../../moment/locale/be.js",
+	"./bg": "../../../../moment/locale/bg.js",
+	"./bg.js": "../../../../moment/locale/bg.js",
+	"./bn": "../../../../moment/locale/bn.js",
+	"./bn.js": "../../../../moment/locale/bn.js",
+	"./bo": "../../../../moment/locale/bo.js",
+	"./bo.js": "../../../../moment/locale/bo.js",
+	"./br": "../../../../moment/locale/br.js",
+	"./br.js": "../../../../moment/locale/br.js",
+	"./bs": "../../../../moment/locale/bs.js",
+	"./bs.js": "../../../../moment/locale/bs.js",
+	"./ca": "../../../../moment/locale/ca.js",
+	"./ca.js": "../../../../moment/locale/ca.js",
+	"./cs": "../../../../moment/locale/cs.js",
+	"./cs.js": "../../../../moment/locale/cs.js",
+	"./cv": "../../../../moment/locale/cv.js",
+	"./cv.js": "../../../../moment/locale/cv.js",
+	"./cy": "../../../../moment/locale/cy.js",
+	"./cy.js": "../../../../moment/locale/cy.js",
+	"./da": "../../../../moment/locale/da.js",
+	"./da.js": "../../../../moment/locale/da.js",
+	"./de": "../../../../moment/locale/de.js",
+	"./de-at": "../../../../moment/locale/de-at.js",
+	"./de-at.js": "../../../../moment/locale/de-at.js",
+	"./de-ch": "../../../../moment/locale/de-ch.js",
+	"./de-ch.js": "../../../../moment/locale/de-ch.js",
+	"./de.js": "../../../../moment/locale/de.js",
+	"./dv": "../../../../moment/locale/dv.js",
+	"./dv.js": "../../../../moment/locale/dv.js",
+	"./el": "../../../../moment/locale/el.js",
+	"./el.js": "../../../../moment/locale/el.js",
+	"./en-au": "../../../../moment/locale/en-au.js",
+	"./en-au.js": "../../../../moment/locale/en-au.js",
+	"./en-ca": "../../../../moment/locale/en-ca.js",
+	"./en-ca.js": "../../../../moment/locale/en-ca.js",
+	"./en-gb": "../../../../moment/locale/en-gb.js",
+	"./en-gb.js": "../../../../moment/locale/en-gb.js",
+	"./en-ie": "../../../../moment/locale/en-ie.js",
+	"./en-ie.js": "../../../../moment/locale/en-ie.js",
+	"./en-nz": "../../../../moment/locale/en-nz.js",
+	"./en-nz.js": "../../../../moment/locale/en-nz.js",
+	"./eo": "../../../../moment/locale/eo.js",
+	"./eo.js": "../../../../moment/locale/eo.js",
+	"./es": "../../../../moment/locale/es.js",
+	"./es-do": "../../../../moment/locale/es-do.js",
+	"./es-do.js": "../../../../moment/locale/es-do.js",
+	"./es.js": "../../../../moment/locale/es.js",
+	"./et": "../../../../moment/locale/et.js",
+	"./et.js": "../../../../moment/locale/et.js",
+	"./eu": "../../../../moment/locale/eu.js",
+	"./eu.js": "../../../../moment/locale/eu.js",
+	"./fa": "../../../../moment/locale/fa.js",
+	"./fa.js": "../../../../moment/locale/fa.js",
+	"./fi": "../../../../moment/locale/fi.js",
+	"./fi.js": "../../../../moment/locale/fi.js",
+	"./fo": "../../../../moment/locale/fo.js",
+	"./fo.js": "../../../../moment/locale/fo.js",
+	"./fr": "../../../../moment/locale/fr.js",
+	"./fr-ca": "../../../../moment/locale/fr-ca.js",
+	"./fr-ca.js": "../../../../moment/locale/fr-ca.js",
+	"./fr-ch": "../../../../moment/locale/fr-ch.js",
+	"./fr-ch.js": "../../../../moment/locale/fr-ch.js",
+	"./fr.js": "../../../../moment/locale/fr.js",
+	"./fy": "../../../../moment/locale/fy.js",
+	"./fy.js": "../../../../moment/locale/fy.js",
+	"./gd": "../../../../moment/locale/gd.js",
+	"./gd.js": "../../../../moment/locale/gd.js",
+	"./gl": "../../../../moment/locale/gl.js",
+	"./gl.js": "../../../../moment/locale/gl.js",
+	"./gom-latn": "../../../../moment/locale/gom-latn.js",
+	"./gom-latn.js": "../../../../moment/locale/gom-latn.js",
+	"./he": "../../../../moment/locale/he.js",
+	"./he.js": "../../../../moment/locale/he.js",
+	"./hi": "../../../../moment/locale/hi.js",
+	"./hi.js": "../../../../moment/locale/hi.js",
+	"./hr": "../../../../moment/locale/hr.js",
+	"./hr.js": "../../../../moment/locale/hr.js",
+	"./hu": "../../../../moment/locale/hu.js",
+	"./hu.js": "../../../../moment/locale/hu.js",
+	"./hy-am": "../../../../moment/locale/hy-am.js",
+	"./hy-am.js": "../../../../moment/locale/hy-am.js",
+	"./id": "../../../../moment/locale/id.js",
+	"./id.js": "../../../../moment/locale/id.js",
+	"./is": "../../../../moment/locale/is.js",
+	"./is.js": "../../../../moment/locale/is.js",
+	"./it": "../../../../moment/locale/it.js",
+	"./it.js": "../../../../moment/locale/it.js",
+	"./ja": "../../../../moment/locale/ja.js",
+	"./ja.js": "../../../../moment/locale/ja.js",
+	"./jv": "../../../../moment/locale/jv.js",
+	"./jv.js": "../../../../moment/locale/jv.js",
+	"./ka": "../../../../moment/locale/ka.js",
+	"./ka.js": "../../../../moment/locale/ka.js",
+	"./kk": "../../../../moment/locale/kk.js",
+	"./kk.js": "../../../../moment/locale/kk.js",
+	"./km": "../../../../moment/locale/km.js",
+	"./km.js": "../../../../moment/locale/km.js",
+	"./kn": "../../../../moment/locale/kn.js",
+	"./kn.js": "../../../../moment/locale/kn.js",
+	"./ko": "../../../../moment/locale/ko.js",
+	"./ko.js": "../../../../moment/locale/ko.js",
+	"./ky": "../../../../moment/locale/ky.js",
+	"./ky.js": "../../../../moment/locale/ky.js",
+	"./lb": "../../../../moment/locale/lb.js",
+	"./lb.js": "../../../../moment/locale/lb.js",
+	"./lo": "../../../../moment/locale/lo.js",
+	"./lo.js": "../../../../moment/locale/lo.js",
+	"./lt": "../../../../moment/locale/lt.js",
+	"./lt.js": "../../../../moment/locale/lt.js",
+	"./lv": "../../../../moment/locale/lv.js",
+	"./lv.js": "../../../../moment/locale/lv.js",
+	"./me": "../../../../moment/locale/me.js",
+	"./me.js": "../../../../moment/locale/me.js",
+	"./mi": "../../../../moment/locale/mi.js",
+	"./mi.js": "../../../../moment/locale/mi.js",
+	"./mk": "../../../../moment/locale/mk.js",
+	"./mk.js": "../../../../moment/locale/mk.js",
+	"./ml": "../../../../moment/locale/ml.js",
+	"./ml.js": "../../../../moment/locale/ml.js",
+	"./mr": "../../../../moment/locale/mr.js",
+	"./mr.js": "../../../../moment/locale/mr.js",
+	"./ms": "../../../../moment/locale/ms.js",
+	"./ms-my": "../../../../moment/locale/ms-my.js",
+	"./ms-my.js": "../../../../moment/locale/ms-my.js",
+	"./ms.js": "../../../../moment/locale/ms.js",
+	"./my": "../../../../moment/locale/my.js",
+	"./my.js": "../../../../moment/locale/my.js",
+	"./nb": "../../../../moment/locale/nb.js",
+	"./nb.js": "../../../../moment/locale/nb.js",
+	"./ne": "../../../../moment/locale/ne.js",
+	"./ne.js": "../../../../moment/locale/ne.js",
+	"./nl": "../../../../moment/locale/nl.js",
+	"./nl-be": "../../../../moment/locale/nl-be.js",
+	"./nl-be.js": "../../../../moment/locale/nl-be.js",
+	"./nl.js": "../../../../moment/locale/nl.js",
+	"./nn": "../../../../moment/locale/nn.js",
+	"./nn.js": "../../../../moment/locale/nn.js",
+	"./pa-in": "../../../../moment/locale/pa-in.js",
+	"./pa-in.js": "../../../../moment/locale/pa-in.js",
+	"./pl": "../../../../moment/locale/pl.js",
+	"./pl.js": "../../../../moment/locale/pl.js",
+	"./pt": "../../../../moment/locale/pt.js",
+	"./pt-br": "../../../../moment/locale/pt-br.js",
+	"./pt-br.js": "../../../../moment/locale/pt-br.js",
+	"./pt.js": "../../../../moment/locale/pt.js",
+	"./ro": "../../../../moment/locale/ro.js",
+	"./ro.js": "../../../../moment/locale/ro.js",
+	"./ru": "../../../../moment/locale/ru.js",
+	"./ru.js": "../../../../moment/locale/ru.js",
+	"./sd": "../../../../moment/locale/sd.js",
+	"./sd.js": "../../../../moment/locale/sd.js",
+	"./se": "../../../../moment/locale/se.js",
+	"./se.js": "../../../../moment/locale/se.js",
+	"./si": "../../../../moment/locale/si.js",
+	"./si.js": "../../../../moment/locale/si.js",
+	"./sk": "../../../../moment/locale/sk.js",
+	"./sk.js": "../../../../moment/locale/sk.js",
+	"./sl": "../../../../moment/locale/sl.js",
+	"./sl.js": "../../../../moment/locale/sl.js",
+	"./sq": "../../../../moment/locale/sq.js",
+	"./sq.js": "../../../../moment/locale/sq.js",
+	"./sr": "../../../../moment/locale/sr.js",
+	"./sr-cyrl": "../../../../moment/locale/sr-cyrl.js",
+	"./sr-cyrl.js": "../../../../moment/locale/sr-cyrl.js",
+	"./sr.js": "../../../../moment/locale/sr.js",
+	"./ss": "../../../../moment/locale/ss.js",
+	"./ss.js": "../../../../moment/locale/ss.js",
+	"./sv": "../../../../moment/locale/sv.js",
+	"./sv.js": "../../../../moment/locale/sv.js",
+	"./sw": "../../../../moment/locale/sw.js",
+	"./sw.js": "../../../../moment/locale/sw.js",
+	"./ta": "../../../../moment/locale/ta.js",
+	"./ta.js": "../../../../moment/locale/ta.js",
+	"./te": "../../../../moment/locale/te.js",
+	"./te.js": "../../../../moment/locale/te.js",
+	"./tet": "../../../../moment/locale/tet.js",
+	"./tet.js": "../../../../moment/locale/tet.js",
+	"./th": "../../../../moment/locale/th.js",
+	"./th.js": "../../../../moment/locale/th.js",
+	"./tl-ph": "../../../../moment/locale/tl-ph.js",
+	"./tl-ph.js": "../../../../moment/locale/tl-ph.js",
+	"./tlh": "../../../../moment/locale/tlh.js",
+	"./tlh.js": "../../../../moment/locale/tlh.js",
+	"./tr": "../../../../moment/locale/tr.js",
+	"./tr.js": "../../../../moment/locale/tr.js",
+	"./tzl": "../../../../moment/locale/tzl.js",
+	"./tzl.js": "../../../../moment/locale/tzl.js",
+	"./tzm": "../../../../moment/locale/tzm.js",
+	"./tzm-latn": "../../../../moment/locale/tzm-latn.js",
+	"./tzm-latn.js": "../../../../moment/locale/tzm-latn.js",
+	"./tzm.js": "../../../../moment/locale/tzm.js",
+	"./uk": "../../../../moment/locale/uk.js",
+	"./uk.js": "../../../../moment/locale/uk.js",
+	"./ur": "../../../../moment/locale/ur.js",
+	"./ur.js": "../../../../moment/locale/ur.js",
+	"./uz": "../../../../moment/locale/uz.js",
+	"./uz-latn": "../../../../moment/locale/uz-latn.js",
+	"./uz-latn.js": "../../../../moment/locale/uz-latn.js",
+	"./uz.js": "../../../../moment/locale/uz.js",
+	"./vi": "../../../../moment/locale/vi.js",
+	"./vi.js": "../../../../moment/locale/vi.js",
+	"./x-pseudo": "../../../../moment/locale/x-pseudo.js",
+	"./x-pseudo.js": "../../../../moment/locale/x-pseudo.js",
+	"./yo": "../../../../moment/locale/yo.js",
+	"./yo.js": "../../../../moment/locale/yo.js",
+	"./zh-cn": "../../../../moment/locale/zh-cn.js",
+	"./zh-cn.js": "../../../../moment/locale/zh-cn.js",
+	"./zh-hk": "../../../../moment/locale/zh-hk.js",
+	"./zh-hk.js": "../../../../moment/locale/zh-hk.js",
+	"./zh-tw": "../../../../moment/locale/zh-tw.js",
+	"./zh-tw.js": "../../../../moment/locale/zh-tw.js"
+};
+function webpackContext(req) {
+	return __webpack_require__(webpackContextResolve(req));
+};
+function webpackContextResolve(req) {
+	var id = map[req];
+	if(!(id + 1)) // check for number or string
+		throw new Error("Cannot find module '" + req + "'.");
+	return id;
+};
+webpackContext.keys = function webpackContextKeys() {
+	return Object.keys(map);
+};
+webpackContext.resolve = webpackContextResolve;
+module.exports = webpackContext;
+webpackContext.id = "../../../../moment/locale recursive ^\\.\\/.*$";
+
+/***/ }),
+
+/***/ 0:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__("../../../../../src/main.ts");
+
 
 /***/ })
 
-},[1127]);
-//# sourceMappingURL=main.bundle.map
+},[0]);
+//# sourceMappingURL=main.bundle.js.map
