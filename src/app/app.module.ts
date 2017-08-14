@@ -33,6 +33,9 @@ import { ScrollSpyModule } from 'ng2-scrollspy';
 import { ScrollSpyAffixDirective } from 'ng2-scrollspy/dist/plugin/affix.directive';
 import { AccountRegisterPlanComponent } from './account-register-plan/account-register-plan.component';
 import { MomentModule } from 'angular2-moment';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+
+
 
 export function getAuthHttp(http: Http, options: RequestOptions) {
   return new AuthHttp(new AuthConfig({
@@ -72,6 +75,7 @@ export function getAuthHttp(http: Http, options: RequestOptions) {
     SlimLoadingBarModule.forRoot(),
     MarkdownModule.forRoot(),
     MasonryModule,
+    InfiniteScrollModule,
     ScrollSpyModule.forRoot(),
     MomentModule,
     RouterModule.forRoot([

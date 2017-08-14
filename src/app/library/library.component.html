@@ -78,7 +78,12 @@
 
                 </div>
             </div>
-            <div class="row library-books">
+            <div
+                    infiniteScroll
+                    [infiniteScrollDistance]="2"
+                    [infiniteScrollThrottle]="500"
+                    (scrolled)="onScroll()"
+                    class="row library-books">
 
 
                 <masonry [useImagesLoaded]="true">

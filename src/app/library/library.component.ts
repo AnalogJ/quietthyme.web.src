@@ -1,6 +1,6 @@
 import { Component, AfterViewInit } from '@angular/core';
 import { ApiService } from '../services/api.service';
-import {SlimLoadingBarService} from 'ng2-slim-loading-bar';
+import { SlimLoadingBarService } from 'ng2-slim-loading-bar';
 import { BookModel } from '../models/book'
 import { ScrollSpyModule, ScrollSpyService } from 'ng2-scrollspy';
 import {ScrollSpyAffixModule} from "ng2-scrollspy/dist/plugin/affix";
@@ -41,6 +41,10 @@ export class LibraryComponent implements AfterViewInit {
         // this.scrollSpyService.getObservable('sidebar').subscribe((e: any) => {
         //     console.log('ScrollSpy::sidebar: ', e);
         // });
+    }
+
+    onScroll(){
+        console.log("SCROLLING")
     }
 
     getStorage(){
