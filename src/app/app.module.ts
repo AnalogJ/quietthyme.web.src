@@ -34,6 +34,7 @@ import { ScrollSpyAffixDirective } from 'ng2-scrollspy/dist/plugin/affix.directi
 import { AccountRegisterPlanComponent } from './account-register-plan/account-register-plan.component';
 import { MomentModule } from 'angular2-moment';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+import { TermsComponent } from './terms/terms.component';
 
 
 
@@ -65,7 +66,8 @@ export function getAuthHttp(http: Http, options: RequestOptions) {
     PrivacyComponent,
     StripeCheckoutButtonDirective,
     AccountRegisterPlanComponent,
-    OpdsPanelComponent
+    OpdsPanelComponent,
+    TermsComponent
   ],
   imports: [
     BrowserModule,
@@ -83,6 +85,7 @@ export function getAuthHttp(http: Http, options: RequestOptions) {
       { path: 'login', component: AccountLoginComponent },
       { path: 'register', component: AccountRegisterComponent },
       { path: 'privacy', component: PrivacyComponent },
+      { path: 'terms', component: TermsComponent },
 
         //Auth Endpoints
       { path: 'register/plan', component: AccountRegisterPlanComponent, canActivate: [AuthGuard] },
