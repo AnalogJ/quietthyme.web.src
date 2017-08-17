@@ -1,10 +1,13 @@
 <div [ngClass]="{'feature--featured': storageData}" class="feature feature-1 boxed boxed--border">
-    <h5>{{ storageData.storage_type }}</h5>
+    <h5>{{ StorageDetails[storageData.storage_type].display_name }}</h5>
     <p>
-        <span *ngIf="storageData.storage_type == 'quietthyme'">This storage type is not available during beta.</span>
-        <span *ngIf="storageData.storage_type != 'quietthyme'">{{ storageData.free_space |  fileSize}} free</span>
+        <span>{{ StorageDetails[storageData.storage_type].details }}</span>
     </p>
-    <a href="/storage">
+    <br/>
+    <p *ngIf="StorageDetails[storageData.storage_type].blackhole_path">
+        Blackhole: "<strong>{{ StorageDetails[storageData.storage_type].blackhole_path }}</strong>"
+    </p>
+    <a routerLink="/library">
         Show Books
     </a>
     <span *ngIf="storageData.storage_type == 'quietthyme'" class="label">∞ GB</span>
