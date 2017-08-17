@@ -95,7 +95,7 @@
                                 </li>
 
                                 <li *ngIf="book.storage_size">
-                                    <span>Size &mdash; {{ book.storage_size }}</span>
+                                    <span>Size &mdash; {{ book.storage_size |  fileSize}}</span>
                                 </li>
                             </ul>
                         </accordion-group>

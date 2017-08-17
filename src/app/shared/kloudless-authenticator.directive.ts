@@ -40,4 +40,22 @@ export class KloudlessAuthenticatorDirective {
       self.onAuthenticated.emit(auth_result);
     });
   }
+
+  ngOnChanges(changes){
+    if(changes.scope){
+      console.log('scope changed: ' + this.scope);
+      Kloudless.stop(this.elt.nativeElement);
+
+      var self = this;
+
+      //reinitialize
+      Kloudless.authenticator(this.elt.nativeElement, {
+        scope: this.scope,
+        client_id: this.clientId
+      }, function(auth_result){
+        self.onAuthenticated.emit(auth_result);
+      });
+
+    }
+  }
 }

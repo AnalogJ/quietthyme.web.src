@@ -7,65 +7,10 @@ import {StorageStatus} from '../../models/storage-status'
 })
 export class StoragePanelComponent implements OnInit {
   @Input() storageData : StorageStatus;
-  @Input() storageType : string;
-
-
-
-  //common component settings
-  public chartOptions: any;
-  public storageLogo: string
-
-  //connected component settings
-  public chartData: number[];
-  public chartColors: any[] = [
-  { //free, used
-    //TODO: we should use a different color for each service
-    backgroundColor: ['#36A2EB','lightgrey'] ,
-    hoverBackgroundColor: ['#18b66a', 'red']
-  }
-
-]
-
-  //disconnected component settings
-  public disconnectedData: number[] = [1]
-  public disconnectedChartColors: any[] = [{
-    backgroundColor: ['lightgrey']
-  }]
 
   constructor() { }
 
   ngOnInit() {
     console.log(this.storageData)
-    this.resetComp()
   }
-
-  ngOnChanges() {
-    console.log("StorageData changed!", this.storageData)
-    this.resetComp()
-  }
-
-  resetComp(){
-    if(this.storageData){
-      this.chartData = [this.storageData.free_space, this.storageData.total_space - this.storageData.free_space];
-    }
-
-    this.chartOptions = {
-      cutoutPercentage: this.storageData ? 83 : 87,
-      tooltips: { enabled: false }
-    };
-
-    this.storageLogo ='assets/images/services/' + this.storageType + '.png'
-  }
-
-
-  // events
-  public chartClicked(e:any):void {
-    console.log(e);
-  }
-
-  public chartHovered(e:any):void {
-    console.log(e);
-  }
-
-
 }

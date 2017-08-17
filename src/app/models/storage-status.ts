@@ -3,7 +3,7 @@ export class StorageStatus {
     total_space: number
     prefix: string
     device_name: string
-    storage_id: number
+    storage_id: string
     storage_type: string
     location_code: string
 

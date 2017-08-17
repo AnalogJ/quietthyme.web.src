@@ -2,14 +2,25 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../services/api.service';
 import {SlimLoadingBarService} from 'ng2-slim-loading-bar';
 import {StorageStatus} from '../models/storage-status'
+import {AppSettings} from '../app-settings';
+
 @Component({
   selector: 'app-storage',
   templateUrl: './storage.component.html',
   styleUrls: ['./storage.component.less']
 })
 export class StorageComponent implements OnInit {
-    allNames = ['quietthyme', 'box', 'dropbox', 'skydrive', 'gdrive']
-    connected: any = {}
+    kloudlessStorageTypes: string[] = AppSettings.KLOUDLESS_STORAGE_TYPES;
+    connected: StorageStatus[] = [{
+        free_space: 0,
+        total_space: 0,
+        prefix: "quietthyme://",
+        device_name: "quietthyme",
+        storage_id: "quietthyme",
+        storage_type: "quietthyme",
+        location_code: "main"
+    }]
+
     loading = {
         status: false,
         link: false
@@ -26,8 +37,14 @@ export class StorageComponent implements OnInit {
           .subscribe(
               response => {
                   console.log(response)
+                  this.connected = this.connected.concat(response)
                   for(let storage of response){
-                      this.connected[storage.storage_type] = storage
+                      //update the kloudlessStorageTypes array (remove any connected services)
+                      var kndx = this.kloudlessStorageTypes.indexOf(storage.storage_type, 0);
+                      if (kndx > -1) {
+                          console.log("removed: " + storage.storage_type)
+                          this.kloudlessStorageTypes.splice(kndx, 1);
+                      }
                   }
 
                   console.log("connected:", this.connected)

@@ -13,7 +13,7 @@
                     <button kloudlessAuthenticator
                        [disabled]="loading.link"
                        [clientId]="'mddXeszdchTlRQEFN3LGhxLzqaTjgYwbXGLHCeXOqJdrzRyd'"
-                       [scope]="'gdrive box dropbox skydrive'"
+                       [scope]="kloudlessStorageTypes.join(' ')"
                        (onAuthenticated)="kloudlessAuthenticatedStorage($event)"
                        class="btn btn--primary type--uppercase">
                                                     <span class="btn__text">
@@ -74,8 +74,8 @@
     <section class=" ">
         <div class="container">
             <div class="row">
-                <div class="col-sm-4" *ngFor="let storageType of allNames; let myIndex = index">
-                    <quietthyme-storage-panel [storageType]="storageType" [storageData]="connected[storageType]"></quietthyme-storage-panel>
+                <div class="col-sm-4" *ngFor="let storageData of connected; let myIndex = index">
+                    <quietthyme-storage-panel [storageData]="storageData"></quietthyme-storage-panel>
                 </div>
             </div>
             <!--end of row-->

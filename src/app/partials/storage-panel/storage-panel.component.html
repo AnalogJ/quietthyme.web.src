@@ -1,14 +1,12 @@
 <div [ngClass]="{'feature--featured': storageData}" class="feature feature-1 boxed boxed--border">
-    <h5>{{ storageType }}</h5>
+    <h5>{{ storageData.storage_type }}</h5>
     <p>
-        <span *ngIf="storageType == 'quietthyme'">This storage type is not available during beta.</span>
-
-        <span *ngIf="!storageData && storageType != 'quietthyme'">Use the <strong>Add Storage</strong> button to connect this service.</span>
-        <span *ngIf="storageData">{{ storageData.free_space |  fileSize}} free</span>
+        <span *ngIf="storageData.storage_type == 'quietthyme'">This storage type is not available during beta.</span>
+        <span *ngIf="storageData.storage_type != 'quietthyme'">{{ storageData.free_space |  fileSize}} free</span>
     </p>
-    <a href="#">
-        Learn More
+    <a href="/storage">
+        Show Books
     </a>
-
-    <span *ngIf="storageData" class="label">{{ storageData.free_space |  fileSize}}</span>
+    <span *ngIf="storageData.storage_type == 'quietthyme'" class="label">∞ GB</span>
+    <span *ngIf="storageData.storage_type != 'quietthyme'" class="label">{{ storageData.free_space |  fileSize}}</span>
 </div>
