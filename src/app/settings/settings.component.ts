@@ -15,10 +15,12 @@ export class SettingsComponent implements OnInit {
         setPlan: false,
     };
 
+  catalogUrl: string = ""
   constructor(private slimLoadingBarService: SlimLoadingBarService, private apiService: ApiService, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
-    this.userData = this.apiService.tokenPayload()
+    this.userData = this.apiService.tokenPayload();
+    this.catalogUrl = this.apiService.catalogUrl();
   }
     ngAfterViewInit() {}
 

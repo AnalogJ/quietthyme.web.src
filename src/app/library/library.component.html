@@ -25,19 +25,7 @@
     </section>
 
 
-    <section class="text-center cta cta-4 space--xxs border--bottom imagebg" data-gradient-bg='#4876BD,#5448BD,#8F48BD,#BD48B1'>
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-12">
-                    <span class="label label--inline">OPDS</span>
-                    <span>http://catalog.quietthyme.com/beta/massy-wedders-twenties-wickeder</span>
-                </div>
-            </div>
-            <!--end of row-->
-        </div>
-        <!--end of container-->
-    </section>
-
+    <quietthyme-opds-panel></quietthyme-opds-panel>
 
     <section class=" ">
         <div class="container">
@@ -94,7 +82,7 @@
                             <div class="card__top">
                                 <span class="label" *ngIf="book.series_name">{{ book.series_name }}</span>
 
-                                <a routerLink="/book/{{ book.id }}" >
+                                <a routerLink="/book/{{ book.id }}" class="library-book-cover-wrapper">
                                     <img *ngIf="book.cover" class="library-book-cover" src="https://s3.amazonaws.com/{{ book.cover }}" alt="{{ book.title }}">
                                     <img *ngIf="!book.cover" class="library-book-cover" src="assets/images/noart.png" alt="{{ book.title }}">
                                 </a>

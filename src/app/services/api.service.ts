@@ -80,12 +80,18 @@ export class ApiService {
   /////////////////////////////////////////////////////////////////////////////
   // Authenticated functions
   /////////////////////////////////////////////////////////////////////////////
-    userPlan(stripePlanData:string): Observable<any>{
-        var url = `${AppSettings.API_ENDPOINT}/user/plan`
-        return this.authHttp.post(url, stripePlanData)
-            .map(this.extractData)
-            .catch(this.handleError);
-    }
+  catalogUrl(): string{
+    var jwtPayload = this.tokenPayload()
+
+    return `${AppSettings.CATALOG_ENDPOINT}/${jwtPayload.catalog_token}`
+  }
+
+  userPlan(stripePlanData:string): Observable<any>{
+      var url = `${AppSettings.API_ENDPOINT}/user/plan`
+      return this.authHttp.post(url, stripePlanData)
+          .map(this.extractData)
+          .catch(this.handleError);
+  }
 
 
   storageStatus(): Observable<any>{

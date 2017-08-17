@@ -1,3 +1,4 @@
+<ng2-slim-loading-bar class="navbar-fixed-top" [color]="'#128950'" [height]="'3px'"></ng2-slim-loading-bar>
 <quietthyme-header></quietthyme-header>
 <div class="main-container">
     <section>
@@ -68,6 +69,14 @@
                                 <li>
                                     <span>ISBN &mdash; {{ book.isbn || book.isbn10 }}</span>
                                 </li>
+
+                                <li *ngIf="book.average_rating">
+                                    <span>Rating &mdash; {{ book.average_rating }}</span>
+                                </li>
+
+                                <li *ngIf="book.publisher">
+                                    <span>Publisher &mdash; {{ book.publisher }}</span>
+                                </li>
                                 <li *ngIf="book.published_date">
                                     <span>Published &mdash; {{ book.published_date | amDateFormat:'LL' }}</span>
                                 </li>
@@ -76,6 +85,17 @@
                                 </li>
                                 <li *ngIf="book.pages">
                                     <span>Pages &mdash; {{ book.pages }}</span>
+                                </li>
+                                <li *ngIf="book.last_modified">
+                                    <span>Modified on &mdash; {{ book.last_modified | amDateFormat:'LL' }}</span>
+                                </li>
+
+                                <li *ngIf="book.storage_type">
+                                    <span>Stored on &mdash; {{ book.storage_type }}</span>
+                                </li>
+
+                                <li *ngIf="book.storage_size">
+                                    <span>Size &mdash; {{ book.storage_size }}</span>
                                 </li>
                             </ul>
                         </accordion-group>

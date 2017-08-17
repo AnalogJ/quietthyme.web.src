@@ -9,7 +9,6 @@ import { AccountLoginComponent } from './account-login/account-login.component';
 import { AccountRegisterComponent } from './account-register/account-register.component';
 import { KloudlessAuthenticatorDirective } from './shared/kloudless-authenticator.directive';
 import { FooterComponent } from './partials/footer/footer.component';
-import { PageTitleComponent } from './partials/page-title/page-title.component';
 import { HeaderComponent } from './partials/header/header.component';
 import { StorageComponent } from './storage/storage.component';
 import { LibraryComponent } from './library/library.component';
@@ -17,6 +16,7 @@ import { BookDetailsComponent } from './book-details/book-details.component';
 import { StoragePanelComponent } from './partials/storage-panel/storage-panel.component';
 import { SettingsComponent } from './settings/settings.component';
 import { PrivacyComponent } from './privacy/privacy.component';
+import { OpdsPanelComponent } from './partials/opds-panel/opds-panel.component';
 import { StripeCheckoutButtonDirective } from './shared/stripe-checkout-button.directive';
 import { FileSizePipe } from './shared/file-size.pipe';
 import { ApiService } from './services/api.service'
@@ -54,7 +54,6 @@ export function getAuthHttp(http: Http, options: RequestOptions) {
     AccountRegisterComponent,
     KloudlessAuthenticatorDirective,
     FooterComponent,
-    PageTitleComponent,
     HeaderComponent,
     StorageComponent,
     LibraryComponent,
@@ -65,7 +64,8 @@ export function getAuthHttp(http: Http, options: RequestOptions) {
     SettingsComponent,
     PrivacyComponent,
     StripeCheckoutButtonDirective,
-    AccountRegisterPlanComponent
+    AccountRegisterPlanComponent,
+    OpdsPanelComponent
   ],
   imports: [
     BrowserModule,
