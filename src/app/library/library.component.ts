@@ -12,7 +12,8 @@ import * as FileSaver from "file-saver";
   styleUrls: ['./library.component.less']
 })
 export class LibraryComponent implements AfterViewInit {
-    bookList: BookModel[] = []
+    bookList: BookModel[] = [];
+    bookListAll: boolean = false;
     loading = {
         list: false,
         download: {},
@@ -35,7 +36,7 @@ export class LibraryComponent implements AfterViewInit {
   constructor(private slimLoadingBarService: SlimLoadingBarService, private apiService: ApiService, private scrollSpyService: ScrollSpyService) { }
 
     ngAfterViewInit() {
-        this.getBookList();
+        // this.getBookList();
         this.getStorage();
 
         // this.scrollSpyService.getObservable('sidebar').subscribe((e: any) => {
@@ -45,11 +46,12 @@ export class LibraryComponent implements AfterViewInit {
 
     onScroll(){
         console.log("SCROLLING")
+        this.getBookList()
     }
 
     getStorage(){
         var self = this;
-        this.loading.list = true
+        this.loading.status = true
         this.slimLoadingBarService.start()
         this.apiService.storageStatus()
             .subscribe(
@@ -69,14 +71,23 @@ export class LibraryComponent implements AfterViewInit {
             );
     }
   getBookList(){
+      if(this.loading.list || this.bookListAll){
+          console.log("List is already loading, or all books retrieved already. ");
+          return;
+      }
       this.loading.list = true
       this.slimLoadingBarService.start()
       this.apiService.bookList(this.filter)
           .subscribe(
               book_data => {
                   console.log(book_data)
-                  this.bookList = book_data.Items;
+                  this.bookList = this.bookList.concat(book_data.Items);
                   this.filter.page = book_data.LastEvaluatedKey;
+
+                  if(book_data.LastEvaluatedKey == "") {
+                      //no more books to load:
+                      this.bookListAll = true;
+                  }
                   // .map(function(book){
                   //     book.cover = encodeURI(book.cover).replace(/%20/g, '+')
                   //     return book
