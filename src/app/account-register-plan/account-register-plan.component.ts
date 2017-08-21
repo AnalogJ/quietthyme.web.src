@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {SlimLoadingBarService} from 'ng2-slim-loading-bar';
 import { ApiService } from '../services/api.service';
 import { UservoiceService } from '../services/uservoice.service';
+import { NotificationService } from '../services/notification.service';
 
 import { Router, ActivatedRoute } from '@angular/router';
 declare var UserVoice:any;
@@ -17,7 +18,11 @@ export class AccountRegisterPlanComponent implements OnInit {
     setPlan: false,
   };
 
-  constructor(private slimLoadingBarService: SlimLoadingBarService, private uservoiceService: UservoiceService, private apiService: ApiService, private router: Router) { }
+  constructor(private slimLoadingBarService: SlimLoadingBarService,
+              private uservoiceService: UservoiceService,
+              private notificationService: NotificationService,
+              private apiService: ApiService,
+              private router: Router) { }
 
   ngOnInit() {
   }
@@ -42,7 +47,7 @@ export class AccountRegisterPlanComponent implements OnInit {
               //redirect user to storage page
                 this.router.navigate(['/storage'])
             },
-            error => {console.log(error)}
+            error => {this.notificationService.show("An error occurred!", error)}
 
         );
 

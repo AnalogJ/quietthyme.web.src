@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../services/api.service';
 import { UservoiceService } from '../services/uservoice.service';
+import { NotificationService } from '../services/notification.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import {SlimLoadingBarService} from 'ng2-slim-loading-bar';
 declare var UserVoice:any;
@@ -18,9 +19,15 @@ export class AccountRegisterComponent implements OnInit {
   regName: string;
   regEmail: string;
   regPassword: string;
+    errorMessage: string;
 
 
-  constructor(private slimLoadingBarService: SlimLoadingBarService, private apiService: ApiService, private uservoiceService: UservoiceService, private router: Router, private activatedRoute: ActivatedRoute) { }
+  constructor(private slimLoadingBarService: SlimLoadingBarService,
+              private apiService: ApiService,
+              private uservoiceService: UservoiceService,
+              private notificationService: NotificationService,
+              private router: Router,
+              private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
   }
@@ -47,7 +54,9 @@ export class AccountRegisterComponent implements OnInit {
                 this.uservoiceService.identify();
               this.router.navigate(['/register/plan'])
             },
-            error => {console.log(error)}
+            error => {
+                this.notificationService.show("An error occurred!", error)
+            }
 
         );
   }

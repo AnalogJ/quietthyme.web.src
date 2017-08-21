@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../services/api.service';
 import { UservoiceService } from '../services/uservoice.service';
+import { NotificationService } from '../services/notification.service';
 import { ActivatedRoute } from '@angular/router';
 import {Router} from '@angular/router'
 import {SlimLoadingBarService} from 'ng2-slim-loading-bar';
@@ -18,7 +19,12 @@ export class AccountLoginComponent implements OnInit {
   loginEmail: string;
   loginPassword: string;
 
-  constructor(private slimLoadingBarService: SlimLoadingBarService, private apiService: ApiService, private uservoiceService: UservoiceService, private router: Router, private activatedRoute: ActivatedRoute) { }
+  constructor(private slimLoadingBarService: SlimLoadingBarService,
+              private apiService: ApiService,
+              private uservoiceService: UservoiceService,
+              private notificationService: NotificationService,
+              private router: Router,
+              private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
   }
@@ -49,7 +55,7 @@ export class AccountLoginComponent implements OnInit {
                     this.router.navigate(['/storage'])
                 }
             },
-            error => {console.log(error)}
+            error => {this.notificationService.show("An error occurred!", error)}
         );
   }
 

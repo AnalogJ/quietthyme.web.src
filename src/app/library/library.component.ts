@@ -2,6 +2,7 @@ import { Component, AfterViewInit } from '@angular/core';
 import { ApiService } from '../services/api.service';
 import { SlimLoadingBarService } from 'ng2-slim-loading-bar';
 import { BookModel } from '../models/book'
+import { NotificationService } from '../services/notification.service';
 import { ScrollSpyModule, ScrollSpyService } from 'ng2-scrollspy';
 import {ScrollSpyAffixModule} from "ng2-scrollspy/dist/plugin/affix";
 import * as FileSaver from "file-saver";
@@ -33,7 +34,10 @@ export class LibraryComponent implements AfterViewInit {
         box: false
     }
     storages: any = {}
-  constructor(private slimLoadingBarService: SlimLoadingBarService, private apiService: ApiService, private scrollSpyService: ScrollSpyService) { }
+  constructor(private slimLoadingBarService: SlimLoadingBarService,
+              private notificationService: NotificationService,
+              private apiService: ApiService,
+              private scrollSpyService: ScrollSpyService) { }
 
     ngAfterViewInit() {
         // this.getBookList();
@@ -67,7 +71,7 @@ export class LibraryComponent implements AfterViewInit {
                         self.storages[status.storage_type] = status
                     })
                 },
-                error => {console.log(error)}
+                error => {this.notificationService.show("An error occurred!", error)}
 
             );
     }
@@ -98,7 +102,7 @@ export class LibraryComponent implements AfterViewInit {
                   //     return book
                   // })
               },
-              error => {console.log(error)}
+              error => {this.notificationService.show("An error occurred!", error)}
 
           );
   }
@@ -123,7 +127,7 @@ export class LibraryComponent implements AfterViewInit {
                   console.log(file.size + " bytes file downloaded. File type: ", file.type);
                   FileSaver.saveAs(file, filename);
               },
-              error => {console.log(error)}
+              error => {this.notificationService.show("An error occurred!", error)}
           );
   }
 

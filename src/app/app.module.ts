@@ -23,6 +23,7 @@ import { ApiService } from './services/api.service'
 import { CacheService } from './services/cache.service'
 import { AuthGuard } from './services/auth-guard.service'
 import { UservoiceService } from './services/uservoice.service'
+import { NotificationService } from './services/notification.service'
 
 //Third party
 import { AuthHttp, AuthConfig } from 'angular2-jwt';
@@ -36,6 +37,7 @@ import { AccountRegisterPlanComponent } from './account-register-plan/account-re
 import { MomentModule } from 'angular2-moment';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { TermsComponent } from './terms/terms.component';
+import { NotificationComponent } from './partials/notification/notification.component';
 
 
 
@@ -68,7 +70,8 @@ export function getAuthHttp(http: Http, options: RequestOptions) {
     StripeCheckoutButtonDirective,
     AccountRegisterPlanComponent,
     OpdsPanelComponent,
-    TermsComponent
+    TermsComponent,
+    NotificationComponent
   ],
   imports: [
     BrowserModule,
@@ -109,6 +112,7 @@ export function getAuthHttp(http: Http, options: RequestOptions) {
     ApiService,
     CacheService,
     UservoiceService,
+    NotificationService,
     AuthGuard,
     {
       provide: AuthHttp,

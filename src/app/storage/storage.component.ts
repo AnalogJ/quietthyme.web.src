@@ -3,6 +3,7 @@ import { ApiService } from '../services/api.service';
 import {SlimLoadingBarService} from 'ng2-slim-loading-bar';
 import {StorageStatus} from '../models/storage-status'
 import {AppSettings} from '../app-settings';
+import { NotificationService } from '../services/notification.service';
 
 @Component({
   selector: 'app-storage',
@@ -27,7 +28,7 @@ export class StorageComponent implements OnInit {
     };
 
 
-  constructor(private slimLoadingBarService: SlimLoadingBarService, private apiService: ApiService) { }
+  constructor(private slimLoadingBarService: SlimLoadingBarService, private notificationService: NotificationService, private apiService: ApiService) { }
 
   ngOnInit() {
       this.loading.status = true;
@@ -53,7 +54,7 @@ export class StorageComponent implements OnInit {
 
                   console.log("connected:", this.connected)
               },
-              error => {console.log(error)}
+              error => {this.notificationService.show("An error occurred!", error)}
 
           );
   }
@@ -73,7 +74,7 @@ export class StorageComponent implements OnInit {
             data => {
               console.log(data)
             },
-            error => {console.log(error)}
+            error => {this.notificationService.show("An error occurred!", error)}
         );
 
   }

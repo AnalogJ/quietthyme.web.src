@@ -1,0 +1,11 @@
+<div *ngIf="visible && !ignored" class="notification pos-right pos-top col-sm-4 col-md-3 notification--reveal" data-animation="from-top" data-autoshow="200">
+    <div class="boxed boxed--border border--round box-shadow">
+        <div class="text-block">
+            <h5>{{ title }}</h5>
+            <p>
+                {{ message }}
+            </p>
+        </div>
+    </div>
+    <div class="notification-close-cross notification-close" (click)="ignoreNotification()"></div>
+</div>
