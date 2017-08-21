@@ -40,10 +40,12 @@ export class AccountRegisterPlanComponent implements OnInit {
         })
         .subscribe(
             data => {
-              //TODO: we should update the Token here too.
-              console.log(data)
+              //update the Token here, to the new one which has an embedded plan.
+              // console.log(data)
+                localStorage.setItem('id_token', data.token); //set the JWT token
 
-              this.uservoiceService.identify();
+
+                this.uservoiceService.identify();
               //redirect user to storage page
                 this.router.navigate(['/storage'])
             },
