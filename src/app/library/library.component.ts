@@ -54,6 +54,10 @@ export class LibraryComponent implements AfterViewInit {
         this.loading.status = true
         this.slimLoadingBarService.start()
         this.apiService.storageStatus()
+            .finally(() => {
+                this.loading.status = false;
+                this.slimLoadingBarService.complete();
+            })
             .subscribe(
                 response => {
                     console.log(response)
@@ -63,11 +67,8 @@ export class LibraryComponent implements AfterViewInit {
                         self.storages[status.storage_type] = status
                     })
                 },
-                error => {console.log(error)},
-                () => {
-                    this.loading.status = false;
-                    this.slimLoadingBarService.complete();
-                }
+                error => {console.log(error)}
+
             );
     }
   getBookList(){
@@ -78,6 +79,10 @@ export class LibraryComponent implements AfterViewInit {
       this.loading.list = true
       this.slimLoadingBarService.start()
       this.apiService.bookList(this.filter)
+          .finally(() => {
+              this.loading.list = false
+              this.slimLoadingBarService.complete();
+          })
           .subscribe(
               book_data => {
                   console.log(book_data)
@@ -93,11 +98,8 @@ export class LibraryComponent implements AfterViewInit {
                   //     return book
                   // })
               },
-              error => {console.log(error)},
-              () => {
-                  this.loading.list = false
-                  this.slimLoadingBarService.complete();
-              }
+              error => {console.log(error)}
+
           );
   }
 
@@ -110,6 +112,10 @@ export class LibraryComponent implements AfterViewInit {
       this.loading.download[book.id] = true
       this.slimLoadingBarService.start()
       this.apiService.download(book.id)
+          .finally(() => {
+              this.loading.download[book.id] = false
+              this.slimLoadingBarService.complete();
+          })
           .subscribe(
               response => {
                   var filename = book.storage_filename +book.storage_format;
@@ -117,11 +123,7 @@ export class LibraryComponent implements AfterViewInit {
                   console.log(file.size + " bytes file downloaded. File type: ", file.type);
                   FileSaver.saveAs(file, filename);
               },
-              error => {console.log(error)},
-              () => {
-                  this.loading.download[book.id] = false
-                  this.slimLoadingBarService.complete();
-              }
+              error => {console.log(error)}
           );
   }
 

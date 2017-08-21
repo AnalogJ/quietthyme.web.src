@@ -22,6 +22,7 @@ import { FileSizePipe } from './shared/file-size.pipe';
 import { ApiService } from './services/api.service'
 import { CacheService } from './services/cache.service'
 import { AuthGuard } from './services/auth-guard.service'
+import { UservoiceService } from './services/uservoice.service'
 
 //Third party
 import { AuthHttp, AuthConfig } from 'angular2-jwt';
@@ -107,6 +108,7 @@ export function getAuthHttp(http: Http, options: RequestOptions) {
   providers: [
     ApiService,
     CacheService,
+    UservoiceService,
     AuthGuard,
     {
       provide: AuthHttp,

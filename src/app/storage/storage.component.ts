@@ -34,6 +34,10 @@ export class StorageComponent implements OnInit {
       this.slimLoadingBarService.start()
       var self = this;
       this.apiService.storageStatus()
+          .finally(() => {
+              this.loading.status = false
+              this.slimLoadingBarService.complete();
+          })
           .subscribe(
               response => {
                   console.log(response)
@@ -49,11 +53,8 @@ export class StorageComponent implements OnInit {
 
                   console.log("connected:", this.connected)
               },
-              error => {console.log(error)},
-              () => {
-                  this.loading.status = false
-                  this.slimLoadingBarService.complete();
-              }
+              error => {console.log(error)}
+
           );
   }
 
@@ -64,16 +65,16 @@ export class StorageComponent implements OnInit {
     this.slimLoadingBarService.start()
 
     this.apiService.storageLink(kloudlessData)
-    .subscribe(
-        data => {
-          console.log(data)
-        },
-        error => {console.log(error)},
-        () => {
+        .finally(() => {
             this.loading.status = false
             this.slimLoadingBarService.complete();
-        }
-    );
+        })
+        .subscribe(
+            data => {
+              console.log(data)
+            },
+            error => {console.log(error)}
+        );
 
   }
 

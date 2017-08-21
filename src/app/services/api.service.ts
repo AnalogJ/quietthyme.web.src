@@ -25,13 +25,13 @@ export class ApiService {
     let errMsg: string;
     if (error instanceof Response) {
       const body = error.json() || '';
-      const err = body.error || JSON.stringify(body);
-      errMsg = `${error.status} - ${error.statusText || ''} ${err}`;
+      const err = body.error ? body.error.message : JSON.stringify(body);
+      errMsg = `${error.status} - ${error.statusText || ''} - ${err}`;
     } else {
       errMsg = error.message ? error.message : error.toString();
     }
-    console.error(errMsg);
-    return errMsg;
+    console.log(errMsg);
+    return Observable.throw(errMsg)
   }
   cacheKey(method, url, query?:URLSearchParams): string {
     return '[' + method + ']' + url + '?' + (query || {}).toString()
