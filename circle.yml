@@ -31,7 +31,7 @@ deployment:
     commands:
       #resize the images in place
 #      - mv src/assets/images/bg src/assets/images/orig
-      - mogrify -adaptive-resize=2000x1000> -quality=90 src/assets/images/bg/*
+      - mogrify -adaptive-resize="2000x1000>" -quality="90" src/assets/images/bg/*
 
       - ng build --base-href "/" --dev
       - cp dist/angular.html dist/404.html
