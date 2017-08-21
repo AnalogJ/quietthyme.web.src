@@ -34,6 +34,6 @@ export class SettingsComponent implements OnInit {
 
         var size = size || 100;
 
-        return 'http://www.gravatar.com/avatar/' + MD5(email) + '.jpg?d=mm&s=' + size;
+        return '//www.gravatar.com/avatar/' + MD5(email) + '.jpg?d=mm&s=' + size;
     }
 }
