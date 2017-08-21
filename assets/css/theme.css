@@ -2986,63 +2986,6 @@ a {
   }
 }
 /**! 28. MailChimp & Campaign Monitor **/
-form[action*='createsend.com'] * {
-  transition: 0.3s linear;
-  -webkit-transition: 0.3s linear;
-  -moz-transition: 0.3s linear;
-  opacity: 0;
-}
-form[action*='createsend.com'].form--active * {
-  opacity: 1;
-}
-form[action*='createsend.com'] .input-checkbox + br {
-  display: none;
-}
-form[action*='createsend.com'].no-labels label {
-  display: none;
-}
-form[action*='createsend.com'] br {
-  display: none;
-}
-form[action*='createsend.com'] p > label:first-child {
-  margin-bottom: 0.92857143em;
-}
-form[action*='list-manage.com'] h2 {
-  font-family: 'Open Sans', 'Helvetica', 'Arial', sans-serif;
-  color: #252525;
-  font-weight: 300;
-  font-variant-ligatures: common-ligatures;
-  margin-top: 0;
-  margin-bottom: 0;
-  font-size: 1.35714286em;
-  line-height: 1.36842105em;
-  margin-bottom: 1.36842105263158em;
-  font-weight: 400;
-}
-form[action*='list-manage.com'] h2.inline-block + .h4.inline-block:not(.typed-text) {
-  margin-left: 0.68421052631579em;
-}
-form[action*='list-manage.com'] .input-group ul {
-  overflow: hidden;
-}
-form[action*='list-manage.com'] .input-group ul li {
-  float: left;
-}
-form[action*='list-manage.com'] * {
-  transition: 0.3s linear;
-  -webkit-transition: 0.3s linear;
-  -moz-transition: 0.3s linear;
-  opacity: 0;
-}
-form[action*='list-manage.com'].form--active * {
-  opacity: 1;
-}
-form[action*='list-manage.com'].no-labels label {
-  display: none;
-}
-form[action*='list-manage.com'] .small-meta {
-  font-size: 0.5em;
-}
 /**! 29. Twitter **/
 .twitter-feed .user {
   display: none;
