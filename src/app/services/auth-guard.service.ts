@@ -21,6 +21,7 @@ export class AuthGuard implements CanActivate {
       }
       else if(this.apiService.tokenPayload().plan == 'none' ){
         //user doesnt have a plan, redirec them to the settings page.
+        console.log("No plan, redirecting to /register/plan page.")
         this.router.navigate(['/register/plan']);
         return false;
       }
