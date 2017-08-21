@@ -15,7 +15,10 @@ dependencies:
     - npm install -g angular-cli-ghpages@v0.5.0
     - npm install
     - ng version
-
+    - sudo apt-get install -y aptitude
+    - sudo aptitude -y install imagemagick
+    - sudo aptitude -y install libmagickcore-dev
+    - sudo aptitude -y install libmagickwand-dev
 test:
   override:
     - echo "skipped, do nothing."
@@ -26,6 +29,10 @@ deployment:
   beta:
     branch: beta
     commands:
+      #resize the images in place
+#      - mv src/assets/images/bg src/assets/images/orig
+      - mogrify -adaptive-resize 2000x1000> -quality 90 src/assets/images/bg/*
+
       - ng build --base-href "/" --dev
       - cp dist/angular.html dist/404.html
       - angular-cli-ghpages --message "Autodeploy to gh-pages" --no-silent --name "Jason Kulatunga" --email "jason@thesparktree.com"
