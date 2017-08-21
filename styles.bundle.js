@@ -80,28 +80,28 @@ module.exports = __webpack_require__.p + "socicon.cdaa4f046f1497ac47b9.woff";
 /***/ "../../../../../src/assets/images/bg/book_hallway.jpg":
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__.p + "book_hallway.2ae67f53d62be0ab8eb8.jpg";
+module.exports = __webpack_require__.p + "book_hallway.cb0fd826825d9b145d02.jpg";
 
 /***/ }),
 
 /***/ "../../../../../src/assets/images/bg/login_splash.jpg":
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__.p + "login_splash.42d50aac0a17d47ccf83.jpg";
+module.exports = __webpack_require__.p + "login_splash.ca05768f1066daddbdb0.jpg";
 
 /***/ }),
 
 /***/ "../../../../../src/assets/images/bg/reading-lake.jpg":
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__.p + "reading-lake.56e912dfda3df7b6137d.jpg";
+module.exports = __webpack_require__.p + "reading-lake.5e6467665dc789caa7a6.jpg";
 
 /***/ }),
 
 /***/ "../../../../../src/assets/images/bg/reading_coffee_shop.jpg":
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__.p + "reading_coffee_shop.b26b3a986540af7a30c8.jpg";
+module.exports = __webpack_require__.p + "reading_coffee_shop.64b7ad72301e76b386d9.jpg";
 
 /***/ }),
 
