@@ -179,10 +179,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 var AccountRegisterPlanComponent = (function () {
-    function AccountRegisterPlanComponent(slimLoadingBarService, apiService, activatedRoute) {
+    function AccountRegisterPlanComponent(slimLoadingBarService, apiService, router) {
         this.slimLoadingBarService = slimLoadingBarService;
         this.apiService = apiService;
-        this.activatedRoute = activatedRoute;
+        this.router = router;
         this.loading = {
             setPlan: false,
         };
@@ -215,7 +215,8 @@ var AccountRegisterPlanComponent = (function () {
                         plan: tokenPayload.plan // Plan name for the account
                     }
                 }]);
-            //todo: redirect user to storage page
+            //redirect user to storage page
+            _this.router.navigate(['/storage']);
         }, function (error) { console.log(error); }, function () {
             _this.loading.setPlan = false;
             _this.slimLoadingBarService.complete();
@@ -229,7 +230,7 @@ AccountRegisterPlanComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/account-register-plan/account-register-plan.component.html"),
         styles: [__webpack_require__("../../../../../src/app/account-register-plan/account-register-plan.component.less")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__services_api_service__["a" /* ApiService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_api_service__["a" /* ApiService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* ActivatedRoute */]) === "function" && _c || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__services_api_service__["a" /* ApiService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_api_service__["a" /* ApiService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* Router */]) === "function" && _c || Object])
 ], AccountRegisterPlanComponent);
 
 var _a, _b, _c;
