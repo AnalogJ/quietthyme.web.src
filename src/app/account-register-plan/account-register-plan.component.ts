@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {SlimLoadingBarService} from 'ng2-slim-loading-bar';
 import { ApiService } from '../services/api.service';
-import { ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 declare var UserVoice:any;
 
 @Component({
@@ -15,7 +15,7 @@ export class AccountRegisterPlanComponent implements OnInit {
     setPlan: false,
   };
 
-  constructor(private slimLoadingBarService: SlimLoadingBarService, private apiService: ApiService, private activatedRoute: ActivatedRoute) { }
+  constructor(private slimLoadingBarService: SlimLoadingBarService, private apiService: ApiService, private router: Router) { }
 
   ngOnInit() {
   }
@@ -48,7 +48,8 @@ export class AccountRegisterPlanComponent implements OnInit {
                   plan:         tokenPayload.plan // Plan name for the account
                 }
               }]);
-              //todo: redirect user to storage page
+              //redirect user to storage page
+                this.router.navigate(['/storage'])
             },
             error => {console.log(error)},
             () => {
