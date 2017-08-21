@@ -28,6 +28,33 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.1/imagesloaded.pkgd.min.js"></script>
 <script src="https://checkout.stripe.com/checkout.js"></script>
 
+
+<script>
+    // Include the UserVoice JavaScript SDK (only needed once on a page)
+    UserVoice=window.UserVoice||[];(function(){var uv=document.createElement('script');uv.type='text/javascript';uv.async=true;uv.src='//widget.uservoice.com/ZdUIEmr11nUQsx3yv1C5Q.js';var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(uv,s)})();
+
+    //
+    // UserVoice Javascript SDK developer documentation:
+    // https://www.uservoice.com/o/javascript-sdk
+    //
+
+    // Set colors
+    UserVoice.push(['set', {
+        accent_color: '#238b53',
+        trigger_color: 'white',
+        trigger_background_color: '#238b53'
+    }]);
+
+    // Add default trigger to the bottom-right corner of the window:
+    UserVoice.push(['addTrigger', {mode: 'contact', trigger_position: 'bottom-right' }]);
+
+    // Or, use your own custom trigger:
+    //UserVoice.push(['addTrigger', '#id', { mode: 'contact' }]);
+
+    // Autoprompt for Satisfaction and SmartVote (only displayed under certain conditions)
+    UserVoice.push(['autoprompt', {}]);
+</script>
+
 <script type="text/javascript" src="inline.bundle.js"></script><script type="text/javascript" src="polyfills.bundle.js"></script><script type="text/javascript" src="styles.bundle.js"></script><script type="text/javascript" src="vendor.bundle.js"></script><script type="text/javascript" src="main.bundle.js"></script></body>
 </html>
 

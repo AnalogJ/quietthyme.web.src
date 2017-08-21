@@ -85,6 +85,25 @@ var AccountLoginComponent = (function () {
         this.apiService.authLogin(this.loginEmail, this.loginPassword)
             .subscribe(function (data) {
             localStorage.setItem('id_token', data.token); //set the JWT token
+            //set UserVoice data
+            // Identify the user and pass traits
+            // To enable, replace sample data with actual user traits and uncomment the line
+            var tokenPayload = _this.apiService.tokenPayload();
+            UserVoice.push(['identify', {
+                    email: tokenPayload.email,
+                    name: tokenPayload.name,
+                    //created_at: 1364406966, // Unix timestamp for the date the user signed up
+                    id: tokenPayload.uid,
+                    type: tokenPayload.plan,
+                    account: {
+                        // id:           123, // Optional: associate multiple users with a single account
+                        name: tokenPayload.name,
+                        // created_at:   1364406966, // Unix timestamp for the date the account was created
+                        // monthly_rate: 9.99, // Decimal; monthly rate of the account
+                        // ltv:          1495.00, // Decimal; lifetime value of the account
+                        plan: tokenPayload.plan // Plan name for the account
+                    }
+                }]);
             if (_this.activatedRoute.snapshot.params['requested']) {
                 _this.router.navigate([_this.activatedRoute.snapshot.params['requested']]);
             }
@@ -180,6 +199,22 @@ var AccountRegisterPlanComponent = (function () {
             .subscribe(function (data) {
             //TODO: we should update the Token here too.
             console.log(data);
+            var tokenPayload = _this.apiService.tokenPayload();
+            UserVoice.push(['identify', {
+                    email: tokenPayload.email,
+                    name: tokenPayload.name,
+                    //created_at: 1364406966, // Unix timestamp for the date the user signed up
+                    id: tokenPayload.uid,
+                    type: tokenPayload.plan,
+                    account: {
+                        // id:           123, // Optional: associate multiple users with a single account
+                        name: tokenPayload.name,
+                        // created_at:   1364406966, // Unix timestamp for the date the account was created
+                        // monthly_rate: 9.99, // Decimal; monthly rate of the account
+                        // ltv:          1495.00, // Decimal; lifetime value of the account
+                        plan: tokenPayload.plan // Plan name for the account
+                    }
+                }]);
             //todo: redirect user to storage page
         }, function (error) { console.log(error); }, function () {
             _this.loading.setPlan = false;
@@ -274,6 +309,14 @@ var AccountRegisterComponent = (function () {
             .subscribe(function (data) {
             console.log(data);
             localStorage.setItem('id_token', data.token); //set the JWT token
+            var tokenPayload = _this.apiService.tokenPayload();
+            UserVoice.push(['identify', {
+                    email: tokenPayload.email,
+                    name: tokenPayload.name,
+                    //created_at: 1364406966, // Unix timestamp for the date the user signed up
+                    id: tokenPayload.catalog_token,
+                    type: 'none' // Optional: segment your users by type
+                }]);
             _this.router.navigate(['/register/plan']);
         }, function (error) { console.log(error); }, function () {
             _this.loading.register = false;
