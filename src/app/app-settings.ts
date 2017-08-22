@@ -12,7 +12,7 @@ export class AppSettings {
 
   public static get KLOUDLESS_STORAGE_TYPES(): string[] {
     // return ['box', 'dropbox', 'skydrive', 'gdrive'];
-    return ['box', 'dropbox', 'skydrive']; //TODO: disable google drive, events missing since Aug 22. 
+    return ['box', 'dropbox', 'skydrive']; //TODO: disable google drive, events missing since Aug 22.
   }
 
   public static get SUPPORTED_STORAGE_TYPES(): string[] {

@@ -103,10 +103,13 @@ export class ApiService {
       .catch(this.handleError);
   }
 
-  storageStatus(): Observable<any> {
+  storageStatus(bustCache: boolean = false): Observable<any> {
     var url = `${AppSettings.API_ENDPOINT}/storage/status`;
-
     var cacheKey = this.cacheKey('GET', url);
+
+    if(bustCache){
+      this.cacheService.delete(cacheKey)
+    }
     return (
       this.cacheService.get(cacheKey) ||
       this.cacheService.put(

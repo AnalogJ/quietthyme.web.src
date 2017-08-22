@@ -12,17 +12,7 @@ import { NotificationService } from '../services/notification.service';
 })
 export class StorageComponent implements OnInit {
   kloudlessStorageTypes: string[] = AppSettings.KLOUDLESS_STORAGE_TYPES;
-  connected: StorageStatus[] = [
-    {
-      free_space: 0,
-      total_space: 0,
-      prefix: 'quietthyme://',
-      device_name: 'quietthyme',
-      storage_id: 'quietthyme',
-      storage_type: 'quietthyme',
-      location_code: 'main',
-    },
-  ];
+  connected: StorageStatus[] = [];
 
   loading = {
     status: false,
@@ -36,11 +26,29 @@ export class StorageComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    this.initStorageStatus()
+    this.getStorageStatus()
+  }
+
+  initStorageStatus(){
+    this.connected = [
+      {
+        free_space: 0,
+        total_space: 0,
+        prefix: 'quietthyme://',
+        device_name: 'quietthyme',
+        storage_id: 'quietthyme',
+        storage_type: 'quietthyme',
+        location_code: 'main',
+      },
+    ];
+  }
+
+  getStorageStatus(bustCache: boolean = false) {
     this.loading.status = true;
     this.slimLoadingBarService.start();
-    var self = this;
     this.apiService
-      .storageStatus()
+      .storageStatus(bustCache)
       .finally(() => {
         this.loading.status = false;
         this.slimLoadingBarService.complete();
@@ -48,6 +56,7 @@ export class StorageComponent implements OnInit {
       .subscribe(
         response => {
           console.log(response);
+          this.initStorageStatus()
           this.connected = this.connected.concat(response);
           for (let storage of response) {
             //update the kloudlessStorageTypes array (remove any connected services)
@@ -80,9 +89,11 @@ export class StorageComponent implements OnInit {
       .finally(() => {
         this.loading.status = false;
         this.slimLoadingBarService.complete();
+        this.getStorageStatus(true)
       })
       .subscribe(
         data => {
+          console.log("Connected a new storage.")
           console.log(data);
         },
         error => {
