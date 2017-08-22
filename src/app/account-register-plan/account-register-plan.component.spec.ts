@@ -6,12 +6,13 @@ describe('AccountRegisterPlanComponent', () => {
   let component: AccountRegisterPlanComponent;
   let fixture: ComponentFixture<AccountRegisterPlanComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ AccountRegisterPlanComponent ]
+  beforeEach(
+    async(() => {
+      TestBed.configureTestingModule({
+        declarations: [AccountRegisterPlanComponent],
+      }).compileComponents();
     })
-    .compileComponents();
-  }));
+  );
 
   beforeEach(() => {
     fixture = TestBed.createComponent(AccountRegisterPlanComponent);

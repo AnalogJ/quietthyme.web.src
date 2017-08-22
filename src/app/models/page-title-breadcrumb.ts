@@ -1,5 +1,5 @@
 export class PageTitleBreadcrumb {
-    active: boolean
-    name: string
-    path: string
+  active: boolean;
+  name: string;
+  path: string;
 }

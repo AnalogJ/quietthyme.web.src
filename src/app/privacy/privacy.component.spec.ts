@@ -9,12 +9,13 @@ describe('PrivacyComponent', () => {
   let component: PrivacyComponent;
   let fixture: ComponentFixture<PrivacyComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ PrivacyComponent ]
+  beforeEach(
+    async(() => {
+      TestBed.configureTestingModule({
+        declarations: [PrivacyComponent],
+      }).compileComponents();
     })
-    .compileComponents();
-  }));
+  );
 
   beforeEach(() => {
     fixture = TestBed.createComponent(PrivacyComponent);

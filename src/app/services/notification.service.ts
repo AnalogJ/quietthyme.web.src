@@ -13,17 +13,24 @@ export class NotificationService {
 
   notificationState = this.notificationSubject.asObservable();
 
-  constructor(@Optional() @SkipSelf() prior: NotificationService) {
-    if (prior) { return prior; }
-    console.log("created global notification service")
+  constructor(
+    @Optional()
+    @SkipSelf()
+    prior: NotificationService
+  ) {
+    if (prior) {
+      return prior;
+    }
+    console.log('created global notification service');
   }
 
   show(title: string, message: string) {
-    this.notificationSubject.next(<NotificationState>{ title: title, message: message, show: true });
+    this.notificationSubject.next(
+      <NotificationState>{ title: title, message: message, show: true }
+    );
   }
 
   hide() {
     this.notificationSubject.next(<NotificationState>{ show: false });
   }
-
 }

@@ -5,11 +5,14 @@ import { UservoiceService } from './uservoice.service';
 describe('UservoiceService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [UservoiceService]
+      providers: [UservoiceService],
     });
   });
 
-  it('should be created', inject([UservoiceService], (service: UservoiceService) => {
-    expect(service).toBeTruthy();
-  }));
+  it(
+    'should be created',
+    inject([UservoiceService], (service: UservoiceService) => {
+      expect(service).toBeTruthy();
+    })
+  );
 });

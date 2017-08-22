@@ -9,12 +9,13 @@ describe('StoragePanelComponent', () => {
   let component: StoragePanelComponent;
   let fixture: ComponentFixture<StoragePanelComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ StoragePanelComponent ]
+  beforeEach(
+    async(() => {
+      TestBed.configureTestingModule({
+        declarations: [StoragePanelComponent],
+      }).compileComponents();
     })
-    .compileComponents();
-  }));
+  );
 
   beforeEach(() => {
     fixture = TestBed.createComponent(StoragePanelComponent);

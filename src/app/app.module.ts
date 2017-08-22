@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Http, HttpModule, RequestOptions } from '@angular/http';
-import { RouterModule }   from '@angular/router';
+import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { AccountLoginComponent } from './account-login/account-login.component';
@@ -19,11 +19,11 @@ import { PrivacyComponent } from './privacy/privacy.component';
 import { OpdsPanelComponent } from './partials/opds-panel/opds-panel.component';
 import { StripeCheckoutButtonDirective } from './shared/stripe-checkout-button.directive';
 import { FileSizePipe } from './shared/file-size.pipe';
-import { ApiService } from './services/api.service'
-import { CacheService } from './services/cache.service'
-import { AuthGuard } from './services/auth-guard.service'
-import { UservoiceService } from './services/uservoice.service'
-import { NotificationService } from './services/notification.service'
+import { ApiService } from './services/api.service';
+import { CacheService } from './services/cache.service';
+import { AuthGuard } from './services/auth-guard.service';
+import { UservoiceService } from './services/uservoice.service';
+import { NotificationService } from './services/notification.service';
 
 //Third party
 import { AuthHttp, AuthConfig } from 'angular2-jwt';
@@ -39,16 +39,18 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { TermsComponent } from './terms/terms.component';
 import { NotificationComponent } from './partials/notification/notification.component';
 
-
-
 export function getAuthHttp(http: Http, options: RequestOptions) {
-  return new AuthHttp(new AuthConfig({
-    tokenName: 'id_token',
-    noJwtError: true,
-    headerPrefix: 'JWT',
-    tokenGetter: (() => localStorage.getItem('id_token')),
-    globalHeaders: [{'Content-Type':'application/json'}]
-  }), http, options);
+  return new AuthHttp(
+    new AuthConfig({
+      tokenName: 'id_token',
+      noJwtError: true,
+      headerPrefix: 'JWT',
+      tokenGetter: () => localStorage.getItem('id_token'),
+      globalHeaders: [{ 'Content-Type': 'application/json' }],
+    }),
+    http,
+    options
+  );
 }
 
 @NgModule({
@@ -71,7 +73,7 @@ export function getAuthHttp(http: Http, options: RequestOptions) {
     AccountRegisterPlanComponent,
     OpdsPanelComponent,
     TermsComponent,
-    NotificationComponent
+    NotificationComponent,
   ],
   imports: [
     BrowserModule,
@@ -85,19 +87,43 @@ export function getAuthHttp(http: Http, options: RequestOptions) {
     ScrollSpyModule.forRoot(),
     MomentModule,
     RouterModule.forRoot([
-        //Public Endpoints
+      //Public Endpoints
       { path: 'login', component: AccountLoginComponent },
       { path: 'register', component: AccountRegisterComponent },
       { path: 'privacy', component: PrivacyComponent },
       { path: 'terms', component: TermsComponent },
 
-        //Auth Endpoints
-      { path: 'register/plan', component: AccountRegisterPlanComponent, canActivate: [AuthGuard] },
-      { path: 'storage', component: StorageComponent, canActivate: [AuthGuard] },
-      { path: 'settings', component: SettingsComponent, canActivate: [AuthGuard] },
-      { path: 'storage/:source', component: StorageComponent, canActivate: [AuthGuard] },
-      { path: 'library', component: LibraryComponent, canActivate: [AuthGuard] },
-      { path: 'book/:bookId', component: BookDetailsComponent, canActivate: [AuthGuard] },
+      //Auth Endpoints
+      {
+        path: 'register/plan',
+        component: AccountRegisterPlanComponent,
+        canActivate: [AuthGuard],
+      },
+      {
+        path: 'storage',
+        component: StorageComponent,
+        canActivate: [AuthGuard],
+      },
+      {
+        path: 'settings',
+        component: SettingsComponent,
+        canActivate: [AuthGuard],
+      },
+      {
+        path: 'storage/:source',
+        component: StorageComponent,
+        canActivate: [AuthGuard],
+      },
+      {
+        path: 'library',
+        component: LibraryComponent,
+        canActivate: [AuthGuard],
+      },
+      {
+        path: 'book/:bookId',
+        component: BookDetailsComponent,
+        canActivate: [AuthGuard],
+      },
       // { path: 'project/create', component: ProjectCreateComponent, canActivate: [AuthGuard] },
       // { path: 'project/:serviceType/:orgId/:repoId/edit', component: ProjectEditComponent, canActivate: [AuthGuard] },
       // { path: 'project/:serviceType/:orgId/:repoId/pullrequests/:prNumber', component: ProjectDeployComponent, canActivate: [AuthGuard] },
@@ -105,8 +131,8 @@ export function getAuthHttp(http: Http, options: RequestOptions) {
 
       { path: '', pathMatch: 'full', redirectTo: 'storage' },
       // { path: '**', component: PageNotFoundComponent }
-      { path: '**', redirectTo: 'login' }
-    ])
+      { path: '**', redirectTo: 'login' },
+    ]),
   ],
   providers: [
     ApiService,
@@ -117,8 +143,9 @@ export function getAuthHttp(http: Http, options: RequestOptions) {
     {
       provide: AuthHttp,
       useFactory: getAuthHttp,
-      deps: [Http, RequestOptions]
-    }],
-  bootstrap: [AppComponent]
+      deps: [Http, RequestOptions],
+    },
+  ],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

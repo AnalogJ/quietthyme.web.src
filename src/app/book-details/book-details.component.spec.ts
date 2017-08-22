@@ -9,12 +9,13 @@ describe('BookDetailsComponent', () => {
   let component: BookDetailsComponent;
   let fixture: ComponentFixture<BookDetailsComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ BookDetailsComponent ]
+  beforeEach(
+    async(() => {
+      TestBed.configureTestingModule({
+        declarations: [BookDetailsComponent],
+      }).compileComponents();
     })
-    .compileComponents();
-  }));
+  );
 
   beforeEach(() => {
     fixture = TestBed.createComponent(BookDetailsComponent);

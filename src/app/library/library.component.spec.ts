@@ -9,12 +9,13 @@ describe('LibraryComponent', () => {
   let component: LibraryComponent;
   let fixture: ComponentFixture<LibraryComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ LibraryComponent ]
+  beforeEach(
+    async(() => {
+      TestBed.configureTestingModule({
+        declarations: [LibraryComponent],
+      }).compileComponents();
     })
-    .compileComponents();
-  }));
+  );
 
   beforeEach(() => {
     fixture = TestBed.createComponent(LibraryComponent);

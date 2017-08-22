@@ -6,11 +6,14 @@ import { ApiService } from './api.service';
 describe('ApiService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [ApiService]
+      providers: [ApiService],
     });
   });
 
-  it('should ...', inject([ApiService], (service: ApiService) => {
-    expect(service).toBeTruthy();
-  }));
+  it(
+    'should ...',
+    inject([ApiService], (service: ApiService) => {
+      expect(service).toBeTruthy();
+    })
+  );
 });

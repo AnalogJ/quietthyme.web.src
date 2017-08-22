@@ -7,5 +7,5 @@ export const environment = {
   production: false,
   apiVersion: 'beta',
 
-  stripeAccount: 'pk_test_uApReS8yYqD5v6CajPSuXj3Z'
+  stripeAccount: 'pk_test_uApReS8yYqD5v6CajPSuXj3Z',
 };

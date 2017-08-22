@@ -6,12 +6,13 @@ describe('OpdsPanelComponent', () => {
   let component: OpdsPanelComponent;
   let fixture: ComponentFixture<OpdsPanelComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ OpdsPanelComponent ]
+  beforeEach(
+    async(() => {
+      TestBed.configureTestingModule({
+        declarations: [OpdsPanelComponent],
+      }).compileComponents();
     })
-    .compileComponents();
-  }));
+  );
 
   beforeEach(() => {
     fixture = TestBed.createComponent(OpdsPanelComponent);

@@ -5,8 +5,8 @@
 /* SystemJS module definition */
 declare var module: NodeModule;
 interface NodeModule {
-    id: string;
+  id: string;
 }
 
 declare var System: any;
-declare module "file-saver";
+declare module 'file-saver';

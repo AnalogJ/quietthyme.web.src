@@ -1,27 +1,34 @@
-import { Directive, Input, ViewChild, ElementRef, AfterViewInit, EventEmitter, Output, HostListener } from '@angular/core';
+import {
+  Directive,
+  Input,
+  ViewChild,
+  ElementRef,
+  AfterViewInit,
+  EventEmitter,
+  Output,
+  HostListener,
+} from '@angular/core';
 import { environment } from '../../environments/environment';
-import { ApiService } from '../services/api.service'
-declare var StripeCheckout:any;
+import { ApiService } from '../services/api.service';
+declare var StripeCheckout: any;
 
 @Directive({
-  selector: '[stripeCheckoutButton]'
+  selector: '[stripeCheckoutButton]',
 })
 export class StripeCheckoutButtonDirective {
-
   @Output() onCheckout: EventEmitter<any> = new EventEmitter();
-  @Input() planName : string;
+  @Input() planName: string;
   @Input() planId: string;
-  @Input() planCost : number;
+  @Input() planCost: number;
 
   handler: any;
 
-  elt:ElementRef
+  elt: ElementRef;
   constructor(_elt: ElementRef, private apiService: ApiService) {
     this.elt = _elt;
   }
 
   ngAfterViewInit() {
-
     var self = this;
 
     this.handler = StripeCheckout.configure({
@@ -33,8 +40,8 @@ export class StripeCheckoutButtonDirective {
       token: function(token) {
         // You can access the token ID with `token.id`.
         // Get the token ID to your server-side code for use.
-        self.onCheckout.emit({token:token, planId:self.planId})
-      }
+        self.onCheckout.emit({ token: token, planId: self.planId });
+      },
     });
   }
 
@@ -45,11 +52,8 @@ export class StripeCheckoutButtonDirective {
       description: this.planName,
       amount: this.planCost,
       panelLabel: 'Subscribe',
-      email: this.apiService.tokenPayload().email
+      email: this.apiService.tokenPayload().email,
     });
     event.preventDefault();
   }
-
-
-
 }

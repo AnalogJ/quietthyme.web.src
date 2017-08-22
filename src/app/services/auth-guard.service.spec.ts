@@ -6,11 +6,14 @@ import { AuthGuardService } from './auth-guard.service';
 describe('AuthGuardService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [AuthGuardService]
+      providers: [AuthGuardService],
     });
   });
 
-  it('should ...', inject([AuthGuardService], (service: AuthGuardService) => {
-    expect(service).toBeTruthy();
-  }));
+  it(
+    'should ...',
+    inject([AuthGuardService], (service: AuthGuardService) => {
+      expect(service).toBeTruthy();
+    })
+  );
 });
