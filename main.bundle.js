@@ -75,11 +75,10 @@ var AccountLoginComponent = (function () {
         this.activatedRoute = activatedRoute;
         this.loading = {
             login: false,
-            oauth: true
+            oauth: true,
         };
     }
-    AccountLoginComponent.prototype.ngOnInit = function () {
-    };
+    AccountLoginComponent.prototype.ngOnInit = function () { };
     AccountLoginComponent.prototype.login = function () {
         var _this = this;
         if (this.loading.login)
@@ -88,7 +87,8 @@ var AccountLoginComponent = (function () {
         this.slimLoadingBarService.start(function () {
             console.log('Loading complete');
         });
-        this.apiService.authLogin(this.loginEmail, this.loginPassword)
+        this.apiService
+            .authLogin(this.loginEmail, this.loginPassword)
             .finally(function () {
             _this.loading.login = false;
             _this.slimLoadingBarService.complete();
@@ -97,12 +97,16 @@ var AccountLoginComponent = (function () {
             localStorage.setItem('id_token', data.token); //set the JWT token
             _this.uservoiceService.identify();
             if (_this.activatedRoute.snapshot.params['requested']) {
-                _this.router.navigate([_this.activatedRoute.snapshot.params['requested']]);
+                _this.router.navigate([
+                    _this.activatedRoute.snapshot.params['requested'],
+                ]);
             }
             else {
                 _this.router.navigate(['/storage']);
             }
-        }, function (error) { _this.notificationService.show("An error occurred!", error); });
+        }, function (error) {
+            _this.notificationService.show('An error occurred!', error);
+        });
     };
     return AccountLoginComponent;
 }());
@@ -110,7 +114,7 @@ AccountLoginComponent = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-account-login',
         template: __webpack_require__("../../../../../src/app/account-login/account-login.component.html"),
-        styles: [__webpack_require__("../../../../../src/app/account-login/account-login.component.less")]
+        styles: [__webpack_require__("../../../../../src/app/account-login/account-login.component.less")],
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_5_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__services_uservoice_service__["a" /* UservoiceService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_uservoice_service__["a" /* UservoiceService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__services_notification_service__["a" /* NotificationService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_notification_service__["a" /* NotificationService */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_4__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__angular_router__["b" /* Router */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_4__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__angular_router__["a" /* ActivatedRoute */]) === "function" && _f || Object])
 ], AccountLoginComponent);
@@ -182,15 +186,15 @@ var AccountRegisterPlanComponent = (function () {
             setPlan: false,
         };
     }
-    AccountRegisterPlanComponent.prototype.ngOnInit = function () {
-    };
+    AccountRegisterPlanComponent.prototype.ngOnInit = function () { };
     AccountRegisterPlanComponent.prototype.stripeCheckoutCompleted = function (stripeCheckoutData) {
         var _this = this;
         console.log(stripeCheckoutData);
         if (this.loading.setPlan)
             return;
         this.slimLoadingBarService.start();
-        this.apiService.userPlan(stripeCheckoutData)
+        this.apiService
+            .userPlan(stripeCheckoutData)
             .finally(function () {
             _this.loading.setPlan = false;
             _this.slimLoadingBarService.complete();
@@ -202,7 +206,9 @@ var AccountRegisterPlanComponent = (function () {
             _this.uservoiceService.identify();
             //redirect user to storage page
             _this.router.navigate(['/storage']);
-        }, function (error) { _this.notificationService.show("An error occurred!", error); });
+        }, function (error) {
+            _this.notificationService.show('An error occurred!', error);
+        });
     };
     return AccountRegisterPlanComponent;
 }());
@@ -210,7 +216,7 @@ AccountRegisterPlanComponent = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-account-register-plan',
         template: __webpack_require__("../../../../../src/app/account-register-plan/account-register-plan.component.html"),
-        styles: [__webpack_require__("../../../../../src/app/account-register-plan/account-register-plan.component.less")]
+        styles: [__webpack_require__("../../../../../src/app/account-register-plan/account-register-plan.component.less")],
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__services_uservoice_service__["a" /* UservoiceService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_uservoice_service__["a" /* UservoiceService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4__services_notification_service__["a" /* NotificationService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__services_notification_service__["a" /* NotificationService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__services_api_service__["a" /* ApiService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_api_service__["a" /* ApiService */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_5__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__angular_router__["b" /* Router */]) === "function" && _e || Object])
 ], AccountRegisterPlanComponent);
@@ -281,11 +287,10 @@ var AccountRegisterComponent = (function () {
         this.activatedRoute = activatedRoute;
         this.loading = {
             register: false,
-            oauth: false
+            oauth: false,
         };
     }
-    AccountRegisterComponent.prototype.ngOnInit = function () {
-    };
+    AccountRegisterComponent.prototype.ngOnInit = function () { };
     AccountRegisterComponent.prototype.register = function () {
         var _this = this;
         if (this.loading.register)
@@ -294,7 +299,8 @@ var AccountRegisterComponent = (function () {
         this.slimLoadingBarService.start(function () {
             console.log('Loading complete');
         });
-        this.apiService.authRegister(this.regName, this.regEmail, this.regPassword)
+        this.apiService
+            .authRegister(this.regName, this.regEmail, this.regPassword)
             .finally(function () {
             _this.loading.register = false;
             _this.slimLoadingBarService.complete();
@@ -305,7 +311,7 @@ var AccountRegisterComponent = (function () {
             _this.uservoiceService.identify();
             _this.router.navigate(['/register/plan']);
         }, function (error) {
-            _this.notificationService.show("An error occurred!", error);
+            _this.notificationService.show('An error occurred!', error);
         });
     };
     return AccountRegisterComponent;
@@ -314,7 +320,7 @@ AccountRegisterComponent = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-account-register',
         template: __webpack_require__("../../../../../src/app/account-register/account-register.component.html"),
-        styles: [__webpack_require__("../../../../../src/app/account-register/account-register.component.less")]
+        styles: [__webpack_require__("../../../../../src/app/account-register/account-register.component.less")],
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_5_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__services_uservoice_service__["a" /* UservoiceService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_uservoice_service__["a" /* UservoiceService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__services_notification_service__["a" /* NotificationService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_notification_service__["a" /* NotificationService */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_4__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__angular_router__["b" /* Router */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_4__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__angular_router__["a" /* ActivatedRoute */]) === "function" && _f || Object])
 ], AccountRegisterComponent);
@@ -336,12 +342,16 @@ var AppSettings = (function () {
     function AppSettings() {
     }
     Object.defineProperty(AppSettings, "API_ENDPOINT", {
-        get: function () { return 'https://api.quietthyme.com/' + __WEBPACK_IMPORTED_MODULE_0__environments_environment__["a" /* environment */].apiVersion; },
+        get: function () {
+            return 'https://api.quietthyme.com/' + __WEBPACK_IMPORTED_MODULE_0__environments_environment__["a" /* environment */].apiVersion;
+        },
         enumerable: true,
         configurable: true
     });
     Object.defineProperty(AppSettings, "CATALOG_ENDPOINT", {
-        get: function () { return 'https://catalog.quietthyme.com/' + __WEBPACK_IMPORTED_MODULE_0__environments_environment__["a" /* environment */].apiVersion; },
+        get: function () {
+            return 'https://catalog.quietthyme.com/' + __WEBPACK_IMPORTED_MODULE_0__environments_environment__["a" /* environment */].apiVersion;
+        },
         enumerable: true,
         configurable: true
     });
@@ -362,31 +372,31 @@ var AppSettings = (function () {
     Object.defineProperty(AppSettings, "STORAGE_DETAILS", {
         get: function () {
             return {
-                'quietthyme': {
-                    'display_name': 'QuietThyme',
-                    'details': 'This storage type is not available during beta.',
-                    'blackhole_path': null
+                quietthyme: {
+                    display_name: 'QuietThyme',
+                    details: 'This storage type is not available during beta.',
+                    blackhole_path: null,
                 },
-                'box': {
-                    'display_name': 'Box',
-                    'details': 'Manage content across your business; from simple file sharing to building custom apps.',
-                    'blackhole_path': 'QuietThyme/blackhole'
+                box: {
+                    display_name: 'Box',
+                    details: 'Manage content across your business; from simple file sharing to building custom apps.',
+                    blackhole_path: 'QuietThyme/blackhole',
                 },
-                'dropbox': {
-                    'display_name': 'Dropbox',
-                    'details': 'A file backup, sync, and sharing solution used by more than 500 million users.',
-                    'blackhole_path': 'Apps/QuietThyme/blackhole'
+                dropbox: {
+                    display_name: 'Dropbox',
+                    details: 'A file backup, sync, and sharing solution used by more than 500 million users.',
+                    blackhole_path: 'Apps/QuietThyme/blackhole',
                 },
-                'skydrive': {
-                    'display_name': 'OneDrive',
-                    'details': 'Get to your files and photos from anywhere, on any device. Share and work together with anyone in your work and life.',
-                    'blackhole_path': 'QuietThyme/blackhole'
+                skydrive: {
+                    display_name: 'OneDrive',
+                    details: 'Get to your files and photos from anywhere, on any device. Share and work together with anyone in your work and life.',
+                    blackhole_path: 'QuietThyme/blackhole',
                 },
-                'gdrive': {
-                    'display_name': 'Google Drive',
-                    'details': 'Get access to files anywhere through secure cloud storage and file backup for your photos, videos, files and more with Google Drive.',
-                    'blackhole_path': 'QuietThyme/blackhole'
-                }
+                gdrive: {
+                    display_name: 'Google Drive',
+                    details: 'Get access to files anywhere through secure cloud storage and file backup for your photos, videos, files and more with Google Drive.',
+                    blackhole_path: 'QuietThyme/blackhole',
+                },
             };
         },
         enumerable: true,
@@ -454,7 +464,7 @@ AppComponent = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-root',
         template: __webpack_require__("../../../../../src/app/app.component.html"),
-        styles: [__webpack_require__("../../../../../src/app/app.component.css")]
+        styles: [__webpack_require__("../../../../../src/app/app.component.css")],
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewContainerRef"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewContainerRef"]) === "function" && _a || Object])
 ], AppComponent);
@@ -560,8 +570,8 @@ function getAuthHttp(http, options) {
         tokenName: 'id_token',
         noJwtError: true,
         headerPrefix: 'JWT',
-        tokenGetter: (function () { return localStorage.getItem('id_token'); }),
-        globalHeaders: [{ 'Content-Type': 'application/json' }]
+        tokenGetter: function () { return localStorage.getItem('id_token'); },
+        globalHeaders: [{ 'Content-Type': 'application/json' }],
     }), http, options);
 }
 var AppModule = (function () {
@@ -590,7 +600,7 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_32__account_register_plan_account_register_plan_component__["a" /* AccountRegisterPlanComponent */],
             __WEBPACK_IMPORTED_MODULE_17__partials_opds_panel_opds_panel_component__["a" /* OpdsPanelComponent */],
             __WEBPACK_IMPORTED_MODULE_35__terms_terms_component__["a" /* TermsComponent */],
-            __WEBPACK_IMPORTED_MODULE_36__partials_notification_notification_component__["a" /* NotificationComponent */]
+            __WEBPACK_IMPORTED_MODULE_36__partials_notification_notification_component__["a" /* NotificationComponent */],
         ],
         imports: [
             __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
@@ -610,20 +620,44 @@ AppModule = __decorate([
                 { path: 'privacy', component: __WEBPACK_IMPORTED_MODULE_16__privacy_privacy_component__["a" /* PrivacyComponent */] },
                 { path: 'terms', component: __WEBPACK_IMPORTED_MODULE_35__terms_terms_component__["a" /* TermsComponent */] },
                 //Auth Endpoints
-                { path: 'register/plan', component: __WEBPACK_IMPORTED_MODULE_32__account_register_plan_account_register_plan_component__["a" /* AccountRegisterPlanComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_22__services_auth_guard_service__["a" /* AuthGuard */]] },
-                { path: 'storage', component: __WEBPACK_IMPORTED_MODULE_11__storage_storage_component__["a" /* StorageComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_22__services_auth_guard_service__["a" /* AuthGuard */]] },
-                { path: 'settings', component: __WEBPACK_IMPORTED_MODULE_15__settings_settings_component__["a" /* SettingsComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_22__services_auth_guard_service__["a" /* AuthGuard */]] },
-                { path: 'storage/:source', component: __WEBPACK_IMPORTED_MODULE_11__storage_storage_component__["a" /* StorageComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_22__services_auth_guard_service__["a" /* AuthGuard */]] },
-                { path: 'library', component: __WEBPACK_IMPORTED_MODULE_12__library_library_component__["a" /* LibraryComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_22__services_auth_guard_service__["a" /* AuthGuard */]] },
-                { path: 'book/:bookId', component: __WEBPACK_IMPORTED_MODULE_13__book_details_book_details_component__["a" /* BookDetailsComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_22__services_auth_guard_service__["a" /* AuthGuard */]] },
+                {
+                    path: 'register/plan',
+                    component: __WEBPACK_IMPORTED_MODULE_32__account_register_plan_account_register_plan_component__["a" /* AccountRegisterPlanComponent */],
+                    canActivate: [__WEBPACK_IMPORTED_MODULE_22__services_auth_guard_service__["a" /* AuthGuard */]],
+                },
+                {
+                    path: 'storage',
+                    component: __WEBPACK_IMPORTED_MODULE_11__storage_storage_component__["a" /* StorageComponent */],
+                    canActivate: [__WEBPACK_IMPORTED_MODULE_22__services_auth_guard_service__["a" /* AuthGuard */]],
+                },
+                {
+                    path: 'settings',
+                    component: __WEBPACK_IMPORTED_MODULE_15__settings_settings_component__["a" /* SettingsComponent */],
+                    canActivate: [__WEBPACK_IMPORTED_MODULE_22__services_auth_guard_service__["a" /* AuthGuard */]],
+                },
+                {
+                    path: 'storage/:source',
+                    component: __WEBPACK_IMPORTED_MODULE_11__storage_storage_component__["a" /* StorageComponent */],
+                    canActivate: [__WEBPACK_IMPORTED_MODULE_22__services_auth_guard_service__["a" /* AuthGuard */]],
+                },
+                {
+                    path: 'library',
+                    component: __WEBPACK_IMPORTED_MODULE_12__library_library_component__["a" /* LibraryComponent */],
+                    canActivate: [__WEBPACK_IMPORTED_MODULE_22__services_auth_guard_service__["a" /* AuthGuard */]],
+                },
+                {
+                    path: 'book/:bookId',
+                    component: __WEBPACK_IMPORTED_MODULE_13__book_details_book_details_component__["a" /* BookDetailsComponent */],
+                    canActivate: [__WEBPACK_IMPORTED_MODULE_22__services_auth_guard_service__["a" /* AuthGuard */]],
+                },
                 // { path: 'project/create', component: ProjectCreateComponent, canActivate: [AuthGuard] },
                 // { path: 'project/:serviceType/:orgId/:repoId/edit', component: ProjectEditComponent, canActivate: [AuthGuard] },
                 // { path: 'project/:serviceType/:orgId/:repoId/pullrequests/:prNumber', component: ProjectDeployComponent, canActivate: [AuthGuard] },
                 // { path: 'project/:serviceType/:orgId/:repoId/pullrequests/:prNumber/logs', component: ProjectDeployLogsComponent, canActivate: [AuthGuard] },
                 { path: '', pathMatch: 'full', redirectTo: 'storage' },
                 // { path: '**', component: PageNotFoundComponent }
-                { path: '**', redirectTo: 'login' }
-            ])
+                { path: '**', redirectTo: 'login' },
+            ]),
         ],
         providers: [
             __WEBPACK_IMPORTED_MODULE_20__services_api_service__["a" /* ApiService */],
@@ -634,10 +668,10 @@ AppModule = __decorate([
             {
                 provide: __WEBPACK_IMPORTED_MODULE_25_angular2_jwt__["AuthHttp"],
                 useFactory: getAuthHttp,
-                deps: [__WEBPACK_IMPORTED_MODULE_3__angular_http__["Http"], __WEBPACK_IMPORTED_MODULE_3__angular_http__["RequestOptions"]]
-            }
+                deps: [__WEBPACK_IMPORTED_MODULE_3__angular_http__["Http"], __WEBPACK_IMPORTED_MODULE_3__angular_http__["RequestOptions"]],
+            },
         ],
-        bootstrap: [__WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* AppComponent */]]
+        bootstrap: [__WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* AppComponent */]],
     })
 ], AppModule);
 
@@ -706,14 +740,15 @@ var BookDetailsComponent = (function () {
         this.activatedRoute = activatedRoute;
         this.loading = {
             info: false,
-            download: false
+            download: false,
         };
     }
     BookDetailsComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.slimLoadingBarService.start();
         this.loading.info = true;
-        this.apiService.book(this.activatedRoute.snapshot.params['bookId'])
+        this.apiService
+            .book(this.activatedRoute.snapshot.params['bookId'])
             .finally(function () {
             _this.loading.info = false;
             _this.slimLoadingBarService.complete();
@@ -721,7 +756,9 @@ var BookDetailsComponent = (function () {
             .subscribe(function (book) {
             console.log(book);
             _this.book = book;
-        }, function (error) { _this.notificationService.show("An error occurred!", error); });
+        }, function (error) {
+            _this.notificationService.show('An error occurred!', error);
+        });
     };
     BookDetailsComponent.prototype.downloadBook = function () {
         var _this = this;
@@ -731,7 +768,8 @@ var BookDetailsComponent = (function () {
         }
         this.loading.download = true;
         this.slimLoadingBarService.start();
-        this.apiService.download(this.book.id)
+        this.apiService
+            .download(this.book.id)
             .finally(function () {
             _this.loading.download = false;
             _this.slimLoadingBarService.complete();
@@ -739,9 +777,11 @@ var BookDetailsComponent = (function () {
             .subscribe(function (response) {
             var filename = _this.book.storage_filename + _this.book.storage_format;
             var file = response.blob();
-            console.log(file.size + " bytes file downloaded. File type: ", file.type);
+            console.log(file.size + ' bytes file downloaded. File type: ', file.type);
             __WEBPACK_IMPORTED_MODULE_5_file_saver__["saveAs"](file, filename);
-        }, function (error) { _this.notificationService.show("An error occurred!", error); });
+        }, function (error) {
+            _this.notificationService.show('An error occurred!', error);
+        });
     };
     return BookDetailsComponent;
 }());
@@ -749,7 +789,7 @@ BookDetailsComponent = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-book-details',
         template: __webpack_require__("../../../../../src/app/book-details/book-details.component.html"),
-        styles: [__webpack_require__("../../../../../src/app/book-details/book-details.component.less")]
+        styles: [__webpack_require__("../../../../../src/app/book-details/book-details.component.less")],
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4__services_notification_service__["a" /* NotificationService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__services_notification_service__["a" /* NotificationService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* ActivatedRoute */]) === "function" && _e || Object])
 ], BookDetailsComponent);
@@ -823,20 +863,20 @@ var LibraryComponent = (function () {
         this.loading = {
             list: false,
             download: {},
-            status: false
+            status: false,
         };
         this.filter = {
             sort: null,
             storage: null,
             storage_id: null,
-            page: ''
+            page: '',
         };
         this.connected = {
             quietthyme: false,
             dropbox: false,
             gdrive: false,
             skydrive: false,
-            box: false
+            box: false,
         };
         this.storages = {};
     }
@@ -848,7 +888,7 @@ var LibraryComponent = (function () {
         // });
     };
     LibraryComponent.prototype.onScroll = function () {
-        console.log("SCROLLING");
+        console.log('SCROLLING');
         this.getBookList();
     };
     LibraryComponent.prototype.getStorage = function () {
@@ -856,7 +896,8 @@ var LibraryComponent = (function () {
         var self = this;
         this.loading.status = true;
         this.slimLoadingBarService.start();
-        this.apiService.storageStatus()
+        this.apiService
+            .storageStatus()
             .finally(function () {
             _this.loading.status = false;
             _this.slimLoadingBarService.complete();
@@ -867,17 +908,20 @@ var LibraryComponent = (function () {
                 self.connected[status.storage_type] = true;
                 self.storages[status.storage_type] = status;
             });
-        }, function (error) { _this.notificationService.show("An error occurred!", error); });
+        }, function (error) {
+            _this.notificationService.show('An error occurred!', error);
+        });
     };
     LibraryComponent.prototype.getBookList = function () {
         var _this = this;
         if (this.loading.list || this.bookListAll) {
-            console.log("List is already loading, or all books retrieved already. ");
+            console.log('List is already loading, or all books retrieved already. ');
             return;
         }
         this.loading.list = true;
         this.slimLoadingBarService.start();
-        this.apiService.bookList(this.filter)
+        this.apiService
+            .bookList(this.filter)
             .finally(function () {
             _this.loading.list = false;
             _this.slimLoadingBarService.complete();
@@ -886,7 +930,7 @@ var LibraryComponent = (function () {
             console.log(book_data);
             _this.bookList = _this.bookList.concat(book_data.Items);
             _this.filter.page = book_data.LastEvaluatedKey;
-            if (book_data.LastEvaluatedKey == "") {
+            if (book_data.LastEvaluatedKey == '') {
                 //no more books to load:
                 _this.bookListAll = true;
             }
@@ -894,7 +938,9 @@ var LibraryComponent = (function () {
             //     book.cover = encodeURI(book.cover).replace(/%20/g, '+')
             //     return book
             // })
-        }, function (error) { _this.notificationService.show("An error occurred!", error); });
+        }, function (error) {
+            _this.notificationService.show('An error occurred!', error);
+        });
     };
     LibraryComponent.prototype.downloadBook = function (book) {
         var _this = this;
@@ -904,7 +950,8 @@ var LibraryComponent = (function () {
         }
         this.loading.download[book.id] = true;
         this.slimLoadingBarService.start();
-        this.apiService.download(book.id)
+        this.apiService
+            .download(book.id)
             .finally(function () {
             _this.loading.download[book.id] = false;
             _this.slimLoadingBarService.complete();
@@ -912,17 +959,21 @@ var LibraryComponent = (function () {
             .subscribe(function (response) {
             var filename = book.storage_filename + book.storage_format;
             var file = response.blob();
-            console.log(file.size + " bytes file downloaded. File type: ", file.type);
+            console.log(file.size + ' bytes file downloaded. File type: ', file.type);
             __WEBPACK_IMPORTED_MODULE_5_file_saver__["saveAs"](file, filename);
-        }, function (error) { _this.notificationService.show("An error occurred!", error); });
+        }, function (error) {
+            _this.notificationService.show('An error occurred!', error);
+        });
     };
     LibraryComponent.prototype.setStorage = function (storage) {
         if (storage == this.filter.storage)
             return; //user clicked an active filter
         this.filter.storage = storage || null;
-        this.filter.storage_id = this.storages[storage] ? this.storages[storage].storage_id : null;
+        this.filter.storage_id = this.storages[storage]
+            ? this.storages[storage].storage_id
+            : null;
         this.filter.page = '';
-        console.log("CHANGED STORAGE FILTER", this.filter.storage);
+        console.log('CHANGED STORAGE FILTER', this.filter.storage);
         this.bookListAll = false;
         this.bookList = [];
         this.getBookList();
@@ -932,7 +983,7 @@ var LibraryComponent = (function () {
             return; //user clicked an active filter
         this.filter.sort = sort || null;
         this.filter.page = '';
-        console.log("CHANGED SORT FILTER", this.filter.sort);
+        console.log('CHANGED SORT FILTER', this.filter.sort);
         this.bookListAll = false;
         this.bookList = [];
         this.getBookList();
@@ -943,7 +994,7 @@ LibraryComponent = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-library',
         template: __webpack_require__("../../../../../src/app/library/library.component.html"),
-        styles: [__webpack_require__("../../../../../src/app/library/library.component.less")]
+        styles: [__webpack_require__("../../../../../src/app/library/library.component.less")],
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__services_notification_service__["a" /* NotificationService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_notification_service__["a" /* NotificationService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_4_ng2_scrollspy__["ScrollSpyService"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4_ng2_scrollspy__["ScrollSpyService"]) === "function" && _d || Object])
 ], LibraryComponent);
@@ -1012,15 +1063,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var FooterComponent = (function () {
     function FooterComponent() {
     }
-    FooterComponent.prototype.ngOnInit = function () {
-    };
+    FooterComponent.prototype.ngOnInit = function () { };
     return FooterComponent;
 }());
 FooterComponent = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'quietthyme-footer',
         template: __webpack_require__("../../../../../src/app/partials/footer/footer.component.html"),
-        styles: [__webpack_require__("../../../../../src/app/partials/footer/footer.component.less")]
+        styles: [__webpack_require__("../../../../../src/app/partials/footer/footer.component.less")],
     }),
     __metadata("design:paramtypes", [])
 ], FooterComponent);
@@ -1079,8 +1129,7 @@ var HeaderComponent = (function () {
         this.apiService = apiService;
         this.router = router;
     }
-    HeaderComponent.prototype.ngOnInit = function () {
-    };
+    HeaderComponent.prototype.ngOnInit = function () { };
     HeaderComponent.prototype.logout = function () {
         //remove token, and redirect to login page.
         this.apiService.logout();
@@ -1092,7 +1141,7 @@ HeaderComponent = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'quietthyme-header',
         template: __webpack_require__("../../../../../src/app/partials/header/header.component.html"),
-        styles: [__webpack_require__("../../../../../src/app/partials/header/header.component.less")]
+        styles: [__webpack_require__("../../../../../src/app/partials/header/header.component.less")],
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */]) === "function" && _b || Object])
 ], HeaderComponent);
@@ -1153,8 +1202,7 @@ var NotificationComponent = (function () {
     }
     NotificationComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.notificationStateChanged = this.notificationService.notificationState
-            .subscribe(function (state) {
+        this.notificationStateChanged = this.notificationService.notificationState.subscribe(function (state) {
             _this.visible = state.show;
             _this.message = state.message;
             _this.title = state.title;
@@ -1173,7 +1221,7 @@ NotificationComponent = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'quietthyme-notification',
         template: __webpack_require__("../../../../../src/app/partials/notification/notification.component.html"),
-        styles: [__webpack_require__("../../../../../src/app/partials/notification/notification.component.less")]
+        styles: [__webpack_require__("../../../../../src/app/partials/notification/notification.component.less")],
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_notification_service__["a" /* NotificationService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_notification_service__["a" /* NotificationService */]) === "function" && _a || Object])
 ], NotificationComponent);
@@ -1229,7 +1277,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var OpdsPanelComponent = (function () {
     function OpdsPanelComponent(apiService) {
         this.apiService = apiService;
-        this.catalogUrl = "";
+        this.catalogUrl = '';
     }
     OpdsPanelComponent.prototype.ngOnInit = function () {
         this.catalogUrl = this.apiService.catalogUrl();
@@ -1238,15 +1286,15 @@ var OpdsPanelComponent = (function () {
             name: 'granim',
             opacity: [1, 1],
             states: {
-                "default-state": {
+                'default-state': {
                     gradients: [
                         //#4876BD,#5448BD,#8F48BD,#BD48B1
                         ['#4876BD', '#5448BD'],
                         // ['#8F48BD', '#BD48B1'],
-                        ['#238b53', '#669e4b']
-                    ]
-                }
-            }
+                        ['#238b53', '#669e4b'],
+                    ],
+                },
+            },
         });
     };
     return OpdsPanelComponent;
@@ -1255,7 +1303,7 @@ OpdsPanelComponent = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'quietthyme-opds-panel',
         template: __webpack_require__("../../../../../src/app/partials/opds-panel/opds-panel.component.html"),
-        styles: [__webpack_require__("../../../../../src/app/partials/opds-panel/opds-panel.component.less")]
+        styles: [__webpack_require__("../../../../../src/app/partials/opds-panel/opds-panel.component.less")],
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */]) === "function" && _a || Object])
 ], OpdsPanelComponent);
@@ -1327,7 +1375,7 @@ StoragePanelComponent = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'quietthyme-storage-panel',
         template: __webpack_require__("../../../../../src/app/partials/storage-panel/storage-panel.component.html"),
-        styles: [__webpack_require__("../../../../../src/app/partials/storage-panel/storage-panel.component.less")]
+        styles: [__webpack_require__("../../../../../src/app/partials/storage-panel/storage-panel.component.less")],
     }),
     __metadata("design:paramtypes", [])
 ], StoragePanelComponent);
@@ -1381,15 +1429,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var PrivacyComponent = (function () {
     function PrivacyComponent() {
     }
-    PrivacyComponent.prototype.ngOnInit = function () {
-    };
+    PrivacyComponent.prototype.ngOnInit = function () { };
     return PrivacyComponent;
 }());
 PrivacyComponent = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-privacy',
         template: __webpack_require__("../../../../../src/app/privacy/privacy.component.html"),
-        styles: [__webpack_require__("../../../../../src/app/privacy/privacy.component.less")]
+        styles: [__webpack_require__("../../../../../src/app/privacy/privacy.component.less")],
     }),
     __metadata("design:paramtypes", [])
 ], PrivacyComponent);
@@ -1477,7 +1524,7 @@ var ApiService = (function () {
     /////////////////////////////////////////////////////////////////////////////
     ApiService.prototype.extractData = function (res) {
         var body = res.json();
-        console.log("RAW BODY", body);
+        console.log('RAW BODY', body);
         return body.data || {};
     };
     ApiService.prototype.handleError = function (error) {
@@ -1513,18 +1560,20 @@ var ApiService = (function () {
         localStorage.removeItem('id_token');
     };
     ApiService.prototype.authRegister = function (name, email, password) {
-        return this.http.post(__WEBPACK_IMPORTED_MODULE_4__app_settings__["a" /* AppSettings */].API_ENDPOINT + "/auth/register", {
-            "name": name,
-            "email": email,
-            "password": password
+        return this.http
+            .post(__WEBPACK_IMPORTED_MODULE_4__app_settings__["a" /* AppSettings */].API_ENDPOINT + "/auth/register", {
+            name: name,
+            email: email,
+            password: password,
         })
             .map(this.extractData)
             .catch(this.handleError);
     };
     ApiService.prototype.authLogin = function (email, password) {
-        return this.http.post(__WEBPACK_IMPORTED_MODULE_4__app_settings__["a" /* AppSettings */].API_ENDPOINT + "/auth/login", {
-            "email": email,
-            "password": password
+        return this.http
+            .post(__WEBPACK_IMPORTED_MODULE_4__app_settings__["a" /* AppSettings */].API_ENDPOINT + "/auth/login", {
+            email: email,
+            password: password,
         })
             .map(this.extractData)
             .catch(this.handleError);
@@ -1538,20 +1587,21 @@ var ApiService = (function () {
     };
     ApiService.prototype.userPlan = function (stripePlanData) {
         var url = __WEBPACK_IMPORTED_MODULE_4__app_settings__["a" /* AppSettings */].API_ENDPOINT + "/user/plan";
-        return this.authHttp.post(url, stripePlanData)
+        return this.authHttp
+            .post(url, stripePlanData)
             .map(this.extractData)
             .catch(this.handleError);
     };
     ApiService.prototype.storageStatus = function () {
         var url = __WEBPACK_IMPORTED_MODULE_4__app_settings__["a" /* AppSettings */].API_ENDPOINT + "/storage/status";
         var cacheKey = this.cacheKey('GET', url);
-        return this.cacheService.get(cacheKey) || this.cacheService.put(cacheKey, this.authHttp.get(url)
-            .map(this.extractData)
-            .catch(this.handleError));
+        return (this.cacheService.get(cacheKey) ||
+            this.cacheService.put(cacheKey, this.authHttp.get(url).map(this.extractData).catch(this.handleError)));
     };
     ApiService.prototype.storageLink = function (kloudlessData) {
         //TODO: this should bust the /storage/status cache
-        return this.authHttp.post(__WEBPACK_IMPORTED_MODULE_4__app_settings__["a" /* AppSettings */].API_ENDPOINT + "/storage/link", kloudlessData)
+        return this.authHttp
+            .post(__WEBPACK_IMPORTED_MODULE_4__app_settings__["a" /* AppSettings */].API_ENDPOINT + "/storage/link", kloudlessData)
             .map(this.extractData)
             .catch(this.handleError);
     };
@@ -1567,26 +1617,31 @@ var ApiService = (function () {
         if (filter.page)
             params.set('page', filter.page.toString());
         var cacheKey = this.cacheKey('GET', url, params);
-        return this.cacheService.get(cacheKey) || this.cacheService.put(cacheKey, this.authHttp.get(url, { search: params })
-            .map(this.extractData)
-            .catch(this.handleError));
+        return (this.cacheService.get(cacheKey) ||
+            this.cacheService.put(cacheKey, this.authHttp
+                .get(url, { search: params })
+                .map(this.extractData)
+                .catch(this.handleError)));
     };
     ApiService.prototype.book = function (bookId) {
         var url = __WEBPACK_IMPORTED_MODULE_4__app_settings__["a" /* AppSettings */].API_ENDPOINT + "/book";
         var params = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["URLSearchParams"]();
         params.set('id', bookId.toString());
         var cacheKey = this.cacheKey('GET', url, params);
-        return this.cacheService.get(cacheKey) || this.cacheService.put(cacheKey, this.authHttp.get(url, { search: params })
-            .map(this.extractData)
-            .catch(this.handleError));
+        return (this.cacheService.get(cacheKey) ||
+            this.cacheService.put(cacheKey, this.authHttp
+                .get(url, { search: params })
+                .map(this.extractData)
+                .catch(this.handleError)));
     };
     ApiService.prototype.download = function (bookId) {
         var _this = this;
         //http://stackoverflow.com/a/41252342
-        var headers = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["Headers"]({ 'Accept': '*' });
+        var headers = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["Headers"]({ Accept: '*' });
         var options = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["RequestOptions"]({ headers: headers });
         options.responseType = __WEBPACK_IMPORTED_MODULE_2__angular_http__["ResponseContentType"].Blob;
-        return this.authHttp.get(__WEBPACK_IMPORTED_MODULE_4__app_settings__["a" /* AppSettings */].API_ENDPOINT + "/storage/" + bookId)
+        return this.authHttp
+            .get(__WEBPACK_IMPORTED_MODULE_4__app_settings__["a" /* AppSettings */].API_ENDPOINT + "/storage/" + bookId)
             .map(this.extractData)
             .flatMap(function (resp) { return _this.http.get(resp.url, options); })
             .catch(this.handleError);
@@ -1636,7 +1691,7 @@ var AuthGuard = (function () {
             }
             else if (this.apiService.tokenPayload().plan == 'none') {
                 //user doesnt have a plan, redirec them to the settings page.
-                console.log("No plan, redirecting to /register/plan page.");
+                console.log('No plan, redirecting to /register/plan page.');
                 this.router.navigate(['/register/plan']);
                 return false;
             }
@@ -1646,7 +1701,7 @@ var AuthGuard = (function () {
         }
         else {
             console.log(route, state);
-            this.router.navigate(['/login', { 'requested': state.url }]);
+            this.router.navigate(['/login', { requested: state.url }]);
             return false;
         }
     };
@@ -1741,7 +1796,7 @@ var NotificationService = (function () {
         if (prior) {
             return prior;
         }
-        console.log("created global notification service");
+        console.log('created global notification service');
     }
     NotificationService.prototype.show = function (title, message) {
         this.notificationSubject.next({ title: title, message: message, show: true });
@@ -1753,7 +1808,8 @@ var NotificationService = (function () {
 }());
 NotificationService = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
-    __param(0, Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Optional"])()), __param(0, Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["SkipSelf"])()),
+    __param(0, Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Optional"])()),
+    __param(0, Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["SkipSelf"])()),
     __metadata("design:paramtypes", [NotificationService])
 ], NotificationService);
 
@@ -1796,15 +1852,16 @@ var UservoiceService = (function () {
                 id: tokenPayload.uid,
                 type: tokenPayload.plan,
                 account: {
+                    // Account traits are only available on some plans
                     // id:           123, // Optional: associate multiple users with a single account
                     name: tokenPayload.name,
                     // created_at:   1364406966, // Unix timestamp for the date the account was created
                     // monthly_rate: 9.99, // Decimal; monthly rate of the account
                     // ltv:          1495.00, // Decimal; lifetime value of the account
-                    plan: tokenPayload.plan // Plan name for the account
-                }
+                    plan: tokenPayload.plan,
+                },
             };
-            console.log("User:", uservoicePayload);
+            console.log('User:', uservoicePayload);
             UserVoice.push(['identify', uservoicePayload]);
         }
         catch (e) {
@@ -1879,7 +1936,7 @@ var SettingsComponent = (function () {
         this.loading = {
             setPlan: false,
         };
-        this.catalogUrl = "";
+        this.catalogUrl = '';
     }
     SettingsComponent.prototype.ngOnInit = function () {
         this.userData = this.apiService.tokenPayload();
@@ -1889,117 +1946,202 @@ var SettingsComponent = (function () {
     SettingsComponent.prototype.gravatarUrl = function (email, size) {
         // MD5 (Message-Digest Algorithm) by WebToolkit
         //
-        var MD5 = function (s) { function L(k, d) { return (k << d) | (k >>> (32 - d)); } function K(G, k) { var I, d, F, H, x; F = (G & 2147483648); H = (k & 2147483648); I = (G & 1073741824); d = (k & 1073741824); x = (G & 1073741823) + (k & 1073741823); if (I & d) {
-            return (x ^ 2147483648 ^ F ^ H);
-        } if (I | d) {
-            if (x & 1073741824) {
-                return (x ^ 3221225472 ^ F ^ H);
+        var MD5 = function (s) {
+            function L(k, d) {
+                return (k << d) | (k >>> (32 - d));
             }
-            else {
-                return (x ^ 1073741824 ^ F ^ H);
-            }
-        }
-        else {
-            return (x ^ F ^ H);
-        } } function r(d, F, k) { return (d & F) | ((~d) & k); } function q(d, F, k) { return (d & k) | (F & (~k)); } function p(d, F, k) { return (d ^ F ^ k); } function n(d, F, k) { return (F ^ (d | (~k))); } function u(G, F, aa, Z, k, H, I) { G = K(G, K(K(r(F, aa, Z), k), I)); return K(L(G, H), F); } function f(G, F, aa, Z, k, H, I) { G = K(G, K(K(q(F, aa, Z), k), I)); return K(L(G, H), F); } function D(G, F, aa, Z, k, H, I) { G = K(G, K(K(p(F, aa, Z), k), I)); return K(L(G, H), F); } function t(G, F, aa, Z, k, H, I) { G = K(G, K(K(n(F, aa, Z), k), I)); return K(L(G, H), F); } function e(G) { var Z; var F = G.length; var x = F + 8; var k = (x - (x % 64)) / 64; var I = (k + 1) * 16; var aa = Array(I - 1); var d = 0; var H = 0; while (H < F) {
-            Z = (H - (H % 4)) / 4;
-            d = (H % 4) * 8;
-            aa[Z] = (aa[Z] | (G.charCodeAt(H) << d));
-            H++;
-        } Z = (H - (H % 4)) / 4; d = (H % 4) * 8; aa[Z] = aa[Z] | (128 << d); aa[I - 2] = F << 3; aa[I - 1] = F >>> 29; return aa; } function B(x) { var k = "", F = "", G, d; for (d = 0; d <= 3; d++) {
-            G = (x >>> (d * 8)) & 255;
-            F = "0" + G.toString(16);
-            k = k + F.substr(F.length - 2, 2);
-        } return k; } function J(k) { k = k.replace(/rn/g, "n"); var d = ""; for (var F = 0; F < k.length; F++) {
-            var x = k.charCodeAt(F);
-            if (x < 128) {
-                d += String.fromCharCode(x);
-            }
-            else {
-                if ((x > 127) && (x < 2048)) {
-                    d += String.fromCharCode((x >> 6) | 192);
-                    d += String.fromCharCode((x & 63) | 128);
+            function K(G, k) {
+                var I, d, F, H, x;
+                F = G & 2147483648;
+                H = k & 2147483648;
+                I = G & 1073741824;
+                d = k & 1073741824;
+                x = (G & 1073741823) + (k & 1073741823);
+                if (I & d) {
+                    return x ^ 2147483648 ^ F ^ H;
+                }
+                if (I | d) {
+                    if (x & 1073741824) {
+                        return x ^ 3221225472 ^ F ^ H;
+                    }
+                    else {
+                        return x ^ 1073741824 ^ F ^ H;
+                    }
                 }
                 else {
-                    d += String.fromCharCode((x >> 12) | 224);
-                    d += String.fromCharCode(((x >> 6) & 63) | 128);
-                    d += String.fromCharCode((x & 63) | 128);
+                    return x ^ F ^ H;
                 }
             }
-        } return d; } var C = Array(); var P, h, E, v, g, Y, X, W, V; var S = 7, Q = 12, N = 17, M = 22; var A = 5, z = 9, y = 14, w = 20; var o = 4, m = 11, l = 16, j = 23; var U = 6, T = 10, R = 15, O = 21; s = J(s); C = e(s); Y = 1732584193; X = 4023233417; W = 2562383102; V = 271733878; for (P = 0; P < C.length; P += 16) {
-            h = Y;
-            E = X;
-            v = W;
-            g = V;
-            Y = u(Y, X, W, V, C[P + 0], S, 3614090360);
-            V = u(V, Y, X, W, C[P + 1], Q, 3905402710);
-            W = u(W, V, Y, X, C[P + 2], N, 606105819);
-            X = u(X, W, V, Y, C[P + 3], M, 3250441966);
-            Y = u(Y, X, W, V, C[P + 4], S, 4118548399);
-            V = u(V, Y, X, W, C[P + 5], Q, 1200080426);
-            W = u(W, V, Y, X, C[P + 6], N, 2821735955);
-            X = u(X, W, V, Y, C[P + 7], M, 4249261313);
-            Y = u(Y, X, W, V, C[P + 8], S, 1770035416);
-            V = u(V, Y, X, W, C[P + 9], Q, 2336552879);
-            W = u(W, V, Y, X, C[P + 10], N, 4294925233);
-            X = u(X, W, V, Y, C[P + 11], M, 2304563134);
-            Y = u(Y, X, W, V, C[P + 12], S, 1804603682);
-            V = u(V, Y, X, W, C[P + 13], Q, 4254626195);
-            W = u(W, V, Y, X, C[P + 14], N, 2792965006);
-            X = u(X, W, V, Y, C[P + 15], M, 1236535329);
-            Y = f(Y, X, W, V, C[P + 1], A, 4129170786);
-            V = f(V, Y, X, W, C[P + 6], z, 3225465664);
-            W = f(W, V, Y, X, C[P + 11], y, 643717713);
-            X = f(X, W, V, Y, C[P + 0], w, 3921069994);
-            Y = f(Y, X, W, V, C[P + 5], A, 3593408605);
-            V = f(V, Y, X, W, C[P + 10], z, 38016083);
-            W = f(W, V, Y, X, C[P + 15], y, 3634488961);
-            X = f(X, W, V, Y, C[P + 4], w, 3889429448);
-            Y = f(Y, X, W, V, C[P + 9], A, 568446438);
-            V = f(V, Y, X, W, C[P + 14], z, 3275163606);
-            W = f(W, V, Y, X, C[P + 3], y, 4107603335);
-            X = f(X, W, V, Y, C[P + 8], w, 1163531501);
-            Y = f(Y, X, W, V, C[P + 13], A, 2850285829);
-            V = f(V, Y, X, W, C[P + 2], z, 4243563512);
-            W = f(W, V, Y, X, C[P + 7], y, 1735328473);
-            X = f(X, W, V, Y, C[P + 12], w, 2368359562);
-            Y = D(Y, X, W, V, C[P + 5], o, 4294588738);
-            V = D(V, Y, X, W, C[P + 8], m, 2272392833);
-            W = D(W, V, Y, X, C[P + 11], l, 1839030562);
-            X = D(X, W, V, Y, C[P + 14], j, 4259657740);
-            Y = D(Y, X, W, V, C[P + 1], o, 2763975236);
-            V = D(V, Y, X, W, C[P + 4], m, 1272893353);
-            W = D(W, V, Y, X, C[P + 7], l, 4139469664);
-            X = D(X, W, V, Y, C[P + 10], j, 3200236656);
-            Y = D(Y, X, W, V, C[P + 13], o, 681279174);
-            V = D(V, Y, X, W, C[P + 0], m, 3936430074);
-            W = D(W, V, Y, X, C[P + 3], l, 3572445317);
-            X = D(X, W, V, Y, C[P + 6], j, 76029189);
-            Y = D(Y, X, W, V, C[P + 9], o, 3654602809);
-            V = D(V, Y, X, W, C[P + 12], m, 3873151461);
-            W = D(W, V, Y, X, C[P + 15], l, 530742520);
-            X = D(X, W, V, Y, C[P + 2], j, 3299628645);
-            Y = t(Y, X, W, V, C[P + 0], U, 4096336452);
-            V = t(V, Y, X, W, C[P + 7], T, 1126891415);
-            W = t(W, V, Y, X, C[P + 14], R, 2878612391);
-            X = t(X, W, V, Y, C[P + 5], O, 4237533241);
-            Y = t(Y, X, W, V, C[P + 12], U, 1700485571);
-            V = t(V, Y, X, W, C[P + 3], T, 2399980690);
-            W = t(W, V, Y, X, C[P + 10], R, 4293915773);
-            X = t(X, W, V, Y, C[P + 1], O, 2240044497);
-            Y = t(Y, X, W, V, C[P + 8], U, 1873313359);
-            V = t(V, Y, X, W, C[P + 15], T, 4264355552);
-            W = t(W, V, Y, X, C[P + 6], R, 2734768916);
-            X = t(X, W, V, Y, C[P + 13], O, 1309151649);
-            Y = t(Y, X, W, V, C[P + 4], U, 4149444226);
-            V = t(V, Y, X, W, C[P + 11], T, 3174756917);
-            W = t(W, V, Y, X, C[P + 2], R, 718787259);
-            X = t(X, W, V, Y, C[P + 9], O, 3951481745);
-            Y = K(Y, h);
-            X = K(X, E);
-            W = K(W, v);
-            V = K(V, g);
-        } var i = B(Y) + B(X) + B(W) + B(V); return i.toLowerCase(); };
+            function r(d, F, k) {
+                return (d & F) | (~d & k);
+            }
+            function q(d, F, k) {
+                return (d & k) | (F & ~k);
+            }
+            function p(d, F, k) {
+                return d ^ F ^ k;
+            }
+            function n(d, F, k) {
+                return F ^ (d | ~k);
+            }
+            function u(G, F, aa, Z, k, H, I) {
+                G = K(G, K(K(r(F, aa, Z), k), I));
+                return K(L(G, H), F);
+            }
+            function f(G, F, aa, Z, k, H, I) {
+                G = K(G, K(K(q(F, aa, Z), k), I));
+                return K(L(G, H), F);
+            }
+            function D(G, F, aa, Z, k, H, I) {
+                G = K(G, K(K(p(F, aa, Z), k), I));
+                return K(L(G, H), F);
+            }
+            function t(G, F, aa, Z, k, H, I) {
+                G = K(G, K(K(n(F, aa, Z), k), I));
+                return K(L(G, H), F);
+            }
+            function e(G) {
+                var Z;
+                var F = G.length;
+                var x = F + 8;
+                var k = (x - x % 64) / 64;
+                var I = (k + 1) * 16;
+                var aa = Array(I - 1);
+                var d = 0;
+                var H = 0;
+                while (H < F) {
+                    Z = (H - H % 4) / 4;
+                    d = H % 4 * 8;
+                    aa[Z] = aa[Z] | (G.charCodeAt(H) << d);
+                    H++;
+                }
+                Z = (H - H % 4) / 4;
+                d = H % 4 * 8;
+                aa[Z] = aa[Z] | (128 << d);
+                aa[I - 2] = F << 3;
+                aa[I - 1] = F >>> 29;
+                return aa;
+            }
+            function B(x) {
+                var k = '', F = '', G, d;
+                for (d = 0; d <= 3; d++) {
+                    G = (x >>> (d * 8)) & 255;
+                    F = '0' + G.toString(16);
+                    k = k + F.substr(F.length - 2, 2);
+                }
+                return k;
+            }
+            function J(k) {
+                k = k.replace(/rn/g, 'n');
+                var d = '';
+                for (var F = 0; F < k.length; F++) {
+                    var x = k.charCodeAt(F);
+                    if (x < 128) {
+                        d += String.fromCharCode(x);
+                    }
+                    else {
+                        if (x > 127 && x < 2048) {
+                            d += String.fromCharCode((x >> 6) | 192);
+                            d += String.fromCharCode((x & 63) | 128);
+                        }
+                        else {
+                            d += String.fromCharCode((x >> 12) | 224);
+                            d += String.fromCharCode(((x >> 6) & 63) | 128);
+                            d += String.fromCharCode((x & 63) | 128);
+                        }
+                    }
+                }
+                return d;
+            }
+            var C = Array();
+            var P, h, E, v, g, Y, X, W, V;
+            var S = 7, Q = 12, N = 17, M = 22;
+            var A = 5, z = 9, y = 14, w = 20;
+            var o = 4, m = 11, l = 16, j = 23;
+            var U = 6, T = 10, R = 15, O = 21;
+            s = J(s);
+            C = e(s);
+            Y = 1732584193;
+            X = 4023233417;
+            W = 2562383102;
+            V = 271733878;
+            for (P = 0; P < C.length; P += 16) {
+                h = Y;
+                E = X;
+                v = W;
+                g = V;
+                Y = u(Y, X, W, V, C[P + 0], S, 3614090360);
+                V = u(V, Y, X, W, C[P + 1], Q, 3905402710);
+                W = u(W, V, Y, X, C[P + 2], N, 606105819);
+                X = u(X, W, V, Y, C[P + 3], M, 3250441966);
+                Y = u(Y, X, W, V, C[P + 4], S, 4118548399);
+                V = u(V, Y, X, W, C[P + 5], Q, 1200080426);
+                W = u(W, V, Y, X, C[P + 6], N, 2821735955);
+                X = u(X, W, V, Y, C[P + 7], M, 4249261313);
+                Y = u(Y, X, W, V, C[P + 8], S, 1770035416);
+                V = u(V, Y, X, W, C[P + 9], Q, 2336552879);
+                W = u(W, V, Y, X, C[P + 10], N, 4294925233);
+                X = u(X, W, V, Y, C[P + 11], M, 2304563134);
+                Y = u(Y, X, W, V, C[P + 12], S, 1804603682);
+                V = u(V, Y, X, W, C[P + 13], Q, 4254626195);
+                W = u(W, V, Y, X, C[P + 14], N, 2792965006);
+                X = u(X, W, V, Y, C[P + 15], M, 1236535329);
+                Y = f(Y, X, W, V, C[P + 1], A, 4129170786);
+                V = f(V, Y, X, W, C[P + 6], z, 3225465664);
+                W = f(W, V, Y, X, C[P + 11], y, 643717713);
+                X = f(X, W, V, Y, C[P + 0], w, 3921069994);
+                Y = f(Y, X, W, V, C[P + 5], A, 3593408605);
+                V = f(V, Y, X, W, C[P + 10], z, 38016083);
+                W = f(W, V, Y, X, C[P + 15], y, 3634488961);
+                X = f(X, W, V, Y, C[P + 4], w, 3889429448);
+                Y = f(Y, X, W, V, C[P + 9], A, 568446438);
+                V = f(V, Y, X, W, C[P + 14], z, 3275163606);
+                W = f(W, V, Y, X, C[P + 3], y, 4107603335);
+                X = f(X, W, V, Y, C[P + 8], w, 1163531501);
+                Y = f(Y, X, W, V, C[P + 13], A, 2850285829);
+                V = f(V, Y, X, W, C[P + 2], z, 4243563512);
+                W = f(W, V, Y, X, C[P + 7], y, 1735328473);
+                X = f(X, W, V, Y, C[P + 12], w, 2368359562);
+                Y = D(Y, X, W, V, C[P + 5], o, 4294588738);
+                V = D(V, Y, X, W, C[P + 8], m, 2272392833);
+                W = D(W, V, Y, X, C[P + 11], l, 1839030562);
+                X = D(X, W, V, Y, C[P + 14], j, 4259657740);
+                Y = D(Y, X, W, V, C[P + 1], o, 2763975236);
+                V = D(V, Y, X, W, C[P + 4], m, 1272893353);
+                W = D(W, V, Y, X, C[P + 7], l, 4139469664);
+                X = D(X, W, V, Y, C[P + 10], j, 3200236656);
+                Y = D(Y, X, W, V, C[P + 13], o, 681279174);
+                V = D(V, Y, X, W, C[P + 0], m, 3936430074);
+                W = D(W, V, Y, X, C[P + 3], l, 3572445317);
+                X = D(X, W, V, Y, C[P + 6], j, 76029189);
+                Y = D(Y, X, W, V, C[P + 9], o, 3654602809);
+                V = D(V, Y, X, W, C[P + 12], m, 3873151461);
+                W = D(W, V, Y, X, C[P + 15], l, 530742520);
+                X = D(X, W, V, Y, C[P + 2], j, 3299628645);
+                Y = t(Y, X, W, V, C[P + 0], U, 4096336452);
+                V = t(V, Y, X, W, C[P + 7], T, 1126891415);
+                W = t(W, V, Y, X, C[P + 14], R, 2878612391);
+                X = t(X, W, V, Y, C[P + 5], O, 4237533241);
+                Y = t(Y, X, W, V, C[P + 12], U, 1700485571);
+                V = t(V, Y, X, W, C[P + 3], T, 2399980690);
+                W = t(W, V, Y, X, C[P + 10], R, 4293915773);
+                X = t(X, W, V, Y, C[P + 1], O, 2240044497);
+                Y = t(Y, X, W, V, C[P + 8], U, 1873313359);
+                V = t(V, Y, X, W, C[P + 15], T, 4264355552);
+                W = t(W, V, Y, X, C[P + 6], R, 2734768916);
+                X = t(X, W, V, Y, C[P + 13], O, 1309151649);
+                Y = t(Y, X, W, V, C[P + 4], U, 4149444226);
+                V = t(V, Y, X, W, C[P + 11], T, 3174756917);
+                W = t(W, V, Y, X, C[P + 2], R, 718787259);
+                X = t(X, W, V, Y, C[P + 9], O, 3951481745);
+                Y = K(Y, h);
+                X = K(X, E);
+                W = K(W, v);
+                V = K(V, g);
+            }
+            var i = B(Y) + B(X) + B(W) + B(V);
+            return i.toLowerCase();
+        };
         var size = size || 100;
         return '//www.gravatar.com/avatar/' + MD5(email) + '.jpg?d=mm&s=' + size;
     };
@@ -2009,7 +2151,7 @@ SettingsComponent = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-settings',
         template: __webpack_require__("../../../../../src/app/settings/settings.component.html"),
-        styles: [__webpack_require__("../../../../../src/app/settings/settings.component.less")]
+        styles: [__webpack_require__("../../../../../src/app/settings/settings.component.less")],
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* ActivatedRoute */]) === "function" && _c || Object])
 ], SettingsComponent);
@@ -2044,14 +2186,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
  */
 var FileSizePipe = (function () {
     function FileSizePipe() {
-        this.units = [
-            'bytes',
-            'KB',
-            'MB',
-            'GB',
-            'TB',
-            'PB'
-        ];
+        this.units = ['bytes', 'KB', 'MB', 'GB', 'TB', 'PB'];
     }
     FileSizePipe.prototype.transform = function (bytes, precision) {
         if (bytes === void 0) { bytes = 0; }
@@ -2103,7 +2238,7 @@ var KloudlessAuthenticatorDirective = (function () {
         var self = this;
         Kloudless.authenticator(this.elt.nativeElement, {
             scope: this.scope,
-            client_id: this.clientId
+            client_id: this.clientId,
         }, function (auth_result) {
             self.onAuthenticated.emit(auth_result);
         });
@@ -2116,7 +2251,7 @@ var KloudlessAuthenticatorDirective = (function () {
             //reinitialize
             Kloudless.authenticator(this.elt.nativeElement, {
                 scope: this.scope,
-                client_id: this.clientId
+                client_id: this.clientId,
             }, function (auth_result) {
                 self.onAuthenticated.emit(auth_result);
             });
@@ -2186,7 +2321,7 @@ var StripeCheckoutButtonDirective = (function () {
                 // You can access the token ID with `token.id`.
                 // Get the token ID to your server-side code for use.
                 self.onCheckout.emit({ token: token, planId: self.planId });
-            }
+            },
         });
     };
     StripeCheckoutButtonDirective.prototype.onClick = function (event) {
@@ -2195,7 +2330,7 @@ var StripeCheckoutButtonDirective = (function () {
             description: this.planName,
             amount: this.planCost,
             panelLabel: 'Subscribe',
-            email: this.apiService.tokenPayload().email
+            email: this.apiService.tokenPayload().email,
         });
         event.preventDefault();
     };
@@ -2225,7 +2360,7 @@ __decorate([
 ], StripeCheckoutButtonDirective.prototype, "onClick", null);
 StripeCheckoutButtonDirective = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Directive"])({
-        selector: '[stripeCheckoutButton]'
+        selector: '[stripeCheckoutButton]',
     }),
     __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__services_api_service__["a" /* ApiService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_api_service__["a" /* ApiService */]) === "function" && _c || Object])
 ], StripeCheckoutButtonDirective);
@@ -2290,18 +2425,20 @@ var StorageComponent = (function () {
         this.notificationService = notificationService;
         this.apiService = apiService;
         this.kloudlessStorageTypes = __WEBPACK_IMPORTED_MODULE_3__app_settings__["a" /* AppSettings */].KLOUDLESS_STORAGE_TYPES;
-        this.connected = [{
+        this.connected = [
+            {
                 free_space: 0,
                 total_space: 0,
-                prefix: "quietthyme://",
-                device_name: "quietthyme",
-                storage_id: "quietthyme",
-                storage_type: "quietthyme",
-                location_code: "main"
-            }];
+                prefix: 'quietthyme://',
+                device_name: 'quietthyme',
+                storage_id: 'quietthyme',
+                storage_type: 'quietthyme',
+                location_code: 'main',
+            },
+        ];
         this.loading = {
             status: false,
-            link: false
+            link: false,
         };
     }
     StorageComponent.prototype.ngOnInit = function () {
@@ -2309,7 +2446,8 @@ var StorageComponent = (function () {
         this.loading.status = true;
         this.slimLoadingBarService.start();
         var self = this;
-        this.apiService.storageStatus()
+        this.apiService
+            .storageStatus()
             .finally(function () {
             _this.loading.status = false;
             _this.slimLoadingBarService.complete();
@@ -2322,12 +2460,14 @@ var StorageComponent = (function () {
                 //update the kloudlessStorageTypes array (remove any connected services)
                 var kndx = _this.kloudlessStorageTypes.indexOf(storage.storage_type, 0);
                 if (kndx > -1) {
-                    console.log("removed: " + storage.storage_type);
+                    console.log('removed: ' + storage.storage_type);
                     _this.kloudlessStorageTypes.splice(kndx, 1);
                 }
             }
-            console.log("connected:", _this.connected);
-        }, function (error) { _this.notificationService.show("An error occurred!", error); });
+            console.log('connected:', _this.connected);
+        }, function (error) {
+            _this.notificationService.show('An error occurred!', error);
+        });
     };
     StorageComponent.prototype.kloudlessAuthenticatedStorage = function (kloudlessData) {
         var _this = this;
@@ -2335,14 +2475,17 @@ var StorageComponent = (function () {
         if (this.loading.link)
             return;
         this.slimLoadingBarService.start();
-        this.apiService.storageLink(kloudlessData)
+        this.apiService
+            .storageLink(kloudlessData)
             .finally(function () {
             _this.loading.status = false;
             _this.slimLoadingBarService.complete();
         })
             .subscribe(function (data) {
             console.log(data);
-        }, function (error) { _this.notificationService.show("An error occurred!", error); });
+        }, function (error) {
+            _this.notificationService.show('An error occurred!', error);
+        });
     };
     return StorageComponent;
 }());
@@ -2350,7 +2493,7 @@ StorageComponent = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-storage',
         template: __webpack_require__("../../../../../src/app/storage/storage.component.html"),
-        styles: [__webpack_require__("../../../../../src/app/storage/storage.component.less")]
+        styles: [__webpack_require__("../../../../../src/app/storage/storage.component.less")],
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_4__services_notification_service__["a" /* NotificationService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__services_notification_service__["a" /* NotificationService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */]) === "function" && _c || Object])
 ], StorageComponent);
@@ -2404,15 +2547,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var TermsComponent = (function () {
     function TermsComponent() {
     }
-    TermsComponent.prototype.ngOnInit = function () {
-    };
+    TermsComponent.prototype.ngOnInit = function () { };
     return TermsComponent;
 }());
 TermsComponent = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-terms',
         template: __webpack_require__("../../../../../src/app/terms/terms.component.html"),
-        styles: [__webpack_require__("../../../../../src/app/terms/terms.component.less")]
+        styles: [__webpack_require__("../../../../../src/app/terms/terms.component.less")],
     }),
     __metadata("design:paramtypes", [])
 ], TermsComponent);
@@ -2434,7 +2576,7 @@ TermsComponent = __decorate([
 var environment = {
     production: false,
     apiVersion: 'beta',
-    stripeAccount: 'pk_test_uApReS8yYqD5v6CajPSuXj3Z'
+    stripeAccount: 'pk_test_uApReS8yYqD5v6CajPSuXj3Z',
 };
 //# sourceMappingURL=environment.js.map
 
