@@ -40,7 +40,7 @@
                     </div>
                     <div class="row" style="padding-top:40px">
                         <div class="col-md-12">
-                            <button [disabled]="loading.download" (click)="downloadBook()" class="btn btn--primary" >Download</button>
+                            <button [disabled]="loading.download" (click)="downloadBook()" class="btn btn--primary" >Download {{ book.storage_format}}</button>
                         </div>
                     </div>
 
@@ -96,6 +96,10 @@
 
                                 <li *ngIf="book.storage_size">
                                     <span>Size &mdash; {{ book.storage_size |  fileSize}}</span>
+                                </li>
+
+                                <li *ngIf="book.storage_format">
+                                    <span>Format &mdash; {{ book.storage_format}}</span>
                                 </li>
                             </ul>
                         </accordion-group>
