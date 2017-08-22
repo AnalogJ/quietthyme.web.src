@@ -45,8 +45,10 @@ module.exports = module.exports.toString();
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AccountLoginComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_api_service__ = __webpack_require__("../../../../../src/app/services/api.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ng2_slim_loading_bar__ = __webpack_require__("../../../../ng2-slim-loading-bar/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_uservoice_service__ = __webpack_require__("../../../../../src/app/services/uservoice.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_notification_service__ = __webpack_require__("../../../../../src/app/services/notification.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_ng2_slim_loading_bar__ = __webpack_require__("../../../../ng2-slim-loading-bar/index.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -61,10 +63,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
+
 var AccountLoginComponent = (function () {
-    function AccountLoginComponent(slimLoadingBarService, apiService, router, activatedRoute) {
+    function AccountLoginComponent(slimLoadingBarService, apiService, uservoiceService, notificationService, router, activatedRoute) {
         this.slimLoadingBarService = slimLoadingBarService;
         this.apiService = apiService;
+        this.uservoiceService = uservoiceService;
+        this.notificationService = notificationService;
         this.router = router;
         this.activatedRoute = activatedRoute;
         this.loading = {
@@ -83,37 +89,20 @@ var AccountLoginComponent = (function () {
             console.log('Loading complete');
         });
         this.apiService.authLogin(this.loginEmail, this.loginPassword)
+            .finally(function () {
+            _this.loading.login = false;
+            _this.slimLoadingBarService.complete();
+        })
             .subscribe(function (data) {
             localStorage.setItem('id_token', data.token); //set the JWT token
-            //set UserVoice data
-            // Identify the user and pass traits
-            // To enable, replace sample data with actual user traits and uncomment the line
-            var tokenPayload = _this.apiService.tokenPayload();
-            UserVoice.push(['identify', {
-                    email: tokenPayload.email,
-                    name: tokenPayload.name,
-                    //created_at: 1364406966, // Unix timestamp for the date the user signed up
-                    id: tokenPayload.uid,
-                    type: tokenPayload.plan,
-                    account: {
-                        // id:           123, // Optional: associate multiple users with a single account
-                        name: tokenPayload.name,
-                        // created_at:   1364406966, // Unix timestamp for the date the account was created
-                        // monthly_rate: 9.99, // Decimal; monthly rate of the account
-                        // ltv:          1495.00, // Decimal; lifetime value of the account
-                        plan: tokenPayload.plan // Plan name for the account
-                    }
-                }]);
+            _this.uservoiceService.identify();
             if (_this.activatedRoute.snapshot.params['requested']) {
                 _this.router.navigate([_this.activatedRoute.snapshot.params['requested']]);
             }
             else {
                 _this.router.navigate(['/storage']);
             }
-        }, function (error) { console.log(error); }, function () {
-            _this.loading.login = false;
-            _this.slimLoadingBarService.complete();
-        });
+        }, function (error) { _this.notificationService.show("An error occurred!", error); });
     };
     return AccountLoginComponent;
 }());
@@ -123,10 +112,10 @@ AccountLoginComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/account-login/account-login.component.html"),
         styles: [__webpack_require__("../../../../../src/app/account-login/account-login.component.less")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* ActivatedRoute */]) === "function" && _d || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_5_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__services_uservoice_service__["a" /* UservoiceService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_uservoice_service__["a" /* UservoiceService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__services_notification_service__["a" /* NotificationService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_notification_service__["a" /* NotificationService */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_4__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__angular_router__["b" /* Router */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_4__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__angular_router__["a" /* ActivatedRoute */]) === "function" && _f || Object])
 ], AccountLoginComponent);
 
-var _a, _b, _c, _d;
+var _a, _b, _c, _d, _e, _f;
 //# sourceMappingURL=account-login.component.js.map
 
 /***/ }),
@@ -134,7 +123,7 @@ var _a, _b, _c, _d;
 /***/ "../../../../../src/app/account-register-plan/account-register-plan.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<ng2-slim-loading-bar class=\"navbar-fixed-top\" [color]=\"'#128950'\" [height]=\"'3px'\"></ng2-slim-loading-bar>\n<div class=\"main-container\">\n    <section class=\"pricing imagebg\" data-overlay='4'>\n        <div class=\"background-image-holder register-plan-bg\">\n        </div>\n        <div class=\"container\">\n            <div class=\"row\">\n                <div class=\"col-md-8 col-sm-6\">\n                    <div class=\"row\">\n                        <div class=\"col-md-5 col-sm-6\">\n                            <div class=\"feature feature-6\">\n                                <i class=\"icon icon--sm icon-Preview color--primary\"></i>\n                                <h5>2 Cloud Connectors</h5>\n                                <p>\n                                    Store your books on Google Drive, Dropbox, SkyDrive or Box.net Or use our unlimited storage.\n                                </p>\n                            </div>\n                            <!--end feature-->\n                        </div>\n                        <div class=\"col-md-5 col-sm-6\">\n                            <div class=\"feature feature-6\">\n                                <i class=\"icon icon--sm icon-Road-3 color--primary\"></i>\n                                <h5>OPDS Catalog</h5>\n                                <p>\n                                    Your whole library is accessible via any OPDS compatible reader. Marvin, Moon+, Aldiko, QuickReader, or any other ebook reader.\n                                </p>\n                            </div>\n                            <!--end feature-->\n                        </div>\n                        <div class=\"col-md-5 col-sm-6\">\n                            <div class=\"feature feature-6\">\n                                <i class=\"icon icon--sm icon-Twister color--primary\"></i>\n                                <h5>Drag & Drop</h5>\n                                <p>\n                                    Want to add a book to QuietThyme? Just drag it into the blackhole folder of your connected cloud storage. We'll handle the rest\n                                </p>\n                            </div>\n                            <!--end feature-->\n                        </div>\n                        <div class=\"col-md-5 col-sm-6\">\n                            <div class=\"feature feature-6\">\n                                <i class=\"icon icon--sm icon-Data-Cloud color--primary\"></i>\n                                <h5>Calibre Integration</h5>\n                                <p>\n                                    OCD about coverart & book metadata? We are too! QuietThyme integrates with Calibre and lets you import and export books (and metadata) with a single click\n                                </p>\n                            </div>\n                            <!--end feature-->\n                        </div>\n                    </div>\n                </div>\n                <div class=\"col-sm-6 col-md-4 col-xs-12\">\n                    <div class=\"pricing pricing-1 boxed boxed--border boxed--lg text-center\">\n                        <h4>Reader Plan</h4>\n                        <span class=\"h1\">\n                                                        <span class=\"pricing__dollar\">$</span>10</span>\n                        <p>\n                            The regular license allows you to customize, store and even host your website using your platform\n                        </p>\n                        <span class=\"label\">Monthly</span>\n                        <a stripeCheckoutButton\n                           [planId]=\"'reader_1'\"\n                           [planName]=\"'Reader Plan'\"\n                           [planCost]=\"1000\"\n                           (onCheckout)=\"stripeCheckoutCompleted($event)\"\n                           class=\"btn btn--primary\">\n                            <span class=\"btn__text\">\n                                Purchase Now\n                            </span>\n                        </a>\n                    </div>\n                    <!--end pricing-->\n                </div>\n            </div>\n            <!--end of row-->\n        </div>\n        <!--end of container-->\n    </section>\n</div>"
+module.exports = "<ng2-slim-loading-bar class=\"navbar-fixed-top\" [color]=\"'#128950'\" [height]=\"'3px'\"></ng2-slim-loading-bar>\n<div class=\"main-container\">\n    <section class=\"pricing imagebg\" data-overlay='4'>\n        <div class=\"background-image-holder register-plan-bg\">\n        </div>\n        <div class=\"container\">\n            <div class=\"row\">\n                <div class=\"col-md-8 col-sm-6\">\n                    <div class=\"row\">\n                        <div class=\"col-md-5 col-sm-6\">\n                            <div class=\"feature feature-6\">\n                                <i class=\"icon icon--sm icon-Preview color--primary\"></i>\n                                <h5>2 Cloud Connectors</h5>\n                                <p>\n                                    Store your books on Google Drive, Dropbox, SkyDrive or Box.net Or use our unlimited storage.\n                                </p>\n                            </div>\n                            <!--end feature-->\n                        </div>\n                        <div class=\"col-md-5 col-sm-6\">\n                            <div class=\"feature feature-6\">\n                                <i class=\"icon icon--sm icon-Road-3 color--primary\"></i>\n                                <h5>OPDS Catalog</h5>\n                                <p>\n                                    Your whole library is accessible via any OPDS compatible reader. Marvin, Moon+, Aldiko, QuickReader, or any other ebook reader.\n                                </p>\n                            </div>\n                            <!--end feature-->\n                        </div>\n                        <div class=\"col-md-5 col-sm-6\">\n                            <div class=\"feature feature-6\">\n                                <i class=\"icon icon--sm icon-Twister color--primary\"></i>\n                                <h5>Drag & Drop</h5>\n                                <p>\n                                    Want to add a book to QuietThyme? Just drag it into the blackhole folder of your connected cloud storage. We'll handle the rest\n                                </p>\n                            </div>\n                            <!--end feature-->\n                        </div>\n                        <div class=\"col-md-5 col-sm-6\">\n                            <div class=\"feature feature-6\">\n                                <i class=\"icon icon--sm icon-Data-Cloud color--primary\"></i>\n                                <h5>Calibre Integration</h5>\n                                <p>\n                                    OCD about coverart & book metadata? We are too! QuietThyme integrates with Calibre and lets you import and export books (and metadata) with a single click\n                                </p>\n                            </div>\n                            <!--end feature-->\n                        </div>\n                    </div>\n                </div>\n                <div class=\"col-sm-6 col-md-4 col-xs-12\">\n                    <div class=\"pricing pricing-1 boxed boxed--border boxed--lg text-center\">\n                        <h4>Reader Plan</h4>\n                        <span class=\"h1\">\n                                                        <span class=\"pricing__dollar\">$</span>Beta</span>\n                        <p>\n                            All plans come with a <span style=\"font-weight:900\">15 day</span> trial. You can cancel at any time, no questions asked.\n                        </p>\n                        <span class=\"label\">Monthly</span>\n                        <a stripeCheckoutButton\n                           [planId]=\"'reader_1'\"\n                           [planName]=\"'Reader Plan'\"\n                           [planCost]=\"1000\"\n                           (onCheckout)=\"stripeCheckoutCompleted($event)\"\n                           class=\"btn btn--primary\">\n                            <span class=\"btn__text\">\n                                Purchase Now\n                            </span>\n                        </a>\n                    </div>\n                    <!--end pricing-->\n                </div>\n            </div>\n            <!--end of row-->\n        </div>\n        <!--end of container-->\n    </section>\n</div>"
 
 /***/ }),
 
@@ -164,7 +153,9 @@ module.exports = module.exports.toString();
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ng2_slim_loading_bar__ = __webpack_require__("../../../../ng2-slim-loading-bar/index.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_api_service__ = __webpack_require__("../../../../../src/app/services/api.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_uservoice_service__ = __webpack_require__("../../../../../src/app/services/uservoice.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_notification_service__ = __webpack_require__("../../../../../src/app/services/notification.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -178,9 +169,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
+
 var AccountRegisterPlanComponent = (function () {
-    function AccountRegisterPlanComponent(slimLoadingBarService, apiService, router) {
+    function AccountRegisterPlanComponent(slimLoadingBarService, uservoiceService, notificationService, apiService, router) {
         this.slimLoadingBarService = slimLoadingBarService;
+        this.uservoiceService = uservoiceService;
+        this.notificationService = notificationService;
         this.apiService = apiService;
         this.router = router;
         this.loading = {
@@ -196,31 +191,18 @@ var AccountRegisterPlanComponent = (function () {
             return;
         this.slimLoadingBarService.start();
         this.apiService.userPlan(stripeCheckoutData)
-            .subscribe(function (data) {
-            //TODO: we should update the Token here too.
-            console.log(data);
-            var tokenPayload = _this.apiService.tokenPayload();
-            UserVoice.push(['identify', {
-                    email: tokenPayload.email,
-                    name: tokenPayload.name,
-                    //created_at: 1364406966, // Unix timestamp for the date the user signed up
-                    id: tokenPayload.uid,
-                    type: tokenPayload.plan,
-                    account: {
-                        // id:           123, // Optional: associate multiple users with a single account
-                        name: tokenPayload.name,
-                        // created_at:   1364406966, // Unix timestamp for the date the account was created
-                        // monthly_rate: 9.99, // Decimal; monthly rate of the account
-                        // ltv:          1495.00, // Decimal; lifetime value of the account
-                        plan: tokenPayload.plan // Plan name for the account
-                    }
-                }]);
-            //redirect user to storage page
-            _this.router.navigate(['/storage']);
-        }, function (error) { console.log(error); }, function () {
+            .finally(function () {
             _this.loading.setPlan = false;
             _this.slimLoadingBarService.complete();
-        });
+        })
+            .subscribe(function (data) {
+            //update the Token here, to the new one which has an embedded plan.
+            // console.log(data)
+            localStorage.setItem('id_token', data.token); //set the JWT token
+            _this.uservoiceService.identify();
+            //redirect user to storage page
+            _this.router.navigate(['/storage']);
+        }, function (error) { _this.notificationService.show("An error occurred!", error); });
     };
     return AccountRegisterPlanComponent;
 }());
@@ -230,10 +212,10 @@ AccountRegisterPlanComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/account-register-plan/account-register-plan.component.html"),
         styles: [__webpack_require__("../../../../../src/app/account-register-plan/account-register-plan.component.less")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__services_api_service__["a" /* ApiService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_api_service__["a" /* ApiService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* Router */]) === "function" && _c || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__services_uservoice_service__["a" /* UservoiceService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_uservoice_service__["a" /* UservoiceService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4__services_notification_service__["a" /* NotificationService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__services_notification_service__["a" /* NotificationService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__services_api_service__["a" /* ApiService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_api_service__["a" /* ApiService */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_5__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__angular_router__["b" /* Router */]) === "function" && _e || Object])
 ], AccountRegisterPlanComponent);
 
-var _a, _b, _c;
+var _a, _b, _c, _d, _e;
 //# sourceMappingURL=account-register-plan.component.js.map
 
 /***/ }),
@@ -270,8 +252,10 @@ module.exports = module.exports.toString();
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AccountRegisterComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_api_service__ = __webpack_require__("../../../../../src/app/services/api.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ng2_slim_loading_bar__ = __webpack_require__("../../../../ng2-slim-loading-bar/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_uservoice_service__ = __webpack_require__("../../../../../src/app/services/uservoice.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_notification_service__ = __webpack_require__("../../../../../src/app/services/notification.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_ng2_slim_loading_bar__ = __webpack_require__("../../../../ng2-slim-loading-bar/index.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -285,10 +269,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
+
 var AccountRegisterComponent = (function () {
-    function AccountRegisterComponent(slimLoadingBarService, apiService, router, activatedRoute) {
+    function AccountRegisterComponent(slimLoadingBarService, apiService, uservoiceService, notificationService, router, activatedRoute) {
         this.slimLoadingBarService = slimLoadingBarService;
         this.apiService = apiService;
+        this.uservoiceService = uservoiceService;
+        this.notificationService = notificationService;
         this.router = router;
         this.activatedRoute = activatedRoute;
         this.loading = {
@@ -307,21 +295,17 @@ var AccountRegisterComponent = (function () {
             console.log('Loading complete');
         });
         this.apiService.authRegister(this.regName, this.regEmail, this.regPassword)
+            .finally(function () {
+            _this.loading.register = false;
+            _this.slimLoadingBarService.complete();
+        })
             .subscribe(function (data) {
             console.log(data);
             localStorage.setItem('id_token', data.token); //set the JWT token
-            var tokenPayload = _this.apiService.tokenPayload();
-            UserVoice.push(['identify', {
-                    email: tokenPayload.email,
-                    name: tokenPayload.name,
-                    //created_at: 1364406966, // Unix timestamp for the date the user signed up
-                    id: tokenPayload.catalog_token,
-                    type: 'none' // Optional: segment your users by type
-                }]);
+            _this.uservoiceService.identify();
             _this.router.navigate(['/register/plan']);
-        }, function (error) { console.log(error); }, function () {
-            _this.loading.register = false;
-            _this.slimLoadingBarService.complete();
+        }, function (error) {
+            _this.notificationService.show("An error occurred!", error);
         });
     };
     return AccountRegisterComponent;
@@ -332,10 +316,10 @@ AccountRegisterComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/account-register/account-register.component.html"),
         styles: [__webpack_require__("../../../../../src/app/account-register/account-register.component.less")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* ActivatedRoute */]) === "function" && _d || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_5_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__services_uservoice_service__["a" /* UservoiceService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_uservoice_service__["a" /* UservoiceService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__services_notification_service__["a" /* NotificationService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_notification_service__["a" /* NotificationService */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_4__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__angular_router__["b" /* Router */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_4__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__angular_router__["a" /* ActivatedRoute */]) === "function" && _f || Object])
 ], AccountRegisterComponent);
 
-var _a, _b, _c, _d;
+var _a, _b, _c, _d, _e, _f;
 //# sourceMappingURL=account-register.component.js.map
 
 /***/ }),
@@ -436,7 +420,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div scrollSpy id=\"wrapper\" class=\"clearfix\" style=\"opacity: 1;\">\n    <!-- Routed views go here -->\n    <router-outlet></router-outlet>\n\n</div>\n\n\n<!-- Go To Top\n============================================= -->\n<div id=\"gotoTop\" class=\"icon-angle-up\"></div>"
+module.exports = "<div scrollSpy id=\"wrapper\" class=\"clearfix\" style=\"opacity: 1;\">\n    <!-- Notifications -->\n    <quietthyme-notification></quietthyme-notification>\n\n    <!-- Routed views go here -->\n    <router-outlet></router-outlet>\n\n</div>\n\n\n<!-- Go To Top\n============================================= -->\n<div id=\"gotoTop\" class=\"icon-angle-up\"></div>"
 
 /***/ }),
 
@@ -509,27 +493,32 @@ var _a;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__services_api_service__ = __webpack_require__("../../../../../src/app/services/api.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__services_cache_service__ = __webpack_require__("../../../../../src/app/services/cache.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__services_auth_guard_service__ = __webpack_require__("../../../../../src/app/services/auth-guard.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23_angular2_jwt__ = __webpack_require__("../../../../angular2-jwt/angular2-jwt.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23_angular2_jwt___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_23_angular2_jwt__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24_ngx_bootstrap__ = __webpack_require__("../../../../ngx-bootstrap/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25_ng2_slim_loading_bar__ = __webpack_require__("../../../../ng2-slim-loading-bar/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26_angular2_markdown__ = __webpack_require__("../../../../angular2-markdown/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27_angular2_masonry__ = __webpack_require__("../../../../angular2-masonry/index.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28_ng2_scrollspy__ = __webpack_require__("../../../../ng2-scrollspy/dist/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28_ng2_scrollspy___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_28_ng2_scrollspy__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29_ng2_scrollspy_dist_plugin_affix_directive__ = __webpack_require__("../../../../ng2-scrollspy/dist/plugin/affix.directive.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29_ng2_scrollspy_dist_plugin_affix_directive___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_29_ng2_scrollspy_dist_plugin_affix_directive__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__account_register_plan_account_register_plan_component__ = __webpack_require__("../../../../../src/app/account-register-plan/account-register-plan.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31_angular2_moment__ = __webpack_require__("../../../../angular2-moment/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31_angular2_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_31_angular2_moment__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32_ngx_infinite_scroll__ = __webpack_require__("../../../../ngx-infinite-scroll/modules/ngx-infinite-scroll.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__terms_terms_component__ = __webpack_require__("../../../../../src/app/terms/terms.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__services_uservoice_service__ = __webpack_require__("../../../../../src/app/services/uservoice.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__services_notification_service__ = __webpack_require__("../../../../../src/app/services/notification.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25_angular2_jwt__ = __webpack_require__("../../../../angular2-jwt/angular2-jwt.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25_angular2_jwt___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_25_angular2_jwt__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26_ngx_bootstrap__ = __webpack_require__("../../../../ngx-bootstrap/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27_ng2_slim_loading_bar__ = __webpack_require__("../../../../ng2-slim-loading-bar/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28_angular2_markdown__ = __webpack_require__("../../../../angular2-markdown/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29_angular2_masonry__ = __webpack_require__("../../../../angular2-masonry/index.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30_ng2_scrollspy__ = __webpack_require__("../../../../ng2-scrollspy/dist/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30_ng2_scrollspy___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_30_ng2_scrollspy__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31_ng2_scrollspy_dist_plugin_affix_directive__ = __webpack_require__("../../../../ng2-scrollspy/dist/plugin/affix.directive.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31_ng2_scrollspy_dist_plugin_affix_directive___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_31_ng2_scrollspy_dist_plugin_affix_directive__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__account_register_plan_account_register_plan_component__ = __webpack_require__("../../../../../src/app/account-register-plan/account-register-plan.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33_angular2_moment__ = __webpack_require__("../../../../angular2-moment/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33_angular2_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_33_angular2_moment__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34_ngx_infinite_scroll__ = __webpack_require__("../../../../ngx-infinite-scroll/modules/ngx-infinite-scroll.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__terms_terms_component__ = __webpack_require__("../../../../../src/app/terms/terms.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_36__partials_notification_notification_component__ = __webpack_require__("../../../../../src/app/partials/notification/notification.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
 
 
 
@@ -565,8 +554,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
+
 function getAuthHttp(http, options) {
-    return new __WEBPACK_IMPORTED_MODULE_23_angular2_jwt__["AuthHttp"](new __WEBPACK_IMPORTED_MODULE_23_angular2_jwt__["AuthConfig"]({
+    return new __WEBPACK_IMPORTED_MODULE_25_angular2_jwt__["AuthHttp"](new __WEBPACK_IMPORTED_MODULE_25_angular2_jwt__["AuthConfig"]({
         tokenName: 'id_token',
         noJwtError: true,
         headerPrefix: 'JWT',
@@ -591,35 +581,36 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_11__storage_storage_component__["a" /* StorageComponent */],
             __WEBPACK_IMPORTED_MODULE_12__library_library_component__["a" /* LibraryComponent */],
             __WEBPACK_IMPORTED_MODULE_13__book_details_book_details_component__["a" /* BookDetailsComponent */],
-            __WEBPACK_IMPORTED_MODULE_29_ng2_scrollspy_dist_plugin_affix_directive__["ScrollSpyAffixDirective"],
+            __WEBPACK_IMPORTED_MODULE_31_ng2_scrollspy_dist_plugin_affix_directive__["ScrollSpyAffixDirective"],
             __WEBPACK_IMPORTED_MODULE_14__partials_storage_panel_storage_panel_component__["a" /* StoragePanelComponent */],
             __WEBPACK_IMPORTED_MODULE_19__shared_file_size_pipe__["a" /* FileSizePipe */],
             __WEBPACK_IMPORTED_MODULE_15__settings_settings_component__["a" /* SettingsComponent */],
             __WEBPACK_IMPORTED_MODULE_16__privacy_privacy_component__["a" /* PrivacyComponent */],
             __WEBPACK_IMPORTED_MODULE_18__shared_stripe_checkout_button_directive__["a" /* StripeCheckoutButtonDirective */],
-            __WEBPACK_IMPORTED_MODULE_30__account_register_plan_account_register_plan_component__["a" /* AccountRegisterPlanComponent */],
+            __WEBPACK_IMPORTED_MODULE_32__account_register_plan_account_register_plan_component__["a" /* AccountRegisterPlanComponent */],
             __WEBPACK_IMPORTED_MODULE_17__partials_opds_panel_opds_panel_component__["a" /* OpdsPanelComponent */],
-            __WEBPACK_IMPORTED_MODULE_33__terms_terms_component__["a" /* TermsComponent */]
+            __WEBPACK_IMPORTED_MODULE_35__terms_terms_component__["a" /* TermsComponent */],
+            __WEBPACK_IMPORTED_MODULE_36__partials_notification_notification_component__["a" /* NotificationComponent */]
         ],
         imports: [
             __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
             __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormsModule */],
             __WEBPACK_IMPORTED_MODULE_3__angular_http__["HttpModule"],
-            __WEBPACK_IMPORTED_MODULE_24_ngx_bootstrap__["a" /* Ng2BootstrapModule */].forRoot(),
-            __WEBPACK_IMPORTED_MODULE_25_ng2_slim_loading_bar__["a" /* SlimLoadingBarModule */].forRoot(),
-            __WEBPACK_IMPORTED_MODULE_26_angular2_markdown__["a" /* MarkdownModule */].forRoot(),
-            __WEBPACK_IMPORTED_MODULE_27_angular2_masonry__["a" /* MasonryModule */],
-            __WEBPACK_IMPORTED_MODULE_32_ngx_infinite_scroll__["a" /* InfiniteScrollModule */],
-            __WEBPACK_IMPORTED_MODULE_28_ng2_scrollspy__["ScrollSpyModule"].forRoot(),
-            __WEBPACK_IMPORTED_MODULE_31_angular2_moment__["MomentModule"],
+            __WEBPACK_IMPORTED_MODULE_26_ngx_bootstrap__["a" /* Ng2BootstrapModule */].forRoot(),
+            __WEBPACK_IMPORTED_MODULE_27_ng2_slim_loading_bar__["a" /* SlimLoadingBarModule */].forRoot(),
+            __WEBPACK_IMPORTED_MODULE_28_angular2_markdown__["a" /* MarkdownModule */].forRoot(),
+            __WEBPACK_IMPORTED_MODULE_29_angular2_masonry__["a" /* MasonryModule */],
+            __WEBPACK_IMPORTED_MODULE_34_ngx_infinite_scroll__["a" /* InfiniteScrollModule */],
+            __WEBPACK_IMPORTED_MODULE_30_ng2_scrollspy__["ScrollSpyModule"].forRoot(),
+            __WEBPACK_IMPORTED_MODULE_33_angular2_moment__["MomentModule"],
             __WEBPACK_IMPORTED_MODULE_4__angular_router__["c" /* RouterModule */].forRoot([
                 //Public Endpoints
                 { path: 'login', component: __WEBPACK_IMPORTED_MODULE_6__account_login_account_login_component__["a" /* AccountLoginComponent */] },
                 { path: 'register', component: __WEBPACK_IMPORTED_MODULE_7__account_register_account_register_component__["a" /* AccountRegisterComponent */] },
                 { path: 'privacy', component: __WEBPACK_IMPORTED_MODULE_16__privacy_privacy_component__["a" /* PrivacyComponent */] },
-                { path: 'terms', component: __WEBPACK_IMPORTED_MODULE_33__terms_terms_component__["a" /* TermsComponent */] },
+                { path: 'terms', component: __WEBPACK_IMPORTED_MODULE_35__terms_terms_component__["a" /* TermsComponent */] },
                 //Auth Endpoints
-                { path: 'register/plan', component: __WEBPACK_IMPORTED_MODULE_30__account_register_plan_account_register_plan_component__["a" /* AccountRegisterPlanComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_22__services_auth_guard_service__["a" /* AuthGuard */]] },
+                { path: 'register/plan', component: __WEBPACK_IMPORTED_MODULE_32__account_register_plan_account_register_plan_component__["a" /* AccountRegisterPlanComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_22__services_auth_guard_service__["a" /* AuthGuard */]] },
                 { path: 'storage', component: __WEBPACK_IMPORTED_MODULE_11__storage_storage_component__["a" /* StorageComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_22__services_auth_guard_service__["a" /* AuthGuard */]] },
                 { path: 'settings', component: __WEBPACK_IMPORTED_MODULE_15__settings_settings_component__["a" /* SettingsComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_22__services_auth_guard_service__["a" /* AuthGuard */]] },
                 { path: 'storage/:source', component: __WEBPACK_IMPORTED_MODULE_11__storage_storage_component__["a" /* StorageComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_22__services_auth_guard_service__["a" /* AuthGuard */]] },
@@ -637,9 +628,11 @@ AppModule = __decorate([
         providers: [
             __WEBPACK_IMPORTED_MODULE_20__services_api_service__["a" /* ApiService */],
             __WEBPACK_IMPORTED_MODULE_21__services_cache_service__["a" /* CacheService */],
+            __WEBPACK_IMPORTED_MODULE_23__services_uservoice_service__["a" /* UservoiceService */],
+            __WEBPACK_IMPORTED_MODULE_24__services_notification_service__["a" /* NotificationService */],
             __WEBPACK_IMPORTED_MODULE_22__services_auth_guard_service__["a" /* AuthGuard */],
             {
-                provide: __WEBPACK_IMPORTED_MODULE_23_angular2_jwt__["AuthHttp"],
+                provide: __WEBPACK_IMPORTED_MODULE_25_angular2_jwt__["AuthHttp"],
                 useFactory: getAuthHttp,
                 deps: [__WEBPACK_IMPORTED_MODULE_3__angular_http__["Http"], __WEBPACK_IMPORTED_MODULE_3__angular_http__["RequestOptions"]]
             }
@@ -686,8 +679,9 @@ module.exports = module.exports.toString();
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_api_service__ = __webpack_require__("../../../../../src/app/services/api.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ng2_slim_loading_bar__ = __webpack_require__("../../../../ng2-slim-loading-bar/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_file_saver__ = __webpack_require__("../../../../file-saver/FileSaver.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_file_saver___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_file_saver__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_notification_service__ = __webpack_require__("../../../../../src/app/services/notification.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_file_saver__ = __webpack_require__("../../../../file-saver/FileSaver.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_file_saver___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_file_saver__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -702,23 +696,32 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var BookDetailsComponent = (function () {
-    function BookDetailsComponent(slimLoadingBarService, apiService, router, activatedRoute) {
+    function BookDetailsComponent(slimLoadingBarService, apiService, notificationService, router, activatedRoute) {
         this.slimLoadingBarService = slimLoadingBarService;
         this.apiService = apiService;
+        this.notificationService = notificationService;
         this.router = router;
         this.activatedRoute = activatedRoute;
         this.loading = {
+            info: false,
             download: false
         };
     }
     BookDetailsComponent.prototype.ngOnInit = function () {
         var _this = this;
+        this.slimLoadingBarService.start();
+        this.loading.info = true;
         this.apiService.book(this.activatedRoute.snapshot.params['bookId'])
+            .finally(function () {
+            _this.loading.info = false;
+            _this.slimLoadingBarService.complete();
+        })
             .subscribe(function (book) {
             console.log(book);
             _this.book = book;
-        }, function (error) { console.log(error); });
+        }, function (error) { _this.notificationService.show("An error occurred!", error); });
     };
     BookDetailsComponent.prototype.downloadBook = function () {
         var _this = this;
@@ -729,15 +732,16 @@ var BookDetailsComponent = (function () {
         this.loading.download = true;
         this.slimLoadingBarService.start();
         this.apiService.download(this.book.id)
+            .finally(function () {
+            _this.loading.download = false;
+            _this.slimLoadingBarService.complete();
+        })
             .subscribe(function (response) {
             var filename = _this.book.storage_filename + _this.book.storage_format;
             var file = response.blob();
             console.log(file.size + " bytes file downloaded. File type: ", file.type);
-            __WEBPACK_IMPORTED_MODULE_4_file_saver__["saveAs"](file, filename);
-        }, function (error) { console.log(error); }, function () {
-            _this.loading.download = false;
-            _this.slimLoadingBarService.complete();
-        });
+            __WEBPACK_IMPORTED_MODULE_5_file_saver__["saveAs"](file, filename);
+        }, function (error) { _this.notificationService.show("An error occurred!", error); });
     };
     return BookDetailsComponent;
 }());
@@ -747,10 +751,10 @@ BookDetailsComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/book-details/book-details.component.html"),
         styles: [__webpack_require__("../../../../../src/app/book-details/book-details.component.less")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* ActivatedRoute */]) === "function" && _d || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4__services_notification_service__["a" /* NotificationService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__services_notification_service__["a" /* NotificationService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* ActivatedRoute */]) === "function" && _e || Object])
 ], BookDetailsComponent);
 
-var _a, _b, _c, _d;
+var _a, _b, _c, _d, _e;
 //# sourceMappingURL=book-details.component.js.map
 
 /***/ }),
@@ -788,10 +792,11 @@ module.exports = module.exports.toString();
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_api_service__ = __webpack_require__("../../../../../src/app/services/api.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ng2_slim_loading_bar__ = __webpack_require__("../../../../ng2-slim-loading-bar/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ng2_scrollspy__ = __webpack_require__("../../../../ng2-scrollspy/dist/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ng2_scrollspy___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_ng2_scrollspy__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_file_saver__ = __webpack_require__("../../../../file-saver/FileSaver.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_file_saver___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_file_saver__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_notification_service__ = __webpack_require__("../../../../../src/app/services/notification.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ng2_scrollspy__ = __webpack_require__("../../../../ng2-scrollspy/dist/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ng2_scrollspy___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_ng2_scrollspy__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_file_saver__ = __webpack_require__("../../../../file-saver/FileSaver.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_file_saver___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_file_saver__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -806,9 +811,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var LibraryComponent = (function () {
-    function LibraryComponent(slimLoadingBarService, apiService, scrollSpyService) {
+    function LibraryComponent(slimLoadingBarService, notificationService, apiService, scrollSpyService) {
         this.slimLoadingBarService = slimLoadingBarService;
+        this.notificationService = notificationService;
         this.apiService = apiService;
         this.scrollSpyService = scrollSpyService;
         this.bookList = [];
@@ -850,16 +857,17 @@ var LibraryComponent = (function () {
         this.loading.status = true;
         this.slimLoadingBarService.start();
         this.apiService.storageStatus()
+            .finally(function () {
+            _this.loading.status = false;
+            _this.slimLoadingBarService.complete();
+        })
             .subscribe(function (response) {
             console.log(response);
             response.forEach(function (status) {
                 self.connected[status.storage_type] = true;
                 self.storages[status.storage_type] = status;
             });
-        }, function (error) { console.log(error); }, function () {
-            _this.loading.status = false;
-            _this.slimLoadingBarService.complete();
-        });
+        }, function (error) { _this.notificationService.show("An error occurred!", error); });
     };
     LibraryComponent.prototype.getBookList = function () {
         var _this = this;
@@ -870,6 +878,10 @@ var LibraryComponent = (function () {
         this.loading.list = true;
         this.slimLoadingBarService.start();
         this.apiService.bookList(this.filter)
+            .finally(function () {
+            _this.loading.list = false;
+            _this.slimLoadingBarService.complete();
+        })
             .subscribe(function (book_data) {
             console.log(book_data);
             _this.bookList = _this.bookList.concat(book_data.Items);
@@ -882,10 +894,7 @@ var LibraryComponent = (function () {
             //     book.cover = encodeURI(book.cover).replace(/%20/g, '+')
             //     return book
             // })
-        }, function (error) { console.log(error); }, function () {
-            _this.loading.list = false;
-            _this.slimLoadingBarService.complete();
-        });
+        }, function (error) { _this.notificationService.show("An error occurred!", error); });
     };
     LibraryComponent.prototype.downloadBook = function (book) {
         var _this = this;
@@ -896,15 +905,16 @@ var LibraryComponent = (function () {
         this.loading.download[book.id] = true;
         this.slimLoadingBarService.start();
         this.apiService.download(book.id)
+            .finally(function () {
+            _this.loading.download[book.id] = false;
+            _this.slimLoadingBarService.complete();
+        })
             .subscribe(function (response) {
             var filename = book.storage_filename + book.storage_format;
             var file = response.blob();
             console.log(file.size + " bytes file downloaded. File type: ", file.type);
-            __WEBPACK_IMPORTED_MODULE_4_file_saver__["saveAs"](file, filename);
-        }, function (error) { console.log(error); }, function () {
-            _this.loading.download[book.id] = false;
-            _this.slimLoadingBarService.complete();
-        });
+            __WEBPACK_IMPORTED_MODULE_5_file_saver__["saveAs"](file, filename);
+        }, function (error) { _this.notificationService.show("An error occurred!", error); });
     };
     LibraryComponent.prototype.setStorage = function (storage) {
         if (storage == this.filter.storage)
@@ -933,10 +943,10 @@ LibraryComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/library/library.component.html"),
         styles: [__webpack_require__("../../../../../src/app/library/library.component.less")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3_ng2_scrollspy__["ScrollSpyService"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ng2_scrollspy__["ScrollSpyService"]) === "function" && _c || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__services_notification_service__["a" /* NotificationService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_notification_service__["a" /* NotificationService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_4_ng2_scrollspy__["ScrollSpyService"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4_ng2_scrollspy__["ScrollSpyService"]) === "function" && _d || Object])
 ], LibraryComponent);
 
-var _a, _b, _c;
+var _a, _b, _c, _d;
 //# sourceMappingURL=library.component.js.map
 
 /***/ }),
@@ -1090,10 +1100,91 @@ var _a, _b;
 
 /***/ }),
 
+/***/ "../../../../../src/app/partials/notification/notification.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div *ngIf=\"visible && !ignored\" class=\"notification pos-right pos-top col-sm-4 col-md-3 notification--reveal\" data-animation=\"from-top\" data-autoshow=\"200\">\n    <div class=\"boxed boxed--border border--round box-shadow\">\n        <div class=\"text-block\">\n            <h5>{{ title }}</h5>\n            <p>\n                {{ message }}\n            </p>\n        </div>\n    </div>\n    <div class=\"notification-close-cross notification-close\" (click)=\"ignoreNotification()\"></div>\n</div>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/partials/notification/notification.component.less":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/partials/notification/notification.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return NotificationComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_notification_service__ = __webpack_require__("../../../../../src/app/services/notification.service.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var NotificationComponent = (function () {
+    function NotificationComponent(notificationService) {
+        this.notificationService = notificationService;
+        this.visible = false;
+        this.ignored = false;
+    }
+    NotificationComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.notificationStateChanged = this.notificationService.notificationState
+            .subscribe(function (state) {
+            _this.visible = state.show;
+            _this.message = state.message;
+            _this.title = state.title;
+            _this.ignored = false;
+        });
+    };
+    NotificationComponent.prototype.ngOnDestroy = function () {
+        this.notificationStateChanged.unsubscribe();
+    };
+    NotificationComponent.prototype.ignoreNotification = function () {
+        this.ignored = true;
+    };
+    return NotificationComponent;
+}());
+NotificationComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+        selector: 'quietthyme-notification',
+        template: __webpack_require__("../../../../../src/app/partials/notification/notification.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/partials/notification/notification.component.less")]
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_notification_service__["a" /* NotificationService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_notification_service__["a" /* NotificationService */]) === "function" && _a || Object])
+], NotificationComponent);
+
+var _a;
+//# sourceMappingURL=notification.component.js.map
+
+/***/ }),
+
 /***/ "../../../../../src/app/partials/opds-panel/opds-panel.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<section class=\"text-center cta cta-4 space--xxs border--bottom imagebg\" data-gradient-bg='#4876BD,#5448BD,#8F48BD,#BD48B1'>\n    <div class=\"container\">\n        <div class=\"row\">\n            <div class=\"col-sm-12\">\n                <span class=\"label label--inline\">OPDS</span>\n                <span>{{ catalogUrl }}</span>\n            </div>\n        </div>\n        <!--end of row-->\n    </div>\n    <!--end of container-->\n</section>\n"
+module.exports = "<section class=\"text-center cta cta-4 space--xxs border--bottom imagebg\" data-gradient-bg='#4876BD,#5448BD,#8F48BD,#BD48B1'>\n    <canvas id=\"granim-opds\"></canvas>\n    <div class=\"container\">\n        <div class=\"row\">\n            <div class=\"col-sm-12\">\n                <span class=\"label label--inline\">OPDS</span>\n                <span>{{ catalogUrl }}</span>\n            </div>\n        </div>\n        <!--end of row-->\n    </div>\n    <!--end of container-->\n</section>\n"
 
 /***/ }),
 
@@ -1140,6 +1231,21 @@ var OpdsPanelComponent = (function () {
     }
     OpdsPanelComponent.prototype.ngOnInit = function () {
         this.catalogUrl = this.apiService.catalogUrl();
+        var granimInstance = new Granim({
+            element: '#granim-opds',
+            name: 'granim',
+            opacity: [1, 1],
+            states: {
+                "default-state": {
+                    gradients: [
+                        //#4876BD,#5448BD,#8F48BD,#BD48B1
+                        ['#4876BD', '#5448BD'],
+                        // ['#8F48BD', '#BD48B1'],
+                        ['#238b53', '#669e4b']
+                    ]
+                }
+            }
+        });
     };
     return OpdsPanelComponent;
 }());
@@ -1308,14 +1414,17 @@ PrivacyComponent = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_switchMap___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_switchMap__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_toPromise__ = __webpack_require__("../../../../rxjs/add/operator/toPromise.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_toPromise___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_toPromise__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_rxjs_observable_TimerObservable__ = __webpack_require__("../../../../rxjs/observable/TimerObservable.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_rxjs_observable_TimerObservable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_rxjs_observable_TimerObservable__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_rxjs_add_operator_finally__ = __webpack_require__("../../../../rxjs/add/operator/finally.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_rxjs_add_operator_finally___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_rxjs_add_operator_finally__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_rxjs_observable_TimerObservable__ = __webpack_require__("../../../../rxjs/observable/TimerObservable.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_rxjs_observable_TimerObservable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_rxjs_observable_TimerObservable__);
 // import 'rxjs/Rx'; // adds ALL RxJS statics & operators to Observable
 // See node_module/rxjs/Rxjs.js
 // Import just the rxjs statics and operators needed for THIS app.
 // Statics
 
 // Operators
+
 
 
 
@@ -1336,8 +1445,10 @@ PrivacyComponent = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angular2_jwt__ = __webpack_require__("../../../../angular2-jwt/angular2-jwt.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angular2_jwt___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_angular2_jwt__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_settings__ = __webpack_require__("../../../../../src/app/app-settings.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_cache_service__ = __webpack_require__("../../../../../src/app/services/cache.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_Observable__ = __webpack_require__("../../../../rxjs/Observable.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_Observable__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_settings__ = __webpack_require__("../../../../../src/app/app-settings.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__services_cache_service__ = __webpack_require__("../../../../../src/app/services/cache.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1347,6 +1458,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+
 
 
 
@@ -1371,14 +1483,14 @@ var ApiService = (function () {
         var errMsg;
         if (error instanceof __WEBPACK_IMPORTED_MODULE_2__angular_http__["Response"]) {
             var body = error.json() || '';
-            var err = body.error || JSON.stringify(body);
-            errMsg = error.status + " - " + (error.statusText || '') + " " + err;
+            var err = body.error ? body.error.message : JSON.stringify(body);
+            errMsg = error.status + " - " + (error.statusText || '') + " - " + err;
         }
         else {
             errMsg = error.message ? error.message : error.toString();
         }
-        console.error(errMsg);
-        return errMsg;
+        console.log(errMsg);
+        return __WEBPACK_IMPORTED_MODULE_3_rxjs_Observable__["Observable"].throw(errMsg);
     };
     ApiService.prototype.cacheKey = function (method, url, query) {
         return '[' + method + ']' + url + '?' + (query || {}).toString();
@@ -1399,7 +1511,7 @@ var ApiService = (function () {
         localStorage.removeItem('id_token');
     };
     ApiService.prototype.authRegister = function (name, email, password) {
-        return this.http.post(__WEBPACK_IMPORTED_MODULE_3__app_settings__["a" /* AppSettings */].API_ENDPOINT + "/auth/register", {
+        return this.http.post(__WEBPACK_IMPORTED_MODULE_4__app_settings__["a" /* AppSettings */].API_ENDPOINT + "/auth/register", {
             "name": name,
             "email": email,
             "password": password
@@ -1408,7 +1520,7 @@ var ApiService = (function () {
             .catch(this.handleError);
     };
     ApiService.prototype.authLogin = function (email, password) {
-        return this.http.post(__WEBPACK_IMPORTED_MODULE_3__app_settings__["a" /* AppSettings */].API_ENDPOINT + "/auth/login", {
+        return this.http.post(__WEBPACK_IMPORTED_MODULE_4__app_settings__["a" /* AppSettings */].API_ENDPOINT + "/auth/login", {
             "email": email,
             "password": password
         })
@@ -1420,16 +1532,16 @@ var ApiService = (function () {
     /////////////////////////////////////////////////////////////////////////////
     ApiService.prototype.catalogUrl = function () {
         var jwtPayload = this.tokenPayload();
-        return __WEBPACK_IMPORTED_MODULE_3__app_settings__["a" /* AppSettings */].CATALOG_ENDPOINT + "/" + jwtPayload.catalog_token;
+        return __WEBPACK_IMPORTED_MODULE_4__app_settings__["a" /* AppSettings */].CATALOG_ENDPOINT + "/" + jwtPayload.catalog_token;
     };
     ApiService.prototype.userPlan = function (stripePlanData) {
-        var url = __WEBPACK_IMPORTED_MODULE_3__app_settings__["a" /* AppSettings */].API_ENDPOINT + "/user/plan";
+        var url = __WEBPACK_IMPORTED_MODULE_4__app_settings__["a" /* AppSettings */].API_ENDPOINT + "/user/plan";
         return this.authHttp.post(url, stripePlanData)
             .map(this.extractData)
             .catch(this.handleError);
     };
     ApiService.prototype.storageStatus = function () {
-        var url = __WEBPACK_IMPORTED_MODULE_3__app_settings__["a" /* AppSettings */].API_ENDPOINT + "/storage/status";
+        var url = __WEBPACK_IMPORTED_MODULE_4__app_settings__["a" /* AppSettings */].API_ENDPOINT + "/storage/status";
         var cacheKey = this.cacheKey('GET', url);
         return this.cacheService.get(cacheKey) || this.cacheService.put(cacheKey, this.authHttp.get(url)
             .map(this.extractData)
@@ -1437,12 +1549,12 @@ var ApiService = (function () {
     };
     ApiService.prototype.storageLink = function (kloudlessData) {
         //TODO: this should bust the /storage/status cache
-        return this.authHttp.post(__WEBPACK_IMPORTED_MODULE_3__app_settings__["a" /* AppSettings */].API_ENDPOINT + "/storage/link", kloudlessData)
+        return this.authHttp.post(__WEBPACK_IMPORTED_MODULE_4__app_settings__["a" /* AppSettings */].API_ENDPOINT + "/storage/link", kloudlessData)
             .map(this.extractData)
             .catch(this.handleError);
     };
     ApiService.prototype.bookList = function (filter) {
-        var url = __WEBPACK_IMPORTED_MODULE_3__app_settings__["a" /* AppSettings */].API_ENDPOINT + "/book";
+        var url = __WEBPACK_IMPORTED_MODULE_4__app_settings__["a" /* AppSettings */].API_ENDPOINT + "/book";
         var params = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["URLSearchParams"]();
         if (filter.sort)
             params.set('sort', filter.sort.toString());
@@ -1458,7 +1570,7 @@ var ApiService = (function () {
             .catch(this.handleError));
     };
     ApiService.prototype.book = function (bookId) {
-        var url = __WEBPACK_IMPORTED_MODULE_3__app_settings__["a" /* AppSettings */].API_ENDPOINT + "/book";
+        var url = __WEBPACK_IMPORTED_MODULE_4__app_settings__["a" /* AppSettings */].API_ENDPOINT + "/book";
         var params = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["URLSearchParams"]();
         params.set('id', bookId.toString());
         var cacheKey = this.cacheKey('GET', url, params);
@@ -1472,7 +1584,7 @@ var ApiService = (function () {
         var headers = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["Headers"]({ 'Accept': '*' });
         var options = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["RequestOptions"]({ headers: headers });
         options.responseType = __WEBPACK_IMPORTED_MODULE_2__angular_http__["ResponseContentType"].Blob;
-        return this.authHttp.get(__WEBPACK_IMPORTED_MODULE_3__app_settings__["a" /* AppSettings */].API_ENDPOINT + "/storage/" + bookId)
+        return this.authHttp.get(__WEBPACK_IMPORTED_MODULE_4__app_settings__["a" /* AppSettings */].API_ENDPOINT + "/storage/" + bookId)
             .map(this.extractData)
             .flatMap(function (resp) { return _this.http.get(resp.url, options); })
             .catch(this.handleError);
@@ -1481,7 +1593,7 @@ var ApiService = (function () {
 }());
 ApiService = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_angular2_jwt__["AuthHttp"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_angular2_jwt__["AuthHttp"]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_http__["Http"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_http__["Http"]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4__services_cache_service__["a" /* CacheService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__services_cache_service__["a" /* CacheService */]) === "function" && _c || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_angular2_jwt__["AuthHttp"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_angular2_jwt__["AuthHttp"]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_http__["Http"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_http__["Http"]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_5__services_cache_service__["a" /* CacheService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__services_cache_service__["a" /* CacheService */]) === "function" && _c || Object])
 ], ApiService);
 
 var _a, _b, _c;
@@ -1522,6 +1634,7 @@ var AuthGuard = (function () {
             }
             else if (this.apiService.tokenPayload().plan == 'none') {
                 //user doesnt have a plan, redirec them to the settings page.
+                console.log("No plan, redirecting to /register/plan page.");
                 this.router.navigate(['/register/plan']);
                 return false;
             }
@@ -1594,6 +1707,117 @@ CacheService = __decorate([
 ], CacheService);
 
 //# sourceMappingURL=cache.service.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/services/notification.service.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return NotificationService; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Subject__ = __webpack_require__("../../../../rxjs/Subject.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Subject___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_Subject__);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
+
+
+var NotificationService = (function () {
+    function NotificationService(prior) {
+        this.notificationSubject = new __WEBPACK_IMPORTED_MODULE_1_rxjs_Subject__["Subject"]();
+        this.notificationState = this.notificationSubject.asObservable();
+        if (prior) {
+            return prior;
+        }
+        console.log("created global notification service");
+    }
+    NotificationService.prototype.show = function (title, message) {
+        this.notificationSubject.next({ title: title, message: message, show: true });
+    };
+    NotificationService.prototype.hide = function () {
+        this.notificationSubject.next({ show: false });
+    };
+    return NotificationService;
+}());
+NotificationService = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
+    __param(0, Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Optional"])()), __param(0, Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["SkipSelf"])()),
+    __metadata("design:paramtypes", [NotificationService])
+], NotificationService);
+
+//# sourceMappingURL=notification.service.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/services/uservoice.service.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UservoiceService; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_api_service__ = __webpack_require__("../../../../../src/app/services/api.service.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var UservoiceService = (function () {
+    function UservoiceService(apiService) {
+        this.apiService = apiService;
+    }
+    UservoiceService.prototype.identify = function () {
+        try {
+            //set UserVoice data
+            // Identify the user and pass traits
+            // To enable, replace sample data with actual user traits and uncomment the line
+            var tokenPayload = this.apiService.tokenPayload();
+            var uservoicePayload = {
+                email: tokenPayload.email,
+                name: tokenPayload.name,
+                //created_at: 1364406966, // Unix timestamp for the date the user signed up
+                id: tokenPayload.uid,
+                type: tokenPayload.plan,
+                account: {
+                    // id:           123, // Optional: associate multiple users with a single account
+                    name: tokenPayload.name,
+                    // created_at:   1364406966, // Unix timestamp for the date the account was created
+                    // monthly_rate: 9.99, // Decimal; monthly rate of the account
+                    // ltv:          1495.00, // Decimal; lifetime value of the account
+                    plan: tokenPayload.plan // Plan name for the account
+                }
+            };
+            console.log("User:", uservoicePayload);
+            UserVoice.push(['identify', uservoicePayload]);
+        }
+        catch (e) {
+            //do nothing with errors.
+        }
+    };
+    return UservoiceService;
+}());
+UservoiceService = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */]) === "function" && _a || Object])
+], UservoiceService);
+
+var _a;
+//# sourceMappingURL=uservoice.service.js.map
 
 /***/ }),
 
@@ -2043,6 +2267,7 @@ module.exports = module.exports.toString();
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_api_service__ = __webpack_require__("../../../../../src/app/services/api.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ng2_slim_loading_bar__ = __webpack_require__("../../../../ng2-slim-loading-bar/index.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_settings__ = __webpack_require__("../../../../../src/app/app-settings.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_notification_service__ = __webpack_require__("../../../../../src/app/services/notification.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2056,9 +2281,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var StorageComponent = (function () {
-    function StorageComponent(slimLoadingBarService, apiService) {
+    function StorageComponent(slimLoadingBarService, notificationService, apiService) {
         this.slimLoadingBarService = slimLoadingBarService;
+        this.notificationService = notificationService;
         this.apiService = apiService;
         this.kloudlessStorageTypes = __WEBPACK_IMPORTED_MODULE_3__app_settings__["a" /* AppSettings */].KLOUDLESS_STORAGE_TYPES;
         this.connected = [{
@@ -2081,6 +2308,10 @@ var StorageComponent = (function () {
         this.slimLoadingBarService.start();
         var self = this;
         this.apiService.storageStatus()
+            .finally(function () {
+            _this.loading.status = false;
+            _this.slimLoadingBarService.complete();
+        })
             .subscribe(function (response) {
             console.log(response);
             _this.connected = _this.connected.concat(response);
@@ -2094,10 +2325,7 @@ var StorageComponent = (function () {
                 }
             }
             console.log("connected:", _this.connected);
-        }, function (error) { console.log(error); }, function () {
-            _this.loading.status = false;
-            _this.slimLoadingBarService.complete();
-        });
+        }, function (error) { _this.notificationService.show("An error occurred!", error); });
     };
     StorageComponent.prototype.kloudlessAuthenticatedStorage = function (kloudlessData) {
         var _this = this;
@@ -2106,12 +2334,13 @@ var StorageComponent = (function () {
             return;
         this.slimLoadingBarService.start();
         this.apiService.storageLink(kloudlessData)
-            .subscribe(function (data) {
-            console.log(data);
-        }, function (error) { console.log(error); }, function () {
+            .finally(function () {
             _this.loading.status = false;
             _this.slimLoadingBarService.complete();
-        });
+        })
+            .subscribe(function (data) {
+            console.log(data);
+        }, function (error) { _this.notificationService.show("An error occurred!", error); });
     };
     return StorageComponent;
 }());
@@ -2121,10 +2350,10 @@ StorageComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/storage/storage.component.html"),
         styles: [__webpack_require__("../../../../../src/app/storage/storage.component.less")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */]) === "function" && _b || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_4__services_notification_service__["a" /* NotificationService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__services_notification_service__["a" /* NotificationService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */]) === "function" && _c || Object])
 ], StorageComponent);
 
-var _a, _b;
+var _a, _b, _c;
 //# sourceMappingURL=storage.component.js.map
 
 /***/ }),
