@@ -358,7 +358,7 @@ var AppSettings = (function () {
     Object.defineProperty(AppSettings, "KLOUDLESS_STORAGE_TYPES", {
         get: function () {
             // return ['box', 'dropbox', 'skydrive', 'gdrive'];
-            return ['box', 'dropbox', 'skydrive']; //TODO: disable google drive, events missing since Aug 22. 
+            return ['box', 'dropbox', 'skydrive']; //TODO: disable google drive, events missing since Aug 22.
         },
         enumerable: true,
         configurable: true
@@ -1593,9 +1593,13 @@ var ApiService = (function () {
             .map(this.extractData)
             .catch(this.handleError);
     };
-    ApiService.prototype.storageStatus = function () {
+    ApiService.prototype.storageStatus = function (bustCache) {
+        if (bustCache === void 0) { bustCache = false; }
         var url = __WEBPACK_IMPORTED_MODULE_4__app_settings__["a" /* AppSettings */].API_ENDPOINT + "/storage/status";
         var cacheKey = this.cacheKey('GET', url);
+        if (bustCache) {
+            this.cacheService.delete(cacheKey);
+        }
         return (this.cacheService.get(cacheKey) ||
             this.cacheService.put(cacheKey, this.authHttp.get(url).map(this.extractData).catch(this.handleError)));
     };
@@ -2374,7 +2378,7 @@ var _a, _b, _c;
 /***/ "../../../../../src/app/storage/storage.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<ng2-slim-loading-bar class=\"navbar-fixed-top\" [color]=\"'#128950'\" [height]=\"'3px'\"></ng2-slim-loading-bar>\n<quietthyme-header></quietthyme-header>\n<div class=\"main-container\">\n\n    <section class=\"switchable feature-large \">\n        <div class=\"container\">\n            <div class=\"row\">\n                <div class=\"col-md-5 col-sm-6 switchable__text\">\n                    <h2>Storage</h2>\n                    <p class=\"lead\">\n                        Connecting your cloud storage providers ensure that you always have access to your books. QuietThyme will only have access to a custom folder on each provider, ensuring that your other data is always safe.\n                    </p>\n                    <button kloudlessAuthenticator\n                       [disabled]=\"loading.link\"\n                       [clientId]=\"'mddXeszdchTlRQEFN3LGhxLzqaTjgYwbXGLHCeXOqJdrzRyd'\"\n                       [scope]=\"kloudlessStorageTypes.join(' ')\"\n                       (onAuthenticated)=\"kloudlessAuthenticatedStorage($event)\"\n                       class=\"btn btn--primary type--uppercase\">\n                                                    <span class=\"btn__text\">\n                                                        Connect Storage\n                                                    </span>\n                    </button>\n                </div>\n                <div class=\"col-md-4 col-sm-6 col-md-pull-1 col-xs-12\">\n                    <div class=\"boxed boxed--lg boxed--border box-shadow-wide\">\n\n                        <carousel id=\"storage-carousel\">\n                            <slide>\n                                <div class=\"feature feature-3 text-center\">\n                                    <i class=\"icon icon--lg icon-Twister color--primary\"></i>\n                                    <h4>Blackhole Folder</h4>\n                                    <p>\n                                        It's easy to import your existing library. Just drag and drop your books into a special Blackhole folder, and we'll process and add them to your library.\n                                    </p>\n\n                                </div>\n                            </slide>\n                            <slide>\n                                <div class=\"feature feature-3 text-center\">\n                                    <i class=\"icon icon--lg icon-Data-Cloud color--primary\"></i>\n                                    <h4>Calibre Support</h4>\n                                    <p>\n                                        QuietThyme fully integrates with Calibre. Once you install the QuietThyme plugin, you can import and export books just like you would to any ebook reader.\n                                    </p>\n                                    <a href=\"https://github.com/AnalogJ/quietthyme.plugin/releases\" target=\"_blank\">\n                                        Download Plugin\n                                    </a>\n                                </div>\n                            </slide>\n                            <slide>\n                                <div class=\"feature feature-3 text-center\">\n                                    <i class=\"icon icon--lg icon-Folder-Archive color--primary\"></i>\n                                    <h4>QuietThyme Storage</h4>\n                                    <p>\n                                        Unlimited storage. QuietThyme doesn't care if you have 10 books or 10,000 books, we can handle any size library.\n                                    </p>\n\n                                </div>\n                            </slide>\n\n                        </carousel>\n                    </div>\n                </div>\n            </div>\n            <!--end of row-->\n        </div>\n        <!--end of container-->\n    </section>\n\n    <section class=\" \">\n        <div class=\"container\">\n            <div class=\"row\">\n                <div class=\"col-sm-4\" *ngFor=\"let storageData of connected; let myIndex = index\">\n                    <quietthyme-storage-panel [storageData]=\"storageData\"></quietthyme-storage-panel>\n                </div>\n            </div>\n            <!--end of row-->\n        </div>\n        <!--end of container-->\n    </section>\n\n    <quietthyme-footer></quietthyme-footer>\n</div>"
+module.exports = "<ng2-slim-loading-bar class=\"navbar-fixed-top\" [color]=\"'#128950'\" [height]=\"'3px'\"></ng2-slim-loading-bar>\n<quietthyme-header></quietthyme-header>\n<div class=\"main-container\">\n\n    <section class=\"switchable feature-large \">\n        <div class=\"container\">\n            <div class=\"row\">\n                <div class=\"col-md-5 col-sm-6 switchable__text\">\n                    <h2>Storage</h2>\n                    <p class=\"lead\">\n                        Connecting your cloud storage providers ensure that you always have access to your books. QuietThyme will only have access to a custom folder on each provider, ensuring that your other data is always safe.\n                    </p>\n                    <button kloudlessAuthenticator\n                       [disabled]=\"loading.link\"\n                       [clientId]=\"'mddXeszdchTlRQEFN3LGhxLzqaTjgYwbXGLHCeXOqJdrzRyd'\"\n                       [scope]=\"kloudlessStorageTypes.join(' ')\"\n                       (onAuthenticated)=\"kloudlessAuthenticatedStorage($event)\"\n                            [ngClass]=\"{'disabled': kloudlessStorageTypes.length == 0}\"\n                       class=\"btn btn--primary type--uppercase\">\n                                                    <span class=\"btn__text\">\n                                                        Connect Storage\n                                                    </span>\n                    </button>\n                </div>\n                <div class=\"col-md-4 col-sm-6 col-md-pull-1 col-xs-12\">\n                    <div class=\"boxed boxed--lg boxed--border box-shadow-wide\">\n\n                        <carousel id=\"storage-carousel\">\n                            <slide>\n                                <div class=\"feature feature-3 text-center\">\n                                    <i class=\"icon icon--lg icon-Twister color--primary\"></i>\n                                    <h4>Blackhole Folder</h4>\n                                    <p>\n                                        It's easy to import your existing library. Just drag and drop your books into a special Blackhole folder, and we'll process and add them to your library.\n                                    </p>\n\n                                </div>\n                            </slide>\n                            <slide>\n                                <div class=\"feature feature-3 text-center\">\n                                    <i class=\"icon icon--lg icon-Data-Cloud color--primary\"></i>\n                                    <h4>Calibre Support</h4>\n                                    <p>\n                                        QuietThyme fully integrates with Calibre. Once you install the QuietThyme plugin, you can import and export books just like you would to any ebook reader.\n                                    </p>\n                                    <a href=\"https://github.com/AnalogJ/quietthyme.plugin/releases\" target=\"_blank\">\n                                        Download Plugin\n                                    </a>\n                                </div>\n                            </slide>\n                            <slide>\n                                <div class=\"feature feature-3 text-center\">\n                                    <i class=\"icon icon--lg icon-Folder-Archive color--primary\"></i>\n                                    <h4>QuietThyme Storage</h4>\n                                    <p>\n                                        Unlimited storage. QuietThyme doesn't care if you have 10 books or 10,000 books, we can handle any size library.\n                                    </p>\n\n                                </div>\n                            </slide>\n\n                        </carousel>\n                    </div>\n                </div>\n            </div>\n            <!--end of row-->\n        </div>\n        <!--end of container-->\n    </section>\n\n    <section class=\" \">\n        <div class=\"container\">\n            <div class=\"row\">\n                <div class=\"col-sm-4\" *ngFor=\"let storageData of connected; let myIndex = index\">\n                    <quietthyme-storage-panel [storageData]=\"storageData\"></quietthyme-storage-panel>\n                </div>\n            </div>\n            <!--end of row-->\n        </div>\n        <!--end of container-->\n    </section>\n\n    <quietthyme-footer></quietthyme-footer>\n</div>"
 
 /***/ }),
 
@@ -2426,6 +2430,17 @@ var StorageComponent = (function () {
         this.notificationService = notificationService;
         this.apiService = apiService;
         this.kloudlessStorageTypes = __WEBPACK_IMPORTED_MODULE_3__app_settings__["a" /* AppSettings */].KLOUDLESS_STORAGE_TYPES;
+        this.connected = [];
+        this.loading = {
+            status: false,
+            link: false,
+        };
+    }
+    StorageComponent.prototype.ngOnInit = function () {
+        this.initStorageStatus();
+        this.getStorageStatus();
+    };
+    StorageComponent.prototype.initStorageStatus = function () {
         this.connected = [
             {
                 free_space: 0,
@@ -2437,24 +2452,21 @@ var StorageComponent = (function () {
                 location_code: 'main',
             },
         ];
-        this.loading = {
-            status: false,
-            link: false,
-        };
-    }
-    StorageComponent.prototype.ngOnInit = function () {
+    };
+    StorageComponent.prototype.getStorageStatus = function (bustCache) {
         var _this = this;
+        if (bustCache === void 0) { bustCache = false; }
         this.loading.status = true;
         this.slimLoadingBarService.start();
-        var self = this;
         this.apiService
-            .storageStatus()
+            .storageStatus(bustCache)
             .finally(function () {
             _this.loading.status = false;
             _this.slimLoadingBarService.complete();
         })
             .subscribe(function (response) {
             console.log(response);
+            _this.initStorageStatus();
             _this.connected = _this.connected.concat(response);
             for (var _i = 0, response_1 = response; _i < response_1.length; _i++) {
                 var storage = response_1[_i];
@@ -2481,8 +2493,10 @@ var StorageComponent = (function () {
             .finally(function () {
             _this.loading.status = false;
             _this.slimLoadingBarService.complete();
+            _this.getStorageStatus(true);
         })
             .subscribe(function (data) {
+            console.log("Connected a new storage.");
             console.log(data);
         }, function (error) {
             _this.notificationService.show('An error occurred!', error);
