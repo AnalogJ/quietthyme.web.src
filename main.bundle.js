@@ -923,6 +923,7 @@ var LibraryComponent = (function () {
         this.filter.storage_id = this.storages[storage] ? this.storages[storage].storage_id : null;
         this.filter.page = '';
         console.log("CHANGED STORAGE FILTER", this.filter.storage);
+        this.bookListAll = false;
         this.bookList = [];
         this.getBookList();
     };
@@ -932,6 +933,7 @@ var LibraryComponent = (function () {
         this.filter.sort = sort || null;
         this.filter.page = '';
         console.log("CHANGED SORT FILTER", this.filter.sort);
+        this.bookListAll = false;
         this.bookList = [];
         this.getBookList();
     };
