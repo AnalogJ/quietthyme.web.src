@@ -357,7 +357,8 @@ var AppSettings = (function () {
     });
     Object.defineProperty(AppSettings, "KLOUDLESS_STORAGE_TYPES", {
         get: function () {
-            return ['box', 'dropbox', 'skydrive', 'gdrive'];
+            // return ['box', 'dropbox', 'skydrive', 'gdrive'];
+            return ['box', 'dropbox', 'skydrive']; //TODO: disable google drive, events missing since Aug 22. 
         },
         enumerable: true,
         configurable: true
