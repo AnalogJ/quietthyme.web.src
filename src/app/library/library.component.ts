@@ -138,6 +138,7 @@ export class LibraryComponent implements AfterViewInit {
         this.filter.page = ''
 
         console.log("CHANGED STORAGE FILTER", this.filter.storage)
+        this.bookListAll = false;
         this.bookList = []
         this.getBookList()
     }
@@ -147,6 +148,7 @@ export class LibraryComponent implements AfterViewInit {
         this.filter.sort = sort || null
         this.filter.page = ''
         console.log("CHANGED SORT FILTER", this.filter.sort)
+        this.bookListAll = false;
         this.bookList = []
         this.getBookList()
     }
