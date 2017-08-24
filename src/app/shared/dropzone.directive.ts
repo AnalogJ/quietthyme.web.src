@@ -52,8 +52,9 @@ export class DropzoneDirective {
                 prepareData.storage_size = file.size;
                 prepareData.storage_filename = filename;
                 prepareData.storage_format = extension;
-                // prepareData.storage_id = this.storageId; //TODO: handle storages other than QuietTHyme.
+                prepareData.storage_id = self.storageId;
 
+                console.log("Storage Destination data:", prepareData);
 
                 self.apiService.storagePrepareBook(prepareData)
                     .subscribe(

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BsModalRef } from 'ngx-bootstrap/modal/modal-options.class';
+import { StorageStatus } from '../../models/storage-status'
+import { AppSettings } from '../../app-settings';
 
 @Component({
   selector: 'quietthyme-book-upload',
@@ -8,8 +10,9 @@ import { BsModalRef } from 'ngx-bootstrap/modal/modal-options.class';
 })
 export class BookUploadComponent implements OnInit {
 
-  public title: string;
-  public list: any[] = [];
+  public connected: StorageStatus[] = [];
+  storageDetails = AppSettings.STORAGE_DETAILS;
+  storageId = "quietthyme"
   constructor(public bsModalRef: BsModalRef) {}
 
   ngOnInit() {

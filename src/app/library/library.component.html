@@ -37,11 +37,8 @@
                             <div class="masonry__filters" data-filter-all-text="Storage">
                                 <ul>
                                     <li [ngClass]="{'active': !filter.storage}" (click)="setStorage(null)">All Storage</li>
-                                    <li [ngClass]="{'active': filter.storage == 'quietthyme'}" (click)="setStorage('quietthyme')">QuietThyme</li>
-                                    <li *ngIf="connected.box" [ngClass]="{'active': filter.storage == 'box'}" (click)="setStorage('box')">Box</li>
-                                    <li *ngIf="connected.dropbox" [ngClass]="{'active': filter.storage == 'dropbox'}" (click)="setStorage('dropbox')">Dropbox</li>
-                                    <li *ngIf="connected.gdrive" [ngClass]="{'active': filter.storage == 'gdrive'}" (click)="setStorage('gdrive')">Google Drive</li>
-                                    <li *ngIf="connected.skydrive" [ngClass]="{'active': filter.storage == 'skydrive'}" (click)="setStorage('skydrive')">OneDrive</li>
+
+                                    <li *ngFor="let serviceStatus of connected" [ngClass]="{'active': filter.storage == serviceStatus}" (click)="setStorage(serviceStatus)">{{ storageDetails[serviceStatus.storage_type].display_name }}</li>
 
                                 </ul>
                             </div>
@@ -66,7 +63,7 @@
 
                 </div>
                 <div class="col-sm-4">
-                    <button type="button" class="btn btn-primary" (click)="openModalBookUpload()">Upload Book</button>
+                    <button type="button" class="btn btn--primary pull-right" (click)="openModalBookUpload()">Add Books</button>
                 </div>
 
             </div>

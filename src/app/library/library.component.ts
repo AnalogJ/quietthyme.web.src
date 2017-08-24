@@ -2,6 +2,7 @@ import { Component, AfterViewInit, OnInit } from '@angular/core';
 import { ApiService } from '../services/api.service';
 import { SlimLoadingBarService } from 'ng2-slim-loading-bar';
 import { BookModel } from '../models/book';
+import { StorageStatus } from '../models/storage-status';
 import { NotificationService } from '../services/notification.service';
 import { BookUploadComponent } from '../partials/book-upload/book-upload.component';
 import { BsModalService } from 'ngx-bootstrap/modal';
@@ -9,6 +10,7 @@ import { BsModalRef } from 'ngx-bootstrap/modal/modal-options.class';
 import { ScrollSpyModule, ScrollSpyService } from 'ng2-scrollspy';
 import { ScrollSpyAffixModule } from 'ng2-scrollspy/dist/plugin/affix';
 import * as FileSaver from 'file-saver';
+import { AppSettings } from '../app-settings';
 
 
 
@@ -31,14 +33,10 @@ export class LibraryComponent implements AfterViewInit {
     storage_id: null,
     page: '',
   };
-  connected: any = {
-    quietthyme: false,
-    dropbox: false,
-    gdrive: false,
-    skydrive: false,
-    box: false,
-  };
-  storages: any = {};
+  connected: StorageStatus[] = [];
+    storageDetails = AppSettings.STORAGE_DETAILS;
+
+
   bsModalRef: BsModalRef;
   constructor(
     private slimLoadingBarService: SlimLoadingBarService,
@@ -56,6 +54,19 @@ export class LibraryComponent implements AfterViewInit {
     //     console.log('ScrollSpy::sidebar: ', e);
     // });
   }
+    initStorageStatus(){
+        this.connected = [
+            {
+                free_space: 0,
+                total_space: 0,
+                prefix: 'quietthyme://',
+                device_name: 'quietthyme',
+                storage_id: 'quietthyme',
+                storage_type: 'quietthyme',
+                location_code: 'main',
+            },
+        ];
+    }
 
   onScroll() {
     console.log('SCROLLING');
@@ -75,11 +86,8 @@ export class LibraryComponent implements AfterViewInit {
       .subscribe(
         response => {
           console.log(response);
-          response.forEach(function(status) {
-            self.connected[status.storage_type] = true;
-
-            self.storages[status.storage_type] = status;
-          });
+            this.initStorageStatus()
+            this.connected = this.connected.concat(response);
         },
         error => {
           this.notificationService.show('An error occurred!', error);
@@ -150,11 +158,11 @@ export class LibraryComponent implements AfterViewInit {
       );
   }
 
-  setStorage(storage) {
-    if (storage == this.filter.storage) return; //user clicked an active filter
-    this.filter.storage = storage || null;
-    this.filter.storage_id = this.storages[storage]
-      ? this.storages[storage].storage_id
+  setStorage(storageStatus) {
+    if (storageStatus == this.filter.storage) return; //user clicked an active filter
+    this.filter.storage = storageStatus || null;
+    this.filter.storage_id = storageStatus != null
+      ? storageStatus.storage_id
       : null;
     this.filter.page = '';
 
@@ -175,17 +183,13 @@ export class LibraryComponent implements AfterViewInit {
   }
 
   public openModalBookUpload() {
-    console.log("OPEN MODAL LOCALLY")
-    let list = ['Open a modal with component', 'Pass your data', 'Do something else', '...'];
+
     this.bsModalRef = this.modalService.show(BookUploadComponent, {
       animated: true,
       backdrop: 'static',
       class: 'modal-container modal-active',
     });
-    this.bsModalRef.content.title = 'Modal with component';
-    this.bsModalRef.content.list = list;
-    setTimeout(() => {
-      list.push('PROFIT!!!');
-    }, 2000);
+    this.bsModalRef.content.connected = this.connected
+
   }
 }
