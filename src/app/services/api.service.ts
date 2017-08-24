@@ -11,6 +11,7 @@ import {
 import { Observable } from 'rxjs/Observable';
 import { AppSettings } from '../app-settings';
 import { CacheService } from '../services/cache.service';
+import { StoragePrepareBookModel } from '../models/storage-prepare-book-model'
 import { Observer } from 'rxjs';
 
 @Injectable()
@@ -126,6 +127,18 @@ export class ApiService {
       .map(this.extractData)
       .catch(this.handleError);
   }
+
+  storagePrepareBook(prepare_data: StoragePrepareBookModel): Observable<any> {
+    let params: URLSearchParams = new URLSearchParams();
+    params.set('source', 'web'); //if we dont specify the source, we'll get the wrong kind of signedUrl from the API (one without a policy)
+
+    //TODO: this should bust the /book cache
+    return this.authHttp
+        .post(`${AppSettings.API_ENDPOINT}/storage/prepare/book`, prepare_data, {search: params})
+        .map(this.extractData)
+        .catch(this.handleError);
+  }
+
 
   bookList(filter): Observable<any> {
     var url = `${AppSettings.API_ENDPOINT}/book`;

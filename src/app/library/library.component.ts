@@ -1,11 +1,16 @@
-import { Component, AfterViewInit } from '@angular/core';
+import { Component, AfterViewInit, OnInit } from '@angular/core';
 import { ApiService } from '../services/api.service';
 import { SlimLoadingBarService } from 'ng2-slim-loading-bar';
 import { BookModel } from '../models/book';
 import { NotificationService } from '../services/notification.service';
+import { BookUploadComponent } from '../partials/book-upload/book-upload.component';
+import { BsModalService } from 'ngx-bootstrap/modal';
+import { BsModalRef } from 'ngx-bootstrap/modal/modal-options.class';
 import { ScrollSpyModule, ScrollSpyService } from 'ng2-scrollspy';
 import { ScrollSpyAffixModule } from 'ng2-scrollspy/dist/plugin/affix';
 import * as FileSaver from 'file-saver';
+
+
 
 @Component({
   selector: 'app-library',
@@ -34,11 +39,13 @@ export class LibraryComponent implements AfterViewInit {
     box: false,
   };
   storages: any = {};
+  bsModalRef: BsModalRef;
   constructor(
     private slimLoadingBarService: SlimLoadingBarService,
     private notificationService: NotificationService,
     private apiService: ApiService,
-    private scrollSpyService: ScrollSpyService
+    private scrollSpyService: ScrollSpyService,
+    private modalService: BsModalService
   ) {}
 
   ngAfterViewInit() {
@@ -165,5 +172,20 @@ export class LibraryComponent implements AfterViewInit {
     this.bookListAll = false;
     this.bookList = [];
     this.getBookList();
+  }
+
+  public openModalBookUpload() {
+    console.log("OPEN MODAL LOCALLY")
+    let list = ['Open a modal with component', 'Pass your data', 'Do something else', '...'];
+    this.bsModalRef = this.modalService.show(BookUploadComponent, {
+      animated: true,
+      backdrop: 'static',
+      class: 'modal-container modal-active',
+    });
+    this.bsModalRef.content.title = 'Modal with component';
+    this.bsModalRef.content.list = list;
+    setTimeout(() => {
+      list.push('PROFIT!!!');
+    }, 2000);
   }
 }

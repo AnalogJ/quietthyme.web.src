@@ -1,0 +1,44 @@
+<section class="imageblock feature-large bg--site border--round ">
+    <div class="imageblock__content col-md-4 col-sm-3 pos-left">
+        <div class="background-image-holder library-book-upload-bg">
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-md-push-5 col-sm-7 col-sm-push-4">
+                <h2>Upload books</h2>
+                <p>
+                    There are a couple of ways to upload books to QuietThyme.
+                    The easiest is just to Drag & Drop books into your cloud storage "blackhole" folder on your computer, but
+                    QuietThyme also lets you add books via our Website. Just Drag & Drop your books into the box below.
+                </p>
+
+                <form class="form--clearfix">
+                    <div class="col-sm-12">
+                        <label>Destination:</label>
+                        <div class="input-select">
+                            <select name="finish">
+                                <option selected="" value="quietthyme">QuietThyme</option>
+                                <option value="aluminum">Aluminium</option>
+                                <option value="polished">Polished Aluminium</option>
+                                <option value="gold">Rose Gold</option>
+                            </select>
+                        </div>
+                    </div>
+                </form>
+                <form dropzone
+                      class="dropzone"
+                      id="my-awesome-dropzone"></form>
+                <div>
+                    <p>
+                        For more information
+                        <a href="#">View Detailed Description &rarr;</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!--end of row-->
+    </div>
+    <!--end of container-->
+</section>
+<div (click)="closeModalBookUpload()" class="modal-close modal-close-cross"></div>

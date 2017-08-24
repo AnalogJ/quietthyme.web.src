@@ -24,6 +24,11 @@ import { CacheService } from './services/cache.service';
 import { AuthGuard } from './services/auth-guard.service';
 import { UservoiceService } from './services/uservoice.service';
 import { NotificationService } from './services/notification.service';
+import { DropzoneDirective } from './shared/dropzone.directive';
+import { TermsComponent } from './terms/terms.component';
+import { NotificationComponent } from './partials/notification/notification.component';
+import { BookUploadComponent } from './partials/book-upload/book-upload.component';
+import { AccountRegisterPlanComponent } from './account-register-plan/account-register-plan.component';
 
 //Third party
 import { AuthHttp, AuthConfig } from 'angular2-jwt';
@@ -33,11 +38,9 @@ import { MarkdownModule } from 'angular2-markdown';
 import { MasonryModule } from 'angular2-masonry';
 import { ScrollSpyModule } from 'ng2-scrollspy';
 import { ScrollSpyAffixDirective } from 'ng2-scrollspy/dist/plugin/affix.directive';
-import { AccountRegisterPlanComponent } from './account-register-plan/account-register-plan.component';
 import { MomentModule } from 'angular2-moment';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
-import { TermsComponent } from './terms/terms.component';
-import { NotificationComponent } from './partials/notification/notification.component';
+
 
 export function getAuthHttp(http: Http, options: RequestOptions) {
   return new AuthHttp(
@@ -74,6 +77,8 @@ export function getAuthHttp(http: Http, options: RequestOptions) {
     OpdsPanelComponent,
     TermsComponent,
     NotificationComponent,
+    BookUploadComponent,
+    DropzoneDirective
   ],
   imports: [
     BrowserModule,
@@ -146,6 +151,7 @@ export function getAuthHttp(http: Http, options: RequestOptions) {
       deps: [Http, RequestOptions],
     },
   ],
+  entryComponents: [ BookUploadComponent ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
