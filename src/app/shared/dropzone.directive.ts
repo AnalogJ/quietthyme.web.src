@@ -8,6 +8,10 @@ import {
     Output,
     HostListener,
 } from '@angular/core';
+import { AppSettings } from '../app-settings';
+
+
+
 import { environment } from '../../environments/environment';
 import { StoragePrepareBookModel } from '../models/storage-prepare-book-model';
 import { ApiService } from '../services/api.service';
@@ -20,6 +24,7 @@ export class DropzoneDirective {
   @Output() onCheckout: EventEmitter<any> = new EventEmitter();
   @Input() storageId: string;
 
+  acceptedFiles = AppSettings.SUPPORTED_BOOK_TYPES.join(',');
   handler: any;
 
   elt: ElementRef;
@@ -38,7 +43,7 @@ export class DropzoneDirective {
           // uploadMultiple: false,
           // headers: {"Accept": "text/plain"},
           // In the `accept` function we request a signed upload URL when a file being accepted
-
+            acceptedFiles: self.acceptedFiles,
             accept: function(file, done){
                 var filename_parts =  file.name.split(".");
                 if(filename_parts.length == 1){
