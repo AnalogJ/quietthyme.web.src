@@ -20465,6 +20465,18 @@ function isPresent(obj) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__utils_ng2_bootstrap_config__ = __webpack_require__("../../../../ngx-bootstrap/utils/ng2-bootstrap-config.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__accordion_component__ = __webpack_require__("../../../../ngx-bootstrap/accordion/accordion.component.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
 
 
 
@@ -20512,28 +20524,39 @@ var AccordionPanelComponent = (function () {
             this.isOpen = !this.isOpen;
         }
     };
-    AccordionPanelComponent.decorators = [
-        { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"], args: [{
-                    selector: 'accordion-group, accordion-panel',
-                    template: "\n    <div class=\"panel card\" [ngClass]=\"panelClass\">\n      <div class=\"panel-heading card-header\" role=\"tab\" (click)=\"toggleOpen($event)\">\n        <div class=\"panel-title card-title\">\n          <div role=\"button\" class=\"accordion-toggle\" [attr.aria-expanded]=\"isOpen\">\n            <div *ngIf=\"heading\"[ngClass]=\"{'text-muted': isDisabled}\">{{heading}}</div>\n            <ng-content select=\"[accordion-heading]\"></ng-content>\n          </div>\n        </div>\n      </div>\n      <div class=\"panel-collapse collapse\" role=\"tabpanel\" [collapse]=\"!isOpen\">\n        <div class=\"panel-body card-block\">\n          <ng-content></ng-content>\n        </div>\n      </div>\n    </div>\n  ",
-                    host: {
-                        class: 'panel',
-                        style: 'display: block'
-                    }
-                },] },
-    ];
-    /** @nocollapse */
-    AccordionPanelComponent.ctorParameters = function () { return [
-        { type: __WEBPACK_IMPORTED_MODULE_2__accordion_component__["a" /* AccordionComponent */], decorators: [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Inject"], args: [__WEBPACK_IMPORTED_MODULE_2__accordion_component__["a" /* AccordionComponent */],] },] },
-    ]; };
-    AccordionPanelComponent.propDecorators = {
-        'heading': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'panelClass': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'isDisabled': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'isOpen': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["HostBinding"], args: ['class.panel-open',] }, { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", String)
+    ], AccordionPanelComponent.prototype, "heading", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", String)
+    ], AccordionPanelComponent.prototype, "panelClass", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Boolean)
+    ], AccordionPanelComponent.prototype, "isDisabled", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["HostBinding"])('class.panel-open'),
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Boolean),
+        __metadata("design:paramtypes", [Boolean])
+    ], AccordionPanelComponent.prototype, "isOpen", null);
+    AccordionPanelComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'accordion-group, accordion-panel',
+            template: "\n    <div class=\"panel card\" [ngClass]=\"panelClass\">\n      <div class=\"panel-heading card-header\" role=\"tab\" (click)=\"toggleOpen($event)\">\n        <div class=\"panel-title\">\n          <div role=\"button\" class=\"accordion-toggle\" [attr.aria-expanded]=\"isOpen\">\n            <div *ngIf=\"heading\"[ngClass]=\"{'text-muted': isDisabled}\">{{heading}}</div>\n            <ng-content select=\"[accordion-heading]\"></ng-content>\n          </div>\n        </div>\n      </div>\n      <div class=\"panel-collapse collapse\" role=\"tabpanel\" [collapse]=\"!isOpen\">\n        <div class=\"panel-body card-block card-body\">\n          <ng-content></ng-content>\n        </div>\n      </div>\n    </div>\n  ",
+            host: {
+                class: 'panel',
+                style: 'display: block'
+            }
+        }),
+        __param(0, Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Inject"])(__WEBPACK_IMPORTED_MODULE_2__accordion_component__["a" /* AccordionComponent */])),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__accordion_component__["a" /* AccordionComponent */]])
+    ], AccordionPanelComponent);
     return AccordionPanelComponent;
 }());
+
 //# sourceMappingURL=accordion-group.component.js.map
 
 /***/ }),
@@ -20545,6 +20568,15 @@ var AccordionPanelComponent = (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AccordionComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__accordion_config__ = __webpack_require__("../../../../ngx-bootstrap/accordion/accordion.config.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
 
 
 /** Displays collapsible content panels for presenting information in a limited amount of space. */
@@ -20572,29 +20604,28 @@ var AccordionComponent = (function () {
             this.groups.splice(index, 1);
         }
     };
-    AccordionComponent.decorators = [
-        { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"], args: [{
-                    selector: 'accordion',
-                    template: "<ng-content></ng-content>",
-                    // tslint:disable-next-line
-                    host: {
-                        //'[.class.panel-group]': 'true',
-                        '[attr.aria-multiselectable]': 'closeOthers',
-                        role: 'tablist',
-                        class: 'panel-group',
-                        style: 'display: block'
-                    }
-                },] },
-    ];
-    /** @nocollapse */
-    AccordionComponent.ctorParameters = function () { return [
-        { type: __WEBPACK_IMPORTED_MODULE_1__accordion_config__["a" /* AccordionConfig */], },
-    ]; };
-    AccordionComponent.propDecorators = {
-        'closeOthers': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Boolean)
+    ], AccordionComponent.prototype, "closeOthers", void 0);
+    AccordionComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'accordion',
+            template: "<ng-content></ng-content>",
+            // tslint:disable-next-line
+            host: {
+                //'[.class.panel-group]': 'true',
+                '[attr.aria-multiselectable]': 'closeOthers',
+                role: 'tablist',
+                class: 'panel-group',
+                style: 'display: block'
+            }
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__accordion_config__["a" /* AccordionConfig */]])
+    ], AccordionComponent);
     return AccordionComponent;
 }());
+
 //# sourceMappingURL=accordion.component.js.map
 
 /***/ }),
@@ -20605,6 +20636,12 @@ var AccordionComponent = (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AccordionConfig; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
 
 /**
  * Configuration service, provides default values for the AccordionComponent.
@@ -20614,13 +20651,12 @@ var AccordionConfig = (function () {
         /** Whether the other panels should be closed when a panel is opened */
         this.closeOthers = false;
     }
-    AccordionConfig.decorators = [
-        { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"] },
-    ];
-    /** @nocollapse */
-    AccordionConfig.ctorParameters = function () { return []; };
+    AccordionConfig = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])()
+    ], AccordionConfig);
     return AccordionConfig;
 }());
+
 //# sourceMappingURL=accordion.config.js.map
 
 /***/ }),
@@ -20636,6 +20672,12 @@ var AccordionConfig = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__accordion_group_component__ = __webpack_require__("../../../../ngx-bootstrap/accordion/accordion-group.component.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__accordion_component__ = __webpack_require__("../../../../ngx-bootstrap/accordion/accordion.component.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__accordion_config__ = __webpack_require__("../../../../ngx-bootstrap/accordion/accordion.config.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
 
 
 
@@ -20645,18 +20687,19 @@ var AccordionConfig = (function () {
 var AccordionModule = (function () {
     function AccordionModule() {
     }
-    AccordionModule.forRoot = function () { return { ngModule: AccordionModule, providers: [__WEBPACK_IMPORTED_MODULE_5__accordion_config__["a" /* AccordionConfig */]] }; };
-    AccordionModule.decorators = [
-        { type: __WEBPACK_IMPORTED_MODULE_1__angular_core__["NgModule"], args: [{
-                    imports: [__WEBPACK_IMPORTED_MODULE_0__angular_common__["b" /* CommonModule */], __WEBPACK_IMPORTED_MODULE_2__collapse_collapse_module__["a" /* CollapseModule */]],
-                    declarations: [__WEBPACK_IMPORTED_MODULE_4__accordion_component__["a" /* AccordionComponent */], __WEBPACK_IMPORTED_MODULE_3__accordion_group_component__["a" /* AccordionPanelComponent */]],
-                    exports: [__WEBPACK_IMPORTED_MODULE_4__accordion_component__["a" /* AccordionComponent */], __WEBPACK_IMPORTED_MODULE_3__accordion_group_component__["a" /* AccordionPanelComponent */]]
-                },] },
-    ];
-    /** @nocollapse */
-    AccordionModule.ctorParameters = function () { return []; };
+    AccordionModule_1 = AccordionModule;
+    AccordionModule.forRoot = function () { return { ngModule: AccordionModule_1, providers: [__WEBPACK_IMPORTED_MODULE_5__accordion_config__["a" /* AccordionConfig */]] }; };
+    AccordionModule = AccordionModule_1 = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["NgModule"])({
+            imports: [__WEBPACK_IMPORTED_MODULE_0__angular_common__["b" /* CommonModule */], __WEBPACK_IMPORTED_MODULE_2__collapse_collapse_module__["a" /* CollapseModule */]],
+            declarations: [__WEBPACK_IMPORTED_MODULE_4__accordion_component__["a" /* AccordionComponent */], __WEBPACK_IMPORTED_MODULE_3__accordion_group_component__["a" /* AccordionPanelComponent */]],
+            exports: [__WEBPACK_IMPORTED_MODULE_4__accordion_component__["a" /* AccordionComponent */], __WEBPACK_IMPORTED_MODULE_3__accordion_group_component__["a" /* AccordionPanelComponent */]]
+        })
+    ], AccordionModule);
     return AccordionModule;
+    var AccordionModule_1;
 }());
+
 //# sourceMappingURL=accordion.module.js.map
 
 /***/ }),
@@ -20740,29 +20783,37 @@ var AlertComponent = (function () {
         this.isClosed = true;
         this.onClosed.emit(this);
     };
-    AlertComponent.decorators = [
-        { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"], args: [{
-                    selector: 'alert,ngx-alert',
-                    template: "\n<template [ngIf]=\"!isClosed\">\n  <div [class]=\"'alert alert-' + type\" role=\"alert\" [ngClass]=\"classes\">\n    <template [ngIf]=\"dismissible\">\n      <button type=\"button\" class=\"close\" aria-label=\"Close\" (click)=\"close()\">\n        <span aria-hidden=\"true\">&times;</span>\n        <span class=\"sr-only\">Close</span>\n      </button>\n    </template>\n    <ng-content></ng-content>\n  </div>\n</template>\n  "
-                },] },
-    ];
-    /** @nocollapse */
-    AlertComponent.ctorParameters = function () { return [
-        { type: __WEBPACK_IMPORTED_MODULE_1__alert_config__["a" /* AlertConfig */], },
-    ]; };
-    AlertComponent.propDecorators = {
-        'type': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'dismissible': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'dismissOnTimeout': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'onClose': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"] },],
-        'onClosed': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"] },],
-    };
     __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_2__utils_decorators__["a" /* OnChange */])(), 
-        __metadata('design:type', Boolean)
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", String)
+    ], AlertComponent.prototype, "type", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_2__utils_decorators__["a" /* OnChange */])(),
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Boolean)
     ], AlertComponent.prototype, "dismissible", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Object)
+    ], AlertComponent.prototype, "dismissOnTimeout", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"])(),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"])
+    ], AlertComponent.prototype, "onClose", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"])(),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"])
+    ], AlertComponent.prototype, "onClosed", void 0);
+    AlertComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'alert,ngx-alert',
+            template: "\n<template [ngIf]=\"!isClosed\">\n  <div [class]=\"'alert alert-' + type\" role=\"alert\" [ngClass]=\"classes\">\n    <template [ngIf]=\"dismissible\">\n      <button type=\"button\" class=\"close\" aria-label=\"Close\" (click)=\"close()\">\n        <span aria-hidden=\"true\">&times;</span>\n        <span class=\"sr-only\">Close</span>\n      </button>\n    </template>\n    <ng-content></ng-content>\n  </div>\n</template>\n  "
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__alert_config__["a" /* AlertConfig */]])
+    ], AlertComponent);
     return AlertComponent;
 }());
+
 //# sourceMappingURL=alert.component.js.map
 
 /***/ }),
@@ -20773,6 +20824,12 @@ var AlertComponent = (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AlertConfig; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
 
 var AlertConfig = (function () {
     function AlertConfig() {
@@ -20783,13 +20840,12 @@ var AlertConfig = (function () {
         /** default time before alert will dismiss */
         this.dismissOnTimeout = undefined;
     }
-    AlertConfig.decorators = [
-        { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"] },
-    ];
-    /** @nocollapse */
-    AlertConfig.ctorParameters = function () { return []; };
+    AlertConfig = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])()
+    ], AlertConfig);
     return AlertConfig;
 }());
+
 //# sourceMappingURL=alert.config.js.map
 
 /***/ }),
@@ -20803,6 +20859,12 @@ var AlertConfig = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__alert_component__ = __webpack_require__("../../../../ngx-bootstrap/alert/alert.component.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__alert_config__ = __webpack_require__("../../../../ngx-bootstrap/alert/alert.config.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
 
 
 
@@ -20810,21 +20872,22 @@ var AlertConfig = (function () {
 var AlertModule = (function () {
     function AlertModule() {
     }
+    AlertModule_1 = AlertModule;
     AlertModule.forRoot = function () {
-        return { ngModule: AlertModule, providers: [__WEBPACK_IMPORTED_MODULE_3__alert_config__["a" /* AlertConfig */]] };
+        return { ngModule: AlertModule_1, providers: [__WEBPACK_IMPORTED_MODULE_3__alert_config__["a" /* AlertConfig */]] };
     };
-    AlertModule.decorators = [
-        { type: __WEBPACK_IMPORTED_MODULE_1__angular_core__["NgModule"], args: [{
-                    imports: [__WEBPACK_IMPORTED_MODULE_0__angular_common__["b" /* CommonModule */]],
-                    declarations: [__WEBPACK_IMPORTED_MODULE_2__alert_component__["a" /* AlertComponent */]],
-                    exports: [__WEBPACK_IMPORTED_MODULE_2__alert_component__["a" /* AlertComponent */]],
-                    entryComponents: [__WEBPACK_IMPORTED_MODULE_2__alert_component__["a" /* AlertComponent */]]
-                },] },
-    ];
-    /** @nocollapse */
-    AlertModule.ctorParameters = function () { return []; };
+    AlertModule = AlertModule_1 = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["NgModule"])({
+            imports: [__WEBPACK_IMPORTED_MODULE_0__angular_common__["b" /* CommonModule */]],
+            declarations: [__WEBPACK_IMPORTED_MODULE_2__alert_component__["a" /* AlertComponent */]],
+            exports: [__WEBPACK_IMPORTED_MODULE_2__alert_component__["a" /* AlertComponent */]],
+            entryComponents: [__WEBPACK_IMPORTED_MODULE_2__alert_component__["a" /* AlertComponent */]]
+        })
+    ], AlertModule);
     return AlertModule;
+    var AlertModule_1;
 }());
+
 //# sourceMappingURL=alert.module.js.map
 
 /***/ }),
@@ -20846,6 +20909,996 @@ var AlertModule = (function () {
 
 /***/ }),
 
+/***/ "../../../../ngx-bootstrap/bs-moment/format-functions.js":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return formatFunctions; });
+/* unused harmony export formatTokenFunctions */
+/* unused harmony export formattingTokens */
+/* harmony export (immutable) */ __webpack_exports__["a"] = addFormatToken;
+/* harmony export (immutable) */ __webpack_exports__["c"] = makeFormatFunction;
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__utils__ = __webpack_require__("../../../../ngx-bootstrap/bs-moment/utils.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__utils_type_checks__ = __webpack_require__("../../../../ngx-bootstrap/bs-moment/utils/type-checks.js");
+
+
+var formatFunctions = {};
+var formatTokenFunctions = {};
+var formattingTokens = /(\[[^\[]*\])|(\\)?([Hh]mm(ss)?|Mo|MM?M?M?|Do|DDDo|DD?D?D?|ddd?d?|do?|w[o|w]?|W[o|W]?|Qo?|YYYYYY|YYYYY|YYYY|YY|gg(ggg?)?|GG(GGG?)?|e|E|a|A|hh?|HH?|kk?|mm?|ss?|S{1,9}|x|X|zz?|ZZ?|.)/g;
+// token:    'M'
+// padded:   ['MM', 2]
+// ordinal:  'Mo'
+// callback: function () { this.month() + 1 }
+function addFormatToken(token, padded, ordinal, callback) {
+    var func = callback;
+    if (token) {
+        formatTokenFunctions[token] = func;
+    }
+    if (padded) {
+        var key = padded[0];
+        formatTokenFunctions[key] = function (date, format, locale) {
+            return Object(__WEBPACK_IMPORTED_MODULE_0__utils__["d" /* zeroFill */])(func.apply(null, arguments), padded[1], padded[2]);
+        };
+    }
+    if (ordinal) {
+        formatTokenFunctions[ordinal] = function (date, format, locale) {
+            // todo: fix this
+            return locale.ordinal(func.apply(null, arguments), token);
+        };
+    }
+}
+function makeFormatFunction(format) {
+    var array = format.match(formattingTokens);
+    var length = array.length;
+    var formatArr = new Array(length);
+    for (var i = 0; i < length; i++) {
+        formatArr[i] = formatTokenFunctions[array[i]]
+            ? formatTokenFunctions[array[i]]
+            : removeFormattingTokens(array[i]);
+    }
+    return function (date, locale) {
+        var output = '';
+        for (var j = 0; j < length; j++) {
+            output += Object(__WEBPACK_IMPORTED_MODULE_1__utils_type_checks__["d" /* isFunction */])(formatArr[j])
+                ? formatArr[j].call(null, date, format, locale)
+                : formatArr[j];
+        }
+        return output;
+    };
+}
+function removeFormattingTokens(input) {
+    if (input.match(/\[[\s\S]/)) {
+        return input.replace(/^\[|\]$/g, '');
+    }
+    return input.replace(/\\/g, '');
+}
+//# sourceMappingURL=format-functions.js.map
+
+/***/ }),
+
+/***/ "../../../../ngx-bootstrap/bs-moment/format.js":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (immutable) */ __webpack_exports__["a"] = formatDate;
+/* unused harmony export formatMoment */
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__format_functions__ = __webpack_require__("../../../../ngx-bootstrap/bs-moment/format-functions.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__locale__ = __webpack_require__("../../../../ngx-bootstrap/bs-moment/locale/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__units__ = __webpack_require__("../../../../ngx-bootstrap/bs-moment/units/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__locale_locales_service__ = __webpack_require__("../../../../ngx-bootstrap/bs-moment/locale/locales.service.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__utils_type_checks__ = __webpack_require__("../../../../ngx-bootstrap/bs-moment/utils/type-checks.js");
+// moment.js
+// version : 2.18.1
+// authors : Tim Wood, Iskren Chernev, Moment.js contributors
+// license : MIT
+// momentjs.com
+
+
+
+
+
+function formatDate(date, format, locale) {
+    if (locale === void 0) { locale = 'en'; }
+    var _locale = Object(__WEBPACK_IMPORTED_MODULE_3__locale_locales_service__["a" /* getLocale */])(locale);
+    var output = formatMoment(date, format, _locale);
+    return _locale.postformat(output);
+}
+// format date using native date object
+function formatMoment(date, format, locale) {
+    if (!Object(__WEBPACK_IMPORTED_MODULE_4__utils_type_checks__["c" /* isDateValid */])(date)) {
+        return locale.invalidDate;
+    }
+    __WEBPACK_IMPORTED_MODULE_0__format_functions__["b" /* formatFunctions */][format] = __WEBPACK_IMPORTED_MODULE_0__format_functions__["b" /* formatFunctions */][format] || Object(__WEBPACK_IMPORTED_MODULE_0__format_functions__["c" /* makeFormatFunction */])(format);
+    return __WEBPACK_IMPORTED_MODULE_0__format_functions__["b" /* formatFunctions */][format](date, locale);
+}
+//# sourceMappingURL=format.js.map
+
+/***/ }),
+
+/***/ "../../../../ngx-bootstrap/bs-moment/locale/en.js":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__locales_service__ = __webpack_require__("../../../../ngx-bootstrap/bs-moment/locale/locales.service.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__utils_type_checks__ = __webpack_require__("../../../../ngx-bootstrap/bs-moment/utils/type-checks.js");
+
+
+Object(__WEBPACK_IMPORTED_MODULE_0__locales_service__["b" /* getSetGlobalLocale */])('en', {
+    dayOfMonthOrdinalParse: /\d{1,2}(th|st|nd|rd)/,
+    ordinal: function (num) {
+        var b = num % 10;
+        var output = (Object(__WEBPACK_IMPORTED_MODULE_1__utils_type_checks__["g" /* toInt */])(num % 100 / 10) === 1) ? 'th' :
+            (b === 1) ? 'st' :
+                (b === 2) ? 'nd' :
+                    (b === 3) ? 'rd' : 'th';
+        return num + output;
+    }
+});
+//# sourceMappingURL=en.js.map
+
+/***/ }),
+
+/***/ "../../../../ngx-bootstrap/bs-moment/locale/index.js":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__en__ = __webpack_require__("../../../../ngx-bootstrap/bs-moment/locale/en.js");
+
+//# sourceMappingURL=index.js.map
+
+/***/ }),
+
+/***/ "../../../../ngx-bootstrap/bs-moment/locale/locale.class.js":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return defaultLocaleMonths; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return defaultLocaleMonthsShort; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return defaultLocaleWeekdays; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return defaultLocaleWeekdaysShort; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return defaultLocaleWeekdaysMin; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Locale; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__units_week_calendar_utils__ = __webpack_require__("../../../../ngx-bootstrap/bs-moment/units/week-calendar-utils.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__utils_type_checks__ = __webpack_require__("../../../../ngx-bootstrap/bs-moment/utils/type-checks.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__utils_date_getters__ = __webpack_require__("../../../../ngx-bootstrap/bs-moment/utils/date-getters.js");
+
+
+
+var MONTHS_IN_FORMAT = /D[oD]?(\[[^\[\]]*\]|\s)+MMMM?/;
+var defaultLocaleMonths = 'January_February_March_April_May_June_July_August_September_October_November_December'.split('_');
+var defaultLocaleMonthsShort = 'Jan_Feb_Mar_Apr_May_Jun_Jul_Aug_Sep_Oct_Nov_Dec'.split('_');
+var defaultLocaleWeekdays = 'Sunday_Monday_Tuesday_Wednesday_Thursday_Friday_Saturday'.split('_');
+var defaultLocaleWeekdaysShort = 'Sun_Mon_Tue_Wed_Thu_Fri_Sat'.split('_');
+var defaultLocaleWeekdaysMin = 'Su_Mo_Tu_We_Th_Fr_Sa'.split('_');
+var Locale = (function () {
+    function Locale(config) {
+        if (!!config) {
+            this.set(config);
+        }
+    }
+    Locale.prototype.set = function (config) {
+        for (var i in config) {
+            if (!config.hasOwnProperty(i)) {
+                continue;
+            }
+            var prop = config[i];
+            var key = Object(__WEBPACK_IMPORTED_MODULE_1__utils_type_checks__["d" /* isFunction */])(prop) ? i : "_" + i;
+            this[key] = prop;
+        }
+        this._config = config;
+    };
+    // Months
+    // LOCALES
+    Locale.prototype.months = function (date, format) {
+        if (!date) {
+            return Object(__WEBPACK_IMPORTED_MODULE_1__utils_type_checks__["b" /* isArray */])(this._months)
+                ? this._months
+                : this._months.standalone;
+        }
+        if (Object(__WEBPACK_IMPORTED_MODULE_1__utils_type_checks__["b" /* isArray */])(this._months)) {
+            return this._months[Object(__WEBPACK_IMPORTED_MODULE_2__utils_date_getters__["g" /* getMonth */])(date)];
+        }
+        var key = (this._months.isFormat || MONTHS_IN_FORMAT)
+            .test(format) ? 'format' : 'standalone';
+        return this._months[key][Object(__WEBPACK_IMPORTED_MODULE_2__utils_date_getters__["g" /* getMonth */])(date)];
+    };
+    Locale.prototype.monthsShort = function (date, format) {
+        if (!date) {
+            return Object(__WEBPACK_IMPORTED_MODULE_1__utils_type_checks__["b" /* isArray */])(this._monthsShort)
+                ? this._monthsShort
+                : this._monthsShort.standalone;
+        }
+        if (Object(__WEBPACK_IMPORTED_MODULE_1__utils_type_checks__["b" /* isArray */])(this._monthsShort)) {
+            return this._monthsShort[Object(__WEBPACK_IMPORTED_MODULE_2__utils_date_getters__["g" /* getMonth */])(date)];
+        }
+        var key = MONTHS_IN_FORMAT.test(format) ? 'format' : 'standalone';
+        return this._monthsShort[key][Object(__WEBPACK_IMPORTED_MODULE_2__utils_date_getters__["g" /* getMonth */])(date)];
+    };
+    // Days of week
+    // LOCALES
+    Locale.prototype.weekdays = function (date, format) {
+        var _isArray = Object(__WEBPACK_IMPORTED_MODULE_1__utils_type_checks__["b" /* isArray */])(this._weekdays);
+        if (!date) {
+            return _isArray
+                ? this._weekdays
+                : this._weekdays.standalone;
+        }
+        if (_isArray) {
+            return this._weekdays[Object(__WEBPACK_IMPORTED_MODULE_2__utils_date_getters__["b" /* getDayOfWeek */])(date)];
+        }
+        var _key = this._weekdays.isFormat.test(format) ? 'format' : 'standalone';
+        return this._weekdays[_key][Object(__WEBPACK_IMPORTED_MODULE_2__utils_date_getters__["b" /* getDayOfWeek */])(date)];
+    };
+    Locale.prototype.weekdaysMin = function (date) {
+        return (date) ? this._weekdaysShort[Object(__WEBPACK_IMPORTED_MODULE_2__utils_date_getters__["b" /* getDayOfWeek */])(date)] : this._weekdaysShort;
+    };
+    Locale.prototype.weekdaysShort = function (date) {
+        return (date) ? this._weekdaysMin[Object(__WEBPACK_IMPORTED_MODULE_2__utils_date_getters__["b" /* getDayOfWeek */])(date)] : this._weekdaysMin;
+    };
+    Locale.prototype.week = function (date) {
+        return Object(__WEBPACK_IMPORTED_MODULE_0__units_week_calendar_utils__["a" /* weekOfYear */])(date, this._week.dow, this._week.doy).week;
+    };
+    Locale.prototype.firstDayOfWeek = function () {
+        return this._week.dow;
+    };
+    Locale.prototype.firstDayOfYear = function () {
+        return this._week.doy;
+    };
+    Locale.prototype.meridiem = function (hours, minutes, isLower) {
+        if (hours > 11) {
+            return isLower ? 'pm' : 'PM';
+        }
+        return isLower ? 'am' : 'AM';
+    };
+    Locale.prototype.ordinal = function (num, token) {
+        return this._ordinal.replace('%d', num.toString(10));
+    };
+    Locale.prototype.postformat = function (str) { return str; };
+    return Locale;
+}());
+
+//# sourceMappingURL=locale.class.js.map
+
+/***/ }),
+
+/***/ "../../../../ngx-bootstrap/bs-moment/locale/locale.defaults.js":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* unused harmony export defaultInvalidDate */
+/* unused harmony export defaultLocaleWeek */
+/* unused harmony export defaultLocaleMeridiemParse */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return baseConfig; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__locale_class__ = __webpack_require__("../../../../ngx-bootstrap/bs-moment/locale/locale.class.js");
+
+var defaultInvalidDate = 'Invalid date';
+var defaultLocaleWeek = {
+    dow: 0,
+    doy: 6 // The week that contains Jan 1st is the first week of the year.
+};
+var defaultLocaleMeridiemParse = /[ap]\.?m?\.?/i;
+var baseConfig = {
+    // calendar: defaultCalendar,
+    // longDateFormat: defaultLongDateFormat,
+    invalidDate: defaultInvalidDate,
+    // ordinal: defaultOrdinal,
+    // dayOfMonthOrdinalParse: defaultDayOfMonthOrdinalParse,
+    // relativeTime: defaultRelativeTime,
+    months: __WEBPACK_IMPORTED_MODULE_0__locale_class__["b" /* defaultLocaleMonths */],
+    monthsShort: __WEBPACK_IMPORTED_MODULE_0__locale_class__["c" /* defaultLocaleMonthsShort */],
+    week: defaultLocaleWeek,
+    weekdays: __WEBPACK_IMPORTED_MODULE_0__locale_class__["d" /* defaultLocaleWeekdays */],
+    weekdaysMin: __WEBPACK_IMPORTED_MODULE_0__locale_class__["e" /* defaultLocaleWeekdaysMin */],
+    weekdaysShort: __WEBPACK_IMPORTED_MODULE_0__locale_class__["f" /* defaultLocaleWeekdaysShort */],
+    meridiemParse: defaultLocaleMeridiemParse
+};
+//# sourceMappingURL=locale.defaults.js.map
+
+/***/ }),
+
+/***/ "../../../../ngx-bootstrap/bs-moment/locale/locales.service.js":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (immutable) */ __webpack_exports__["a"] = getLocale;
+/* unused harmony export listLocales */
+/* unused harmony export mergeConfigs */
+/* harmony export (immutable) */ __webpack_exports__["b"] = getSetGlobalLocale;
+/* unused harmony export defineLocale */
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__locale_class__ = __webpack_require__("../../../../ngx-bootstrap/bs-moment/locale/locale.class.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__locale_defaults__ = __webpack_require__("../../../../ngx-bootstrap/bs-moment/locale/locale.defaults.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__utils_type_checks__ = __webpack_require__("../../../../ngx-bootstrap/bs-moment/utils/type-checks.js");
+// internal storage for locale config files
+
+
+
+var locales = {};
+var localeFamilies = {};
+var globalLocale;
+function chooseLocale(name) {
+    return locales[name];
+}
+// returns locale data
+function getLocale(key) {
+    if (!key) {
+        return globalLocale;
+    }
+    return chooseLocale(key);
+}
+function listLocales() {
+    return Object.keys(locales);
+}
+function mergeConfigs(parentConfig, childConfig) {
+    var res = Object.assign({}, parentConfig);
+    for (var childProp in childConfig) {
+        if (!Object(__WEBPACK_IMPORTED_MODULE_2__utils_type_checks__["a" /* hasOwnProp */])(childConfig, childProp)) {
+            continue;
+        }
+        if (Object(__WEBPACK_IMPORTED_MODULE_2__utils_type_checks__["e" /* isObject */])(parentConfig[childProp]) && Object(__WEBPACK_IMPORTED_MODULE_2__utils_type_checks__["e" /* isObject */])(childConfig[childProp])) {
+            (res[childProp]) = {};
+            Object.assign(res[childProp], parentConfig[childProp]);
+            Object.assign(res[childProp], childConfig[childProp]);
+        }
+        else if (childConfig[childProp] != null) {
+            (res[childProp]) = childConfig[childProp];
+        }
+        else {
+            delete res[childProp];
+        }
+    }
+    for (var parentProp in parentConfig) {
+        if (Object(__WEBPACK_IMPORTED_MODULE_2__utils_type_checks__["a" /* hasOwnProp */])(parentConfig, parentProp) &&
+            !Object(__WEBPACK_IMPORTED_MODULE_2__utils_type_checks__["a" /* hasOwnProp */])(childConfig, parentProp) &&
+            Object(__WEBPACK_IMPORTED_MODULE_2__utils_type_checks__["e" /* isObject */])(parentConfig[parentProp])) {
+            // make sure changes to properties don't modify parent config
+            (res[parentProp]) = Object.assign({}, res[parentProp]);
+        }
+    }
+    return res;
+}
+// This function will load locale and then set the global locale.  If
+// no arguments are passed in, it will simply return the current global
+// locale key.
+function getSetGlobalLocale(key, values) {
+    var data;
+    if (key) {
+        data = Object(__WEBPACK_IMPORTED_MODULE_2__utils_type_checks__["f" /* isUndefined */])(values) ? getLocale(key) : defineLocale(key, values);
+        if (data) {
+            globalLocale = data;
+        }
+    }
+    return globalLocale._abbr;
+}
+function defineLocale(name, config) {
+    if (config === null) {
+        // useful for testing
+        delete locales[name];
+        return null;
+    }
+    config.abbr = name;
+    locales[name] = new __WEBPACK_IMPORTED_MODULE_0__locale_class__["a" /* Locale */](mergeConfigs(__WEBPACK_IMPORTED_MODULE_1__locale_defaults__["a" /* baseConfig */], config));
+    if (localeFamilies[name]) {
+        localeFamilies[name].forEach(function (x) {
+            defineLocale(x.name, x.config);
+        });
+    }
+    // backwards compat for now: also set the locale
+    // make sure we set the locale AFTER all child locales have been
+    // created, so we won't end up with the child locale set.
+    getSetGlobalLocale(name);
+    return locales[name];
+}
+//# sourceMappingURL=locales.service.js.map
+
+/***/ }),
+
+/***/ "../../../../ngx-bootstrap/bs-moment/units/day-of-month.js":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__format_functions__ = __webpack_require__("../../../../ngx-bootstrap/bs-moment/format-functions.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__utils_date_getters__ = __webpack_require__("../../../../ngx-bootstrap/bs-moment/utils/date-getters.js");
+
+
+Object(__WEBPACK_IMPORTED_MODULE_0__format_functions__["a" /* addFormatToken */])('D', ['DD', 2], 'Do', function (date) {
+    return Object(__WEBPACK_IMPORTED_MODULE_1__utils_date_getters__["a" /* getDate */])(date).toString(10);
+});
+//# sourceMappingURL=day-of-month.js.map
+
+/***/ }),
+
+/***/ "../../../../ngx-bootstrap/bs-moment/units/day-of-week.js":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* unused harmony export getLocaleDayOfWeek */
+/* unused harmony export getISODayOfWeek */
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__format_functions__ = __webpack_require__("../../../../ngx-bootstrap/bs-moment/format-functions.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__utils_date_getters__ = __webpack_require__("../../../../ngx-bootstrap/bs-moment/utils/date-getters.js");
+
+
+// FORMATTING
+Object(__WEBPACK_IMPORTED_MODULE_0__format_functions__["a" /* addFormatToken */])('d', null, 'do', function (date) {
+    return Object(__WEBPACK_IMPORTED_MODULE_1__utils_date_getters__["b" /* getDayOfWeek */])(date).toString(10);
+});
+Object(__WEBPACK_IMPORTED_MODULE_0__format_functions__["a" /* addFormatToken */])('dd', null, null, function (date, format, locale) {
+    return locale.weekdaysShort(date);
+});
+Object(__WEBPACK_IMPORTED_MODULE_0__format_functions__["a" /* addFormatToken */])('ddd', null, null, function (date, format, locale) {
+    return locale.weekdaysMin(date);
+});
+Object(__WEBPACK_IMPORTED_MODULE_0__format_functions__["a" /* addFormatToken */])('dddd', null, null, function (date, format, locale) {
+    return locale.weekdays(date, format);
+});
+Object(__WEBPACK_IMPORTED_MODULE_0__format_functions__["a" /* addFormatToken */])('e', null, null, function (date) {
+    return Object(__WEBPACK_IMPORTED_MODULE_1__utils_date_getters__["b" /* getDayOfWeek */])(date).toString(10);
+});
+Object(__WEBPACK_IMPORTED_MODULE_0__format_functions__["a" /* addFormatToken */])('E', null, null, function (date) {
+    return getISODayOfWeek(date).toString(10);
+});
+function getLocaleDayOfWeek(date, locale) {
+    return (Object(__WEBPACK_IMPORTED_MODULE_1__utils_date_getters__["b" /* getDayOfWeek */])(date) + 7 - locale.firstDayOfWeek()) % 7;
+}
+function getISODayOfWeek(date) {
+    return Object(__WEBPACK_IMPORTED_MODULE_1__utils_date_getters__["b" /* getDayOfWeek */])(date) || 7;
+}
+//# sourceMappingURL=day-of-week.js.map
+
+/***/ }),
+
+/***/ "../../../../ngx-bootstrap/bs-moment/units/day-of-year.js":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (immutable) */ __webpack_exports__["a"] = getDayOfYear;
+/* unused harmony export _getDayOfYear */
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__format_functions__ = __webpack_require__("../../../../ngx-bootstrap/bs-moment/format-functions.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__utils_start_end_of__ = __webpack_require__("../../../../ngx-bootstrap/bs-moment/utils/start-end-of.js");
+
+
+// FORMATTING
+Object(__WEBPACK_IMPORTED_MODULE_0__format_functions__["a" /* addFormatToken */])('DDD', ['DDDD', 3], 'DDDo', function (date) {
+    return getDayOfYear(date).toString(10);
+});
+function getDayOfYear(date) {
+    var date1 = +Object(__WEBPACK_IMPORTED_MODULE_1__utils_start_end_of__["a" /* startOf */])(date, 'day');
+    var date2 = +Object(__WEBPACK_IMPORTED_MODULE_1__utils_start_end_of__["a" /* startOf */])(date, 'year');
+    var someDate = date1 - date2;
+    var oneDay = 1000 * 60 * 60 * 24;
+    return Math.round(someDate / oneDay) + 1;
+}
+function _getDayOfYear(date) {
+    var start = new Date(date.getFullYear(), 0, 0);
+    var diff = date.getTime() - start.getTime();
+    var oneDay = 1000 * 60 * 60 * 24;
+    return Math.round(diff / oneDay) + 1;
+}
+//# sourceMappingURL=day-of-year.js.map
+
+/***/ }),
+
+/***/ "../../../../ngx-bootstrap/bs-moment/units/hour.js":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__utils_date_getters__ = __webpack_require__("../../../../ngx-bootstrap/bs-moment/utils/date-getters.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__format_functions__ = __webpack_require__("../../../../ngx-bootstrap/bs-moment/format-functions.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__utils__ = __webpack_require__("../../../../ngx-bootstrap/bs-moment/utils.js");
+// import { makeGetSet } from '../moment/get-set';
+// import { addFormatToken } from '../format/format';
+// import { addUnitAlias } from './aliases';
+// import { addUnitPriority } from './priorities';
+// import { addRegexToken, match1to2, match2, match3to4, match5to6 } from '../parse/regex';
+// import { addParseToken } from '../parse/token';
+// import { HOUR, MINUTE, SECOND } from './constants';
+// import toInt from '../utils/to-int';
+// import zeroFill from '../utils/zero-fill';
+// import getParsingFlags from '../create/parsing-flags';
+// FORMATTING
+
+
+
+function hFormat(date) {
+    return Object(__WEBPACK_IMPORTED_MODULE_0__utils_date_getters__["e" /* getHours */])(date) % 12 || 12;
+}
+function kFormat(date) {
+    return Object(__WEBPACK_IMPORTED_MODULE_0__utils_date_getters__["e" /* getHours */])(date) || 24;
+}
+Object(__WEBPACK_IMPORTED_MODULE_1__format_functions__["a" /* addFormatToken */])('H', ['HH', 2], null, function (date, format, locale) {
+    return Object(__WEBPACK_IMPORTED_MODULE_0__utils_date_getters__["e" /* getHours */])(date).toString(10);
+});
+Object(__WEBPACK_IMPORTED_MODULE_1__format_functions__["a" /* addFormatToken */])('h', ['hh', 2], null, function (date, format, locale) {
+    return hFormat(date).toString(10);
+});
+Object(__WEBPACK_IMPORTED_MODULE_1__format_functions__["a" /* addFormatToken */])('k', ['kk', 2], null, function (date, format, locale) {
+    return kFormat(date).toString(10);
+});
+Object(__WEBPACK_IMPORTED_MODULE_1__format_functions__["a" /* addFormatToken */])('hmm', null, null, function (date, format, locale) {
+    return "" + hFormat(date) + Object(__WEBPACK_IMPORTED_MODULE_2__utils__["d" /* zeroFill */])(Object(__WEBPACK_IMPORTED_MODULE_0__utils_date_getters__["f" /* getMinutes */])(date), 2);
+});
+Object(__WEBPACK_IMPORTED_MODULE_1__format_functions__["a" /* addFormatToken */])('hmmss', null, null, function (date, format, locale) {
+    return "" + hFormat(date) + Object(__WEBPACK_IMPORTED_MODULE_2__utils__["d" /* zeroFill */])(Object(__WEBPACK_IMPORTED_MODULE_0__utils_date_getters__["f" /* getMinutes */])(date), 2) + Object(__WEBPACK_IMPORTED_MODULE_2__utils__["d" /* zeroFill */])(Object(__WEBPACK_IMPORTED_MODULE_0__utils_date_getters__["h" /* getSeconds */])(date), 2);
+});
+Object(__WEBPACK_IMPORTED_MODULE_1__format_functions__["a" /* addFormatToken */])('Hmm', null, null, function (date, format, locale) {
+    return "" + Object(__WEBPACK_IMPORTED_MODULE_0__utils_date_getters__["e" /* getHours */])(date) + Object(__WEBPACK_IMPORTED_MODULE_2__utils__["d" /* zeroFill */])(Object(__WEBPACK_IMPORTED_MODULE_0__utils_date_getters__["f" /* getMinutes */])(date), 2);
+});
+Object(__WEBPACK_IMPORTED_MODULE_1__format_functions__["a" /* addFormatToken */])('Hmmss', null, null, function (date, format, locale) {
+    return "" + Object(__WEBPACK_IMPORTED_MODULE_0__utils_date_getters__["e" /* getHours */])(date) + Object(__WEBPACK_IMPORTED_MODULE_2__utils__["d" /* zeroFill */])(Object(__WEBPACK_IMPORTED_MODULE_0__utils_date_getters__["f" /* getMinutes */])(date), 2) + Object(__WEBPACK_IMPORTED_MODULE_2__utils__["d" /* zeroFill */])(Object(__WEBPACK_IMPORTED_MODULE_0__utils_date_getters__["h" /* getSeconds */])(date), 2);
+});
+function meridiem(token, lowercase) {
+    Object(__WEBPACK_IMPORTED_MODULE_1__format_functions__["a" /* addFormatToken */])(token, null, null, function (date, format, locale) {
+        return locale.meridiem(Object(__WEBPACK_IMPORTED_MODULE_0__utils_date_getters__["e" /* getHours */])(date), Object(__WEBPACK_IMPORTED_MODULE_0__utils_date_getters__["f" /* getMinutes */])(date), lowercase);
+    });
+}
+meridiem('a', true);
+meridiem('A', false);
+//# sourceMappingURL=hour.js.map
+
+/***/ }),
+
+/***/ "../../../../ngx-bootstrap/bs-moment/units/index.js":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__day_of_month__ = __webpack_require__("../../../../ngx-bootstrap/bs-moment/units/day-of-month.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__day_of_week__ = __webpack_require__("../../../../ngx-bootstrap/bs-moment/units/day-of-week.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__day_of_year__ = __webpack_require__("../../../../ngx-bootstrap/bs-moment/units/day-of-year.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__hour__ = __webpack_require__("../../../../ngx-bootstrap/bs-moment/units/hour.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__minute__ = __webpack_require__("../../../../ngx-bootstrap/bs-moment/units/minute.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__month__ = __webpack_require__("../../../../ngx-bootstrap/bs-moment/units/month.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__second__ = __webpack_require__("../../../../ngx-bootstrap/bs-moment/units/second.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__week__ = __webpack_require__("../../../../ngx-bootstrap/bs-moment/units/week.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__week_calendar_utils__ = __webpack_require__("../../../../ngx-bootstrap/bs-moment/units/week-calendar-utils.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__year__ = __webpack_require__("../../../../ngx-bootstrap/bs-moment/units/year.js");
+
+
+
+
+
+
+
+
+
+
+//# sourceMappingURL=index.js.map
+
+/***/ }),
+
+/***/ "../../../../ngx-bootstrap/bs-moment/units/minute.js":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__format_functions__ = __webpack_require__("../../../../ngx-bootstrap/bs-moment/format-functions.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__utils_date_getters__ = __webpack_require__("../../../../ngx-bootstrap/bs-moment/utils/date-getters.js");
+
+
+Object(__WEBPACK_IMPORTED_MODULE_0__format_functions__["a" /* addFormatToken */])('m', ['mm', 2], null, function (date) {
+    return Object(__WEBPACK_IMPORTED_MODULE_1__utils_date_getters__["f" /* getMinutes */])(date).toString(10);
+});
+//# sourceMappingURL=minute.js.map
+
+/***/ }),
+
+/***/ "../../../../ngx-bootstrap/bs-moment/units/month.js":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* unused harmony export daysInMonth */
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__format_functions__ = __webpack_require__("../../../../ngx-bootstrap/bs-moment/format-functions.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__year__ = __webpack_require__("../../../../ngx-bootstrap/bs-moment/units/year.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__utils__ = __webpack_require__("../../../../ngx-bootstrap/bs-moment/utils.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__utils_date_getters__ = __webpack_require__("../../../../ngx-bootstrap/bs-moment/utils/date-getters.js");
+
+
+
+
+function daysInMonth(year, month) {
+    if (isNaN(year) || isNaN(month)) {
+        return NaN;
+    }
+    var modMonth = Object(__WEBPACK_IMPORTED_MODULE_2__utils__["c" /* mod */])(month, 12);
+    year += (month - modMonth) / 12;
+    return modMonth === 1 ? (Object(__WEBPACK_IMPORTED_MODULE_1__year__["b" /* isLeapYear */])(year) ? 29 : 28) : (31 - modMonth % 7 % 2);
+}
+// FORMATTING
+Object(__WEBPACK_IMPORTED_MODULE_0__format_functions__["a" /* addFormatToken */])('M', ['MM', 2], 'Mo', function (date, format) {
+    return (Object(__WEBPACK_IMPORTED_MODULE_3__utils_date_getters__["g" /* getMonth */])(date) + 1).toString();
+});
+Object(__WEBPACK_IMPORTED_MODULE_0__format_functions__["a" /* addFormatToken */])('MMM', null, null, function (date, format, locale) {
+    return locale.monthsShort(date, format);
+});
+Object(__WEBPACK_IMPORTED_MODULE_0__format_functions__["a" /* addFormatToken */])('MMMM', null, null, function (date, format, locale) {
+    return locale.months(date, format);
+});
+//# sourceMappingURL=month.js.map
+
+/***/ }),
+
+/***/ "../../../../ngx-bootstrap/bs-moment/units/second.js":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__format_functions__ = __webpack_require__("../../../../ngx-bootstrap/bs-moment/format-functions.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__utils_date_getters__ = __webpack_require__("../../../../ngx-bootstrap/bs-moment/utils/date-getters.js");
+
+
+Object(__WEBPACK_IMPORTED_MODULE_0__format_functions__["a" /* addFormatToken */])('s', ['ss', 2], null, function (date) {
+    return Object(__WEBPACK_IMPORTED_MODULE_1__utils_date_getters__["h" /* getSeconds */])(date).toString(10);
+});
+//# sourceMappingURL=second.js.map
+
+/***/ }),
+
+/***/ "../../../../ngx-bootstrap/bs-moment/units/week-calendar-utils.js":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* unused harmony export dayOfYearFromWeeks */
+/* harmony export (immutable) */ __webpack_exports__["a"] = weekOfYear;
+/* unused harmony export weeksInYear */
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__utils__ = __webpack_require__("../../../../ngx-bootstrap/bs-moment/utils.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__year__ = __webpack_require__("../../../../ngx-bootstrap/bs-moment/units/year.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__day_of_year__ = __webpack_require__("../../../../ngx-bootstrap/bs-moment/units/day-of-year.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__utils_date_getters__ = __webpack_require__("../../../../ngx-bootstrap/bs-moment/utils/date-getters.js");
+/**
+ *
+ * @param {number} year
+ * @param {number} dow - start-of-first-week
+ * @param {number} doy - start-of-year
+ * @returns {number}
+ */
+
+
+
+
+function firstWeekOffset(year, dow, doy) {
+    // first-week day -- which january is always in the first week (4 for iso, 1 for other)
+    var fwd = 7 + dow - doy;
+    // first-week day local weekday -- which local weekday is fwd
+    var fwdlw = (7 + Object(__WEBPACK_IMPORTED_MODULE_0__utils__["b" /* createUTCDate */])(year, 0, fwd).getUTCDay() - dow) % 7;
+    return -fwdlw + fwd - 1;
+}
+// https://en.wikipedia.org/wiki/ISO_week_date#Calculating_a_date_given_the_year.2C_week_number_and_weekday
+function dayOfYearFromWeeks(year, week, weekday, dow, doy) {
+    var localWeekday = (7 + weekday - dow) % 7;
+    var weekOffset = firstWeekOffset(year, dow, doy);
+    var dayOfYear = 1 + 7 * (week - 1) + localWeekday + weekOffset;
+    var resYear;
+    var resDayOfYear;
+    if (dayOfYear <= 0) {
+        resYear = year - 1;
+        resDayOfYear = Object(__WEBPACK_IMPORTED_MODULE_1__year__["a" /* daysInYear */])(resYear) + dayOfYear;
+    }
+    else if (dayOfYear > Object(__WEBPACK_IMPORTED_MODULE_1__year__["a" /* daysInYear */])(year)) {
+        resYear = year + 1;
+        resDayOfYear = dayOfYear - Object(__WEBPACK_IMPORTED_MODULE_1__year__["a" /* daysInYear */])(year);
+    }
+    else {
+        resYear = year;
+        resDayOfYear = dayOfYear;
+    }
+    return {
+        year: resYear,
+        dayOfYear: resDayOfYear
+    };
+}
+function weekOfYear(date, dow, doy) {
+    var weekOffset = firstWeekOffset(Object(__WEBPACK_IMPORTED_MODULE_3__utils_date_getters__["d" /* getFullYear */])(date), dow, doy);
+    var week = Math.floor((Object(__WEBPACK_IMPORTED_MODULE_2__day_of_year__["a" /* getDayOfYear */])(date) - weekOffset - 1) / 7) + 1;
+    var resWeek;
+    var resYear;
+    if (week < 1) {
+        resYear = Object(__WEBPACK_IMPORTED_MODULE_3__utils_date_getters__["d" /* getFullYear */])(date) - 1;
+        resWeek = week + weeksInYear(resYear, dow, doy);
+    }
+    else if (week > weeksInYear(Object(__WEBPACK_IMPORTED_MODULE_3__utils_date_getters__["d" /* getFullYear */])(date), dow, doy)) {
+        resWeek = week - weeksInYear(Object(__WEBPACK_IMPORTED_MODULE_3__utils_date_getters__["d" /* getFullYear */])(date), dow, doy);
+        resYear = Object(__WEBPACK_IMPORTED_MODULE_3__utils_date_getters__["d" /* getFullYear */])(date) + 1;
+    }
+    else {
+        resYear = Object(__WEBPACK_IMPORTED_MODULE_3__utils_date_getters__["d" /* getFullYear */])(date);
+        resWeek = week;
+    }
+    return {
+        week: resWeek,
+        year: resYear
+    };
+}
+function weeksInYear(year, dow, doy) {
+    var weekOffset = firstWeekOffset(year, dow, doy);
+    var weekOffsetNext = firstWeekOffset(year + 1, dow, doy);
+    return (Object(__WEBPACK_IMPORTED_MODULE_1__year__["a" /* daysInYear */])(year) - weekOffset + weekOffsetNext) / 7;
+}
+//# sourceMappingURL=week-calendar-utils.js.map
+
+/***/ }),
+
+/***/ "../../../../ngx-bootstrap/bs-moment/units/week.js":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* unused harmony export getWeek */
+/* unused harmony export getISOWeek */
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__format_functions__ = __webpack_require__("../../../../ngx-bootstrap/bs-moment/format-functions.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__week_calendar_utils__ = __webpack_require__("../../../../ngx-bootstrap/bs-moment/units/week-calendar-utils.js");
+
+
+Object(__WEBPACK_IMPORTED_MODULE_0__format_functions__["a" /* addFormatToken */])('w', ['ww', 2], 'wo', function (date, format, locale) {
+    return getWeek(date, locale).toString(10);
+});
+Object(__WEBPACK_IMPORTED_MODULE_0__format_functions__["a" /* addFormatToken */])('W', ['WW', 2], 'Wo', function (date) {
+    return getISOWeek(date).toString(10);
+});
+function getWeek(date, locale) {
+    return locale.week(date);
+}
+function getISOWeek(date) {
+    return Object(__WEBPACK_IMPORTED_MODULE_1__week_calendar_utils__["a" /* weekOfYear */])(date, 1, 4).week;
+}
+//# sourceMappingURL=week.js.map
+
+/***/ }),
+
+/***/ "../../../../ngx-bootstrap/bs-moment/units/year.js":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (immutable) */ __webpack_exports__["a"] = daysInYear;
+/* harmony export (immutable) */ __webpack_exports__["b"] = isLeapYear;
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__format_functions__ = __webpack_require__("../../../../ngx-bootstrap/bs-moment/format-functions.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__utils_date_getters__ = __webpack_require__("../../../../ngx-bootstrap/bs-moment/utils/date-getters.js");
+
+
+// FORMATTING
+function getYear(date) {
+    return Object(__WEBPACK_IMPORTED_MODULE_1__utils_date_getters__["d" /* getFullYear */])(date).toString();
+}
+Object(__WEBPACK_IMPORTED_MODULE_0__format_functions__["a" /* addFormatToken */])('Y', null, null, function (date) {
+    var y = Object(__WEBPACK_IMPORTED_MODULE_1__utils_date_getters__["d" /* getFullYear */])(date);
+    return y <= 9999 ? '' + y : '+' + y;
+});
+Object(__WEBPACK_IMPORTED_MODULE_0__format_functions__["a" /* addFormatToken */])(null, ['YY', 2], null, function (date) {
+    return (Object(__WEBPACK_IMPORTED_MODULE_1__utils_date_getters__["d" /* getFullYear */])(date) % 100).toString(10);
+});
+Object(__WEBPACK_IMPORTED_MODULE_0__format_functions__["a" /* addFormatToken */])(null, ['YYYY', 4], null, getYear);
+Object(__WEBPACK_IMPORTED_MODULE_0__format_functions__["a" /* addFormatToken */])(null, ['YYYYY', 5], null, getYear);
+Object(__WEBPACK_IMPORTED_MODULE_0__format_functions__["a" /* addFormatToken */])(null, ['YYYYYY', 6, true], null, getYear);
+function daysInYear(year) {
+    return isLeapYear(year) ? 366 : 365;
+}
+function isLeapYear(year) {
+    return (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0;
+}
+//# sourceMappingURL=year.js.map
+
+/***/ }),
+
+/***/ "../../../../ngx-bootstrap/bs-moment/utils.js":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (immutable) */ __webpack_exports__["d"] = zeroFill;
+/* harmony export (immutable) */ __webpack_exports__["c"] = mod;
+/* harmony export (immutable) */ __webpack_exports__["a"] = absFloor;
+/* harmony export (immutable) */ __webpack_exports__["b"] = createUTCDate;
+function zeroFill(num, targetLength, forceSign) {
+    var absNumber = "" + Math.abs(num);
+    var zerosToFill = targetLength - absNumber.length;
+    var sign = num >= 0;
+    return (sign ? (forceSign ? '+' : '') : '-') +
+        Math.pow(10, Math.max(0, zerosToFill)).toString().substr(1) + absNumber;
+}
+function mod(n, x) {
+    return ((n % x) + x) % x;
+}
+function absFloor(number) {
+    return number < 0
+        ? Math.ceil(number) || 0
+        : Math.floor(number);
+}
+function createUTCDate(y, m, d, h, M, s, ms) {
+    var date = new Date(Date.UTC.apply(null, arguments));
+    // the Date.UTC function remaps years 0-99 to 1900-1999
+    if (y < 100 && y >= 0 && isFinite(date.getUTCFullYear())) {
+        date.setUTCFullYear(y);
+    }
+    return date;
+}
+//# sourceMappingURL=utils.js.map
+
+/***/ }),
+
+/***/ "../../../../ngx-bootstrap/bs-moment/utils/date-getters.js":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (immutable) */ __webpack_exports__["e"] = getHours;
+/* harmony export (immutable) */ __webpack_exports__["f"] = getMinutes;
+/* harmony export (immutable) */ __webpack_exports__["h"] = getSeconds;
+/* harmony export (immutable) */ __webpack_exports__["b"] = getDayOfWeek;
+/* harmony export (immutable) */ __webpack_exports__["a"] = getDate;
+/* harmony export (immutable) */ __webpack_exports__["g"] = getMonth;
+/* harmony export (immutable) */ __webpack_exports__["d"] = getFullYear;
+/* harmony export (immutable) */ __webpack_exports__["c"] = getFirstDayOfMonth;
+/* unused harmony export daysInMonth */
+/* unused harmony export _daysInMonth */
+/* harmony export (immutable) */ __webpack_exports__["i"] = isFirstDayOfWeek;
+/* harmony export (immutable) */ __webpack_exports__["j"] = isSameMonth;
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__date_setters__ = __webpack_require__("../../../../ngx-bootstrap/bs-moment/utils/date-setters.js");
+
+function getHours(date, isUTC) {
+    if (isUTC === void 0) { isUTC = false; }
+    return isUTC ? date.getUTCHours() : date.getHours();
+}
+function getMinutes(date, isUTC) {
+    if (isUTC === void 0) { isUTC = false; }
+    return isUTC ? date.getUTCMinutes() : date.getMinutes();
+}
+function getSeconds(date, isUTC) {
+    if (isUTC === void 0) { isUTC = false; }
+    return isUTC ? date.getUTCSeconds() : date.getSeconds();
+}
+function getDayOfWeek(date, isUTC) {
+    if (isUTC === void 0) { isUTC = false; }
+    return isUTC ? date.getUTCDay() : date.getDay();
+}
+function getDate(date, isUTC) {
+    if (isUTC === void 0) { isUTC = false; }
+    return isUTC ? date.getUTCDate() : date.getDate();
+}
+function getMonth(date, isUTC) {
+    if (isUTC === void 0) { isUTC = false; }
+    return isUTC ? date.getUTCMonth() : date.getMonth();
+}
+function getFullYear(date, isUTC) {
+    if (isUTC === void 0) { isUTC = false; }
+    return isUTC ? date.getUTCFullYear() : date.getFullYear();
+}
+function getFirstDayOfMonth(date) {
+    return Object(__WEBPACK_IMPORTED_MODULE_0__date_setters__["a" /* createDate */])(date.getFullYear(), date.getMonth(), 1, date.getHours(), date.getMinutes(), date.getSeconds());
+}
+function daysInMonth(date) {
+    return _daysInMonth(date.getFullYear(), date.getMonth());
+}
+function _daysInMonth(year, month) {
+    return new Date(Date.UTC(year, month + 1, 0)).getUTCDate();
+}
+function isFirstDayOfWeek(date, firstDayOfWeek) {
+    return date.getDay() === firstDayOfWeek;
+}
+function isSameMonth(date1, date2) {
+    if (!date1 || !date2) {
+        return false;
+    }
+    return getFullYear(date1) === getFullYear(date2) && getMonth(date1) === getMonth(date2);
+}
+//# sourceMappingURL=date-getters.js.map
+
+/***/ }),
+
+/***/ "../../../../ngx-bootstrap/bs-moment/utils/date-setters.js":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (immutable) */ __webpack_exports__["a"] = createDate;
+/* harmony export (immutable) */ __webpack_exports__["c"] = shiftDate;
+/* harmony export (immutable) */ __webpack_exports__["b"] = setDate;
+var defaultTimeUnit = {
+    year: 0, month: 0, day: 0, hour: 0, minute: 0, seconds: 0
+};
+function createDate(year, month, day, hour, minute, seconds) {
+    if (month === void 0) { month = 0; }
+    if (day === void 0) { day = 1; }
+    if (hour === void 0) { hour = 0; }
+    if (minute === void 0) { minute = 0; }
+    if (seconds === void 0) { seconds = 0; }
+    var _date = new Date();
+    return new Date(year || _date.getFullYear(), month, day, hour, minute, seconds);
+}
+function shiftDate(date, unit) {
+    var _unit = Object.assign({}, defaultTimeUnit, unit);
+    return createDate(date.getFullYear() + _unit.year, date.getMonth() + _unit.month, date.getDate() + _unit.day, date.getHours() + _unit.hour, date.getMinutes() + _unit.minute, date.getSeconds() + _unit.seconds);
+}
+function setDate(date, unit) {
+    return createDate(getNum(date.getFullYear(), unit.year), getNum(date.getMonth(), unit.month), getNum(date.getDate(), unit.day), getNum(date.getHours(), unit.hour), getNum(date.getMinutes(), unit.minute), getNum(date.getSeconds(), unit.seconds));
+}
+function getNum(def, num) {
+    return typeof num === 'number' ? num : def;
+}
+//# sourceMappingURL=date-setters.js.map
+
+/***/ }),
+
+/***/ "../../../../ngx-bootstrap/bs-moment/utils/start-end-of.js":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (immutable) */ __webpack_exports__["a"] = startOf;
+/* unused harmony export endOf */
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__date_setters__ = __webpack_require__("../../../../ngx-bootstrap/bs-moment/utils/date-setters.js");
+
+function startOf(date, units) {
+    var unit = getDateShift(units);
+    return Object(__WEBPACK_IMPORTED_MODULE_0__date_setters__["b" /* setDate */])(date, unit);
+}
+function endOf(date, units) {
+    var start = startOf(date, units);
+    var shift = (_a = {}, _a[units] = 1, _a);
+    var change = Object(__WEBPACK_IMPORTED_MODULE_0__date_setters__["c" /* shiftDate */])(start, shift);
+    change.setMilliseconds(-1);
+    return change;
+    var _a;
+}
+function getDateShift(units) {
+    var unit = {};
+    switch (units) {
+        case 'year':
+            unit.month = 0;
+        /* falls through */
+        case 'month':
+            unit.day = 1;
+        /* falls through */
+        case 'week':
+        case 'day':
+            unit.hour = 0;
+        /* falls through */
+        case 'hour':
+            unit.minute = 0;
+        /* falls through */
+        case 'minute':
+            unit.seconds = 0;
+    }
+    return unit;
+}
+//# sourceMappingURL=start-end-of.js.map
+
+/***/ }),
+
+/***/ "../../../../ngx-bootstrap/bs-moment/utils/type-checks.js":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (immutable) */ __webpack_exports__["c"] = isDateValid;
+/* harmony export (immutable) */ __webpack_exports__["d"] = isFunction;
+/* harmony export (immutable) */ __webpack_exports__["b"] = isArray;
+/* harmony export (immutable) */ __webpack_exports__["a"] = hasOwnProp;
+/* harmony export (immutable) */ __webpack_exports__["e"] = isObject;
+/* harmony export (immutable) */ __webpack_exports__["f"] = isUndefined;
+/* harmony export (immutable) */ __webpack_exports__["g"] = toInt;
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__utils__ = __webpack_require__("../../../../ngx-bootstrap/bs-moment/utils.js");
+
+function isDateValid(date) {
+    return date && !isNaN(date.getTime());
+}
+function isFunction(fn) {
+    return fn instanceof Function || Object.prototype.toString.call(fn) === '[object Function]';
+}
+function isArray(input) {
+    return input instanceof Array || Object.prototype.toString.call(input) === '[object Array]';
+}
+function hasOwnProp(a /*object*/, b) {
+    return Object.prototype.hasOwnProperty.call(a, b);
+}
+function isObject(input /*object*/) {
+    // IE8 will treat undefined and null as object if it wasn't for
+    // input != null
+    return input != null && Object.prototype.toString.call(input) === '[object Object]';
+}
+function isUndefined(input) {
+    return input === void 0;
+}
+function toInt(argumentForCoercion) {
+    var coercedNumber = +argumentForCoercion;
+    var value = 0;
+    if (coercedNumber !== 0 && isFinite(coercedNumber)) {
+        value = Object(__WEBPACK_IMPORTED_MODULE_0__utils__["a" /* absFloor */])(coercedNumber);
+    }
+    return value;
+}
+//# sourceMappingURL=type-checks.js.map
+
+/***/ }),
+
 /***/ "../../../../ngx-bootstrap/buttons/button-checkbox.directive.js":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -20854,6 +21907,15 @@ var AlertModule = (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ButtonCheckboxDirective; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__("../../../forms/@angular/forms.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
 
 
 // TODO: config: activeClass - Class to apply to the checked buttons
@@ -20923,19 +21985,30 @@ var ButtonCheckboxDirective = (function () {
     ButtonCheckboxDirective.prototype.registerOnTouched = function (fn) {
         this.onTouched = fn;
     };
-    ButtonCheckboxDirective.decorators = [
-        { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Directive"], args: [{ selector: '[btnCheckbox]', providers: [CHECKBOX_CONTROL_VALUE_ACCESSOR] },] },
-    ];
-    /** @nocollapse */
-    ButtonCheckboxDirective.ctorParameters = function () { return []; };
-    ButtonCheckboxDirective.propDecorators = {
-        'btnCheckboxTrue': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'btnCheckboxFalse': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'state': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["HostBinding"], args: ['class.active',] },],
-        'onClick': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["HostListener"], args: ['click',] },],
-    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Object)
+    ], ButtonCheckboxDirective.prototype, "btnCheckboxTrue", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Object)
+    ], ButtonCheckboxDirective.prototype, "btnCheckboxFalse", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["HostBinding"])('class.active'),
+        __metadata("design:type", Boolean)
+    ], ButtonCheckboxDirective.prototype, "state", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["HostListener"])('click'),
+        __metadata("design:type", Function),
+        __metadata("design:paramtypes", []),
+        __metadata("design:returntype", void 0)
+    ], ButtonCheckboxDirective.prototype, "onClick", null);
+    ButtonCheckboxDirective = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Directive"])({ selector: '[btnCheckbox]', providers: [CHECKBOX_CONTROL_VALUE_ACCESSOR] })
+    ], ButtonCheckboxDirective);
     return ButtonCheckboxDirective;
 }());
+
 //# sourceMappingURL=button-checkbox.directive.js.map
 
 /***/ }),
@@ -20948,6 +22021,15 @@ var ButtonCheckboxDirective = (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ButtonRadioDirective; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__("../../../forms/@angular/forms.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
 
 
 var RADIO_CONTROL_VALUE_ACCESSOR = {
@@ -21008,23 +22090,36 @@ var ButtonRadioDirective = (function () {
     ButtonRadioDirective.prototype.registerOnTouched = function (fn) {
         this.onTouched = fn;
     };
-    ButtonRadioDirective.decorators = [
-        { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Directive"], args: [{ selector: '[btnRadio]', providers: [RADIO_CONTROL_VALUE_ACCESSOR] },] },
-    ];
-    /** @nocollapse */
-    ButtonRadioDirective.ctorParameters = function () { return [
-        { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"], },
-        { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["ChangeDetectorRef"], },
-    ]; };
-    ButtonRadioDirective.propDecorators = {
-        'btnRadio': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'uncheckable': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'value': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'isActive': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["HostBinding"], args: ['class.active',] },],
-        'onClick': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["HostListener"], args: ['click',] },],
-    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Object)
+    ], ButtonRadioDirective.prototype, "btnRadio", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Boolean)
+    ], ButtonRadioDirective.prototype, "uncheckable", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Object)
+    ], ButtonRadioDirective.prototype, "value", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["HostBinding"])('class.active'),
+        __metadata("design:type", Boolean),
+        __metadata("design:paramtypes", [])
+    ], ButtonRadioDirective.prototype, "isActive", null);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["HostListener"])('click'),
+        __metadata("design:type", Function),
+        __metadata("design:paramtypes", []),
+        __metadata("design:returntype", void 0)
+    ], ButtonRadioDirective.prototype, "onClick", null);
+    ButtonRadioDirective = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Directive"])({ selector: '[btnRadio]', providers: [RADIO_CONTROL_VALUE_ACCESSOR] }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"], __WEBPACK_IMPORTED_MODULE_0__angular_core__["ChangeDetectorRef"]])
+    ], ButtonRadioDirective);
     return ButtonRadioDirective;
 }());
+
 //# sourceMappingURL=button-radio.directive.js.map
 
 /***/ }),
@@ -21037,25 +22132,32 @@ var ButtonRadioDirective = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__button_checkbox_directive__ = __webpack_require__("../../../../ngx-bootstrap/buttons/button-checkbox.directive.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__button_radio_directive__ = __webpack_require__("../../../../ngx-bootstrap/buttons/button-radio.directive.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
 
 
 
 var ButtonsModule = (function () {
     function ButtonsModule() {
     }
+    ButtonsModule_1 = ButtonsModule;
     ButtonsModule.forRoot = function () {
-        return { ngModule: ButtonsModule, providers: [] };
+        return { ngModule: ButtonsModule_1, providers: [] };
     };
-    ButtonsModule.decorators = [
-        { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"], args: [{
-                    declarations: [__WEBPACK_IMPORTED_MODULE_1__button_checkbox_directive__["a" /* ButtonCheckboxDirective */], __WEBPACK_IMPORTED_MODULE_2__button_radio_directive__["a" /* ButtonRadioDirective */]],
-                    exports: [__WEBPACK_IMPORTED_MODULE_1__button_checkbox_directive__["a" /* ButtonCheckboxDirective */], __WEBPACK_IMPORTED_MODULE_2__button_radio_directive__["a" /* ButtonRadioDirective */]]
-                },] },
-    ];
-    /** @nocollapse */
-    ButtonsModule.ctorParameters = function () { return []; };
+    ButtonsModule = ButtonsModule_1 = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
+            declarations: [__WEBPACK_IMPORTED_MODULE_1__button_checkbox_directive__["a" /* ButtonCheckboxDirective */], __WEBPACK_IMPORTED_MODULE_2__button_radio_directive__["a" /* ButtonRadioDirective */]],
+            exports: [__WEBPACK_IMPORTED_MODULE_1__button_checkbox_directive__["a" /* ButtonCheckboxDirective */], __WEBPACK_IMPORTED_MODULE_2__button_radio_directive__["a" /* ButtonRadioDirective */]]
+        })
+    ], ButtonsModule);
     return ButtonsModule;
+    var ButtonsModule_1;
 }());
+
 //# sourceMappingURL=buttons.module.js.map
 
 /***/ }),
@@ -21087,6 +22189,27 @@ var ButtonsModule = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__utils__ = __webpack_require__("../../../../ngx-bootstrap/utils/index.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__carousel_config__ = __webpack_require__("../../../../ngx-bootstrap/carousel/carousel.config.js");
 // todo: add animation
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+/***
+ * pause (not yet supported) (?string='hover') - event group name which pauses the cycling of the carousel, if hover pauses on mouseenter and resumes on mouseleave
+ keyboard (not yet supported) (?boolean=true) - if false carousel will not react to keyboard events
+ note: swiping not yet supported
+ */
+/****
+ * Problems:
+ * 1) if we set an active slide via model changes, .active class remains on a current slide.
+ * 2) if we have only one slide, we shouldn't show prev/next nav buttons
+ * 3) if first or last slide is active and noWrap is true, there should be "disabled" class on the nav buttons.
+ * 4) default interval should be equal 5000
+ */
 
 
 
@@ -21100,7 +22223,8 @@ var Direction;
  * Base element to create carousel
  */
 var CarouselComponent = (function () {
-    function CarouselComponent(config) {
+    function CarouselComponent(config, ngZone) {
+        this.ngZone = ngZone;
         /** Will be emitted when active slide has been changed. Part of two-way-bindable [(activeSlide)] property */
         this.activeSlideChange = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"](false);
         this._slides = new __WEBPACK_IMPORTED_MODULE_1__utils__["a" /* LinkedList */]();
@@ -21308,15 +22432,19 @@ var CarouselComponent = (function () {
         this.resetTimer();
         var interval = +this.interval;
         if (!isNaN(interval) && interval > 0) {
-            this.currentInterval = setInterval(function () {
-                var nInterval = +_this.interval;
-                if (_this.isPlaying && !isNaN(_this.interval) && nInterval > 0 && _this.slides.length) {
-                    _this.nextSlide();
-                }
-                else {
-                    _this.pause();
-                }
-            }, interval);
+            this.currentInterval = this.ngZone.runOutsideAngular(function () {
+                return setInterval(function () {
+                    var nInterval = +_this.interval;
+                    _this.ngZone.run(function () {
+                        if (_this.isPlaying && !isNaN(_this.interval) && nInterval > 0 && _this.slides.length) {
+                            _this.nextSlide();
+                        }
+                        else {
+                            _this.pause();
+                        }
+                    });
+                }, interval);
+            });
         }
     };
     /**
@@ -21328,25 +22456,38 @@ var CarouselComponent = (function () {
             this.currentInterval = void 0;
         }
     };
-    CarouselComponent.decorators = [
-        { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"], args: [{
-                    selector: 'carousel',
-                    template: "\n    <div (mouseenter)=\"pause()\" (mouseleave)=\"play()\" (mouseup)=\"play()\" class=\"carousel slide\">\n      <ol class=\"carousel-indicators\" *ngIf=\"slides.length > 1\">\n         <li *ngFor=\"let slidez of slides; let i = index;\" [class.active]=\"slidez.active === true\" (click)=\"selectSlide(i)\"></li>\n      </ol>\n      <div class=\"carousel-inner\"><ng-content></ng-content></div>\n      <a class=\"left carousel-control carousel-control-prev\" [class.disabled]=\"activeSlide === 0 && noWrap\" (click)=\"previousSlide()\" *ngIf=\"slides.length > 1\">\n        <span class=\"icon-prev carousel-control-prev-icon\" aria-hidden=\"true\"></span>\n        <span *ngIf=\"isBs4\" class=\"sr-only\">Previous</span>\n      </a>\n      <a class=\"right carousel-control carousel-control-next\" (click)=\"nextSlide()\"  [class.disabled]=\"isLast(activeSlide) && noWrap\" *ngIf=\"slides.length > 1\">\n        <span class=\"icon-next carousel-control-next-icon\" aria-hidden=\"true\"></span>\n        <span class=\"sr-only\">Next</span>\n      </a>\n    </div>\n  "
-                },] },
-    ];
-    /** @nocollapse */
-    CarouselComponent.ctorParameters = function () { return [
-        { type: __WEBPACK_IMPORTED_MODULE_2__carousel_config__["a" /* CarouselConfig */], },
-    ]; };
-    CarouselComponent.propDecorators = {
-        'noWrap': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'noPause': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'activeSlideChange': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"] },],
-        'activeSlide': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'interval': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Boolean)
+    ], CarouselComponent.prototype, "noWrap", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Boolean)
+    ], CarouselComponent.prototype, "noPause", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"])(),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"])
+    ], CarouselComponent.prototype, "activeSlideChange", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Number),
+        __metadata("design:paramtypes", [Number])
+    ], CarouselComponent.prototype, "activeSlide", null);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Number),
+        __metadata("design:paramtypes", [Number])
+    ], CarouselComponent.prototype, "interval", null);
+    CarouselComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'carousel',
+            template: "\n    <div (mouseenter)=\"pause()\" (mouseleave)=\"play()\" (mouseup)=\"play()\" class=\"carousel slide\">\n      <ol class=\"carousel-indicators\" *ngIf=\"slides.length > 1\">\n         <li *ngFor=\"let slidez of slides; let i = index;\" [class.active]=\"slidez.active === true\" (click)=\"selectSlide(i)\"></li>\n      </ol>\n      <div class=\"carousel-inner\"><ng-content></ng-content></div>\n      <a class=\"left carousel-control carousel-control-prev\" [class.disabled]=\"activeSlide === 0 && noWrap\" (click)=\"previousSlide()\" *ngIf=\"slides.length > 1\">\n        <span class=\"icon-prev carousel-control-prev-icon\" aria-hidden=\"true\"></span>\n        <span *ngIf=\"isBs4\" class=\"sr-only\">Previous</span>\n      </a>\n      <a class=\"right carousel-control carousel-control-next\" (click)=\"nextSlide()\"  [class.disabled]=\"isLast(activeSlide) && noWrap\" *ngIf=\"slides.length > 1\">\n        <span class=\"icon-next carousel-control-next-icon\" aria-hidden=\"true\"></span>\n        <span class=\"sr-only\">Next</span>\n      </a>\n    </div>\n  "
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__carousel_config__["a" /* CarouselConfig */], __WEBPACK_IMPORTED_MODULE_0__angular_core__["NgZone"]])
+    ], CarouselComponent);
     return CarouselComponent;
 }());
+
 //# sourceMappingURL=carousel.component.js.map
 
 /***/ }),
@@ -21357,6 +22498,12 @@ var CarouselComponent = (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CarouselConfig; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
 
 var CarouselConfig = (function () {
     function CarouselConfig() {
@@ -21367,13 +22514,12 @@ var CarouselConfig = (function () {
         /** Is slides can wrap from the last to the first slide */
         this.noWrap = false;
     }
-    CarouselConfig.decorators = [
-        { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"] },
-    ];
-    /** @nocollapse */
-    CarouselConfig.ctorParameters = function () { return []; };
+    CarouselConfig = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])()
+    ], CarouselConfig);
     return CarouselConfig;
 }());
+
 //# sourceMappingURL=carousel.config.js.map
 
 /***/ }),
@@ -21388,6 +22534,12 @@ var CarouselConfig = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__carousel_component__ = __webpack_require__("../../../../ngx-bootstrap/carousel/carousel.component.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__slide_component__ = __webpack_require__("../../../../ngx-bootstrap/carousel/slide.component.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__carousel_config__ = __webpack_require__("../../../../ngx-bootstrap/carousel/carousel.config.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
 
 
 
@@ -21396,21 +22548,22 @@ var CarouselConfig = (function () {
 var CarouselModule = (function () {
     function CarouselModule() {
     }
+    CarouselModule_1 = CarouselModule;
     CarouselModule.forRoot = function () {
-        return { ngModule: CarouselModule, providers: [] };
+        return { ngModule: CarouselModule_1, providers: [] };
     };
-    CarouselModule.decorators = [
-        { type: __WEBPACK_IMPORTED_MODULE_1__angular_core__["NgModule"], args: [{
-                    imports: [__WEBPACK_IMPORTED_MODULE_0__angular_common__["b" /* CommonModule */]],
-                    declarations: [__WEBPACK_IMPORTED_MODULE_3__slide_component__["a" /* SlideComponent */], __WEBPACK_IMPORTED_MODULE_2__carousel_component__["a" /* CarouselComponent */]],
-                    exports: [__WEBPACK_IMPORTED_MODULE_3__slide_component__["a" /* SlideComponent */], __WEBPACK_IMPORTED_MODULE_2__carousel_component__["a" /* CarouselComponent */]],
-                    providers: [__WEBPACK_IMPORTED_MODULE_4__carousel_config__["a" /* CarouselConfig */]]
-                },] },
-    ];
-    /** @nocollapse */
-    CarouselModule.ctorParameters = function () { return []; };
+    CarouselModule = CarouselModule_1 = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["NgModule"])({
+            imports: [__WEBPACK_IMPORTED_MODULE_0__angular_common__["b" /* CommonModule */]],
+            declarations: [__WEBPACK_IMPORTED_MODULE_3__slide_component__["a" /* SlideComponent */], __WEBPACK_IMPORTED_MODULE_2__carousel_component__["a" /* CarouselComponent */]],
+            exports: [__WEBPACK_IMPORTED_MODULE_3__slide_component__["a" /* SlideComponent */], __WEBPACK_IMPORTED_MODULE_2__carousel_component__["a" /* CarouselComponent */]],
+            providers: [__WEBPACK_IMPORTED_MODULE_4__carousel_config__["a" /* CarouselConfig */]]
+        })
+    ], CarouselModule);
     return CarouselModule;
+    var CarouselModule_1;
 }());
+
 //# sourceMappingURL=carousel.module.js.map
 
 /***/ }),
@@ -21442,6 +22595,15 @@ var CarouselModule = (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SlideComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__carousel_component__ = __webpack_require__("../../../../ngx-bootstrap/carousel/carousel.component.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
 
 
 var SlideComponent = (function () {
@@ -21458,22 +22620,26 @@ var SlideComponent = (function () {
     SlideComponent.prototype.ngOnDestroy = function () {
         this.carousel.removeSlide(this);
     };
-    SlideComponent.decorators = [
-        { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"], args: [{
-                    selector: 'slide',
-                    template: "\n    <div [class.active]=\"active\" class=\"item\">\n      <ng-content></ng-content>\n    </div>\n  "
-                },] },
-    ];
-    /** @nocollapse */
-    SlideComponent.ctorParameters = function () { return [
-        { type: __WEBPACK_IMPORTED_MODULE_1__carousel_component__["a" /* CarouselComponent */], },
-    ]; };
-    SlideComponent.propDecorators = {
-        'active': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["HostBinding"], args: ['class.active',] }, { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'addClass': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["HostBinding"], args: ['class.item',] }, { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["HostBinding"], args: ['class.carousel-item',] },],
-    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["HostBinding"])('class.active'),
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Boolean)
+    ], SlideComponent.prototype, "active", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["HostBinding"])('class.item'),
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["HostBinding"])('class.carousel-item'),
+        __metadata("design:type", Boolean)
+    ], SlideComponent.prototype, "addClass", void 0);
+    SlideComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'slide',
+            template: "\n    <div [class.active]=\"active\" class=\"item\">\n      <ng-content></ng-content>\n    </div>\n  "
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__carousel_component__["a" /* CarouselComponent */]])
+    ], SlideComponent);
     return SlideComponent;
 }());
+
 //# sourceMappingURL=slide.component.js.map
 
 /***/ }),
@@ -21484,6 +22650,16 @@ var SlideComponent = (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CollapseDirective; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+// todo: add animations when https://github.com/angular/angular/issues/9947 solved
 
 var CollapseDirective = (function () {
     function CollapseDirective(_el, _renderer) {
@@ -21548,41 +22724,63 @@ var CollapseDirective = (function () {
         this._renderer.setElementStyle(this._el.nativeElement, 'height', 'auto');
         this.expanded.emit(this);
     };
-    CollapseDirective.decorators = [
-        { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Directive"], args: [{
-                    selector: '[collapse]',
-                    exportAs: 'bs-collapse',
-                    /* tslint:disable-next-line */
-                    host: { '[class.collapse]': 'true' } /*,
-                    animations: [
-                      trigger('active', [
-                        state('void', style({height: 0})),
-                        state('closed', style({height: 0})),
-                        state('open', style({height: '*'})),
-                        transition('void => closed', [animate(0)]),
-                        transition('closed => open', [animate('350ms ease-out')]),
-                        transition('open => closed', [animate('350ms ease-out')])
-                      ])
-                    ]*/
-                },] },
-    ];
-    /** @nocollapse */
-    CollapseDirective.ctorParameters = function () { return [
-        { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"], },
-        { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Renderer"], },
-    ]; };
-    CollapseDirective.propDecorators = {
-        'collapsed': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"] },],
-        'expanded': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"] },],
-        'display': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["HostBinding"], args: ['style.display',] },],
-        'isExpanded': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["HostBinding"], args: ['class.in',] }, { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["HostBinding"], args: ['class.show',] }, { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["HostBinding"], args: ['attr.aria-expanded',] },],
-        'isCollapsed': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["HostBinding"], args: ['attr.aria-hidden',] },],
-        'isCollapse': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["HostBinding"], args: ['class.collapse',] },],
-        'isCollapsing': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["HostBinding"], args: ['class.collapsing',] },],
-        'collapse': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"])(),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"])
+    ], CollapseDirective.prototype, "collapsed", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"])(),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"])
+    ], CollapseDirective.prototype, "expanded", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["HostBinding"])('style.display'),
+        __metadata("design:type", String)
+    ], CollapseDirective.prototype, "display", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["HostBinding"])('class.in'),
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["HostBinding"])('class.show'),
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["HostBinding"])('attr.aria-expanded'),
+        __metadata("design:type", Boolean)
+    ], CollapseDirective.prototype, "isExpanded", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["HostBinding"])('attr.aria-hidden'),
+        __metadata("design:type", Boolean)
+    ], CollapseDirective.prototype, "isCollapsed", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["HostBinding"])('class.collapse'),
+        __metadata("design:type", Boolean)
+    ], CollapseDirective.prototype, "isCollapse", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["HostBinding"])('class.collapsing'),
+        __metadata("design:type", Boolean)
+    ], CollapseDirective.prototype, "isCollapsing", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Boolean),
+        __metadata("design:paramtypes", [Boolean])
+    ], CollapseDirective.prototype, "collapse", null);
+    CollapseDirective = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Directive"])({
+            selector: '[collapse]',
+            exportAs: 'bs-collapse',
+            /* tslint:disable-next-line */
+            host: { '[class.collapse]': 'true' } /*,
+            animations: [
+              trigger('active', [
+                state('void', style({height: 0})),
+                state('closed', style({height: 0})),
+                state('open', style({height: '*'})),
+                transition('void => closed', [animate(0)]),
+                transition('closed => open', [animate('350ms ease-out')]),
+                transition('open => closed', [animate('350ms ease-out')])
+              ])
+            ]*/
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"], __WEBPACK_IMPORTED_MODULE_0__angular_core__["Renderer"]])
+    ], CollapseDirective);
     return CollapseDirective;
 }());
+
 //# sourceMappingURL=collapse.directive.js.map
 
 /***/ }),
@@ -21594,24 +22792,31 @@ var CollapseDirective = (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CollapseModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__collapse_directive__ = __webpack_require__("../../../../ngx-bootstrap/collapse/collapse.directive.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
 
 
 var CollapseModule = (function () {
     function CollapseModule() {
     }
+    CollapseModule_1 = CollapseModule;
     CollapseModule.forRoot = function () {
-        return { ngModule: CollapseModule, providers: [] };
+        return { ngModule: CollapseModule_1, providers: [] };
     };
-    CollapseModule.decorators = [
-        { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"], args: [{
-                    declarations: [__WEBPACK_IMPORTED_MODULE_1__collapse_directive__["a" /* CollapseDirective */]],
-                    exports: [__WEBPACK_IMPORTED_MODULE_1__collapse_directive__["a" /* CollapseDirective */]]
-                },] },
-    ];
-    /** @nocollapse */
-    CollapseModule.ctorParameters = function () { return []; };
+    CollapseModule = CollapseModule_1 = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
+            declarations: [__WEBPACK_IMPORTED_MODULE_1__collapse_directive__["a" /* CollapseDirective */]],
+            exports: [__WEBPACK_IMPORTED_MODULE_1__collapse_directive__["a" /* CollapseDirective */]]
+        })
+    ], CollapseModule);
     return CollapseModule;
+    var CollapseModule_1;
 }());
+
 //# sourceMappingURL=collapse.module.js.map
 
 /***/ }),
@@ -21638,6 +22843,9 @@ var CollapseModule = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__utils_triggers__ = __webpack_require__("../../../../ngx-bootstrap/utils/triggers.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__content_ref_class__ = __webpack_require__("../../../../ngx-bootstrap/component-loader/content-ref.class.js");
+// todo: add delay support
+// todo: merge events onShow, onShown, etc...
+// todo: add global positioning configuration?
 
 
 
@@ -21662,6 +22870,8 @@ var ComponentLoader = (function () {
         this.onBeforeHide = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]();
         this.onHidden = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]();
         this._providers = [];
+        this._listenOpts = {};
+        this._globalListener = Function.prototype;
     }
     Object.defineProperty(ComponentLoader.prototype, "isShown", {
         get: function () {
@@ -21697,7 +22907,7 @@ var ComponentLoader = (function () {
         this._innerComponent = null;
         if (!this._componentRef) {
             this.onBeforeShow.emit();
-            this._contentRef = this._getContentRef(opts.content);
+            this._contentRef = this._getContentRef(opts.content, opts.context);
             var injector = __WEBPACK_IMPORTED_MODULE_0__angular_core__["ReflectiveInjector"].resolveAndCreate(this._providers, this._injector);
             this._componentRef = this._componentFactory.create(injector, this._contentRef.nodes);
             this._applicationRef.attachView(this._componentRef.hostView);
@@ -21730,6 +22940,7 @@ var ComponentLoader = (function () {
             this._componentRef.changeDetectorRef.detectChanges();
             this.onShown.emit(this._componentRef.instance);
         }
+        this._registerOutsideClick();
         return this._componentRef;
     };
     ComponentLoader.prototype.hide = function () {
@@ -21753,6 +22964,7 @@ var ComponentLoader = (function () {
         // }
         this._contentRef = null;
         this._componentRef = null;
+        this._removeGlobalListener();
         this.onHidden.emit();
         return this;
     };
@@ -21775,14 +22987,49 @@ var ComponentLoader = (function () {
     ComponentLoader.prototype.listen = function (listenOpts) {
         var _this = this;
         this.triggers = listenOpts.triggers || this.triggers;
-        listenOpts.target = listenOpts.target || this._elementRef;
-        listenOpts.show = listenOpts.show || (function () { return _this.show(); });
-        listenOpts.hide = listenOpts.hide || (function () { return _this.hide(); });
-        listenOpts.toggle = listenOpts.toggle || (function () { return _this.isShown
-            ? listenOpts.hide()
-            : listenOpts.show(); });
-        this._unregisterListenersFn = Object(__WEBPACK_IMPORTED_MODULE_1__utils_triggers__["a" /* listenToTriggers */])(this._renderer, listenOpts.target.nativeElement, this.triggers, listenOpts.show, listenOpts.hide, listenOpts.toggle);
+        this._listenOpts.outsideClick = listenOpts.outsideClick;
+        listenOpts.target = listenOpts.target || this._elementRef.nativeElement;
+        var hide = this._listenOpts.hide = function () { return listenOpts.hide ? listenOpts.hide() : _this.hide(); };
+        var show = this._listenOpts.show = function (registerHide) {
+            listenOpts.show ? listenOpts.show(registerHide) : _this.show(registerHide);
+            registerHide();
+        };
+        var toggle = function (registerHide) {
+            _this.isShown ? hide() : show(registerHide);
+        };
+        this._unregisterListenersFn = Object(__WEBPACK_IMPORTED_MODULE_1__utils_triggers__["a" /* listenToTriggersV2 */])(this._renderer, {
+            target: listenOpts.target,
+            triggers: listenOpts.triggers,
+            show: show, hide: hide, toggle: toggle
+        });
         return this;
+    };
+    ComponentLoader.prototype._removeGlobalListener = function () {
+        if (this._globalListener) {
+            this._globalListener();
+            this._globalListener = null;
+        }
+    };
+    ComponentLoader.prototype.attachInline = function (vRef, template) {
+        this._inlineViewRef = vRef.createEmbeddedView(template);
+        return this;
+    };
+    ComponentLoader.prototype._registerOutsideClick = function () {
+        var _this = this;
+        if (!this._componentRef || !this._componentRef.location) {
+            return;
+        }
+        // why: should run after first event bubble
+        if (this._listenOpts.outsideClick) {
+            var target_1 = this._componentRef.location.nativeElement;
+            setTimeout(function () {
+                _this._globalListener = Object(__WEBPACK_IMPORTED_MODULE_1__utils_triggers__["b" /* registerOutsideClick */])(_this._renderer, {
+                    targets: [target_1, _this._elementRef.nativeElement],
+                    outsideClick: _this._listenOpts.outsideClick,
+                    hide: function () { return _this._listenOpts.hide(); }
+                });
+            });
+        }
     };
     ComponentLoader.prototype.getInnerComponent = function () {
         return this._innerComponent;
@@ -21812,13 +23059,14 @@ var ComponentLoader = (function () {
         this._zoneSubscription.unsubscribe();
         this._zoneSubscription = null;
     };
-    ComponentLoader.prototype._getContentRef = function (content) {
+    ComponentLoader.prototype._getContentRef = function (content, context) {
         if (!content) {
             return new __WEBPACK_IMPORTED_MODULE_2__content_ref_class__["a" /* ContentRef */]([]);
         }
         if (content instanceof __WEBPACK_IMPORTED_MODULE_0__angular_core__["TemplateRef"]) {
             if (this._viewContainerRef) {
-                var viewRef_1 = this._viewContainerRef.createEmbeddedView(content);
+                var viewRef_1 = this._viewContainerRef.createEmbeddedView(content, context);
+                viewRef_1.markForCheck();
                 return new __WEBPACK_IMPORTED_MODULE_2__content_ref_class__["a" /* ContentRef */]([viewRef_1.rootNodes], viewRef_1);
             }
             var viewRef = content.createEmbeddedView({});
@@ -21836,6 +23084,7 @@ var ComponentLoader = (function () {
     };
     return ComponentLoader;
 }());
+
 //# sourceMappingURL=component-loader.class.js.map
 
 /***/ }),
@@ -21848,6 +23097,15 @@ var ComponentLoader = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__component_loader_class__ = __webpack_require__("../../../../ngx-bootstrap/component-loader/component-loader.class.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__positioning__ = __webpack_require__("../../../../ngx-bootstrap/positioning/index.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
 
 
 
@@ -21869,19 +23127,17 @@ var ComponentLoaderFactory = (function () {
     ComponentLoaderFactory.prototype.createLoader = function (_elementRef, _viewContainerRef, _renderer) {
         return new __WEBPACK_IMPORTED_MODULE_1__component_loader_class__["a" /* ComponentLoader */](_viewContainerRef, _renderer, _elementRef, this._injector, this._componentFactoryResolver, this._ngZone, this._applicationRef, this._posService);
     };
-    ComponentLoaderFactory.decorators = [
-        { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"] },
-    ];
-    /** @nocollapse */
-    ComponentLoaderFactory.ctorParameters = function () { return [
-        { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["ComponentFactoryResolver"], },
-        { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["NgZone"], },
-        { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Injector"], },
-        { type: __WEBPACK_IMPORTED_MODULE_2__positioning__["a" /* PositioningService */], },
-        { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["ApplicationRef"], },
-    ]; };
+    ComponentLoaderFactory = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_core__["ComponentFactoryResolver"],
+            __WEBPACK_IMPORTED_MODULE_0__angular_core__["NgZone"],
+            __WEBPACK_IMPORTED_MODULE_0__angular_core__["Injector"],
+            __WEBPACK_IMPORTED_MODULE_2__positioning__["a" /* PositioningService */],
+            __WEBPACK_IMPORTED_MODULE_0__angular_core__["ApplicationRef"]])
+    ], ComponentLoaderFactory);
     return ComponentLoaderFactory;
 }());
+
 //# sourceMappingURL=component-loader.factory.js.map
 
 /***/ }),
@@ -21903,6 +23159,7 @@ var ContentRef = (function () {
     }
     return ContentRef;
 }());
+
 //# sourceMappingURL=content-ref.class.js.map
 
 /***/ }),
@@ -21924,22 +23181,520 @@ var ContentRef = (function () {
 
 /***/ }),
 
+/***/ "../../../../ngx-bootstrap/datepicker/bs-datepicker-config.js":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BsDatepickerConfig; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+var BsDatepickerConfig = (function () {
+    function BsDatepickerConfig() {
+    }
+    BsDatepickerConfig = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])()
+    ], BsDatepickerConfig);
+    return BsDatepickerConfig;
+}());
+
+//# sourceMappingURL=bs-datepicker-config.js.map
+
+/***/ }),
+
+/***/ "../../../../ngx-bootstrap/datepicker/bs-datepicker.component.js":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BsDatepickerComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__component_loader_component_loader_factory__ = __webpack_require__("../../../../ngx-bootstrap/component-loader/component-loader.factory.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__themes_bs_bs_datepicker_container_component__ = __webpack_require__("../../../../ngx-bootstrap/datepicker/themes/bs/bs-datepicker-container.component.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_filter__ = __webpack_require__("../../../../rxjs/add/operator/filter.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_filter___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_filter__);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var BsDatepickerComponent = (function () {
+    function BsDatepickerComponent(_elementRef, _renderer, _viewContainerRef, cis) {
+        /**
+         * Placement of a popover. Accepts: "top", "bottom", "left", "right"
+         */
+        this.placement = 'bottom';
+        /**
+         * Specifies events that should trigger. Supports a space separated list of
+         * event names.
+         */
+        this.triggers = 'click';
+        this.outsideClick = true;
+        /**
+         * A selector specifying the element the popover should be appended to.
+         * Currently only supports "body".
+         */
+        this.container = 'body';
+        this.bsValueChange = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]();
+        this.subscriptions = [];
+        this._datepicker = cis
+            .createLoader(_elementRef, _viewContainerRef, _renderer);
+        // .provide({provide: PopoverConfig, useValue: _config});
+        // Object.assign(this, _config);
+        this.onShown = this._datepicker.onShown;
+        this.onHidden = this._datepicker.onHidden;
+    }
+    Object.defineProperty(BsDatepickerComponent.prototype, "isOpen", {
+        /**
+         * Returns whether or not the popover is currently being shown
+         */
+        get: function () {
+            return this._datepicker.isShown;
+        },
+        set: function (value) {
+            if (value) {
+                this.show();
+            }
+            else {
+                this.hide();
+            }
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(BsDatepickerComponent.prototype, "bsValue", {
+        set: function (value) {
+            this._bsValue = value;
+            this.bsValueChange.emit(value);
+        },
+        enumerable: true,
+        configurable: true
+    });
+    /**
+     * Opens an element’s datepicker. This is considered a “manual” triggering of
+     * the datepicker.
+     */
+    BsDatepickerComponent.prototype.show = function () {
+        var _this = this;
+        if (this._datepicker.isShown) {
+            return;
+        }
+        this._datepickerRef = this._datepicker
+            .attach(__WEBPACK_IMPORTED_MODULE_2__themes_bs_bs_datepicker_container_component__["a" /* BsDatepickerContainerComponent */])
+            .to(this.container)
+            .position({ attachment: this.placement })
+            .show({ placement: this.placement });
+        // link with datepicker
+        // set initial value of picker
+        this._datepickerRef.instance.value = this._bsValue;
+        // if date changes from external source (model -> view)
+        this.bsValueChange.subscribe(function (value) {
+            _this._datepickerRef.instance.value = value;
+        });
+        // if date changes from picker (view -> model)
+        this.subscriptions.push(this._datepickerRef.instance
+            .valueChange.subscribe(function (value) {
+            if (value === _this._bsValue) {
+                return;
+            }
+            _this.bsValueChange.emit(value);
+            _this.hide();
+        }));
+    };
+    /**
+     * Closes an element’s datepicker. This is considered a “manual” triggering of
+     * the datepicker.
+     */
+    BsDatepickerComponent.prototype.hide = function () {
+        if (this.isOpen) {
+            this._datepicker.hide();
+        }
+    };
+    /**
+     * Toggles an element’s datepicker. This is considered a “manual” triggering of
+     * the datepicker.
+     */
+    BsDatepickerComponent.prototype.toggle = function () {
+        if (this.isOpen) {
+            return this.hide();
+        }
+        this.show();
+    };
+    BsDatepickerComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this._datepicker.listen({
+            outsideClick: this.outsideClick,
+            triggers: this.triggers,
+            show: function () { return _this.show(); }
+        });
+    };
+    BsDatepickerComponent.prototype.ngOnDestroy = function () {
+        this._datepicker.dispose();
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", String)
+    ], BsDatepickerComponent.prototype, "placement", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Object)
+    ], BsDatepickerComponent.prototype, "triggers", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Object)
+    ], BsDatepickerComponent.prototype, "outsideClick", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Object)
+    ], BsDatepickerComponent.prototype, "container", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Boolean),
+        __metadata("design:paramtypes", [Boolean])
+    ], BsDatepickerComponent.prototype, "isOpen", null);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"])(),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"])
+    ], BsDatepickerComponent.prototype, "onShown", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"])(),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"])
+    ], BsDatepickerComponent.prototype, "onHidden", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Date),
+        __metadata("design:paramtypes", [Date])
+    ], BsDatepickerComponent.prototype, "bsValue", null);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"])(),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"])
+    ], BsDatepickerComponent.prototype, "bsValueChange", void 0);
+    BsDatepickerComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'bs-datepicker,[bsDatepicker]',
+            exportAs: 'bsDatepicker',
+            template: ' '
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"],
+            __WEBPACK_IMPORTED_MODULE_0__angular_core__["Renderer"],
+            __WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewContainerRef"],
+            __WEBPACK_IMPORTED_MODULE_1__component_loader_component_loader_factory__["a" /* ComponentLoaderFactory */]])
+    ], BsDatepickerComponent);
+    return BsDatepickerComponent;
+}());
+
+//# sourceMappingURL=bs-datepicker.component.js.map
+
+/***/ }),
+
+/***/ "../../../../ngx-bootstrap/datepicker/bs-datepicker.module.js":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* unused harmony export BsDatepickerModule */
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common__ = __webpack_require__("../../../common/@angular/common.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__reducer_bs_datepicker_actions__ = __webpack_require__("../../../../ngx-bootstrap/datepicker/reducer/bs-datepicker.actions.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__reducer_bs_datepicker_store__ = __webpack_require__("../../../../ngx-bootstrap/datepicker/reducer/bs-datepicker.store.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__themes_bs_bs_datepicker_container_component__ = __webpack_require__("../../../../ngx-bootstrap/datepicker/themes/bs/bs-datepicker-container.component.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__themes_bs_bs_datepicker_month_view_component__ = __webpack_require__("../../../../ngx-bootstrap/datepicker/themes/bs/bs-datepicker-month-view.component.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__themes_bs_bs_datepicker_navigation_view_component__ = __webpack_require__("../../../../ngx-bootstrap/datepicker/themes/bs/bs-datepicker-navigation-view.component.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__themes_bs_bs_datepicker_view_component__ = __webpack_require__("../../../../ngx-bootstrap/datepicker/themes/bs/bs-datepicker-view.component.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__bs_datepicker_config__ = __webpack_require__("../../../../ngx-bootstrap/datepicker/bs-datepicker-config.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__reducer_bs_datepicker_effects__ = __webpack_require__("../../../../ngx-bootstrap/datepicker/reducer/bs-datepicker.effects.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__themes_bs_bs_daterangepicker_container_component__ = __webpack_require__("../../../../ngx-bootstrap/datepicker/themes/bs/bs-daterangepicker-container.component.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__bs_daterangepicker_component__ = __webpack_require__("../../../../ngx-bootstrap/datepicker/bs-daterangepicker.component.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__bs_datepicker_component__ = __webpack_require__("../../../../ngx-bootstrap/datepicker/bs-datepicker.component.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__component_loader_component_loader_factory__ = __webpack_require__("../../../../ngx-bootstrap/component-loader/component-loader.factory.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__positioning_positioning_service__ = __webpack_require__("../../../../ngx-bootstrap/positioning/positioning.service.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__themes_bs_bs_datepicker_day_decorator_directive__ = __webpack_require__("../../../../ngx-bootstrap/datepicker/themes/bs/bs-datepicker-day-decorator.directive.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var BsDatepickerModule = (function () {
+    function BsDatepickerModule() {
+        if (Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["isDevMode"])()) {
+            console.warn("BsDatepickerModule is under development,\n      BREAKING CHANGES are possible,\n      PLEASE, read changelog");
+        }
+    }
+    BsDatepickerModule_1 = BsDatepickerModule;
+    BsDatepickerModule.forRoot = function () {
+        return {
+            ngModule: BsDatepickerModule_1,
+            providers: [
+                __WEBPACK_IMPORTED_MODULE_13__component_loader_component_loader_factory__["a" /* ComponentLoaderFactory */], __WEBPACK_IMPORTED_MODULE_14__positioning_positioning_service__["a" /* PositioningService */],
+                __WEBPACK_IMPORTED_MODULE_3__reducer_bs_datepicker_store__["a" /* BsDatepickerStore */], __WEBPACK_IMPORTED_MODULE_2__reducer_bs_datepicker_actions__["a" /* BsDatepickerActions */], __WEBPACK_IMPORTED_MODULE_8__bs_datepicker_config__["a" /* BsDatepickerConfig */], __WEBPACK_IMPORTED_MODULE_9__reducer_bs_datepicker_effects__["a" /* BsDatepickerEffects */]
+            ]
+        };
+    };
+    BsDatepickerModule = BsDatepickerModule_1 = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["NgModule"])({
+            imports: [__WEBPACK_IMPORTED_MODULE_0__angular_common__["b" /* CommonModule */]],
+            declarations: [
+                __WEBPACK_IMPORTED_MODULE_5__themes_bs_bs_datepicker_month_view_component__["a" /* BsDatepickerMonthViewComponent */],
+                __WEBPACK_IMPORTED_MODULE_7__themes_bs_bs_datepicker_view_component__["a" /* BsDatepickerViewComponent */],
+                __WEBPACK_IMPORTED_MODULE_6__themes_bs_bs_datepicker_navigation_view_component__["a" /* BsDatepickerNavigationViewComponent */],
+                __WEBPACK_IMPORTED_MODULE_15__themes_bs_bs_datepicker_day_decorator_directive__["a" /* BsDatepickerDayDecoratorComponent */],
+                __WEBPACK_IMPORTED_MODULE_4__themes_bs_bs_datepicker_container_component__["a" /* BsDatepickerContainerComponent */],
+                __WEBPACK_IMPORTED_MODULE_10__themes_bs_bs_daterangepicker_container_component__["a" /* BsDaterangepickerContainerComponent */],
+                __WEBPACK_IMPORTED_MODULE_12__bs_datepicker_component__["a" /* BsDatepickerComponent */],
+                __WEBPACK_IMPORTED_MODULE_11__bs_daterangepicker_component__["a" /* BsDaterangepickerComponent */]
+            ],
+            entryComponents: [__WEBPACK_IMPORTED_MODULE_4__themes_bs_bs_datepicker_container_component__["a" /* BsDatepickerContainerComponent */], __WEBPACK_IMPORTED_MODULE_10__themes_bs_bs_daterangepicker_container_component__["a" /* BsDaterangepickerContainerComponent */]],
+            exports: [__WEBPACK_IMPORTED_MODULE_4__themes_bs_bs_datepicker_container_component__["a" /* BsDatepickerContainerComponent */], __WEBPACK_IMPORTED_MODULE_10__themes_bs_bs_daterangepicker_container_component__["a" /* BsDaterangepickerContainerComponent */],
+                __WEBPACK_IMPORTED_MODULE_12__bs_datepicker_component__["a" /* BsDatepickerComponent */], __WEBPACK_IMPORTED_MODULE_11__bs_daterangepicker_component__["a" /* BsDaterangepickerComponent */]]
+        }),
+        __metadata("design:paramtypes", [])
+    ], BsDatepickerModule);
+    return BsDatepickerModule;
+    var BsDatepickerModule_1;
+}());
+
+//# sourceMappingURL=bs-datepicker.module.js.map
+
+/***/ }),
+
+/***/ "../../../../ngx-bootstrap/datepicker/bs-daterangepicker.component.js":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BsDaterangepickerComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__themes_bs_bs_daterangepicker_container_component__ = __webpack_require__("../../../../ngx-bootstrap/datepicker/themes/bs/bs-daterangepicker-container.component.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__component_loader_component_loader_factory__ = __webpack_require__("../../../../ngx-bootstrap/component-loader/component-loader.factory.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var BsDaterangepickerComponent = (function () {
+    function BsDaterangepickerComponent(_elementRef, _renderer, _viewContainerRef, cis) {
+        /**
+         * Placement of a popover. Accepts: "top", "bottom", "left", "right"
+         */
+        this.placement = 'bottom';
+        /**
+         * Specifies events that should trigger. Supports a space separated list of
+         * event names.
+         */
+        this.triggers = 'click';
+        this.outsideClick = true;
+        /**
+         * A selector specifying the element the popover should be appended to.
+         * Currently only supports "body".
+         */
+        this.container = 'body';
+        this.bsValueChange = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]();
+        this.subscriptions = [];
+        this._datepicker = cis
+            .createLoader(_elementRef, _viewContainerRef, _renderer);
+        // .provide({provide: PopoverConfig, useValue: _config});
+        // Object.assign(this, _config);
+        this.onShown = this._datepicker.onShown;
+        this.onHidden = this._datepicker.onHidden;
+    }
+    Object.defineProperty(BsDaterangepickerComponent.prototype, "isOpen", {
+        /**
+         * Returns whether or not the popover is currently being shown
+         */
+        get: function () {
+            return this._datepicker.isShown;
+        },
+        set: function (value) {
+            if (value) {
+                this.show();
+            }
+            else {
+                this.hide();
+            }
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(BsDaterangepickerComponent.prototype, "bsValue", {
+        set: function (value) {
+            this._bsValue = value;
+            this.bsValueChange.emit(value);
+        },
+        enumerable: true,
+        configurable: true
+    });
+    /**
+     * Opens an element’s datepicker. This is considered a “manual” triggering of
+     * the datepicker.
+     */
+    BsDaterangepickerComponent.prototype.show = function () {
+        var _this = this;
+        if (this._datepicker.isShown) {
+            return;
+        }
+        this._datepickerRef = this._datepicker
+            .attach(__WEBPACK_IMPORTED_MODULE_1__themes_bs_bs_daterangepicker_container_component__["a" /* BsDaterangepickerContainerComponent */])
+            .to(this.container)
+            .position({ attachment: this.placement })
+            .show({ placement: this.placement });
+        // link with datepicker
+        // set initial value of picker
+        this._datepickerRef.instance.value = this._bsValue;
+        // if date changes from external source (model -> view)
+        this.subscriptions.push(this.bsValueChange.subscribe(function (value) {
+            _this._datepickerRef.instance.value = value;
+        }));
+        // if date changes from picker (view -> model)
+        this.subscriptions.push(this._datepickerRef.instance
+            .valueChange
+            .filter(function (range) { return range && range[0] && !!range[1]; })
+            .subscribe(function (value) {
+            if (value === _this._bsValue) {
+                return;
+            }
+            _this.bsValueChange.emit(value);
+            _this.hide();
+        }));
+    };
+    /**
+     * Closes an element’s datepicker. This is considered a “manual” triggering of
+     * the datepicker.
+     */
+    BsDaterangepickerComponent.prototype.hide = function () {
+        if (this.isOpen) {
+            this._datepicker.hide();
+        }
+    };
+    /**
+     * Toggles an element’s datepicker. This is considered a “manual” triggering of
+     * the datepicker.
+     */
+    BsDaterangepickerComponent.prototype.toggle = function () {
+        if (this.isOpen) {
+            return this.hide();
+        }
+        this.show();
+    };
+    BsDaterangepickerComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this._datepicker.listen({
+            outsideClick: this.outsideClick,
+            triggers: this.triggers,
+            show: function () { return _this.show(); }
+        });
+    };
+    BsDaterangepickerComponent.prototype.ngOnDestroy = function () {
+        this._datepicker.dispose();
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", String)
+    ], BsDaterangepickerComponent.prototype, "placement", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Object)
+    ], BsDaterangepickerComponent.prototype, "triggers", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Object)
+    ], BsDaterangepickerComponent.prototype, "outsideClick", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Object)
+    ], BsDaterangepickerComponent.prototype, "container", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Boolean),
+        __metadata("design:paramtypes", [Boolean])
+    ], BsDaterangepickerComponent.prototype, "isOpen", null);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"])(),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"])
+    ], BsDaterangepickerComponent.prototype, "onShown", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"])(),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"])
+    ], BsDaterangepickerComponent.prototype, "onHidden", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Array),
+        __metadata("design:paramtypes", [Array])
+    ], BsDaterangepickerComponent.prototype, "bsValue", null);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"])(),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"])
+    ], BsDaterangepickerComponent.prototype, "bsValueChange", void 0);
+    BsDaterangepickerComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'bs-daterangepicker,[bsDaterangepicker]',
+            exportAs: 'bsDaterangepicker',
+            template: ' '
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"],
+            __WEBPACK_IMPORTED_MODULE_0__angular_core__["Renderer"],
+            __WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewContainerRef"],
+            __WEBPACK_IMPORTED_MODULE_2__component_loader_component_loader_factory__["a" /* ComponentLoaderFactory */]])
+    ], BsDaterangepickerComponent);
+    return BsDaterangepickerComponent;
+}());
+
+//# sourceMappingURL=bs-daterangepicker.component.js.map
+
+/***/ }),
+
 /***/ "../../../../ngx-bootstrap/datepicker/date-formatter.js":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DateFormatter; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_moment__ = __webpack_require__("../../../../moment/moment.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_moment__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__bs_moment_format__ = __webpack_require__("../../../../ngx-bootstrap/bs-moment/format.js");
 
 var DateFormatter = (function () {
     function DateFormatter() {
     }
     DateFormatter.prototype.format = function (date, format) {
-        return __WEBPACK_IMPORTED_MODULE_0_moment___default()(date.getTime()).format(format);
+        return Object(__WEBPACK_IMPORTED_MODULE_0__bs_moment_format__["a" /* formatDate */])(date, format);
     };
     return DateFormatter;
 }());
+
 //# sourceMappingURL=date-formatter.js.map
 
 /***/ }),
@@ -21951,6 +23706,16 @@ var DateFormatter = (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DatePickerInnerComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__date_formatter__ = __webpack_require__("../../../../ngx-bootstrap/datepicker/date-formatter.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+/* tslint:disable:max-file-line-count */
 
 
 // const MIN_DATE:Date = void 0;
@@ -22194,43 +23959,116 @@ var DatePickerInnerComponent = (function () {
         return (isDateDisabled || (this.minDate && this.compare(date, this.minDate) < 0) ||
             (this.maxDate && this.compare(date, this.maxDate) > 0));
     };
-    DatePickerInnerComponent.decorators = [
-        { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"], args: [{
-                    selector: 'datepicker-inner',
-                    template: "\n    <div *ngIf=\"datepickerMode\" class=\"well well-sm bg-faded p-a card\" role=\"application\" ><!--&lt;!&ndash;ng-keydown=\"keydown($event)\"&ndash;&gt;-->\n      <ng-content></ng-content>\n    </div>\n  "
-                },] },
-    ];
-    /** @nocollapse */
-    DatePickerInnerComponent.ctorParameters = function () { return []; };
-    DatePickerInnerComponent.propDecorators = {
-        'datepickerMode': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'startingDay': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'yearRange': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'minDate': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'maxDate': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'minMode': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'maxMode': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'showWeeks': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'formatDay': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'formatMonth': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'formatYear': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'formatDayHeader': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'formatDayTitle': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'formatMonthTitle': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'onlyCurrentMonth': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'shortcutPropagation': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'customClass': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'monthColLimit': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'yearColLimit': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'dateDisabled': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'initDate': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'selectionDone': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"] },],
-        'update': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"] },],
-        'activeDateChange': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"] },],
-        'activeDate': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", String)
+    ], DatePickerInnerComponent.prototype, "datepickerMode", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Number)
+    ], DatePickerInnerComponent.prototype, "startingDay", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Number)
+    ], DatePickerInnerComponent.prototype, "yearRange", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Date)
+    ], DatePickerInnerComponent.prototype, "minDate", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Date)
+    ], DatePickerInnerComponent.prototype, "maxDate", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", String)
+    ], DatePickerInnerComponent.prototype, "minMode", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", String)
+    ], DatePickerInnerComponent.prototype, "maxMode", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Boolean)
+    ], DatePickerInnerComponent.prototype, "showWeeks", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", String)
+    ], DatePickerInnerComponent.prototype, "formatDay", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", String)
+    ], DatePickerInnerComponent.prototype, "formatMonth", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", String)
+    ], DatePickerInnerComponent.prototype, "formatYear", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", String)
+    ], DatePickerInnerComponent.prototype, "formatDayHeader", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", String)
+    ], DatePickerInnerComponent.prototype, "formatDayTitle", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", String)
+    ], DatePickerInnerComponent.prototype, "formatMonthTitle", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Boolean)
+    ], DatePickerInnerComponent.prototype, "onlyCurrentMonth", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Boolean)
+    ], DatePickerInnerComponent.prototype, "shortcutPropagation", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Array)
+    ], DatePickerInnerComponent.prototype, "customClass", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Number)
+    ], DatePickerInnerComponent.prototype, "monthColLimit", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Number)
+    ], DatePickerInnerComponent.prototype, "yearColLimit", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Array)
+    ], DatePickerInnerComponent.prototype, "dateDisabled", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Date)
+    ], DatePickerInnerComponent.prototype, "initDate", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"])(),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"])
+    ], DatePickerInnerComponent.prototype, "selectionDone", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"])(),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"])
+    ], DatePickerInnerComponent.prototype, "update", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"])(),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"])
+    ], DatePickerInnerComponent.prototype, "activeDateChange", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Date),
+        __metadata("design:paramtypes", [Date])
+    ], DatePickerInnerComponent.prototype, "activeDate", null);
+    DatePickerInnerComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'datepicker-inner',
+            template: "\n    <div *ngIf=\"datepickerMode\" class=\"well well-sm bg-faded p-a card\" role=\"application\" ><!--&lt;!&ndash;ng-keydown=\"keydown($event)\"&ndash;&gt;-->\n      <ng-content></ng-content>\n    </div>\n  "
+        })
+    ], DatePickerInnerComponent);
     return DatePickerInnerComponent;
 }());
+
 //# sourceMappingURL=datepicker-inner.component.js.map
 
 /***/ }),
@@ -22245,6 +24083,15 @@ var DatePickerInnerComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__("../../../forms/@angular/forms.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__datepicker_inner_component__ = __webpack_require__("../../../../ngx-bootstrap/datepicker/datepicker-inner.component.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__datepicker_config__ = __webpack_require__("../../../../ngx-bootstrap/datepicker/datepicker.config.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
 
 
 
@@ -22255,7 +24102,6 @@ var DATEPICKER_CONTROL_VALUE_ACCESSOR = {
     multi: true
 };
 /* tslint:disable:component-selector-name component-selector-type */
-/* tslint:enable:component-selector-name component-selector-type */
 var DatePickerComponent = (function () {
     function DatePickerComponent(config) {
         /** sets datepicker mode, supports: `day`, `month`, `year` */
@@ -22313,46 +24159,120 @@ var DatePickerComponent = (function () {
     DatePickerComponent.prototype.registerOnTouched = function (fn) {
         this.onTouched = fn;
     };
-    DatePickerComponent.decorators = [
-        { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"], args: [{
-                    selector: 'datepicker',
-                    template: "\n    <datepicker-inner [activeDate]=\"activeDate\"\n                      (update)=\"onUpdate($event)\"\n                      [datepickerMode]=\"datepickerMode\"\n                      [initDate]=\"initDate\"\n                      [minDate]=\"minDate\"\n                      [maxDate]=\"maxDate\"\n                      [minMode]=\"minMode\"\n                      [maxMode]=\"maxMode\"\n                      [showWeeks]=\"showWeeks\"\n                      [formatDay]=\"formatDay\"\n                      [formatMonth]=\"formatMonth\"\n                      [formatYear]=\"formatYear\"\n                      [formatDayHeader]=\"formatDayHeader\"\n                      [formatDayTitle]=\"formatDayTitle\"\n                      [formatMonthTitle]=\"formatMonthTitle\"\n                      [startingDay]=\"startingDay\"\n                      [yearRange]=\"yearRange\"\n                      [customClass]=\"customClass\"\n                      [dateDisabled]=\"dateDisabled\"\n                      [onlyCurrentMonth]=\"onlyCurrentMonth\"\n                      [shortcutPropagation]=\"shortcutPropagation\"\n                      [monthColLimit]=\"monthColLimit\"\n                      [yearColLimit]=\"yearColLimit\"\n                      (selectionDone)=\"onSelectionDone($event)\"\n                      (activeDateChange)=\"onActiveDateChange($event)\">\n      <daypicker tabindex=\"0\"></daypicker>\n      <monthpicker tabindex=\"0\"></monthpicker>\n      <yearpicker tabindex=\"0\"></yearpicker>\n    </datepicker-inner>\n    ",
-                    providers: [DATEPICKER_CONTROL_VALUE_ACCESSOR]
-                },] },
-    ];
-    /** @nocollapse */
-    DatePickerComponent.ctorParameters = function () { return [
-        { type: __WEBPACK_IMPORTED_MODULE_3__datepicker_config__["a" /* DatepickerConfig */], },
-    ]; };
-    DatePickerComponent.propDecorators = {
-        'datepickerMode': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'initDate': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'minDate': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'maxDate': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'minMode': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'maxMode': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'showWeeks': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'formatDay': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'formatMonth': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'formatYear': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'formatDayHeader': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'formatDayTitle': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'formatMonthTitle': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'startingDay': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'yearRange': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'onlyCurrentMonth': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'shortcutPropagation': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'monthColLimit': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'yearColLimit': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'customClass': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'dateDisabled': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'activeDate': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'selectionDone': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"] },],
-        'activeDateChange': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"] },],
-        '_datePicker': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"], args: [__WEBPACK_IMPORTED_MODULE_2__datepicker_inner_component__["a" /* DatePickerInnerComponent */],] },],
-    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", String)
+    ], DatePickerComponent.prototype, "datepickerMode", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Date)
+    ], DatePickerComponent.prototype, "initDate", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Date)
+    ], DatePickerComponent.prototype, "minDate", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Date)
+    ], DatePickerComponent.prototype, "maxDate", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", String)
+    ], DatePickerComponent.prototype, "minMode", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", String)
+    ], DatePickerComponent.prototype, "maxMode", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Boolean)
+    ], DatePickerComponent.prototype, "showWeeks", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", String)
+    ], DatePickerComponent.prototype, "formatDay", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", String)
+    ], DatePickerComponent.prototype, "formatMonth", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", String)
+    ], DatePickerComponent.prototype, "formatYear", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", String)
+    ], DatePickerComponent.prototype, "formatDayHeader", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", String)
+    ], DatePickerComponent.prototype, "formatDayTitle", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", String)
+    ], DatePickerComponent.prototype, "formatMonthTitle", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Number)
+    ], DatePickerComponent.prototype, "startingDay", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Number)
+    ], DatePickerComponent.prototype, "yearRange", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Boolean)
+    ], DatePickerComponent.prototype, "onlyCurrentMonth", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Boolean)
+    ], DatePickerComponent.prototype, "shortcutPropagation", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Number)
+    ], DatePickerComponent.prototype, "monthColLimit", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Number)
+    ], DatePickerComponent.prototype, "yearColLimit", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Array)
+    ], DatePickerComponent.prototype, "customClass", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Array)
+    ], DatePickerComponent.prototype, "dateDisabled", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Date),
+        __metadata("design:paramtypes", [Date])
+    ], DatePickerComponent.prototype, "activeDate", null);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"])(),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"])
+    ], DatePickerComponent.prototype, "selectionDone", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"])(),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"])
+    ], DatePickerComponent.prototype, "activeDateChange", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])(__WEBPACK_IMPORTED_MODULE_2__datepicker_inner_component__["a" /* DatePickerInnerComponent */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_2__datepicker_inner_component__["a" /* DatePickerInnerComponent */])
+    ], DatePickerComponent.prototype, "_datePicker", void 0);
+    DatePickerComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'datepicker',
+            template: "\n    <datepicker-inner [activeDate]=\"activeDate\"\n                      (update)=\"onUpdate($event)\"\n                      [datepickerMode]=\"datepickerMode\"\n                      [initDate]=\"initDate\"\n                      [minDate]=\"minDate\"\n                      [maxDate]=\"maxDate\"\n                      [minMode]=\"minMode\"\n                      [maxMode]=\"maxMode\"\n                      [showWeeks]=\"showWeeks\"\n                      [formatDay]=\"formatDay\"\n                      [formatMonth]=\"formatMonth\"\n                      [formatYear]=\"formatYear\"\n                      [formatDayHeader]=\"formatDayHeader\"\n                      [formatDayTitle]=\"formatDayTitle\"\n                      [formatMonthTitle]=\"formatMonthTitle\"\n                      [startingDay]=\"startingDay\"\n                      [yearRange]=\"yearRange\"\n                      [customClass]=\"customClass\"\n                      [dateDisabled]=\"dateDisabled\"\n                      [onlyCurrentMonth]=\"onlyCurrentMonth\"\n                      [shortcutPropagation]=\"shortcutPropagation\"\n                      [monthColLimit]=\"monthColLimit\"\n                      [yearColLimit]=\"yearColLimit\"\n                      (selectionDone)=\"onSelectionDone($event)\"\n                      (activeDateChange)=\"onActiveDateChange($event)\">\n      <daypicker tabindex=\"0\"></daypicker>\n      <monthpicker tabindex=\"0\"></monthpicker>\n      <yearpicker tabindex=\"0\"></yearpicker>\n    </datepicker-inner>\n    ",
+            providers: [DATEPICKER_CONTROL_VALUE_ACCESSOR]
+        })
+        /* tslint:enable:component-selector-name component-selector-type */
+        ,
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3__datepicker_config__["a" /* DatepickerConfig */]])
+    ], DatePickerComponent);
     return DatePickerComponent;
 }());
+
 //# sourceMappingURL=datepicker.component.js.map
 
 /***/ }),
@@ -22363,6 +24283,12 @@ var DatePickerComponent = (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DatepickerConfig; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
 
 var DatepickerConfig = (function () {
     function DatepickerConfig() {
@@ -22383,13 +24309,12 @@ var DatepickerConfig = (function () {
         this.yearColLimit = 5;
         this.shortcutPropagation = false;
     }
-    DatepickerConfig.decorators = [
-        { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"] },
-    ];
-    /** @nocollapse */
-    DatepickerConfig.ctorParameters = function () { return []; };
+    DatepickerConfig = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])()
+    ], DatepickerConfig);
     return DatepickerConfig;
 }());
+
 //# sourceMappingURL=datepicker.config.js.map
 
 /***/ }),
@@ -22408,6 +24333,12 @@ var DatepickerConfig = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__monthpicker_component__ = __webpack_require__("../../../../ngx-bootstrap/datepicker/monthpicker.component.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__yearpicker_component__ = __webpack_require__("../../../../ngx-bootstrap/datepicker/yearpicker.component.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__datepicker_config__ = __webpack_require__("../../../../ngx-bootstrap/datepicker/datepicker.config.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
 
 
 
@@ -22420,23 +24351,24 @@ var DatepickerConfig = (function () {
 var DatepickerModule = (function () {
     function DatepickerModule() {
     }
+    DatepickerModule_1 = DatepickerModule;
     DatepickerModule.forRoot = function () {
-        return { ngModule: DatepickerModule, providers: [__WEBPACK_IMPORTED_MODULE_8__datepicker_config__["a" /* DatepickerConfig */]] };
+        return { ngModule: DatepickerModule_1, providers: [__WEBPACK_IMPORTED_MODULE_8__datepicker_config__["a" /* DatepickerConfig */]] };
     };
-    DatepickerModule.decorators = [
-        { type: __WEBPACK_IMPORTED_MODULE_1__angular_core__["NgModule"], args: [{
-                    imports: [__WEBPACK_IMPORTED_MODULE_0__angular_common__["b" /* CommonModule */], __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormsModule */]],
-                    declarations: [__WEBPACK_IMPORTED_MODULE_4__datepicker_component__["a" /* DatePickerComponent */], __WEBPACK_IMPORTED_MODULE_3__datepicker_inner_component__["a" /* DatePickerInnerComponent */], __WEBPACK_IMPORTED_MODULE_5__daypicker_component__["a" /* DayPickerComponent */],
-                        __WEBPACK_IMPORTED_MODULE_6__monthpicker_component__["a" /* MonthPickerComponent */], __WEBPACK_IMPORTED_MODULE_7__yearpicker_component__["a" /* YearPickerComponent */]],
-                    exports: [__WEBPACK_IMPORTED_MODULE_4__datepicker_component__["a" /* DatePickerComponent */], __WEBPACK_IMPORTED_MODULE_3__datepicker_inner_component__["a" /* DatePickerInnerComponent */], __WEBPACK_IMPORTED_MODULE_5__daypicker_component__["a" /* DayPickerComponent */],
-                        __WEBPACK_IMPORTED_MODULE_6__monthpicker_component__["a" /* MonthPickerComponent */], __WEBPACK_IMPORTED_MODULE_7__yearpicker_component__["a" /* YearPickerComponent */]],
-                    entryComponents: [__WEBPACK_IMPORTED_MODULE_4__datepicker_component__["a" /* DatePickerComponent */]]
-                },] },
-    ];
-    /** @nocollapse */
-    DatepickerModule.ctorParameters = function () { return []; };
+    DatepickerModule = DatepickerModule_1 = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["NgModule"])({
+            imports: [__WEBPACK_IMPORTED_MODULE_0__angular_common__["b" /* CommonModule */], __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormsModule */]],
+            declarations: [__WEBPACK_IMPORTED_MODULE_4__datepicker_component__["a" /* DatePickerComponent */], __WEBPACK_IMPORTED_MODULE_3__datepicker_inner_component__["a" /* DatePickerInnerComponent */], __WEBPACK_IMPORTED_MODULE_5__daypicker_component__["a" /* DayPickerComponent */],
+                __WEBPACK_IMPORTED_MODULE_6__monthpicker_component__["a" /* MonthPickerComponent */], __WEBPACK_IMPORTED_MODULE_7__yearpicker_component__["a" /* YearPickerComponent */]],
+            exports: [__WEBPACK_IMPORTED_MODULE_4__datepicker_component__["a" /* DatePickerComponent */], __WEBPACK_IMPORTED_MODULE_3__datepicker_inner_component__["a" /* DatePickerInnerComponent */], __WEBPACK_IMPORTED_MODULE_5__daypicker_component__["a" /* DayPickerComponent */],
+                __WEBPACK_IMPORTED_MODULE_6__monthpicker_component__["a" /* MonthPickerComponent */], __WEBPACK_IMPORTED_MODULE_7__yearpicker_component__["a" /* YearPickerComponent */]],
+            entryComponents: [__WEBPACK_IMPORTED_MODULE_4__datepicker_component__["a" /* DatePickerComponent */]]
+        })
+    ], DatepickerModule);
     return DatepickerModule;
+    var DatepickerModule_1;
 }());
+
 //# sourceMappingURL=datepicker.module.js.map
 
 /***/ }),
@@ -22449,6 +24381,15 @@ var DatepickerModule = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__utils_ng2_bootstrap_config__ = __webpack_require__("../../../../ngx-bootstrap/utils/ng2-bootstrap-config.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__datepicker_inner_component__ = __webpack_require__("../../../../ngx-bootstrap/datepicker/datepicker-inner.component.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
 
 
 
@@ -22541,20 +24482,153 @@ var DayPickerComponent = (function () {
         checkDate.setDate(1);
         return Math.floor(Math.round((time - checkDate.getTime()) / 86400000) / 7) + 1;
     };
-    // todo: key events implementation
-    DayPickerComponent.decorators = [
-        { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"], args: [{
-                    selector: 'daypicker',
-                    template: "\n<table *ngIf=\"datePicker.datepickerMode==='day'\" role=\"grid\" [attr.aria-labelledby]=\"datePicker.uniqueId+'-title'\" aria-activedescendant=\"activeDateId\">\n  <thead>\n    <tr>\n      <th>\n        <button *ngIf=\"!isBs4\"\n                type=\"button\"\n                class=\"btn btn-default btn-secondary btn-sm pull-left\"\n                (click)=\"datePicker.move(-1)\"\n                tabindex=\"-1\">\n          <i class=\"glyphicon glyphicon-chevron-left\"></i>\n        </button>\n        <button *ngIf=\"isBs4\"\n                type=\"button\"\n                class=\"btn btn-default btn-secondary btn-sm pull-left\"\n                (click)=\"datePicker.move(-1)\"\n                tabindex=\"-1\">&lt;\n        </button>\n      </th>\n      <th [attr.colspan]=\"5 + (datePicker.showWeeks ? 1 : 0)\">\n        <button [id]=\"datePicker.uniqueId + '-title'\"\n                type=\"button\" class=\"btn btn-default btn-secondary btn-sm\"\n                (click)=\"datePicker.toggleMode()\"\n                [disabled]=\"datePicker.datepickerMode === datePicker.maxMode\"\n                [ngClass]=\"{disabled: datePicker.datepickerMode === datePicker.maxMode}\" tabindex=\"-1\" style=\"width:100%;\">\n          <strong>{{title}}</strong>\n        </button>\n      </th>\n      <th>\n        <button *ngIf=\"!isBs4\"\n                type=\"button\"\n                class=\"btn btn-default btn-secondary btn-sm pull-right\"\n                (click)=\"datePicker.move(1)\"\n                tabindex=\"-1\">\n          <i  class=\"glyphicon glyphicon-chevron-right\"></i>\n        </button>\n        <button *ngIf=\"isBs4\"\n                type=\"button\"\n                class=\"btn btn-default btn-secondary btn-sm pull-right\"\n                (click)=\"datePicker.move(1)\"\n                tabindex=\"-1\">&gt;\n        </button>\n      </th>\n    </tr>\n    <tr>\n      <th *ngIf=\"datePicker.showWeeks\"></th>\n      <th *ngFor=\"let labelz of labels\" class=\"text-center\">\n        <small aria-label=\"labelz.full\"><b>{{labelz.abbr}}</b></small>\n      </th>\n    </tr>\n  </thead>\n  <tbody>\n    <template ngFor [ngForOf]=\"rows\" let-rowz=\"$implicit\" let-index=\"index\">\n      <tr *ngIf=\"!(datePicker.onlyCurrentMonth && rowz[0].secondary && rowz[6].secondary)\">\n        <td *ngIf=\"datePicker.showWeeks\" class=\"h6\" class=\"text-center\">\n          <em>{{ weekNumbers[index] }}</em>\n        </td>\n        <td *ngFor=\"let dtz of rowz\" class=\"text-center\" role=\"gridcell\" [id]=\"dtz.uid\">\n          <button type=\"button\" style=\"min-width:100%;\" class=\"btn btn-sm {{dtz.customClass}}\"\n                  *ngIf=\"!(datePicker.onlyCurrentMonth && dtz.secondary)\"\n                  [ngClass]=\"{'btn-secondary': isBs4 && !dtz.selected && !datePicker.isActive(dtz), 'btn-info': dtz.selected, disabled: dtz.disabled, active: !isBs4 && datePicker.isActive(dtz), 'btn-default': !isBs4}\"\n                  [disabled]=\"dtz.disabled\"\n                  (click)=\"datePicker.select(dtz.date)\" tabindex=\"-1\">\n            <span [ngClass]=\"{'text-muted': dtz.secondary || dtz.current, 'text-info': !isBs4 && dtz.current}\">{{dtz.label}}</span>\n          </button>\n        </td>\n      </tr>\n    </template>\n  </tbody>\n</table>\n  "
-                },] },
-    ];
-    /** @nocollapse */
-    DayPickerComponent.ctorParameters = function () { return [
-        { type: __WEBPACK_IMPORTED_MODULE_2__datepicker_inner_component__["a" /* DatePickerInnerComponent */], },
-    ]; };
+    DayPickerComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'daypicker',
+            template: "\n<table *ngIf=\"datePicker.datepickerMode==='day'\" role=\"grid\" [attr.aria-labelledby]=\"datePicker.uniqueId+'-title'\" aria-activedescendant=\"activeDateId\">\n  <thead>\n    <tr>\n      <th>\n        <button *ngIf=\"!isBs4\"\n                type=\"button\"\n                class=\"btn btn-default btn-secondary btn-sm pull-left float-left\"\n                (click)=\"datePicker.move(-1)\"\n                tabindex=\"-1\">\n          <i class=\"glyphicon glyphicon-chevron-left\"></i>\n        </button>\n        <button *ngIf=\"isBs4\"\n                type=\"button\"\n                class=\"btn btn-default btn-secondary btn-sm pull-left float-left\"\n                (click)=\"datePicker.move(-1)\"\n                tabindex=\"-1\">&lt;\n        </button>\n      </th>\n      <th [attr.colspan]=\"5 + (datePicker.showWeeks ? 1 : 0)\">\n        <button [id]=\"datePicker.uniqueId + '-title'\"\n                type=\"button\" class=\"btn btn-default btn-secondary btn-sm\"\n                (click)=\"datePicker.toggleMode()\"\n                [disabled]=\"datePicker.datepickerMode === datePicker.maxMode\"\n                [ngClass]=\"{disabled: datePicker.datepickerMode === datePicker.maxMode}\" tabindex=\"-1\" style=\"width:100%;\">\n          <strong>{{title}}</strong>\n        </button>\n      </th>\n      <th>\n        <button *ngIf=\"!isBs4\"\n                type=\"button\"\n                class=\"btn btn-default btn-secondary btn-sm pull-right float-right\"\n                (click)=\"datePicker.move(1)\"\n                tabindex=\"-1\">\n          <i  class=\"glyphicon glyphicon-chevron-right\"></i>\n        </button>\n        <button *ngIf=\"isBs4\"\n                type=\"button\"\n                class=\"btn btn-default btn-secondary btn-sm pull-right float-right\"\n                (click)=\"datePicker.move(1)\"\n                tabindex=\"-1\">&gt;\n        </button>\n      </th>\n    </tr>\n    <tr>\n      <th *ngIf=\"datePicker.showWeeks\"></th>\n      <th *ngFor=\"let labelz of labels\" class=\"text-center\">\n        <small aria-label=\"labelz.full\"><b>{{labelz.abbr}}</b></small>\n      </th>\n    </tr>\n  </thead>\n  <tbody>\n    <template ngFor [ngForOf]=\"rows\" let-rowz=\"$implicit\" let-index=\"index\">\n      <tr *ngIf=\"!(datePicker.onlyCurrentMonth && rowz[0].secondary && rowz[6].secondary)\">\n        <td *ngIf=\"datePicker.showWeeks\" class=\"h6\" class=\"text-center\">\n          <em>{{ weekNumbers[index] }}</em>\n        </td>\n        <td *ngFor=\"let dtz of rowz\" class=\"text-center\" role=\"gridcell\" [id]=\"dtz.uid\">\n          <button type=\"button\" style=\"min-width:100%;\" class=\"btn btn-sm {{dtz.customClass}}\"\n                  *ngIf=\"!(datePicker.onlyCurrentMonth && dtz.secondary)\"\n                  [ngClass]=\"{'btn-secondary': isBs4 && !dtz.selected && !datePicker.isActive(dtz), 'btn-info': dtz.selected, disabled: dtz.disabled, active: !isBs4 && datePicker.isActive(dtz), 'btn-default': !isBs4}\"\n                  [disabled]=\"dtz.disabled\"\n                  (click)=\"datePicker.select(dtz.date)\" tabindex=\"-1\">\n            <span [ngClass]=\"{'text-muted': dtz.secondary || dtz.current, 'text-info': !isBs4 && dtz.current}\">{{dtz.label}}</span>\n          </button>\n        </td>\n      </tr>\n    </template>\n  </tbody>\n</table>\n  ",
+            styles: ["\n    :host .btn-secondary {\n      color: #292b2c;\n      background-color: #fff;\n      border-color: #ccc;\n    }\n    :host .btn-info .text-muted {\n      color: #292b2c !important;\n    }\n  "]
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__datepicker_inner_component__["a" /* DatePickerInnerComponent */]])
+    ], DayPickerComponent);
     return DayPickerComponent;
 }());
+
 //# sourceMappingURL=daypicker.component.js.map
+
+/***/ }),
+
+/***/ "../../../../ngx-bootstrap/datepicker/engine/calc-month-view.js":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (immutable) */ __webpack_exports__["a"] = calculateMonthModel;
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__bs_moment_utils_date_getters__ = __webpack_require__("../../../../ngx-bootstrap/bs-moment/utils/date-getters.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__utils_bs_calendar_utils__ = __webpack_require__("../../../../ngx-bootstrap/datepicker/utils/bs-calendar-utils.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__bs_moment_utils_date_setters__ = __webpack_require__("../../../../ngx-bootstrap/bs-moment/utils/date-setters.js");
+
+
+
+function calculateMonthModel(date, options) {
+    var firstDay = Object(__WEBPACK_IMPORTED_MODULE_0__bs_moment_utils_date_getters__["c" /* getFirstDayOfMonth */])(date);
+    var prevValue = Object(__WEBPACK_IMPORTED_MODULE_1__utils_bs_calendar_utils__["a" /* getStartingDayOfCalendar */])(firstDay, options);
+    var daysCalendar = new Array(options.height);
+    for (var i = 0; i < options.height; i++) {
+        daysCalendar[i] = new Array(options.width);
+        for (var j = 0; j < options.width; j++) {
+            daysCalendar[i][j] = prevValue;
+            prevValue = Object(__WEBPACK_IMPORTED_MODULE_2__bs_moment_utils_date_setters__["c" /* shiftDate */])(prevValue, { day: 1 });
+        }
+    }
+    return {
+        daysMatrix: daysCalendar,
+        month: firstDay
+    };
+}
+//# sourceMappingURL=calc-month-view.js.map
+
+/***/ }),
+
+/***/ "../../../../ngx-bootstrap/datepicker/engine/flag-month-view.js":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (immutable) */ __webpack_exports__["a"] = flagMonthView;
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__bs_moment_utils_date_getters__ = __webpack_require__("../../../../ngx-bootstrap/bs-moment/utils/date-getters.js");
+
+function flagMonthView(formattedMonth, options) {
+    formattedMonth.weeks
+        .forEach(function (week, weekIndex) {
+        week.days.forEach(function (day, dayIndex) {
+            // datepicker
+            var isOtherMonth = !Object(__WEBPACK_IMPORTED_MODULE_0__bs_moment_utils_date_getters__["j" /* isSameMonth */])(day.date, formattedMonth.month);
+            var isHovered = !isOtherMonth && isSameDate(day.date, options.hoveredDate);
+            // date range picker
+            var isSelectionStart = !isOtherMonth && isSameDate(day.date, options.selectedRange[0]);
+            var isSelectionEnd = !isOtherMonth && isSameDate(day.date, options.selectedRange[1]);
+            var isSelected = !isOtherMonth && isSameDate(day.date, options.selectedDate) ||
+                isSelectionStart || isSelectionEnd;
+            var isInRange = !isOtherMonth && isDateInRange(day.date, options.selectedRange, options.hoveredDate);
+            // decide update or not
+            var newDay = Object.assign(/*{},*/ day, {
+                isOtherMonth: isOtherMonth,
+                isHovered: isHovered,
+                isSelected: isSelected,
+                isSelectionStart: isSelectionStart,
+                isSelectionEnd: isSelectionEnd,
+                isInRange: isInRange
+            });
+            if (day.isOtherMonth !== newDay.isOtherMonth ||
+                day.isHovered !== newDay.isHovered ||
+                day.isSelected !== newDay.isSelected ||
+                day.isSelectionStart !== newDay.isSelectionStart ||
+                day.isSelectionEnd !== newDay.isSelectionEnd ||
+                day.isInRange !== newDay.isInRange) {
+                week.days[dayIndex] = newDay;
+            }
+        });
+    });
+    // todo: add check for linked calendars
+    formattedMonth.hideLeftArrow = options.monthIndex > 0
+        && options.monthIndex !== options.displayMonths;
+    formattedMonth.hideRightArrow = options.monthIndex < options.displayMonths
+        && (options.monthIndex + 1) !== options.displayMonths;
+    return formattedMonth;
+}
+function isSameDate(date, selectedDate) {
+    if (!date || !selectedDate) {
+        return false;
+    }
+    return date.getFullYear() === selectedDate.getFullYear()
+        && date.getMonth() === selectedDate.getMonth()
+        && date.getDate() === selectedDate.getDate();
+}
+function isDateInRange(date, selectedRange, hoveredDate) {
+    if (!date || !selectedRange[0]) {
+        return false;
+    }
+    if (selectedRange[1]) {
+        return date > selectedRange[0] && date <= selectedRange[1];
+    }
+    if (hoveredDate) {
+        return date > selectedRange[0] && date <= hoveredDate;
+    }
+    return false;
+}
+//# sourceMappingURL=flag-month-view.js.map
+
+/***/ }),
+
+/***/ "../../../../ngx-bootstrap/datepicker/engine/format-month-view.js":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (immutable) */ __webpack_exports__["a"] = formatMonthView;
+/* unused harmony export getWeekNumbers */
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__bs_moment_format__ = __webpack_require__("../../../../ngx-bootstrap/bs-moment/format.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__bs_moment_locale_locales_service__ = __webpack_require__("../../../../ngx-bootstrap/bs-moment/locale/locales.service.js");
+
+
+function formatMonthView(daysCalendar, formatOptions, monthIndex) {
+    return {
+        month: daysCalendar.month,
+        monthTitle: Object(__WEBPACK_IMPORTED_MODULE_0__bs_moment_format__["a" /* formatDate */])(daysCalendar.month, formatOptions.monthTitle, formatOptions.locale),
+        yearTitle: Object(__WEBPACK_IMPORTED_MODULE_0__bs_moment_format__["a" /* formatDate */])(daysCalendar.month, formatOptions.yearTitle, formatOptions.locale),
+        weekNumbers: getWeekNumbers(daysCalendar.daysMatrix, formatOptions.weekNumbers, formatOptions.locale),
+        weekdays: Object(__WEBPACK_IMPORTED_MODULE_1__bs_moment_locale_locales_service__["a" /* getLocale */])(formatOptions.locale).weekdaysShort(),
+        weeks: daysCalendar.daysMatrix
+            .map(function (week, weekIndex) { return ({
+            days: week.map(function (date, dayIndex) { return ({
+                date: date,
+                label: Object(__WEBPACK_IMPORTED_MODULE_0__bs_moment_format__["a" /* formatDate */])(date, formatOptions.dayLabel, formatOptions.locale),
+                monthIndex: monthIndex, weekIndex: weekIndex, dayIndex: dayIndex
+            }); })
+        }); }),
+    };
+}
+function getWeekNumbers(daysMatrix, format, locale) {
+    return daysMatrix.map(function (days) { return days[0] ? Object(__WEBPACK_IMPORTED_MODULE_0__bs_moment_format__["a" /* formatDate */])(days[0], format, locale) : ''; });
+}
+//# sourceMappingURL=format-month-view.js.map
 
 /***/ }),
 
@@ -22576,14 +24650,15 @@ var DayPickerComponent = (function () {
 /* unused harmony reexport DateFormatter */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__datepicker_config__ = __webpack_require__("../../../../ngx-bootstrap/datepicker/datepicker.config.js");
 /* unused harmony reexport DatepickerConfig */
-/*
- todo: general:
- 1. Popup
- 2. Keyboard support
- 3. custom-class attribute support
- 4. date-disabled attribute support
- 5. template-url attribute support
- */
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__bs_datepicker_module__ = __webpack_require__("../../../../ngx-bootstrap/datepicker/bs-datepicker.module.js");
+/* unused harmony reexport BsDatepickerModule */
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__bs_datepicker_component__ = __webpack_require__("../../../../ngx-bootstrap/datepicker/bs-datepicker.component.js");
+/* unused harmony reexport BsDatepickerComponent */
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__bs_daterangepicker_component__ = __webpack_require__("../../../../ngx-bootstrap/datepicker/bs-daterangepicker.component.js");
+/* unused harmony reexport BsDaterangepickerComponent */
+
+
+
 
 
 
@@ -22603,6 +24678,15 @@ var DayPickerComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__utils_ng2_bootstrap_config__ = __webpack_require__("../../../../ngx-bootstrap/utils/ng2-bootstrap-config.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__datepicker_inner_component__ = __webpack_require__("../../../../ngx-bootstrap/datepicker/datepicker-inner.component.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
 
 
 
@@ -22641,20 +24725,833 @@ var MonthPickerComponent = (function () {
         }, 'month');
         this.datePicker.refreshView();
     };
-    // todo: key events implementation
-    MonthPickerComponent.decorators = [
-        { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"], args: [{
-                    selector: 'monthpicker',
-                    template: "\n<table *ngIf=\"datePicker.datepickerMode==='month'\" role=\"grid\">\n  <thead>\n    <tr>\n      <th>\n        <button type=\"button\" class=\"btn btn-default btn-sm pull-left\"\n                (click)=\"datePicker.move(-1)\" tabindex=\"-1\">\n          <i class=\"glyphicon glyphicon-chevron-left\"></i>\n        </button></th>\n      <th [attr.colspan]=\"((datePicker.monthColLimit - 2) <= 0) ? 1 : datePicker.monthColLimit - 2\">\n        <button [id]=\"datePicker.uniqueId + '-title'\"\n                type=\"button\" class=\"btn btn-default btn-sm\"\n                (click)=\"datePicker.toggleMode()\"\n                [disabled]=\"datePicker.datepickerMode === maxMode\"\n                [ngClass]=\"{disabled: datePicker.datepickerMode === maxMode}\" tabindex=\"-1\" style=\"width:100%;\">\n          <strong>{{title}}</strong>\n        </button>\n      </th>\n      <th>\n        <button type=\"button\" class=\"btn btn-default btn-sm pull-right\"\n                (click)=\"datePicker.move(1)\" tabindex=\"-1\">\n          <i class=\"glyphicon glyphicon-chevron-right\"></i>\n        </button>\n      </th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr *ngFor=\"let rowz of rows\">\n      <td *ngFor=\"let dtz of rowz\" class=\"text-center\" role=\"gridcell\" id=\"{{dtz.uid}}\" [ngClass]=\"dtz.customClass\">\n        <button type=\"button\" style=\"min-width:100%;\" class=\"btn btn-default\"\n                [ngClass]=\"{'btn-link': isBs4 && !dtz.selected && !datePicker.isActive(dtz), 'btn-info': dtz.selected || (isBs4 && !dtz.selected && datePicker.isActive(dtz)), disabled: dtz.disabled, active: !isBs4 && datePicker.isActive(dtz)}\"\n                [disabled]=\"dtz.disabled\"\n                (click)=\"datePicker.select(dtz.date)\" tabindex=\"-1\">\n          <span [ngClass]=\"{'text-success': isBs4 && dtz.current, 'text-info': !isBs4 && dtz.current}\">{{dtz.label}}</span>\n        </button>\n      </td>\n    </tr>\n  </tbody>\n</table>\n  "
-                },] },
-    ];
-    /** @nocollapse */
-    MonthPickerComponent.ctorParameters = function () { return [
-        { type: __WEBPACK_IMPORTED_MODULE_2__datepicker_inner_component__["a" /* DatePickerInnerComponent */], },
-    ]; };
+    MonthPickerComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'monthpicker',
+            template: "\n<table *ngIf=\"datePicker.datepickerMode==='month'\" role=\"grid\">\n  <thead>\n    <tr>\n      <th>\n        <button type=\"button\" class=\"btn btn-default btn-sm pull-left float-left\"\n                (click)=\"datePicker.move(-1)\" tabindex=\"-1\">\n          <i class=\"glyphicon glyphicon-chevron-left\"></i>\n        </button></th>\n      <th [attr.colspan]=\"((datePicker.monthColLimit - 2) <= 0) ? 1 : datePicker.monthColLimit - 2\">\n        <button [id]=\"datePicker.uniqueId + '-title'\"\n                type=\"button\" class=\"btn btn-default btn-sm\"\n                (click)=\"datePicker.toggleMode()\"\n                [disabled]=\"datePicker.datepickerMode === maxMode\"\n                [ngClass]=\"{disabled: datePicker.datepickerMode === maxMode}\" tabindex=\"-1\" style=\"width:100%;\">\n          <strong>{{title}}</strong>\n        </button>\n      </th>\n      <th>\n        <button type=\"button\" class=\"btn btn-default btn-sm pull-right float-right\"\n                (click)=\"datePicker.move(1)\" tabindex=\"-1\">\n          <i class=\"glyphicon glyphicon-chevron-right\"></i>\n        </button>\n      </th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr *ngFor=\"let rowz of rows\">\n      <td *ngFor=\"let dtz of rowz\" class=\"text-center\" role=\"gridcell\" id=\"{{dtz.uid}}\" [ngClass]=\"dtz.customClass\">\n        <button type=\"button\" style=\"min-width:100%;\" class=\"btn btn-default\"\n                [ngClass]=\"{'btn-link': isBs4 && !dtz.selected && !datePicker.isActive(dtz), 'btn-info': dtz.selected || (isBs4 && !dtz.selected && datePicker.isActive(dtz)), disabled: dtz.disabled, active: !isBs4 && datePicker.isActive(dtz)}\"\n                [disabled]=\"dtz.disabled\"\n                (click)=\"datePicker.select(dtz.date)\" tabindex=\"-1\">\n          <span [ngClass]=\"{'text-success': isBs4 && dtz.current, 'text-info': !isBs4 && dtz.current}\">{{dtz.label}}</span>\n        </button>\n      </td>\n    </tr>\n  </tbody>\n</table>\n  ",
+            styles: ["\n    :host .btn-info .text-success {\n      color: #fff !important;\n    }\n  "]
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__datepicker_inner_component__["a" /* DatePickerInnerComponent */]])
+    ], MonthPickerComponent);
     return MonthPickerComponent;
 }());
+
 //# sourceMappingURL=monthpicker.component.js.map
+
+/***/ }),
+
+/***/ "../../../../ngx-bootstrap/datepicker/reducer/_defaults.js":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return defaultMonthOptions; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return defaultFormatOptions; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return defaultRenderOptions; });
+var defaultMonthOptions = {
+    width: 7,
+    height: 6,
+    firstDayOfWeek: 1
+};
+var defaultFormatOptions = {
+    locale: 'en',
+    monthTitle: 'MMMM',
+    yearTitle: 'YYYY',
+    dayLabel: 'D',
+    weekNumbers: 'w'
+};
+var defaultRenderOptions = {
+    displayMonths: 1,
+    showWeekNumbers: true
+};
+//# sourceMappingURL=_defaults.js.map
+
+/***/ }),
+
+/***/ "../../../../ngx-bootstrap/datepicker/reducer/bs-datepicker.actions.js":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BsDatepickerActions; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+var BsDatepickerActions = (function () {
+    function BsDatepickerActions() {
+    }
+    BsDatepickerActions_1 = BsDatepickerActions;
+    BsDatepickerActions.prototype.calculate = function (viewDate) {
+        return {
+            type: BsDatepickerActions_1.CALCULATE,
+            payload: viewDate
+        };
+    };
+    BsDatepickerActions.prototype.format = function () {
+        return {
+            type: BsDatepickerActions_1.FORMAT
+        };
+    };
+    BsDatepickerActions.prototype.flag = function () {
+        return {
+            type: BsDatepickerActions_1.FLAG
+        };
+    };
+    BsDatepickerActions.prototype.select = function (date) {
+        return {
+            type: BsDatepickerActions_1.SELECT,
+            payload: date
+        };
+    };
+    BsDatepickerActions.prototype.navigateStep = function (step) {
+        return {
+            type: BsDatepickerActions_1.STEP_NAVIGATION,
+            payload: step
+        };
+    };
+    BsDatepickerActions.prototype.renderOptions = function (options) {
+        return {
+            type: BsDatepickerActions_1.RENDER_OPTIONS,
+            payload: options
+        };
+    };
+    // date range picker
+    BsDatepickerActions.prototype.selectRange = function (value) {
+        return {
+            type: BsDatepickerActions_1.SELECT_RANGE,
+            payload: value
+        };
+    };
+    BsDatepickerActions.prototype.hover = function (event) {
+        return {
+            type: BsDatepickerActions_1.HOVER,
+            payload: event.isHovered ? event.day.date : null
+        };
+    };
+    BsDatepickerActions.CALCULATE = '[datepicker] calculate dates matrix';
+    BsDatepickerActions.FORMAT = '[datepicker] format datepicker values';
+    BsDatepickerActions.FLAG = '[datepicker] set flags';
+    BsDatepickerActions.SELECT = '[datepicker] select date';
+    BsDatepickerActions.STEP_NAVIGATION = '[datepicker] shift view date';
+    BsDatepickerActions.RENDER_OPTIONS = '[datepicker] update render options';
+    BsDatepickerActions.HOVER = '[datepicker] hover date';
+    BsDatepickerActions.SELECT_RANGE = '[daterangepicker] select dates range';
+    BsDatepickerActions = BsDatepickerActions_1 = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])()
+    ], BsDatepickerActions);
+    return BsDatepickerActions;
+    var BsDatepickerActions_1;
+}());
+
+//# sourceMappingURL=bs-datepicker.actions.js.map
+
+/***/ }),
+
+/***/ "../../../../ngx-bootstrap/datepicker/reducer/bs-datepicker.effects.js":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BsDatepickerEffects; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+var BsDatepickerEffects = (function () {
+    function BsDatepickerEffects() {
+    }
+    BsDatepickerEffects = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])()
+    ], BsDatepickerEffects);
+    return BsDatepickerEffects;
+}());
+
+//# sourceMappingURL=bs-datepicker.effects.js.map
+
+/***/ }),
+
+/***/ "../../../../ngx-bootstrap/datepicker/reducer/bs-datepicker.reducer.js":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (immutable) */ __webpack_exports__["a"] = bsDatepickerReducer;
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__bs_datepicker_state__ = __webpack_require__("../../../../ngx-bootstrap/datepicker/reducer/bs-datepicker.state.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__bs_datepicker_actions__ = __webpack_require__("../../../../ngx-bootstrap/datepicker/reducer/bs-datepicker.actions.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__engine_calc_month_view__ = __webpack_require__("../../../../ngx-bootstrap/datepicker/engine/calc-month-view.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__engine_format_month_view__ = __webpack_require__("../../../../ngx-bootstrap/datepicker/engine/format-month-view.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__engine_flag_month_view__ = __webpack_require__("../../../../ngx-bootstrap/datepicker/engine/flag-month-view.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__bs_moment_utils_date_setters__ = __webpack_require__("../../../../ngx-bootstrap/bs-moment/utils/date-setters.js");
+
+
+
+
+
+
+function bsDatepickerReducer(state, action) {
+    if (state === void 0) { state = __WEBPACK_IMPORTED_MODULE_0__bs_datepicker_state__["a" /* initialDatepickerState */]; }
+    switch (action.type) {
+        /*
+            case (BsDatepickerActions.INIT): {
+              const locale = getLocale(state.formatOptions.locale);
+              const monthViewOptions = Object.assign({}, state.monthViewOptions, {firstDayOfWeek: locale.firstDayOfWeek()});
+              const monthModel = calculateMonthModel(state.viewDate, monthViewOptions);
+              return Object.assign({}, state, {locale, monthViewOptions, monthModel});
+            }
+        */
+        case (__WEBPACK_IMPORTED_MODULE_1__bs_datepicker_actions__["a" /* BsDatepickerActions */].CALCULATE): {
+            var displayMonths = state.renderOptions.displayMonths;
+            var monthsModel = new Array(displayMonths);
+            var viewDate = state.viewDate;
+            for (var monthIndex = 0; monthIndex < displayMonths; monthIndex++) {
+                // todo: for unlinked calendars it will be harder
+                monthsModel[monthIndex] = Object(__WEBPACK_IMPORTED_MODULE_2__engine_calc_month_view__["a" /* calculateMonthModel */])(viewDate, state.monthViewOptions);
+                viewDate = Object(__WEBPACK_IMPORTED_MODULE_5__bs_moment_utils_date_setters__["c" /* shiftDate */])(viewDate, { month: 1 });
+            }
+            return Object.assign({}, state, { monthsModel: monthsModel });
+        }
+        case (__WEBPACK_IMPORTED_MODULE_1__bs_datepicker_actions__["a" /* BsDatepickerActions */].FORMAT): {
+            var formattedMonths = state.monthsModel
+                .map(function (month, monthIndex) { return Object(__WEBPACK_IMPORTED_MODULE_3__engine_format_month_view__["a" /* formatMonthView */])(month, state.formatOptions, monthIndex); });
+            return Object.assign({}, state, { formattedMonths: formattedMonths });
+        }
+        case (__WEBPACK_IMPORTED_MODULE_1__bs_datepicker_actions__["a" /* BsDatepickerActions */].FLAG): {
+            var flaggedMonths = state.formattedMonths
+                .map(function (formattedMonth, monthIndex) { return Object(__WEBPACK_IMPORTED_MODULE_4__engine_flag_month_view__["a" /* flagMonthView */])(formattedMonth, {
+                hoveredDate: state.hoveredDate,
+                selectedDate: state.selectedDate,
+                selectedRange: state.selectedRange,
+                displayMonths: state.renderOptions.displayMonths,
+                monthIndex: monthIndex
+            }); });
+            return Object.assign({}, state, { flaggedMonths: flaggedMonths });
+        }
+        case (__WEBPACK_IMPORTED_MODULE_1__bs_datepicker_actions__["a" /* BsDatepickerActions */].STEP_NAVIGATION): {
+            var viewDate = Object(__WEBPACK_IMPORTED_MODULE_5__bs_moment_utils_date_setters__["c" /* shiftDate */])(state.viewDate, action.payload);
+            return Object.assign({}, state, { viewDate: viewDate });
+        }
+        case (__WEBPACK_IMPORTED_MODULE_1__bs_datepicker_actions__["a" /* BsDatepickerActions */].HOVER): {
+            return Object.assign({}, state, { hoveredDate: action.payload });
+        }
+        case (__WEBPACK_IMPORTED_MODULE_1__bs_datepicker_actions__["a" /* BsDatepickerActions */].SELECT): {
+            return Object.assign({}, state, { selectedDate: action.payload });
+        }
+        case (__WEBPACK_IMPORTED_MODULE_1__bs_datepicker_actions__["a" /* BsDatepickerActions */].RENDER_OPTIONS): {
+            return Object.assign({}, state, { renderOptions: action.payload });
+        }
+        // date range picker
+        case (__WEBPACK_IMPORTED_MODULE_1__bs_datepicker_actions__["a" /* BsDatepickerActions */].SELECT_RANGE): {
+            return Object.assign({}, state, { selectedRange: action.payload });
+        }
+        default: return state;
+    }
+}
+//# sourceMappingURL=bs-datepicker.reducer.js.map
+
+/***/ }),
+
+/***/ "../../../../ngx-bootstrap/datepicker/reducer/bs-datepicker.state.js":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* unused harmony export BsDatepickerState */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return initialDatepickerState; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__defaults__ = __webpack_require__("../../../../ngx-bootstrap/datepicker/reducer/_defaults.js");
+
+var BsDatepickerState = (function () {
+    function BsDatepickerState() {
+    }
+    return BsDatepickerState;
+}());
+
+var initialDatepickerState = {
+    viewDate: new Date(),
+    selectedRange: [],
+    monthViewOptions: __WEBPACK_IMPORTED_MODULE_0__defaults__["b" /* defaultMonthOptions */],
+    formatOptions: __WEBPACK_IMPORTED_MODULE_0__defaults__["a" /* defaultFormatOptions */],
+    renderOptions: __WEBPACK_IMPORTED_MODULE_0__defaults__["c" /* defaultRenderOptions */]
+};
+//# sourceMappingURL=bs-datepicker.state.js.map
+
+/***/ }),
+
+/***/ "../../../../ngx-bootstrap/datepicker/reducer/bs-datepicker.store.js":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BsDatepickerStore; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mini_ngrx_store_class__ = __webpack_require__("../../../../ngx-bootstrap/mini-ngrx/store.class.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__bs_datepicker_state__ = __webpack_require__("../../../../ngx-bootstrap/datepicker/reducer/bs-datepicker.state.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_BehaviorSubject__ = __webpack_require__("../../../../rxjs/BehaviorSubject.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_BehaviorSubject___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_BehaviorSubject__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__mini_ngrx_state_class__ = __webpack_require__("../../../../ngx-bootstrap/mini-ngrx/state.class.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__bs_datepicker_reducer__ = __webpack_require__("../../../../ngx-bootstrap/datepicker/reducer/bs-datepicker.reducer.js");
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+var BsDatepickerStore = (function (_super) {
+    __extends(BsDatepickerStore, _super);
+    function BsDatepickerStore() {
+        var _this = this;
+        var _dispatcher = new __WEBPACK_IMPORTED_MODULE_3_rxjs_BehaviorSubject__["BehaviorSubject"]({ type: '[datepicker] dispatcher init' });
+        var state = new __WEBPACK_IMPORTED_MODULE_4__mini_ngrx_state_class__["a" /* MiniState */](__WEBPACK_IMPORTED_MODULE_2__bs_datepicker_state__["a" /* initialDatepickerState */], _dispatcher, __WEBPACK_IMPORTED_MODULE_5__bs_datepicker_reducer__["a" /* bsDatepickerReducer */]);
+        _this = _super.call(this, _dispatcher, __WEBPACK_IMPORTED_MODULE_5__bs_datepicker_reducer__["a" /* bsDatepickerReducer */], state) || this;
+        return _this;
+    }
+    BsDatepickerStore = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
+        __metadata("design:paramtypes", [])
+    ], BsDatepickerStore);
+    return BsDatepickerStore;
+}(__WEBPACK_IMPORTED_MODULE_1__mini_ngrx_store_class__["a" /* MiniStore */]));
+
+//# sourceMappingURL=bs-datepicker.store.js.map
+
+/***/ }),
+
+/***/ "../../../../ngx-bootstrap/datepicker/themes/bs/bs-datepicker-container.component.js":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BsDatepickerContainerComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__reducer_bs_datepicker_store__ = __webpack_require__("../../../../ngx-bootstrap/datepicker/reducer/bs-datepicker.store.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__reducer_bs_datepicker_actions__ = __webpack_require__("../../../../ngx-bootstrap/datepicker/reducer/bs-datepicker.actions.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_filter__ = __webpack_require__("../../../../rxjs/add/operator/filter.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_filter___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_filter__);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var BsDatepickerContainerComponent = (function () {
+    function BsDatepickerContainerComponent(_bsDatepickerStore, _actions) {
+        var _this = this;
+        this._bsDatepickerStore = _bsDatepickerStore;
+        this._actions = _actions;
+        this.valueChange = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]();
+        // data binding state <--> model
+        this._bsDatepickerStore.select(function (state) { return state.flaggedMonths; })
+            .filter(function (months) { return !!months; })
+            .subscribe(function (months) { return _this.months = months; });
+        this._bsDatepickerStore.select(function (state) { return state.renderOptions; })
+            .filter(function (options) { return !!options; })
+            .subscribe(function (options) { return _this.options = options; });
+        // set render options
+        this._bsDatepickerStore.dispatch(this._actions.renderOptions({
+            displayMonths: 1,
+            showWeekNumbers: true
+        }));
+        // on selected date change
+        this._bsDatepickerStore.select(function (state) { return state.selectedDate; })
+            .subscribe(function (date) { return _this.valueChange.emit(date); });
+        // TODO: extract effects
+        // calculate month model on view model change
+        this._bsDatepickerStore
+            .select(function (state) { return state.viewDate; })
+            .subscribe(function (viewDate) {
+            return _this._bsDatepickerStore.dispatch(_this._actions.calculate(viewDate));
+        });
+        // format calendar values on month model change
+        this._bsDatepickerStore
+            .select(function (state) { return state.monthsModel; })
+            .filter(function (monthModel) { return !!monthModel; })
+            .subscribe(function (month) {
+            return _this._bsDatepickerStore.dispatch(_this._actions.format());
+        });
+        // flag day values
+        this._bsDatepickerStore
+            .select(function (state) { return state.formattedMonths; })
+            .filter(function (month) { return !!month; })
+            .subscribe(function (month) {
+            return _this._bsDatepickerStore.dispatch(_this._actions.flag());
+        });
+        // flag day values
+        this._bsDatepickerStore.select(function (state) { return state.selectedDate; })
+            .filter(function (selectedDate) { return !!selectedDate; })
+            .subscribe(function (selectedDate) {
+            return _this._bsDatepickerStore.dispatch(_this._actions.flag());
+        });
+        // on hover
+        this._bsDatepickerStore.select(function (state) { return state.hoveredDate; })
+            .filter(function (hoveredDate) { return !!hoveredDate; })
+            .subscribe(function (hoveredDate) {
+            return _this._bsDatepickerStore.dispatch(_this._actions.flag());
+        });
+    }
+    Object.defineProperty(BsDatepickerContainerComponent.prototype, "value", {
+        set: function (value) {
+            this._bsDatepickerStore.dispatch(this._actions.select(value));
+        },
+        enumerable: true,
+        configurable: true
+    });
+    BsDatepickerContainerComponent.prototype.navigateTo = function (event) {
+        this._bsDatepickerStore.dispatch(this._actions.navigateStep(event.step));
+    };
+    BsDatepickerContainerComponent.prototype.hoverHandler = function (event) {
+        if (event.day.isOtherMonth) {
+            return;
+        }
+        this._bsDatepickerStore.dispatch(this._actions.hover(event));
+        event.day.isHovered = event.isHovered;
+    };
+    BsDatepickerContainerComponent.prototype.selectHandler = function (day) {
+        if (day.isOtherMonth) {
+            return;
+        }
+        this._bsDatepickerStore.dispatch(this._actions.select(day.date));
+    };
+    BsDatepickerContainerComponent.prototype._stopPropagation = function (event) {
+        event.stopPropagation();
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Date),
+        __metadata("design:paramtypes", [Date])
+    ], BsDatepickerContainerComponent.prototype, "value", null);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"])(),
+        __metadata("design:type", Object)
+    ], BsDatepickerContainerComponent.prototype, "valueChange", void 0);
+    BsDatepickerContainerComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'bs-datepicker-container',
+            providers: [__WEBPACK_IMPORTED_MODULE_1__reducer_bs_datepicker_store__["a" /* BsDatepickerStore */]],
+            template: "\n    <bs-datepicker-view\n      [months]=\"months\"\n      [options]=\"options\"\n      (onNavigate)=\"navigateTo($event)\"\n      (onHover)=\"hoverHandler($event)\"\n      (onSelect)=\"selectHandler($event)\"\n    ></bs-datepicker-view>\n  ",
+            host: {
+                '(click)': '_stopPropagation($event)',
+                style: 'position: absolute; display: block;'
+            }
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__reducer_bs_datepicker_store__["a" /* BsDatepickerStore */],
+            __WEBPACK_IMPORTED_MODULE_2__reducer_bs_datepicker_actions__["a" /* BsDatepickerActions */]])
+    ], BsDatepickerContainerComponent);
+    return BsDatepickerContainerComponent;
+}());
+
+//# sourceMappingURL=bs-datepicker-container.component.js.map
+
+/***/ }),
+
+/***/ "../../../../ngx-bootstrap/datepicker/themes/bs/bs-datepicker-day-decorator.directive.js":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BsDatepickerDayDecoratorComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var BsDatepickerDayDecoratorComponent = (function () {
+    function BsDatepickerDayDecoratorComponent() {
+    }
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Object)
+    ], BsDatepickerDayDecoratorComponent.prototype, "day", void 0);
+    BsDatepickerDayDecoratorComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: '[bsDatepickerDayDecorator]',
+            changeDetection: __WEBPACK_IMPORTED_MODULE_0__angular_core__["ChangeDetectionStrategy"].OnPush,
+            host: {
+                '[class.disabled]': 'day.isDisabled',
+                '[class.is-highlighted]': 'day.isHovered',
+                '[class.is-other-month]': 'day.isOtherMonth',
+                '[class.in-range]': 'day.isInRange',
+                '[class.select-start]': 'day.isSelectionStart',
+                '[class.select-end]': 'day.isSelectionEnd',
+                '[class.selected]': 'day.isSelected'
+            },
+            template: "{{ day.label }}"
+        })
+    ], BsDatepickerDayDecoratorComponent);
+    return BsDatepickerDayDecoratorComponent;
+}());
+
+//# sourceMappingURL=bs-datepicker-day-decorator.directive.js.map
+
+/***/ }),
+
+/***/ "../../../../ngx-bootstrap/datepicker/themes/bs/bs-datepicker-month-view.component.js":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BsDatepickerMonthViewComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var BsDatepickerMonthViewComponent = (function () {
+    function BsDatepickerMonthViewComponent() {
+        this.onSelect = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]();
+        this.onHover = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]();
+    }
+    BsDatepickerMonthViewComponent.prototype.selectDay = function (event) {
+        this.onSelect.emit(event);
+    };
+    BsDatepickerMonthViewComponent.prototype.hoverDay = function (day, isHovered) {
+        this.onHover.emit({ day: day, isHovered: isHovered });
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Object)
+    ], BsDatepickerMonthViewComponent.prototype, "month", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Object)
+    ], BsDatepickerMonthViewComponent.prototype, "options", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"])(),
+        __metadata("design:type", Object)
+    ], BsDatepickerMonthViewComponent.prototype, "onSelect", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"])(),
+        __metadata("design:type", Object)
+    ], BsDatepickerMonthViewComponent.prototype, "onHover", void 0);
+    BsDatepickerMonthViewComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: "bs-datepicker-month-view",
+            // FIX: day select and hover should mutate day or use separate component
+            // changeDetection: ChangeDetectionStrategy.OnPush,
+            template: "\n    <table role=\"grid\" class=\"days weeks\">\n      <thead>\n      <tr>\n        <th *ngIf=\"options.showWeekNumbers\"></th><!--if show weeks-->\n        <th *ngFor=\"let weekday of month.weekdays; let i = index\"\n            aria-label=\"weekday\">{{ month.weekdays[i] }}\n        </th>\n      </tr>\n      </thead>\n      <tbody>\n      <tr *ngFor=\"let week of month.weeks; let i = index\">\n        <td class=\"week\" *ngIf=\"options.showWeekNumbers\"><span>{{ month.weekNumbers[i] }}</span>\n        </td>\n        <td *ngFor=\"let day of week.days\" role=\"gridcell\">\n          <span bsDatepickerDayDecorator\n                [day]=\"day\"\n                (click)=\"selectDay(day)\"\n                (mouseenter)=\"hoverDay(day, true)\"\n                (mouseleave)=\"hoverDay(day, false)\">{{ day.label }}</span>\n        </td>\n      </tr>\n      </tbody>\n    </table>\n  "
+        })
+    ], BsDatepickerMonthViewComponent);
+    return BsDatepickerMonthViewComponent;
+}());
+
+//# sourceMappingURL=bs-datepicker-month-view.component.js.map
+
+/***/ }),
+
+/***/ "../../../../ngx-bootstrap/datepicker/themes/bs/bs-datepicker-navigation-view.component.js":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BsDatepickerNavigationViewComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var BsDatepickerNavigationViewComponent = (function () {
+    function BsDatepickerNavigationViewComponent() {
+        this.onNavigate = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]();
+    }
+    BsDatepickerNavigationViewComponent.prototype.navTo = function (step) {
+        this.onNavigate.emit({ step: step });
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Object)
+    ], BsDatepickerNavigationViewComponent.prototype, "month", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"])(),
+        __metadata("design:type", Object)
+    ], BsDatepickerNavigationViewComponent.prototype, "onNavigate", void 0);
+    BsDatepickerNavigationViewComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'bs-datepicker-navigation-view',
+            changeDetection: __WEBPACK_IMPORTED_MODULE_0__angular_core__["ChangeDetectionStrategy"].OnPush,
+            template: "\n    <button class=\"previous\"\n            [style.visibility]=\"month.hideLeftArrow ? 'hidden' : 'visible'\"\n            (click)=\"navTo({month: -1})\"><span>&lsaquo;</span>\n    </button>\n    <button class=\"current\"><span>{{ month.monthTitle }}</span>\n    </button>\n    <button class=\"current\"><span>{{ month.yearTitle }}</span>\n    </button>\n    <button class=\"next\"\n            [style.visibility]=\"month.hideRightArrow ? 'hidden' : 'visible'\"\n            (click)=\"navTo({month: 1})\"><span>&rsaquo;</span>\n    </button>\n  "
+        })
+    ], BsDatepickerNavigationViewComponent);
+    return BsDatepickerNavigationViewComponent;
+}());
+
+//# sourceMappingURL=bs-datepicker-navigation-view.component.js.map
+
+/***/ }),
+
+/***/ "../../../../ngx-bootstrap/datepicker/themes/bs/bs-datepicker-view.component.js":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BsDatepickerViewComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var BsDatepickerViewComponent = (function () {
+    function BsDatepickerViewComponent() {
+        this.onNavigate = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]();
+        this.onSelect = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]();
+        this.onHover = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]();
+    }
+    BsDatepickerViewComponent.prototype.navigateTo = function (event) {
+        this.onNavigate.emit(event);
+    };
+    BsDatepickerViewComponent.prototype.hoverHandler = function (event) {
+        this.onHover.emit(event);
+    };
+    BsDatepickerViewComponent.prototype.selectHandler = function (event) {
+        this.onSelect.emit(event);
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Array)
+    ], BsDatepickerViewComponent.prototype, "months", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Object)
+    ], BsDatepickerViewComponent.prototype, "options", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"])(),
+        __metadata("design:type", Object)
+    ], BsDatepickerViewComponent.prototype, "onNavigate", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"])(),
+        __metadata("design:type", Object)
+    ], BsDatepickerViewComponent.prototype, "onSelect", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"])(),
+        __metadata("design:type", Object)
+    ], BsDatepickerViewComponent.prototype, "onHover", void 0);
+    BsDatepickerViewComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'bs-datepicker-view',
+            changeDetection: __WEBPACK_IMPORTED_MODULE_0__angular_core__["ChangeDetectionStrategy"].OnPush,
+            template: "\n    <div class=\"bs-datepicker bs-timepicker theme-green\">\n      <div class=\"bs-datepicker-head\">\n        <bs-datepicker-navigation-view\n          *ngFor=\"let month of months\"\n          [month]=\"month\"\n          (onNavigate)=\"navigateTo($event)\"></bs-datepicker-navigation-view>\n      </div>\n      <div class=\"bs-datepicker-body\" *ngFor=\"let month of months\">\n        <bs-datepicker-month-view\n          [month]=\"month\"\n          [options]=\"options\"\n          (onHover)=\"hoverHandler($event)\"\n          (onSelect)=\"selectHandler($event)\"\n        ></bs-datepicker-month-view>\n      </div>\n    </div>\n  "
+        })
+    ], BsDatepickerViewComponent);
+    return BsDatepickerViewComponent;
+}());
+
+//# sourceMappingURL=bs-datepicker-view.component.js.map
+
+/***/ }),
+
+/***/ "../../../../ngx-bootstrap/datepicker/themes/bs/bs-daterangepicker-container.component.js":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BsDaterangepickerContainerComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__reducer_bs_datepicker_store__ = __webpack_require__("../../../../ngx-bootstrap/datepicker/reducer/bs-datepicker.store.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__reducer_bs_datepicker_actions__ = __webpack_require__("../../../../ngx-bootstrap/datepicker/reducer/bs-datepicker.actions.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_filter__ = __webpack_require__("../../../../rxjs/add/operator/filter.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_filter___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_filter__);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var BsDaterangepickerContainerComponent = (function () {
+    function BsDaterangepickerContainerComponent(_bsDatepickerStore, _actions) {
+        var _this = this;
+        this._bsDatepickerStore = _bsDatepickerStore;
+        this._actions = _actions;
+        this.valueChange = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]();
+        this._rangeStack = [];
+        // data binding state <--> model
+        this._bsDatepickerStore.select(function (state) { return state.flaggedMonths; })
+            .filter(function (months) { return !!months; })
+            .subscribe(function (months) { return _this.months = months; });
+        this._bsDatepickerStore.select(function (state) { return state.renderOptions; })
+            .filter(function (options) { return !!options; })
+            .subscribe(function (options) { return _this.options = options; });
+        // set render options
+        this._bsDatepickerStore.dispatch(this._actions.renderOptions({
+            displayMonths: 2,
+            showWeekNumbers: true
+        }));
+        // on selected date change
+        this._bsDatepickerStore.select(function (state) { return state.selectedRange; })
+            .subscribe(function (date) { return _this.valueChange.emit(date); });
+        // TODO: extract effects
+        // calculate month model on view model change
+        this._bsDatepickerStore
+            .select(function (state) { return state.viewDate; })
+            .subscribe(function (viewDate) {
+            return _this._bsDatepickerStore.dispatch(_this._actions.calculate(viewDate));
+        });
+        // format calendar values on month model change
+        this._bsDatepickerStore
+            .select(function (state) { return state.monthsModel; })
+            .filter(function (monthModel) { return !!monthModel; })
+            .subscribe(function (month) {
+            return _this._bsDatepickerStore.dispatch(_this._actions.format());
+        });
+        // flag day values
+        this._bsDatepickerStore
+            .select(function (state) { return state.formattedMonths; })
+            .filter(function (month) { return !!month; })
+            .subscribe(function (month) {
+            return _this._bsDatepickerStore.dispatch(_this._actions.flag());
+        });
+        // flag day values
+        this._bsDatepickerStore.select(function (state) { return state.selectedRange; })
+            .filter(function (selectedRange) { return !!selectedRange; })
+            .subscribe(function (selectedRange) {
+            return _this._bsDatepickerStore.dispatch(_this._actions.flag());
+        });
+        // on hover
+        this._bsDatepickerStore.select(function (state) { return state.hoveredDate; })
+            .filter(function (hoveredDate) { return !!hoveredDate; })
+            .subscribe(function (hoveredDate) {
+            return _this._bsDatepickerStore.dispatch(_this._actions.flag());
+        });
+    }
+    Object.defineProperty(BsDaterangepickerContainerComponent.prototype, "value", {
+        set: function (value) {
+            this._bsDatepickerStore.dispatch(this._actions.selectRange(value || []));
+        },
+        enumerable: true,
+        configurable: true
+    });
+    BsDaterangepickerContainerComponent.prototype.ngOnInit = function () {
+        // this._bsDatepickerStore.dispatch(this._actions.init());
+    };
+    BsDaterangepickerContainerComponent.prototype.navigateTo = function (event) {
+        this._bsDatepickerStore.dispatch(this._actions.navigateStep(event.step));
+    };
+    BsDaterangepickerContainerComponent.prototype.hoverHandler = function (event) {
+        if (event.day.isOtherMonth) {
+            return;
+        }
+        this._bsDatepickerStore.dispatch(this._actions.hover(event));
+        event.day.isHovered = event.isHovered;
+    };
+    BsDaterangepickerContainerComponent.prototype.selectHandler = function (day) {
+        if (day.isOtherMonth) {
+            return;
+        }
+        if (this._rangeStack.length === 1) {
+            if (day.date >= this._rangeStack[0]) {
+                this._rangeStack = [this._rangeStack[0], day.date];
+            }
+            else {
+                this._rangeStack = [day.date];
+            }
+        }
+        if (this._rangeStack.length === 0) {
+            this._rangeStack = [day.date];
+        }
+        this._bsDatepickerStore.dispatch(this._actions.selectRange(this._rangeStack));
+        if (this._rangeStack.length === 2) {
+            this._rangeStack = [];
+        }
+    };
+    BsDaterangepickerContainerComponent.prototype._stopPropagation = function (event) {
+        event.stopPropagation();
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Array),
+        __metadata("design:paramtypes", [Array])
+    ], BsDaterangepickerContainerComponent.prototype, "value", null);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"])(),
+        __metadata("design:type", Object)
+    ], BsDaterangepickerContainerComponent.prototype, "valueChange", void 0);
+    BsDaterangepickerContainerComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'bs-daterangepicker-container',
+            providers: [__WEBPACK_IMPORTED_MODULE_1__reducer_bs_datepicker_store__["a" /* BsDatepickerStore */]],
+            template: "\n    <bs-datepicker-view\n      *ngIf=\"months && options\"\n      [months]=\"months\"\n      [options]=\"options\"\n      (onNavigate)=\"navigateTo($event)\"\n      (onHover)=\"hoverHandler($event)\"\n      (onSelect)=\"selectHandler($event)\"\n    ></bs-datepicker-view>\n  ",
+            host: {
+                '(click)': '_stopPropagation($event)',
+                style: 'position: absolute; display: block;'
+            }
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__reducer_bs_datepicker_store__["a" /* BsDatepickerStore */],
+            __WEBPACK_IMPORTED_MODULE_2__reducer_bs_datepicker_actions__["a" /* BsDatepickerActions */]])
+    ], BsDaterangepickerContainerComponent);
+    return BsDaterangepickerContainerComponent;
+}());
+
+//# sourceMappingURL=bs-daterangepicker-container.component.js.map
+
+/***/ }),
+
+/***/ "../../../../ngx-bootstrap/datepicker/utils/bs-calendar-utils.js":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (immutable) */ __webpack_exports__["a"] = getStartingDayOfCalendar;
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__bs_moment_utils_date_getters__ = __webpack_require__("../../../../ngx-bootstrap/bs-moment/utils/date-getters.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__bs_moment_utils_date_setters__ = __webpack_require__("../../../../ngx-bootstrap/bs-moment/utils/date-setters.js");
+
+
+function getStartingDayOfCalendar(date, options) {
+    if (Object(__WEBPACK_IMPORTED_MODULE_0__bs_moment_utils_date_getters__["i" /* isFirstDayOfWeek */])(date, options.firstDayOfWeek)) {
+        return date;
+    }
+    var weekDay = Object(__WEBPACK_IMPORTED_MODULE_0__bs_moment_utils_date_getters__["b" /* getDayOfWeek */])(date);
+    return Object(__WEBPACK_IMPORTED_MODULE_1__bs_moment_utils_date_setters__["c" /* shiftDate */])(date, { day: -weekDay });
+}
+//# sourceMappingURL=bs-calendar-utils.js.map
 
 /***/ }),
 
@@ -22666,6 +25563,15 @@ var MonthPickerComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__utils_ng2_bootstrap_config__ = __webpack_require__("../../../../ngx-bootstrap/utils/ng2-bootstrap-config.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__datepicker_inner_component__ = __webpack_require__("../../../../ngx-bootstrap/datepicker/datepicker-inner.component.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
 
 
 
@@ -22707,18 +25613,17 @@ var YearPickerComponent = (function () {
         // todo: parseInt
         return ((year - 1) / this.datePicker.yearRange) * this.datePicker.yearRange + 1;
     };
-    YearPickerComponent.decorators = [
-        { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"], args: [{
-                    selector: 'yearpicker',
-                    template: "\n<table *ngIf=\"datePicker.datepickerMode==='year'\" role=\"grid\">\n  <thead>\n    <tr>\n      <th>\n        <button type=\"button\" class=\"btn btn-default btn-sm pull-left\"\n                (click)=\"datePicker.move(-1)\" tabindex=\"-1\">\n          <i class=\"glyphicon glyphicon-chevron-left\"></i>\n        </button>\n      </th>\n      <th [attr.colspan]=\"((datePicker.yearColLimit - 2) <= 0) ? 1 : datePicker.yearColLimit - 2\">\n        <button [id]=\"datePicker.uniqueId + '-title'\" role=\"heading\"\n                type=\"button\" class=\"btn btn-default btn-sm\"\n                (click)=\"datePicker.toggleMode()\"\n                [disabled]=\"datePicker.datepickerMode === datePicker.maxMode\"\n                [ngClass]=\"{disabled: datePicker.datepickerMode === datePicker.maxMode}\" tabindex=\"-1\" style=\"width:100%;\">\n          <strong>{{title}}</strong>\n        </button>\n      </th>\n      <th>\n        <button type=\"button\" class=\"btn btn-default btn-sm pull-right\"\n                (click)=\"datePicker.move(1)\" tabindex=\"-1\">\n          <i class=\"glyphicon glyphicon-chevron-right\"></i>\n        </button>\n      </th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr *ngFor=\"let rowz of rows\">\n      <td *ngFor=\"let dtz of rowz\" class=\"text-center\" role=\"gridcell\">\n        <button type=\"button\" style=\"min-width:100%;\" class=\"btn btn-default\"\n                [ngClass]=\"{'btn-link': isBs4 && !dtz.selected && !datePicker.isActive(dtz), 'btn-info': dtz.selected || (isBs4 && !dtz.selected && datePicker.isActive(dtz)), disabled: dtz.disabled, active: !isBs4 && datePicker.isActive(dtz)}\"\n                [disabled]=\"dtz.disabled\"\n                (click)=\"datePicker.select(dtz.date)\" tabindex=\"-1\">\n          <span [ngClass]=\"{'text-success': isBs4 && dtz.current, 'text-info': !isBs4 && dtz.current}\">{{dtz.label}}</span>\n        </button>\n      </td>\n    </tr>\n  </tbody>\n</table>\n  "
-                },] },
-    ];
-    /** @nocollapse */
-    YearPickerComponent.ctorParameters = function () { return [
-        { type: __WEBPACK_IMPORTED_MODULE_2__datepicker_inner_component__["a" /* DatePickerInnerComponent */], },
-    ]; };
+    YearPickerComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'yearpicker',
+            template: "\n<table *ngIf=\"datePicker.datepickerMode==='year'\" role=\"grid\">\n  <thead>\n    <tr>\n      <th>\n        <button type=\"button\" class=\"btn btn-default btn-sm pull-left float-left\"\n                (click)=\"datePicker.move(-1)\" tabindex=\"-1\">\n          <i class=\"glyphicon glyphicon-chevron-left\"></i>\n        </button>\n      </th>\n      <th [attr.colspan]=\"((datePicker.yearColLimit - 2) <= 0) ? 1 : datePicker.yearColLimit - 2\">\n        <button [id]=\"datePicker.uniqueId + '-title'\" role=\"heading\"\n                type=\"button\" class=\"btn btn-default btn-sm\"\n                (click)=\"datePicker.toggleMode()\"\n                [disabled]=\"datePicker.datepickerMode === datePicker.maxMode\"\n                [ngClass]=\"{disabled: datePicker.datepickerMode === datePicker.maxMode}\" tabindex=\"-1\" style=\"width:100%;\">\n          <strong>{{title}}</strong>\n        </button>\n      </th>\n      <th>\n        <button type=\"button\" class=\"btn btn-default btn-sm pull-right float-right\"\n                (click)=\"datePicker.move(1)\" tabindex=\"-1\">\n          <i class=\"glyphicon glyphicon-chevron-right\"></i>\n        </button>\n      </th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr *ngFor=\"let rowz of rows\">\n      <td *ngFor=\"let dtz of rowz\" class=\"text-center\" role=\"gridcell\">\n        <button type=\"button\" style=\"min-width:100%;\" class=\"btn btn-default\"\n                [ngClass]=\"{'btn-link': isBs4 && !dtz.selected && !datePicker.isActive(dtz), 'btn-info': dtz.selected || (isBs4 && !dtz.selected && datePicker.isActive(dtz)), disabled: dtz.disabled, active: !isBs4 && datePicker.isActive(dtz)}\"\n                [disabled]=\"dtz.disabled\"\n                (click)=\"datePicker.select(dtz.date)\" tabindex=\"-1\">\n          <span [ngClass]=\"{'text-success': isBs4 && dtz.current, 'text-info': !isBs4 && dtz.current}\">{{dtz.label}}</span>\n        </button>\n      </td>\n    </tr>\n  </tbody>\n</table>\n  ",
+            styles: ["\n    :host .btn-info .text-success {\n      color: #fff !important;\n    }\n  "]
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__datepicker_inner_component__["a" /* DatePickerInnerComponent */]])
+    ], YearPickerComponent);
     return YearPickerComponent;
 }());
+
 //# sourceMappingURL=yearpicker.component.js.map
 
 /***/ }),
@@ -22730,16 +25635,38 @@ var YearPickerComponent = (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BsDropdownContainerComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__bs_dropdown_state__ = __webpack_require__("../../../../ngx-bootstrap/dropdown/bs-dropdown.state.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
 
 
 var BsDropdownContainerComponent = (function () {
-    function BsDropdownContainerComponent(_state, cd) {
+    function BsDropdownContainerComponent(_state, cd, _renderer, _element) {
         var _this = this;
         this._state = _state;
         this.cd = cd;
+        this._renderer = _renderer;
         this.isOpen = false;
         this._subscription = _state.isOpenChange.subscribe(function (value) {
             _this.isOpen = value;
+            var dropdown = _element.nativeElement.querySelector('.dropdown-menu');
+            if (dropdown) {
+                _this._renderer.setElementClass(dropdown, 'show', true);
+                if (dropdown.classList.contains('dropdown-menu-right')) {
+                    _this._renderer.setElementStyle(dropdown, 'left', 'auto');
+                    _this._renderer.setElementStyle(dropdown, 'right', '0');
+                }
+                if (_this.direction === 'up') {
+                    _this._renderer.setElementStyle(dropdown, 'top', 'auto');
+                    _this._renderer.setElementStyle(dropdown, 'transform', 'translateY(-101%)');
+                }
+            }
             _this.cd.markForCheck();
             _this.cd.detectChanges();
         });
@@ -22754,23 +25681,20 @@ var BsDropdownContainerComponent = (function () {
     BsDropdownContainerComponent.prototype.ngOnDestroy = function () {
         this._subscription.unsubscribe();
     };
-    BsDropdownContainerComponent.decorators = [
-        { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"], args: [{
-                    selector: 'bs-dropdown-container',
-                    changeDetection: __WEBPACK_IMPORTED_MODULE_0__angular_core__["ChangeDetectionStrategy"].OnPush,
-                    host: {
-                        style: 'display:block;position: absolute;'
-                    },
-                    template: "\n    <div [class.dropup]=\"direction === 'up'\"\n         [class.dropdown]=\"direction === 'down'\"\n         [class.show]=\"isOpen\"\n         [class.open]=\"isOpen\"><ng-content></ng-content></div>\n  "
-                },] },
-    ];
-    /** @nocollapse */
-    BsDropdownContainerComponent.ctorParameters = function () { return [
-        { type: __WEBPACK_IMPORTED_MODULE_1__bs_dropdown_state__["a" /* BsDropdownState */], },
-        { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["ChangeDetectorRef"], },
-    ]; };
+    BsDropdownContainerComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'bs-dropdown-container',
+            changeDetection: __WEBPACK_IMPORTED_MODULE_0__angular_core__["ChangeDetectionStrategy"].OnPush,
+            host: {
+                style: 'display:block;position: absolute;'
+            },
+            template: "\n    <div [class.dropup]=\"direction === 'up'\"\n         [class.dropdown]=\"direction === 'down'\"\n         [class.show]=\"isOpen\"\n         [class.open]=\"isOpen\"><ng-content></ng-content></div>\n  "
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__bs_dropdown_state__["a" /* BsDropdownState */], __WEBPACK_IMPORTED_MODULE_0__angular_core__["ChangeDetectorRef"], __WEBPACK_IMPORTED_MODULE_0__angular_core__["Renderer"], __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"]])
+    ], BsDropdownContainerComponent);
     return BsDropdownContainerComponent;
 }());
+
 //# sourceMappingURL=bs-dropdown-container.component.js.map
 
 /***/ }),
@@ -22782,6 +25706,15 @@ var BsDropdownContainerComponent = (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BsDropdownMenuDirective; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__bs_dropdown_state__ = __webpack_require__("../../../../ngx-bootstrap/dropdown/bs-dropdown.state.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
 
 
 var BsDropdownMenuDirective = (function () {
@@ -22791,20 +25724,18 @@ var BsDropdownMenuDirective = (function () {
             viewContainer: _viewContainer
         });
     }
-    BsDropdownMenuDirective.decorators = [
-        { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Directive"], args: [{
-                    selector: '[bsDropdownMenu],[dropdownMenu]',
-                    exportAs: 'bs-dropdown-menu'
-                },] },
-    ];
-    /** @nocollapse */
-    BsDropdownMenuDirective.ctorParameters = function () { return [
-        { type: __WEBPACK_IMPORTED_MODULE_1__bs_dropdown_state__["a" /* BsDropdownState */], },
-        { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewContainerRef"], },
-        { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["TemplateRef"], },
-    ]; };
+    BsDropdownMenuDirective = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Directive"])({
+            selector: '[bsDropdownMenu],[dropdownMenu]',
+            exportAs: 'bs-dropdown-menu'
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__bs_dropdown_state__["a" /* BsDropdownState */],
+            __WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewContainerRef"],
+            __WEBPACK_IMPORTED_MODULE_0__angular_core__["TemplateRef"]])
+    ], BsDropdownMenuDirective);
     return BsDropdownMenuDirective;
 }());
+
 //# sourceMappingURL=bs-dropdown-menu.directive.js.map
 
 /***/ }),
@@ -22816,6 +25747,15 @@ var BsDropdownMenuDirective = (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BsDropdownToggleDirective; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__bs_dropdown_state__ = __webpack_require__("../../../../ngx-bootstrap/dropdown/bs-dropdown.state.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
 
 
 var BsDropdownToggleDirective = (function () {
@@ -22856,29 +25796,46 @@ var BsDropdownToggleDirective = (function () {
             sub.unsubscribe();
         }
     };
-    BsDropdownToggleDirective.decorators = [
-        { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Directive"], args: [{
-                    selector: '[bsDropdownToggle],[dropdownToggle]',
-                    exportAs: 'bs-dropdown-toggle',
-                    host: {
-                        '[attr.aria-haspopup]': 'true'
-                    }
-                },] },
-    ];
-    /** @nocollapse */
-    BsDropdownToggleDirective.ctorParameters = function () { return [
-        { type: __WEBPACK_IMPORTED_MODULE_1__bs_dropdown_state__["a" /* BsDropdownState */], },
-        { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"], },
-    ]; };
-    BsDropdownToggleDirective.propDecorators = {
-        'isDisabled': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["HostBinding"], args: ['attr.disabled',] },],
-        'isOpen': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["HostBinding"], args: ['attr.aria-expanded',] },],
-        'onClick': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["HostListener"], args: ['click',] },],
-        'onDocumentClick': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["HostListener"], args: ['document:click', ['$event'],] },],
-        'onEsc': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["HostListener"], args: ['keyup.esc',] },],
-    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["HostBinding"])('attr.disabled'),
+        __metadata("design:type", Boolean)
+    ], BsDropdownToggleDirective.prototype, "isDisabled", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["HostBinding"])('attr.aria-expanded'),
+        __metadata("design:type", Boolean)
+    ], BsDropdownToggleDirective.prototype, "isOpen", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["HostListener"])('click'),
+        __metadata("design:type", Function),
+        __metadata("design:paramtypes", []),
+        __metadata("design:returntype", void 0)
+    ], BsDropdownToggleDirective.prototype, "onClick", null);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["HostListener"])('document:click', ['$event']),
+        __metadata("design:type", Function),
+        __metadata("design:paramtypes", [Object]),
+        __metadata("design:returntype", void 0)
+    ], BsDropdownToggleDirective.prototype, "onDocumentClick", null);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["HostListener"])('keyup.esc'),
+        __metadata("design:type", Function),
+        __metadata("design:paramtypes", []),
+        __metadata("design:returntype", void 0)
+    ], BsDropdownToggleDirective.prototype, "onEsc", null);
+    BsDropdownToggleDirective = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Directive"])({
+            selector: '[bsDropdownToggle],[dropdownToggle]',
+            exportAs: 'bs-dropdown-toggle',
+            host: {
+                '[attr.aria-haspopup]': 'true'
+            }
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__bs_dropdown_state__["a" /* BsDropdownState */],
+            __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"]])
+    ], BsDropdownToggleDirective);
     return BsDropdownToggleDirective;
 }());
+
 //# sourceMappingURL=bs-dropdown-toggle.directive.js.map
 
 /***/ }),
@@ -22889,6 +25846,12 @@ var BsDropdownToggleDirective = (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BsDropdownConfig; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
 
 /** Default dropdown configuration */
 var BsDropdownConfig = (function () {
@@ -22896,13 +25859,12 @@ var BsDropdownConfig = (function () {
         /** default dropdown auto closing behavior */
         this.autoClose = true;
     }
-    BsDropdownConfig.decorators = [
-        { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"] },
-    ];
-    /** @nocollapse */
-    BsDropdownConfig.ctorParameters = function () { return []; };
+    BsDropdownConfig = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])()
+    ], BsDropdownConfig);
     return BsDropdownConfig;
 }());
+
 //# sourceMappingURL=bs-dropdown.config.js.map
 
 /***/ }),
@@ -22920,6 +25882,15 @@ var BsDropdownConfig = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__bs_dropdown_container_component__ = __webpack_require__("../../../../ngx-bootstrap/dropdown/bs-dropdown-container.component.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__bs_dropdown_state__ = __webpack_require__("../../../../ngx-bootstrap/dropdown/bs-dropdown.state.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__utils_ng2_bootstrap_config__ = __webpack_require__("../../../../ngx-bootstrap/utils/ng2-bootstrap-config.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
 
 
 
@@ -23053,9 +26024,12 @@ var BsDropdownDirective = (function () {
             if (!this._inlinedMenu) {
                 this._state.dropdownMenu
                     .then(function (dropdownMenu) {
-                    _this._inlinedMenu = dropdownMenu.viewContainer.createEmbeddedView(dropdownMenu.templateRef);
+                    _this._dropdown.attachInline(dropdownMenu.viewContainer, dropdownMenu.templateRef);
+                    _this._inlinedMenu = _this._dropdown._inlineViewRef;
+                    _this.addBs4Polyfills();
                 });
             }
+            this.addBs4Polyfills();
             this._isInlineOpen = true;
             this.onShown.emit(true);
             this._state.isOpenChange.emit(true);
@@ -23090,6 +26064,7 @@ var BsDropdownDirective = (function () {
             return;
         }
         if (this._showInline) {
+            this.removeShowClass();
             this._isInlineOpen = false;
             this.onHidden.emit(true);
         }
@@ -23116,41 +26091,103 @@ var BsDropdownDirective = (function () {
         }
         this._dropdown.dispose();
     };
-    BsDropdownDirective.decorators = [
-        { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Directive"], args: [{
-                    selector: '[bsDropdown],[dropdown]',
-                    exportAs: 'bs-dropdown',
-                    providers: [__WEBPACK_IMPORTED_MODULE_5__bs_dropdown_state__["a" /* BsDropdownState */]],
-                    host: {
-                        '[class.dropup]': 'dropup',
-                        '[class.open]': 'isOpen',
-                        '[class.show]': 'isOpen && isBs4'
-                    }
-                },] },
-    ];
-    /** @nocollapse */
-    BsDropdownDirective.ctorParameters = function () { return [
-        { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"], },
-        { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Renderer"], },
-        { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewContainerRef"], },
-        { type: __WEBPACK_IMPORTED_MODULE_2__component_loader__["a" /* ComponentLoaderFactory */], },
-        { type: __WEBPACK_IMPORTED_MODULE_3__bs_dropdown_config__["a" /* BsDropdownConfig */], },
-        { type: __WEBPACK_IMPORTED_MODULE_5__bs_dropdown_state__["a" /* BsDropdownState */], },
-    ]; };
-    BsDropdownDirective.propDecorators = {
-        'placement': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'triggers': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'container': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'dropup': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'autoClose': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'isDisabled': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'isOpen': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'isOpenChange': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"] },],
-        'onShown': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"] },],
-        'onHidden': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"] },],
+    BsDropdownDirective.prototype.addBs4Polyfills = function () {
+        if (!Object(__WEBPACK_IMPORTED_MODULE_6__utils_ng2_bootstrap_config__["a" /* isBs3 */])()) {
+            this.addShowClass();
+            this.checkRightAlignment();
+            this.checkDropup();
+        }
     };
+    BsDropdownDirective.prototype.addShowClass = function () {
+        if (this._inlinedMenu && this._inlinedMenu.rootNodes[0]) {
+            this._renderer.setElementClass(this._inlinedMenu.rootNodes[0], 'show', true);
+        }
+    };
+    BsDropdownDirective.prototype.removeShowClass = function () {
+        if (this._inlinedMenu && this._inlinedMenu.rootNodes[0]) {
+            this._renderer.setElementClass(this._inlinedMenu.rootNodes[0], 'show', false);
+        }
+    };
+    BsDropdownDirective.prototype.checkRightAlignment = function () {
+        if (this._inlinedMenu && this._inlinedMenu.rootNodes[0]) {
+            var isRightAligned = this._inlinedMenu.rootNodes[0].classList.contains('dropdown-menu-right');
+            this._renderer.setElementStyle(this._inlinedMenu.rootNodes[0], 'left', isRightAligned ? 'auto' : '0');
+            this._renderer.setElementStyle(this._inlinedMenu.rootNodes[0], 'right', isRightAligned ? '0' : 'auto');
+        }
+    };
+    BsDropdownDirective.prototype.checkDropup = function () {
+        if (this._inlinedMenu && this._inlinedMenu.rootNodes[0]) {
+            // a little hack to not break support of bootstrap 4 beta
+            var top_1 = getComputedStyle(this._inlinedMenu.rootNodes[0])['top'];
+            var topAuto = top_1 === 'auto' || top_1 === '100%';
+            this._renderer.setElementStyle(this._inlinedMenu.rootNodes[0], 'top', this.dropup ? 'auto' : '100%');
+            this._renderer.setElementStyle(this._inlinedMenu.rootNodes[0], 'transform', this.dropup && !topAuto ? 'translateY(-101%)' : 'translateY(0)');
+        }
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", String)
+    ], BsDropdownDirective.prototype, "placement", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", String)
+    ], BsDropdownDirective.prototype, "triggers", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", String)
+    ], BsDropdownDirective.prototype, "container", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Boolean)
+    ], BsDropdownDirective.prototype, "dropup", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Boolean),
+        __metadata("design:paramtypes", [Boolean])
+    ], BsDropdownDirective.prototype, "autoClose", null);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Boolean),
+        __metadata("design:paramtypes", [Boolean])
+    ], BsDropdownDirective.prototype, "isDisabled", null);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Boolean),
+        __metadata("design:paramtypes", [Boolean])
+    ], BsDropdownDirective.prototype, "isOpen", null);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"])(),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"])
+    ], BsDropdownDirective.prototype, "isOpenChange", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"])(),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"])
+    ], BsDropdownDirective.prototype, "onShown", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"])(),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"])
+    ], BsDropdownDirective.prototype, "onHidden", void 0);
+    BsDropdownDirective = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Directive"])({
+            selector: '[bsDropdown],[dropdown]',
+            exportAs: 'bs-dropdown',
+            providers: [__WEBPACK_IMPORTED_MODULE_5__bs_dropdown_state__["a" /* BsDropdownState */]],
+            host: {
+                '[class.dropup]': 'dropup',
+                '[class.open]': 'isOpen',
+                '[class.show]': 'isOpen && isBs4'
+            }
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"],
+            __WEBPACK_IMPORTED_MODULE_0__angular_core__["Renderer"],
+            __WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewContainerRef"],
+            __WEBPACK_IMPORTED_MODULE_2__component_loader__["a" /* ComponentLoaderFactory */],
+            __WEBPACK_IMPORTED_MODULE_3__bs_dropdown_config__["a" /* BsDropdownConfig */],
+            __WEBPACK_IMPORTED_MODULE_5__bs_dropdown_state__["a" /* BsDropdownState */]])
+    ], BsDropdownDirective);
     return BsDropdownDirective;
 }());
+
 //# sourceMappingURL=bs-dropdown.directive.js.map
 
 /***/ }),
@@ -23169,6 +26206,12 @@ var BsDropdownDirective = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__bs_dropdown_config__ = __webpack_require__("../../../../ngx-bootstrap/dropdown/bs-dropdown.config.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__bs_dropdown_directive__ = __webpack_require__("../../../../ngx-bootstrap/dropdown/bs-dropdown.directive.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__bs_dropdown_state__ = __webpack_require__("../../../../ngx-bootstrap/dropdown/bs-dropdown.state.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
 
 
 
@@ -23181,9 +26224,10 @@ var BsDropdownDirective = (function () {
 var BsDropdownModule = (function () {
     function BsDropdownModule() {
     }
+    BsDropdownModule_1 = BsDropdownModule;
     BsDropdownModule.forRoot = function (config) {
         return {
-            ngModule: BsDropdownModule, providers: [
+            ngModule: BsDropdownModule_1, providers: [
                 __WEBPACK_IMPORTED_MODULE_1__component_loader__["a" /* ComponentLoaderFactory */],
                 __WEBPACK_IMPORTED_MODULE_2__positioning__["a" /* PositioningService */],
                 __WEBPACK_IMPORTED_MODULE_8__bs_dropdown_state__["a" /* BsDropdownState */],
@@ -23192,26 +26236,26 @@ var BsDropdownModule = (function () {
         };
     };
     ;
-    BsDropdownModule.decorators = [
-        { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"], args: [{
-                    declarations: [
-                        __WEBPACK_IMPORTED_MODULE_4__bs_dropdown_menu_directive__["a" /* BsDropdownMenuDirective */],
-                        __WEBPACK_IMPORTED_MODULE_5__bs_dropdown_toggle_directive__["a" /* BsDropdownToggleDirective */],
-                        __WEBPACK_IMPORTED_MODULE_3__bs_dropdown_container_component__["a" /* BsDropdownContainerComponent */],
-                        __WEBPACK_IMPORTED_MODULE_7__bs_dropdown_directive__["a" /* BsDropdownDirective */]
-                    ],
-                    exports: [
-                        __WEBPACK_IMPORTED_MODULE_4__bs_dropdown_menu_directive__["a" /* BsDropdownMenuDirective */],
-                        __WEBPACK_IMPORTED_MODULE_5__bs_dropdown_toggle_directive__["a" /* BsDropdownToggleDirective */],
-                        __WEBPACK_IMPORTED_MODULE_7__bs_dropdown_directive__["a" /* BsDropdownDirective */]
-                    ],
-                    entryComponents: [__WEBPACK_IMPORTED_MODULE_3__bs_dropdown_container_component__["a" /* BsDropdownContainerComponent */]]
-                },] },
-    ];
-    /** @nocollapse */
-    BsDropdownModule.ctorParameters = function () { return []; };
+    BsDropdownModule = BsDropdownModule_1 = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
+            declarations: [
+                __WEBPACK_IMPORTED_MODULE_4__bs_dropdown_menu_directive__["a" /* BsDropdownMenuDirective */],
+                __WEBPACK_IMPORTED_MODULE_5__bs_dropdown_toggle_directive__["a" /* BsDropdownToggleDirective */],
+                __WEBPACK_IMPORTED_MODULE_3__bs_dropdown_container_component__["a" /* BsDropdownContainerComponent */],
+                __WEBPACK_IMPORTED_MODULE_7__bs_dropdown_directive__["a" /* BsDropdownDirective */]
+            ],
+            exports: [
+                __WEBPACK_IMPORTED_MODULE_4__bs_dropdown_menu_directive__["a" /* BsDropdownMenuDirective */],
+                __WEBPACK_IMPORTED_MODULE_5__bs_dropdown_toggle_directive__["a" /* BsDropdownToggleDirective */],
+                __WEBPACK_IMPORTED_MODULE_7__bs_dropdown_directive__["a" /* BsDropdownDirective */]
+            ],
+            entryComponents: [__WEBPACK_IMPORTED_MODULE_3__bs_dropdown_container_component__["a" /* BsDropdownContainerComponent */]]
+        })
+    ], BsDropdownModule);
     return BsDropdownModule;
+    var BsDropdownModule_1;
 }());
+
 //# sourceMappingURL=bs-dropdown.module.js.map
 
 /***/ }),
@@ -23222,6 +26266,15 @@ var BsDropdownModule = (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BsDropdownState; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
 
 var BsDropdownState = (function () {
     function BsDropdownState() {
@@ -23234,13 +26287,13 @@ var BsDropdownState = (function () {
             _this.resolveDropdownMenu = resolve;
         });
     }
-    BsDropdownState.decorators = [
-        { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"] },
-    ];
-    /** @nocollapse */
-    BsDropdownState.ctorParameters = function () { return []; };
+    BsDropdownState = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
+        __metadata("design:paramtypes", [])
+    ], BsDropdownState);
     return BsDropdownState;
 }());
+
 //# sourceMappingURL=bs-dropdown.state.js.map
 
 /***/ }),
@@ -23327,6 +26380,7 @@ var BsDropdownState = (function () {
 /* unused harmony reexport DayPickerComponent */
 /* unused harmony reexport MonthPickerComponent */
 /* unused harmony reexport YearPickerComponent */
+/* unused harmony reexport BsDatepickerModule */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__modal__ = __webpack_require__("../../../../ngx-bootstrap/modal/index.js");
 /* unused harmony reexport ModalDirective */
 /* unused harmony reexport ModalOptions */
@@ -23401,6 +26455,13 @@ var BsDropdownState = (function () {
 /* unused harmony reexport Positioning */
 /* unused harmony reexport PositioningService */
 /* unused harmony reexport positionElements */
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+/* tslint:disable: max-classes-per-file */
 
 
 
@@ -23450,38 +26511,36 @@ var MODULES = [
 var BsRootModule = (function () {
     function BsRootModule() {
     }
-    BsRootModule.decorators = [
-        { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"], args: [{
-                    imports: [
-                        __WEBPACK_IMPORTED_MODULE_1__accordion_accordion_module__["a" /* AccordionModule */].forRoot(), __WEBPACK_IMPORTED_MODULE_2__alert_alert_module__["a" /* AlertModule */].forRoot(), __WEBPACK_IMPORTED_MODULE_3__buttons_buttons_module__["a" /* ButtonsModule */].forRoot(),
-                        __WEBPACK_IMPORTED_MODULE_4__carousel_carousel_module__["a" /* CarouselModule */].forRoot(), __WEBPACK_IMPORTED_MODULE_5__collapse_collapse_module__["a" /* CollapseModule */].forRoot(),
-                        __WEBPACK_IMPORTED_MODULE_6__datepicker_datepicker_module__["a" /* DatepickerModule */].forRoot(),
-                        __WEBPACK_IMPORTED_MODULE_7__dropdown_bs_dropdown_module__["a" /* BsDropdownModule */].forRoot(), __WEBPACK_IMPORTED_MODULE_8__modal_modal_module__["a" /* ModalModule */].forRoot(), __WEBPACK_IMPORTED_MODULE_9__pagination_pagination_module__["a" /* PaginationModule */].forRoot(),
-                        __WEBPACK_IMPORTED_MODULE_10__progressbar_progressbar_module__["a" /* ProgressbarModule */].forRoot(), __WEBPACK_IMPORTED_MODULE_17__popover_popover_module__["a" /* PopoverModule */].forRoot(),
-                        __WEBPACK_IMPORTED_MODULE_11__rating_rating_module__["a" /* RatingModule */].forRoot(),
-                        __WEBPACK_IMPORTED_MODULE_13__tabs_tabs_module__["a" /* TabsModule */].forRoot(), __WEBPACK_IMPORTED_MODULE_14__timepicker_timepicker_module__["a" /* TimepickerModule */].forRoot(), __WEBPACK_IMPORTED_MODULE_15__tooltip_tooltip_module__["a" /* TooltipModule */].forRoot(),
-                        __WEBPACK_IMPORTED_MODULE_16__typeahead_typeahead_module__["a" /* TypeaheadModule */].forRoot(), __WEBPACK_IMPORTED_MODULE_12__sortable__["a" /* SortableModule */].forRoot()
-                    ],
-                    exports: MODULES
-                },] },
-    ];
-    /** @nocollapse */
-    BsRootModule.ctorParameters = function () { return []; };
+    BsRootModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
+            imports: [
+                __WEBPACK_IMPORTED_MODULE_1__accordion_accordion_module__["a" /* AccordionModule */].forRoot(), __WEBPACK_IMPORTED_MODULE_2__alert_alert_module__["a" /* AlertModule */].forRoot(), __WEBPACK_IMPORTED_MODULE_3__buttons_buttons_module__["a" /* ButtonsModule */].forRoot(),
+                __WEBPACK_IMPORTED_MODULE_4__carousel_carousel_module__["a" /* CarouselModule */].forRoot(), __WEBPACK_IMPORTED_MODULE_5__collapse_collapse_module__["a" /* CollapseModule */].forRoot(),
+                __WEBPACK_IMPORTED_MODULE_6__datepicker_datepicker_module__["a" /* DatepickerModule */].forRoot(),
+                __WEBPACK_IMPORTED_MODULE_7__dropdown_bs_dropdown_module__["a" /* BsDropdownModule */].forRoot(), __WEBPACK_IMPORTED_MODULE_8__modal_modal_module__["a" /* ModalModule */].forRoot(), __WEBPACK_IMPORTED_MODULE_9__pagination_pagination_module__["a" /* PaginationModule */].forRoot(),
+                __WEBPACK_IMPORTED_MODULE_10__progressbar_progressbar_module__["a" /* ProgressbarModule */].forRoot(), __WEBPACK_IMPORTED_MODULE_17__popover_popover_module__["a" /* PopoverModule */].forRoot(),
+                __WEBPACK_IMPORTED_MODULE_11__rating_rating_module__["a" /* RatingModule */].forRoot(),
+                __WEBPACK_IMPORTED_MODULE_13__tabs_tabs_module__["a" /* TabsModule */].forRoot(), __WEBPACK_IMPORTED_MODULE_14__timepicker_timepicker_module__["a" /* TimepickerModule */].forRoot(), __WEBPACK_IMPORTED_MODULE_15__tooltip_tooltip_module__["a" /* TooltipModule */].forRoot(),
+                __WEBPACK_IMPORTED_MODULE_16__typeahead_typeahead_module__["a" /* TypeaheadModule */].forRoot(), __WEBPACK_IMPORTED_MODULE_12__sortable__["a" /* SortableModule */].forRoot()
+            ],
+            exports: MODULES
+        })
+    ], BsRootModule);
     return BsRootModule;
 }());
+
 var Ng2BootstrapModule = (function () {
     function Ng2BootstrapModule() {
     }
     Ng2BootstrapModule.forRoot = function () {
         return { ngModule: BsRootModule };
     };
-    Ng2BootstrapModule.decorators = [
-        { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"], args: [{ exports: MODULES },] },
-    ];
-    /** @nocollapse */
-    Ng2BootstrapModule.ctorParameters = function () { return []; };
+    Ng2BootstrapModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({ exports: MODULES })
+    ], Ng2BootstrapModule);
     return Ng2BootstrapModule;
 }());
+
 //# sourceMappingURL=index.js.map
 
 /***/ }),
@@ -23499,11 +26558,19 @@ var Ng2BootstrapModule = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_scheduler_queue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_scheduler_queue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_operator_scan__ = __webpack_require__("../../../../rxjs/operator/scan.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_operator_scan___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_operator_scan__);
-var __extends = (this && this.__extends) || function (d, b) {
-    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-    function __() { this.constructor = d; }
-    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-};
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+/**
+ * @copyright ngrx
+ */
 
 
 
@@ -23511,8 +26578,7 @@ var __extends = (this && this.__extends) || function (d, b) {
 var MiniState = (function (_super) {
     __extends(MiniState, _super);
     function MiniState(_initialState, actionsDispatcher$, reducer) {
-        var _this = this;
-        _super.call(this, _initialState);
+        var _this = _super.call(this, _initialState) || this;
         var actionInQueue$ = __WEBPACK_IMPORTED_MODULE_1_rxjs_operator_observeOn__["observeOn"].call(actionsDispatcher$, __WEBPACK_IMPORTED_MODULE_2_rxjs_scheduler_queue__["queue"]);
         var state$ = __WEBPACK_IMPORTED_MODULE_3_rxjs_operator_scan__["scan"].call(actionInQueue$, function (state, action) {
             if (!action) {
@@ -23521,9 +26587,11 @@ var MiniState = (function (_super) {
             return reducer(state, action);
         }, _initialState);
         state$.subscribe(function (value) { return _this.next(value); });
+        return _this;
     }
     return MiniState;
 }(__WEBPACK_IMPORTED_MODULE_0_rxjs_BehaviorSubject__["BehaviorSubject"]));
+
 //# sourceMappingURL=state.class.js.map
 
 /***/ }),
@@ -23539,21 +26607,30 @@ var MiniState = (function (_super) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_operator_distinctUntilChanged___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_operator_distinctUntilChanged__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_operator_map__ = __webpack_require__("../../../../rxjs/operator/map.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_operator_map__);
-var __extends = (this && this.__extends) || function (d, b) {
-    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-    function __() { this.constructor = d; }
-    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-};
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+/**
+ * @copyright ngrx
+ */
 
 
 
 var MiniStore = (function (_super) {
     __extends(MiniStore, _super);
     function MiniStore(_dispatcher, _reducer, state$) {
-        _super.call(this);
-        this._dispatcher = _dispatcher;
-        this._reducer = _reducer;
-        this.source = state$;
+        var _this = _super.call(this) || this;
+        _this._dispatcher = _dispatcher;
+        _this._reducer = _reducer;
+        _this.source = state$;
+        return _this;
     }
     MiniStore.prototype.select = function (pathOrMapFn) {
         var mapped$ = __WEBPACK_IMPORTED_MODULE_2_rxjs_operator_map__["map"].call(this, pathOrMapFn);
@@ -23570,6 +26647,7 @@ var MiniStore = (function (_super) {
     MiniStore.prototype.complete = function () { };
     return MiniStore;
 }(__WEBPACK_IMPORTED_MODULE_0_rxjs_Observable__["Observable"]));
+
 //# sourceMappingURL=store.class.js.map
 
 /***/ }),
@@ -23584,6 +26662,15 @@ var MiniStore = (function (_super) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__modal_backdrop_component__ = __webpack_require__("../../../../ngx-bootstrap/modal/modal-backdrop.component.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__modal_container_component__ = __webpack_require__("../../../../ngx-bootstrap/modal/modal-container.component.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__modal_options_class__ = __webpack_require__("../../../../ngx-bootstrap/modal/modal-options.class.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
 
 
 
@@ -23695,7 +26782,7 @@ var BsModalService = (function () {
         }
         this.originalBodyPadding = parseInt(window.getComputedStyle(document.body).getPropertyValue('padding-right') || '0', 10);
         if (this.isBodyOverflowing) {
-            document.body.style.paddingRight = (this.originalBodyPadding + this.scrollbarWidth) + "px";
+            document.body.style.paddingRight = this.originalBodyPadding + this.scrollbarWidth + "px";
         }
     };
     BsModalService.prototype.resetScrollbar = function () {
@@ -23730,15 +26817,13 @@ var BsModalService = (function () {
             to.emit(_this.lastDismissReason);
         });
     };
-    BsModalService.decorators = [
-        { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"] },
-    ];
-    /** @nocollapse */
-    BsModalService.ctorParameters = function () { return [
-        { type: __WEBPACK_IMPORTED_MODULE_1__component_loader_component_loader_factory__["a" /* ComponentLoaderFactory */], },
-    ]; };
+    BsModalService = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__component_loader_component_loader_factory__["a" /* ComponentLoaderFactory */]])
+    ], BsModalService);
     return BsModalService;
 }());
+
 //# sourceMappingURL=bs-modal.service.js.map
 
 /***/ }),
@@ -23760,7 +26845,7 @@ var BsModalService = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__modal_module__ = __webpack_require__("../../../../ngx-bootstrap/modal/modal.module.js");
 /* unused harmony reexport ModalModule */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__bs_modal_service__ = __webpack_require__("../../../../ngx-bootstrap/modal/bs-modal.service.js");
-/* unused harmony reexport BsModalService */
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_5__bs_modal_service__["a"]; });
 
 
 
@@ -23781,6 +26866,15 @@ var BsModalService = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__modal_options_class__ = __webpack_require__("../../../../ngx-bootstrap/modal/modal-options.class.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__utils_ng2_bootstrap_config__ = __webpack_require__("../../../../ngx-bootstrap/utils/ng2-bootstrap-config.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__utils_utils_class__ = __webpack_require__("../../../../ngx-bootstrap/utils/utils.class.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
 
 
 
@@ -23792,6 +26886,7 @@ var ModalBackdropOptions = (function () {
     }
     return ModalBackdropOptions;
 }());
+
 /** This component will be added as background layout for modals if enabled */
 var ModalBackdropComponent = (function () {
     function ModalBackdropComponent(element, renderer) {
@@ -23831,21 +26926,18 @@ var ModalBackdropComponent = (function () {
         }
         this.isShown = true;
     };
-    ModalBackdropComponent.decorators = [
-        { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"], args: [{
-                    selector: 'bs-modal-backdrop',
-                    template: '',
-                    // tslint:disable-next-line
-                    host: { 'class': __WEBPACK_IMPORTED_MODULE_1__modal_options_class__["b" /* ClassName */].BACKDROP }
-                },] },
-    ];
-    /** @nocollapse */
-    ModalBackdropComponent.ctorParameters = function () { return [
-        { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"], },
-        { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Renderer"], },
-    ]; };
+    ModalBackdropComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'bs-modal-backdrop',
+            template: '',
+            // tslint:disable-next-line
+            host: { 'class': __WEBPACK_IMPORTED_MODULE_1__modal_options_class__["b" /* ClassName */].BACKDROP }
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"], __WEBPACK_IMPORTED_MODULE_0__angular_core__["Renderer"]])
+    ], ModalBackdropComponent);
     return ModalBackdropComponent;
 }());
+
 //# sourceMappingURL=modal-backdrop.component.js.map
 
 /***/ }),
@@ -23859,6 +26951,15 @@ var ModalBackdropComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__modal_options_class__ = __webpack_require__("../../../../ngx-bootstrap/modal/modal-options.class.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__bs_modal_service__ = __webpack_require__("../../../../ngx-bootstrap/modal/bs-modal.service.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__utils_ng2_bootstrap_config__ = __webpack_require__("../../../../ngx-bootstrap/utils/ng2-bootstrap-config.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
 
 
 
@@ -23936,31 +27037,34 @@ var ModalContainerComponent = (function () {
             _this.isModalHiding = false;
         }, this.isAnimated ? __WEBPACK_IMPORTED_MODULE_1__modal_options_class__["e" /* TransitionDurations */].MODAL : 0);
     };
-    ModalContainerComponent.decorators = [
-        { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"], args: [{
-                    selector: 'modal-container',
-                    template: "\n    <div [class]=\"'modal-dialog' + (config.class ? ' ' + config.class : '')\" role=\"document\">\n      <div class=\"modal-content\"><ng-content></ng-content></div>\n    </div>\n  ",
-                    // tslint:disable-next-line
-                    host: {
-                        class: 'modal',
-                        role: 'dialog',
-                        tabindex: '-1'
-                    }
-                },] },
-    ];
-    /** @nocollapse */
-    ModalContainerComponent.ctorParameters = function () { return [
-        { type: __WEBPACK_IMPORTED_MODULE_1__modal_options_class__["d" /* ModalOptions */], },
-        { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"], },
-        { type: __WEBPACK_IMPORTED_MODULE_2__bs_modal_service__["a" /* BsModalService */], },
-        { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Renderer"], },
-    ]; };
-    ModalContainerComponent.propDecorators = {
-        'onClick': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["HostListener"], args: ['click', ['$event'],] },],
-        'onEsc': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["HostListener"], args: ['window:keydown.esc',] },],
-    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["HostListener"])('click', ['$event']),
+        __metadata("design:type", Function),
+        __metadata("design:paramtypes", [Object]),
+        __metadata("design:returntype", void 0)
+    ], ModalContainerComponent.prototype, "onClick", null);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["HostListener"])('window:keydown.esc'),
+        __metadata("design:type", Function),
+        __metadata("design:paramtypes", []),
+        __metadata("design:returntype", void 0)
+    ], ModalContainerComponent.prototype, "onEsc", null);
+    ModalContainerComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'modal-container',
+            template: "\n    <div [class]=\"'modal-dialog' + (config.class ? ' ' + config.class : '')\" role=\"document\">\n      <div class=\"modal-content\"><ng-content></ng-content></div>\n    </div>\n  ",
+            // tslint:disable-next-line
+            host: {
+                class: 'modal',
+                role: 'dialog',
+                tabindex: '-1'
+            }
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__modal_options_class__["d" /* ModalOptions */], __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"], __WEBPACK_IMPORTED_MODULE_2__bs_modal_service__["a" /* BsModalService */], __WEBPACK_IMPORTED_MODULE_0__angular_core__["Renderer"]])
+    ], ModalContainerComponent);
     return ModalContainerComponent;
 }());
+
 //# sourceMappingURL=modal-container.component.js.map
 
 /***/ }),
@@ -23977,17 +27081,22 @@ var ModalContainerComponent = (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return TransitionDurations; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return DISMISS_REASONS; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
 
 var ModalOptions = (function () {
     function ModalOptions() {
     }
-    ModalOptions.decorators = [
-        { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"] },
-    ];
-    /** @nocollapse */
-    ModalOptions.ctorParameters = function () { return []; };
+    ModalOptions = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])()
+    ], ModalOptions);
     return ModalOptions;
 }());
+
 var BsModalRef = (function () {
     function BsModalRef() {
     }
@@ -23995,13 +27104,12 @@ var BsModalRef = (function () {
      * Hides the modal
      */
     BsModalRef.prototype.hide = function () { };
-    BsModalRef.decorators = [
-        { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"] },
-    ];
-    /** @nocollapse */
-    BsModalRef.ctorParameters = function () { return []; };
+    BsModalRef = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])()
+    ], BsModalRef);
     return BsModalRef;
 }());
+
 var modalConfigDefaults = {
     backdrop: true,
     keyboard: true,
@@ -24053,6 +27161,15 @@ var DISMISS_REASONS = {
 // todo: should we support enforce focus in?
 // todo: in original bs there are was a way to prevent modal from showing
 // todo: original modal had resize events
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
 
 
 
@@ -24340,7 +27457,7 @@ var ModalDirective = (function () {
         }
         this.originalBodyPadding = parseInt(__WEBPACK_IMPORTED_MODULE_1__utils_facade_browser__["b" /* window */].getComputedStyle(__WEBPACK_IMPORTED_MODULE_1__utils_facade_browser__["a" /* document */].body).getPropertyValue('padding-right') || 0, 10);
         if (this.isBodyOverflowing) {
-            __WEBPACK_IMPORTED_MODULE_1__utils_facade_browser__["a" /* document */].body.style.paddingRight = (this.originalBodyPadding + this.scrollbarWidth) + "px";
+            __WEBPACK_IMPORTED_MODULE_1__utils_facade_browser__["a" /* document */].body.style.paddingRight = this.originalBodyPadding + this.scrollbarWidth + "px";
         }
     };
     ModalDirective.prototype.resetScrollbar = function () {
@@ -24354,30 +27471,49 @@ var ModalDirective = (function () {
         __WEBPACK_IMPORTED_MODULE_1__utils_facade_browser__["a" /* document */].body.removeChild(scrollDiv);
         return scrollbarWidth;
     };
-    ModalDirective.decorators = [
-        { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Directive"], args: [{
-                    selector: '[bsModal]',
-                    exportAs: 'bs-modal'
-                },] },
-    ];
-    /** @nocollapse */
-    ModalDirective.ctorParameters = function () { return [
-        { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"], },
-        { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewContainerRef"], },
-        { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Renderer"], },
-        { type: __WEBPACK_IMPORTED_MODULE_6__component_loader_component_loader_factory__["a" /* ComponentLoaderFactory */], },
-    ]; };
-    ModalDirective.propDecorators = {
-        'config': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'onShow': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"] },],
-        'onShown': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"] },],
-        'onHide': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"] },],
-        'onHidden': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"] },],
-        'onClick': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["HostListener"], args: ['click', ['$event'],] },],
-        'onEsc': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["HostListener"], args: ['keydown.esc',] },],
-    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_5__modal_options_class__["d" /* ModalOptions */]),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_5__modal_options_class__["d" /* ModalOptions */]])
+    ], ModalDirective.prototype, "config", null);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"])(),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"])
+    ], ModalDirective.prototype, "onShow", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"])(),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"])
+    ], ModalDirective.prototype, "onShown", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"])(),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"])
+    ], ModalDirective.prototype, "onHide", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"])(),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"])
+    ], ModalDirective.prototype, "onHidden", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["HostListener"])('click', ['$event']),
+        __metadata("design:type", Function),
+        __metadata("design:paramtypes", [Object]),
+        __metadata("design:returntype", void 0)
+    ], ModalDirective.prototype, "onClick", null);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["HostListener"])('keydown.esc'),
+        __metadata("design:type", Function),
+        __metadata("design:paramtypes", []),
+        __metadata("design:returntype", void 0)
+    ], ModalDirective.prototype, "onEsc", null);
+    ModalDirective = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Directive"])({
+            selector: '[bsModal]',
+            exportAs: 'bs-modal'
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"], __WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewContainerRef"], __WEBPACK_IMPORTED_MODULE_0__angular_core__["Renderer"], __WEBPACK_IMPORTED_MODULE_6__component_loader_component_loader_factory__["a" /* ComponentLoaderFactory */]])
+    ], ModalDirective);
     return ModalDirective;
 }());
+
 //# sourceMappingURL=modal.component.js.map
 
 /***/ }),
@@ -24394,6 +27530,12 @@ var ModalDirective = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__component_loader__ = __webpack_require__("../../../../ngx-bootstrap/component-loader/index.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__modal_container_component__ = __webpack_require__("../../../../ngx-bootstrap/modal/modal-container.component.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__bs_modal_service__ = __webpack_require__("../../../../ngx-bootstrap/modal/bs-modal.service.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
 
 
 
@@ -24404,20 +27546,21 @@ var ModalDirective = (function () {
 var ModalModule = (function () {
     function ModalModule() {
     }
+    ModalModule_1 = ModalModule;
     ModalModule.forRoot = function () {
-        return { ngModule: ModalModule, providers: [__WEBPACK_IMPORTED_MODULE_6__bs_modal_service__["a" /* BsModalService */], __WEBPACK_IMPORTED_MODULE_4__component_loader__["a" /* ComponentLoaderFactory */], __WEBPACK_IMPORTED_MODULE_3__positioning__["a" /* PositioningService */]] };
+        return { ngModule: ModalModule_1, providers: [__WEBPACK_IMPORTED_MODULE_6__bs_modal_service__["a" /* BsModalService */], __WEBPACK_IMPORTED_MODULE_4__component_loader__["a" /* ComponentLoaderFactory */], __WEBPACK_IMPORTED_MODULE_3__positioning__["a" /* PositioningService */]] };
     };
-    ModalModule.decorators = [
-        { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"], args: [{
-                    declarations: [__WEBPACK_IMPORTED_MODULE_1__modal_backdrop_component__["a" /* ModalBackdropComponent */], __WEBPACK_IMPORTED_MODULE_2__modal_component__["a" /* ModalDirective */], __WEBPACK_IMPORTED_MODULE_5__modal_container_component__["a" /* ModalContainerComponent */]],
-                    exports: [__WEBPACK_IMPORTED_MODULE_1__modal_backdrop_component__["a" /* ModalBackdropComponent */], __WEBPACK_IMPORTED_MODULE_2__modal_component__["a" /* ModalDirective */]],
-                    entryComponents: [__WEBPACK_IMPORTED_MODULE_1__modal_backdrop_component__["a" /* ModalBackdropComponent */], __WEBPACK_IMPORTED_MODULE_5__modal_container_component__["a" /* ModalContainerComponent */]]
-                },] },
-    ];
-    /** @nocollapse */
-    ModalModule.ctorParameters = function () { return []; };
+    ModalModule = ModalModule_1 = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
+            declarations: [__WEBPACK_IMPORTED_MODULE_1__modal_backdrop_component__["a" /* ModalBackdropComponent */], __WEBPACK_IMPORTED_MODULE_2__modal_component__["a" /* ModalDirective */], __WEBPACK_IMPORTED_MODULE_5__modal_container_component__["a" /* ModalContainerComponent */]],
+            exports: [__WEBPACK_IMPORTED_MODULE_1__modal_backdrop_component__["a" /* ModalBackdropComponent */], __WEBPACK_IMPORTED_MODULE_2__modal_component__["a" /* ModalDirective */]],
+            entryComponents: [__WEBPACK_IMPORTED_MODULE_1__modal_backdrop_component__["a" /* ModalBackdropComponent */], __WEBPACK_IMPORTED_MODULE_5__modal_container_component__["a" /* ModalContainerComponent */]]
+        })
+    ], ModalModule);
     return ModalModule;
+    var ModalModule_1;
 }());
+
 //# sourceMappingURL=modal.module.js.map
 
 /***/ }),
@@ -24451,6 +27594,15 @@ var ModalModule = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__("../../../forms/@angular/forms.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pagination_config__ = __webpack_require__("../../../../ngx-bootstrap/pagination/pagination.config.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
 
 
 
@@ -24459,7 +27611,7 @@ var PAGER_CONTROL_VALUE_ACCESSOR = {
     useExisting: Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["forwardRef"])(function () { return PagerComponent; }),
     multi: true
 };
-var PAGER_TEMPLATE = "\n    <ul class=\"pager\">\n      <li [class.disabled]=\"noPrevious()\" [class.previous]=\"align\" [ngClass]=\"{'pull-right': align}\" class=\"{{ pageBtnClass }}\">\n        <a href (click)=\"selectPage(page - 1, $event)\">{{getText('previous')}}</a>\n      </li>\n      <li [class.disabled]=\"noNext()\" [class.next]=\"align\" [ngClass]=\"{'pull-right': align}\" class=\"{{ pageBtnClass }}\">\n        <a href (click)=\"selectPage(page + 1, $event)\">{{getText('next')}}</a>\n      </li>\n  </ul>\n";
+var PAGER_TEMPLATE = "\n    <ul class=\"pager\">\n      <li [class.disabled]=\"noPrevious()\" [class.previous]=\"align\" [ngClass]=\"{'pull-right': align, 'float-right': align}\" class=\"{{ pageBtnClass }}\">\n        <a href (click)=\"selectPage(page - 1, $event)\">{{getText('previous')}}</a>\n      </li>\n      <li [class.disabled]=\"noNext()\" [class.next]=\"align\" [ngClass]=\"{'pull-right': align, 'float-right': align}\" class=\"{{ pageBtnClass }}\">\n        <a href (click)=\"selectPage(page + 1, $event)\">{{getText('next')}}</a>\n      </li>\n  </ul>\n";
 var PagerComponent = (function () {
     function PagerComponent(renderer, elementRef, paginationConfig) {
         /** fired when total pages count changes, $event:number equals to total pages count */
@@ -24648,38 +27800,79 @@ var PagerComponent = (function () {
             : Math.ceil(this.totalItems / this.itemsPerPage);
         return Math.max(totalPages || 0, 1);
     };
-    PagerComponent.decorators = [
-        { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"], args: [{
-                    selector: 'pager',
-                    template: PAGER_TEMPLATE,
-                    providers: [PAGER_CONTROL_VALUE_ACCESSOR]
-                },] },
-    ];
-    /** @nocollapse */
-    PagerComponent.ctorParameters = function () { return [
-        { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Renderer"], },
-        { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"], },
-        { type: __WEBPACK_IMPORTED_MODULE_2__pagination_config__["a" /* PaginationConfig */], },
-    ]; };
-    PagerComponent.propDecorators = {
-        'align': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'maxSize': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'boundaryLinks': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'directionLinks': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'firstText': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'previousText': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'nextText': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'lastText': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'rotate': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'pageBtnClass': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'disabled': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'numPages': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"] },],
-        'pageChanged': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"] },],
-        'itemsPerPage': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'totalItems': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Boolean)
+    ], PagerComponent.prototype, "align", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Number)
+    ], PagerComponent.prototype, "maxSize", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Boolean)
+    ], PagerComponent.prototype, "boundaryLinks", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Boolean)
+    ], PagerComponent.prototype, "directionLinks", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", String)
+    ], PagerComponent.prototype, "firstText", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", String)
+    ], PagerComponent.prototype, "previousText", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", String)
+    ], PagerComponent.prototype, "nextText", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", String)
+    ], PagerComponent.prototype, "lastText", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Boolean)
+    ], PagerComponent.prototype, "rotate", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", String)
+    ], PagerComponent.prototype, "pageBtnClass", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Boolean)
+    ], PagerComponent.prototype, "disabled", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"])(),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"])
+    ], PagerComponent.prototype, "numPages", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"])(),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"])
+    ], PagerComponent.prototype, "pageChanged", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Number),
+        __metadata("design:paramtypes", [Number])
+    ], PagerComponent.prototype, "itemsPerPage", null);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Number),
+        __metadata("design:paramtypes", [Number])
+    ], PagerComponent.prototype, "totalItems", null);
+    PagerComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'pager',
+            template: PAGER_TEMPLATE,
+            providers: [PAGER_CONTROL_VALUE_ACCESSOR]
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_core__["Renderer"], __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"], __WEBPACK_IMPORTED_MODULE_2__pagination_config__["a" /* PaginationConfig */]])
+    ], PagerComponent);
     return PagerComponent;
 }());
+
 //# sourceMappingURL=pager.component.js.map
 
 /***/ }),
@@ -24693,6 +27886,15 @@ var PagerComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__("../../../forms/@angular/forms.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pagination_config__ = __webpack_require__("../../../../ngx-bootstrap/pagination/pagination.config.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
 
 
 
@@ -24890,38 +28092,79 @@ var PaginationComponent = (function () {
             : Math.ceil(this.totalItems / this.itemsPerPage);
         return Math.max(totalPages || 0, 1);
     };
-    PaginationComponent.decorators = [
-        { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"], args: [{
-                    selector: 'pagination',
-                    template: PAGINATION_TEMPLATE,
-                    providers: [PAGINATION_CONTROL_VALUE_ACCESSOR]
-                },] },
-    ];
-    /** @nocollapse */
-    PaginationComponent.ctorParameters = function () { return [
-        { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Renderer"], },
-        { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"], },
-        { type: __WEBPACK_IMPORTED_MODULE_2__pagination_config__["a" /* PaginationConfig */], },
-    ]; };
-    PaginationComponent.propDecorators = {
-        'align': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'maxSize': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'boundaryLinks': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'directionLinks': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'firstText': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'previousText': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'nextText': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'lastText': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'rotate': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'pageBtnClass': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'disabled': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'numPages': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"] },],
-        'pageChanged': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"] },],
-        'itemsPerPage': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'totalItems': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Boolean)
+    ], PaginationComponent.prototype, "align", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Number)
+    ], PaginationComponent.prototype, "maxSize", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Boolean)
+    ], PaginationComponent.prototype, "boundaryLinks", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Boolean)
+    ], PaginationComponent.prototype, "directionLinks", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", String)
+    ], PaginationComponent.prototype, "firstText", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", String)
+    ], PaginationComponent.prototype, "previousText", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", String)
+    ], PaginationComponent.prototype, "nextText", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", String)
+    ], PaginationComponent.prototype, "lastText", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Boolean)
+    ], PaginationComponent.prototype, "rotate", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", String)
+    ], PaginationComponent.prototype, "pageBtnClass", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Boolean)
+    ], PaginationComponent.prototype, "disabled", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"])(),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"])
+    ], PaginationComponent.prototype, "numPages", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"])(),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"])
+    ], PaginationComponent.prototype, "pageChanged", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Number),
+        __metadata("design:paramtypes", [Number])
+    ], PaginationComponent.prototype, "itemsPerPage", null);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Number),
+        __metadata("design:paramtypes", [Number])
+    ], PaginationComponent.prototype, "totalItems", null);
+    PaginationComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'pagination',
+            template: PAGINATION_TEMPLATE,
+            providers: [PAGINATION_CONTROL_VALUE_ACCESSOR]
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_core__["Renderer"], __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"], __WEBPACK_IMPORTED_MODULE_2__pagination_config__["a" /* PaginationConfig */]])
+    ], PaginationComponent);
     return PaginationComponent;
 }());
+
 //# sourceMappingURL=pagination.component.js.map
 
 /***/ }),
@@ -24932,6 +28175,13 @@ var PaginationComponent = (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PaginationConfig; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+// todo: split
 
 /** Provides default values for Pagination and pager components */
 var PaginationConfig = (function () {
@@ -24956,13 +28206,12 @@ var PaginationConfig = (function () {
             align: true
         };
     }
-    PaginationConfig.decorators = [
-        { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"] },
-    ];
-    /** @nocollapse */
-    PaginationConfig.ctorParameters = function () { return []; };
+    PaginationConfig = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])()
+    ], PaginationConfig);
     return PaginationConfig;
 }());
+
 //# sourceMappingURL=pagination.config.js.map
 
 /***/ }),
@@ -24977,6 +28226,12 @@ var PaginationConfig = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pagination_config__ = __webpack_require__("../../../../ngx-bootstrap/pagination/pagination.config.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pager_component__ = __webpack_require__("../../../../ngx-bootstrap/pagination/pager.component.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pagination_component__ = __webpack_require__("../../../../ngx-bootstrap/pagination/pagination.component.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
 
 
 
@@ -24985,20 +28240,21 @@ var PaginationConfig = (function () {
 var PaginationModule = (function () {
     function PaginationModule() {
     }
+    PaginationModule_1 = PaginationModule;
     PaginationModule.forRoot = function () {
-        return { ngModule: PaginationModule, providers: [__WEBPACK_IMPORTED_MODULE_2__pagination_config__["a" /* PaginationConfig */]] };
+        return { ngModule: PaginationModule_1, providers: [__WEBPACK_IMPORTED_MODULE_2__pagination_config__["a" /* PaginationConfig */]] };
     };
-    PaginationModule.decorators = [
-        { type: __WEBPACK_IMPORTED_MODULE_1__angular_core__["NgModule"], args: [{
-                    imports: [__WEBPACK_IMPORTED_MODULE_0__angular_common__["b" /* CommonModule */]],
-                    declarations: [__WEBPACK_IMPORTED_MODULE_3__pager_component__["a" /* PagerComponent */], __WEBPACK_IMPORTED_MODULE_4__pagination_component__["a" /* PaginationComponent */]],
-                    exports: [__WEBPACK_IMPORTED_MODULE_3__pager_component__["a" /* PagerComponent */], __WEBPACK_IMPORTED_MODULE_4__pagination_component__["a" /* PaginationComponent */]]
-                },] },
-    ];
-    /** @nocollapse */
-    PaginationModule.ctorParameters = function () { return []; };
+    PaginationModule = PaginationModule_1 = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["NgModule"])({
+            imports: [__WEBPACK_IMPORTED_MODULE_0__angular_common__["b" /* CommonModule */]],
+            declarations: [__WEBPACK_IMPORTED_MODULE_3__pager_component__["a" /* PagerComponent */], __WEBPACK_IMPORTED_MODULE_4__pagination_component__["a" /* PaginationComponent */]],
+            exports: [__WEBPACK_IMPORTED_MODULE_3__pager_component__["a" /* PagerComponent */], __WEBPACK_IMPORTED_MODULE_4__pagination_component__["a" /* PaginationComponent */]]
+        })
+    ], PaginationModule);
     return PaginationModule;
+    var PaginationModule_1;
 }());
+
 //# sourceMappingURL=pagination.module.js.map
 
 /***/ }),
@@ -25031,6 +28287,15 @@ var PaginationModule = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__popover_config__ = __webpack_require__("../../../../ngx-bootstrap/popover/popover.config.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__utils_ng2_bootstrap_config__ = __webpack_require__("../../../../ngx-bootstrap/utils/ng2-bootstrap-config.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
 
 
 
@@ -25045,30 +28310,33 @@ var PopoverContainerComponent = (function () {
         enumerable: true,
         configurable: true
     });
-    PopoverContainerComponent.decorators = [
-        { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"], args: [{
-                    selector: 'popover-container',
-                    changeDetection: __WEBPACK_IMPORTED_MODULE_0__angular_core__["ChangeDetectionStrategy"].OnPush,
-                    // tslint:disable-next-line
-                    host: {
-                        '[class]': '"popover in popover-" + placement + " " + placement + " " + containerClass',
-                        '[class.show]': '!isBs3',
-                        role: 'tooltip',
-                        style: 'display:block;'
-                    },
-                    template: "\n<div class=\"popover-arrow arrow\"></div>\n<h3 class=\"popover-title\" *ngIf=\"title\">{{title}}</h3><div class=\"popover-content\"><ng-content></ng-content></div>\n    "
-                },] },
-    ];
-    /** @nocollapse */
-    PopoverContainerComponent.ctorParameters = function () { return [
-        { type: __WEBPACK_IMPORTED_MODULE_1__popover_config__["a" /* PopoverConfig */], },
-    ]; };
-    PopoverContainerComponent.propDecorators = {
-        'placement': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'title': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", String)
+    ], PopoverContainerComponent.prototype, "placement", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", String)
+    ], PopoverContainerComponent.prototype, "title", void 0);
+    PopoverContainerComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'popover-container',
+            changeDetection: __WEBPACK_IMPORTED_MODULE_0__angular_core__["ChangeDetectionStrategy"].OnPush,
+            // tslint:disable-next-line
+            host: {
+                '[class]': '"popover in popover-" + placement + " " + "bs-popover-" + placement + " " + placement + " " + containerClass',
+                '[class.show]': '!isBs3',
+                role: 'tooltip',
+                style: 'display:block;'
+            },
+            styles: ["\n    :host.bs-popover-top .arrow, :host.bs-popover-bottom .arrow {\n      left: calc(50% - 5px);\n    }\n    :host.bs-popover-left .arrow, :host.bs-popover-right .arrow {\n      top: calc(50% - 2.5px);\n    }\n  "],
+            template: "\n<div class=\"popover-arrow arrow\"></div>\n<h3 class=\"popover-title popover-header\" *ngIf=\"title\">{{title}}</h3><div class=\"popover-content popover-body\"><ng-content></ng-content></div>\n    "
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__popover_config__["a" /* PopoverConfig */]])
+    ], PopoverContainerComponent);
     return PopoverContainerComponent;
 }());
+
 //# sourceMappingURL=popover-container.component.js.map
 
 /***/ }),
@@ -25079,6 +28347,12 @@ var PopoverContainerComponent = (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PopoverConfig; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
 
 /**
  * Configuration service for the Popover directive.
@@ -25097,14 +28371,14 @@ var PopoverConfig = (function () {
          * event names.
          */
         this.triggers = 'click';
+        this.outsideClick = false;
     }
-    PopoverConfig.decorators = [
-        { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"] },
-    ];
-    /** @nocollapse */
-    PopoverConfig.ctorParameters = function () { return []; };
+    PopoverConfig = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])()
+    ], PopoverConfig);
     return PopoverConfig;
 }());
+
 //# sourceMappingURL=popover.config.js.map
 
 /***/ }),
@@ -25118,6 +28392,15 @@ var PopoverConfig = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__popover_config__ = __webpack_require__("../../../../ngx-bootstrap/popover/popover.config.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__component_loader__ = __webpack_require__("../../../../ngx-bootstrap/component-loader/index.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__popover_container_component__ = __webpack_require__("../../../../ngx-bootstrap/popover/popover-container.component.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
 
 
 
@@ -25127,6 +28410,10 @@ var PopoverConfig = (function () {
  */
 var PopoverDirective = (function () {
     function PopoverDirective(_elementRef, _renderer, _viewContainerRef, _config, cis) {
+        /**
+         * Close popover on outside click
+         */
+        this.outsideClick = false;
         /**
          * Css class for popover container
          */
@@ -25178,6 +28465,7 @@ var PopoverDirective = (function () {
             .position({ attachment: this.placement })
             .show({
             content: this.popover,
+            context: this.popoverContext,
             placement: this.placement,
             title: this.popoverTitle,
             containerClass: this.containerClass
@@ -25215,36 +28503,69 @@ var PopoverDirective = (function () {
         this._isInited = true;
         this._popover.listen({
             triggers: this.triggers,
+            outsideClick: this.outsideClick,
             show: function () { return _this.show(); }
         });
     };
     PopoverDirective.prototype.ngOnDestroy = function () {
         this._popover.dispose();
     };
-    PopoverDirective.decorators = [
-        { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Directive"], args: [{ selector: '[popover]', exportAs: 'bs-popover' },] },
-    ];
-    /** @nocollapse */
-    PopoverDirective.ctorParameters = function () { return [
-        { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"], },
-        { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Renderer"], },
-        { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewContainerRef"], },
-        { type: __WEBPACK_IMPORTED_MODULE_1__popover_config__["a" /* PopoverConfig */], },
-        { type: __WEBPACK_IMPORTED_MODULE_2__component_loader__["a" /* ComponentLoaderFactory */], },
-    ]; };
-    PopoverDirective.propDecorators = {
-        'popover': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'popoverTitle': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'placement': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'triggers': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'container': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'containerClass': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'isOpen': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'onShown': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"] },],
-        'onHidden': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"] },],
-    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Object)
+    ], PopoverDirective.prototype, "popover", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Object)
+    ], PopoverDirective.prototype, "popoverContext", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", String)
+    ], PopoverDirective.prototype, "popoverTitle", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", String)
+    ], PopoverDirective.prototype, "placement", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Object)
+    ], PopoverDirective.prototype, "outsideClick", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", String)
+    ], PopoverDirective.prototype, "triggers", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", String)
+    ], PopoverDirective.prototype, "container", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", String)
+    ], PopoverDirective.prototype, "containerClass", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Boolean),
+        __metadata("design:paramtypes", [Boolean])
+    ], PopoverDirective.prototype, "isOpen", null);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"])(),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"])
+    ], PopoverDirective.prototype, "onShown", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"])(),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"])
+    ], PopoverDirective.prototype, "onHidden", void 0);
+    PopoverDirective = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Directive"])({ selector: '[popover]', exportAs: 'bs-popover' }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"],
+            __WEBPACK_IMPORTED_MODULE_0__angular_core__["Renderer"],
+            __WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewContainerRef"],
+            __WEBPACK_IMPORTED_MODULE_1__popover_config__["a" /* PopoverConfig */],
+            __WEBPACK_IMPORTED_MODULE_2__component_loader__["a" /* ComponentLoaderFactory */]])
+    ], PopoverDirective);
     return PopoverDirective;
 }());
+
 //# sourceMappingURL=popover.directive.js.map
 
 /***/ }),
@@ -25261,6 +28582,12 @@ var PopoverDirective = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__popover_config__ = __webpack_require__("../../../../ngx-bootstrap/popover/popover.config.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__popover_directive__ = __webpack_require__("../../../../ngx-bootstrap/popover/popover.directive.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__popover_container_component__ = __webpack_require__("../../../../ngx-bootstrap/popover/popover-container.component.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
 
 
 
@@ -25271,24 +28598,25 @@ var PopoverDirective = (function () {
 var PopoverModule = (function () {
     function PopoverModule() {
     }
+    PopoverModule_1 = PopoverModule;
     PopoverModule.forRoot = function () {
         return {
-            ngModule: PopoverModule,
+            ngModule: PopoverModule_1,
             providers: [__WEBPACK_IMPORTED_MODULE_4__popover_config__["a" /* PopoverConfig */], __WEBPACK_IMPORTED_MODULE_2__component_loader__["a" /* ComponentLoaderFactory */], __WEBPACK_IMPORTED_MODULE_3__positioning__["a" /* PositioningService */]]
         };
     };
-    PopoverModule.decorators = [
-        { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"], args: [{
-                    imports: [__WEBPACK_IMPORTED_MODULE_1__angular_common__["b" /* CommonModule */]],
-                    declarations: [__WEBPACK_IMPORTED_MODULE_5__popover_directive__["a" /* PopoverDirective */], __WEBPACK_IMPORTED_MODULE_6__popover_container_component__["a" /* PopoverContainerComponent */]],
-                    exports: [__WEBPACK_IMPORTED_MODULE_5__popover_directive__["a" /* PopoverDirective */]],
-                    entryComponents: [__WEBPACK_IMPORTED_MODULE_6__popover_container_component__["a" /* PopoverContainerComponent */]]
-                },] },
-    ];
-    /** @nocollapse */
-    PopoverModule.ctorParameters = function () { return []; };
+    PopoverModule = PopoverModule_1 = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
+            imports: [__WEBPACK_IMPORTED_MODULE_1__angular_common__["b" /* CommonModule */]],
+            declarations: [__WEBPACK_IMPORTED_MODULE_5__popover_directive__["a" /* PopoverDirective */], __WEBPACK_IMPORTED_MODULE_6__popover_container_component__["a" /* PopoverContainerComponent */]],
+            exports: [__WEBPACK_IMPORTED_MODULE_5__popover_directive__["a" /* PopoverDirective */]],
+            entryComponents: [__WEBPACK_IMPORTED_MODULE_6__popover_container_component__["a" /* PopoverContainerComponent */]]
+        })
+    ], PopoverModule);
     return PopoverModule;
+    var PopoverModule_1;
 }());
+
 //# sourceMappingURL=popover.module.js.map
 
 /***/ }),
@@ -25387,6 +28715,7 @@ var Positioning = (function () {
     };
     Positioning.prototype.positionElements = function (hostElement, targetElement, placement, appendToBody) {
         var hostElPosition = appendToBody ? this.offset(hostElement, false) : this.position(hostElement, false);
+        var targetElStyles = this.getAllStyles(targetElement);
         var shiftWidth = {
             left: hostElPosition.left,
             center: hostElPosition.left + hostElPosition.width / 2 - targetElement.offsetWidth / 2,
@@ -25410,7 +28739,7 @@ var Positioning = (function () {
         };
         switch (placementPrimary) {
             case 'top':
-                targetElPosition.top = hostElPosition.top - targetElement.offsetHeight;
+                targetElPosition.top = hostElPosition.top - (targetElement.offsetHeight + parseFloat(targetElStyles.marginBottom));
                 targetElPosition.bottom += hostElPosition.top - targetElement.offsetHeight;
                 targetElPosition.left = shiftWidth[placementSecondary];
                 targetElPosition.right += shiftWidth[placementSecondary];
@@ -25424,7 +28753,7 @@ var Positioning = (function () {
             case 'left':
                 targetElPosition.top = shiftHeight[placementSecondary];
                 targetElPosition.bottom += shiftHeight[placementSecondary];
-                targetElPosition.left = hostElPosition.left - targetElement.offsetWidth;
+                targetElPosition.left = hostElPosition.left - (targetElement.offsetWidth + parseFloat(targetElStyles.marginRight));
                 targetElPosition.right += hostElPosition.left - targetElement.offsetWidth;
                 break;
             case 'right':
@@ -25440,7 +28769,8 @@ var Positioning = (function () {
         targetElPosition.right = Math.round(targetElPosition.right);
         return targetElPosition;
     };
-    Positioning.prototype.getStyle = function (element, prop) { return window.getComputedStyle(element)[prop]; };
+    Positioning.prototype.getAllStyles = function (element) { return window.getComputedStyle(element); };
+    Positioning.prototype.getStyle = function (element, prop) { return this.getAllStyles(element)[prop]; };
     Positioning.prototype.isStaticPositioned = function (element) {
         return (this.getStyle(element, 'position') || 'static') === 'static';
     };
@@ -25453,6 +28783,7 @@ var Positioning = (function () {
     };
     return Positioning;
 }());
+
 var positionService = new Positioning();
 function positionElements(hostElement, targetElement, placement, appendToBody) {
     var pos = positionService.positionElements(hostElement, targetElement, placement, appendToBody);
@@ -25470,6 +28801,12 @@ function positionElements(hostElement, targetElement, placement, appendToBody) {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PositioningService; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ng_positioning__ = __webpack_require__("../../../../ngx-bootstrap/positioning/ng-positioning.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
 
 
 var PositioningService = (function () {
@@ -25489,13 +28826,12 @@ var PositioningService = (function () {
         }
         return element;
     };
-    PositioningService.decorators = [
-        { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"] },
-    ];
-    /** @nocollapse */
-    PositioningService.ctorParameters = function () { return []; };
+    PositioningService = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])()
+    ], PositioningService);
     return PositioningService;
 }());
+
 //# sourceMappingURL=positioning.service.js.map
 
 /***/ }),
@@ -25508,6 +28844,18 @@ var PositioningService = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__progress_directive__ = __webpack_require__("../../../../ngx-bootstrap/progressbar/progress.directive.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__utils_ng2_bootstrap_config__ = __webpack_require__("../../../../ngx-bootstrap/utils/ng2-bootstrap-config.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
 
 
 
@@ -25564,23 +28912,31 @@ var BarComponent = (function () {
             this.percent -= totalPercentage - 100;
         }
     };
-    BarComponent.decorators = [
-        { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"], args: [{
-                    selector: 'bar',
-                    template: "\n  <div class=\"progress-bar\"\n    style=\"min-width: 0;\"\n    role=\"progressbar\"\n    [ngClass]=\"type && 'progress-bar-' + type + ' bg-' + type\"\n    [ngStyle]=\"{width: (isBs3 ? (percent < 100 ? percent : 100) + '%' : '100%'), transition: transition}\"\n    aria-valuemin=\"0\"\n    [attr.aria-valuenow]=\"value\"\n    [attr.aria-valuetext]=\"percent.toFixed(0) + '%'\"\n    [attr.aria-valuemax]=\"max\"><ng-content></ng-content></div>\n"
-                },] },
-    ];
-    /** @nocollapse */
-    BarComponent.ctorParameters = function () { return [
-        { type: __WEBPACK_IMPORTED_MODULE_1__progress_directive__["a" /* ProgressDirective */], decorators: [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Host"] },] },
-    ]; };
-    BarComponent.propDecorators = {
-        'type': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'value': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'setBarWidth': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["HostBinding"], args: ['style.width.%',] },],
-    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", String)
+    ], BarComponent.prototype, "type", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Number),
+        __metadata("design:paramtypes", [Number])
+    ], BarComponent.prototype, "value", null);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["HostBinding"])('style.width.%'),
+        __metadata("design:type", Object),
+        __metadata("design:paramtypes", [])
+    ], BarComponent.prototype, "setBarWidth", null);
+    BarComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'bar',
+            template: "\n  <div class=\"progress-bar\"\n    style=\"min-width: 0;\"\n    role=\"progressbar\"\n    [ngClass]=\"type && 'progress-bar-' + type + ' bg-' + type\"\n    [ngStyle]=\"{width: (isBs3 ? (percent < 100 ? percent : 100) + '%' : '100%'), transition: transition}\"\n    aria-valuemin=\"0\"\n    [attr.aria-valuenow]=\"value\"\n    [attr.aria-valuetext]=\"percent.toFixed(0) + '%'\"\n    [attr.aria-valuemax]=\"max\"><ng-content></ng-content></div>\n"
+        }),
+        __param(0, Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Host"])()),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__progress_directive__["a" /* ProgressDirective */]])
+    ], BarComponent);
     return BarComponent;
 }());
+
 //# sourceMappingURL=bar.component.js.map
 
 /***/ }),
@@ -25614,6 +28970,15 @@ var BarComponent = (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ProgressDirective; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
 
 // todo: progress element conflict with bootstrap.css
 // todo: need hack: replace host element with div
@@ -25646,18 +29011,26 @@ var ProgressDirective = (function () {
     ProgressDirective.prototype.removeBar = function (bar) {
         this.bars.splice(this.bars.indexOf(bar), 1);
     };
-    ProgressDirective.decorators = [
-        { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Directive"], args: [{ selector: 'bs-progress, [progress]' },] },
-    ];
-    /** @nocollapse */
-    ProgressDirective.ctorParameters = function () { return []; };
-    ProgressDirective.propDecorators = {
-        'animate': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'max': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["HostBinding"], args: ['attr.max',] }, { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'addClass': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["HostBinding"], args: ['class.progress',] },],
-    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Boolean)
+    ], ProgressDirective.prototype, "animate", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["HostBinding"])('attr.max'),
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Number),
+        __metadata("design:paramtypes", [Number])
+    ], ProgressDirective.prototype, "max", null);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["HostBinding"])('class.progress'),
+        __metadata("design:type", Boolean)
+    ], ProgressDirective.prototype, "addClass", void 0);
+    ProgressDirective = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Directive"])({ selector: 'bs-progress, [progress]' })
+    ], ProgressDirective);
     return ProgressDirective;
 }());
+
 //# sourceMappingURL=progress.directive.js.map
 
 /***/ }),
@@ -25670,6 +29043,15 @@ var ProgressDirective = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__progressbar_config__ = __webpack_require__("../../../../ngx-bootstrap/progressbar/progressbar.config.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__utils__ = __webpack_require__("../../../../ngx-bootstrap/utils/index.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
 
 
 
@@ -25695,25 +29077,34 @@ var ProgressbarComponent = (function () {
         enumerable: true,
         configurable: true
     });
-    ProgressbarComponent.decorators = [
-        { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"], args: [{
-                    selector: 'progressbar',
-                    template: "\n    <div progress [animate]=\"animate\" [max]=\"max\" [style.width]=\"!isBs3 ? '100%' : 'auto'\">\n      <bar [type]=\"type\" [value]=\"_value\" *ngIf=\"!isStacked\">\n          <ng-content></ng-content>\n      </bar>\n      <template [ngIf]=\"isStacked\">\n        <bar *ngFor=\"let item of _value\" [type]=\"item.type\" [value]=\"item.value\">{{item.label}}</bar>\n      </template>\n    </div>\n  ",
-                    styles: ["\n    :host {\n      width: 100%;\n    }\n  "]
-                },] },
-    ];
-    /** @nocollapse */
-    ProgressbarComponent.ctorParameters = function () { return [
-        { type: __WEBPACK_IMPORTED_MODULE_1__progressbar_config__["a" /* ProgressbarConfig */], },
-    ]; };
-    ProgressbarComponent.propDecorators = {
-        'animate': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'max': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'type': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'value': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Boolean)
+    ], ProgressbarComponent.prototype, "animate", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Number)
+    ], ProgressbarComponent.prototype, "max", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", String)
+    ], ProgressbarComponent.prototype, "type", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Object),
+        __metadata("design:paramtypes", [Object])
+    ], ProgressbarComponent.prototype, "value", null);
+    ProgressbarComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'progressbar',
+            template: "\n    <div progress [animate]=\"animate\" [max]=\"max\" [style.width]=\"!isBs3 ? '100%' : 'auto'\">\n      <bar [type]=\"type\" [value]=\"_value\" *ngIf=\"!isStacked\">\n          <ng-content></ng-content>\n      </bar>\n      <template [ngIf]=\"isStacked\">\n        <bar *ngFor=\"let item of _value\" [type]=\"item.type\" [value]=\"item.value\">{{item.label}}</bar>\n      </template>\n    </div>\n  ",
+            styles: ["\n    :host {\n      width: 100%;\n    }\n  "]
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__progressbar_config__["a" /* ProgressbarConfig */]])
+    ], ProgressbarComponent);
     return ProgressbarComponent;
 }());
+
 //# sourceMappingURL=progressbar.component.js.map
 
 /***/ }),
@@ -25724,6 +29115,12 @@ var ProgressbarComponent = (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ProgressbarConfig; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
 
 var ProgressbarConfig = (function () {
     function ProgressbarConfig() {
@@ -25732,13 +29129,12 @@ var ProgressbarConfig = (function () {
         /** maximum total value of progress element */
         this.max = 100;
     }
-    ProgressbarConfig.decorators = [
-        { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"] },
-    ];
-    /** @nocollapse */
-    ProgressbarConfig.ctorParameters = function () { return []; };
+    ProgressbarConfig = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])()
+    ], ProgressbarConfig);
     return ProgressbarConfig;
 }());
+
 //# sourceMappingURL=progressbar.config.js.map
 
 /***/ }),
@@ -25754,6 +29150,12 @@ var ProgressbarConfig = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__progress_directive__ = __webpack_require__("../../../../ngx-bootstrap/progressbar/progress.directive.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__progressbar_component__ = __webpack_require__("../../../../ngx-bootstrap/progressbar/progressbar.component.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__progressbar_config__ = __webpack_require__("../../../../ngx-bootstrap/progressbar/progressbar.config.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
 
 
 
@@ -25763,20 +29165,21 @@ var ProgressbarConfig = (function () {
 var ProgressbarModule = (function () {
     function ProgressbarModule() {
     }
+    ProgressbarModule_1 = ProgressbarModule;
     ProgressbarModule.forRoot = function () {
-        return { ngModule: ProgressbarModule, providers: [__WEBPACK_IMPORTED_MODULE_5__progressbar_config__["a" /* ProgressbarConfig */]] };
+        return { ngModule: ProgressbarModule_1, providers: [__WEBPACK_IMPORTED_MODULE_5__progressbar_config__["a" /* ProgressbarConfig */]] };
     };
-    ProgressbarModule.decorators = [
-        { type: __WEBPACK_IMPORTED_MODULE_1__angular_core__["NgModule"], args: [{
-                    imports: [__WEBPACK_IMPORTED_MODULE_0__angular_common__["b" /* CommonModule */]],
-                    declarations: [__WEBPACK_IMPORTED_MODULE_3__progress_directive__["a" /* ProgressDirective */], __WEBPACK_IMPORTED_MODULE_2__bar_component__["a" /* BarComponent */], __WEBPACK_IMPORTED_MODULE_4__progressbar_component__["a" /* ProgressbarComponent */]],
-                    exports: [__WEBPACK_IMPORTED_MODULE_3__progress_directive__["a" /* ProgressDirective */], __WEBPACK_IMPORTED_MODULE_2__bar_component__["a" /* BarComponent */], __WEBPACK_IMPORTED_MODULE_4__progressbar_component__["a" /* ProgressbarComponent */]]
-                },] },
-    ];
-    /** @nocollapse */
-    ProgressbarModule.ctorParameters = function () { return []; };
+    ProgressbarModule = ProgressbarModule_1 = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["NgModule"])({
+            imports: [__WEBPACK_IMPORTED_MODULE_0__angular_common__["b" /* CommonModule */]],
+            declarations: [__WEBPACK_IMPORTED_MODULE_3__progress_directive__["a" /* ProgressDirective */], __WEBPACK_IMPORTED_MODULE_2__bar_component__["a" /* BarComponent */], __WEBPACK_IMPORTED_MODULE_4__progressbar_component__["a" /* ProgressbarComponent */]],
+            exports: [__WEBPACK_IMPORTED_MODULE_3__progress_directive__["a" /* ProgressDirective */], __WEBPACK_IMPORTED_MODULE_2__bar_component__["a" /* BarComponent */], __WEBPACK_IMPORTED_MODULE_4__progressbar_component__["a" /* ProgressbarComponent */]]
+        })
+    ], ProgressbarModule);
     return ProgressbarModule;
+    var ProgressbarModule_1;
 }());
+
 //# sourceMappingURL=progressbar.module.js.map
 
 /***/ }),
@@ -25803,6 +29206,15 @@ var ProgressbarModule = (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return RatingComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__("../../../forms/@angular/forms.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
 
 
 var RATING_CONTROL_VALUE_ACCESSOR = {
@@ -25890,28 +29302,54 @@ var RatingComponent = (function () {
         }
         return result;
     };
-    RatingComponent.decorators = [
-        { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"], args: [{
-                    selector: 'rating',
-                    template: "\n    <span (mouseleave)=\"reset()\" (keydown)=\"onKeydown($event)\" tabindex=\"0\" role=\"slider\" aria-valuemin=\"0\" [attr.aria-valuemax]=\"range.length\" [attr.aria-valuenow]=\"value\">\n      <template ngFor let-r [ngForOf]=\"range\" let-index=\"index\">\n        <span class=\"sr-only\">({{ index < value ? '*' : ' ' }})</span>\n        <i (mouseenter)=\"enter(index + 1)\" (click)=\"rate(index + 1)\" class=\"glyphicon\" [ngClass]=\"index < value ? r.stateOn : r.stateOff\" [title]=\"r.title\" ></i>\n      </template>\n    </span>\n  ",
-                    providers: [RATING_CONTROL_VALUE_ACCESSOR]
-                },] },
-    ];
-    /** @nocollapse */
-    RatingComponent.ctorParameters = function () { return []; };
-    RatingComponent.propDecorators = {
-        'max': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'stateOn': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'stateOff': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'readonly': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'titles': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'ratingStates': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'onHover': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"] },],
-        'onLeave': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"] },],
-        'onKeydown': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["HostListener"], args: ['keydown', ['$event'],] },],
-    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Number)
+    ], RatingComponent.prototype, "max", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", String)
+    ], RatingComponent.prototype, "stateOn", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", String)
+    ], RatingComponent.prototype, "stateOff", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Boolean)
+    ], RatingComponent.prototype, "readonly", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Array)
+    ], RatingComponent.prototype, "titles", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Array)
+    ], RatingComponent.prototype, "ratingStates", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"])(),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"])
+    ], RatingComponent.prototype, "onHover", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"])(),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"])
+    ], RatingComponent.prototype, "onLeave", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["HostListener"])('keydown', ['$event']),
+        __metadata("design:type", Function),
+        __metadata("design:paramtypes", [Object]),
+        __metadata("design:returntype", void 0)
+    ], RatingComponent.prototype, "onKeydown", null);
+    RatingComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'rating',
+            template: "\n    <span (mouseleave)=\"reset()\" (keydown)=\"onKeydown($event)\" tabindex=\"0\" role=\"slider\" aria-valuemin=\"0\" [attr.aria-valuemax]=\"range.length\" [attr.aria-valuenow]=\"value\">\n      <template ngFor let-r [ngForOf]=\"range\" let-index=\"index\">\n        <span class=\"sr-only\">({{ index < value ? '*' : ' ' }})</span>\n        <i (mouseenter)=\"enter(index + 1)\" (click)=\"rate(index + 1)\" class=\"glyphicon\" [ngClass]=\"index < value ? r.stateOn : r.stateOff\" [title]=\"r.title\" ></i>\n      </template>\n    </span>\n  ",
+            providers: [RATING_CONTROL_VALUE_ACCESSOR]
+        })
+    ], RatingComponent);
     return RatingComponent;
 }());
+
 //# sourceMappingURL=rating.component.js.map
 
 /***/ }),
@@ -25924,29 +29362,36 @@ var RatingComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common__ = __webpack_require__("../../../common/@angular/common.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__rating_component__ = __webpack_require__("../../../../ngx-bootstrap/rating/rating.component.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
 
 
 
 var RatingModule = (function () {
     function RatingModule() {
     }
+    RatingModule_1 = RatingModule;
     RatingModule.forRoot = function () {
         return {
-            ngModule: RatingModule,
+            ngModule: RatingModule_1,
             providers: []
         };
     };
-    RatingModule.decorators = [
-        { type: __WEBPACK_IMPORTED_MODULE_1__angular_core__["NgModule"], args: [{
-                    imports: [__WEBPACK_IMPORTED_MODULE_0__angular_common__["b" /* CommonModule */]],
-                    declarations: [__WEBPACK_IMPORTED_MODULE_2__rating_component__["a" /* RatingComponent */]],
-                    exports: [__WEBPACK_IMPORTED_MODULE_2__rating_component__["a" /* RatingComponent */]]
-                },] },
-    ];
-    /** @nocollapse */
-    RatingModule.ctorParameters = function () { return []; };
+    RatingModule = RatingModule_1 = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["NgModule"])({
+            imports: [__WEBPACK_IMPORTED_MODULE_0__angular_common__["b" /* CommonModule */]],
+            declarations: [__WEBPACK_IMPORTED_MODULE_2__rating_component__["a" /* RatingComponent */]],
+            exports: [__WEBPACK_IMPORTED_MODULE_2__rating_component__["a" /* RatingComponent */]]
+        })
+    ], RatingModule);
     return RatingModule;
+    var RatingModule_1;
 }());
+
 //# sourceMappingURL=rating.module.js.map
 
 /***/ }),
@@ -25959,6 +29404,12 @@ var RatingModule = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Subject__ = __webpack_require__("../../../../rxjs/Subject.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Subject___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_Subject__);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
 
 
 var DraggableItemService = (function () {
@@ -25983,13 +29434,12 @@ var DraggableItemService = (function () {
     DraggableItemService.prototype.onCaptureItem = function () {
         return this.onCapture;
     };
-    DraggableItemService.decorators = [
-        { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"] },
-    ];
-    /** @nocollapse */
-    DraggableItemService.ctorParameters = function () { return []; };
+    DraggableItemService = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])()
+    ], DraggableItemService);
     return DraggableItemService;
 }());
+
 //# sourceMappingURL=draggable-item.service.js.map
 
 /***/ }),
@@ -26019,11 +29469,19 @@ var DraggableItemService = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__("../../../forms/@angular/forms.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__draggable_item_service__ = __webpack_require__("../../../../ngx-bootstrap/sortable/draggable-item.service.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
 
 
 
 /* tslint:disable */
-/* tslint:enable */
 var SortableComponent = (function () {
     function SortableComponent(transfer) {
         var _this = this;
@@ -26054,10 +29512,11 @@ var SortableComponent = (function () {
         this.onTouched = Function.prototype;
         this.onChanged = Function.prototype;
         this.transfer = transfer;
-        this.currentZoneIndex = SortableComponent.globalZoneIndex++;
+        this.currentZoneIndex = SortableComponent_1.globalZoneIndex++;
         this.transfer.onCaptureItem()
             .subscribe(function (item) { return _this.onDrop(item); });
     }
+    SortableComponent_1 = SortableComponent;
     Object.defineProperty(SortableComponent.prototype, "items", {
         get: function () {
             return this._items;
@@ -26162,38 +29621,73 @@ var SortableComponent = (function () {
         event.dataTransfer.setData('Text', 'placeholder');
     };
     SortableComponent.globalZoneIndex = 0;
-    SortableComponent.decorators = [
-        { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"], args: [{
-                    selector: 'bs-sortable',
-                    exportAs: 'bs-sortable',
-                    template: "\n<div\n    [ngClass]=\"wrapperClass\"\n    [ngStyle]=\"wrapperStyle\"\n    [ngStyle]=\"wrapperStyle\"\n    (dragover)=\"cancelEvent($event)\"\n    (dragenter)=\"cancelEvent($event)\"\n    (drop)=\"resetActiveItem($event)\"\n    (mouseleave)=\"resetActiveItem($event)\">\n  <div\n        *ngIf=\"showPlaceholder\"\n        [ngClass]=\"placeholderClass\"\n        [ngStyle]=\"placeholderStyle\"\n        (dragover)=\"onItemDragover($event, 0)\"\n        (dragenter)=\"cancelEvent($event)\"\n    >{{placeholderItem}}</div>\n    <div\n        *ngFor=\"let item of items; let i=index;\"\n        [ngClass]=\"[ itemClass, i === activeItem ? itemActiveClass : '' ]\"\n        [ngStyle]=\"getItemStyle(i === activeItem)\"\n        draggable=\"true\"\n        (dragstart)=\"onItemDragstart($event, item, i)\"\n        (dragend)=\"resetActiveItem($event)\"\n        (dragover)=\"onItemDragover($event, i)\"\n        (dragenter)=\"cancelEvent($event)\"\n    ><template [ngTemplateOutlet]=\"itemTemplate || defItemTemplate\"\n  [ngOutletContext]=\"{item:item, index: i}\"></template></div>\n</div>\n\n<template #defItemTemplate let-item=\"item\">{{item.value}}</template>  \n",
-                    providers: [{
-                            provide: __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* NG_VALUE_ACCESSOR */],
-                            useExisting: Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["forwardRef"])(function () { return SortableComponent; }),
-                            multi: true
-                        }],
-                },] },
-    ];
-    /** @nocollapse */
-    SortableComponent.ctorParameters = function () { return [
-        { type: __WEBPACK_IMPORTED_MODULE_2__draggable_item_service__["a" /* DraggableItemService */], },
-    ]; };
-    SortableComponent.propDecorators = {
-        'fieldName': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'wrapperClass': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'wrapperStyle': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'itemClass': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'itemStyle': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'itemActiveClass': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'itemActiveStyle': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'placeholderClass': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'placeholderStyle': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'placeholderItem': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'itemTemplate': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'onChange': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"] },],
-    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", String)
+    ], SortableComponent.prototype, "fieldName", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", String)
+    ], SortableComponent.prototype, "wrapperClass", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Object)
+    ], SortableComponent.prototype, "wrapperStyle", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", String)
+    ], SortableComponent.prototype, "itemClass", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Object)
+    ], SortableComponent.prototype, "itemStyle", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", String)
+    ], SortableComponent.prototype, "itemActiveClass", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Object)
+    ], SortableComponent.prototype, "itemActiveStyle", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", String)
+    ], SortableComponent.prototype, "placeholderClass", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Object)
+    ], SortableComponent.prototype, "placeholderStyle", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", String)
+    ], SortableComponent.prototype, "placeholderItem", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["TemplateRef"])
+    ], SortableComponent.prototype, "itemTemplate", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"])(),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"])
+    ], SortableComponent.prototype, "onChange", void 0);
+    SortableComponent = SortableComponent_1 = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'bs-sortable',
+            exportAs: 'bs-sortable',
+            template: "\n<div\n    [ngClass]=\"wrapperClass\"\n    [ngStyle]=\"wrapperStyle\"\n    [ngStyle]=\"wrapperStyle\"\n    (dragover)=\"cancelEvent($event)\"\n    (dragenter)=\"cancelEvent($event)\"\n    (drop)=\"resetActiveItem($event)\"\n    (mouseleave)=\"resetActiveItem($event)\">\n  <div\n        *ngIf=\"showPlaceholder\"\n        [ngClass]=\"placeholderClass\"\n        [ngStyle]=\"placeholderStyle\"\n        (dragover)=\"onItemDragover($event, 0)\"\n        (dragenter)=\"cancelEvent($event)\"\n    >{{placeholderItem}}</div>\n    <div\n        *ngFor=\"let item of items; let i=index;\"\n        [ngClass]=\"[ itemClass, i === activeItem ? itemActiveClass : '' ]\"\n        [ngStyle]=\"getItemStyle(i === activeItem)\"\n        draggable=\"true\"\n        (dragstart)=\"onItemDragstart($event, item, i)\"\n        (dragend)=\"resetActiveItem($event)\"\n        (dragover)=\"onItemDragover($event, i)\"\n        (dragenter)=\"cancelEvent($event)\"\n    ><template [ngTemplateOutlet]=\"itemTemplate || defItemTemplate\"\n  [ngOutletContext]=\"{item:item, index: i}\"></template></div>\n</div>\n\n<template #defItemTemplate let-item=\"item\">{{item.value}}</template>  \n",
+            providers: [{
+                    provide: __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* NG_VALUE_ACCESSOR */],
+                    useExisting: Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["forwardRef"])(function () { return SortableComponent_1; }),
+                    multi: true
+                }],
+        })
+        /* tslint:enable */
+        ,
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__draggable_item_service__["a" /* DraggableItemService */]])
+    ], SortableComponent);
     return SortableComponent;
+    var SortableComponent_1;
 }());
+
 //# sourceMappingURL=sortable.component.js.map
 
 /***/ }),
@@ -26207,6 +29701,12 @@ var SortableComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__("../../../common/@angular/common.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__sortable_component__ = __webpack_require__("../../../../ngx-bootstrap/sortable/sortable.component.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__draggable_item_service__ = __webpack_require__("../../../../ngx-bootstrap/sortable/draggable-item.service.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
 
 
 
@@ -26214,20 +29714,21 @@ var SortableComponent = (function () {
 var SortableModule = (function () {
     function SortableModule() {
     }
+    SortableModule_1 = SortableModule;
     SortableModule.forRoot = function () {
-        return { ngModule: SortableModule, providers: [__WEBPACK_IMPORTED_MODULE_3__draggable_item_service__["a" /* DraggableItemService */]] };
+        return { ngModule: SortableModule_1, providers: [__WEBPACK_IMPORTED_MODULE_3__draggable_item_service__["a" /* DraggableItemService */]] };
     };
-    SortableModule.decorators = [
-        { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"], args: [{
-                    declarations: [__WEBPACK_IMPORTED_MODULE_2__sortable_component__["a" /* SortableComponent */]],
-                    imports: [__WEBPACK_IMPORTED_MODULE_1__angular_common__["b" /* CommonModule */]],
-                    exports: [__WEBPACK_IMPORTED_MODULE_2__sortable_component__["a" /* SortableComponent */]]
-                },] },
-    ];
-    /** @nocollapse */
-    SortableModule.ctorParameters = function () { return []; };
+    SortableModule = SortableModule_1 = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
+            declarations: [__WEBPACK_IMPORTED_MODULE_2__sortable_component__["a" /* SortableComponent */]],
+            imports: [__WEBPACK_IMPORTED_MODULE_1__angular_common__["b" /* CommonModule */]],
+            exports: [__WEBPACK_IMPORTED_MODULE_2__sortable_component__["a" /* SortableComponent */]]
+        })
+    ], SortableModule);
     return SortableModule;
+    var SortableModule_1;
 }());
+
 //# sourceMappingURL=sortable.module.js.map
 
 /***/ }),
@@ -26264,6 +29765,15 @@ var SortableModule = (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return NgTranscludeDirective; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
 
 var NgTranscludeDirective = (function () {
     function NgTranscludeDirective(viewRef) {
@@ -26282,20 +29792,20 @@ var NgTranscludeDirective = (function () {
         enumerable: true,
         configurable: true
     });
-    NgTranscludeDirective.decorators = [
-        { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Directive"], args: [{
-                    selector: '[ngTransclude]'
-                },] },
-    ];
-    /** @nocollapse */
-    NgTranscludeDirective.ctorParameters = function () { return [
-        { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewContainerRef"], },
-    ]; };
-    NgTranscludeDirective.propDecorators = {
-        'ngTransclude': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["TemplateRef"]),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_core__["TemplateRef"]])
+    ], NgTranscludeDirective.prototype, "ngTransclude", null);
+    NgTranscludeDirective = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Directive"])({
+            selector: '[ngTransclude]'
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewContainerRef"]])
+    ], NgTranscludeDirective);
     return NgTranscludeDirective;
 }());
+
 //# sourceMappingURL=ng-transclude.directive.js.map
 
 /***/ }),
@@ -26307,6 +29817,15 @@ var NgTranscludeDirective = (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TabHeadingDirective; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__tab_directive__ = __webpack_require__("../../../../ngx-bootstrap/tabs/tab.directive.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
 
 
 /** Should be used to mark <template> element as a template for tab heading */
@@ -26314,16 +29833,13 @@ var TabHeadingDirective = (function () {
     function TabHeadingDirective(templateRef, tab) {
         tab.headingRef = templateRef;
     }
-    TabHeadingDirective.decorators = [
-        { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Directive"], args: [{ selector: '[tabHeading]' },] },
-    ];
-    /** @nocollapse */
-    TabHeadingDirective.ctorParameters = function () { return [
-        { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["TemplateRef"], },
-        { type: __WEBPACK_IMPORTED_MODULE_1__tab_directive__["a" /* TabDirective */], },
-    ]; };
+    TabHeadingDirective = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Directive"])({ selector: '[tabHeading]' }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_core__["TemplateRef"], __WEBPACK_IMPORTED_MODULE_1__tab_directive__["a" /* TabDirective */]])
+    ], TabHeadingDirective);
     return TabHeadingDirective;
 }());
+
 //# sourceMappingURL=tab-heading.directive.js.map
 
 /***/ }),
@@ -26335,6 +29851,15 @@ var TabHeadingDirective = (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TabDirective; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__tabset_component__ = __webpack_require__("../../../../ngx-bootstrap/tabs/tabset.component.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
 
 
 var TabDirective = (function () {
@@ -26375,11 +29900,14 @@ var TabDirective = (function () {
         },
         set: function (active) {
             var _this = this;
+            if (this._active === active) {
+                return;
+            }
             if (this.disabled && active || !active) {
-                if (!active) {
+                if (this._active && !active) {
+                    this.deselect.emit(this);
                     this._active = active;
                 }
-                this.deselect.emit(this);
                 return;
             }
             this._active = active;
@@ -26399,29 +29927,56 @@ var TabDirective = (function () {
     TabDirective.prototype.ngOnDestroy = function () {
         this.tabset.removeTab(this, { reselect: false, emit: false });
     };
-    TabDirective.decorators = [
-        { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Directive"], args: [{ selector: 'tab, [tab]' },] },
-    ];
-    /** @nocollapse */
-    TabDirective.ctorParameters = function () { return [
-        { type: __WEBPACK_IMPORTED_MODULE_1__tabset_component__["a" /* TabsetComponent */], },
-        { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"], },
-        { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Renderer"], },
-    ]; };
-    TabDirective.propDecorators = {
-        'heading': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'id': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'disabled': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'removable': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'customClass': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'active': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["HostBinding"], args: ['class.active',] }, { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'select': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"] },],
-        'deselect': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"] },],
-        'removed': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"] },],
-        'addClass': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["HostBinding"], args: ['class.tab-pane',] },],
-    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", String)
+    ], TabDirective.prototype, "heading", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", String)
+    ], TabDirective.prototype, "id", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Boolean)
+    ], TabDirective.prototype, "disabled", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Boolean)
+    ], TabDirective.prototype, "removable", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", String),
+        __metadata("design:paramtypes", [String])
+    ], TabDirective.prototype, "customClass", null);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["HostBinding"])('class.active'),
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Boolean),
+        __metadata("design:paramtypes", [Boolean])
+    ], TabDirective.prototype, "active", null);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"])(),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"])
+    ], TabDirective.prototype, "select", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"])(),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"])
+    ], TabDirective.prototype, "deselect", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"])(),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"])
+    ], TabDirective.prototype, "removed", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["HostBinding"])('class.tab-pane'),
+        __metadata("design:type", Boolean)
+    ], TabDirective.prototype, "addClass", void 0);
+    TabDirective = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Directive"])({ selector: 'tab, [tab]' }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__tabset_component__["a" /* TabsetComponent */], __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"], __WEBPACK_IMPORTED_MODULE_0__angular_core__["Renderer"]])
+    ], TabDirective);
     return TabDirective;
 }());
+
 //# sourceMappingURL=tab.directive.js.map
 
 /***/ }),
@@ -26438,6 +29993,12 @@ var TabDirective = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__tab_directive__ = __webpack_require__("../../../../ngx-bootstrap/tabs/tab.directive.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__tabset_component__ = __webpack_require__("../../../../ngx-bootstrap/tabs/tabset.component.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__tabset_config__ = __webpack_require__("../../../../ngx-bootstrap/tabs/tabset.config.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
 
 
 
@@ -26448,23 +30009,24 @@ var TabDirective = (function () {
 var TabsModule = (function () {
     function TabsModule() {
     }
+    TabsModule_1 = TabsModule;
     TabsModule.forRoot = function () {
         return {
-            ngModule: TabsModule,
+            ngModule: TabsModule_1,
             providers: [__WEBPACK_IMPORTED_MODULE_6__tabset_config__["a" /* TabsetConfig */]]
         };
     };
-    TabsModule.decorators = [
-        { type: __WEBPACK_IMPORTED_MODULE_1__angular_core__["NgModule"], args: [{
-                    imports: [__WEBPACK_IMPORTED_MODULE_0__angular_common__["b" /* CommonModule */]],
-                    declarations: [__WEBPACK_IMPORTED_MODULE_2__ng_transclude_directive__["a" /* NgTranscludeDirective */], __WEBPACK_IMPORTED_MODULE_4__tab_directive__["a" /* TabDirective */], __WEBPACK_IMPORTED_MODULE_5__tabset_component__["a" /* TabsetComponent */], __WEBPACK_IMPORTED_MODULE_3__tab_heading_directive__["a" /* TabHeadingDirective */]],
-                    exports: [__WEBPACK_IMPORTED_MODULE_4__tab_directive__["a" /* TabDirective */], __WEBPACK_IMPORTED_MODULE_5__tabset_component__["a" /* TabsetComponent */], __WEBPACK_IMPORTED_MODULE_3__tab_heading_directive__["a" /* TabHeadingDirective */], __WEBPACK_IMPORTED_MODULE_2__ng_transclude_directive__["a" /* NgTranscludeDirective */]]
-                },] },
-    ];
-    /** @nocollapse */
-    TabsModule.ctorParameters = function () { return []; };
+    TabsModule = TabsModule_1 = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["NgModule"])({
+            imports: [__WEBPACK_IMPORTED_MODULE_0__angular_common__["b" /* CommonModule */]],
+            declarations: [__WEBPACK_IMPORTED_MODULE_2__ng_transclude_directive__["a" /* NgTranscludeDirective */], __WEBPACK_IMPORTED_MODULE_4__tab_directive__["a" /* TabDirective */], __WEBPACK_IMPORTED_MODULE_5__tabset_component__["a" /* TabsetComponent */], __WEBPACK_IMPORTED_MODULE_3__tab_heading_directive__["a" /* TabHeadingDirective */]],
+            exports: [__WEBPACK_IMPORTED_MODULE_4__tab_directive__["a" /* TabDirective */], __WEBPACK_IMPORTED_MODULE_5__tabset_component__["a" /* TabsetComponent */], __WEBPACK_IMPORTED_MODULE_3__tab_heading_directive__["a" /* TabHeadingDirective */], __WEBPACK_IMPORTED_MODULE_2__ng_transclude_directive__["a" /* NgTranscludeDirective */]]
+        })
+    ], TabsModule);
     return TabsModule;
+    var TabsModule_1;
 }());
+
 //# sourceMappingURL=tabs.module.js.map
 
 /***/ }),
@@ -26476,6 +30038,15 @@ var TabsModule = (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TabsetComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__tabset_config__ = __webpack_require__("../../../../ngx-bootstrap/tabs/tabset.config.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
 
 
 // todo: add active event to tab
@@ -26581,31 +30152,42 @@ var TabsetComponent = (function () {
     TabsetComponent.prototype.setClassMap = function () {
         this.classMap = (_a = {
                 'nav-stacked': this.vertical,
+                'flex-column': this.vertical,
                 'nav-justified': this.justified
             },
             _a["nav-" + this.type] = true,
-            _a
-        );
+            _a);
         var _a;
     };
-    TabsetComponent.decorators = [
-        { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"], args: [{
-                    selector: 'tabset',
-                    template: "\n    <ul class=\"nav\" [ngClass]=\"classMap\" (click)=\"$event.preventDefault()\">\n        <li *ngFor=\"let tabz of tabs\" [ngClass]=\"['nav-item', tabz.customClass || '']\"\n          [class.active]=\"tabz.active\" [class.disabled]=\"tabz.disabled\">\n          <a href=\"javascript:void(0);\" class=\"nav-link\"\n            [class.active]=\"tabz.active\" [class.disabled]=\"tabz.disabled\"\n            (click)=\"tabz.active = true\">\n            <span [ngTransclude]=\"tabz.headingRef\">{{tabz.heading}}</span>\n            <span *ngIf=\"tabz.removable\">\n              <span (click)=\"$event.preventDefault(); removeTab(tabz);\" class=\"glyphicon glyphicon-remove-circle\"></span>\n            </span>\n          </a>\n        </li>\n    </ul>\n    <div class=\"tab-content\">\n      <ng-content></ng-content>\n    </div>\n  "
-                },] },
-    ];
-    /** @nocollapse */
-    TabsetComponent.ctorParameters = function () { return [
-        { type: __WEBPACK_IMPORTED_MODULE_1__tabset_config__["a" /* TabsetConfig */], },
-    ]; };
-    TabsetComponent.propDecorators = {
-        'vertical': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'justified': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'type': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'clazz': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["HostBinding"], args: ['class.tab-container',] },],
-    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Boolean),
+        __metadata("design:paramtypes", [Boolean])
+    ], TabsetComponent.prototype, "vertical", null);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Boolean),
+        __metadata("design:paramtypes", [Boolean])
+    ], TabsetComponent.prototype, "justified", null);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", String),
+        __metadata("design:paramtypes", [String])
+    ], TabsetComponent.prototype, "type", null);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["HostBinding"])('class.tab-container'),
+        __metadata("design:type", Boolean)
+    ], TabsetComponent.prototype, "clazz", void 0);
+    TabsetComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'tabset',
+            template: "\n    <ul class=\"nav\" [ngClass]=\"classMap\" (click)=\"$event.preventDefault()\">\n        <li *ngFor=\"let tabz of tabs\" [ngClass]=\"['nav-item', tabz.customClass || '']\"\n          [class.active]=\"tabz.active\" [class.disabled]=\"tabz.disabled\">\n          <a href=\"javascript:void(0);\" class=\"nav-link\"\n            [class.active]=\"tabz.active\" [class.disabled]=\"tabz.disabled\"\n            (click)=\"tabz.active = true\">\n            <span [ngTransclude]=\"tabz.headingRef\">{{tabz.heading}}</span>\n            <span *ngIf=\"tabz.removable\">\n              <span (click)=\"$event.preventDefault(); removeTab(tabz);\" class=\"glyphicon glyphicon-remove-circle\"></span>\n            </span>\n          </a>\n        </li>\n    </ul>\n    <div class=\"tab-content\">\n      <ng-content></ng-content>\n    </div>\n  "
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__tabset_config__["a" /* TabsetConfig */]])
+    ], TabsetComponent);
     return TabsetComponent;
 }());
+
 //# sourceMappingURL=tabset.component.js.map
 
 /***/ }),
@@ -26616,19 +30198,24 @@ var TabsetComponent = (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TabsetConfig; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
 
 var TabsetConfig = (function () {
     function TabsetConfig() {
         /** provides default navigation context class: 'tabs' or 'pills' */
         this.type = 'tabs';
     }
-    TabsetConfig.decorators = [
-        { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"] },
-    ];
-    /** @nocollapse */
-    TabsetConfig.ctorParameters = function () { return []; };
+    TabsetConfig = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])()
+    ], TabsetConfig);
     return TabsetConfig;
 }());
+
 //# sourceMappingURL=tabset.config.js.map
 
 /***/ }),
@@ -26662,43 +30249,50 @@ var TabsetConfig = (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TimepickerActions; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
 
 var TimepickerActions = (function () {
     function TimepickerActions() {
     }
+    TimepickerActions_1 = TimepickerActions;
     TimepickerActions.prototype.writeValue = function (value) {
         return {
-            type: TimepickerActions.WRITE_VALUE,
+            type: TimepickerActions_1.WRITE_VALUE,
             payload: value
         };
     };
     TimepickerActions.prototype.changeHours = function (event) {
         return {
-            type: TimepickerActions.CHANGE_HOURS,
+            type: TimepickerActions_1.CHANGE_HOURS,
             payload: event
         };
     };
     TimepickerActions.prototype.changeMinutes = function (event) {
         return {
-            type: TimepickerActions.CHANGE_MINUTES,
+            type: TimepickerActions_1.CHANGE_MINUTES,
             payload: event
         };
     };
     TimepickerActions.prototype.changeSeconds = function (event) {
         return {
-            type: TimepickerActions.CHANGE_SECONDS,
+            type: TimepickerActions_1.CHANGE_SECONDS,
             payload: event
         };
     };
     TimepickerActions.prototype.setTime = function (value) {
         return {
-            type: TimepickerActions.SET_TIME_UNIT,
+            type: TimepickerActions_1.SET_TIME_UNIT,
             payload: value
         };
     };
     TimepickerActions.prototype.updateControls = function (value) {
         return {
-            type: TimepickerActions.UPDATE_CONTROLS,
+            type: TimepickerActions_1.UPDATE_CONTROLS,
             payload: value
         };
     };
@@ -26708,13 +30302,13 @@ var TimepickerActions = (function () {
     TimepickerActions.CHANGE_SECONDS = '[timepicker] change seconds';
     TimepickerActions.SET_TIME_UNIT = '[timepicker] set time unit';
     TimepickerActions.UPDATE_CONTROLS = '[timepicker] update controls';
-    TimepickerActions.decorators = [
-        { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"] },
-    ];
-    /** @nocollapse */
-    TimepickerActions.ctorParameters = function () { return []; };
+    TimepickerActions = TimepickerActions_1 = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])()
+    ], TimepickerActions);
     return TimepickerActions;
+    var TimepickerActions_1;
 }());
+
 //# sourceMappingURL=timepicker.actions.js.map
 
 /***/ }),
@@ -26739,7 +30333,9 @@ var TimepickerState = (function () {
     }
     return TimepickerState;
 }());
+
 var initialState = {
+    value: null,
     config: new __WEBPACK_IMPORTED_MODULE_1__timepicker_config__["a" /* TimepickerConfig */](),
     controls: {
         canIncrementHours: true,
@@ -26789,10 +30385,15 @@ function timepickerReducer(state, action) {
         }
         case (__WEBPACK_IMPORTED_MODULE_3__timepicker_actions__["a" /* TimepickerActions */].UPDATE_CONTROLS): {
             var _newControlsState = Object(__WEBPACK_IMPORTED_MODULE_0__timepicker_controls_util__["f" /* timepickerControls */])(state.value, action.payload);
-            return Object.assign({}, state, {
+            var _newState = {
+                value: state.value,
                 config: action.payload,
                 controls: _newControlsState
-            });
+            };
+            if (state.config.showMeridian !== _newState.config.showMeridian) {
+                _newState.value = new Date(state.value);
+            }
+            return Object.assign({}, state, _newState);
         }
         default:
             return state;
@@ -26813,10 +30414,24 @@ function timepickerReducer(state, action) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_BehaviorSubject___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_BehaviorSubject__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__mini_ngrx_store_class__ = __webpack_require__("../../../../ngx-bootstrap/mini-ngrx/store.class.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__mini_ngrx_state_class__ = __webpack_require__("../../../../ngx-bootstrap/mini-ngrx/state.class.js");
-var __extends = (this && this.__extends) || function (d, b) {
-    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-    function __() { this.constructor = d; }
-    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
 
@@ -26826,17 +30441,19 @@ var __extends = (this && this.__extends) || function (d, b) {
 var TimepickerStore = (function (_super) {
     __extends(TimepickerStore, _super);
     function TimepickerStore() {
+        var _this = this;
         var _dispatcher = new __WEBPACK_IMPORTED_MODULE_2_rxjs_BehaviorSubject__["BehaviorSubject"]({ type: '[mini-ngrx] dispatcher init' });
         var state = new __WEBPACK_IMPORTED_MODULE_4__mini_ngrx_state_class__["a" /* MiniState */](__WEBPACK_IMPORTED_MODULE_1__timepicker_reducer__["a" /* initialState */], _dispatcher, __WEBPACK_IMPORTED_MODULE_1__timepicker_reducer__["b" /* timepickerReducer */]);
-        _super.call(this, _dispatcher, __WEBPACK_IMPORTED_MODULE_1__timepicker_reducer__["b" /* timepickerReducer */], state);
+        _this = _super.call(this, _dispatcher, __WEBPACK_IMPORTED_MODULE_1__timepicker_reducer__["b" /* timepickerReducer */], state) || this;
+        return _this;
     }
-    TimepickerStore.decorators = [
-        { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"] },
-    ];
-    /** @nocollapse */
-    TimepickerStore.ctorParameters = function () { return []; };
+    TimepickerStore = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
+        __metadata("design:paramtypes", [])
+    ], TimepickerStore);
     return TimepickerStore;
 }(__WEBPACK_IMPORTED_MODULE_3__mini_ngrx_store_class__["a" /* MiniStore */]));
+
 //# sourceMappingURL=timepicker.store.js.map
 
 /***/ }),
@@ -26969,6 +30586,16 @@ function timepickerControls(value, state) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__timepicker_controls_util__ = __webpack_require__("../../../../ngx-bootstrap/timepicker/timepicker-controls.util.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__timepicker_config__ = __webpack_require__("../../../../ngx-bootstrap/timepicker/timepicker.config.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__timepicker_utils__ = __webpack_require__("../../../../ngx-bootstrap/timepicker/timepicker.utils.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+/* tslint:disable:no-forward-ref max-file-line-count */
 
 
 
@@ -27130,38 +30757,73 @@ var TimepickerComponent = (function () {
         this.minutes = Object(__WEBPACK_IMPORTED_MODULE_6__timepicker_utils__["d" /* padNumber */])(_value.getMinutes());
         this.seconds = Object(__WEBPACK_IMPORTED_MODULE_6__timepicker_utils__["d" /* padNumber */])(_value.getUTCSeconds());
     };
-    TimepickerComponent.decorators = [
-        { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"], args: [{
-                    selector: 'timepicker',
-                    changeDetection: __WEBPACK_IMPORTED_MODULE_0__angular_core__["ChangeDetectionStrategy"].OnPush,
-                    providers: [TIMEPICKER_CONTROL_VALUE_ACCESSOR, __WEBPACK_IMPORTED_MODULE_3__reducer_timepicker_store__["a" /* TimepickerStore */]],
-                    template: "\n    <table>\n      <tbody>\n      <tr class=\"text-center\" [class.hidden]=\"!isSpinnersVisible\">\n        <!-- increment hours button-->\n        <td>\n          <a class=\"btn btn-link\" [class.disabled]=\"!canIncrementHours\"\n             (click)=\"changeHours(hourStep)\">\n            <span class=\"glyphicon glyphicon-chevron-up\"></span>\n          </a>\n        </td>\n        <!-- divider -->\n        <td>&nbsp;&nbsp;&nbsp;</td>\n        <!-- increment minutes button -->\n        <td>\n          <a class=\"btn btn-link\" [class.disabled]=\"!canIncrementMinutes\"\n             (click)=\"changeMinutes(minuteStep)\">\n            <span class=\"glyphicon glyphicon-chevron-up\"></span>\n          </a>\n        </td>\n        <!-- divider -->\n        <td *ngIf=\"showSeconds\">&nbsp;</td>\n        <!-- increment seconds button -->\n        <td *ngIf=\"showSeconds\">\n          <a class=\"btn btn-link\" [class.disabled]=\"!canIncrementSeconds\"\n             (click)=\"changeSeconds(secondsStep)\">\n            <span class=\"glyphicon glyphicon-chevron-up\"></span>\n          </a>\n        </td>\n        <!-- space between -->\n        <td>&nbsp;&nbsp;&nbsp;</td>\n        <!-- meridian placeholder-->\n        <td *ngIf=\"showMeridian\"></td>\n      </tr>\n      <tr>\n        <!-- hours -->\n        <td class=\"form-group\" [class.has-error]=\"invalidHours\">\n          <input type=\"text\" style=\"width:50px;\"\n                 class=\"form-control text-center\"\n                 placeholder=\"HH\"\n                 maxlength=\"2\"\n                 [readonly]=\"readonlyInput\"\n                 [value]=\"hours\"\n                 (wheel)=\"prevDef($event);changeHours(hourStep * wheelSign($event), 'wheel')\"\n                 (keydown.ArrowUp)=\"changeHours(hourStep, 'key')\"\n                 (keydown.ArrowDown)=\"changeHours(-hourStep, 'key')\"\n                 (change)=\"updateHours($event.target.value)\"></td>\n        <!-- divider -->\n        <td>&nbsp;:&nbsp;</td>\n        <!-- minutes -->\n        <td class=\"form-group\" [class.has-error]=\"invalidMinutes\">\n          <input style=\"width:50px;\" type=\"text\"\n                 class=\"form-control text-center\"\n                 placeholder=\"MM\"\n                 maxlength=\"2\"\n                 [readonly]=\"readonlyInput\"\n                 [value]=\"minutes\"\n                 (wheel)=\"prevDef($event);changeMinutes(minuteStep * wheelSign($event), 'wheel')\"\n                 (keydown.ArrowUp)=\"changeMinutes(minuteStep, 'key')\"\n                 (keydown.ArrowDown)=\"changeMinutes(-minuteStep, 'key')\"\n                 (change)=\"updateMinutes($event.target.value)\">\n        </td>\n        <!-- divider -->\n        <td *ngIf=\"showSeconds\">&nbsp;:&nbsp;</td>\n        <!-- seconds -->\n        <td class=\"form-group\" *ngIf=\"showSeconds\" [class.has-error]=\"invalidSeconds\">\n          <input style=\"width:50px;\" type=\"text\"\n                 class=\"form-control text-center\"\n                 placeholder=\"SS\"\n                 maxlength=\"2\"\n                 [readonly]=\"readonlyInput\"\n                 [value]=\"seconds\"\n                 (wheel)=\"prevDef($event);changeSeconds(secondsStep * wheelSign($event), 'wheel')\"\n                 (keydown.ArrowUp)=\"changeSeconds(secondsStep, 'key')\"\n                 (keydown.ArrowDown)=\"changeSeconds(-secondsStep, 'key')\"\n                 (change)=\"updateSeconds($event.target.value)\">\n        </td>\n        <!-- space between -->\n        <td>&nbsp;&nbsp;&nbsp;</td>\n        <!-- meridian -->\n        <td *ngIf=\"showMeridian\">\n          <button type=\"button\" class=\"btn btn-default text-center\"\n                  [disabled]=\"readonlyInput\"\n                  [class.disabled]=\"readonlyInput\"\n                  (click)=\"toggleMeridian()\">\n            {{meridian}}\n          </button>\n        </td>\n      </tr>\n      <tr class=\"text-center\" [class.hidden]=\"!isSpinnersVisible\">\n        <!-- decrement hours button-->\n        <td>\n          <a class=\"btn btn-link\" [class.disabled]=\"!canDecrementHours\" (click)=\"changeHours(-hourStep)\">\n            <span class=\"glyphicon glyphicon-chevron-down\"></span>\n          </a>\n        </td>\n        <!-- divider -->\n        <td>&nbsp;&nbsp;&nbsp;</td>\n        <!-- decrement minutes button-->\n        <td>\n          <a class=\"btn btn-link\" [class.disabled]=\"!canDecrementMinutes\" (click)=\"changeMinutes(-minuteStep)\">\n            <span class=\"glyphicon glyphicon-chevron-down\"></span>\n          </a>\n        </td>\n        <!-- divider -->\n        <td *ngIf=\"showSeconds\">&nbsp;</td>\n        <!-- decrement seconds button-->\n        <td *ngIf=\"showSeconds\">\n          <a class=\"btn btn-link\" [class.disabled]=\"!canDecrementSeconds\" (click)=\"changeSeconds(-secondsStep)\">\n            <span class=\"glyphicon glyphicon-chevron-down\"></span>\n          </a>\n        </td>\n        <!-- space between -->\n        <td>&nbsp;&nbsp;&nbsp;</td>\n        <!-- meridian placeholder-->\n        <td *ngIf=\"showMeridian\"></td>\n      </tr>\n      </tbody>\n    </table>\n  "
-                },] },
-    ];
-    /** @nocollapse */
-    TimepickerComponent.ctorParameters = function () { return [
-        { type: __WEBPACK_IMPORTED_MODULE_5__timepicker_config__["a" /* TimepickerConfig */], },
-        { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["ChangeDetectorRef"], },
-        { type: __WEBPACK_IMPORTED_MODULE_3__reducer_timepicker_store__["a" /* TimepickerStore */], },
-        { type: __WEBPACK_IMPORTED_MODULE_2__reducer_timepicker_actions__["a" /* TimepickerActions */], },
-    ]; };
-    TimepickerComponent.propDecorators = {
-        'hourStep': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'minuteStep': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'secondsStep': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'readonlyInput': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'mousewheel': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'arrowkeys': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'showSpinners': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'showMeridian': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'showSeconds': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'meridians': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'min': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'max': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'isValid': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"] },],
-    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Number)
+    ], TimepickerComponent.prototype, "hourStep", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Number)
+    ], TimepickerComponent.prototype, "minuteStep", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Number)
+    ], TimepickerComponent.prototype, "secondsStep", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Boolean)
+    ], TimepickerComponent.prototype, "readonlyInput", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Boolean)
+    ], TimepickerComponent.prototype, "mousewheel", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Boolean)
+    ], TimepickerComponent.prototype, "arrowkeys", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Boolean)
+    ], TimepickerComponent.prototype, "showSpinners", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Boolean)
+    ], TimepickerComponent.prototype, "showMeridian", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Boolean)
+    ], TimepickerComponent.prototype, "showSeconds", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Array)
+    ], TimepickerComponent.prototype, "meridians", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Date)
+    ], TimepickerComponent.prototype, "min", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Date)
+    ], TimepickerComponent.prototype, "max", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"])(),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"])
+    ], TimepickerComponent.prototype, "isValid", void 0);
+    TimepickerComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'timepicker',
+            changeDetection: __WEBPACK_IMPORTED_MODULE_0__angular_core__["ChangeDetectionStrategy"].OnPush,
+            providers: [TIMEPICKER_CONTROL_VALUE_ACCESSOR, __WEBPACK_IMPORTED_MODULE_3__reducer_timepicker_store__["a" /* TimepickerStore */]],
+            template: "\n    <table>\n      <tbody>\n      <tr class=\"text-center\" [class.hidden]=\"!isSpinnersVisible\">\n        <!-- increment hours button-->\n        <td>\n          <a class=\"btn btn-link\" [class.disabled]=\"!canIncrementHours\"\n             (click)=\"changeHours(hourStep)\"\n          ><span class=\"glyphicon glyphicon-chevron-up\"></span></a>\n        </td>\n        <!-- divider -->\n        <td>&nbsp;&nbsp;&nbsp;</td>\n        <!-- increment minutes button -->\n        <td>\n          <a class=\"btn btn-link\" [class.disabled]=\"!canIncrementMinutes\"\n             (click)=\"changeMinutes(minuteStep)\"\n          ><span class=\"glyphicon glyphicon-chevron-up\"></span></a>\n        </td>\n        <!-- divider -->\n        <td *ngIf=\"showSeconds\">&nbsp;</td>\n        <!-- increment seconds button -->\n        <td *ngIf=\"showSeconds\">\n          <a class=\"btn btn-link\" [class.disabled]=\"!canIncrementSeconds\"\n             (click)=\"changeSeconds(secondsStep)\">\n            <span class=\"glyphicon glyphicon-chevron-up\"></span>\n          </a>\n        </td>\n        <!-- space between -->\n        <td>&nbsp;&nbsp;&nbsp;</td>\n        <!-- meridian placeholder-->\n        <td *ngIf=\"showMeridian\"></td>\n      </tr>\n      <tr>\n        <!-- hours -->\n        <td class=\"form-group\" [class.has-error]=\"invalidHours\">\n          <input type=\"text\" style=\"width:50px;\"\n                 class=\"form-control text-center\"\n                 placeholder=\"HH\"\n                 maxlength=\"2\"\n                 [readonly]=\"readonlyInput\"\n                 [value]=\"hours\"\n                 (wheel)=\"prevDef($event);changeHours(hourStep * wheelSign($event), 'wheel')\"\n                 (keydown.ArrowUp)=\"changeHours(hourStep, 'key')\"\n                 (keydown.ArrowDown)=\"changeHours(-hourStep, 'key')\"\n                 (change)=\"updateHours($event.target.value)\"></td>\n        <!-- divider -->\n        <td>&nbsp;:&nbsp;</td>\n        <!-- minutes -->\n        <td class=\"form-group\" [class.has-error]=\"invalidMinutes\">\n          <input style=\"width:50px;\" type=\"text\"\n                 class=\"form-control text-center\"\n                 placeholder=\"MM\"\n                 maxlength=\"2\"\n                 [readonly]=\"readonlyInput\"\n                 [value]=\"minutes\"\n                 (wheel)=\"prevDef($event);changeMinutes(minuteStep * wheelSign($event), 'wheel')\"\n                 (keydown.ArrowUp)=\"changeMinutes(minuteStep, 'key')\"\n                 (keydown.ArrowDown)=\"changeMinutes(-minuteStep, 'key')\"\n                 (change)=\"updateMinutes($event.target.value)\">\n        </td>\n        <!-- divider -->\n        <td *ngIf=\"showSeconds\">&nbsp;:&nbsp;</td>\n        <!-- seconds -->\n        <td class=\"form-group\" *ngIf=\"showSeconds\" [class.has-error]=\"invalidSeconds\">\n          <input style=\"width:50px;\" type=\"text\"\n                 class=\"form-control text-center\"\n                 placeholder=\"SS\"\n                 maxlength=\"2\"\n                 [readonly]=\"readonlyInput\"\n                 [value]=\"seconds\"\n                 (wheel)=\"prevDef($event);changeSeconds(secondsStep * wheelSign($event), 'wheel')\"\n                 (keydown.ArrowUp)=\"changeSeconds(secondsStep, 'key')\"\n                 (keydown.ArrowDown)=\"changeSeconds(-secondsStep, 'key')\"\n                 (change)=\"updateSeconds($event.target.value)\">\n        </td>\n        <!-- space between -->\n        <td>&nbsp;&nbsp;&nbsp;</td>\n        <!-- meridian -->\n        <td *ngIf=\"showMeridian\">\n          <button type=\"button\" class=\"btn btn-default text-center\"\n                  [disabled]=\"readonlyInput\"\n                  [class.disabled]=\"readonlyInput\"\n                  (click)=\"toggleMeridian()\"\n          >{{ meridian }}\n          </button>\n        </td>\n      </tr>\n      <tr class=\"text-center\" [class.hidden]=\"!isSpinnersVisible\">\n        <!-- decrement hours button-->\n        <td>\n          <a class=\"btn btn-link\" [class.disabled]=\"!canDecrementHours\" (click)=\"changeHours(-hourStep)\">\n            <span class=\"glyphicon glyphicon-chevron-down\"></span>\n          </a>\n        </td>\n        <!-- divider -->\n        <td>&nbsp;&nbsp;&nbsp;</td>\n        <!-- decrement minutes button-->\n        <td>\n          <a class=\"btn btn-link\" [class.disabled]=\"!canDecrementMinutes\" (click)=\"changeMinutes(-minuteStep)\">\n            <span class=\"glyphicon glyphicon-chevron-down\"></span>\n          </a>\n        </td>\n        <!-- divider -->\n        <td *ngIf=\"showSeconds\">&nbsp;</td>\n        <!-- decrement seconds button-->\n        <td *ngIf=\"showSeconds\">\n          <a class=\"btn btn-link\" [class.disabled]=\"!canDecrementSeconds\" (click)=\"changeSeconds(-secondsStep)\">\n            <span class=\"glyphicon glyphicon-chevron-down\"></span>\n          </a>\n        </td>\n        <!-- space between -->\n        <td>&nbsp;&nbsp;&nbsp;</td>\n        <!-- meridian placeholder-->\n        <td *ngIf=\"showMeridian\"></td>\n      </tr>\n      </tbody>\n    </table>\n  "
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_5__timepicker_config__["a" /* TimepickerConfig */],
+            __WEBPACK_IMPORTED_MODULE_0__angular_core__["ChangeDetectorRef"],
+            __WEBPACK_IMPORTED_MODULE_3__reducer_timepicker_store__["a" /* TimepickerStore */],
+            __WEBPACK_IMPORTED_MODULE_2__reducer_timepicker_actions__["a" /* TimepickerActions */]])
+    ], TimepickerComponent);
     return TimepickerComponent;
 }());
+
 //# sourceMappingURL=timepicker.component.js.map
 
 /***/ }),
@@ -27172,6 +30834,12 @@ var TimepickerComponent = (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TimepickerConfig; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
 
 /** Provides default configuration values for timepicker */
 var TimepickerConfig = (function () {
@@ -27197,13 +30865,12 @@ var TimepickerConfig = (function () {
         /** show seconds in timepicker */
         this.showSeconds = false;
     }
-    TimepickerConfig.decorators = [
-        { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"] },
-    ];
-    /** @nocollapse */
-    TimepickerConfig.ctorParameters = function () { return []; };
+    TimepickerConfig = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])()
+    ], TimepickerConfig);
     return TimepickerConfig;
 }());
+
 //# sourceMappingURL=timepicker.config.js.map
 
 /***/ }),
@@ -27219,6 +30886,12 @@ var TimepickerConfig = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__reducer_timepicker_actions__ = __webpack_require__("../../../../ngx-bootstrap/timepicker/reducer/timepicker.actions.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__timepicker_config__ = __webpack_require__("../../../../ngx-bootstrap/timepicker/timepicker.config.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__reducer_timepicker_store__ = __webpack_require__("../../../../ngx-bootstrap/timepicker/reducer/timepicker.store.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
 
 
 
@@ -27228,23 +30901,24 @@ var TimepickerConfig = (function () {
 var TimepickerModule = (function () {
     function TimepickerModule() {
     }
+    TimepickerModule_1 = TimepickerModule;
     TimepickerModule.forRoot = function () {
         return {
-            ngModule: TimepickerModule,
+            ngModule: TimepickerModule_1,
             providers: [__WEBPACK_IMPORTED_MODULE_4__timepicker_config__["a" /* TimepickerConfig */], __WEBPACK_IMPORTED_MODULE_3__reducer_timepicker_actions__["a" /* TimepickerActions */], __WEBPACK_IMPORTED_MODULE_5__reducer_timepicker_store__["a" /* TimepickerStore */]]
         };
     };
-    TimepickerModule.decorators = [
-        { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"], args: [{
-                    imports: [__WEBPACK_IMPORTED_MODULE_1__angular_common__["b" /* CommonModule */]],
-                    declarations: [__WEBPACK_IMPORTED_MODULE_2__timepicker_component__["a" /* TimepickerComponent */]],
-                    exports: [__WEBPACK_IMPORTED_MODULE_2__timepicker_component__["a" /* TimepickerComponent */]]
-                },] },
-    ];
-    /** @nocollapse */
-    TimepickerModule.ctorParameters = function () { return []; };
+    TimepickerModule = TimepickerModule_1 = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
+            imports: [__WEBPACK_IMPORTED_MODULE_1__angular_common__["b" /* CommonModule */]],
+            declarations: [__WEBPACK_IMPORTED_MODULE_2__timepicker_component__["a" /* TimepickerComponent */]],
+            exports: [__WEBPACK_IMPORTED_MODULE_2__timepicker_component__["a" /* TimepickerComponent */]]
+        })
+    ], TimepickerModule);
     return TimepickerModule;
+    var TimepickerModule_1;
 }());
+
 //# sourceMappingURL=timepicker.module.js.map
 
 /***/ }),
@@ -27410,6 +31084,15 @@ function isInputValid(hours, minutes, seconds, isPM) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__tooltip_config__ = __webpack_require__("../../../../ngx-bootstrap/tooltip/tooltip.config.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__utils_ng2_bootstrap_config__ = __webpack_require__("../../../../ngx-bootstrap/utils/ng2-bootstrap-config.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
 
 
 
@@ -27436,25 +31119,43 @@ var TooltipContainerComponent = (function () {
             this.classMap[this.containerClass] = true;
         }
     };
-    TooltipContainerComponent.decorators = [
-        { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"], args: [{
-                    selector: 'bs-tooltip-container',
-                    changeDetection: __WEBPACK_IMPORTED_MODULE_0__angular_core__["ChangeDetectionStrategy"].OnPush,
-                    // tslint:disable-next-line
-                    host: {
-                        '[class]': '"tooltip in tooltip-" + placement + " " + placement + " " + containerClass',
-                        '[class.show]': '!isBs3',
-                        role: 'tooltip'
-                    },
-                    template: "\n    <div class=\"tooltip-arrow\"></div>\n    <div class=\"tooltip-inner\"><ng-content></ng-content></div>\n    "
-                },] },
-    ];
-    /** @nocollapse */
-    TooltipContainerComponent.ctorParameters = function () { return [
-        { type: __WEBPACK_IMPORTED_MODULE_1__tooltip_config__["a" /* TooltipConfig */], },
-    ]; };
+    TooltipContainerComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'bs-tooltip-container',
+            changeDetection: __WEBPACK_IMPORTED_MODULE_0__angular_core__["ChangeDetectionStrategy"].OnPush,
+            // tslint:disable-next-line
+            host: {
+                '[class]': '"tooltip in tooltip-" + placement + " " + "bs-tooltip-" + placement + " " + placement + " " + containerClass',
+                '[class.show]': '!isBs3',
+                role: 'tooltip'
+            },
+            styles: ["\n    :host.bs-tooltip-top .arrow, :host.bs-tooltip-bottom .arrow {\n      left: calc(50% - 2.5px);\n    }\n    :host.bs-tooltip-left .arrow, :host.bs-tooltip-right .arrow {\n      top: calc(50% - 2.5px);\n    }\n  "],
+            template: "\n    <div class=\"tooltip-arrow arrow\"></div>\n    <div class=\"tooltip-inner\"><ng-content></ng-content></div>\n    "
+            // template: `<div class="tooltip" role="tooltip"
+            //    [ngStyle]="{top: top, left: left, display: display}"
+            //    [ngClass]="classMap">
+            //     <div class="tooltip-arrow"></div>
+            //     <div class="tooltip-inner"
+            //          *ngIf="htmlContent && !isTemplate"
+            //          innerHtml="{{htmlContent}}">
+            //     </div>
+            //     <div class="tooltip-inner"
+            //          *ngIf="htmlContent && isTemplate">
+            //       <template [ngTemplateOutlet]="htmlContent"
+            //                 [ngOutletContext]="{model: context}">
+            //       </template>
+            //     </div>
+            //     <div class="tooltip-inner"
+            //          *ngIf="content">
+            //       {{content}}
+            //     </div>
+            //   </div>`
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__tooltip_config__["a" /* TooltipConfig */]])
+    ], TooltipContainerComponent);
     return TooltipContainerComponent;
 }());
+
 //# sourceMappingURL=tooltip-container.component.js.map
 
 /***/ }),
@@ -27465,6 +31166,12 @@ var TooltipContainerComponent = (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TooltipConfig; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
 
 /** Default values provider for tooltip */
 var TooltipConfig = (function () {
@@ -27474,13 +31181,12 @@ var TooltipConfig = (function () {
         /** array of event names which triggers tooltip opening */
         this.triggers = 'hover focus';
     }
-    TooltipConfig.decorators = [
-        { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"] },
-    ];
-    /** @nocollapse */
-    TooltipConfig.ctorParameters = function () { return []; };
+    TooltipConfig = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])()
+    ], TooltipConfig);
     return TooltipConfig;
 }());
+
 //# sourceMappingURL=tooltip.config.js.map
 
 /***/ }),
@@ -27706,50 +31412,118 @@ var TooltipDirective = (function () {
     TooltipDirective.prototype.ngOnDestroy = function () {
         this._tooltip.dispose();
     };
-    TooltipDirective.decorators = [
-        { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Directive"], args: [{
-                    selector: '[tooltip], [tooltipHtml]',
-                    exportAs: 'bs-tooltip'
-                },] },
-    ];
-    /** @nocollapse */
-    TooltipDirective.ctorParameters = function () { return [
-        { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewContainerRef"], },
-        { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Renderer"], },
-        { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"], },
-        { type: __WEBPACK_IMPORTED_MODULE_3__component_loader__["a" /* ComponentLoaderFactory */], },
-        { type: __WEBPACK_IMPORTED_MODULE_2__tooltip_config__["a" /* TooltipConfig */], },
-    ]; };
-    TooltipDirective.propDecorators = {
-        'tooltip': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'tooltipChange': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"] },],
-        'placement': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'triggers': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'container': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'isOpen': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'isDisabled': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'containerClass': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'onShown': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"] },],
-        'onHidden': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"] },],
-        'htmlContent': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"], args: ['tooltipHtml',] },],
-        '_placement': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"], args: ['tooltipPlacement',] },],
-        '_isOpen': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"], args: ['tooltipIsOpen',] },],
-        '_enable': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"], args: ['tooltipEnable',] },],
-        '_appendToBody': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"], args: ['tooltipAppendToBody',] },],
-        '_animation': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"], args: ['tooltipAnimation',] },],
-        '_popupClass': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"], args: ['tooltipClass',] },],
-        '_tooltipContext': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"], args: ['tooltipContext',] },],
-        '_delay': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"], args: ['tooltipPopupDelay',] },],
-        '_fadeDuration': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"], args: ['tooltipFadeDuration',] },],
-        '_tooltipTrigger': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"], args: ['tooltipTrigger',] },],
-        'tooltipStateChanged': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"] },],
-    };
     __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_4__utils_decorators__["a" /* OnChange */])(), 
-        __metadata('design:type', Object)
+        Object(__WEBPACK_IMPORTED_MODULE_4__utils_decorators__["a" /* OnChange */])(),
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Object)
     ], TooltipDirective.prototype, "tooltip", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"])(),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"])
+    ], TooltipDirective.prototype, "tooltipChange", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", String)
+    ], TooltipDirective.prototype, "placement", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", String)
+    ], TooltipDirective.prototype, "triggers", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", String)
+    ], TooltipDirective.prototype, "container", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Boolean),
+        __metadata("design:paramtypes", [Boolean])
+    ], TooltipDirective.prototype, "isOpen", null);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Boolean)
+    ], TooltipDirective.prototype, "isDisabled", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", String)
+    ], TooltipDirective.prototype, "containerClass", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"])(),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"])
+    ], TooltipDirective.prototype, "onShown", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"])(),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"])
+    ], TooltipDirective.prototype, "onHidden", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])('tooltipHtml'),
+        __metadata("design:type", Object),
+        __metadata("design:paramtypes", [Object])
+    ], TooltipDirective.prototype, "htmlContent", null);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])('tooltipPlacement'),
+        __metadata("design:type", String),
+        __metadata("design:paramtypes", [String])
+    ], TooltipDirective.prototype, "_placement", null);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])('tooltipIsOpen'),
+        __metadata("design:type", Boolean),
+        __metadata("design:paramtypes", [Boolean])
+    ], TooltipDirective.prototype, "_isOpen", null);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])('tooltipEnable'),
+        __metadata("design:type", Boolean),
+        __metadata("design:paramtypes", [Boolean])
+    ], TooltipDirective.prototype, "_enable", null);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])('tooltipAppendToBody'),
+        __metadata("design:type", Boolean),
+        __metadata("design:paramtypes", [Boolean])
+    ], TooltipDirective.prototype, "_appendToBody", null);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])('tooltipAnimation'),
+        __metadata("design:type", Boolean)
+    ], TooltipDirective.prototype, "_animation", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])('tooltipClass'),
+        __metadata("design:type", String),
+        __metadata("design:paramtypes", [String])
+    ], TooltipDirective.prototype, "_popupClass", null);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])('tooltipContext'),
+        __metadata("design:type", Object),
+        __metadata("design:paramtypes", [Object])
+    ], TooltipDirective.prototype, "_tooltipContext", null);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])('tooltipPopupDelay'),
+        __metadata("design:type", Number)
+    ], TooltipDirective.prototype, "_delay", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])('tooltipFadeDuration'),
+        __metadata("design:type", Number)
+    ], TooltipDirective.prototype, "_fadeDuration", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])('tooltipTrigger'),
+        __metadata("design:type", Object),
+        __metadata("design:paramtypes", [Object])
+    ], TooltipDirective.prototype, "_tooltipTrigger", null);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"])(),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"])
+    ], TooltipDirective.prototype, "tooltipStateChanged", void 0);
+    TooltipDirective = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Directive"])({
+            selector: '[tooltip], [tooltipHtml]',
+            exportAs: 'bs-tooltip'
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewContainerRef"],
+            __WEBPACK_IMPORTED_MODULE_0__angular_core__["Renderer"],
+            __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"],
+            __WEBPACK_IMPORTED_MODULE_3__component_loader__["a" /* ComponentLoaderFactory */],
+            __WEBPACK_IMPORTED_MODULE_2__tooltip_config__["a" /* TooltipConfig */]])
+    ], TooltipDirective);
     return TooltipDirective;
 }());
+
 //# sourceMappingURL=tooltip.directive.js.map
 
 /***/ }),
@@ -27766,6 +31540,12 @@ var TooltipDirective = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__tooltip_config__ = __webpack_require__("../../../../ngx-bootstrap/tooltip/tooltip.config.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__component_loader__ = __webpack_require__("../../../../ngx-bootstrap/component-loader/index.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__positioning__ = __webpack_require__("../../../../ngx-bootstrap/positioning/index.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
 
 
 
@@ -27776,25 +31556,26 @@ var TooltipDirective = (function () {
 var TooltipModule = (function () {
     function TooltipModule() {
     }
+    TooltipModule_1 = TooltipModule;
     TooltipModule.forRoot = function () {
         return {
-            ngModule: TooltipModule,
+            ngModule: TooltipModule_1,
             providers: [__WEBPACK_IMPORTED_MODULE_4__tooltip_config__["a" /* TooltipConfig */], __WEBPACK_IMPORTED_MODULE_5__component_loader__["a" /* ComponentLoaderFactory */], __WEBPACK_IMPORTED_MODULE_6__positioning__["a" /* PositioningService */]]
         };
     };
     ;
-    TooltipModule.decorators = [
-        { type: __WEBPACK_IMPORTED_MODULE_1__angular_core__["NgModule"], args: [{
-                    imports: [__WEBPACK_IMPORTED_MODULE_0__angular_common__["b" /* CommonModule */]],
-                    declarations: [__WEBPACK_IMPORTED_MODULE_3__tooltip_directive__["a" /* TooltipDirective */], __WEBPACK_IMPORTED_MODULE_2__tooltip_container_component__["a" /* TooltipContainerComponent */]],
-                    exports: [__WEBPACK_IMPORTED_MODULE_3__tooltip_directive__["a" /* TooltipDirective */]],
-                    entryComponents: [__WEBPACK_IMPORTED_MODULE_2__tooltip_container_component__["a" /* TooltipContainerComponent */]]
-                },] },
-    ];
-    /** @nocollapse */
-    TooltipModule.ctorParameters = function () { return []; };
+    TooltipModule = TooltipModule_1 = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["NgModule"])({
+            imports: [__WEBPACK_IMPORTED_MODULE_0__angular_common__["b" /* CommonModule */]],
+            declarations: [__WEBPACK_IMPORTED_MODULE_3__tooltip_directive__["a" /* TooltipDirective */], __WEBPACK_IMPORTED_MODULE_2__tooltip_container_component__["a" /* TooltipContainerComponent */]],
+            exports: [__WEBPACK_IMPORTED_MODULE_3__tooltip_directive__["a" /* TooltipDirective */]],
+            entryComponents: [__WEBPACK_IMPORTED_MODULE_2__tooltip_container_component__["a" /* TooltipContainerComponent */]]
+        })
+    ], TooltipModule);
     return TooltipModule;
+    var TooltipModule_1;
 }());
+
 //# sourceMappingURL=tooltip.module.js.map
 
 /***/ }),
@@ -28675,6 +32456,15 @@ var latinMap = {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__utils_ng2_bootstrap_config__ = __webpack_require__("../../../../ngx-bootstrap/utils/ng2-bootstrap-config.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__typeahead_utils__ = __webpack_require__("../../../../ngx-bootstrap/typeahead/typeahead-utils.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
 
 
 
@@ -28802,30 +32592,33 @@ var TypeaheadContainerComponent = (function () {
         }, 0);
         return false;
     };
-    TypeaheadContainerComponent.decorators = [
-        { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"], args: [{
-                    selector: 'typeahead-container',
-                    // tslint:disable-next-line
-                    template: "\n<!-- inject options list template -->\n<template [ngTemplateOutlet]=\"optionsListTemplate || (isBs4 ? bs4Template : bs3Template)\"\n  [ngOutletContext]=\"{matches:matches, itemTemplate:itemTemplate, query:query}\"></template>\n\n<!-- default options item template -->\n<template #bsItemTemplate let-match=\"match\" let-query=\"query\"><span [innerHtml]=\"hightlight(match, query)\"></span></template>\n\n<!-- Bootstrap 3 options list template -->\n<template #bs3Template>\n<ul class=\"dropdown-menu\">\n  <template ngFor let-match let-i=\"index\" [ngForOf]=\"matches\">\n    <li *ngIf=\"match.isHeader()\" class=\"dropdown-header\">{{match}}</li>\n    <li *ngIf=\"!match.isHeader()\" [class.active]=\"isActive(match)\" (mouseenter)=\"selectActive(match)\">\n      <a href=\"#\" (click)=\"selectMatch(match, $event)\" tabindex=\"-1\">\n        <template [ngTemplateOutlet]=\"itemTemplate || bsItemTemplate\" \n          [ngOutletContext]=\"{item:match.item, index:i, match:match, query:query}\"></template>\n      </a>\n    </li>\n  </template>\n</ul>\n</template>\n\n<!-- Bootstrap 4 options list template -->\n<template #bs4Template >\n<template ngFor let-match let-i=\"index\" [ngForOf]=\"matches\">\n   <h6 *ngIf=\"match.isHeader()\" class=\"dropdown-header\">{{match}}</h6>\n   <template [ngIf]=\"!match.isHeader()\">\n      <button\n        class=\"dropdown-item\"\n        (click)=\"selectMatch(match, $event)\"\n        (mouseenter)=\"selectActive(match)\"\n        [class.active]=\"isActive(match)\">\n          <template [ngTemplateOutlet]=\"itemTemplate || bsItemTemplate\" \n            [ngOutletContext]=\"{item:match.item, index:i, match:match, query:query}\"></template>\n      </button>\n  </template>\n</template>\n</template>\n",
-                    // tslint:disable
-                    host: {
-                        'class': 'dropdown open',
-                        '[class.dropdown-menu]': 'isBs4',
-                        style: 'position: absolute;display: block;'
-                    },
-                    // tslint: enable
-                    encapsulation: __WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewEncapsulation"].None
-                },] },
-    ];
-    /** @nocollapse */
-    TypeaheadContainerComponent.ctorParameters = function () { return [
-        { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"], },
-    ]; };
-    TypeaheadContainerComponent.propDecorators = {
-        'focusLost': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["HostListener"], args: ['mouseleave',] }, { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["HostListener"], args: ['blur',] },],
-    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["HostListener"])('mouseleave'),
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["HostListener"])('blur'),
+        __metadata("design:type", Function),
+        __metadata("design:paramtypes", []),
+        __metadata("design:returntype", void 0)
+    ], TypeaheadContainerComponent.prototype, "focusLost", null);
+    TypeaheadContainerComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'typeahead-container',
+            // tslint:disable-next-line
+            template: "\n<!-- inject options list template -->\n<template [ngTemplateOutlet]=\"optionsListTemplate || (isBs4 ? bs4Template : bs3Template)\"\n  [ngOutletContext]=\"{matches:matches, itemTemplate:itemTemplate, query:query}\"></template>\n\n<!-- default options item template -->\n<template #bsItemTemplate let-match=\"match\" let-query=\"query\"><span [innerHtml]=\"hightlight(match, query)\"></span></template>\n\n<!-- Bootstrap 3 options list template -->\n<template #bs3Template>\n<ul class=\"dropdown-menu\">\n  <template ngFor let-match let-i=\"index\" [ngForOf]=\"matches\">\n    <li *ngIf=\"match.isHeader()\" class=\"dropdown-header\">{{match}}</li>\n    <li *ngIf=\"!match.isHeader()\" [class.active]=\"isActive(match)\" (mouseenter)=\"selectActive(match)\">\n      <a href=\"#\" (click)=\"selectMatch(match, $event)\" tabindex=\"-1\">\n        <template [ngTemplateOutlet]=\"itemTemplate || bsItemTemplate\" \n          [ngOutletContext]=\"{item:match.item, index:i, match:match, query:query}\"></template>\n      </a>\n    </li>\n  </template>\n</ul>\n</template>\n\n<!-- Bootstrap 4 options list template -->\n<template #bs4Template >\n<template ngFor let-match let-i=\"index\" [ngForOf]=\"matches\">\n   <h6 *ngIf=\"match.isHeader()\" class=\"dropdown-header\">{{match}}</h6>\n   <template [ngIf]=\"!match.isHeader()\">\n      <button\n        class=\"dropdown-item\"\n        (click)=\"selectMatch(match, $event)\"\n        (mouseenter)=\"selectActive(match)\"\n        [class.active]=\"isActive(match)\">\n          <template [ngTemplateOutlet]=\"itemTemplate || bsItemTemplate\" \n            [ngOutletContext]=\"{item:match.item, index:i, match:match, query:query}\"></template>\n      </button>\n  </template>\n</template>\n</template>\n",
+            // tslint:disable
+            host: {
+                'class': 'dropdown open',
+                '[class.dropdown-menu]': 'isBs4',
+                '[class.dropup]': 'dropup',
+                style: 'position: absolute;display: block;'
+            },
+            // tslint: enable
+            encapsulation: __WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewEncapsulation"].None
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"]])
+    ], TypeaheadContainerComponent);
     return TypeaheadContainerComponent;
 }());
+
 //# sourceMappingURL=typeahead-container.component.js.map
 
 /***/ }),
@@ -28851,6 +32644,7 @@ var TypeaheadMatch = (function () {
     };
     return TypeaheadMatch;
 }());
+
 //# sourceMappingURL=typeahead-match.class.js.map
 
 /***/ }),
@@ -28866,6 +32660,7 @@ var TypeaheadOptions = (function () {
     }
     return TypeaheadOptions;
 }());
+
 //# sourceMappingURL=typeahead-options.class.js.map
 
 /***/ }),
@@ -28963,6 +32758,15 @@ function getValueFromObject(object, option) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_rxjs_add_operator_toArray___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10_rxjs_add_operator_toArray__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__typeahead_match_class__ = __webpack_require__("../../../../ngx-bootstrap/typeahead/typeahead-match.class.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__component_loader__ = __webpack_require__("../../../../ngx-bootstrap/component-loader/index.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
 
 
 
@@ -28998,6 +32802,8 @@ var TypeaheadDirective = (function () {
         this.typeaheadOnSelect = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]();
         /** fired when blur event occurres. returns the active item */
         this.typeaheadOnBlur = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]();
+        /** This attribute indicates that the dropdown should be opened upwards */
+        this.dropup = false;
         this.isTypeaheadOptionsListActive = false;
         this.keyUpEventEmitter = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]();
         this.placement = 'bottom-left';
@@ -29040,7 +32846,7 @@ var TypeaheadDirective = (function () {
             : e.target.textContent !== undefined
                 ? e.target.textContent
                 : e.target.innerText;
-        if (value && value.trim().length >= this.typeaheadMinLength) {
+        if (value != null && value.trim().length >= this.typeaheadMinLength) {
             this.typeaheadLoading.emit(true);
             this.keyUpEventEmitter.emit(e.target.value);
         }
@@ -29110,11 +32916,12 @@ var TypeaheadDirective = (function () {
         this._typeahead
             .attach(__WEBPACK_IMPORTED_MODULE_2__typeahead_container_component__["a" /* TypeaheadContainerComponent */])
             .to(this.container)
-            .position({ attachment: 'bottom left' })
+            .position({ attachment: (this.dropup ? 'top' : 'bottom') + " left" })
             .show({
             typeaheadRef: this,
             placement: this.placement,
-            animation: false
+            animation: false,
+            dropup: this.dropup
         });
         this._container = this._typeahead.instance;
         this._container.parent = this;
@@ -29249,43 +33056,113 @@ var TypeaheadDirective = (function () {
     TypeaheadDirective.prototype.hasMatches = function () {
         return this._matches.length > 0;
     };
-    TypeaheadDirective.decorators = [
-        { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Directive"], args: [{ selector: '[typeahead]', exportAs: 'bs-typeahead' },] },
-    ];
-    /** @nocollapse */
-    TypeaheadDirective.ctorParameters = function () { return [
-        { type: __WEBPACK_IMPORTED_MODULE_1__angular_forms__["c" /* NgControl */], },
-        { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewContainerRef"], },
-        { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"], },
-        { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Renderer"], },
-        { type: __WEBPACK_IMPORTED_MODULE_12__component_loader__["a" /* ComponentLoaderFactory */], },
-    ]; };
-    TypeaheadDirective.propDecorators = {
-        'typeahead': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'typeaheadMinLength': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'typeaheadWaitMs': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'typeaheadOptionsLimit': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'typeaheadOptionField': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'typeaheadGroupField': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'typeaheadAsync': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'typeaheadLatinize': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'typeaheadSingleWords': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'typeaheadWordDelimiters': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'typeaheadPhraseDelimiters': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'typeaheadItemTemplate': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'optionsListTemplate': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'typeaheadLoading': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"] },],
-        'typeaheadNoResults': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"] },],
-        'typeaheadOnSelect': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"] },],
-        'typeaheadOnBlur': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"] },],
-        'container': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"] },],
-        'onChange': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["HostListener"], args: ['keyup', ['$event'],] },],
-        'onFocus': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["HostListener"], args: ['focus',] },],
-        'onBlur': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["HostListener"], args: ['blur',] },],
-        'onKeydown': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["HostListener"], args: ['keydown', ['$event'],] },],
-    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Object)
+    ], TypeaheadDirective.prototype, "typeahead", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Number)
+    ], TypeaheadDirective.prototype, "typeaheadMinLength", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Number)
+    ], TypeaheadDirective.prototype, "typeaheadWaitMs", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Number)
+    ], TypeaheadDirective.prototype, "typeaheadOptionsLimit", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", String)
+    ], TypeaheadDirective.prototype, "typeaheadOptionField", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", String)
+    ], TypeaheadDirective.prototype, "typeaheadGroupField", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Boolean)
+    ], TypeaheadDirective.prototype, "typeaheadAsync", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Boolean)
+    ], TypeaheadDirective.prototype, "typeaheadLatinize", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Boolean)
+    ], TypeaheadDirective.prototype, "typeaheadSingleWords", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", String)
+    ], TypeaheadDirective.prototype, "typeaheadWordDelimiters", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", String)
+    ], TypeaheadDirective.prototype, "typeaheadPhraseDelimiters", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["TemplateRef"])
+    ], TypeaheadDirective.prototype, "typeaheadItemTemplate", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["TemplateRef"])
+    ], TypeaheadDirective.prototype, "optionsListTemplate", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"])(),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"])
+    ], TypeaheadDirective.prototype, "typeaheadLoading", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"])(),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"])
+    ], TypeaheadDirective.prototype, "typeaheadNoResults", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"])(),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"])
+    ], TypeaheadDirective.prototype, "typeaheadOnSelect", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"])(),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"])
+    ], TypeaheadDirective.prototype, "typeaheadOnBlur", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", String)
+    ], TypeaheadDirective.prototype, "container", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Boolean)
+    ], TypeaheadDirective.prototype, "dropup", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["HostListener"])('keyup', ['$event']),
+        __metadata("design:type", Function),
+        __metadata("design:paramtypes", [Object]),
+        __metadata("design:returntype", void 0)
+    ], TypeaheadDirective.prototype, "onChange", null);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["HostListener"])('focus'),
+        __metadata("design:type", Function),
+        __metadata("design:paramtypes", []),
+        __metadata("design:returntype", void 0)
+    ], TypeaheadDirective.prototype, "onFocus", null);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["HostListener"])('blur'),
+        __metadata("design:type", Function),
+        __metadata("design:paramtypes", []),
+        __metadata("design:returntype", void 0)
+    ], TypeaheadDirective.prototype, "onBlur", null);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["HostListener"])('keydown', ['$event']),
+        __metadata("design:type", Function),
+        __metadata("design:paramtypes", [Object]),
+        __metadata("design:returntype", void 0)
+    ], TypeaheadDirective.prototype, "onKeydown", null);
+    TypeaheadDirective = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Directive"])({ selector: '[typeahead]', exportAs: 'bs-typeahead' }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["c" /* NgControl */], __WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewContainerRef"], __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"], __WEBPACK_IMPORTED_MODULE_0__angular_core__["Renderer"], __WEBPACK_IMPORTED_MODULE_12__component_loader__["a" /* ComponentLoaderFactory */]])
+    ], TypeaheadDirective);
     return TypeaheadDirective;
 }());
+
 //# sourceMappingURL=typeahead.directive.js.map
 
 /***/ }),
@@ -29301,6 +33178,12 @@ var TypeaheadDirective = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__typeahead_directive__ = __webpack_require__("../../../../ngx-bootstrap/typeahead/typeahead.directive.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__component_loader__ = __webpack_require__("../../../../ngx-bootstrap/component-loader/index.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__positioning__ = __webpack_require__("../../../../ngx-bootstrap/positioning/index.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
 
 
 
@@ -29310,25 +33193,26 @@ var TypeaheadDirective = (function () {
 var TypeaheadModule = (function () {
     function TypeaheadModule() {
     }
+    TypeaheadModule_1 = TypeaheadModule;
     TypeaheadModule.forRoot = function () {
         return {
-            ngModule: TypeaheadModule,
+            ngModule: TypeaheadModule_1,
             providers: [__WEBPACK_IMPORTED_MODULE_4__component_loader__["a" /* ComponentLoaderFactory */], __WEBPACK_IMPORTED_MODULE_5__positioning__["a" /* PositioningService */]]
         };
     };
     ;
-    TypeaheadModule.decorators = [
-        { type: __WEBPACK_IMPORTED_MODULE_1__angular_core__["NgModule"], args: [{
-                    imports: [__WEBPACK_IMPORTED_MODULE_0__angular_common__["b" /* CommonModule */]],
-                    declarations: [__WEBPACK_IMPORTED_MODULE_2__typeahead_container_component__["a" /* TypeaheadContainerComponent */], __WEBPACK_IMPORTED_MODULE_3__typeahead_directive__["a" /* TypeaheadDirective */]],
-                    exports: [__WEBPACK_IMPORTED_MODULE_2__typeahead_container_component__["a" /* TypeaheadContainerComponent */], __WEBPACK_IMPORTED_MODULE_3__typeahead_directive__["a" /* TypeaheadDirective */]],
-                    entryComponents: [__WEBPACK_IMPORTED_MODULE_2__typeahead_container_component__["a" /* TypeaheadContainerComponent */]]
-                },] },
-    ];
-    /** @nocollapse */
-    TypeaheadModule.ctorParameters = function () { return []; };
+    TypeaheadModule = TypeaheadModule_1 = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["NgModule"])({
+            imports: [__WEBPACK_IMPORTED_MODULE_0__angular_common__["b" /* CommonModule */]],
+            declarations: [__WEBPACK_IMPORTED_MODULE_2__typeahead_container_component__["a" /* TypeaheadContainerComponent */], __WEBPACK_IMPORTED_MODULE_3__typeahead_directive__["a" /* TypeaheadDirective */]],
+            exports: [__WEBPACK_IMPORTED_MODULE_2__typeahead_container_component__["a" /* TypeaheadContainerComponent */], __WEBPACK_IMPORTED_MODULE_3__typeahead_directive__["a" /* TypeaheadDirective */]],
+            entryComponents: [__WEBPACK_IMPORTED_MODULE_2__typeahead_container_component__["a" /* TypeaheadContainerComponent */]]
+        })
+    ], TypeaheadModule);
     return TypeaheadModule;
+    var TypeaheadModule_1;
 }());
+
 //# sourceMappingURL=typeahead.module.js.map
 
 /***/ }),
@@ -29435,6 +33319,7 @@ var LinkedList = (function () {
     function LinkedList() {
         this.length = 0;
         this.asArray = [];
+        // Array methods overriding END
     }
     LinkedList.prototype.getNode = function (position) {
         if (this.length === 0 || position < 0 || position >= this.length) {
@@ -29564,7 +33449,7 @@ var LinkedList = (function () {
         var _this = this;
         var args = [];
         for (var _i = 0; _i < arguments.length; _i++) {
-            args[_i - 0] = arguments[_i];
+            args[_i] = arguments[_i];
         }
         args.forEach(function (arg) {
             _this.add(arg);
@@ -29583,7 +33468,7 @@ var LinkedList = (function () {
         var _this = this;
         var args = [];
         for (var _i = 0; _i < arguments.length; _i++) {
-            args[_i - 0] = arguments[_i];
+            args[_i] = arguments[_i];
         }
         args.reverse();
         args.forEach(function (arg) {
@@ -29670,6 +33555,7 @@ var LinkedList = (function () {
     };
     return LinkedList;
 }());
+
 //# sourceMappingURL=linked-list.class.js.map
 
 /***/ }),
@@ -29705,6 +33591,7 @@ var Trigger = (function () {
     Trigger.prototype.isManual = function () { return this.open === 'manual' || this.close === 'manual'; };
     return Trigger;
 }());
+
 //# sourceMappingURL=trigger.class.js.map
 
 /***/ }),
@@ -29714,7 +33601,9 @@ var Trigger = (function () {
 
 "use strict";
 /* unused harmony export parseTriggers */
-/* harmony export (immutable) */ __webpack_exports__["a"] = listenToTriggers;
+/* unused harmony export listenToTriggers */
+/* harmony export (immutable) */ __webpack_exports__["a"] = listenToTriggersV2;
+/* harmony export (immutable) */ __webpack_exports__["b"] = registerOutsideClick;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__trigger_class__ = __webpack_require__("../../../../ngx-bootstrap/utils/trigger.class.js");
 
 var DEFAULT_ALIASES = {
@@ -29758,6 +33647,50 @@ function listenToTriggers(renderer, target, triggers, showFn, hideFn, toggleFn) 
     });
     return function () { listeners.forEach(function (unsubscribeFn) { return unsubscribeFn(); }); };
 }
+function listenToTriggersV2(renderer, options) {
+    var parsedTriggers = parseTriggers(options.triggers);
+    var target = options.target;
+    // do nothing
+    if (parsedTriggers.length === 1 && parsedTriggers[0].isManual()) {
+        return Function.prototype;
+    }
+    // all listeners
+    var listeners = [];
+    // lazy listeners registration
+    var _registerHide = [];
+    var registerHide = function () {
+        // add hide listeners to unregister array
+        _registerHide.forEach(function (fn) { return listeners.push(fn()); });
+        // register hide events only once
+        _registerHide.length = 0;
+    };
+    // register open\close\toggle listeners
+    parsedTriggers.forEach(function (trigger) {
+        var useToggle = trigger.open === trigger.close;
+        var showFn = useToggle ? options.toggle : options.show;
+        if (!useToggle) {
+            _registerHide.push(function () { return renderer.listen(target, trigger.close, options.hide); });
+        }
+        listeners.push(renderer.listen(target, trigger.open, function () { return showFn(registerHide); }));
+    });
+    return function () {
+        listeners.forEach(function (unsubscribeFn) { return unsubscribeFn(); });
+    };
+}
+function registerOutsideClick(renderer, options) {
+    if (!options.outsideClick) {
+        return Function.prototype;
+    }
+    return renderer.listenGlobal('document', 'click', function (event) {
+        if (options.target && options.target.contains(event.target)) {
+            return;
+        }
+        if (options.targets && options.targets.some(function (target) { return target.contains(event.target); })) {
+            return;
+        }
+        options.hide();
+    });
+}
 //# sourceMappingURL=triggers.js.map
 
 /***/ }),
@@ -29788,6 +33721,7 @@ var Utils = (function () {
     };
     return Utils;
 }());
+
 //# sourceMappingURL=utils.class.js.map
 
 /***/ }),

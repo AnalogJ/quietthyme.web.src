@@ -357,8 +357,8 @@ var AppSettings = (function () {
     });
     Object.defineProperty(AppSettings, "KLOUDLESS_STORAGE_TYPES", {
         get: function () {
-            // return ['box', 'dropbox', 'skydrive', 'gdrive'];
-            return ['box', 'dropbox', 'skydrive']; //TODO: disable google drive, events missing since Aug 22.
+            return ['box', 'dropbox', 'skydrive', 'gdrive'];
+            // return ['box', 'dropbox', 'skydrive']; //TODO: disable google drive, events missing since Aug 22.
         },
         enumerable: true,
         configurable: true
@@ -366,6 +366,13 @@ var AppSettings = (function () {
     Object.defineProperty(AppSettings, "SUPPORTED_STORAGE_TYPES", {
         get: function () {
             return AppSettings.KLOUDLESS_STORAGE_TYPES.concat(['quietthyme']);
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(AppSettings, "SUPPORTED_BOOK_TYPES", {
+        get: function () {
+            return ['azw3', 'azw', 'cbr', 'cbt', 'cbz', 'chm', 'djvu', 'doc', 'docx', 'epub', 'ibooks', 'kf8', 'lrf', 'lit', 'mobi', 'pdf', 'prc', 'rtf', 'txt'];
         },
         enumerable: true,
         configurable: true
@@ -506,28 +513,35 @@ var _a;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__services_auth_guard_service__ = __webpack_require__("../../../../../src/app/services/auth-guard.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__services_uservoice_service__ = __webpack_require__("../../../../../src/app/services/uservoice.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__services_notification_service__ = __webpack_require__("../../../../../src/app/services/notification.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25_angular2_jwt__ = __webpack_require__("../../../../angular2-jwt/angular2-jwt.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25_angular2_jwt___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_25_angular2_jwt__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26_ngx_bootstrap__ = __webpack_require__("../../../../ngx-bootstrap/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27_ng2_slim_loading_bar__ = __webpack_require__("../../../../ng2-slim-loading-bar/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28_angular2_markdown__ = __webpack_require__("../../../../angular2-markdown/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29_angular2_masonry__ = __webpack_require__("../../../../angular2-masonry/index.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30_ng2_scrollspy__ = __webpack_require__("../../../../ng2-scrollspy/dist/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30_ng2_scrollspy___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_30_ng2_scrollspy__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31_ng2_scrollspy_dist_plugin_affix_directive__ = __webpack_require__("../../../../ng2-scrollspy/dist/plugin/affix.directive.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31_ng2_scrollspy_dist_plugin_affix_directive___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_31_ng2_scrollspy_dist_plugin_affix_directive__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__account_register_plan_account_register_plan_component__ = __webpack_require__("../../../../../src/app/account-register-plan/account-register-plan.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33_angular2_moment__ = __webpack_require__("../../../../angular2-moment/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33_angular2_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_33_angular2_moment__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34_ngx_infinite_scroll__ = __webpack_require__("../../../../ngx-infinite-scroll/modules/ngx-infinite-scroll.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__terms_terms_component__ = __webpack_require__("../../../../../src/app/terms/terms.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_36__partials_notification_notification_component__ = __webpack_require__("../../../../../src/app/partials/notification/notification.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__shared_dropzone_directive__ = __webpack_require__("../../../../../src/app/shared/dropzone.directive.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__terms_terms_component__ = __webpack_require__("../../../../../src/app/terms/terms.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__partials_notification_notification_component__ = __webpack_require__("../../../../../src/app/partials/notification/notification.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__partials_book_upload_book_upload_component__ = __webpack_require__("../../../../../src/app/partials/book-upload/book-upload.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__account_register_plan_account_register_plan_component__ = __webpack_require__("../../../../../src/app/account-register-plan/account-register-plan.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30_angular2_jwt__ = __webpack_require__("../../../../angular2-jwt/angular2-jwt.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30_angular2_jwt___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_30_angular2_jwt__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31_ngx_bootstrap__ = __webpack_require__("../../../../ngx-bootstrap/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32_ng2_slim_loading_bar__ = __webpack_require__("../../../../ng2-slim-loading-bar/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33_angular2_markdown__ = __webpack_require__("../../../../angular2-markdown/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34_angular2_masonry__ = __webpack_require__("../../../../angular2-masonry/index.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35_ng2_scrollspy__ = __webpack_require__("../../../../ng2-scrollspy/dist/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35_ng2_scrollspy___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_35_ng2_scrollspy__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_36_ng2_scrollspy_dist_plugin_affix_directive__ = __webpack_require__("../../../../ng2-scrollspy/dist/plugin/affix.directive.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_36_ng2_scrollspy_dist_plugin_affix_directive___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_36_ng2_scrollspy_dist_plugin_affix_directive__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_37_angular2_moment__ = __webpack_require__("../../../../angular2-moment/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_37_angular2_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_37_angular2_moment__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_38_ngx_infinite_scroll__ = __webpack_require__("../../../../ngx-infinite-scroll/modules/ngx-infinite-scroll.es5.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
+
+
+
 
 
 
@@ -563,11 +577,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-
-
-
 function getAuthHttp(http, options) {
-    return new __WEBPACK_IMPORTED_MODULE_25_angular2_jwt__["AuthHttp"](new __WEBPACK_IMPORTED_MODULE_25_angular2_jwt__["AuthConfig"]({
+    return new __WEBPACK_IMPORTED_MODULE_30_angular2_jwt__["AuthHttp"](new __WEBPACK_IMPORTED_MODULE_30_angular2_jwt__["AuthConfig"]({
         tokenName: 'id_token',
         noJwtError: true,
         headerPrefix: 'JWT',
@@ -592,38 +603,40 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_11__storage_storage_component__["a" /* StorageComponent */],
             __WEBPACK_IMPORTED_MODULE_12__library_library_component__["a" /* LibraryComponent */],
             __WEBPACK_IMPORTED_MODULE_13__book_details_book_details_component__["a" /* BookDetailsComponent */],
-            __WEBPACK_IMPORTED_MODULE_31_ng2_scrollspy_dist_plugin_affix_directive__["ScrollSpyAffixDirective"],
+            __WEBPACK_IMPORTED_MODULE_36_ng2_scrollspy_dist_plugin_affix_directive__["ScrollSpyAffixDirective"],
             __WEBPACK_IMPORTED_MODULE_14__partials_storage_panel_storage_panel_component__["a" /* StoragePanelComponent */],
             __WEBPACK_IMPORTED_MODULE_19__shared_file_size_pipe__["a" /* FileSizePipe */],
             __WEBPACK_IMPORTED_MODULE_15__settings_settings_component__["a" /* SettingsComponent */],
             __WEBPACK_IMPORTED_MODULE_16__privacy_privacy_component__["a" /* PrivacyComponent */],
             __WEBPACK_IMPORTED_MODULE_18__shared_stripe_checkout_button_directive__["a" /* StripeCheckoutButtonDirective */],
-            __WEBPACK_IMPORTED_MODULE_32__account_register_plan_account_register_plan_component__["a" /* AccountRegisterPlanComponent */],
+            __WEBPACK_IMPORTED_MODULE_29__account_register_plan_account_register_plan_component__["a" /* AccountRegisterPlanComponent */],
             __WEBPACK_IMPORTED_MODULE_17__partials_opds_panel_opds_panel_component__["a" /* OpdsPanelComponent */],
-            __WEBPACK_IMPORTED_MODULE_35__terms_terms_component__["a" /* TermsComponent */],
-            __WEBPACK_IMPORTED_MODULE_36__partials_notification_notification_component__["a" /* NotificationComponent */],
+            __WEBPACK_IMPORTED_MODULE_26__terms_terms_component__["a" /* TermsComponent */],
+            __WEBPACK_IMPORTED_MODULE_27__partials_notification_notification_component__["a" /* NotificationComponent */],
+            __WEBPACK_IMPORTED_MODULE_28__partials_book_upload_book_upload_component__["a" /* BookUploadComponent */],
+            __WEBPACK_IMPORTED_MODULE_25__shared_dropzone_directive__["a" /* DropzoneDirective */]
         ],
         imports: [
             __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
             __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormsModule */],
             __WEBPACK_IMPORTED_MODULE_3__angular_http__["HttpModule"],
-            __WEBPACK_IMPORTED_MODULE_26_ngx_bootstrap__["a" /* Ng2BootstrapModule */].forRoot(),
-            __WEBPACK_IMPORTED_MODULE_27_ng2_slim_loading_bar__["a" /* SlimLoadingBarModule */].forRoot(),
-            __WEBPACK_IMPORTED_MODULE_28_angular2_markdown__["a" /* MarkdownModule */].forRoot(),
-            __WEBPACK_IMPORTED_MODULE_29_angular2_masonry__["a" /* MasonryModule */],
-            __WEBPACK_IMPORTED_MODULE_34_ngx_infinite_scroll__["a" /* InfiniteScrollModule */],
-            __WEBPACK_IMPORTED_MODULE_30_ng2_scrollspy__["ScrollSpyModule"].forRoot(),
-            __WEBPACK_IMPORTED_MODULE_33_angular2_moment__["MomentModule"],
+            __WEBPACK_IMPORTED_MODULE_31_ngx_bootstrap__["a" /* Ng2BootstrapModule */].forRoot(),
+            __WEBPACK_IMPORTED_MODULE_32_ng2_slim_loading_bar__["a" /* SlimLoadingBarModule */].forRoot(),
+            __WEBPACK_IMPORTED_MODULE_33_angular2_markdown__["a" /* MarkdownModule */].forRoot(),
+            __WEBPACK_IMPORTED_MODULE_34_angular2_masonry__["a" /* MasonryModule */],
+            __WEBPACK_IMPORTED_MODULE_38_ngx_infinite_scroll__["a" /* InfiniteScrollModule */],
+            __WEBPACK_IMPORTED_MODULE_35_ng2_scrollspy__["ScrollSpyModule"].forRoot(),
+            __WEBPACK_IMPORTED_MODULE_37_angular2_moment__["MomentModule"],
             __WEBPACK_IMPORTED_MODULE_4__angular_router__["c" /* RouterModule */].forRoot([
                 //Public Endpoints
                 { path: 'login', component: __WEBPACK_IMPORTED_MODULE_6__account_login_account_login_component__["a" /* AccountLoginComponent */] },
                 { path: 'register', component: __WEBPACK_IMPORTED_MODULE_7__account_register_account_register_component__["a" /* AccountRegisterComponent */] },
                 { path: 'privacy', component: __WEBPACK_IMPORTED_MODULE_16__privacy_privacy_component__["a" /* PrivacyComponent */] },
-                { path: 'terms', component: __WEBPACK_IMPORTED_MODULE_35__terms_terms_component__["a" /* TermsComponent */] },
+                { path: 'terms', component: __WEBPACK_IMPORTED_MODULE_26__terms_terms_component__["a" /* TermsComponent */] },
                 //Auth Endpoints
                 {
                     path: 'register/plan',
-                    component: __WEBPACK_IMPORTED_MODULE_32__account_register_plan_account_register_plan_component__["a" /* AccountRegisterPlanComponent */],
+                    component: __WEBPACK_IMPORTED_MODULE_29__account_register_plan_account_register_plan_component__["a" /* AccountRegisterPlanComponent */],
                     canActivate: [__WEBPACK_IMPORTED_MODULE_22__services_auth_guard_service__["a" /* AuthGuard */]],
                 },
                 {
@@ -667,11 +680,12 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_24__services_notification_service__["a" /* NotificationService */],
             __WEBPACK_IMPORTED_MODULE_22__services_auth_guard_service__["a" /* AuthGuard */],
             {
-                provide: __WEBPACK_IMPORTED_MODULE_25_angular2_jwt__["AuthHttp"],
+                provide: __WEBPACK_IMPORTED_MODULE_30_angular2_jwt__["AuthHttp"],
                 useFactory: getAuthHttp,
                 deps: [__WEBPACK_IMPORTED_MODULE_3__angular_http__["Http"], __WEBPACK_IMPORTED_MODULE_3__angular_http__["RequestOptions"]],
             },
         ],
+        entryComponents: [__WEBPACK_IMPORTED_MODULE_28__partials_book_upload_book_upload_component__["a" /* BookUploadComponent */]],
         bootstrap: [__WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* AppComponent */]],
     })
 ], AppModule);
@@ -803,7 +817,7 @@ var _a, _b, _c, _d, _e;
 /***/ "../../../../../src/app/library/library.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<ng2-slim-loading-bar class=\"navbar-fixed-top\" [color]=\"'#128950'\" [height]=\"'3px'\"></ng2-slim-loading-bar>\n<quietthyme-header></quietthyme-header>\n<div class=\"main-container\">\n    <section class=\"space--sm switchable switchable--switch  \">\n        <div class=\"container\">\n            <div class=\"row\">\n                <div class=\"col-sm-12\">\n                    <div class=\"height-50 imagebg border--round\" data-overlay=\"2\">\n                        <div class=\"background-image-holder library-bg\">\n                        </div>\n                        <div class=\"pos-vertical-center col-sm-6 boxed boxed--lg bg--none\">\n                            <h2>Library</h2>\n                            <p class=\"lead\">\n                                Your library is accessible anytime, anywhere, on any device\n\n                                It doesn't matter if your have 10 books or 1000's of books. Quietthyme can help you easily manage a library of any size.\n                            </p>\n                        </div>\n                    </div>\n                </div>\n            </div>\n            <!--end of row-->\n        </div>\n        <!--end of container-->\n    </section>\n\n\n    <quietthyme-opds-panel></quietthyme-opds-panel>\n\n    <section class=\" \">\n        <div class=\"container\">\n            <div class=\"row\">\n                <div class=\"col-sm-4\">\n                    <div class=\"masonry-filter-container\">\n                        <span>Storage:</span>\n                        <div class=\"masonry-filter-holder\">\n                            <div class=\"masonry__filters\" data-filter-all-text=\"Storage\">\n                                <ul>\n                                    <li [ngClass]=\"{'active': !filter.storage}\" (click)=\"setStorage(null)\">All Storage</li>\n                                    <li [ngClass]=\"{'active': filter.storage == 'quietthyme'}\" (click)=\"setStorage('quietthyme')\">QuietThyme</li>\n                                    <li *ngIf=\"connected.box\" [ngClass]=\"{'active': filter.storage == 'box'}\" (click)=\"setStorage('box')\">Box</li>\n                                    <li *ngIf=\"connected.dropbox\" [ngClass]=\"{'active': filter.storage == 'dropbox'}\" (click)=\"setStorage('dropbox')\">Dropbox</li>\n                                    <li *ngIf=\"connected.gdrive\" [ngClass]=\"{'active': filter.storage == 'gdrive'}\" (click)=\"setStorage('gdrive')\">Google Drive</li>\n                                    <li *ngIf=\"connected.skydrive\" [ngClass]=\"{'active': filter.storage == 'skydrive'}\" (click)=\"setStorage('skydrive')\">OneDrive</li>\n\n                                </ul>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"col-sm-4\">\n                    <div class=\"masonry-filter-container\">\n                        <span>Sort By:</span>\n                        <div class=\"masonry-filter-holder\">\n                            <div class=\"masonry__filters\" data-filter-all-text=\"Storage\">\n                                <ul>\n                                    <li [ngClass]=\"{'active': !filter.sort}\" (click)=\"setSort(null)\">Title</li>\n                                    <li [ngClass]=\"{'active': filter.sort == 'authors'}\" (click)=\"setSort('authors')\">Author</li>\n                                    <li [ngClass]=\"{'active': filter.sort == 'series_name'}\" (click)=\"setSort('series_name')\">Series</li>\n                                    <li [ngClass]=\"{'active': filter.sort == 'updated_at'}\" (click)=\"setSort('updated_at')\">Added Date</li>\n\n                                </ul>\n                            </div>\n                        </div>\n                    </div>\n\n                </div>\n            </div>\n            <div\n                    infiniteScroll\n                    [infiniteScrollDistance]=\"2\"\n                    [infiniteScrollThrottle]=\"500\"\n                    [infiniteScrollDisabled]=\"bookListAll\"\n                    (scrolled)=\"onScroll()\"\n                    class=\"row library-books\">\n\n\n                <masonry [useImagesLoaded]=\"true\">\n\n\n                    <masonry-brick *ngFor=\"let book of bookList; let myIndex = index\" class=\"col-sm-3 masonry__item\">\n                        <div class=\"card card-2 text-center\">\n                            <div class=\"card__top\">\n                                <span class=\"label\" *ngIf=\"book.series_name\">{{ book.series_name }}</span>\n\n                                <a routerLink=\"/book/{{ book.id }}\" class=\"library-book-cover-wrapper\">\n                                    <img *ngIf=\"book.cover\" class=\"library-book-cover\" src=\"https://s3.amazonaws.com/{{ book.cover }}\" alt=\"{{ book.title }}\">\n                                    <img *ngIf=\"!book.cover\" class=\"library-book-cover\" src=\"assets/images/noart.png\" alt=\"{{ book.title }}\">\n                                </a>\n                            </div>\n                            <div class=\"card__body\">\n                                <h4>{{ book.title }}</h4>\n                                <span class=\"type--fade\">{{ book.authors}}</span>\n\n                            </div>\n                            <div class=\"card__bottom text-center\">\n                                <div class=\"card__action\">\n                                    <span class=\"h6 type--uppercase\">Info</span>\n                                    <a routerLink=\"/book/{{ book.id }}\">\n                                        <i class=\"glyphicon glyphicon-info-sign\"></i>\n                                    </a>\n                                </div>\n                                <div class=\"card__action\">\n                                    <span class=\"h6 type--uppercase\">Download</span>\n                                    <a (click)=\"downloadBook(book)\" [ngClass]=\"{'downloading': loading.download[book.id]}\">\n                                        <i class=\"glyphicon glyphicon-download\"></i>\n                                    </a>\n                                </div>\n                            </div>\n                        </div>\n                    </masonry-brick>\n\n                </masonry><!-- #shop end -->\n\n            </div>\n            <!--end of row-->\n        </div>\n        <!--end of container-->\n    </section>\n    <quietthyme-footer></quietthyme-footer>\n</div>\n"
+module.exports = "<ng2-slim-loading-bar class=\"navbar-fixed-top\" [color]=\"'#128950'\" [height]=\"'3px'\"></ng2-slim-loading-bar>\n<quietthyme-header></quietthyme-header>\n<div class=\"main-container\">\n    <section class=\"space--sm switchable switchable--switch  \">\n        <div class=\"container\">\n            <div class=\"row\">\n                <div class=\"col-sm-12\">\n                    <div class=\"height-50 imagebg border--round\" data-overlay=\"2\">\n                        <div class=\"background-image-holder library-bg\">\n                        </div>\n                        <div class=\"pos-vertical-center col-sm-6 boxed boxed--lg bg--none\">\n                            <h2>Library</h2>\n                            <p class=\"lead\">\n                                Your library is accessible anytime, anywhere, on any device\n\n                                It doesn't matter if your have 10 books or 1000's of books. Quietthyme can help you easily manage a library of any size.\n                            </p>\n                        </div>\n                    </div>\n                </div>\n            </div>\n            <!--end of row-->\n        </div>\n        <!--end of container-->\n    </section>\n\n\n    <quietthyme-opds-panel></quietthyme-opds-panel>\n\n    <section class=\" \">\n        <div class=\"container\">\n            <div class=\"row\">\n                <div class=\"col-sm-4\">\n                    <div class=\"masonry-filter-container\">\n                        <span>Storage:</span>\n                        <div class=\"masonry-filter-holder\">\n                            <div class=\"masonry__filters\" data-filter-all-text=\"Storage\">\n                                <ul>\n                                    <li [ngClass]=\"{'active': !filter.storage}\" (click)=\"setStorage(null)\">All Storage</li>\n\n                                    <li *ngFor=\"let serviceStatus of connected\" [ngClass]=\"{'active': filter.storage == serviceStatus}\" (click)=\"setStorage(serviceStatus)\">{{ storageDetails[serviceStatus.storage_type].display_name }}</li>\n\n                                </ul>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"col-sm-4\">\n                    <div class=\"masonry-filter-container\">\n                        <span>Sort By:</span>\n                        <div class=\"masonry-filter-holder\">\n                            <div class=\"masonry__filters\" data-filter-all-text=\"Storage\">\n                                <ul>\n                                    <li [ngClass]=\"{'active': !filter.sort}\" (click)=\"setSort(null)\">Title</li>\n                                    <li [ngClass]=\"{'active': filter.sort == 'authors'}\" (click)=\"setSort('authors')\">Author</li>\n                                    <li [ngClass]=\"{'active': filter.sort == 'series_name'}\" (click)=\"setSort('series_name')\">Series</li>\n                                    <li [ngClass]=\"{'active': filter.sort == 'updated_at'}\" (click)=\"setSort('updated_at')\">Added Date</li>\n\n                                </ul>\n                            </div>\n                        </div>\n                    </div>\n\n                </div>\n                <div class=\"col-sm-4\">\n                    <button type=\"button\" class=\"btn btn--primary pull-right\" (click)=\"openModalBookUpload()\">Add Books</button>\n                </div>\n\n            </div>\n            <div\n                    infiniteScroll\n                    [infiniteScrollDistance]=\"2\"\n                    [infiniteScrollThrottle]=\"500\"\n                    [infiniteScrollDisabled]=\"bookListAll\"\n                    (scrolled)=\"onScroll()\"\n                    class=\"row library-books\">\n\n\n                <masonry [useImagesLoaded]=\"true\">\n\n\n                    <masonry-brick *ngFor=\"let book of bookList; let myIndex = index\" class=\"col-sm-3 masonry__item\">\n                        <div class=\"card card-2 text-center\">\n                            <div class=\"card__top\">\n                                <span class=\"label\" *ngIf=\"book.series_name\">{{ book.series_name }}</span>\n\n                                <a routerLink=\"/book/{{ book.id }}\" class=\"library-book-cover-wrapper\">\n                                    <img *ngIf=\"book.cover\" class=\"library-book-cover\" src=\"https://s3.amazonaws.com/{{ book.cover }}\" alt=\"{{ book.title }}\">\n                                    <img *ngIf=\"!book.cover\" class=\"library-book-cover\" src=\"assets/images/noart.png\" alt=\"{{ book.title }}\">\n                                </a>\n                            </div>\n                            <div class=\"card__body\">\n                                <h4>{{ book.title }}</h4>\n                                <span class=\"type--fade\">{{ book.authors}}</span>\n\n                            </div>\n                            <div class=\"card__bottom text-center\">\n                                <div class=\"card__action\">\n                                    <span class=\"h6 type--uppercase\">Info</span>\n                                    <a routerLink=\"/book/{{ book.id }}\">\n                                        <i class=\"glyphicon glyphicon-info-sign\"></i>\n                                    </a>\n                                </div>\n                                <div class=\"card__action\">\n                                    <span class=\"h6 type--uppercase\">Download</span>\n                                    <a (click)=\"downloadBook(book)\" [ngClass]=\"{'downloading': loading.download[book.id]}\">\n                                        <i class=\"glyphicon glyphicon-download\"></i>\n                                    </a>\n                                </div>\n                            </div>\n                        </div>\n                    </masonry-brick>\n\n                </masonry><!-- #shop end -->\n\n            </div>\n            <!--end of row-->\n        </div>\n        <!--end of container-->\n    </section>\n    <quietthyme-footer></quietthyme-footer>\n</div>\n"
 
 /***/ }),
 
@@ -834,10 +848,13 @@ module.exports = module.exports.toString();
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_api_service__ = __webpack_require__("../../../../../src/app/services/api.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ng2_slim_loading_bar__ = __webpack_require__("../../../../ng2-slim-loading-bar/index.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_notification_service__ = __webpack_require__("../../../../../src/app/services/notification.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ng2_scrollspy__ = __webpack_require__("../../../../ng2-scrollspy/dist/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ng2_scrollspy___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_ng2_scrollspy__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_file_saver__ = __webpack_require__("../../../../file-saver/FileSaver.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_file_saver___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_file_saver__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__partials_book_upload_book_upload_component__ = __webpack_require__("../../../../../src/app/partials/book-upload/book-upload.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_ngx_bootstrap_modal__ = __webpack_require__("../../../../ngx-bootstrap/modal/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_ng2_scrollspy__ = __webpack_require__("../../../../ng2-scrollspy/dist/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_ng2_scrollspy___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_ng2_scrollspy__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_file_saver__ = __webpack_require__("../../../../file-saver/FileSaver.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_file_saver___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_file_saver__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__app_settings__ = __webpack_require__("../../../../../src/app/app-settings.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -853,12 +870,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
+
+
 var LibraryComponent = (function () {
-    function LibraryComponent(slimLoadingBarService, notificationService, apiService, scrollSpyService) {
+    function LibraryComponent(slimLoadingBarService, notificationService, apiService, scrollSpyService, modalService) {
         this.slimLoadingBarService = slimLoadingBarService;
         this.notificationService = notificationService;
         this.apiService = apiService;
         this.scrollSpyService = scrollSpyService;
+        this.modalService = modalService;
         this.bookList = [];
         this.bookListAll = false;
         this.loading = {
@@ -872,14 +893,8 @@ var LibraryComponent = (function () {
             storage_id: null,
             page: '',
         };
-        this.connected = {
-            quietthyme: false,
-            dropbox: false,
-            gdrive: false,
-            skydrive: false,
-            box: false,
-        };
-        this.storages = {};
+        this.connected = [];
+        this.storageDetails = __WEBPACK_IMPORTED_MODULE_8__app_settings__["a" /* AppSettings */].STORAGE_DETAILS;
     }
     LibraryComponent.prototype.ngAfterViewInit = function () {
         // this.getBookList();
@@ -887,6 +902,19 @@ var LibraryComponent = (function () {
         // this.scrollSpyService.getObservable('sidebar').subscribe((e: any) => {
         //     console.log('ScrollSpy::sidebar: ', e);
         // });
+    };
+    LibraryComponent.prototype.initStorageStatus = function () {
+        this.connected = [
+            {
+                free_space: 0,
+                total_space: 0,
+                prefix: 'quietthyme://',
+                device_name: 'quietthyme',
+                storage_id: 'quietthyme',
+                storage_type: 'quietthyme',
+                location_code: 'main',
+            },
+        ];
     };
     LibraryComponent.prototype.onScroll = function () {
         console.log('SCROLLING');
@@ -905,10 +933,8 @@ var LibraryComponent = (function () {
         })
             .subscribe(function (response) {
             console.log(response);
-            response.forEach(function (status) {
-                self.connected[status.storage_type] = true;
-                self.storages[status.storage_type] = status;
-            });
+            _this.initStorageStatus();
+            _this.connected = _this.connected.concat(response);
         }, function (error) {
             _this.notificationService.show('An error occurred!', error);
         });
@@ -961,17 +987,17 @@ var LibraryComponent = (function () {
             var filename = book.storage_filename + book.storage_format;
             var file = response.blob();
             console.log(file.size + ' bytes file downloaded. File type: ', file.type);
-            __WEBPACK_IMPORTED_MODULE_5_file_saver__["saveAs"](file, filename);
+            __WEBPACK_IMPORTED_MODULE_7_file_saver__["saveAs"](file, filename);
         }, function (error) {
             _this.notificationService.show('An error occurred!', error);
         });
     };
-    LibraryComponent.prototype.setStorage = function (storage) {
-        if (storage == this.filter.storage)
+    LibraryComponent.prototype.setStorage = function (storageStatus) {
+        if (storageStatus == this.filter.storage)
             return; //user clicked an active filter
-        this.filter.storage = storage || null;
-        this.filter.storage_id = this.storages[storage]
-            ? this.storages[storage].storage_id
+        this.filter.storage = storageStatus || null;
+        this.filter.storage_id = storageStatus != null
+            ? storageStatus.storage_id
             : null;
         this.filter.page = '';
         console.log('CHANGED STORAGE FILTER', this.filter.storage);
@@ -989,6 +1015,14 @@ var LibraryComponent = (function () {
         this.bookList = [];
         this.getBookList();
     };
+    LibraryComponent.prototype.openModalBookUpload = function () {
+        this.bsModalRef = this.modalService.show(__WEBPACK_IMPORTED_MODULE_4__partials_book_upload_book_upload_component__["a" /* BookUploadComponent */], {
+            animated: true,
+            backdrop: 'static',
+            class: 'modal-container modal-active',
+        });
+        this.bsModalRef.content.connected = this.connected;
+    };
     return LibraryComponent;
 }());
 LibraryComponent = __decorate([
@@ -997,11 +1031,28 @@ LibraryComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/library/library.component.html"),
         styles: [__webpack_require__("../../../../../src/app/library/library.component.less")],
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__services_notification_service__["a" /* NotificationService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_notification_service__["a" /* NotificationService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_4_ng2_scrollspy__["ScrollSpyService"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4_ng2_scrollspy__["ScrollSpyService"]) === "function" && _d || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__services_notification_service__["a" /* NotificationService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_notification_service__["a" /* NotificationService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_6_ng2_scrollspy__["ScrollSpyService"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6_ng2_scrollspy__["ScrollSpyService"]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_5_ngx_bootstrap_modal__["a" /* BsModalService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5_ngx_bootstrap_modal__["a" /* BsModalService */]) === "function" && _e || Object])
 ], LibraryComponent);
 
-var _a, _b, _c, _d;
+var _a, _b, _c, _d, _e;
 //# sourceMappingURL=library.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/models/storage-prepare-book-model.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return StoragePrepareBookModel; });
+var StoragePrepareBookModel = (function () {
+    function StoragePrepareBookModel() {
+        this.storage_id = 'quietthyme'; //by default we upload to the QuietThyme storage, no where else.
+        this.book_id = 'NEW';
+    }
+    return StoragePrepareBookModel;
+}());
+
+//# sourceMappingURL=storage-prepare-book-model.js.map
 
 /***/ }),
 
@@ -1017,6 +1068,79 @@ var StorageStatus = (function () {
 }());
 
 //# sourceMappingURL=storage-status.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/partials/book-upload/book-upload.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<section class=\"imageblock feature-large bg--site border--round \">\n    <div class=\"imageblock__content col-md-4 col-sm-3 pos-left\">\n        <div class=\"background-image-holder library-book-upload-bg\">\n        </div>\n    </div>\n    <div class=\"container\">\n        <div class=\"row\">\n            <div class=\"col-md-6 col-md-push-5 col-sm-7 col-sm-push-4\">\n                <h2>Upload books</h2>\n                <p>\n                    It's easy. Just Drag & Drop your books into the box below. You can also choose to upload books to your Cloud Storage.\n                </p>\n\n                <form class=\"form--clearfix\">\n                    <div class=\"col-sm-12\">\n                        <label>Destination:</label>\n                        <div class=\"input-select\">\n                            <select [(ngModel)]=\"storageId\" name=\"storageId\">\n                                <option *ngFor=\"let serviceStatus of connected\" [value]=\"serviceStatus.storage_id\">{{ storageDetails[serviceStatus.storage_type].display_name }}</option>\n                            </select>\n                        </div>\n                    </div>\n                </form>\n                <form dropzone\n                      [storageId]=\"storageId\"\n                      class=\"dropzone\"\n                      id=\"my-awesome-dropzone\"></form>\n                <p style=\"padding-top:10px;\">\n                    It's even easier to upload books via your Cloud Storage \"blackhole\" folder. Check the Storage page for more info.\n                </p>\n            </div>\n        </div>\n        <!--end of row-->\n    </div>\n    <!--end of container-->\n</section>\n<div (click)=\"closeModalBookUpload()\" class=\"modal-close modal-close-cross\"></div>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/partials/book-upload/book-upload.component.less":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/partials/book-upload/book-upload.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BookUploadComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ngx_bootstrap_modal_modal_options_class__ = __webpack_require__("../../../../ngx-bootstrap/modal/modal-options.class.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_settings__ = __webpack_require__("../../../../../src/app/app-settings.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var BookUploadComponent = (function () {
+    function BookUploadComponent(bsModalRef) {
+        this.bsModalRef = bsModalRef;
+        this.connected = [];
+        this.storageDetails = __WEBPACK_IMPORTED_MODULE_2__app_settings__["a" /* AppSettings */].STORAGE_DETAILS;
+        this.storageId = "quietthyme";
+    }
+    BookUploadComponent.prototype.ngOnInit = function () {
+    };
+    BookUploadComponent.prototype.closeModalBookUpload = function (e) {
+        this.bsModalRef.hide();
+    };
+    return BookUploadComponent;
+}());
+BookUploadComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+        selector: 'quietthyme-book-upload',
+        template: __webpack_require__("../../../../../src/app/partials/book-upload/book-upload.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/partials/book-upload/book-upload.component.less")]
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ngx_bootstrap_modal_modal_options_class__["a" /* BsModalRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ngx_bootstrap_modal_modal_options_class__["a" /* BsModalRef */]) === "function" && _a || Object])
+], BookUploadComponent);
+
+var _a;
+//# sourceMappingURL=book-upload.component.js.map
 
 /***/ }),
 
@@ -1610,6 +1734,15 @@ var ApiService = (function () {
             .map(this.extractData)
             .catch(this.handleError);
     };
+    ApiService.prototype.storagePrepareBook = function (prepare_data) {
+        var params = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["URLSearchParams"]();
+        params.set('source', 'web'); //if we dont specify the source, we'll get the wrong kind of signedUrl from the API (one without a policy)
+        //TODO: this should bust the /book cache
+        return this.authHttp
+            .post(__WEBPACK_IMPORTED_MODULE_4__app_settings__["a" /* AppSettings */].API_ENDPOINT + "/storage/prepare/book", prepare_data, { search: params })
+            .map(this.extractData)
+            .catch(this.handleError);
+    };
     ApiService.prototype.bookList = function (filter) {
         var url = __WEBPACK_IMPORTED_MODULE_4__app_settings__["a" /* AppSettings */].API_ENDPOINT + "/book";
         var params = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["URLSearchParams"]();
@@ -2163,6 +2296,109 @@ SettingsComponent = __decorate([
 
 var _a, _b, _c;
 //# sourceMappingURL=settings.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/shared/dropzone.directive.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DropzoneDirective; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_settings__ = __webpack_require__("../../../../../src/app/app-settings.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__models_storage_prepare_book_model__ = __webpack_require__("../../../../../src/app/models/storage-prepare-book-model.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_api_service__ = __webpack_require__("../../../../../src/app/services/api.service.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var DropzoneDirective = (function () {
+    function DropzoneDirective(_elt, apiService) {
+        this.apiService = apiService;
+        this.onCheckout = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]();
+        this.acceptedFiles = __WEBPACK_IMPORTED_MODULE_1__app_settings__["a" /* AppSettings */].SUPPORTED_BOOK_TYPES.join(',');
+        this.elt = _elt;
+    }
+    DropzoneDirective.prototype.ngAfterViewInit = function () {
+        var self = this;
+        var myDropzone = new Dropzone(self.elt.nativeElement, {
+            url: "https://s3.amazonaws.com/placeholder",
+            paramName: "file",
+            maxThumbnailFilesize: 5,
+            // uploadMultiple: false,
+            // headers: {"Accept": "text/plain"},
+            // In the `accept` function we request a signed upload URL when a file being accepted
+            acceptedFiles: self.acceptedFiles,
+            accept: function (file, done) {
+                var filename_parts = file.name.split(".");
+                if (filename_parts.length == 1) {
+                    done('Invalid file name');
+                }
+                var extension = "." + filename_parts.pop();
+                var filename = filename_parts.join('.');
+                var prepareData = new __WEBPACK_IMPORTED_MODULE_2__models_storage_prepare_book_model__["a" /* StoragePrepareBookModel */]();
+                prepareData.storage_size = file.size;
+                prepareData.storage_filename = filename;
+                prepareData.storage_format = extension;
+                prepareData.storage_id = self.storageId;
+                console.log("Storage Destination data:", prepareData);
+                self.apiService.storagePrepareBook(prepareData)
+                    .subscribe(function (data) {
+                    console.log("THIS IS THE RESPONSE DATA");
+                    console.log(data);
+                    file.signedFormFields = data['upload_url']['fields'];
+                    file.uploadURL = data['upload_url']['url'];
+                    done();
+                }, function (error) {
+                    done(error);
+                });
+            },
+            sending: function (file, xhr, formData) {
+                var signedFields = file.signedFormFields;
+                console.log("Retrieving signed fields", signedFields);
+                for (var key in signedFields) {
+                    console.log(key, signedFields[key]);
+                    formData.append(key, signedFields[key]);
+                }
+                // var _send = xhr.send;
+                // xhr.send = function() {
+                //     _send.call(xhr, file);
+                // };
+            }
+        });
+        // Set signed upload URL for each file being processing
+        myDropzone.on('processing', function (file) {
+            myDropzone.options.url = file.uploadURL;
+        });
+    };
+    return DropzoneDirective;
+}());
+__decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"])(),
+    __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]) === "function" && _a || Object)
+], DropzoneDirective.prototype, "onCheckout", void 0);
+__decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+    __metadata("design:type", String)
+], DropzoneDirective.prototype, "storageId", void 0);
+DropzoneDirective = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Directive"])({
+        selector: '[dropzone]',
+    }),
+    __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__services_api_service__["a" /* ApiService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_api_service__["a" /* ApiService */]) === "function" && _c || Object])
+], DropzoneDirective);
+
+var _a, _b, _c;
+//# sourceMappingURL=dropzone.directive.js.map
 
 /***/ }),
 
