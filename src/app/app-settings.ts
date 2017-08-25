@@ -20,7 +20,7 @@ export class AppSettings {
   }
 
   public static get SUPPORTED_BOOK_TYPES(): any {
-    return ['azw3', 'azw', 'cbr', 'cbt', 'cbz','chm','djvu','doc','docx','epub','ibooks','kf8','lrf','lit','mobi','pdf','prc','rtf','txt']
+    return ['.azw3', '.azw', '.cbr', '.cbt', '.cbz','.chm','.djvu','.doc','.docx','.epub','.ibooks','.kf8','.lrf','.lit','.mobi','.pdf','.prc','.rtf','.txt']
   }
 
   public static get STORAGE_DETAILS(): any {
