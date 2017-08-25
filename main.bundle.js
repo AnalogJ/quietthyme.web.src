@@ -372,7 +372,7 @@ var AppSettings = (function () {
     });
     Object.defineProperty(AppSettings, "SUPPORTED_BOOK_TYPES", {
         get: function () {
-            return ['azw3', 'azw', 'cbr', 'cbt', 'cbz', 'chm', 'djvu', 'doc', 'docx', 'epub', 'ibooks', 'kf8', 'lrf', 'lit', 'mobi', 'pdf', 'prc', 'rtf', 'txt'];
+            return ['.azw3', '.azw', '.cbr', '.cbt', '.cbz', '.chm', '.djvu', '.doc', '.docx', '.epub', '.ibooks', '.kf8', '.lrf', '.lit', '.mobi', '.pdf', '.prc', '.rtf', '.txt'];
         },
         enumerable: true,
         configurable: true
