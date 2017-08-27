@@ -20,7 +20,7 @@ import { AppSettings } from '../app-settings';
   styleUrls: ['./library.component.less'],
 })
 export class LibraryComponent implements AfterViewInit {
-  bookList: BookModel[] = [];
+    bookList: BookModel[] = [];
   bookListAll: boolean = false;
   loading = {
     list: false,

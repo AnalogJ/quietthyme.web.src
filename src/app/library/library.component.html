@@ -118,5 +118,72 @@
         </div>
         <!--end of container-->
     </section>
+
+    <section *ngIf="bookList.length == 0 && !loading.list" class="text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-10 col-md-8" style="padding-bottom:50px;">
+                    <h1>Your {{ storageDetails[filter.storage ? filter.storage.storage_type : 'quietthyme' ].display_name + ' ' }}Library is empty :(</h1>
+                    <p class="lead">
+                        It doesn't look like you've added any books to your {{ storageDetails[filter.storage ? filter.storage.storage_type : 'quietthyme' ].display_name + ' ' }}library yet.
+                        <br/>Don't worry, there's a couple of ways to do so.
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="feature feature-2 boxed boxed--border">
+                        <i class="icon icon-Clock-Back color--primary"></i>
+                        <div class="feature__body">
+                            <p>
+                                On the go? Just drag some books into your <a href="https://quietthyme.uservoice.com/knowledgebase/articles/123761#blackhole" target="_blank">Cloud Storage blackhole folder</a>, and we'll add them to your library automatically
+                            </p>
+                        </div>
+                    </div>
+                    <!--end feature-->
+                </div>
+                <div class="col-sm-4">
+                    <div class="feature feature-2 boxed boxed--border">
+                        <i class="icon icon-Life-Jacket color--primary"></i>
+                        <div class="feature__body">
+                            <p>
+                                Add books using the <a class="link" (click)="openModalBookUpload()">Web Uploader</a>. Simple, easy to use. What more do you want?
+                            </p>
+                        </div>
+                    </div>
+                    <!--end feature-->
+                </div>
+                <div class="col-sm-4">
+                    <div class="feature feature-2 boxed boxed--border">
+                        <i class="icon icon-Duplicate-Window color--primary"></i>
+                        <div class="feature__body">
+                            <p>
+                                Manage your library using Calibre? No problem, we have a <a href="https://quietthyme.uservoice.com/knowledgebase/articles/123761#calibre" target="_blank">powerful plugin</a> waiting for you.
+                            </p>
+                        </div>
+                    </div>
+                    <!--end feature-->
+                </div>
+
+            </div>
+            <!--end of row-->
+        </div>
+        <!--end of container-->
+    </section>
+    <section *ngIf="bookList.length == 0 && loading.list" class="text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-10 col-md-8" style="padding-bottom:50px;">
+                    <h1>Loading your {{ storageDetails[filter.storage ? filter.storage.storage_type : 'quietthyme' ].display_name + ' ' }}Library. Please wait.</h1>
+                    <p class="lead">
+                        We're loading your {{ storageDetails[filter.storage ? filter.storage.storage_type : 'quietthyme' ].display_name + ' ' }}library right now, it may take a few moments.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!--end of container-->
+    </section>
+
+
     <quietthyme-footer></quietthyme-footer>
 </div>
