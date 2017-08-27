@@ -73,9 +73,15 @@
     <section class=" ">
         <div class="container">
             <div class="row">
-                <div class="col-sm-4" *ngFor="let storageData of connected; let myIndex = index">
-                    <quietthyme-storage-panel [storageData]="storageData"></quietthyme-storage-panel>
-                </div>
+
+                <masonry>
+
+                    <masonry-brick *ngFor="let storageData of connected; let myIndex = index" class="col-sm-4 masonry__item">
+                        <quietthyme-storage-panel [storageData]="storageData"></quietthyme-storage-panel>
+                    </masonry-brick>
+
+                </masonry><!-- #shop end -->
+
             </div>
             <!--end of row-->
         </div>
