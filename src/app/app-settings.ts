@@ -27,7 +27,7 @@ export class AppSettings {
     return {
       quietthyme: {
         display_name: 'QuietThyme',
-        details: 'This storage type is not available during beta.',
+        details: 'Ebook storage that grows with you. Unlimited books in the cloud',
         blackhole_path: null,
       },
       box: {
