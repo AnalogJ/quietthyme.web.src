@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../services/api.service';
 import { BookModel } from '../models/book';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 import { MarkdownModule } from 'angular2-markdown';
 import { SlimLoadingBarService } from 'ng2-slim-loading-bar';
 import { NotificationService } from '../services/notification.service';
 import * as FileSaver from 'file-saver';
+declare var ga: any;
 
 @Component({
   selector: 'app-book-details',
@@ -25,7 +26,14 @@ export class BookDetailsComponent implements OnInit {
     private notificationService: NotificationService,
     private router: Router,
     private activatedRoute: ActivatedRoute
-  ) {}
+  ) {
+      this.router.events.subscribe(event => {
+          if (event instanceof NavigationEnd) {
+              ga('set', 'page', event.urlAfterRedirects);
+              ga('send', 'pageview');
+          }
+      });
+  }
 
   ngOnInit() {
     this.slimLoadingBarService.start();

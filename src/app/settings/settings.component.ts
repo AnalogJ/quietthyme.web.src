@@ -1,7 +1,8 @@
 import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
 import { ApiService } from '../services/api.service';
-import { ActivatedRoute } from '@angular/router';
 import { SlimLoadingBarService } from 'ng2-slim-loading-bar';
+import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
+declare var ga: any;
 
 @Component({
   selector: 'app-settings',
@@ -18,8 +19,16 @@ export class SettingsComponent implements OnInit {
   constructor(
     private slimLoadingBarService: SlimLoadingBarService,
     private apiService: ApiService,
-    private activatedRoute: ActivatedRoute
-  ) {}
+    private activatedRoute: ActivatedRoute,
+    private router: Router
+  ) {
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        ga('set', 'page', event.urlAfterRedirects);
+        ga('send', 'pageview');
+      }
+    });
+  }
 
   ngOnInit() {
     this.userData = this.apiService.tokenPayload();

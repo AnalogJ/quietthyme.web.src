@@ -3,8 +3,9 @@ import { ApiService } from '../services/api.service';
 import { UservoiceService } from '../services/uservoice.service';
 import { NotificationService } from '../services/notification.service';
 import { ActivatedRoute } from '@angular/router';
-import { Router } from '@angular/router';
+import { Router, NavigationEnd } from '@angular/router';
 import { SlimLoadingBarService } from 'ng2-slim-loading-bar';
+declare var ga: any;
 
 @Component({
   selector: 'app-account-login',
@@ -26,7 +27,15 @@ export class AccountLoginComponent implements OnInit {
     private notificationService: NotificationService,
     private router: Router,
     private activatedRoute: ActivatedRoute
-  ) {}
+  ) {
+
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        ga('set', 'page', event.urlAfterRedirects);
+        ga('send', 'pageview');
+      }
+    });
+  }
 
   ngOnInit() {}
 

@@ -4,6 +4,8 @@ import { SlimLoadingBarService } from 'ng2-slim-loading-bar';
 import { StorageStatus } from '../models/storage-status';
 import { AppSettings } from '../app-settings';
 import { NotificationService } from '../services/notification.service';
+import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
+declare var ga: any;
 
 @Component({
   selector: 'app-storage',
@@ -22,8 +24,16 @@ export class StorageComponent implements OnInit {
   constructor(
     private slimLoadingBarService: SlimLoadingBarService,
     private notificationService: NotificationService,
-    private apiService: ApiService
-  ) {}
+    private apiService: ApiService,
+    private router: Router
+  ) {
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        ga('set', 'page', event.urlAfterRedirects);
+        ga('send', 'pageview');
+      }
+    });
+  }
 
   ngOnInit() {
     this.initStorageStatus()

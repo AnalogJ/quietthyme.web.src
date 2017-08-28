@@ -4,8 +4,9 @@ import { ApiService } from '../services/api.service';
 import { UservoiceService } from '../services/uservoice.service';
 import { NotificationService } from '../services/notification.service';
 
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 declare var UserVoice: any;
+declare var ga: any;
 
 @Component({
   selector: 'app-account-register-plan',
@@ -23,7 +24,14 @@ export class AccountRegisterPlanComponent implements OnInit {
     private notificationService: NotificationService,
     private apiService: ApiService,
     private router: Router
-  ) {}
+  ) {
+      this.router.events.subscribe(event => {
+          if (event instanceof NavigationEnd) {
+              ga('set', 'page', event.urlAfterRedirects);
+              ga('send', 'pageview');
+          }
+      });
+  }
 
   ngOnInit() {}
 

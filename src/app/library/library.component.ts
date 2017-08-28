@@ -11,8 +11,8 @@ import { ScrollSpyModule, ScrollSpyService } from 'ng2-scrollspy';
 import { ScrollSpyAffixModule } from 'ng2-scrollspy/dist/plugin/affix';
 import * as FileSaver from 'file-saver';
 import { AppSettings } from '../app-settings';
-
-
+import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
+declare var ga: any;
 
 @Component({
   selector: 'app-library',
@@ -43,8 +43,16 @@ export class LibraryComponent implements AfterViewInit {
     private notificationService: NotificationService,
     private apiService: ApiService,
     private scrollSpyService: ScrollSpyService,
-    private modalService: BsModalService
-  ) {}
+    private modalService: BsModalService,
+    private router: Router
+  ) {
+      this.router.events.subscribe(event => {
+          if (event instanceof NavigationEnd) {
+              ga('set', 'page', event.urlAfterRedirects);
+              ga('send', 'pageview');
+          }
+      });
+  }
 
   ngAfterViewInit() {
     // this.getBookList();

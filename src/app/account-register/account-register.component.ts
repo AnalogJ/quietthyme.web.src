@@ -2,9 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../services/api.service';
 import { UservoiceService } from '../services/uservoice.service';
 import { NotificationService } from '../services/notification.service';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 import { SlimLoadingBarService } from 'ng2-slim-loading-bar';
 declare var UserVoice: any;
+declare var ga: any;
 
 @Component({
   selector: 'app-account-register',
@@ -28,7 +29,14 @@ export class AccountRegisterComponent implements OnInit {
     private notificationService: NotificationService,
     private router: Router,
     private activatedRoute: ActivatedRoute
-  ) {}
+  ) {
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        ga('set', 'page', event.urlAfterRedirects);
+        ga('send', 'pageview');
+      }
+    });
+  }
 
   ngOnInit() {}
 
