@@ -2418,7 +2418,7 @@ var DropzoneDirective = (function () {
                     .subscribe(function (data) {
                     // do a deep copy of the subscribe data.
                     var respData = JSON.parse(JSON.stringify(data));
-                    respData.Fields.key = respData.Fields.key + file.name;
+                    respData.fields.key = respData.fields.key + file.name;
                     file.signedFormFields = data['fields'];
                     file.upload_url = data['url']; // url has a trailing suffix.
                     done();
