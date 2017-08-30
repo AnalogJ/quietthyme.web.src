@@ -24,13 +24,31 @@ export class DropzoneDirective {
   @Output() onCheckout: EventEmitter<any> = new EventEmitter();
   @Input() storageId: string;
 
+  signedCredData = {};
+
+
   acceptedFiles = AppSettings.SUPPORTED_BOOK_TYPES.join(',');
   handler: any;
 
   elt: ElementRef;
   constructor(_elt: ElementRef, private apiService: ApiService) {
     this.elt = _elt;
+      var prepareData = new StoragePrepareBookModel();
+      prepareData.storage_id = 'quietthyme'
+      this.signedCredData['quietthyme'] = this.apiService.storagePrepareBook(prepareData)
   }
+
+    ngOnChanges(changes) {
+        console.log(changes);
+
+        if(!this.signedCredData[this.storageId]){
+            var prepareData = new StoragePrepareBookModel();
+            prepareData.storage_id = this.storageId
+            this.signedCredData[this.storageId] = this.apiService.storagePrepareBook(prepareData)
+        }
+    }
+
+
 
   ngAfterViewInit() {
     var self = this;
@@ -50,24 +68,26 @@ export class DropzoneDirective {
                     done('Invalid file name')
                 }
 
-                var extension = `.${filename_parts.pop()}`;
-                var filename = filename_parts.join('.');
+                // TODO: we can do some "insecure" clientside validation here for filetype and storage size.
+                // var extension = `.${filename_parts.pop()}`;
+                // var filename = filename_parts.join('.');
 
-                var prepareData = new StoragePrepareBookModel();
-                prepareData.storage_size = file.size;
-                prepareData.storage_filename = filename;
-                prepareData.storage_format = extension;
-                prepareData.storage_id = self.storageId;
+                // var prepareData = new StoragePrepareBookModel();
+                // prepareData.storage_id = self.storageId;
+                // prepareData.storage_size = file.size;
+                // prepareData.storage_filename = filename;
+                // prepareData.storage_format = extension;
 
-                console.log("Storage Destination data:", prepareData);
+                console.log("Storage Destination data:");
 
-                self.apiService.storagePrepareBook(prepareData)
+                self.signedCredData[self.storageId]
                     .subscribe(
                         data => {
-                            console.log("THIS IS THE RESPONSE DATA")
-                            console.log(data)
-                            file.signedFormFields = data['upload_url']['fields']
-                            file.uploadURL = data['upload_url']['url']
+                            // do a deep copy of the subscribe data.
+                            var respData = JSON.parse(JSON.stringify(data))
+                            respData.Fields.key = respData.Fields.key + file.name;
+                            file.signedFormFields = data['fields'];
+                            file.upload_url = data['url']; // url has a trailing suffix.
                             done()
                         },
                         error => {
@@ -83,18 +103,13 @@ export class DropzoneDirective {
 
                     formData.append(key, signedFields[key])
                 }
-
-                // var _send = xhr.send;
-                // xhr.send = function() {
-                //     _send.call(xhr, file);
-                // };
             }
 
         }
     );
     // Set signed upload URL for each file being processing
     myDropzone.on('processing', (file) => {
-      myDropzone.options.url = file.uploadURL
+      myDropzone.options.url = file.upload_url
     })
 
   }
