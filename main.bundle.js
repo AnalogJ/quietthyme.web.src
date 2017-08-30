@@ -2375,9 +2375,21 @@ var DropzoneDirective = (function () {
     function DropzoneDirective(_elt, apiService) {
         this.apiService = apiService;
         this.onCheckout = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]();
+        this.signedCredData = {};
         this.acceptedFiles = __WEBPACK_IMPORTED_MODULE_1__app_settings__["a" /* AppSettings */].SUPPORTED_BOOK_TYPES.join(',');
         this.elt = _elt;
+        var prepareData = new __WEBPACK_IMPORTED_MODULE_2__models_storage_prepare_book_model__["a" /* StoragePrepareBookModel */]();
+        prepareData.storage_id = 'quietthyme';
+        this.signedCredData['quietthyme'] = this.apiService.storagePrepareBook(prepareData);
     }
+    DropzoneDirective.prototype.ngOnChanges = function (changes) {
+        console.log(changes);
+        if (!this.signedCredData[this.storageId]) {
+            var prepareData = new __WEBPACK_IMPORTED_MODULE_2__models_storage_prepare_book_model__["a" /* StoragePrepareBookModel */]();
+            prepareData.storage_id = this.storageId;
+            this.signedCredData[this.storageId] = this.apiService.storagePrepareBook(prepareData);
+        }
+    };
     DropzoneDirective.prototype.ngAfterViewInit = function () {
         var self = this;
         var myDropzone = new Dropzone(self.elt.nativeElement, {
@@ -2393,20 +2405,22 @@ var DropzoneDirective = (function () {
                 if (filename_parts.length == 1) {
                     done('Invalid file name');
                 }
-                var extension = "." + filename_parts.pop();
-                var filename = filename_parts.join('.');
-                var prepareData = new __WEBPACK_IMPORTED_MODULE_2__models_storage_prepare_book_model__["a" /* StoragePrepareBookModel */]();
-                prepareData.storage_size = file.size;
-                prepareData.storage_filename = filename;
-                prepareData.storage_format = extension;
-                prepareData.storage_id = self.storageId;
-                console.log("Storage Destination data:", prepareData);
-                self.apiService.storagePrepareBook(prepareData)
+                // TODO: we can do some "insecure" clientside validation here for filetype and storage size.
+                // var extension = `.${filename_parts.pop()}`;
+                // var filename = filename_parts.join('.');
+                // var prepareData = new StoragePrepareBookModel();
+                // prepareData.storage_id = self.storageId;
+                // prepareData.storage_size = file.size;
+                // prepareData.storage_filename = filename;
+                // prepareData.storage_format = extension;
+                console.log("Storage Destination data:");
+                self.signedCredData[self.storageId]
                     .subscribe(function (data) {
-                    console.log("THIS IS THE RESPONSE DATA");
-                    console.log(data);
-                    file.signedFormFields = data['upload_url']['fields'];
-                    file.uploadURL = data['upload_url']['url'];
+                    // do a deep copy of the subscribe data.
+                    var respData = JSON.parse(JSON.stringify(data));
+                    respData.Fields.key = respData.Fields.key + file.name;
+                    file.signedFormFields = data['fields'];
+                    file.upload_url = data['url']; // url has a trailing suffix.
                     done();
                 }, function (error) {
                     done(error);
@@ -2419,15 +2433,11 @@ var DropzoneDirective = (function () {
                     console.log(key, signedFields[key]);
                     formData.append(key, signedFields[key]);
                 }
-                // var _send = xhr.send;
-                // xhr.send = function() {
-                //     _send.call(xhr, file);
-                // };
             }
         });
         // Set signed upload URL for each file being processing
         myDropzone.on('processing', function (file) {
-            myDropzone.options.url = file.uploadURL;
+            myDropzone.options.url = file.upload_url;
         });
     };
     return DropzoneDirective;
