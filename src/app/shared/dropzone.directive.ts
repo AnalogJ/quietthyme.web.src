@@ -68,6 +68,8 @@ export class DropzoneDirective {
                     done('Invalid file name')
                 }
 
+                console.log("Added book filename", file)
+
                 // TODO: we can do some "insecure" clientside validation here for filetype and storage size.
                 // var extension = `.${filename_parts.pop()}`;
                 // var filename = filename_parts.join('.');
@@ -87,8 +89,8 @@ export class DropzoneDirective {
                             var respData = JSON.parse(JSON.stringify(data))
 
                             respData.fields.key = respData.fields.key + file.name;
-                            file.signedFormFields = data['fields'];
-                            file.upload_url = data['url']; // url has a trailing suffix.
+                            file.signedFormFields = respData.fields;
+                            file.upload_url = respData.url; // url has a trailing suffix.
                             done()
                         },
                         error => {
