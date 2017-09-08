@@ -1,8 +1,11 @@
 import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
 import { ApiService } from '../services/api.service';
 import { SlimLoadingBarService } from 'ng2-slim-loading-bar';
+import { PushNotifyService,PushNotificationState } from '../services/push-notify.service';
 import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
+import { NotificationService } from '../services/notification.service';
 declare var ga: any;
+declare var UserVoice: any;
 
 @Component({
   selector: 'app-settings',
@@ -11,16 +14,30 @@ declare var ga: any;
 })
 export class SettingsComponent implements OnInit {
   userData: any = {};
+  updateData: any = {};
+  oldPassword: string = '';
+  newPassword: string = '';
+  confirmPassword: string = '';
+  selectedTab: string = "profile"
   loading = {
     setPlan: false,
+    updateUser: false,
+    regenerateCatalog: false,
+    passwordReset: false
   };
 
   catalogUrl: string = '';
+
+  hasPushNotificationSubscription = false;
+
   constructor(
     private slimLoadingBarService: SlimLoadingBarService,
     private apiService: ApiService,
     private activatedRoute: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private pushNotifyService: PushNotifyService,
+    private notificationService: NotificationService
+
   ) {
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
@@ -28,11 +45,132 @@ export class SettingsComponent implements OnInit {
         ga('send', 'pageview');
       }
     });
+
+    this.pushNotifyService.init();
+    // TODO: clean this up.
+    this.pushNotifyService.pushNotificationState.subscribe(
+        (state: PushNotificationState) => {
+          this.hasPushNotificationSubscription = state.hasSubscription;
+          if(!state.hasSubscription && !state.subscriptionData){
+            console.log("User has no push notifications enabled.")
+            // this.pushNotifyService.subscribeUser()
+          }
+          else {
+            console.log("User already has a subscription enabled.", state)
+          }
+        }
+    );
+  }
+
+  saveProfile(){
+    if(this.loading.updateUser){
+      return
+    }
+    this.loading.updateUser = true;
+    this.apiService.userUpdate({name: this.updateData.name})
+        .finally(() => {
+          this.loading.updateUser = false;
+          this.slimLoadingBarService.complete();
+        })
+        .subscribe(
+            data => {
+              localStorage.setItem('id_token', data.token); //set the JWT token
+              this.populateSettings()
+            },
+            error => {
+              this.notificationService.show('An error occurred!', error);
+            }
+        );
+  }
+
+  userPasswordReset(){
+    if(this.loading.passwordReset){
+      return
+    }
+    if(this.newPassword != this.confirmPassword){
+      this.confirmPassword = ""
+      return
+    }
+
+    this.loading.passwordReset=true
+    this.apiService.userPasswordReset(this.oldPassword, this.newPassword)
+        .finally(() => {
+          this.loading.passwordReset = false;
+          this.slimLoadingBarService.complete();
+        })
+        .subscribe(
+            data => {
+              this.oldPassword = ""
+              this.newPassword = ""
+              this.confirmPassword = ""
+            },
+            error => {
+              this.notificationService.show('An error occurred!', error);
+            }
+        );
+  }
+
+  regenCatalog(){
+    if(this.loading.regenerateCatalog){
+      return
+    }
+    this.loading.regenerateCatalog = true;
+    this.apiService.userCatalog()
+        .finally(() => {
+          this.loading.regenerateCatalog = false;
+          this.slimLoadingBarService.complete();
+        })
+        .subscribe(
+            data => {
+              localStorage.setItem('id_token', data.token); //set the JWT token
+              this.populateSettings()
+            },
+            error => {
+              this.notificationService.show('An error occurred!', error);
+            }
+        );
+  }
+
+
+  unsubscribePushNotifications(){
+    this.pushNotifyService.unsubscribeUser()
+  }
+  subscribePushNotifications(){
+    this.pushNotifyService.subscribeUser()
+  }
+  testPushNotifications(){
+    this.apiService.userPushNotifyTest()
+        .finally(() => {
+          this.slimLoadingBarService.complete();
+        })
+        .subscribe(
+            data => {
+              console.log("Finsihed successfully")
+            },
+            error => {
+              console.log("An error occured")
+
+              this.notificationService.show('An error occurred!', error);
+            }
+        );
+  }
+
+  showContactForm(){
+    UserVoice.push(['show', {
+      mode: 'contact'
+    }]);
+  }
+
+  populateSettings(){
+    this.userData = this.apiService.tokenPayload();
+    for(var prop in this.userData){
+      this.updateData[prop] = this.userData[prop];
+    }
+    this.catalogUrl = this.apiService.catalogUrl();
   }
 
   ngOnInit() {
-    this.userData = this.apiService.tokenPayload();
-    this.catalogUrl = this.apiService.catalogUrl();
+    this.populateSettings()
   }
   ngAfterViewInit() {}
 

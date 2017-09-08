@@ -20,6 +20,7 @@ import { OpdsPanelComponent } from './partials/opds-panel/opds-panel.component';
 import { StripeCheckoutButtonDirective } from './shared/stripe-checkout-button.directive';
 import { FileSizePipe } from './shared/file-size.pipe';
 import { ApiService } from './services/api.service';
+import { PushNotifyService } from './services/push-notify.service';
 import { CacheService } from './services/cache.service';
 import { AuthGuard } from './services/auth-guard.service';
 import { UservoiceService } from './services/uservoice.service';
@@ -144,6 +145,7 @@ export function getAuthHttp(http: Http, options: RequestOptions) {
     CacheService,
     UservoiceService,
     NotificationService,
+    PushNotifyService,
     AuthGuard,
     {
       provide: AuthHttp,

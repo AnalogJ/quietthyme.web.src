@@ -6,120 +6,118 @@
     <section class="bg--secondary space--sm">
         <div class="container">
             <div class="row">
-                <div class="col-md-8 col-md-offset-2">
+                <div class="col-md-4">
                     <div class="boxed boxed--lg boxed--border">
                         <div class="text-block text-center">
-                            <img alt="avatar" [src]="gravatarUrl(userData.email)" class="border--round box-shadow-wide" />
-                            <span class="h5">{{ userData.name }}</span>
-
+                            <img alt="avatar" [src]="gravatarUrl(userData.email)" class="image--sm" />
+                            <span class="h5 capitalize">{{ userData.name }}</span>
+                            <span class="capitalize">{{ userData.plan }} Account</span>
                             <span class="label">{{ userData.plan }}</span>
                         </div>
-                        <div class="text-block clearfix text-center">
-                            <ul class="row row--list">
-                                <li class="col-sm-4">
-                                    <span class="type--fine-print block">OPDS:</span>
-                                    <a href="{{ catalogUrl }}">Catalog URL</a>
+                        <hr>
+                        <div class="text-block">
+                            <ul class="menu-vertical">
+                                <li>
+                                    <a (click)="selectedTab='profile'" >Profile</a>
                                 </li>
-                                <li class="col-sm-4">
-                                    <span class="type--fine-print block">Member Since:</span>
-                                    <span>June 2016</span>
+                                <li>
+                                    <a (click)="selectedTab='notifications'">Notifications</a>
                                 </li>
-                                <li class="col-sm-4">
-                                    <span class="type--fine-print block">Email:</span>
-                                    <a href="#">{{  userData.email }}</a>
+                                <li>
+                                    <a (click)="selectedTab='billing'">Catalog Details</a>
+                                </li>
+                                <li>
+                                    <a (click)="selectedTab='password'">Password</a>
+                                </li>
+                                <li>
+                                    <a (click)="selectedTab='delete'">Delete Account</a>
                                 </li>
                             </ul>
                         </div>
                     </div>
-                    <div class="boxed boxed--border">
-                        <ul class="row row--list clearfix text-center">
-                            <li class="col-sm-3 col-xs-6">
-                                <span class="h6 type--uppercase type--fade">Books</span>
-                                <span class="h3">220</span>
-                            </li>
-                            <li class="col-sm-3 col-xs-6">
-                                <span class="h6 type--uppercase type--fade">Authors</span>
-                                <span class="h3">14</span>
-                            </li>
-                            <li class="col-sm-3 col-xs-6">
-                                <span class="h6 type--uppercase type--fade">Tags</span>
-                                <span class="h3">2,129</span>
-                            </li>
-                            <li class="col-sm-3 col-xs-6">
-                                <span class="h6 type--uppercase type--fade">Series</span>
-                                <span class="h3">119</span>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="boxed boxed--border hidden">
-                        <h4>Recent Activity</h4>
-                        <ul>
-                            <li class="clearfix">
+                </div>
+                <div class="col-md-8">
+                    <div class="boxed boxed--lg boxed--border">
+                        <div *ngIf="selectedTab == 'profile'" id="account-profile" class="account-tab">
+                            <h4>Profile</h4>
+                            <form>
                                 <div class="row">
-                                    <div class="col-md-2 col-xs-3 text-center">
-                                        <div class="icon-circle">
-                                            <i class="icon icon--lg material-icons">comment</i>
-                                        </div>
+                                    <div class="col-sm-12">
+                                        <label>Name:</label>
+                                        <input type="text" name="name" [(ngModel)]="updateData.name" />
                                     </div>
-                                    <div class="col-md-8 col-xs-7">
-                                        <span class="type--fine-print">21st July, 2017</span>
-                                        <a href="#" class="block color--primary">Check out the relaunched Scope</a>
-                                        <p>
-                                            Discourse in writing dealing with a particular point or idea.
-                                        </p>
+
+                                    <div class="col-sm-12">
+                                        <label>Email Address:</label>
+                                        <div class="uneditable-input disabled">{{ userData.email }}</div>
+                                    </div>
+
+                                    <div class="col-md-3 col-sm-4">
+                                        <button (click)="saveProfile()" [disabled]="loading.updateUser" class="btn btn--primary type--uppercase">Save Profile</button>
+                                    </div>
+                                    <!-- div class="col-md-2">
+                                        <span class="label animate-flicker">Saved!</span>
+                                    </div -->
+                                </div>
+                            </form>
+                        </div>
+                        <div *ngIf="selectedTab == 'notifications'" id="account-notifications" class="account-tab">
+                            <h4>Blackhole Notifications</h4>
+                            <p>Would you like to recieve notifications when books are processed via the blackhole folders:</p>
+
+                            <form>
+                                <button *ngIf="hasPushNotificationSubscription" (click)="unsubscribePushNotifications()" class="btn btn--error type--uppercase">Unsubscribe from Notifications</button>
+                                <button *ngIf="hasPushNotificationSubscription" (click)="testPushNotifications()" class="btn btn--primary type--uppercase">Test Notification</button>
+
+                                <button *ngIf="!hasPushNotificationSubscription" (click)="subscribePushNotifications()" class="btn btn--primary type--uppercase">Enable Notifications</button>
+                            </form>
+
+                        </div>
+                        <div *ngIf="selectedTab == 'billing'" id="account-billing" class="account-tab">
+                            <h4>Catalog Details</h4>
+                            <form>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <label>Catalog ID:</label>
+                                        <div class="uneditable-input disabled">{{ userData.catalog_token }}</div>
+                                    </div>
+
+                                    <div class="col-md-3 col-sm-4">
+                                        <button (click)="regenCatalog()" [disabled]="loading.regenerateCatalog" class="btn btn--primary type--uppercase">Regenerate Catalog</button>
                                     </div>
                                 </div>
-                                <hr>
-                            </li>
-                            <li class="clearfix">
+                            </form>
+                        </div>
+                        <div *ngIf="selectedTab == 'password'" id="account-password" class="account-tab">
+                            <h4>Password</h4>
+                            <p>Passwords must be at least 6 characters in length.</p>
+                            <form>
                                 <div class="row">
-                                    <div class="col-md-2 col-xs-3 text-center">
-                                        <div class="icon-circle">
-                                            <i class="icon icon--lg material-icons">mode_edit</i>
-                                        </div>
+                                    <div class="col-xs-12">
+                                        <label>Old Password:</label>
+                                        <input [(ngModel)]="oldPassword" type="password" name="old-password" />
                                     </div>
-                                    <div class="col-sm-8 col-xs-7">
-                                        <span class="type--fine-print">14th July, 2017</span>
-                                        <a href="#" class="block color--primary">Tips for web typography</a>
-                                        <p>
-                                            To write beside or "written beside" is a self-contained unit of a discourse in writing dealing with a particular point or idea.
-                                        </p>
+                                    <div class="col-sm-6">
+                                        <label>New Password:</label>
+                                        <input [(ngModel)]="newPassword" type="password" name="new-password" />
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label>Retype New Password:</label>
+                                        <input [(ngModel)]="confirmPassword" type="password" name="new-password-confirm" />
+                                    </div>
+                                    <div class="col-md-4 col-sm-5">
+                                        <button (click)="userPasswordReset()" [disabled]="loading.passwordReset" class="btn btn--primary type--uppercase">Save Password</button>
                                     </div>
                                 </div>
-                                <hr>
-                            </li>
-                            <li class="clearfix">
-                                <div class="row">
-                                    <div class="col-md-2 col-xs-3 text-center">
-                                        <div class="icon-circle">
-                                            <i class="icon icon--lg material-icons">favorite</i>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-8 col-xs-7">
-                                        <span class="type--fine-print">12th July, 2017</span>
-                                        <a href="#" class="block color--primary">Where do you source your stock photography?</a>
-                                    </div>
-                                </div>
-                                <hr>
-                            </li>
-                            <li class="clearfix">
-                                <div class="row">
-                                    <div class="col-md-2 col-xs-3 text-center">
-                                        <div class="icon-circle">
-                                            <i class="icon icon--lg material-icons">comment</i>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-8 col-xs-7">
-                                        <span class="type--fine-print">3rd July, 2017</span>
-                                        <a href="#" class="block color--primary">Share your rapid development workflow</a>
-                                        <p>
-                                            Of a discourse in writing dealing with a particular point or idea.
-                                        </p>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                        <a href="#" class="type--fine-print pull-right">View All</a>
+                            </form>
+                        </div>
+                        <div *ngIf="selectedTab == 'delete'" id="account-delete" class="account-tab">
+                            <h4>Delete Account</h4>
+                            <p>Permanently remove your account using the button below. Warning, this action is permanent.</p>
+                            <form>
+                                <button (click)="showContactForm()" class="btn btn--error type--uppercase">Delete Account</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>

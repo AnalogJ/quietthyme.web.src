@@ -8,4 +8,5 @@ export const environment = {
   apiVersion: 'beta',
 
   stripeAccount: 'pk_test_uApReS8yYqD5v6CajPSuXj3Z',
+  pushNotifyPublicKey: 'BPMUtUHTilLtq-gu-cp1jVD5TgfNbaXrkH67E_oqFMnLo74hBBU45MDPRLjqtyqi2VWg2cFVKX1k3-tzeCkgP1A',
 };

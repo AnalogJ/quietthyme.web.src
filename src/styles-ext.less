@@ -9,6 +9,68 @@ a.link, span.link {
   cursor: pointer;
 }
 
+input[disabled] {
+  cursor: default;
+  background: #EFEFEF;
+}
+
+.capitalize {
+  text-transform: capitalize;
+}
+
+.uneditable-input.disabled {
+  cursor: default;
+  background: #EFEFEF;
+}
+.uneditable-input {
+  width: 100%;
+  padding-left: 0.92857143em;
+  -webkit-appearance: none;
+  background: #FCFCFC;
+  padding: 0.46428571em;
+  border-radius: 6px;
+  border: 1px solid #ECECEC;
+  height: 2.78571429em;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+
+@keyframes flickerAnimation {
+  0%   { opacity:0; }
+  10%  { opacity:1; }
+  50%  { opacity:1; }
+  100% { opacity:0; }
+}
+@-o-keyframes flickerAnimation{
+  0%   { opacity:0; }
+  10%  { opacity:1; }
+  50%  { opacity:1; }
+  100% { opacity:0; }
+}
+@-moz-keyframes flickerAnimation{
+  0%   { opacity:0; }
+  10%  { opacity:1; }
+  50%  { opacity:1; }
+  100% { opacity:0; }
+}
+@-webkit-keyframes flickerAnimation{
+  0%   { opacity:0; }
+  10%  { opacity:1; }
+  50%  { opacity:1; }
+  100% { opacity:0; }
+}
+.animate-flicker {
+  -webkit-animation: flickerAnimation 5s 1;
+  -moz-animation: flickerAnimation 5s 1;
+  -o-animation: flickerAnimation 5s 1;
+  animation: flickerAnimation 5s 1;
+  opacity: 0;
+}
+
+
+
 /////////////////////////////////////////////////
 // Header
 /////////////////////////////////////////////////

@@ -12,7 +12,7 @@
         "assets",
         "index.html",
         "CNAME",
-
+        "service-worker.js",
         "favicon.ico"
       ],
       "index": "angular.html",
@@ -25,7 +25,6 @@
       "styles": [
         "styles.less",
         "styles-ext.less"
-
       ],
       "scripts": [
         "assets/js/granim.min.js",

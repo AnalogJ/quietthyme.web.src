@@ -96,6 +96,58 @@ export class ApiService {
     return `${AppSettings.CATALOG_ENDPOINT}/${jwtPayload.catalog_token}`;
   }
 
+  userPushNotifySubscribe(subscription: any): Observable<any> {
+    var url = `${AppSettings.API_ENDPOINT}/user/pushnotify/subscribe`;
+    return this.authHttp
+        .post(url, subscription)
+        .map(this.extractData)
+        .catch(this.handleError);
+  }
+
+  userPushNotifyTest(): Observable<any> {
+    var url = `${AppSettings.API_ENDPOINT}/user/pushnotify/test`;
+    return this.authHttp
+        .post(url, {})
+        .map(this.extractData)
+        .catch(this.handleError);
+  }
+
+  userPushNotifyUnsubscribe(subscription: any): Observable<any> {
+    var url = `${AppSettings.API_ENDPOINT}/user/pushnotify/unsubscribe`;
+    return this.authHttp
+        .post(url, subscription)
+        .map(this.extractData)
+        .catch(this.handleError);
+  }
+
+  userUpdate(updateData): Observable<any> {
+    var url = `${AppSettings.API_ENDPOINT}/user/update`;
+    return this.authHttp
+        .post(url, updateData)
+        .map(this.extractData)
+        .catch(this.handleError);
+  }
+
+  userPasswordReset(oldPassword, newPassword): Observable<any> {
+    var url = `${AppSettings.API_ENDPOINT}/user/password`;
+    return this.authHttp
+        .post(url, {
+          oldPassword: oldPassword,
+          newPassword: newPassword
+        })
+        .map(this.extractData)
+        .catch(this.handleError);
+  }
+
+
+  userCatalog(): Observable<any> {
+    var url = `${AppSettings.API_ENDPOINT}/user/catalog`;
+    return this.authHttp
+        .post(url, {})
+        .map(this.extractData)
+        .catch(this.handleError);
+  }
+
   userPlan(stripePlanData: string): Observable<any> {
     var url = `${AppSettings.API_ENDPOINT}/user/plan`;
     return this.authHttp
