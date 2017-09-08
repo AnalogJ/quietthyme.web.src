@@ -98,7 +98,7 @@ export class LibraryComponent implements AfterViewInit {
             this.connected = this.connected.concat(response);
         },
         error => {
-          this.notificationService.show('An error occurred!', error);
+          this.notificationService.error('An error occurred!', error);
         }
       );
   }
@@ -131,7 +131,7 @@ export class LibraryComponent implements AfterViewInit {
           // })
         },
         error => {
-          this.notificationService.show('An error occurred!', error);
+          this.notificationService.error('An error occurred!', error);
         }
       );
   }
@@ -161,7 +161,7 @@ export class LibraryComponent implements AfterViewInit {
           FileSaver.saveAs(file, filename);
         },
         error => {
-          this.notificationService.show('An error occurred!', error);
+          this.notificationService.error('An error occurred!', error);
         }
       );
   }

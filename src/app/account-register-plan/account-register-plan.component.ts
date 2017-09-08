@@ -58,7 +58,7 @@ export class AccountRegisterPlanComponent implements OnInit {
           this.router.navigate(['/storage']);
         },
         error => {
-          this.notificationService.show('An error occurred!', error);
+          this.notificationService.error('An error occurred!', error);
         }
       );
   }

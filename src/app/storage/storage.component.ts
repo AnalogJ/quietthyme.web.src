@@ -83,7 +83,7 @@ export class StorageComponent implements OnInit {
           console.log('connected:', this.connected);
         },
         error => {
-          this.notificationService.show('An error occurred!', error);
+          this.notificationService.error('An error occurred!', error);
         }
       );
   }
@@ -107,7 +107,7 @@ export class StorageComponent implements OnInit {
           console.log(data);
         },
         error => {
-          this.notificationService.show('An error occurred!', error);
+          this.notificationService.error('An error occurred!', error);
         }
       );
   }

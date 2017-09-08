@@ -76,9 +76,11 @@ export class SettingsComponent implements OnInit {
             data => {
               localStorage.setItem('id_token', data.token); //set the JWT token
               this.populateSettings()
+              this.notificationService.success('Saved!', "Update data updated");
+
             },
             error => {
-              this.notificationService.show('An error occurred!', error);
+              this.notificationService.error('An error occurred!', error);
             }
         );
   }
@@ -105,7 +107,7 @@ export class SettingsComponent implements OnInit {
               this.confirmPassword = ""
             },
             error => {
-              this.notificationService.show('An error occurred!', error);
+              this.notificationService.error('An error occurred!', error);
             }
         );
   }
@@ -126,7 +128,7 @@ export class SettingsComponent implements OnInit {
               this.populateSettings()
             },
             error => {
-              this.notificationService.show('An error occurred!', error);
+              this.notificationService.error('An error occurred!', error);
             }
         );
   }
@@ -150,7 +152,7 @@ export class SettingsComponent implements OnInit {
             error => {
               console.log("An error occured")
 
-              this.notificationService.show('An error occurred!', error);
+              this.notificationService.error('An error occurred!', error);
             }
         );
   }

@@ -3,6 +3,7 @@ import { Subscription } from 'rxjs/Subscription';
 
 import {
   NotificationState,
+  NotificationType,
   NotificationService,
 } from './../../services/notification.service';
 
@@ -12,10 +13,7 @@ import {
   styleUrls: ['./notification.component.less'],
 })
 export class NotificationComponent implements OnDestroy, OnInit {
-  visible = false;
-  ignored = false;
-  title: string;
-  message: string;
+  notifications: NotificationState[] = [];
 
   private notificationStateChanged: Subscription;
 
@@ -24,10 +22,20 @@ export class NotificationComponent implements OnDestroy, OnInit {
   ngOnInit() {
     this.notificationStateChanged = this.notificationService.notificationState.subscribe(
       (state: NotificationState) => {
-        this.visible = state.show;
-        this.message = state.message;
-        this.title = state.title;
-        this.ignored = false;
+        if (!state) {
+          // clear notifications when an empty notification is received
+          this.notifications = [];
+          return;
+        }
+
+        // add notification to array
+        this.notifications.push(state);
+
+        if (state.autohide) {
+          window.setTimeout(() => {
+            this.removeNotification(state);
+          },  3*1000);
+        }
       }
     );
   }
@@ -35,7 +43,26 @@ export class NotificationComponent implements OnDestroy, OnInit {
     this.notificationStateChanged.unsubscribe();
   }
 
-  ignoreNotification() {
-    this.ignored = true;
+  removeNotification(notification: NotificationState) {
+    this.notifications = this.notifications.filter(x => x !== notification);
+  }
+
+
+  cssClass(notification: NotificationState) {
+    if (!notification) {
+      return;
+    }
+
+    // return css class based on alert type
+    switch (notification.type) {
+      case NotificationType.Success:
+        return 'notification notification-success';
+      case NotificationType.Error:
+        return 'notification notification-danger';
+      case NotificationType.Info:
+        return 'notification notification-info';
+      case NotificationType.Warning:
+        return 'notification notification-warning';
+    }
   }
 }

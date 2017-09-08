@@ -50,7 +50,7 @@ export class BookDetailsComponent implements OnInit {
           this.book = book;
         },
         error => {
-          this.notificationService.show('An error occurred!', error);
+          this.notificationService.error('An error occurred!', error);
         }
       );
   }
@@ -80,7 +80,7 @@ export class BookDetailsComponent implements OnInit {
           FileSaver.saveAs(file, filename);
         },
         error => {
-          this.notificationService.show('An error occurred!', error);
+          this.notificationService.error('An error occurred!', error);
         }
       );
   }

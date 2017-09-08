@@ -66,7 +66,7 @@ export class AccountLoginComponent implements OnInit {
           }
         },
         error => {
-          this.notificationService.show('An error occurred!', error);
+          this.notificationService.error('An error occurred!', error);
         }
       );
   }
