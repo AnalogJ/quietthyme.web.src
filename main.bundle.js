@@ -527,34 +527,36 @@ var _a;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__shared_stripe_checkout_button_directive__ = __webpack_require__("../../../../../src/app/shared/stripe-checkout-button.directive.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__shared_file_size_pipe__ = __webpack_require__("../../../../../src/app/shared/file-size.pipe.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__services_api_service__ = __webpack_require__("../../../../../src/app/services/api.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__services_cache_service__ = __webpack_require__("../../../../../src/app/services/cache.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__services_auth_guard_service__ = __webpack_require__("../../../../../src/app/services/auth-guard.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__services_uservoice_service__ = __webpack_require__("../../../../../src/app/services/uservoice.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__services_notification_service__ = __webpack_require__("../../../../../src/app/services/notification.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__shared_dropzone_directive__ = __webpack_require__("../../../../../src/app/shared/dropzone.directive.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__terms_terms_component__ = __webpack_require__("../../../../../src/app/terms/terms.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__partials_notification_notification_component__ = __webpack_require__("../../../../../src/app/partials/notification/notification.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__partials_book_upload_book_upload_component__ = __webpack_require__("../../../../../src/app/partials/book-upload/book-upload.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__account_register_plan_account_register_plan_component__ = __webpack_require__("../../../../../src/app/account-register-plan/account-register-plan.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30_angular2_jwt__ = __webpack_require__("../../../../angular2-jwt/angular2-jwt.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30_angular2_jwt___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_30_angular2_jwt__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31_ngx_bootstrap__ = __webpack_require__("../../../../ngx-bootstrap/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32_ng2_slim_loading_bar__ = __webpack_require__("../../../../ng2-slim-loading-bar/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33_angular2_markdown__ = __webpack_require__("../../../../angular2-markdown/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34_angular2_masonry__ = __webpack_require__("../../../../angular2-masonry/index.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35_ng2_scrollspy__ = __webpack_require__("../../../../ng2-scrollspy/dist/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35_ng2_scrollspy___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_35_ng2_scrollspy__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_36_ng2_scrollspy_dist_plugin_affix_directive__ = __webpack_require__("../../../../ng2-scrollspy/dist/plugin/affix.directive.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_36_ng2_scrollspy_dist_plugin_affix_directive___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_36_ng2_scrollspy_dist_plugin_affix_directive__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_37_angular2_moment__ = __webpack_require__("../../../../angular2-moment/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_37_angular2_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_37_angular2_moment__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_38_ngx_infinite_scroll__ = __webpack_require__("../../../../ngx-infinite-scroll/modules/ngx-infinite-scroll.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__services_push_notify_service__ = __webpack_require__("../../../../../src/app/services/push-notify.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__services_cache_service__ = __webpack_require__("../../../../../src/app/services/cache.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__services_auth_guard_service__ = __webpack_require__("../../../../../src/app/services/auth-guard.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__services_uservoice_service__ = __webpack_require__("../../../../../src/app/services/uservoice.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__services_notification_service__ = __webpack_require__("../../../../../src/app/services/notification.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__shared_dropzone_directive__ = __webpack_require__("../../../../../src/app/shared/dropzone.directive.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__terms_terms_component__ = __webpack_require__("../../../../../src/app/terms/terms.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__partials_notification_notification_component__ = __webpack_require__("../../../../../src/app/partials/notification/notification.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__partials_book_upload_book_upload_component__ = __webpack_require__("../../../../../src/app/partials/book-upload/book-upload.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__account_register_plan_account_register_plan_component__ = __webpack_require__("../../../../../src/app/account-register-plan/account-register-plan.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31_angular2_jwt__ = __webpack_require__("../../../../angular2-jwt/angular2-jwt.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31_angular2_jwt___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_31_angular2_jwt__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32_ngx_bootstrap__ = __webpack_require__("../../../../ngx-bootstrap/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33_ng2_slim_loading_bar__ = __webpack_require__("../../../../ng2-slim-loading-bar/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34_angular2_markdown__ = __webpack_require__("../../../../angular2-markdown/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35_angular2_masonry__ = __webpack_require__("../../../../angular2-masonry/index.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_36_ng2_scrollspy__ = __webpack_require__("../../../../ng2-scrollspy/dist/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_36_ng2_scrollspy___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_36_ng2_scrollspy__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_37_ng2_scrollspy_dist_plugin_affix_directive__ = __webpack_require__("../../../../ng2-scrollspy/dist/plugin/affix.directive.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_37_ng2_scrollspy_dist_plugin_affix_directive___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_37_ng2_scrollspy_dist_plugin_affix_directive__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_38_angular2_moment__ = __webpack_require__("../../../../angular2-moment/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_38_angular2_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_38_angular2_moment__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_39_ngx_infinite_scroll__ = __webpack_require__("../../../../ngx-infinite-scroll/modules/ngx-infinite-scroll.es5.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -596,7 +598,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 function getAuthHttp(http, options) {
-    return new __WEBPACK_IMPORTED_MODULE_30_angular2_jwt__["AuthHttp"](new __WEBPACK_IMPORTED_MODULE_30_angular2_jwt__["AuthConfig"]({
+    return new __WEBPACK_IMPORTED_MODULE_31_angular2_jwt__["AuthHttp"](new __WEBPACK_IMPORTED_MODULE_31_angular2_jwt__["AuthConfig"]({
         tokenName: 'id_token',
         noJwtError: true,
         headerPrefix: 'JWT',
@@ -621,66 +623,66 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_11__storage_storage_component__["a" /* StorageComponent */],
             __WEBPACK_IMPORTED_MODULE_12__library_library_component__["a" /* LibraryComponent */],
             __WEBPACK_IMPORTED_MODULE_13__book_details_book_details_component__["a" /* BookDetailsComponent */],
-            __WEBPACK_IMPORTED_MODULE_36_ng2_scrollspy_dist_plugin_affix_directive__["ScrollSpyAffixDirective"],
+            __WEBPACK_IMPORTED_MODULE_37_ng2_scrollspy_dist_plugin_affix_directive__["ScrollSpyAffixDirective"],
             __WEBPACK_IMPORTED_MODULE_14__partials_storage_panel_storage_panel_component__["a" /* StoragePanelComponent */],
             __WEBPACK_IMPORTED_MODULE_19__shared_file_size_pipe__["a" /* FileSizePipe */],
             __WEBPACK_IMPORTED_MODULE_15__settings_settings_component__["a" /* SettingsComponent */],
             __WEBPACK_IMPORTED_MODULE_16__privacy_privacy_component__["a" /* PrivacyComponent */],
             __WEBPACK_IMPORTED_MODULE_18__shared_stripe_checkout_button_directive__["a" /* StripeCheckoutButtonDirective */],
-            __WEBPACK_IMPORTED_MODULE_29__account_register_plan_account_register_plan_component__["a" /* AccountRegisterPlanComponent */],
+            __WEBPACK_IMPORTED_MODULE_30__account_register_plan_account_register_plan_component__["a" /* AccountRegisterPlanComponent */],
             __WEBPACK_IMPORTED_MODULE_17__partials_opds_panel_opds_panel_component__["a" /* OpdsPanelComponent */],
-            __WEBPACK_IMPORTED_MODULE_26__terms_terms_component__["a" /* TermsComponent */],
-            __WEBPACK_IMPORTED_MODULE_27__partials_notification_notification_component__["a" /* NotificationComponent */],
-            __WEBPACK_IMPORTED_MODULE_28__partials_book_upload_book_upload_component__["a" /* BookUploadComponent */],
-            __WEBPACK_IMPORTED_MODULE_25__shared_dropzone_directive__["a" /* DropzoneDirective */]
+            __WEBPACK_IMPORTED_MODULE_27__terms_terms_component__["a" /* TermsComponent */],
+            __WEBPACK_IMPORTED_MODULE_28__partials_notification_notification_component__["a" /* NotificationComponent */],
+            __WEBPACK_IMPORTED_MODULE_29__partials_book_upload_book_upload_component__["a" /* BookUploadComponent */],
+            __WEBPACK_IMPORTED_MODULE_26__shared_dropzone_directive__["a" /* DropzoneDirective */]
         ],
         imports: [
             __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
             __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormsModule */],
             __WEBPACK_IMPORTED_MODULE_3__angular_http__["HttpModule"],
-            __WEBPACK_IMPORTED_MODULE_31_ngx_bootstrap__["a" /* Ng2BootstrapModule */].forRoot(),
-            __WEBPACK_IMPORTED_MODULE_32_ng2_slim_loading_bar__["a" /* SlimLoadingBarModule */].forRoot(),
-            __WEBPACK_IMPORTED_MODULE_33_angular2_markdown__["a" /* MarkdownModule */].forRoot(),
-            __WEBPACK_IMPORTED_MODULE_34_angular2_masonry__["a" /* MasonryModule */],
-            __WEBPACK_IMPORTED_MODULE_38_ngx_infinite_scroll__["a" /* InfiniteScrollModule */],
-            __WEBPACK_IMPORTED_MODULE_35_ng2_scrollspy__["ScrollSpyModule"].forRoot(),
-            __WEBPACK_IMPORTED_MODULE_37_angular2_moment__["MomentModule"],
+            __WEBPACK_IMPORTED_MODULE_32_ngx_bootstrap__["a" /* Ng2BootstrapModule */].forRoot(),
+            __WEBPACK_IMPORTED_MODULE_33_ng2_slim_loading_bar__["a" /* SlimLoadingBarModule */].forRoot(),
+            __WEBPACK_IMPORTED_MODULE_34_angular2_markdown__["a" /* MarkdownModule */].forRoot(),
+            __WEBPACK_IMPORTED_MODULE_35_angular2_masonry__["a" /* MasonryModule */],
+            __WEBPACK_IMPORTED_MODULE_39_ngx_infinite_scroll__["a" /* InfiniteScrollModule */],
+            __WEBPACK_IMPORTED_MODULE_36_ng2_scrollspy__["ScrollSpyModule"].forRoot(),
+            __WEBPACK_IMPORTED_MODULE_38_angular2_moment__["MomentModule"],
             __WEBPACK_IMPORTED_MODULE_4__angular_router__["d" /* RouterModule */].forRoot([
                 //Public Endpoints
                 { path: 'login', component: __WEBPACK_IMPORTED_MODULE_6__account_login_account_login_component__["a" /* AccountLoginComponent */] },
                 { path: 'register', component: __WEBPACK_IMPORTED_MODULE_7__account_register_account_register_component__["a" /* AccountRegisterComponent */] },
                 { path: 'privacy', component: __WEBPACK_IMPORTED_MODULE_16__privacy_privacy_component__["a" /* PrivacyComponent */] },
-                { path: 'terms', component: __WEBPACK_IMPORTED_MODULE_26__terms_terms_component__["a" /* TermsComponent */] },
+                { path: 'terms', component: __WEBPACK_IMPORTED_MODULE_27__terms_terms_component__["a" /* TermsComponent */] },
                 //Auth Endpoints
                 {
                     path: 'register/plan',
-                    component: __WEBPACK_IMPORTED_MODULE_29__account_register_plan_account_register_plan_component__["a" /* AccountRegisterPlanComponent */],
-                    canActivate: [__WEBPACK_IMPORTED_MODULE_22__services_auth_guard_service__["a" /* AuthGuard */]],
+                    component: __WEBPACK_IMPORTED_MODULE_30__account_register_plan_account_register_plan_component__["a" /* AccountRegisterPlanComponent */],
+                    canActivate: [__WEBPACK_IMPORTED_MODULE_23__services_auth_guard_service__["a" /* AuthGuard */]],
                 },
                 {
                     path: 'storage',
                     component: __WEBPACK_IMPORTED_MODULE_11__storage_storage_component__["a" /* StorageComponent */],
-                    canActivate: [__WEBPACK_IMPORTED_MODULE_22__services_auth_guard_service__["a" /* AuthGuard */]],
+                    canActivate: [__WEBPACK_IMPORTED_MODULE_23__services_auth_guard_service__["a" /* AuthGuard */]],
                 },
                 {
                     path: 'settings',
                     component: __WEBPACK_IMPORTED_MODULE_15__settings_settings_component__["a" /* SettingsComponent */],
-                    canActivate: [__WEBPACK_IMPORTED_MODULE_22__services_auth_guard_service__["a" /* AuthGuard */]],
+                    canActivate: [__WEBPACK_IMPORTED_MODULE_23__services_auth_guard_service__["a" /* AuthGuard */]],
                 },
                 {
                     path: 'storage/:source',
                     component: __WEBPACK_IMPORTED_MODULE_11__storage_storage_component__["a" /* StorageComponent */],
-                    canActivate: [__WEBPACK_IMPORTED_MODULE_22__services_auth_guard_service__["a" /* AuthGuard */]],
+                    canActivate: [__WEBPACK_IMPORTED_MODULE_23__services_auth_guard_service__["a" /* AuthGuard */]],
                 },
                 {
                     path: 'library',
                     component: __WEBPACK_IMPORTED_MODULE_12__library_library_component__["a" /* LibraryComponent */],
-                    canActivate: [__WEBPACK_IMPORTED_MODULE_22__services_auth_guard_service__["a" /* AuthGuard */]],
+                    canActivate: [__WEBPACK_IMPORTED_MODULE_23__services_auth_guard_service__["a" /* AuthGuard */]],
                 },
                 {
                     path: 'book/:bookId',
                     component: __WEBPACK_IMPORTED_MODULE_13__book_details_book_details_component__["a" /* BookDetailsComponent */],
-                    canActivate: [__WEBPACK_IMPORTED_MODULE_22__services_auth_guard_service__["a" /* AuthGuard */]],
+                    canActivate: [__WEBPACK_IMPORTED_MODULE_23__services_auth_guard_service__["a" /* AuthGuard */]],
                 },
                 // { path: 'project/create', component: ProjectCreateComponent, canActivate: [AuthGuard] },
                 // { path: 'project/:serviceType/:orgId/:repoId/edit', component: ProjectEditComponent, canActivate: [AuthGuard] },
@@ -693,17 +695,18 @@ AppModule = __decorate([
         ],
         providers: [
             __WEBPACK_IMPORTED_MODULE_20__services_api_service__["a" /* ApiService */],
-            __WEBPACK_IMPORTED_MODULE_21__services_cache_service__["a" /* CacheService */],
-            __WEBPACK_IMPORTED_MODULE_23__services_uservoice_service__["a" /* UservoiceService */],
-            __WEBPACK_IMPORTED_MODULE_24__services_notification_service__["a" /* NotificationService */],
-            __WEBPACK_IMPORTED_MODULE_22__services_auth_guard_service__["a" /* AuthGuard */],
+            __WEBPACK_IMPORTED_MODULE_22__services_cache_service__["a" /* CacheService */],
+            __WEBPACK_IMPORTED_MODULE_24__services_uservoice_service__["a" /* UservoiceService */],
+            __WEBPACK_IMPORTED_MODULE_25__services_notification_service__["a" /* NotificationService */],
+            __WEBPACK_IMPORTED_MODULE_21__services_push_notify_service__["a" /* PushNotifyService */],
+            __WEBPACK_IMPORTED_MODULE_23__services_auth_guard_service__["a" /* AuthGuard */],
             {
-                provide: __WEBPACK_IMPORTED_MODULE_30_angular2_jwt__["AuthHttp"],
+                provide: __WEBPACK_IMPORTED_MODULE_31_angular2_jwt__["AuthHttp"],
                 useFactory: getAuthHttp,
                 deps: [__WEBPACK_IMPORTED_MODULE_3__angular_http__["Http"], __WEBPACK_IMPORTED_MODULE_3__angular_http__["RequestOptions"]],
             },
         ],
-        entryComponents: [__WEBPACK_IMPORTED_MODULE_28__partials_book_upload_book_upload_component__["a" /* BookUploadComponent */]],
+        entryComponents: [__WEBPACK_IMPORTED_MODULE_29__partials_book_upload_book_upload_component__["a" /* BookUploadComponent */]],
         bootstrap: [__WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* AppComponent */]],
     })
 ], AppModule);
@@ -1753,6 +1756,51 @@ var ApiService = (function () {
         var jwtPayload = this.tokenPayload();
         return __WEBPACK_IMPORTED_MODULE_4__app_settings__["a" /* AppSettings */].CATALOG_ENDPOINT + "/" + jwtPayload.catalog_token;
     };
+    ApiService.prototype.userPushNotifySubscribe = function (subscription) {
+        var url = __WEBPACK_IMPORTED_MODULE_4__app_settings__["a" /* AppSettings */].API_ENDPOINT + "/user/pushnotify/subscribe";
+        return this.authHttp
+            .post(url, subscription)
+            .map(this.extractData)
+            .catch(this.handleError);
+    };
+    ApiService.prototype.userPushNotifyTest = function () {
+        var url = __WEBPACK_IMPORTED_MODULE_4__app_settings__["a" /* AppSettings */].API_ENDPOINT + "/user/pushnotify/test";
+        return this.authHttp
+            .post(url, {})
+            .map(this.extractData)
+            .catch(this.handleError);
+    };
+    ApiService.prototype.userPushNotifyUnsubscribe = function (subscription) {
+        var url = __WEBPACK_IMPORTED_MODULE_4__app_settings__["a" /* AppSettings */].API_ENDPOINT + "/user/pushnotify/unsubscribe";
+        return this.authHttp
+            .post(url, subscription)
+            .map(this.extractData)
+            .catch(this.handleError);
+    };
+    ApiService.prototype.userUpdate = function (updateData) {
+        var url = __WEBPACK_IMPORTED_MODULE_4__app_settings__["a" /* AppSettings */].API_ENDPOINT + "/user/update";
+        return this.authHttp
+            .post(url, updateData)
+            .map(this.extractData)
+            .catch(this.handleError);
+    };
+    ApiService.prototype.userPasswordReset = function (oldPassword, newPassword) {
+        var url = __WEBPACK_IMPORTED_MODULE_4__app_settings__["a" /* AppSettings */].API_ENDPOINT + "/user/password";
+        return this.authHttp
+            .post(url, {
+            oldPassword: oldPassword,
+            newPassword: newPassword
+        })
+            .map(this.extractData)
+            .catch(this.handleError);
+    };
+    ApiService.prototype.userCatalog = function () {
+        var url = __WEBPACK_IMPORTED_MODULE_4__app_settings__["a" /* AppSettings */].API_ENDPOINT + "/user/catalog";
+        return this.authHttp
+            .post(url, {})
+            .map(this.extractData)
+            .catch(this.handleError);
+    };
     ApiService.prototype.userPlan = function (stripePlanData) {
         var url = __WEBPACK_IMPORTED_MODULE_4__app_settings__["a" /* AppSettings */].API_ENDPOINT + "/user/plan";
         return this.authHttp
@@ -1998,6 +2046,146 @@ NotificationService = __decorate([
 
 /***/ }),
 
+/***/ "../../../../../src/app/services/push-notify.service.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PushNotifyService; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__api_service__ = __webpack_require__("../../../../../src/app/services/api.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__environments_environment__ = __webpack_require__("../../../../../src/environments/environment.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_Subject__ = __webpack_require__("../../../../rxjs/Subject.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_Subject___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_Subject__);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+// Based on https://justmarkup.com/log/2017/02/implementing-push-notifications/
+var PushNotifyService = (function () {
+    function PushNotifyService(apiService) {
+        this.apiService = apiService;
+        //used for components and other services to listen to subcription state changes.
+        this.pushNotificationSubject = new __WEBPACK_IMPORTED_MODULE_3_rxjs_Subject__["Subject"]();
+        this.pushNotificationState = this.pushNotificationSubject.asObservable();
+        this.serviceWorkerRegistration = null;
+        this.hasSubscription = false;
+        this.subscriptionData = false;
+    }
+    PushNotifyService.prototype.init = function () {
+        if (!('serviceWorker' in navigator && 'PushManager' in window)) {
+            console.log("Cannot register for push notifications, serviceWorker or PushManager is missing.");
+            return;
+        }
+        console.log("Ready for push notifications");
+        var self = this;
+        navigator.serviceWorker.register('service-worker.js')
+            .then(function (sw) {
+            self.serviceWorkerRegistration = sw;
+            // Set the initial subscription value
+            console.log(sw);
+            return self.serviceWorkerRegistration.pushManager.getSubscription()
+                .then(function (subscription) {
+                self.hasSubscription = !(subscription === null);
+                self.publishSubscriptionState();
+            });
+        })
+            .catch(function (error) {
+            console.error('Service Worker Error', error);
+        });
+    };
+    PushNotifyService.prototype.publishSubscriptionState = function () {
+        this.pushNotificationSubject.next({ hasSubscription: this.hasSubscription, subscriptionData: this.subscriptionData });
+    };
+    PushNotifyService.prototype.subscribeUser = function () {
+        var self = this;
+        this.serviceWorkerRegistration.pushManager.subscribe({
+            userVisibleOnly: true,
+            applicationServerKey: self.urlB64ToUint8Array(__WEBPACK_IMPORTED_MODULE_2__environments_environment__["a" /* environment */].pushNotifyPublicKey)
+        })
+            .then(function (subscription) {
+            console.log("THIS IS THE SUBSCRIPTION DATA", subscription);
+            self.apiService
+                .userPushNotifySubscribe(subscription)
+                .subscribe(function (sub_data) {
+                console.log('User is subscribed.');
+                console.log(sub_data);
+                self.hasSubscription = true;
+                self.subscriptionData = subscription;
+                self.publishSubscriptionState();
+            }, function (error) {
+                self.hasSubscription = false;
+                self.publishSubscriptionState();
+                console.error('error communicating with API to enable push notifications', error);
+            });
+        })
+            .catch(function (err) {
+            console.log('Failed to subscribe the user: ', err);
+        });
+    };
+    PushNotifyService.prototype.unsubscribeUser = function () {
+        var self = this;
+        this.serviceWorkerRegistration.pushManager.getSubscription()
+            .then(function (subscription) {
+            if (!subscription) {
+                console.log('No push notification subscription found');
+                self.hasSubscription = false;
+                self.publishSubscriptionState();
+                return;
+            }
+            self.subscriptionData = subscription;
+            self.apiService
+                .userPushNotifyUnsubscribe(subscription)
+                .finally(function () {
+                console.log("Removing local subscription");
+                subscription.unsubscribe();
+            })
+                .subscribe(function (sub_data) {
+                console.log('User is unsubscribed.');
+                console.log(sub_data);
+                self.hasSubscription = false;
+                self.subscriptionData = null;
+                self.publishSubscriptionState();
+            }, function (error) {
+                self.hasSubscription = true;
+                self.publishSubscriptionState();
+                console.error('error communicating with API to disable push notifications', error);
+            });
+        });
+    };
+    //helper functions
+    PushNotifyService.prototype.urlB64ToUint8Array = function (base64String) {
+        var padding = '='.repeat((4 - base64String.length % 4) % 4);
+        var base64 = (base64String + padding)
+            .replace(/\-/g, '+')
+            .replace(/_/g, '/');
+        var rawData = window.atob(base64);
+        var outputArray = new Uint8Array(rawData.length);
+        for (var i = 0; i < rawData.length; ++i) {
+            outputArray[i] = rawData.charCodeAt(i);
+        }
+        return outputArray;
+    };
+    return PushNotifyService;
+}());
+PushNotifyService = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["Injectable"])(),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__api_service__["a" /* ApiService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__api_service__["a" /* ApiService */]) === "function" && _a || Object])
+], PushNotifyService);
+
+var _a;
+//# sourceMappingURL=push-notify.service.js.map
+
+/***/ }),
+
 /***/ "../../../../../src/app/services/uservoice.service.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -2064,7 +2252,7 @@ var _a;
 /***/ "../../../../../src/app/settings/settings.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<ng2-slim-loading-bar class=\"navbar-fixed-top\" [color]=\"'#128950'\" [height]=\"'3px'\"></ng2-slim-loading-bar>\n\n<quietthyme-header></quietthyme-header>\n\n<div class=\"main-container\">\n    <section class=\"bg--secondary space--sm\">\n        <div class=\"container\">\n            <div class=\"row\">\n                <div class=\"col-md-8 col-md-offset-2\">\n                    <div class=\"boxed boxed--lg boxed--border\">\n                        <div class=\"text-block text-center\">\n                            <img alt=\"avatar\" [src]=\"gravatarUrl(userData.email)\" class=\"border--round box-shadow-wide\" />\n                            <span class=\"h5\">{{ userData.name }}</span>\n\n                            <span class=\"label\">{{ userData.plan }}</span>\n                        </div>\n                        <div class=\"text-block clearfix text-center\">\n                            <ul class=\"row row--list\">\n                                <li class=\"col-sm-4\">\n                                    <span class=\"type--fine-print block\">OPDS:</span>\n                                    <a href=\"{{ catalogUrl }}\">Catalog URL</a>\n                                </li>\n                                <li class=\"col-sm-4\">\n                                    <span class=\"type--fine-print block\">Member Since:</span>\n                                    <span>June 2016</span>\n                                </li>\n                                <li class=\"col-sm-4\">\n                                    <span class=\"type--fine-print block\">Email:</span>\n                                    <a href=\"#\">{{  userData.email }}</a>\n                                </li>\n                            </ul>\n                        </div>\n                    </div>\n                    <div class=\"boxed boxed--border\">\n                        <ul class=\"row row--list clearfix text-center\">\n                            <li class=\"col-sm-3 col-xs-6\">\n                                <span class=\"h6 type--uppercase type--fade\">Books</span>\n                                <span class=\"h3\">220</span>\n                            </li>\n                            <li class=\"col-sm-3 col-xs-6\">\n                                <span class=\"h6 type--uppercase type--fade\">Authors</span>\n                                <span class=\"h3\">14</span>\n                            </li>\n                            <li class=\"col-sm-3 col-xs-6\">\n                                <span class=\"h6 type--uppercase type--fade\">Tags</span>\n                                <span class=\"h3\">2,129</span>\n                            </li>\n                            <li class=\"col-sm-3 col-xs-6\">\n                                <span class=\"h6 type--uppercase type--fade\">Series</span>\n                                <span class=\"h3\">119</span>\n                            </li>\n                        </ul>\n                    </div>\n                    <div class=\"boxed boxed--border hidden\">\n                        <h4>Recent Activity</h4>\n                        <ul>\n                            <li class=\"clearfix\">\n                                <div class=\"row\">\n                                    <div class=\"col-md-2 col-xs-3 text-center\">\n                                        <div class=\"icon-circle\">\n                                            <i class=\"icon icon--lg material-icons\">comment</i>\n                                        </div>\n                                    </div>\n                                    <div class=\"col-md-8 col-xs-7\">\n                                        <span class=\"type--fine-print\">21st July, 2017</span>\n                                        <a href=\"#\" class=\"block color--primary\">Check out the relaunched Scope</a>\n                                        <p>\n                                            Discourse in writing dealing with a particular point or idea.\n                                        </p>\n                                    </div>\n                                </div>\n                                <hr>\n                            </li>\n                            <li class=\"clearfix\">\n                                <div class=\"row\">\n                                    <div class=\"col-md-2 col-xs-3 text-center\">\n                                        <div class=\"icon-circle\">\n                                            <i class=\"icon icon--lg material-icons\">mode_edit</i>\n                                        </div>\n                                    </div>\n                                    <div class=\"col-sm-8 col-xs-7\">\n                                        <span class=\"type--fine-print\">14th July, 2017</span>\n                                        <a href=\"#\" class=\"block color--primary\">Tips for web typography</a>\n                                        <p>\n                                            To write beside or \"written beside\" is a self-contained unit of a discourse in writing dealing with a particular point or idea.\n                                        </p>\n                                    </div>\n                                </div>\n                                <hr>\n                            </li>\n                            <li class=\"clearfix\">\n                                <div class=\"row\">\n                                    <div class=\"col-md-2 col-xs-3 text-center\">\n                                        <div class=\"icon-circle\">\n                                            <i class=\"icon icon--lg material-icons\">favorite</i>\n                                        </div>\n                                    </div>\n                                    <div class=\"col-sm-8 col-xs-7\">\n                                        <span class=\"type--fine-print\">12th July, 2017</span>\n                                        <a href=\"#\" class=\"block color--primary\">Where do you source your stock photography?</a>\n                                    </div>\n                                </div>\n                                <hr>\n                            </li>\n                            <li class=\"clearfix\">\n                                <div class=\"row\">\n                                    <div class=\"col-md-2 col-xs-3 text-center\">\n                                        <div class=\"icon-circle\">\n                                            <i class=\"icon icon--lg material-icons\">comment</i>\n                                        </div>\n                                    </div>\n                                    <div class=\"col-sm-8 col-xs-7\">\n                                        <span class=\"type--fine-print\">3rd July, 2017</span>\n                                        <a href=\"#\" class=\"block color--primary\">Share your rapid development workflow</a>\n                                        <p>\n                                            Of a discourse in writing dealing with a particular point or idea.\n                                        </p>\n                                    </div>\n                                </div>\n                            </li>\n                        </ul>\n                        <a href=\"#\" class=\"type--fine-print pull-right\">View All</a>\n                    </div>\n                </div>\n            </div>\n            <!--end of row-->\n        </div>\n        <!--end of container-->\n    </section>\n    <quietthyme-footer></quietthyme-footer>\n\n</div>\n"
+module.exports = "<ng2-slim-loading-bar class=\"navbar-fixed-top\" [color]=\"'#128950'\" [height]=\"'3px'\"></ng2-slim-loading-bar>\n\n<quietthyme-header></quietthyme-header>\n\n<div class=\"main-container\">\n    <section class=\"bg--secondary space--sm\">\n        <div class=\"container\">\n            <div class=\"row\">\n                <div class=\"col-md-4\">\n                    <div class=\"boxed boxed--lg boxed--border\">\n                        <div class=\"text-block text-center\">\n                            <img alt=\"avatar\" [src]=\"gravatarUrl(userData.email)\" class=\"image--sm\" />\n                            <span class=\"h5 capitalize\">{{ userData.name }}</span>\n                            <span class=\"capitalize\">{{ userData.plan }} Account</span>\n                            <span class=\"label\">{{ userData.plan }}</span>\n                        </div>\n                        <hr>\n                        <div class=\"text-block\">\n                            <ul class=\"menu-vertical\">\n                                <li>\n                                    <a (click)=\"selectedTab='profile'\" >Profile</a>\n                                </li>\n                                <li>\n                                    <a (click)=\"selectedTab='notifications'\">Notifications</a>\n                                </li>\n                                <li>\n                                    <a (click)=\"selectedTab='billing'\">Catalog Details</a>\n                                </li>\n                                <li>\n                                    <a (click)=\"selectedTab='password'\">Password</a>\n                                </li>\n                                <li>\n                                    <a (click)=\"selectedTab='delete'\">Delete Account</a>\n                                </li>\n                            </ul>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"col-md-8\">\n                    <div class=\"boxed boxed--lg boxed--border\">\n                        <div *ngIf=\"selectedTab == 'profile'\" id=\"account-profile\" class=\"account-tab\">\n                            <h4>Profile</h4>\n                            <form>\n                                <div class=\"row\">\n                                    <div class=\"col-sm-12\">\n                                        <label>Name:</label>\n                                        <input type=\"text\" name=\"name\" [(ngModel)]=\"updateData.name\" />\n                                    </div>\n\n                                    <div class=\"col-sm-12\">\n                                        <label>Email Address:</label>\n                                        <div class=\"uneditable-input disabled\">{{ userData.email }}</div>\n                                    </div>\n\n                                    <div class=\"col-md-3 col-sm-4\">\n                                        <button (click)=\"saveProfile()\" [disabled]=\"loading.updateUser\" class=\"btn btn--primary type--uppercase\">Save Profile</button>\n                                    </div>\n                                    <!-- div class=\"col-md-2\">\n                                        <span class=\"label animate-flicker\">Saved!</span>\n                                    </div -->\n                                </div>\n                            </form>\n                        </div>\n                        <div *ngIf=\"selectedTab == 'notifications'\" id=\"account-notifications\" class=\"account-tab\">\n                            <h4>Blackhole Notifications</h4>\n                            <p>Would you like to recieve notifications when books are processed via the blackhole folders:</p>\n\n                            <form>\n                                <button *ngIf=\"hasPushNotificationSubscription\" (click)=\"unsubscribePushNotifications()\" class=\"btn btn--error type--uppercase\">Unsubscribe from Notifications</button>\n                                <button *ngIf=\"hasPushNotificationSubscription\" (click)=\"testPushNotifications()\" class=\"btn btn--primary type--uppercase\">Test Notification</button>\n\n                                <button *ngIf=\"!hasPushNotificationSubscription\" (click)=\"subscribePushNotifications()\" class=\"btn btn--primary type--uppercase\">Enable Notifications</button>\n                            </form>\n\n                        </div>\n                        <div *ngIf=\"selectedTab == 'billing'\" id=\"account-billing\" class=\"account-tab\">\n                            <h4>Catalog Details</h4>\n                            <form>\n                                <div class=\"row\">\n                                    <div class=\"col-sm-12\">\n                                        <label>Catalog ID:</label>\n                                        <div class=\"uneditable-input disabled\">{{ userData.catalog_token }}</div>\n                                    </div>\n\n                                    <div class=\"col-md-3 col-sm-4\">\n                                        <button (click)=\"regenCatalog()\" [disabled]=\"loading.regenerateCatalog\" class=\"btn btn--primary type--uppercase\">Regenerate Catalog</button>\n                                    </div>\n                                </div>\n                            </form>\n                        </div>\n                        <div *ngIf=\"selectedTab == 'password'\" id=\"account-password\" class=\"account-tab\">\n                            <h4>Password</h4>\n                            <p>Passwords must be at least 6 characters in length.</p>\n                            <form>\n                                <div class=\"row\">\n                                    <div class=\"col-xs-12\">\n                                        <label>Old Password:</label>\n                                        <input [(ngModel)]=\"oldPassword\" type=\"password\" name=\"old-password\" />\n                                    </div>\n                                    <div class=\"col-sm-6\">\n                                        <label>New Password:</label>\n                                        <input [(ngModel)]=\"newPassword\" type=\"password\" name=\"new-password\" />\n                                    </div>\n                                    <div class=\"col-sm-6\">\n                                        <label>Retype New Password:</label>\n                                        <input [(ngModel)]=\"confirmPassword\" type=\"password\" name=\"new-password-confirm\" />\n                                    </div>\n                                    <div class=\"col-md-4 col-sm-5\">\n                                        <button (click)=\"userPasswordReset()\" [disabled]=\"loading.passwordReset\" class=\"btn btn--primary type--uppercase\">Save Password</button>\n                                    </div>\n                                </div>\n                            </form>\n                        </div>\n                        <div *ngIf=\"selectedTab == 'delete'\" id=\"account-delete\" class=\"account-tab\">\n                            <h4>Delete Account</h4>\n                            <p>Permanently remove your account using the button below. Warning, this action is permanent.</p>\n                            <form>\n                                <button (click)=\"showContactForm()\" class=\"btn btn--error type--uppercase\">Delete Account</button>\n                            </form>\n                        </div>\n                    </div>\n                </div>\n            </div>\n            <!--end of row-->\n        </div>\n        <!--end of container-->\n    </section>\n    <quietthyme-footer></quietthyme-footer>\n\n</div>\n"
 
 /***/ }),
 
@@ -2094,7 +2282,9 @@ module.exports = module.exports.toString();
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_api_service__ = __webpack_require__("../../../../../src/app/services/api.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ng2_slim_loading_bar__ = __webpack_require__("../../../../ng2-slim-loading-bar/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_push_notify_service__ = __webpack_require__("../../../../../src/app/services/push-notify.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__services_notification_service__ = __webpack_require__("../../../../../src/app/services/notification.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2108,27 +2298,142 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
+
 var SettingsComponent = (function () {
-    function SettingsComponent(slimLoadingBarService, apiService, activatedRoute, router) {
+    function SettingsComponent(slimLoadingBarService, apiService, activatedRoute, router, pushNotifyService, notificationService) {
+        var _this = this;
         this.slimLoadingBarService = slimLoadingBarService;
         this.apiService = apiService;
         this.activatedRoute = activatedRoute;
         this.router = router;
+        this.pushNotifyService = pushNotifyService;
+        this.notificationService = notificationService;
         this.userData = {};
+        this.updateData = {};
+        this.oldPassword = '';
+        this.newPassword = '';
+        this.confirmPassword = '';
+        this.selectedTab = "profile";
         this.loading = {
             setPlan: false,
+            updateUser: false,
+            regenerateCatalog: false,
+            passwordReset: false
         };
         this.catalogUrl = '';
+        this.hasPushNotificationSubscription = false;
         this.router.events.subscribe(function (event) {
-            if (event instanceof __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* NavigationEnd */]) {
+            if (event instanceof __WEBPACK_IMPORTED_MODULE_4__angular_router__["b" /* NavigationEnd */]) {
                 ga('set', 'page', event.urlAfterRedirects);
                 ga('send', 'pageview');
             }
         });
+        this.pushNotifyService.init();
+        // TODO: clean this up.
+        this.pushNotifyService.pushNotificationState.subscribe(function (state) {
+            _this.hasPushNotificationSubscription = state.hasSubscription;
+            if (!state.hasSubscription && !state.subscriptionData) {
+                console.log("User has no push notifications enabled.");
+                // this.pushNotifyService.subscribeUser()
+            }
+            else {
+                console.log("User already has a subscription enabled.", state);
+            }
+        });
     }
-    SettingsComponent.prototype.ngOnInit = function () {
+    SettingsComponent.prototype.saveProfile = function () {
+        var _this = this;
+        if (this.loading.updateUser) {
+            return;
+        }
+        this.loading.updateUser = true;
+        this.apiService.userUpdate({ name: this.updateData.name })
+            .finally(function () {
+            _this.loading.updateUser = false;
+            _this.slimLoadingBarService.complete();
+        })
+            .subscribe(function (data) {
+            localStorage.setItem('id_token', data.token); //set the JWT token
+            _this.populateSettings();
+        }, function (error) {
+            _this.notificationService.show('An error occurred!', error);
+        });
+    };
+    SettingsComponent.prototype.userPasswordReset = function () {
+        var _this = this;
+        if (this.loading.passwordReset) {
+            return;
+        }
+        if (this.newPassword != this.confirmPassword) {
+            this.confirmPassword = "";
+            return;
+        }
+        this.loading.passwordReset = true;
+        this.apiService.userPasswordReset(this.oldPassword, this.newPassword)
+            .finally(function () {
+            _this.loading.passwordReset = false;
+            _this.slimLoadingBarService.complete();
+        })
+            .subscribe(function (data) {
+            _this.oldPassword = "";
+            _this.newPassword = "";
+            _this.confirmPassword = "";
+        }, function (error) {
+            _this.notificationService.show('An error occurred!', error);
+        });
+    };
+    SettingsComponent.prototype.regenCatalog = function () {
+        var _this = this;
+        if (this.loading.regenerateCatalog) {
+            return;
+        }
+        this.loading.regenerateCatalog = true;
+        this.apiService.userCatalog()
+            .finally(function () {
+            _this.loading.regenerateCatalog = false;
+            _this.slimLoadingBarService.complete();
+        })
+            .subscribe(function (data) {
+            localStorage.setItem('id_token', data.token); //set the JWT token
+            _this.populateSettings();
+        }, function (error) {
+            _this.notificationService.show('An error occurred!', error);
+        });
+    };
+    SettingsComponent.prototype.unsubscribePushNotifications = function () {
+        this.pushNotifyService.unsubscribeUser();
+    };
+    SettingsComponent.prototype.subscribePushNotifications = function () {
+        this.pushNotifyService.subscribeUser();
+    };
+    SettingsComponent.prototype.testPushNotifications = function () {
+        var _this = this;
+        this.apiService.userPushNotifyTest()
+            .finally(function () {
+            _this.slimLoadingBarService.complete();
+        })
+            .subscribe(function (data) {
+            console.log("Finsihed successfully");
+        }, function (error) {
+            console.log("An error occured");
+            _this.notificationService.show('An error occurred!', error);
+        });
+    };
+    SettingsComponent.prototype.showContactForm = function () {
+        UserVoice.push(['show', {
+                mode: 'contact'
+            }]);
+    };
+    SettingsComponent.prototype.populateSettings = function () {
         this.userData = this.apiService.tokenPayload();
+        for (var prop in this.userData) {
+            this.updateData[prop] = this.userData[prop];
+        }
         this.catalogUrl = this.apiService.catalogUrl();
+    };
+    SettingsComponent.prototype.ngOnInit = function () {
+        this.populateSettings();
     };
     SettingsComponent.prototype.ngAfterViewInit = function () { };
     SettingsComponent.prototype.gravatarUrl = function (email, size) {
@@ -2341,10 +2646,10 @@ SettingsComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/settings/settings.component.html"),
         styles: [__webpack_require__("../../../../../src/app/settings/settings.component.less")],
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* ActivatedRoute */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["c" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_router__["c" /* Router */]) === "function" && _d || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__angular_router__["a" /* ActivatedRoute */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_4__angular_router__["c" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__angular_router__["c" /* Router */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_3__services_push_notify_service__["a" /* PushNotifyService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_push_notify_service__["a" /* PushNotifyService */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_5__services_notification_service__["a" /* NotificationService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__services_notification_service__["a" /* NotificationService */]) === "function" && _f || Object])
 ], SettingsComponent);
 
-var _a, _b, _c, _d;
+var _a, _b, _c, _d, _e, _f;
 //# sourceMappingURL=settings.component.js.map
 
 /***/ }),
@@ -2908,6 +3213,7 @@ var environment = {
     production: false,
     apiVersion: 'beta',
     stripeAccount: 'pk_test_uApReS8yYqD5v6CajPSuXj3Z',
+    pushNotifyPublicKey: 'BPMUtUHTilLtq-gu-cp1jVD5TgfNbaXrkH67E_oqFMnLo74hBBU45MDPRLjqtyqi2VWg2cFVKX1k3-tzeCkgP1A',
 };
 //# sourceMappingURL=environment.js.map
 
