@@ -135,7 +135,7 @@ export function getAuthHttp(http: Http, options: RequestOptions) {
       // { path: 'project/:serviceType/:orgId/:repoId/pullrequests/:prNumber', component: ProjectDeployComponent, canActivate: [AuthGuard] },
       // { path: 'project/:serviceType/:orgId/:repoId/pullrequests/:prNumber/logs', component: ProjectDeployLogsComponent, canActivate: [AuthGuard] },
 
-      { path: '', pathMatch: 'full', redirectTo: 'storage' },
+      { path: '', pathMatch: 'full', redirectTo: 'library' },
       // { path: '**', component: PageNotFoundComponent }
       { path: '**', redirectTo: 'login' },
     ]),
