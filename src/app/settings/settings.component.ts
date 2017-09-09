@@ -53,7 +53,6 @@ export class SettingsComponent implements OnInit {
           this.hasPushNotificationSubscription = state.hasSubscription;
           if(!state.hasSubscription && !state.subscriptionData){
             console.log("User has no push notifications enabled.")
-            // this.pushNotifyService.subscribeUser()
           }
           else {
             console.log("User already has a subscription enabled.", state)
@@ -76,7 +75,7 @@ export class SettingsComponent implements OnInit {
             data => {
               localStorage.setItem('id_token', data.token); //set the JWT token
               this.populateSettings()
-              this.notificationService.success('Saved!', "Update data updated");
+              this.notificationService.success('Saved!', "User profile was updated");
 
             },
             error => {
@@ -105,6 +104,7 @@ export class SettingsComponent implements OnInit {
               this.oldPassword = ""
               this.newPassword = ""
               this.confirmPassword = ""
+              this.notificationService.success('Success!', "User password has been changed.");
             },
             error => {
               this.notificationService.error('An error occurred!', error);
@@ -126,6 +126,7 @@ export class SettingsComponent implements OnInit {
             data => {
               localStorage.setItem('id_token', data.token); //set the JWT token
               this.populateSettings()
+              this.notificationService.success('Success!', "Catalog ID has been changed.");
             },
             error => {
               this.notificationService.error('An error occurred!', error);

@@ -1,7 +1,7 @@
 
 <div class="col-sm-4 col-md-3 ">
     <div class="notification-wrapper pos-right pos-top">
-        <div *ngFor="let n of notifications" class="notification  notification--reveal" data-animation="from-top" data-autoshow="200">
+        <div *ngFor="let n of notifications" [ngClass]="cssClass(n)" class="notification  notification--reveal" data-animation="from-top" data-autoshow="200">
             <div class="feature feature--featured feature-2 boxed boxed--border">
                 <h5>{{ n.title }}</h5>
                 <p>

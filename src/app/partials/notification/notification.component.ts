@@ -56,13 +56,13 @@ export class NotificationComponent implements OnDestroy, OnInit {
     // return css class based on alert type
     switch (notification.type) {
       case NotificationType.Success:
-        return 'notification notification-success';
+        return 'notification-success';
       case NotificationType.Error:
-        return 'notification notification-danger';
+        return 'notification-danger';
       case NotificationType.Info:
-        return 'notification notification-info';
+        return 'notification-info';
       case NotificationType.Warning:
-        return 'notification notification-warning';
+        return 'notification-warning';
     }
   }
 }
