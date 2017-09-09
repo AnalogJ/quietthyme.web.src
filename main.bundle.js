@@ -688,7 +688,7 @@ AppModule = __decorate([
                 // { path: 'project/:serviceType/:orgId/:repoId/edit', component: ProjectEditComponent, canActivate: [AuthGuard] },
                 // { path: 'project/:serviceType/:orgId/:repoId/pullrequests/:prNumber', component: ProjectDeployComponent, canActivate: [AuthGuard] },
                 // { path: 'project/:serviceType/:orgId/:repoId/pullrequests/:prNumber/logs', component: ProjectDeployLogsComponent, canActivate: [AuthGuard] },
-                { path: '', pathMatch: 'full', redirectTo: 'storage' },
+                { path: '', pathMatch: 'full', redirectTo: 'library' },
                 // { path: '**', component: PageNotFoundComponent }
                 { path: '**', redirectTo: 'login' },
             ]),
