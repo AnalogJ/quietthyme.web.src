@@ -10,7 +10,7 @@
                     <div class="boxed boxed--lg boxed--border">
                         <div class="text-block text-center">
                             <img alt="avatar" [src]="gravatarUrl(userData.email)" class="image--sm" />
-                            <span class="h5 capitalize">{{ userData.name }}</span>
+                            <span class="h5 capitalize">{{ userData.first_name }} {{ userData.last_name }} </span>
                             <span class="capitalize">{{ userData.plan }} Account</span>
                             <span class="label">{{ userData.plan }}</span>
                         </div>
@@ -42,11 +42,14 @@
                             <h4>Profile</h4>
                             <form>
                                 <div class="row">
-                                    <div class="col-sm-12">
+                                    <div class="col-sm-6">
                                         <label>Name:</label>
-                                        <input type="text" name="name" [(ngModel)]="updateData.name" />
+                                        <input type="text" name="firstname" [(ngModel)]="updateData.first_name" />
                                     </div>
-
+                                    <div class="col-sm-6">
+                                        <label>Name:</label>
+                                        <input type="text" name="lastname" [(ngModel)]="updateData.last_name" />
+                                    </div>
                                     <div class="col-sm-12">
                                         <label>Email Address:</label>
                                         <div class="uneditable-input disabled">{{ userData.email }}</div>

@@ -28,14 +28,17 @@
                     </div>
                     <form (ngSubmit)="register()" >
                         <div class="row">
-                            <div class="col-xs-12">
-                                <input [(ngModel)]="regName" name="name" type="text" name="Name " placeholder="Name" required/>
+                            <div class="col-xs-6">
+                                <input [(ngModel)]="regFirstName" type="text" name="firstname" placeholder="First Name" required/>
+                            </div>
+                            <div class="col-xs-6">
+                                <input [(ngModel)]="regLastName" type="text" name="lastname" placeholder="Last Name" required/>
                             </div>
                             <div class="col-xs-12">
-                                <input [(ngModel)]="regEmail" name="email" type="email" name="Email Address" placeholder="Email Address" required/>
+                                <input [(ngModel)]="regEmail" name="email" type="email" placeholder="Email Address" required/>
                             </div>
                             <div class="col-xs-12">
-                                <input [(ngModel)]="regPassword" name="password" type="password" name="Password" placeholder="Password" required/>
+                                <input [(ngModel)]="regPassword" name="password" type="password" placeholder="Password" required/>
                             </div>
                             <div class="col-xs-12">
                                 <button [disabled]="loading.register" type="submit" class="btn btn--primary type--uppercase">Create Account</button>

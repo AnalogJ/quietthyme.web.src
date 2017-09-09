@@ -66,10 +66,11 @@ export class ApiService {
     localStorage.removeItem('id_token');
   }
 
-  authRegister(name: string, email: string, password: string): Observable<any> {
+  authRegister(firstName: string, lastName: string, email: string, password: string): Observable<any> {
     return this.http
       .post(`${AppSettings.API_ENDPOINT}/auth/register`, {
-        name: name,
+        first_name: firstName,
+        last_name: lastName,
         email: email,
         password: password,
       })

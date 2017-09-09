@@ -16,14 +16,14 @@ export class UservoiceService {
 
       var uservoicePayload = {
         email: tokenPayload.email, // User’s email address
-        name: tokenPayload.name, // User’s real name
+        name: tokenPayload.first_name + ' ' + tokenPayload.last_name, // User’s real name
         //created_at: 1364406966, // Unix timestamp for the date the user signed up
         id: tokenPayload.uid, // Optional: Unique id of the user (if set, this should not change)
         type: tokenPayload.plan, // Optional: segment your users by type
         account: {
           // Account traits are only available on some plans
           // id:           123, // Optional: associate multiple users with a single account
-          name: tokenPayload.name, // Account name
+          name: tokenPayload.first_name + ' ' + tokenPayload.last_name, // Account name
           // created_at:   1364406966, // Unix timestamp for the date the account was created
           // monthly_rate: 9.99, // Decimal; monthly rate of the account
           // ltv:          1495.00, // Decimal; lifetime value of the account

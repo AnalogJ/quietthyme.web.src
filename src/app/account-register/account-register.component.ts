@@ -17,7 +17,8 @@ export class AccountRegisterComponent implements OnInit {
     register: false,
     oauth: false,
   };
-  regName: string;
+  regFirstName: string;
+  regLastName: string;
   regEmail: string;
   regPassword: string;
   errorMessage: string;
@@ -49,7 +50,7 @@ export class AccountRegisterComponent implements OnInit {
     });
 
     this.apiService
-      .authRegister(this.regName, this.regEmail, this.regPassword)
+      .authRegister(this.regFirstName, this.regLastName, this.regEmail, this.regPassword)
       .finally(() => {
         this.loading.register = false;
         this.slimLoadingBarService.complete();

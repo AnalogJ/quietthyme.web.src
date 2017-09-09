@@ -66,7 +66,7 @@ export class SettingsComponent implements OnInit {
       return
     }
     this.loading.updateUser = true;
-    this.apiService.userUpdate({name: this.updateData.name})
+    this.apiService.userUpdate({first_name: this.updateData.first_name, last_name: this.updateData.last_name})
         .finally(() => {
           this.loading.updateUser = false;
           this.slimLoadingBarService.complete();
