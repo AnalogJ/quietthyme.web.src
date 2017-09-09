@@ -111,7 +111,7 @@ var AccountLoginComponent = (function () {
                 _this.router.navigate(['/storage']);
             }
         }, function (error) {
-            _this.notificationService.show('An error occurred!', error);
+            _this.notificationService.error('An error occurred!', error);
         });
     };
     return AccountLoginComponent;
@@ -122,7 +122,7 @@ AccountLoginComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/account-login/account-login.component.html"),
         styles: [__webpack_require__("../../../../../src/app/account-login/account-login.component.less")],
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_5_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__services_uservoice_service__["a" /* UservoiceService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_uservoice_service__["a" /* UservoiceService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__services_notification_service__["a" /* NotificationService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_notification_service__["a" /* NotificationService */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_4__angular_router__["c" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__angular_router__["c" /* Router */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_4__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__angular_router__["a" /* ActivatedRoute */]) === "function" && _f || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_5_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__services_uservoice_service__["a" /* UservoiceService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_uservoice_service__["a" /* UservoiceService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__services_notification_service__["a" /* NotificationService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_notification_service__["a" /* NotificationService */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_4__angular_router__["d" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__angular_router__["d" /* Router */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_4__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__angular_router__["a" /* ActivatedRoute */]) === "function" && _f || Object])
 ], AccountLoginComponent);
 
 var _a, _b, _c, _d, _e, _f;
@@ -219,7 +219,7 @@ var AccountRegisterPlanComponent = (function () {
             //redirect user to storage page
             _this.router.navigate(['/storage']);
         }, function (error) {
-            _this.notificationService.show('An error occurred!', error);
+            _this.notificationService.error('An error occurred!', error);
         });
     };
     return AccountRegisterPlanComponent;
@@ -230,7 +230,7 @@ AccountRegisterPlanComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/account-register-plan/account-register-plan.component.html"),
         styles: [__webpack_require__("../../../../../src/app/account-register-plan/account-register-plan.component.less")],
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__services_uservoice_service__["a" /* UservoiceService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_uservoice_service__["a" /* UservoiceService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4__services_notification_service__["a" /* NotificationService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__services_notification_service__["a" /* NotificationService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__services_api_service__["a" /* ApiService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_api_service__["a" /* ApiService */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_5__angular_router__["c" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__angular_router__["c" /* Router */]) === "function" && _e || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__services_uservoice_service__["a" /* UservoiceService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_uservoice_service__["a" /* UservoiceService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4__services_notification_service__["a" /* NotificationService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__services_notification_service__["a" /* NotificationService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__services_api_service__["a" /* ApiService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_api_service__["a" /* ApiService */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_5__angular_router__["d" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__angular_router__["d" /* Router */]) === "function" && _e || Object])
 ], AccountRegisterPlanComponent);
 
 var _a, _b, _c, _d, _e;
@@ -329,7 +329,7 @@ var AccountRegisterComponent = (function () {
             _this.uservoiceService.identify();
             _this.router.navigate(['/register/plan']);
         }, function (error) {
-            _this.notificationService.show('An error occurred!', error);
+            _this.notificationService.error('An error occurred!', error);
         });
     };
     return AccountRegisterComponent;
@@ -340,7 +340,7 @@ AccountRegisterComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/account-register/account-register.component.html"),
         styles: [__webpack_require__("../../../../../src/app/account-register/account-register.component.less")],
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_5_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__services_uservoice_service__["a" /* UservoiceService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_uservoice_service__["a" /* UservoiceService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__services_notification_service__["a" /* NotificationService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_notification_service__["a" /* NotificationService */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_4__angular_router__["c" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__angular_router__["c" /* Router */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_4__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__angular_router__["a" /* ActivatedRoute */]) === "function" && _f || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_5_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__services_uservoice_service__["a" /* UservoiceService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_uservoice_service__["a" /* UservoiceService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__services_notification_service__["a" /* NotificationService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_notification_service__["a" /* NotificationService */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_4__angular_router__["d" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__angular_router__["d" /* Router */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_4__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__angular_router__["a" /* ActivatedRoute */]) === "function" && _f || Object])
 ], AccountRegisterComponent);
 
 var _a, _b, _c, _d, _e, _f;
@@ -647,7 +647,7 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_39_ngx_infinite_scroll__["a" /* InfiniteScrollModule */],
             __WEBPACK_IMPORTED_MODULE_36_ng2_scrollspy__["ScrollSpyModule"].forRoot(),
             __WEBPACK_IMPORTED_MODULE_38_angular2_moment__["MomentModule"],
-            __WEBPACK_IMPORTED_MODULE_4__angular_router__["d" /* RouterModule */].forRoot([
+            __WEBPACK_IMPORTED_MODULE_4__angular_router__["e" /* RouterModule */].forRoot([
                 //Public Endpoints
                 { path: 'login', component: __WEBPACK_IMPORTED_MODULE_6__account_login_account_login_component__["a" /* AccountLoginComponent */] },
                 { path: 'register', component: __WEBPACK_IMPORTED_MODULE_7__account_register_account_register_component__["a" /* AccountRegisterComponent */] },
@@ -799,7 +799,7 @@ var BookDetailsComponent = (function () {
             console.log(book);
             _this.book = book;
         }, function (error) {
-            _this.notificationService.show('An error occurred!', error);
+            _this.notificationService.error('An error occurred!', error);
         });
     };
     BookDetailsComponent.prototype.downloadBook = function () {
@@ -822,7 +822,7 @@ var BookDetailsComponent = (function () {
             console.log(file.size + ' bytes file downloaded. File type: ', file.type);
             __WEBPACK_IMPORTED_MODULE_5_file_saver__["saveAs"](file, filename);
         }, function (error) {
-            _this.notificationService.show('An error occurred!', error);
+            _this.notificationService.error('An error occurred!', error);
         });
     };
     return BookDetailsComponent;
@@ -833,7 +833,7 @@ BookDetailsComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/book-details/book-details.component.html"),
         styles: [__webpack_require__("../../../../../src/app/book-details/book-details.component.less")],
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4__services_notification_service__["a" /* NotificationService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__services_notification_service__["a" /* NotificationService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["c" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["c" /* Router */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* ActivatedRoute */]) === "function" && _e || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4__services_notification_service__["a" /* NotificationService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__services_notification_service__["a" /* NotificationService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["d" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["d" /* Router */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* ActivatedRoute */]) === "function" && _e || Object])
 ], BookDetailsComponent);
 
 var _a, _b, _c, _d, _e;
@@ -972,7 +972,7 @@ var LibraryComponent = (function () {
             _this.initStorageStatus();
             _this.connected = _this.connected.concat(response);
         }, function (error) {
-            _this.notificationService.show('An error occurred!', error);
+            _this.notificationService.error('An error occurred!', error);
         });
     };
     LibraryComponent.prototype.getBookList = function () {
@@ -1002,7 +1002,7 @@ var LibraryComponent = (function () {
             //     return book
             // })
         }, function (error) {
-            _this.notificationService.show('An error occurred!', error);
+            _this.notificationService.error('An error occurred!', error);
         });
     };
     LibraryComponent.prototype.downloadBook = function (book) {
@@ -1025,7 +1025,7 @@ var LibraryComponent = (function () {
             console.log(file.size + ' bytes file downloaded. File type: ', file.type);
             __WEBPACK_IMPORTED_MODULE_7_file_saver__["saveAs"](file, filename);
         }, function (error) {
-            _this.notificationService.show('An error occurred!', error);
+            _this.notificationService.error('An error occurred!', error);
         });
     };
     LibraryComponent.prototype.setStorage = function (storageStatus) {
@@ -1067,7 +1067,7 @@ LibraryComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/library/library.component.html"),
         styles: [__webpack_require__("../../../../../src/app/library/library.component.less")],
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__services_notification_service__["a" /* NotificationService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_notification_service__["a" /* NotificationService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_6_ng2_scrollspy__["ScrollSpyService"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6_ng2_scrollspy__["ScrollSpyService"]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_5_ngx_bootstrap_modal__["a" /* BsModalService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5_ngx_bootstrap_modal__["a" /* BsModalService */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_9__angular_router__["c" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_9__angular_router__["c" /* Router */]) === "function" && _f || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__services_notification_service__["a" /* NotificationService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_notification_service__["a" /* NotificationService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_6_ng2_scrollspy__["ScrollSpyService"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6_ng2_scrollspy__["ScrollSpyService"]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_5_ngx_bootstrap_modal__["a" /* BsModalService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5_ngx_bootstrap_modal__["a" /* BsModalService */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_9__angular_router__["d" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_9__angular_router__["d" /* Router */]) === "function" && _f || Object])
 ], LibraryComponent);
 
 var _a, _b, _c, _d, _e, _f;
@@ -1304,7 +1304,7 @@ HeaderComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/partials/header/header.component.html"),
         styles: [__webpack_require__("../../../../../src/app/partials/header/header.component.less")],
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["c" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["c" /* Router */]) === "function" && _b || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["d" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["d" /* Router */]) === "function" && _b || Object])
 ], HeaderComponent);
 
 var _a, _b;
@@ -1315,7 +1315,7 @@ var _a, _b;
 /***/ "../../../../../src/app/partials/notification/notification.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div *ngIf=\"visible && !ignored\" class=\"notification pos-right pos-top col-sm-4 col-md-3 notification--reveal\" data-animation=\"from-top\" data-autoshow=\"200\">\n    <div class=\"boxed boxed--border border--round box-shadow\">\n        <div class=\"text-block\">\n            <h5>{{ title }}</h5>\n            <p>\n                {{ message }}\n            </p>\n        </div>\n    </div>\n    <div class=\"notification-close-cross notification-close\" (click)=\"ignoreNotification()\"></div>\n</div>"
+module.exports = "\n<div class=\"col-sm-4 col-md-3 \">\n    <div class=\"notification-wrapper pos-right pos-top\">\n        <div *ngFor=\"let n of notifications\" [ngClass]=\"cssClass(n)\" class=\"notification  notification--reveal\" data-animation=\"from-top\" data-autoshow=\"200\">\n            <div class=\"feature feature--featured feature-2 boxed boxed--border\">\n                <h5>{{ n.title }}</h5>\n                <p>\n                    {{ n.message }}\n                </p>\n            </div>\n            <!--end feature-->\n            <div class=\"notification-close-cross notification-close\" (click)=\"removeNotification(n)\"></div>\n        </div>\n    </div>\n</div>\n\n"
 
 /***/ }),
 
@@ -1358,23 +1358,46 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var NotificationComponent = (function () {
     function NotificationComponent(notificationService) {
         this.notificationService = notificationService;
-        this.visible = false;
-        this.ignored = false;
+        this.notifications = [];
     }
     NotificationComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.notificationStateChanged = this.notificationService.notificationState.subscribe(function (state) {
-            _this.visible = state.show;
-            _this.message = state.message;
-            _this.title = state.title;
-            _this.ignored = false;
+            if (!state) {
+                // clear notifications when an empty notification is received
+                _this.notifications = [];
+                return;
+            }
+            // add notification to array
+            _this.notifications.push(state);
+            if (state.autohide) {
+                window.setTimeout(function () {
+                    _this.removeNotification(state);
+                }, 3 * 1000);
+            }
         });
     };
     NotificationComponent.prototype.ngOnDestroy = function () {
         this.notificationStateChanged.unsubscribe();
     };
-    NotificationComponent.prototype.ignoreNotification = function () {
-        this.ignored = true;
+    NotificationComponent.prototype.removeNotification = function (notification) {
+        this.notifications = this.notifications.filter(function (x) { return x !== notification; });
+    };
+    NotificationComponent.prototype.cssClass = function (notification) {
+        if (!notification) {
+            return;
+        }
+        // return css class based on alert type
+        switch (notification.type) {
+            case __WEBPACK_IMPORTED_MODULE_1__services_notification_service__["b" /* NotificationType */].Success:
+                return 'notification-success';
+            case __WEBPACK_IMPORTED_MODULE_1__services_notification_service__["b" /* NotificationType */].Error:
+                return 'notification-danger';
+            case __WEBPACK_IMPORTED_MODULE_1__services_notification_service__["b" /* NotificationType */].Info:
+                return 'notification-info';
+            case __WEBPACK_IMPORTED_MODULE_1__services_notification_service__["b" /* NotificationType */].Warning:
+                return 'notification-warning';
+        }
     };
     return NotificationComponent;
 }());
@@ -1608,7 +1631,7 @@ PrivacyComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/privacy/privacy.component.html"),
         styles: [__webpack_require__("../../../../../src/app/privacy/privacy.component.less")],
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* Router */]) === "function" && _a || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["d" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["d" /* Router */]) === "function" && _a || Object])
 ], PrivacyComponent);
 
 var _a;
@@ -1938,7 +1961,7 @@ var AuthGuard = (function () {
 }());
 AuthGuard = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__api_service__["a" /* ApiService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__api_service__["a" /* ApiService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* Router */]) === "function" && _b || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__api_service__["a" /* ApiService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__api_service__["a" /* ApiService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["d" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["d" /* Router */]) === "function" && _b || Object])
 ], AuthGuard);
 
 var _a, _b;
@@ -2000,10 +2023,13 @@ CacheService = __decorate([
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return NotificationType; });
+/* unused harmony export NotificationState */
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return NotificationService; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Subject__ = __webpack_require__("../../../../rxjs/Subject.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Subject___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_Subject__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2018,20 +2044,79 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 };
 
 
+
+var NotificationType;
+(function (NotificationType) {
+    NotificationType[NotificationType["Success"] = 0] = "Success";
+    NotificationType[NotificationType["Error"] = 1] = "Error";
+    NotificationType[NotificationType["Info"] = 2] = "Info";
+    NotificationType[NotificationType["Warning"] = 3] = "Warning";
+})(NotificationType || (NotificationType = {}));
+var NotificationState = (function () {
+    function NotificationState() {
+    }
+    return NotificationState;
+}());
+
 var NotificationService = (function () {
-    function NotificationService(prior) {
+    function NotificationService(prior, router) {
+        var _this = this;
+        this.router = router;
         this.notificationSubject = new __WEBPACK_IMPORTED_MODULE_1_rxjs_Subject__["Subject"]();
+        this.keepAfterRouteChange = false;
         this.notificationState = this.notificationSubject.asObservable();
         if (prior) {
             return prior;
         }
         console.log('created global notification service');
+        // clear alert messages on route change unless 'keepAfterRouteChange' flag is true
+        router.events.subscribe(function (event) {
+            if (event instanceof __WEBPACK_IMPORTED_MODULE_2__angular_router__["c" /* NavigationStart */]) {
+                if (_this.keepAfterRouteChange) {
+                    // only keep for a single route change
+                    _this.keepAfterRouteChange = false;
+                }
+                else {
+                    // clear alert messages
+                    _this.clear();
+                }
+            }
+        });
     }
-    NotificationService.prototype.show = function (title, message) {
-        this.notificationSubject.next({ title: title, message: message, show: true });
+    NotificationService.prototype.success = function (title, message, autohide, keepAfterRouteChange) {
+        if (autohide === void 0) { autohide = true; }
+        if (keepAfterRouteChange === void 0) { keepAfterRouteChange = false; }
+        this.alert(NotificationType.Success, title, message, autohide, keepAfterRouteChange);
     };
-    NotificationService.prototype.hide = function () {
-        this.notificationSubject.next({ show: false });
+    NotificationService.prototype.error = function (title, message, autohide, keepAfterRouteChange) {
+        if (autohide === void 0) { autohide = true; }
+        if (keepAfterRouteChange === void 0) { keepAfterRouteChange = false; }
+        this.alert(NotificationType.Error, title, message, autohide, keepAfterRouteChange);
+    };
+    NotificationService.prototype.info = function (title, message, autohide, keepAfterRouteChange) {
+        if (autohide === void 0) { autohide = true; }
+        if (keepAfterRouteChange === void 0) { keepAfterRouteChange = false; }
+        this.alert(NotificationType.Info, title, message, autohide, keepAfterRouteChange);
+    };
+    NotificationService.prototype.warn = function (title, message, autohide, keepAfterRouteChange) {
+        if (autohide === void 0) { autohide = true; }
+        if (keepAfterRouteChange === void 0) { keepAfterRouteChange = false; }
+        this.alert(NotificationType.Warning, title, message, autohide, keepAfterRouteChange);
+    };
+    NotificationService.prototype.alert = function (type, title, message, autohide, keepAfterRouteChange) {
+        if (autohide === void 0) { autohide = true; }
+        if (keepAfterRouteChange === void 0) { keepAfterRouteChange = false; }
+        this.keepAfterRouteChange = keepAfterRouteChange;
+        this.notificationSubject.next({
+            type: type,
+            title: title,
+            message: message,
+            autohide: autohide
+        });
+    };
+    NotificationService.prototype.clear = function () {
+        // clear alerts
+        this.notificationSubject.next();
     };
     return NotificationService;
 }());
@@ -2039,9 +2124,10 @@ NotificationService = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
     __param(0, Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Optional"])()),
     __param(0, Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["SkipSelf"])()),
-    __metadata("design:paramtypes", [NotificationService])
+    __metadata("design:paramtypes", [NotificationService, typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["d" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["d" /* Router */]) === "function" && _a || Object])
 ], NotificationService);
 
+var _a;
 //# sourceMappingURL=notification.service.js.map
 
 /***/ }),
@@ -2335,7 +2421,6 @@ var SettingsComponent = (function () {
             _this.hasPushNotificationSubscription = state.hasSubscription;
             if (!state.hasSubscription && !state.subscriptionData) {
                 console.log("User has no push notifications enabled.");
-                // this.pushNotifyService.subscribeUser()
             }
             else {
                 console.log("User already has a subscription enabled.", state);
@@ -2356,8 +2441,9 @@ var SettingsComponent = (function () {
             .subscribe(function (data) {
             localStorage.setItem('id_token', data.token); //set the JWT token
             _this.populateSettings();
+            _this.notificationService.success('Saved!', "User profile was updated");
         }, function (error) {
-            _this.notificationService.show('An error occurred!', error);
+            _this.notificationService.error('An error occurred!', error);
         });
     };
     SettingsComponent.prototype.userPasswordReset = function () {
@@ -2379,8 +2465,9 @@ var SettingsComponent = (function () {
             _this.oldPassword = "";
             _this.newPassword = "";
             _this.confirmPassword = "";
+            _this.notificationService.success('Success!', "User password has been changed.");
         }, function (error) {
-            _this.notificationService.show('An error occurred!', error);
+            _this.notificationService.error('An error occurred!', error);
         });
     };
     SettingsComponent.prototype.regenCatalog = function () {
@@ -2397,8 +2484,9 @@ var SettingsComponent = (function () {
             .subscribe(function (data) {
             localStorage.setItem('id_token', data.token); //set the JWT token
             _this.populateSettings();
+            _this.notificationService.success('Success!', "Catalog ID has been changed.");
         }, function (error) {
-            _this.notificationService.show('An error occurred!', error);
+            _this.notificationService.error('An error occurred!', error);
         });
     };
     SettingsComponent.prototype.unsubscribePushNotifications = function () {
@@ -2417,7 +2505,7 @@ var SettingsComponent = (function () {
             console.log("Finsihed successfully");
         }, function (error) {
             console.log("An error occured");
-            _this.notificationService.show('An error occurred!', error);
+            _this.notificationService.error('An error occurred!', error);
         });
     };
     SettingsComponent.prototype.showContactForm = function () {
@@ -2646,7 +2734,7 @@ SettingsComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/settings/settings.component.html"),
         styles: [__webpack_require__("../../../../../src/app/settings/settings.component.less")],
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__angular_router__["a" /* ActivatedRoute */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_4__angular_router__["c" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__angular_router__["c" /* Router */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_3__services_push_notify_service__["a" /* PushNotifyService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_push_notify_service__["a" /* PushNotifyService */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_5__services_notification_service__["a" /* NotificationService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__services_notification_service__["a" /* NotificationService */]) === "function" && _f || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__angular_router__["a" /* ActivatedRoute */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_4__angular_router__["d" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__angular_router__["d" /* Router */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_3__services_push_notify_service__["a" /* PushNotifyService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_push_notify_service__["a" /* PushNotifyService */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_5__services_notification_service__["a" /* NotificationService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__services_notification_service__["a" /* NotificationService */]) === "function" && _f || Object])
 ], SettingsComponent);
 
 var _a, _b, _c, _d, _e, _f;
@@ -3090,7 +3178,7 @@ var StorageComponent = (function () {
             }
             console.log('connected:', _this.connected);
         }, function (error) {
-            _this.notificationService.show('An error occurred!', error);
+            _this.notificationService.error('An error occurred!', error);
         });
     };
     StorageComponent.prototype.kloudlessAuthenticatedStorage = function (kloudlessData) {
@@ -3110,7 +3198,7 @@ var StorageComponent = (function () {
             console.log("Connected a new storage.");
             console.log(data);
         }, function (error) {
-            _this.notificationService.show('An error occurred!', error);
+            _this.notificationService.error('An error occurred!', error);
         });
     };
     return StorageComponent;
@@ -3121,7 +3209,7 @@ StorageComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/storage/storage.component.html"),
         styles: [__webpack_require__("../../../../../src/app/storage/storage.component.less")],
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_4__services_notification_service__["a" /* NotificationService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__services_notification_service__["a" /* NotificationService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_5__angular_router__["c" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__angular_router__["c" /* Router */]) === "function" && _d || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_4__services_notification_service__["a" /* NotificationService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__services_notification_service__["a" /* NotificationService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_5__angular_router__["d" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__angular_router__["d" /* Router */]) === "function" && _d || Object])
 ], StorageComponent);
 
 var _a, _b, _c, _d;
@@ -3191,7 +3279,7 @@ TermsComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/terms/terms.component.html"),
         styles: [__webpack_require__("../../../../../src/app/terms/terms.component.less")],
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* Router */]) === "function" && _a || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["d" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["d" /* Router */]) === "function" && _a || Object])
 ], TermsComponent);
 
 var _a;
