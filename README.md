@@ -1,4 +1,5 @@
 # QuietthymeWeb
+[![Project](https://img.shields.io/badge/project-waffle.io-blue.svg)](http://waffle.io/AnalogJ/quietthyme.api)
 [![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 
 This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.30.
