@@ -62,7 +62,7 @@ export class AccountLoginComponent implements OnInit {
               this.activatedRoute.snapshot.params['requested'],
             ]);
           } else {
-            this.router.navigate(['/storage']);
+            this.router.navigate(['/library']);
           }
         },
         error => {
