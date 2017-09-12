@@ -108,7 +108,7 @@ var AccountLoginComponent = (function () {
                 ]);
             }
             else {
-                _this.router.navigate(['/storage']);
+                _this.router.navigate(['/library']);
             }
         }, function (error) {
             _this.notificationService.error('An error occurred!', error);
