@@ -36,7 +36,7 @@ deployment:
       - ng build --base-href "/" --dev
       - cp dist/angular.html dist/404.html
       - angular-cli-ghpages --message "Autodeploy to gh-pages" --no-silent --name "Jason Kulatunga" --email "jason@thesparktree.com"
-
+      - curl https://api.rollbar.com/api/1/deploy/ -F access_token=$ROLLBAR_PUSH_API_KEY -F environment=beta -F revision=$CIRCLE_SHA1 -F local_username=circleci
   # the following command deploys to www.capsulecd.com domain if the change is made on the master branch.
   production:
     branch: master
@@ -50,3 +50,4 @@ deployment:
       - cd ../dist && git init && git add . && git commit -m "Deploy"
       - cd ../dist && git remote add origin git@github.com:AnalogJ/quietthyme-web.git
       - cd ../dist && git push --force origin master:gh-pages
+      - curl https://api.rollbar.com/api/1/deploy/ -F access_token=$ROLLBAR_PUSH_API_KEY -F environment=prod -F revision=$CIRCLE_SHA1 -F local_username=circleci

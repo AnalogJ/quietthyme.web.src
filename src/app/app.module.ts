@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, ErrorHandler } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Http, HttpModule, RequestOptions } from '@angular/http';
 import { RouterModule } from '@angular/router';
@@ -30,6 +30,9 @@ import { TermsComponent } from './terms/terms.component';
 import { NotificationComponent } from './partials/notification/notification.component';
 import { BookUploadComponent } from './partials/book-upload/book-upload.component';
 import { AccountRegisterPlanComponent } from './account-register-plan/account-register-plan.component';
+// import { RollbarErrorHandler, getRollbar } from './services/rollbar-error-handler';
+import { RollbarErrorHandler } from './services/rollbar-error-handler';
+
 
 //Third party
 import { AuthHttp, AuthConfig } from 'angular2-jwt';
@@ -41,7 +44,19 @@ import { ScrollSpyModule } from 'ng2-scrollspy';
 import { ScrollSpyAffixDirective } from 'ng2-scrollspy/dist/plugin/affix.directive';
 import { MomentModule } from 'angular2-moment';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+import * as Rollbar from 'rollbar';
+import { environment } from '../environments/environment';
 
+export function getRollbar(){
+  return new Rollbar({
+    accessToken: environment.rollbarClientApiKey,
+    captureUncaught: true,
+    captureUnhandledRejections: true,
+    payload: {
+      environment: environment.name
+    }
+  });
+}
 
 export function getAuthHttp(http: Http, options: RequestOptions) {
   return new AuthHttp(
@@ -152,6 +167,8 @@ export function getAuthHttp(http: Http, options: RequestOptions) {
       useFactory: getAuthHttp,
       deps: [Http, RequestOptions],
     },
+    { provide: ErrorHandler, useClass: RollbarErrorHandler },
+    { provide: Rollbar, useFactory: getRollbar }
   ],
   entryComponents: [ BookUploadComponent ],
   bootstrap: [AppComponent],
