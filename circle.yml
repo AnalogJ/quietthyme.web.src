@@ -33,7 +33,7 @@ deployment:
 #      - mv src/assets/images/bg src/assets/images/orig
       - mogrify -adaptive-resize 2000x1000 -quality 90 src/assets/images/bg/*
 
-      - ng build --base-href "/" --dev
+      - ng build --base-href "/" --dev --environment beta
       - cp dist/angular.html dist/404.html
       - angular-cli-ghpages --message "Autodeploy to gh-pages" --no-silent --name "Jason Kulatunga" --email "jason@thesparktree.com"
       - curl https://api.rollbar.com/api/1/deploy/ -F access_token=$ROLLBAR_PUSH_API_KEY -F environment=beta -F revision=$CIRCLE_SHA1 -F local_username=circleci
@@ -44,7 +44,7 @@ deployment:
       - ls
       - pwd
       - ls /
-      - ng build --prod --sourcemap --output-path ../dist --base-href "/"
+      - ng build --prod --sourcemap --output-path ../dist --base-href "/" --environment master
       - cp ../dist/angular.html ../dist/404.html
       - echo "www.quietthyme.com" > ../dist/CNAME
       - cd ../dist && git init && git add . && git commit -m "Deploy"

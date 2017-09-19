@@ -51,7 +51,8 @@ export function getRollbar(){
   return new Rollbar({
     accessToken: environment.rollbarClientApiKey,
     captureUncaught: true,
-    captureUnhandledRejections: true,
+    captureUnhandledRejections: false,
+    enabled: !!environment.rollbarClientApiKey, //check if the rollbarClientApiKey is populated (disabled for local env)
     payload: {
       environment: environment.name
     }
