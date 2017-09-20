@@ -11,10 +11,10 @@
                             <a routerLink="/library">Library</a>
                         </li>
                         <li>
-                            <a href="#">{{ book.authors }}</a>
+                            <a href="">{{ book.authors }}</a>
                         </li>
                         <li *ngIf="book.series_name">
-                            <a href="#">{{ book.series_name }}</a> #{{ book.series_number }}
+                            <a href="">{{ book.series_name }}</a> #{{ book.series_number }}
                         </li>
                         <li *ngIf="book.isbn || book.isbn10">
                             ISBN &mdash; {{ book.isbn || book.isbn10 }}
