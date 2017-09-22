@@ -537,30 +537,32 @@ var _a;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__terms_terms_component__ = __webpack_require__("../../../../../src/app/terms/terms.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__partials_notification_notification_component__ = __webpack_require__("../../../../../src/app/partials/notification/notification.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__partials_book_upload_book_upload_component__ = __webpack_require__("../../../../../src/app/partials/book-upload/book-upload.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__account_register_plan_account_register_plan_component__ = __webpack_require__("../../../../../src/app/account-register-plan/account-register-plan.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__services_rollbar_error_handler__ = __webpack_require__("../../../../../src/app/services/rollbar-error-handler.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32_angular2_jwt__ = __webpack_require__("../../../../angular2-jwt/angular2-jwt.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32_angular2_jwt___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_32_angular2_jwt__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33_ngx_bootstrap__ = __webpack_require__("../../../../ngx-bootstrap/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34_ng2_slim_loading_bar__ = __webpack_require__("../../../../ng2-slim-loading-bar/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35_angular2_markdown__ = __webpack_require__("../../../../angular2-markdown/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_36_angular2_masonry__ = __webpack_require__("../../../../angular2-masonry/index.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_37_ng2_scrollspy__ = __webpack_require__("../../../../ng2-scrollspy/dist/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_37_ng2_scrollspy___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_37_ng2_scrollspy__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_38_ng2_scrollspy_dist_plugin_affix_directive__ = __webpack_require__("../../../../ng2-scrollspy/dist/plugin/affix.directive.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_38_ng2_scrollspy_dist_plugin_affix_directive___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_38_ng2_scrollspy_dist_plugin_affix_directive__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_39_angular2_moment__ = __webpack_require__("../../../../angular2-moment/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_39_angular2_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_39_angular2_moment__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_40_ngx_infinite_scroll__ = __webpack_require__("../../../../ngx-infinite-scroll/modules/ngx-infinite-scroll.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_41_rollbar__ = __webpack_require__("../../../../rollbar/dist/rollbar.umd.min.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_41_rollbar___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_41_rollbar__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_42__environments_environment__ = __webpack_require__("../../../../../src/environments/environment.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__partials_book_delete_book_delete_component__ = __webpack_require__("../../../../../src/app/partials/book-delete/book-delete.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__account_register_plan_account_register_plan_component__ = __webpack_require__("../../../../../src/app/account-register-plan/account-register-plan.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__services_rollbar_error_handler__ = __webpack_require__("../../../../../src/app/services/rollbar-error-handler.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33_angular2_jwt__ = __webpack_require__("../../../../angular2-jwt/angular2-jwt.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33_angular2_jwt___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_33_angular2_jwt__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34_ngx_bootstrap__ = __webpack_require__("../../../../ngx-bootstrap/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35_ng2_slim_loading_bar__ = __webpack_require__("../../../../ng2-slim-loading-bar/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_36_angular2_markdown__ = __webpack_require__("../../../../angular2-markdown/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_37_angular2_masonry__ = __webpack_require__("../../../../angular2-masonry/index.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_38_ng2_scrollspy__ = __webpack_require__("../../../../ng2-scrollspy/dist/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_38_ng2_scrollspy___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_38_ng2_scrollspy__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_39_ng2_scrollspy_dist_plugin_affix_directive__ = __webpack_require__("../../../../ng2-scrollspy/dist/plugin/affix.directive.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_39_ng2_scrollspy_dist_plugin_affix_directive___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_39_ng2_scrollspy_dist_plugin_affix_directive__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_40_angular2_moment__ = __webpack_require__("../../../../angular2-moment/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_40_angular2_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_40_angular2_moment__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_41_ngx_infinite_scroll__ = __webpack_require__("../../../../ngx-infinite-scroll/modules/ngx-infinite-scroll.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_42_rollbar__ = __webpack_require__("../../../../rollbar/dist/rollbar.umd.min.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_42_rollbar___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_42_rollbar__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_43__environments_environment__ = __webpack_require__("../../../../../src/environments/environment.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -607,18 +609,18 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 function getRollbar() {
-    return new __WEBPACK_IMPORTED_MODULE_41_rollbar__({
-        accessToken: __WEBPACK_IMPORTED_MODULE_42__environments_environment__["a" /* environment */].rollbarClientApiKey,
+    return new __WEBPACK_IMPORTED_MODULE_42_rollbar__({
+        accessToken: __WEBPACK_IMPORTED_MODULE_43__environments_environment__["a" /* environment */].rollbarClientApiKey,
         captureUncaught: true,
         captureUnhandledRejections: false,
-        enabled: !!__WEBPACK_IMPORTED_MODULE_42__environments_environment__["a" /* environment */].rollbarClientApiKey,
+        enabled: !!__WEBPACK_IMPORTED_MODULE_43__environments_environment__["a" /* environment */].rollbarClientApiKey,
         payload: {
-            environment: __WEBPACK_IMPORTED_MODULE_42__environments_environment__["a" /* environment */].name
+            environment: __WEBPACK_IMPORTED_MODULE_43__environments_environment__["a" /* environment */].name
         }
     });
 }
 function getAuthHttp(http, options) {
-    return new __WEBPACK_IMPORTED_MODULE_32_angular2_jwt__["AuthHttp"](new __WEBPACK_IMPORTED_MODULE_32_angular2_jwt__["AuthConfig"]({
+    return new __WEBPACK_IMPORTED_MODULE_33_angular2_jwt__["AuthHttp"](new __WEBPACK_IMPORTED_MODULE_33_angular2_jwt__["AuthConfig"]({
         tokenName: 'id_token',
         noJwtError: true,
         headerPrefix: 'JWT',
@@ -643,30 +645,31 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_11__storage_storage_component__["a" /* StorageComponent */],
             __WEBPACK_IMPORTED_MODULE_12__library_library_component__["a" /* LibraryComponent */],
             __WEBPACK_IMPORTED_MODULE_13__book_details_book_details_component__["a" /* BookDetailsComponent */],
-            __WEBPACK_IMPORTED_MODULE_38_ng2_scrollspy_dist_plugin_affix_directive__["ScrollSpyAffixDirective"],
+            __WEBPACK_IMPORTED_MODULE_39_ng2_scrollspy_dist_plugin_affix_directive__["ScrollSpyAffixDirective"],
             __WEBPACK_IMPORTED_MODULE_14__partials_storage_panel_storage_panel_component__["a" /* StoragePanelComponent */],
             __WEBPACK_IMPORTED_MODULE_19__shared_file_size_pipe__["a" /* FileSizePipe */],
             __WEBPACK_IMPORTED_MODULE_15__settings_settings_component__["a" /* SettingsComponent */],
             __WEBPACK_IMPORTED_MODULE_16__privacy_privacy_component__["a" /* PrivacyComponent */],
             __WEBPACK_IMPORTED_MODULE_18__shared_stripe_checkout_button_directive__["a" /* StripeCheckoutButtonDirective */],
-            __WEBPACK_IMPORTED_MODULE_30__account_register_plan_account_register_plan_component__["a" /* AccountRegisterPlanComponent */],
+            __WEBPACK_IMPORTED_MODULE_31__account_register_plan_account_register_plan_component__["a" /* AccountRegisterPlanComponent */],
             __WEBPACK_IMPORTED_MODULE_17__partials_opds_panel_opds_panel_component__["a" /* OpdsPanelComponent */],
             __WEBPACK_IMPORTED_MODULE_27__terms_terms_component__["a" /* TermsComponent */],
             __WEBPACK_IMPORTED_MODULE_28__partials_notification_notification_component__["a" /* NotificationComponent */],
             __WEBPACK_IMPORTED_MODULE_29__partials_book_upload_book_upload_component__["a" /* BookUploadComponent */],
-            __WEBPACK_IMPORTED_MODULE_26__shared_dropzone_directive__["a" /* DropzoneDirective */]
+            __WEBPACK_IMPORTED_MODULE_26__shared_dropzone_directive__["a" /* DropzoneDirective */],
+            __WEBPACK_IMPORTED_MODULE_30__partials_book_delete_book_delete_component__["a" /* BookDeleteComponent */]
         ],
         imports: [
             __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
             __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormsModule */],
             __WEBPACK_IMPORTED_MODULE_3__angular_http__["HttpModule"],
-            __WEBPACK_IMPORTED_MODULE_33_ngx_bootstrap__["a" /* Ng2BootstrapModule */].forRoot(),
-            __WEBPACK_IMPORTED_MODULE_34_ng2_slim_loading_bar__["a" /* SlimLoadingBarModule */].forRoot(),
-            __WEBPACK_IMPORTED_MODULE_35_angular2_markdown__["a" /* MarkdownModule */].forRoot(),
-            __WEBPACK_IMPORTED_MODULE_36_angular2_masonry__["a" /* MasonryModule */],
-            __WEBPACK_IMPORTED_MODULE_40_ngx_infinite_scroll__["a" /* InfiniteScrollModule */],
-            __WEBPACK_IMPORTED_MODULE_37_ng2_scrollspy__["ScrollSpyModule"].forRoot(),
-            __WEBPACK_IMPORTED_MODULE_39_angular2_moment__["MomentModule"],
+            __WEBPACK_IMPORTED_MODULE_34_ngx_bootstrap__["a" /* Ng2BootstrapModule */].forRoot(),
+            __WEBPACK_IMPORTED_MODULE_35_ng2_slim_loading_bar__["a" /* SlimLoadingBarModule */].forRoot(),
+            __WEBPACK_IMPORTED_MODULE_36_angular2_markdown__["a" /* MarkdownModule */].forRoot(),
+            __WEBPACK_IMPORTED_MODULE_37_angular2_masonry__["a" /* MasonryModule */],
+            __WEBPACK_IMPORTED_MODULE_41_ngx_infinite_scroll__["a" /* InfiniteScrollModule */],
+            __WEBPACK_IMPORTED_MODULE_38_ng2_scrollspy__["ScrollSpyModule"].forRoot(),
+            __WEBPACK_IMPORTED_MODULE_40_angular2_moment__["MomentModule"],
             __WEBPACK_IMPORTED_MODULE_4__angular_router__["e" /* RouterModule */].forRoot([
                 //Public Endpoints
                 { path: 'login', component: __WEBPACK_IMPORTED_MODULE_6__account_login_account_login_component__["a" /* AccountLoginComponent */] },
@@ -676,7 +679,7 @@ AppModule = __decorate([
                 //Auth Endpoints
                 {
                     path: 'register/plan',
-                    component: __WEBPACK_IMPORTED_MODULE_30__account_register_plan_account_register_plan_component__["a" /* AccountRegisterPlanComponent */],
+                    component: __WEBPACK_IMPORTED_MODULE_31__account_register_plan_account_register_plan_component__["a" /* AccountRegisterPlanComponent */],
                     canActivate: [__WEBPACK_IMPORTED_MODULE_23__services_auth_guard_service__["a" /* AuthGuard */]],
                 },
                 {
@@ -721,14 +724,14 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_21__services_push_notify_service__["a" /* PushNotifyService */],
             __WEBPACK_IMPORTED_MODULE_23__services_auth_guard_service__["a" /* AuthGuard */],
             {
-                provide: __WEBPACK_IMPORTED_MODULE_32_angular2_jwt__["AuthHttp"],
+                provide: __WEBPACK_IMPORTED_MODULE_33_angular2_jwt__["AuthHttp"],
                 useFactory: getAuthHttp,
                 deps: [__WEBPACK_IMPORTED_MODULE_3__angular_http__["Http"], __WEBPACK_IMPORTED_MODULE_3__angular_http__["RequestOptions"]],
             },
-            { provide: __WEBPACK_IMPORTED_MODULE_1__angular_core__["ErrorHandler"], useClass: __WEBPACK_IMPORTED_MODULE_31__services_rollbar_error_handler__["a" /* RollbarErrorHandler */] },
-            { provide: __WEBPACK_IMPORTED_MODULE_41_rollbar__, useFactory: getRollbar }
+            { provide: __WEBPACK_IMPORTED_MODULE_1__angular_core__["ErrorHandler"], useClass: __WEBPACK_IMPORTED_MODULE_32__services_rollbar_error_handler__["a" /* RollbarErrorHandler */] },
+            { provide: __WEBPACK_IMPORTED_MODULE_42_rollbar__, useFactory: getRollbar }
         ],
-        entryComponents: [__WEBPACK_IMPORTED_MODULE_29__partials_book_upload_book_upload_component__["a" /* BookUploadComponent */]],
+        entryComponents: [__WEBPACK_IMPORTED_MODULE_29__partials_book_upload_book_upload_component__["a" /* BookUploadComponent */], __WEBPACK_IMPORTED_MODULE_30__partials_book_delete_book_delete_component__["a" /* BookDeleteComponent */]],
         bootstrap: [__WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* AppComponent */]],
     })
 ], AppModule);
@@ -740,7 +743,7 @@ AppModule = __decorate([
 /***/ "../../../../../src/app/book-details/book-details.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<ng2-slim-loading-bar class=\"navbar-fixed-top\" [color]=\"'#128950'\" [height]=\"'3px'\"></ng2-slim-loading-bar>\n<quietthyme-header></quietthyme-header>\n<div class=\"main-container\">\n    <section>\n        <div class=\"container\">\n            <div class=\"row\">\n                <div class=\"col-sm-12\">\n                    <h1>{{ book.title }}</h1>\n                    <ol class=\"breadcrumbs\">\n                        <li>\n                            <a routerLink=\"/library\">Library</a>\n                        </li>\n                        <li>\n                            <a routerLink=\"/library\">{{ book.authors }}</a>\n                        </li>\n                        <li *ngIf=\"book.series_name\">\n                            <a routerLink=\"/library\">{{ book.series_name }}</a> #{{ book.series_number }}\n                        </li>\n                        <li *ngIf=\"book.isbn || book.isbn10\">\n                            ISBN &mdash; {{ book.isbn || book.isbn10 }}\n                        </li>\n                    </ol>\n                    <hr>\n                </div>\n            </div>\n            <!--end of row-->\n        </div>\n        <!--end of container-->\n    </section>\n    <section class=\"space--lg\">\n        <div class=\"container\">\n            <div class=\"row\">\n                <div class=\"col-sm-5 col-md-4\">\n                    <div class=\"row\">\n                        <div class=\"col-md-12\">\n                            <img *ngIf=\"book.cover\" class=\"border--round box-shadow-wide book-details-cover-image\" src=\"https://s3.amazonaws.com/{{ book.cover }}\" alt=\"{{ book.title }}\">\n                            <img *ngIf=\"!book.cover\" class=\"border--round box-shadow-wide\" src=\"assets/images/noart.png\" alt=\"{{ book.title }}\">\n\n                        </div>\n                    </div>\n                    <div class=\"row\" style=\"padding-top:40px\">\n                        <div class=\"col-md-12\">\n                            <button [disabled]=\"loading.download\" (click)=\"downloadBook()\" class=\"btn btn--primary\" >Download {{ book.storage_format}}</button>\n                        </div>\n                    </div>\n\n                </div>\n                <div class=\"col-sm-7 col-md-6 col-md-offset-1\">\n                    <h2>{{ book.title }}</h2>\n                    <div class=\"text-block\">\n                        <span class=\"h4 inline-block\">{{ book.authors }}</span>\n                    </div>\n                    <markdown [data]=\"book.short_summary\"></markdown>\n\n                    <accordion style=\"padding-top: 30px;\" class=\"accordion accordion-1 accordion--oneopen\">\n\n                        <accordion-group heading=\"Details\">\n                            <ul class=\"bullets\">\n                                <li>\n                                    <span>Title &mdash; {{ book.title }}</span>\n                                </li>\n                                <li>\n                                    <span>Authors &mdash; {{ book.authors }}</span>\n                                </li>\n                                <li *ngIf=\"book.series_name\">\n                                    <span>Series &mdash; {{ book.series_name }} #{{ book.series_number }}</span>\n                                </li>\n\n                                <li>\n                                    <span>ISBN &mdash; {{ book.isbn || book.isbn10 }}</span>\n                                </li>\n\n                                <li *ngIf=\"book.average_rating\">\n                                    <span>Rating &mdash; {{ book.average_rating }}</span>\n                                </li>\n\n                                <li *ngIf=\"book.publisher\">\n                                    <span>Publisher &mdash; {{ book.publisher }}</span>\n                                </li>\n                                <li *ngIf=\"book.published_date\">\n                                    <span>Published &mdash; {{ book.published_date | amDateFormat:'LL' }}</span>\n                                </li>\n                                <li *ngIf=\"book.language\">\n                                    <span>Language &mdash; {{ book.language }}</span>\n                                </li>\n                                <li *ngIf=\"book.pages\">\n                                    <span>Pages &mdash; {{ book.pages }}</span>\n                                </li>\n                                <li *ngIf=\"book.last_modified\">\n                                    <span>Modified on &mdash; {{ book.last_modified | amDateFormat:'LL' }}</span>\n                                </li>\n\n                                <li *ngIf=\"book.storage_type\">\n                                    <span>Stored on &mdash; {{ book.storage_type }}</span>\n                                </li>\n\n                                <li *ngIf=\"book.storage_size\">\n                                    <span>Size &mdash; {{ book.storage_size |  fileSize}}</span>\n                                </li>\n\n                                <li *ngIf=\"book.storage_format\">\n                                    <span>Format &mdash; {{ book.storage_format}}</span>\n                                </li>\n                            </ul>\n                        </accordion-group>\n\n                        <accordion-group heading=\"Tags\">\n                            <span class=\"label label-default\" *ngFor=\"let tag of book.tags; let myIndex = index\">{{ tag }}</span>\n                        </accordion-group>\n\n                        <accordion-group heading=\"External Links\">\n                            <a *ngIf=\"book.amazon_id\" href=\"https://www.amazon.com/exec/obidos/ASIN/{{ book.amazon_id }}\" class=\"book-details-icons\">\n                                <i class=\"socicon socicon-amazon icon icon--s\"></i>\n                            </a>\n\n                            <a *ngIf=\"book.google_id\" href=\"https://books.google.com/books?id={{ book.google_id }}\" class=\"book-details-icons\">\n                                <i class=\"socicon socicon-google icon icon--s\"></i>\n                            </a>\n\n                            <a *ngIf=\"book.goodreads_id\" href=\"https://www.goodreads.com/book/show/{{ book.goodreads_id }}\" class=\"book-details-icons\">\n                                <i class=\"socicon socicon-goodreads icon icon--s\"></i>\n                            </a>\n                        </accordion-group>\n\n                    </accordion>\n\n                    <!--end accordion-->\n                </div>\n            </div>\n            <!--end of row-->\n        </div>\n        <!--end of container-->\n    </section>\n\n    <quietthyme-footer></quietthyme-footer>\n</div>\n\n\n"
+module.exports = "<ng2-slim-loading-bar class=\"navbar-fixed-top\" [color]=\"'#128950'\" [height]=\"'3px'\"></ng2-slim-loading-bar>\n<quietthyme-header></quietthyme-header>\n<div class=\"main-container\">\n    <section>\n        <div class=\"container\">\n            <div class=\"row\">\n                <div class=\"col-sm-12\">\n                    <h1>{{ book.title }}</h1>\n                    <ol class=\"breadcrumbs\">\n                        <li>\n                            <a routerLink=\"/library\">Library</a>\n                        </li>\n                        <li>\n                            <a routerLink=\"/library\">{{ book.authors }}</a>\n                        </li>\n                        <li *ngIf=\"book.series_name\">\n                            <a routerLink=\"/library\">{{ book.series_name }}</a> #{{ book.series_number }}\n                        </li>\n                        <li *ngIf=\"book.isbn || book.isbn10\">\n                            ISBN &mdash; {{ book.isbn || book.isbn10 }}\n                        </li>\n                    </ol>\n                    <hr>\n                </div>\n            </div>\n            <!--end of row-->\n        </div>\n        <!--end of container-->\n    </section>\n    <section class=\"space--lg\">\n        <div class=\"container\">\n            <div class=\"row\">\n                <div class=\"col-sm-5 col-md-4\">\n                    <div class=\"row\">\n                        <div class=\"col-md-12\">\n                            <img *ngIf=\"book.cover\" class=\"border--round box-shadow-wide book-details-cover-image\" src=\"https://s3.amazonaws.com/{{ book.cover }}\" alt=\"{{ book.title }}\">\n                            <img *ngIf=\"!book.cover\" class=\"border--round box-shadow-wide\" src=\"assets/images/noart.png\" alt=\"{{ book.title }}\">\n\n                        </div>\n                    </div>\n                    <div class=\"row\" style=\"padding-top:40px\">\n                        <div class=\"col-md-6\">\n                            <button [disabled]=\"loading.download\" (click)=\"downloadBook()\" class=\"btn btn--primary\" >Download {{ book.storage_format}}</button>\n                        </div>\n                        <div class=\"col-md-6\">\n                            <!-- Split button -->\n                            <button [disabled]=\"loading.delete\" (click)=\"openModalBookDelete()\" class=\"btn btn--secondary\" >Delete</button>\n\n                        </div>\n                    </div>\n\n                </div>\n                <div class=\"col-sm-7 col-md-6 col-md-offset-1\">\n                    <h2>{{ book.title }}</h2>\n                    <div class=\"text-block\">\n                        <span class=\"h4 inline-block\">{{ book.authors }}</span>\n                    </div>\n                    <markdown [data]=\"book.short_summary\"></markdown>\n\n                    <accordion style=\"padding-top: 30px;\" class=\"accordion accordion-1 accordion--oneopen\">\n\n                        <accordion-group heading=\"Details\">\n                            <ul class=\"bullets\">\n                                <li>\n                                    <span>Title &mdash; {{ book.title }}</span>\n                                </li>\n                                <li>\n                                    <span>Authors &mdash; {{ book.authors }}</span>\n                                </li>\n                                <li *ngIf=\"book.series_name\">\n                                    <span>Series &mdash; {{ book.series_name }} #{{ book.series_number }}</span>\n                                </li>\n\n                                <li>\n                                    <span>ISBN &mdash; {{ book.isbn || book.isbn10 }}</span>\n                                </li>\n\n                                <li *ngIf=\"book.average_rating\">\n                                    <span>Rating &mdash; {{ book.average_rating }}</span>\n                                </li>\n\n                                <li *ngIf=\"book.publisher\">\n                                    <span>Publisher &mdash; {{ book.publisher }}</span>\n                                </li>\n                                <li *ngIf=\"book.published_date\">\n                                    <span>Published &mdash; {{ book.published_date | amDateFormat:'LL' }}</span>\n                                </li>\n                                <li *ngIf=\"book.language\">\n                                    <span>Language &mdash; {{ book.language }}</span>\n                                </li>\n                                <li *ngIf=\"book.pages\">\n                                    <span>Pages &mdash; {{ book.pages }}</span>\n                                </li>\n                                <li *ngIf=\"book.last_modified\">\n                                    <span>Modified on &mdash; {{ book.last_modified | amDateFormat:'LL' }}</span>\n                                </li>\n\n                                <li *ngIf=\"book.storage_type\">\n                                    <span>Stored on &mdash; {{ book.storage_type }}</span>\n                                </li>\n\n                                <li *ngIf=\"book.storage_size\">\n                                    <span>Size &mdash; {{ book.storage_size |  fileSize}}</span>\n                                </li>\n\n                                <li *ngIf=\"book.storage_format\">\n                                    <span>Format &mdash; {{ book.storage_format}}</span>\n                                </li>\n                            </ul>\n                        </accordion-group>\n\n                        <accordion-group heading=\"Tags\">\n                            <span class=\"label label-default\" *ngFor=\"let tag of book.tags; let myIndex = index\">{{ tag }}</span>\n                        </accordion-group>\n\n                        <accordion-group heading=\"External Links\">\n                            <a *ngIf=\"book.amazon_id\" href=\"https://www.amazon.com/exec/obidos/ASIN/{{ book.amazon_id }}\" class=\"book-details-icons\">\n                                <i class=\"socicon socicon-amazon icon icon--s\"></i>\n                            </a>\n\n                            <a *ngIf=\"book.google_id\" href=\"https://books.google.com/books?id={{ book.google_id }}\" class=\"book-details-icons\">\n                                <i class=\"socicon socicon-google icon icon--s\"></i>\n                            </a>\n\n                            <a *ngIf=\"book.goodreads_id\" href=\"https://www.goodreads.com/book/show/{{ book.goodreads_id }}\" class=\"book-details-icons\">\n                                <i class=\"socicon socicon-goodreads icon icon--s\"></i>\n                            </a>\n                        </accordion-group>\n\n                    </accordion>\n\n                    <!--end accordion-->\n                </div>\n            </div>\n            <!--end of row-->\n        </div>\n        <!--end of container-->\n    </section>\n\n    <quietthyme-footer></quietthyme-footer>\n</div>\n\n\n"
 
 /***/ }),
 
@@ -769,11 +772,14 @@ module.exports = module.exports.toString();
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BookDetailsComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_api_service__ = __webpack_require__("../../../../../src/app/services/api.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ng2_slim_loading_bar__ = __webpack_require__("../../../../ng2-slim-loading-bar/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_notification_service__ = __webpack_require__("../../../../../src/app/services/notification.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_file_saver__ = __webpack_require__("../../../../file-saver/FileSaver.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_file_saver___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_file_saver__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__models_book__ = __webpack_require__("../../../../../src/app/models/book.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ng2_slim_loading_bar__ = __webpack_require__("../../../../ng2-slim-loading-bar/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__services_notification_service__ = __webpack_require__("../../../../../src/app/services/notification.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_ngx_bootstrap_modal__ = __webpack_require__("../../../../ngx-bootstrap/modal/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__partials_book_delete_book_delete_component__ = __webpack_require__("../../../../../src/app/partials/book-delete/book-delete.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_file_saver__ = __webpack_require__("../../../../file-saver/FileSaver.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_file_saver___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_file_saver__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -789,19 +795,25 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
+
+
 var BookDetailsComponent = (function () {
-    function BookDetailsComponent(slimLoadingBarService, apiService, notificationService, router, activatedRoute) {
+    function BookDetailsComponent(slimLoadingBarService, apiService, notificationService, router, activatedRoute, modalService) {
         this.slimLoadingBarService = slimLoadingBarService;
         this.apiService = apiService;
         this.notificationService = notificationService;
         this.router = router;
         this.activatedRoute = activatedRoute;
+        this.modalService = modalService;
+        this.book = new __WEBPACK_IMPORTED_MODULE_2__models_book__["a" /* BookModel */]();
         this.loading = {
+            delete: false,
             info: false,
             download: false,
         };
         this.router.events.subscribe(function (event) {
-            if (event instanceof __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* NavigationEnd */]) {
+            if (event instanceof __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* NavigationEnd */]) {
                 ga('set', 'page', event.urlAfterRedirects);
                 ga('send', 'pageview');
             }
@@ -842,10 +854,18 @@ var BookDetailsComponent = (function () {
             var filename = _this.book.storage_filename + _this.book.storage_format;
             var file = response.blob();
             console.log(file.size + ' bytes file downloaded. File type: ', file.type);
-            __WEBPACK_IMPORTED_MODULE_5_file_saver__["saveAs"](file, filename);
+            __WEBPACK_IMPORTED_MODULE_8_file_saver__["saveAs"](file, filename);
         }, function (error) {
             _this.notificationService.error('An error occurred!', error);
         });
+    };
+    BookDetailsComponent.prototype.openModalBookDelete = function () {
+        this.bsModalRef = this.modalService.show(__WEBPACK_IMPORTED_MODULE_7__partials_book_delete_book_delete_component__["a" /* BookDeleteComponent */], {
+            animated: true,
+            backdrop: 'static',
+            class: 'modal-container modal-active',
+        });
+        this.bsModalRef.content.book = this.book;
     };
     return BookDetailsComponent;
 }());
@@ -855,10 +875,10 @@ BookDetailsComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/book-details/book-details.component.html"),
         styles: [__webpack_require__("../../../../../src/app/book-details/book-details.component.less")],
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4__services_notification_service__["a" /* NotificationService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__services_notification_service__["a" /* NotificationService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["d" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["d" /* Router */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* ActivatedRoute */]) === "function" && _e || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_4_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_5__services_notification_service__["a" /* NotificationService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__services_notification_service__["a" /* NotificationService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["d" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_router__["d" /* Router */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* ActivatedRoute */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_6_ngx_bootstrap_modal__["a" /* BsModalService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6_ngx_bootstrap_modal__["a" /* BsModalService */]) === "function" && _f || Object])
 ], BookDetailsComponent);
 
-var _a, _b, _c, _d, _e;
+var _a, _b, _c, _d, _e, _f;
 //# sourceMappingURL=book-details.component.js.map
 
 /***/ }),
@@ -1097,6 +1117,21 @@ var _a, _b, _c, _d, _e, _f;
 
 /***/ }),
 
+/***/ "../../../../../src/app/models/book.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BookModel; });
+var BookModel = (function () {
+    function BookModel() {
+    }
+    return BookModel;
+}());
+
+//# sourceMappingURL=book.js.map
+
+/***/ }),
+
 /***/ "../../../../../src/app/models/storage-prepare-book-model.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -1126,6 +1161,112 @@ var StorageStatus = (function () {
 }());
 
 //# sourceMappingURL=storage-status.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/partials/book-delete/book-delete.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<section class=\"unpad border--round \">\n    <div class=\"container\">\n        <div class=\"row\">\n            <div class=\"col-sm-6 col-md-offset-3 col-sm-offset-3 col-xs-12\">\n                <div class=\"feature feature-1 text-center\">\n                    <div class=\"feature__body boxed boxed--lg\">\n                        <div (click)=\"closeModalBookDelete()\" class=\"modal-close modal-close-cross\"></div>\n                        <div class=\"text-block\">\n                            <h3>Delete \"{{ book.title }}\"?</h3>\n                            <p>\n                                Are you sure you should like to remove this book from your library?\n                                <span *ngIf=\"book.storage_type && book.storage_type != 'quietthyme'\">Removing this book will also delete it from <strong>{{ storageDetails[book.storage_type].display_name }}</strong>.</span>\n\n                            </p>\n\n                        </div>\n                        <button (click)=\"deleteBook()\" [disabled]=\"loading.delete\" class=\"btn bg--error type--uppercase\">Remove from {{ book.storage_type }}</button>\n\n                    </div>\n                </div>\n                <!--end feature-->\n            </div>\n        </div>\n        <!--end of row-->\n    </div>\n    <!--end of container-->\n</section>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/partials/book-delete/book-delete.component.less":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/partials/book-delete/book-delete.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BookDeleteComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ngx_bootstrap_modal_modal_options_class__ = __webpack_require__("../../../../ngx-bootstrap/modal/modal-options.class.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__models_book__ = __webpack_require__("../../../../../src/app/models/book.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_settings__ = __webpack_require__("../../../../../src/app/app-settings.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_api_service__ = __webpack_require__("../../../../../src/app/services/api.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+var BookDeleteComponent = (function () {
+    function BookDeleteComponent(bsModalRef, apiService, router) {
+        this.bsModalRef = bsModalRef;
+        this.apiService = apiService;
+        this.router = router;
+        this.book = new __WEBPACK_IMPORTED_MODULE_2__models_book__["a" /* BookModel */]();
+        this.storageDetails = __WEBPACK_IMPORTED_MODULE_3__app_settings__["a" /* AppSettings */].STORAGE_DETAILS;
+        this.loading = {
+            delete: false,
+        };
+    }
+    BookDeleteComponent.prototype.ngOnInit = function () {
+    };
+    BookDeleteComponent.prototype.closeModalBookDelete = function (e) {
+        if (this.loading.delete) {
+            return;
+        }
+        this.bsModalRef.hide();
+    };
+    BookDeleteComponent.prototype.deleteBook = function () {
+        var _this = this;
+        console.log("deleting book", this.book.id);
+        if (this.loading.delete) {
+            return; //dont do anything if we're already downloading this book.
+        }
+        this.loading.delete = true;
+        this.apiService
+            .bookDestroy(this.book.id)
+            .finally(function () {
+            _this.loading.delete = false;
+        })
+            .subscribe(function (response) {
+            console.log('deleted book');
+            _this.bsModalRef.hide();
+            _this.router.navigate(['/library']);
+        }, function (error) {
+            // this.notificationService.error('An error occurred!', error);
+        });
+    };
+    return BookDeleteComponent;
+}());
+BookDeleteComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+        selector: 'quietthyme-book-delete',
+        template: __webpack_require__("../../../../../src/app/partials/book-delete/book-delete.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/partials/book-delete/book-delete.component.less")]
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ngx_bootstrap_modal_modal_options_class__["a" /* BsModalRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ngx_bootstrap_modal_modal_options_class__["a" /* BsModalRef */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_4__services_api_service__["a" /* ApiService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__services_api_service__["a" /* ApiService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_5__angular_router__["d" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__angular_router__["d" /* Router */]) === "function" && _c || Object])
+], BookDeleteComponent);
+
+var _a, _b, _c;
+//# sourceMappingURL=book-delete.component.js.map
 
 /***/ }),
 
@@ -1908,6 +2049,15 @@ var ApiService = (function () {
                 .get(url, { search: params })
                 .map(this.extractData)
                 .catch(this.handleError)));
+    };
+    ApiService.prototype.bookDestroy = function (bookId) {
+        var url = __WEBPACK_IMPORTED_MODULE_4__app_settings__["a" /* AppSettings */].API_ENDPOINT + "/book/" + bookId.toString();
+        var params = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["URLSearchParams"]();
+        params.set('deleteStorage', 'true');
+        return this.authHttp
+            .delete(url, { search: params })
+            .map(this.extractData)
+            .catch(this.handleError);
     };
     ApiService.prototype.download = function (bookId) {
         var _this = this;
