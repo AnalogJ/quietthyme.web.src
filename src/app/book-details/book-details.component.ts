@@ -5,6 +5,10 @@ import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 import { MarkdownModule } from 'angular2-markdown';
 import { SlimLoadingBarService } from 'ng2-slim-loading-bar';
 import { NotificationService } from '../services/notification.service';
+import { BsModalService } from 'ngx-bootstrap/modal';
+import { BsModalRef } from 'ngx-bootstrap/modal/modal-options.class';
+import { BookDeleteComponent } from '../partials/book-delete/book-delete.component';
+
 import * as FileSaver from 'file-saver';
 declare var ga: any;
 
@@ -14,18 +18,20 @@ declare var ga: any;
   styleUrls: ['./book-details.component.less'],
 })
 export class BookDetailsComponent implements OnInit {
-  book: BookModel;
+  book: BookModel = new BookModel();
   loading = {
+    delete: false,
     info: false,
     download: false,
   };
-
+  bsModalRef: BsModalRef;
   constructor(
     private slimLoadingBarService: SlimLoadingBarService,
     private apiService: ApiService,
     private notificationService: NotificationService,
     private router: Router,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private modalService: BsModalService
   ) {
       this.router.events.subscribe(event => {
           if (event instanceof NavigationEnd) {
@@ -84,4 +90,15 @@ export class BookDetailsComponent implements OnInit {
         }
       );
   }
+
+    public openModalBookDelete() {
+
+        this.bsModalRef = this.modalService.show(BookDeleteComponent, {
+            animated: true,
+            backdrop: 'static',
+            class: 'modal-container modal-active',
+        });
+        this.bsModalRef.content.book = this.book
+
+    }
 }

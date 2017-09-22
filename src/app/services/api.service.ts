@@ -233,6 +233,18 @@ export class ApiService {
       )
     );
   }
+
+  bookDestroy(bookId: string): Observable<any> {
+    var url = `${AppSettings.API_ENDPOINT}/book/${bookId.toString()}`;
+
+    let params: URLSearchParams = new URLSearchParams();
+    params.set('deleteStorage', 'true');
+
+    return this.authHttp
+        .delete(url, { search: params })
+        .map(this.extractData)
+        .catch(this.handleError)
+  }
   download(bookId: string): Observable<any> {
     //http://stackoverflow.com/a/41252342
     let headers = new Headers({ Accept: '*' });

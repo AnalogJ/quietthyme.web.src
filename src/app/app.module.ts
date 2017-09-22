@@ -29,6 +29,7 @@ import { DropzoneDirective } from './shared/dropzone.directive';
 import { TermsComponent } from './terms/terms.component';
 import { NotificationComponent } from './partials/notification/notification.component';
 import { BookUploadComponent } from './partials/book-upload/book-upload.component';
+import { BookDeleteComponent } from './partials/book-delete/book-delete.component';
 import { AccountRegisterPlanComponent } from './account-register-plan/account-register-plan.component';
 // import { RollbarErrorHandler, getRollbar } from './services/rollbar-error-handler';
 import { RollbarErrorHandler } from './services/rollbar-error-handler';
@@ -95,7 +96,8 @@ export function getAuthHttp(http: Http, options: RequestOptions) {
     TermsComponent,
     NotificationComponent,
     BookUploadComponent,
-    DropzoneDirective
+    DropzoneDirective,
+    BookDeleteComponent
   ],
   imports: [
     BrowserModule,
@@ -171,7 +173,7 @@ export function getAuthHttp(http: Http, options: RequestOptions) {
     { provide: ErrorHandler, useClass: RollbarErrorHandler },
     { provide: Rollbar, useFactory: getRollbar }
   ],
-  entryComponents: [ BookUploadComponent ],
+  entryComponents: [ BookUploadComponent, BookDeleteComponent ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

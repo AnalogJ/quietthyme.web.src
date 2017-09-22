@@ -1,0 +1,27 @@
+<section class="unpad border--round ">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 col-md-offset-3 col-sm-offset-3 col-xs-12">
+                <div class="feature feature-1 text-center">
+                    <div class="feature__body boxed boxed--lg">
+                        <div (click)="closeModalBookDelete()" class="modal-close modal-close-cross"></div>
+                        <div class="text-block">
+                            <h3>Delete "{{ book.title }}"?</h3>
+                            <p>
+                                Are you sure you should like to remove this book from your library?
+                                <span *ngIf="book.storage_type && book.storage_type != 'quietthyme'">Removing this book will also delete it from <strong>{{ storageDetails[book.storage_type].display_name }}</strong>.</span>
+
+                            </p>
+
+                        </div>
+                        <button (click)="deleteBook()" [disabled]="loading.delete" class="btn bg--error type--uppercase">Remove from {{ book.storage_type }}</button>
+
+                    </div>
+                </div>
+                <!--end feature-->
+            </div>
+        </div>
+        <!--end of row-->
+    </div>
+    <!--end of container-->
+</section>

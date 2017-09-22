@@ -39,8 +39,13 @@
                         </div>
                     </div>
                     <div class="row" style="padding-top:40px">
-                        <div class="col-md-12">
+                        <div class="col-md-6">
                             <button [disabled]="loading.download" (click)="downloadBook()" class="btn btn--primary" >Download {{ book.storage_format}}</button>
+                        </div>
+                        <div class="col-md-6">
+                            <!-- Split button -->
+                            <button [disabled]="loading.delete" (click)="openModalBookDelete()" class="btn btn--secondary" >Delete</button>
+
                         </div>
                     </div>
 
