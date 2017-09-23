@@ -42,95 +42,138 @@
                         <div class="col-md-6">
                             <button [disabled]="loading.download" (click)="downloadBook()" class="btn btn--primary" >Download {{ book.storage_format}}</button>
                         </div>
-                        <div class="col-md-6">
-                            <!-- Split button -->
-                            <button [disabled]="loading.delete" (click)="openModalBookDelete()" class="btn btn--secondary" >Delete</button>
+                    </div>
 
+                </div>
+                <div  class="col-sm-7 col-md-6 col-md-offset-1">
+                    <div *ngIf="!editing" class="view-book-panel">
+                        <h2>{{ book.title }}</h2>
+                        <div class="text-block">
+                            <span class="h4 inline-block">{{ book.authors }}</span>
+                        </div>
+                        <markdown [data]="book.short_summary"></markdown>
+
+                        <accordion style="padding-top: 30px;" class="accordion accordion-1 accordion--oneopen">
+
+                            <accordion-group heading="Details">
+                                <ul class="bullets">
+                                    <li>
+                                        <span>Title &mdash; {{ book.title }}</span>
+                                    </li>
+                                    <li>
+                                        <span>Authors &mdash; {{ book.authors }}</span>
+                                    </li>
+                                    <li *ngIf="book.series_name">
+                                        <span>Series &mdash; {{ book.series_name }} #{{ book.series_number }}</span>
+                                    </li>
+
+                                    <li>
+                                        <span>ISBN &mdash; {{ book.isbn || book.isbn10 }}</span>
+                                    </li>
+
+                                    <li *ngIf="book.average_rating">
+                                        <span>Rating &mdash; {{ book.average_rating }}</span>
+                                    </li>
+
+                                    <li *ngIf="book.publisher">
+                                        <span>Publisher &mdash; {{ book.publisher }}</span>
+                                    </li>
+                                    <li *ngIf="book.published_date">
+                                        <span>Published &mdash; {{ book.published_date | amDateFormat:'LL' }}</span>
+                                    </li>
+                                    <li *ngIf="book.language">
+                                        <span>Language &mdash; {{ book.language }}</span>
+                                    </li>
+                                    <li *ngIf="book.pages">
+                                        <span>Pages &mdash; {{ book.pages }}</span>
+                                    </li>
+                                    <li *ngIf="book.last_modified">
+                                        <span>Modified on &mdash; {{ book.last_modified | amDateFormat:'LL' }}</span>
+                                    </li>
+
+                                    <li *ngIf="book.storage_type">
+                                        <span>Stored on &mdash; {{ book.storage_type }}</span>
+                                    </li>
+
+                                    <li *ngIf="book.storage_size">
+                                        <span>Size &mdash; {{ book.storage_size |  fileSize}}</span>
+                                    </li>
+
+                                    <li *ngIf="book.storage_format">
+                                        <span>Format &mdash; {{ book.storage_format}}</span>
+                                    </li>
+                                </ul>
+                            </accordion-group>
+
+                            <accordion-group heading="Tags">
+                                <span class="label label-default" *ngFor="let tag of book.tags; let myIndex = index">{{ tag }}</span>
+                            </accordion-group>
+
+                            <accordion-group heading="External Links">
+                                <a *ngIf="book.amazon_id" href="https://www.amazon.com/exec/obidos/ASIN/{{ book.amazon_id }}" class="book-details-icons">
+                                    <i class="socicon socicon-amazon icon icon--s"></i>
+                                </a>
+
+                                <a *ngIf="book.google_id" href="https://books.google.com/books?id={{ book.google_id }}" class="book-details-icons">
+                                    <i class="socicon socicon-google icon icon--s"></i>
+                                </a>
+
+                                <a *ngIf="book.goodreads_id" href="https://www.goodreads.com/book/show/{{ book.goodreads_id }}" class="book-details-icons">
+                                    <i class="socicon socicon-goodreads icon icon--s"></i>
+                                </a>
+                            </accordion-group>
+
+                        </accordion>
+
+                        <!--end accordion-->
+                        <div class="row" style="padding-top:40px">
+                            <div class="col-md-12">
+                                <button [disabled]="loading.edit" (click)="editBook()" style="color: white;" class="btn btn--primary-1" >Edit</button>
+
+                                <button [disabled]="loading.delete" (click)="openModalBookDelete()" class="btn btn--secondary" >Delete</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div *ngIf="editing" class="edit-book-panel">
+                        <form>
+                            <div class="col-sm-12">
+                                <label>Title:</label>
+                                <input [(ngModel)]="updateBook.title" type="text" name="title" placeholder="Book Title" />
+                            </div>
+                            <div class="col-sm-12">
+                                <label>Authors:</label>
+                                <input *ngFor="let author of updateBook.authors; let index = index; trackBy:trackByIndex;" [(ngModel)]="updateBook.authors[index]" type="text" name="author{{index}}" placeholder="Firstname Lastname" />
+                                <button [disabled]="updateBook.authors.includes('')" (click)="addAuthor()" class="btn btn--sm btn--secondary" >Add Author</button>
+
+                            </div>
+                            <div class="col-sm-8">
+                                <label>Series Name:</label>
+                                <input [(ngModel)]="updateBook.series_name" type="text" name="series_name" placeholder="Series Name" />
+                            </div>
+                            <div class="col-sm-4">
+                                <label>Series Number:</label>
+                                <input [(ngModel)]="updateBook.series_number" type="text" name="series_number" placeholder="Number" />
+                            </div>
+                            <div class="col-sm-12">
+                                <label>ISBN:</label>
+                                <input [(ngModel)]="updateBook.isbn" type="text" name="isbn" placeholder="ISBN" />
+                            </div>
+                            <div class="col-sm-12">
+                                <label>Description:</label>
+                                <textarea [(ngModel)]="updateBook.short_summary" name="text" placeholder="Book Description" rows="10"></textarea>
+                            </div>
+                        </form>
+                        <div class="row" style="padding-top:40px">
+                            <div class="col-md-12">
+                                <button [disabled]="loading.edit" (click)="saveBook()" style="color: white;" class="btn btn--primary-1" >Save Changes</button>
+
+                                <button [disabled]="loading.edit" (click)="cancelEdit()" class="btn btn--secondary" >Cancel</button>
+                            </div>
                         </div>
                     </div>
 
                 </div>
-                <div class="col-sm-7 col-md-6 col-md-offset-1">
-                    <h2>{{ book.title }}</h2>
-                    <div class="text-block">
-                        <span class="h4 inline-block">{{ book.authors }}</span>
-                    </div>
-                    <markdown [data]="book.short_summary"></markdown>
 
-                    <accordion style="padding-top: 30px;" class="accordion accordion-1 accordion--oneopen">
-
-                        <accordion-group heading="Details">
-                            <ul class="bullets">
-                                <li>
-                                    <span>Title &mdash; {{ book.title }}</span>
-                                </li>
-                                <li>
-                                    <span>Authors &mdash; {{ book.authors }}</span>
-                                </li>
-                                <li *ngIf="book.series_name">
-                                    <span>Series &mdash; {{ book.series_name }} #{{ book.series_number }}</span>
-                                </li>
-
-                                <li>
-                                    <span>ISBN &mdash; {{ book.isbn || book.isbn10 }}</span>
-                                </li>
-
-                                <li *ngIf="book.average_rating">
-                                    <span>Rating &mdash; {{ book.average_rating }}</span>
-                                </li>
-
-                                <li *ngIf="book.publisher">
-                                    <span>Publisher &mdash; {{ book.publisher }}</span>
-                                </li>
-                                <li *ngIf="book.published_date">
-                                    <span>Published &mdash; {{ book.published_date | amDateFormat:'LL' }}</span>
-                                </li>
-                                <li *ngIf="book.language">
-                                    <span>Language &mdash; {{ book.language }}</span>
-                                </li>
-                                <li *ngIf="book.pages">
-                                    <span>Pages &mdash; {{ book.pages }}</span>
-                                </li>
-                                <li *ngIf="book.last_modified">
-                                    <span>Modified on &mdash; {{ book.last_modified | amDateFormat:'LL' }}</span>
-                                </li>
-
-                                <li *ngIf="book.storage_type">
-                                    <span>Stored on &mdash; {{ book.storage_type }}</span>
-                                </li>
-
-                                <li *ngIf="book.storage_size">
-                                    <span>Size &mdash; {{ book.storage_size |  fileSize}}</span>
-                                </li>
-
-                                <li *ngIf="book.storage_format">
-                                    <span>Format &mdash; {{ book.storage_format}}</span>
-                                </li>
-                            </ul>
-                        </accordion-group>
-
-                        <accordion-group heading="Tags">
-                            <span class="label label-default" *ngFor="let tag of book.tags; let myIndex = index">{{ tag }}</span>
-                        </accordion-group>
-
-                        <accordion-group heading="External Links">
-                            <a *ngIf="book.amazon_id" href="https://www.amazon.com/exec/obidos/ASIN/{{ book.amazon_id }}" class="book-details-icons">
-                                <i class="socicon socicon-amazon icon icon--s"></i>
-                            </a>
-
-                            <a *ngIf="book.google_id" href="https://books.google.com/books?id={{ book.google_id }}" class="book-details-icons">
-                                <i class="socicon socicon-google icon icon--s"></i>
-                            </a>
-
-                            <a *ngIf="book.goodreads_id" href="https://www.goodreads.com/book/show/{{ book.goodreads_id }}" class="book-details-icons">
-                                <i class="socicon socicon-goodreads icon icon--s"></i>
-                            </a>
-                        </accordion-group>
-
-                    </accordion>
-
-                    <!--end accordion-->
-                </div>
             </div>
             <!--end of row-->
         </div>

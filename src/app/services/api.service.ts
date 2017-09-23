@@ -12,6 +12,7 @@ import { Observable } from 'rxjs/Observable';
 import { AppSettings } from '../app-settings';
 import { CacheService } from '../services/cache.service';
 import { StoragePrepareBookModel } from '../models/storage-prepare-book-model'
+import { BookModel } from '../models/book'
 import { Observer } from 'rxjs';
 
 @Injectable()
@@ -245,6 +246,19 @@ export class ApiService {
         .map(this.extractData)
         .catch(this.handleError)
   }
+
+  bookEdit(bookId: string, book: BookModel): Observable<any> {
+    var url = `${AppSettings.API_ENDPOINT}/book/${bookId.toString()}`;
+
+    let params: URLSearchParams = new URLSearchParams();
+    params.set('source', 'manual');
+
+    return this.authHttp
+        .post(url, book, { search: params })
+        .map(this.extractData)
+        .catch(this.handleError)
+  }
+
   download(bookId: string): Observable<any> {
     //http://stackoverflow.com/a/41252342
     let headers = new Headers({ Accept: '*' });

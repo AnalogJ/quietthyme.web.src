@@ -19,11 +19,14 @@ declare var ga: any;
 })
 export class BookDetailsComponent implements OnInit {
   book: BookModel = new BookModel();
+  updateBook: any = {};
   loading = {
     delete: false,
     info: false,
     download: false,
+    edit: false
   };
+  editing: boolean = false
   bsModalRef: BsModalRef;
   constructor(
     private slimLoadingBarService: SlimLoadingBarService,
@@ -62,7 +65,6 @@ export class BookDetailsComponent implements OnInit {
   }
 
   downloadBook() {
-    console.log(this.book.id);
     if (this.loading.download) {
       return; //dont do anything if we're already downloading this book.
     }
@@ -92,13 +94,60 @@ export class BookDetailsComponent implements OnInit {
   }
 
     public openModalBookDelete() {
-
         this.bsModalRef = this.modalService.show(BookDeleteComponent, {
             animated: true,
             backdrop: 'static',
             class: 'modal-container modal-active',
         });
         this.bsModalRef.content.book = this.book
+    }
+    addAuthor(){
+        this.updateBook.authors.push("");
+    }
 
+    editBook(){
+        if(!this.editing){
+            this.editing = true
+            this.updateBook = JSON.parse(JSON.stringify(this.book)) //deep copy
+            this.updateBook.isbn = this.updateBook.isbn || this.updateBook.isbn10;
+        }
+        return
+    }
+
+    saveBook(){
+        if (this.loading.edit) {
+            return; //dont do anything if we're already saving this book.
+        }
+
+        this.loading.edit = true;
+        this.slimLoadingBarService.start();
+
+
+
+        this.apiService
+            .bookEdit(this.book.id, this.updateBook)
+            .finally(() => {
+                this.loading.edit = false;
+                this.slimLoadingBarService.complete();
+            })
+            .subscribe(
+                response => {
+                    console.log('successfully edited book');
+                    this.book = response
+                    this.editing = false
+                },
+                error => {
+                    this.notificationService.error('An error occurred!', error);
+                }
+            );
+    }
+
+    cancelEdit(){
+        this.editing = false
+    }
+
+    trackByIndex(index: number, value: number) {
+        // console.log("TRACK BY INDEX CALLED", index)
+        return index;
     }
 }
