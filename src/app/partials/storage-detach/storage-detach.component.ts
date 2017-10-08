@@ -13,7 +13,7 @@ import { AppSettings } from '../../app-settings';
 export class StorageDetachComponent implements OnInit {
   storageData: StorageStatus = new StorageStatus();
   storageDetails = AppSettings.STORAGE_DETAILS;
-  deleteBooks: Boolean = false;
+  deleteStorage: Boolean = false; //determines if we should delete the actual book files as well.
   loading = {
     detach: false
   };
@@ -33,27 +33,28 @@ export class StorageDetachComponent implements OnInit {
 
   detachStorage() {
     console.log("detaching storage");
-    console.log(this.deleteBooks)
-    // if (this.loading.detach) {
-    //   return; //dont do anything if we're already downloading this book.
-    // }
-    //
-    // this.loading.delete = true;
-    // this.apiService
-    //     .bookDestroy(this.book.id)
-    //     .finally(() => {
-    //       this.loading.delete = false;
-    //     })
-    //     .subscribe(
-    //         response => {
-    //           console.log('deleted book')
-    //           this.bsModalRef.hide()
-    //           this.router.navigate(['/library']);
-    //
-    //         },
-    //         error => {
-    //           // this.notificationService.error('An error occurred!', error);
-    //         }
-    //     );
+    console.log(this.deleteStorage)
+    if (this.loading.detach) {
+      return; //dont do anything if we're already deleting this storage provider.
+    }
+
+    this.loading.detach = true;
+    this.apiService
+        .storageDetach(this.storageData.storage_id, this.deleteStorage)
+        .finally(() => {
+          this.loading.detach = false;
+        })
+        .subscribe(
+            response => {
+              console.log('deleted book')
+              this.bsModalRef.hide()
+              //TODO bust the cache here, we've modified the credentials. 
+              this.router.navigate(['/storage']);
+
+            },
+            error => {
+              // this.notificationService.error('An error occurred!', error);
+            }
+        );
   }
 }

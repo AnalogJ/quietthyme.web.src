@@ -182,6 +182,15 @@ export class ApiService {
       .catch(this.handleError);
   }
 
+  storageDetach(credentialId: string, deleteStorage: boolean): Observable<any> {
+    var url = `${AppSettings.API_ENDPOINT}/storage/detach`;
+
+    return this.authHttp
+        .post(url, { credential_id: credentialId, deleteStorage: deleteStorage })
+        .map(this.extractData)
+        .catch(this.handleError)
+  }
+
   storagePrepareBook(prepare_data: StoragePrepareBookModel): Observable<any> {
     let params: URLSearchParams = new URLSearchParams();
     params.set('source', 'web'); //if we dont specify the source, we'll get the wrong kind of signedUrl from the API (one without a policy)
