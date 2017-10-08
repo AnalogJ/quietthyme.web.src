@@ -540,22 +540,23 @@ var _a;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__partials_book_delete_book_delete_component__ = __webpack_require__("../../../../../src/app/partials/book-delete/book-delete.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__account_register_plan_account_register_plan_component__ = __webpack_require__("../../../../../src/app/account-register-plan/account-register-plan.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__services_rollbar_error_handler__ = __webpack_require__("../../../../../src/app/services/rollbar-error-handler.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33_angular2_jwt__ = __webpack_require__("../../../../angular2-jwt/angular2-jwt.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33_angular2_jwt___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_33_angular2_jwt__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34_ngx_bootstrap__ = __webpack_require__("../../../../ngx-bootstrap/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35_ng2_slim_loading_bar__ = __webpack_require__("../../../../ng2-slim-loading-bar/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_36_angular2_markdown__ = __webpack_require__("../../../../angular2-markdown/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_37_angular2_masonry__ = __webpack_require__("../../../../angular2-masonry/index.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_38_ng2_scrollspy__ = __webpack_require__("../../../../ng2-scrollspy/dist/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_38_ng2_scrollspy___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_38_ng2_scrollspy__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_39_ng2_scrollspy_dist_plugin_affix_directive__ = __webpack_require__("../../../../ng2-scrollspy/dist/plugin/affix.directive.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_39_ng2_scrollspy_dist_plugin_affix_directive___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_39_ng2_scrollspy_dist_plugin_affix_directive__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_40_angular2_moment__ = __webpack_require__("../../../../angular2-moment/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_40_angular2_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_40_angular2_moment__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_41_ngx_infinite_scroll__ = __webpack_require__("../../../../ngx-infinite-scroll/modules/ngx-infinite-scroll.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_42_rollbar__ = __webpack_require__("../../../../rollbar/dist/rollbar.umd.min.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_42_rollbar___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_42_rollbar__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_43__environments_environment__ = __webpack_require__("../../../../../src/environments/environment.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__partials_storage_detach_storage_detach_component__ = __webpack_require__("../../../../../src/app/partials/storage-detach/storage-detach.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34_angular2_jwt__ = __webpack_require__("../../../../angular2-jwt/angular2-jwt.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34_angular2_jwt___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_34_angular2_jwt__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35_ngx_bootstrap__ = __webpack_require__("../../../../ngx-bootstrap/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_36_ng2_slim_loading_bar__ = __webpack_require__("../../../../ng2-slim-loading-bar/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_37_angular2_markdown__ = __webpack_require__("../../../../angular2-markdown/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_38_angular2_masonry__ = __webpack_require__("../../../../angular2-masonry/index.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_39_ng2_scrollspy__ = __webpack_require__("../../../../ng2-scrollspy/dist/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_39_ng2_scrollspy___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_39_ng2_scrollspy__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_40_ng2_scrollspy_dist_plugin_affix_directive__ = __webpack_require__("../../../../ng2-scrollspy/dist/plugin/affix.directive.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_40_ng2_scrollspy_dist_plugin_affix_directive___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_40_ng2_scrollspy_dist_plugin_affix_directive__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_41_angular2_moment__ = __webpack_require__("../../../../angular2-moment/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_41_angular2_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_41_angular2_moment__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_42_ngx_infinite_scroll__ = __webpack_require__("../../../../ngx-infinite-scroll/modules/ngx-infinite-scroll.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_43_rollbar__ = __webpack_require__("../../../../rollbar/dist/rollbar.umd.min.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_43_rollbar___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_43_rollbar__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_44__environments_environment__ = __webpack_require__("../../../../../src/environments/environment.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -596,6 +597,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 // import { RollbarErrorHandler, getRollbar } from './services/rollbar-error-handler';
 
+
 //Third party
 
 
@@ -609,18 +611,18 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 function getRollbar() {
-    return new __WEBPACK_IMPORTED_MODULE_42_rollbar__({
-        accessToken: __WEBPACK_IMPORTED_MODULE_43__environments_environment__["a" /* environment */].rollbarClientApiKey,
+    return new __WEBPACK_IMPORTED_MODULE_43_rollbar__({
+        accessToken: __WEBPACK_IMPORTED_MODULE_44__environments_environment__["a" /* environment */].rollbarClientApiKey,
         captureUncaught: true,
         captureUnhandledRejections: false,
-        enabled: !!__WEBPACK_IMPORTED_MODULE_43__environments_environment__["a" /* environment */].rollbarClientApiKey,
+        enabled: !!__WEBPACK_IMPORTED_MODULE_44__environments_environment__["a" /* environment */].rollbarClientApiKey,
         payload: {
-            environment: __WEBPACK_IMPORTED_MODULE_43__environments_environment__["a" /* environment */].name
+            environment: __WEBPACK_IMPORTED_MODULE_44__environments_environment__["a" /* environment */].name
         }
     });
 }
 function getAuthHttp(http, options) {
-    return new __WEBPACK_IMPORTED_MODULE_33_angular2_jwt__["AuthHttp"](new __WEBPACK_IMPORTED_MODULE_33_angular2_jwt__["AuthConfig"]({
+    return new __WEBPACK_IMPORTED_MODULE_34_angular2_jwt__["AuthHttp"](new __WEBPACK_IMPORTED_MODULE_34_angular2_jwt__["AuthConfig"]({
         tokenName: 'id_token',
         noJwtError: true,
         headerPrefix: 'JWT',
@@ -645,7 +647,7 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_11__storage_storage_component__["a" /* StorageComponent */],
             __WEBPACK_IMPORTED_MODULE_12__library_library_component__["a" /* LibraryComponent */],
             __WEBPACK_IMPORTED_MODULE_13__book_details_book_details_component__["a" /* BookDetailsComponent */],
-            __WEBPACK_IMPORTED_MODULE_39_ng2_scrollspy_dist_plugin_affix_directive__["ScrollSpyAffixDirective"],
+            __WEBPACK_IMPORTED_MODULE_40_ng2_scrollspy_dist_plugin_affix_directive__["ScrollSpyAffixDirective"],
             __WEBPACK_IMPORTED_MODULE_14__partials_storage_panel_storage_panel_component__["a" /* StoragePanelComponent */],
             __WEBPACK_IMPORTED_MODULE_19__shared_file_size_pipe__["a" /* FileSizePipe */],
             __WEBPACK_IMPORTED_MODULE_15__settings_settings_component__["a" /* SettingsComponent */],
@@ -657,19 +659,20 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_28__partials_notification_notification_component__["a" /* NotificationComponent */],
             __WEBPACK_IMPORTED_MODULE_29__partials_book_upload_book_upload_component__["a" /* BookUploadComponent */],
             __WEBPACK_IMPORTED_MODULE_26__shared_dropzone_directive__["a" /* DropzoneDirective */],
-            __WEBPACK_IMPORTED_MODULE_30__partials_book_delete_book_delete_component__["a" /* BookDeleteComponent */]
+            __WEBPACK_IMPORTED_MODULE_30__partials_book_delete_book_delete_component__["a" /* BookDeleteComponent */],
+            __WEBPACK_IMPORTED_MODULE_33__partials_storage_detach_storage_detach_component__["a" /* StorageDetachComponent */]
         ],
         imports: [
             __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
             __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormsModule */],
             __WEBPACK_IMPORTED_MODULE_3__angular_http__["HttpModule"],
-            __WEBPACK_IMPORTED_MODULE_34_ngx_bootstrap__["a" /* Ng2BootstrapModule */].forRoot(),
-            __WEBPACK_IMPORTED_MODULE_35_ng2_slim_loading_bar__["a" /* SlimLoadingBarModule */].forRoot(),
-            __WEBPACK_IMPORTED_MODULE_36_angular2_markdown__["a" /* MarkdownModule */].forRoot(),
-            __WEBPACK_IMPORTED_MODULE_37_angular2_masonry__["a" /* MasonryModule */],
-            __WEBPACK_IMPORTED_MODULE_41_ngx_infinite_scroll__["a" /* InfiniteScrollModule */],
-            __WEBPACK_IMPORTED_MODULE_38_ng2_scrollspy__["ScrollSpyModule"].forRoot(),
-            __WEBPACK_IMPORTED_MODULE_40_angular2_moment__["MomentModule"],
+            __WEBPACK_IMPORTED_MODULE_35_ngx_bootstrap__["a" /* Ng2BootstrapModule */].forRoot(),
+            __WEBPACK_IMPORTED_MODULE_36_ng2_slim_loading_bar__["a" /* SlimLoadingBarModule */].forRoot(),
+            __WEBPACK_IMPORTED_MODULE_37_angular2_markdown__["a" /* MarkdownModule */].forRoot(),
+            __WEBPACK_IMPORTED_MODULE_38_angular2_masonry__["a" /* MasonryModule */],
+            __WEBPACK_IMPORTED_MODULE_42_ngx_infinite_scroll__["a" /* InfiniteScrollModule */],
+            __WEBPACK_IMPORTED_MODULE_39_ng2_scrollspy__["ScrollSpyModule"].forRoot(),
+            __WEBPACK_IMPORTED_MODULE_41_angular2_moment__["MomentModule"],
             __WEBPACK_IMPORTED_MODULE_4__angular_router__["e" /* RouterModule */].forRoot([
                 //Public Endpoints
                 { path: 'login', component: __WEBPACK_IMPORTED_MODULE_6__account_login_account_login_component__["a" /* AccountLoginComponent */] },
@@ -724,14 +727,14 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_21__services_push_notify_service__["a" /* PushNotifyService */],
             __WEBPACK_IMPORTED_MODULE_23__services_auth_guard_service__["a" /* AuthGuard */],
             {
-                provide: __WEBPACK_IMPORTED_MODULE_33_angular2_jwt__["AuthHttp"],
+                provide: __WEBPACK_IMPORTED_MODULE_34_angular2_jwt__["AuthHttp"],
                 useFactory: getAuthHttp,
                 deps: [__WEBPACK_IMPORTED_MODULE_3__angular_http__["Http"], __WEBPACK_IMPORTED_MODULE_3__angular_http__["RequestOptions"]],
             },
             { provide: __WEBPACK_IMPORTED_MODULE_1__angular_core__["ErrorHandler"], useClass: __WEBPACK_IMPORTED_MODULE_32__services_rollbar_error_handler__["a" /* RollbarErrorHandler */] },
-            { provide: __WEBPACK_IMPORTED_MODULE_42_rollbar__, useFactory: getRollbar }
+            { provide: __WEBPACK_IMPORTED_MODULE_43_rollbar__, useFactory: getRollbar }
         ],
-        entryComponents: [__WEBPACK_IMPORTED_MODULE_29__partials_book_upload_book_upload_component__["a" /* BookUploadComponent */], __WEBPACK_IMPORTED_MODULE_30__partials_book_delete_book_delete_component__["a" /* BookDeleteComponent */]],
+        entryComponents: [__WEBPACK_IMPORTED_MODULE_29__partials_book_upload_book_upload_component__["a" /* BookUploadComponent */], __WEBPACK_IMPORTED_MODULE_30__partials_book_delete_book_delete_component__["a" /* BookDeleteComponent */], __WEBPACK_IMPORTED_MODULE_33__partials_storage_detach_storage_detach_component__["a" /* StorageDetachComponent */]],
         bootstrap: [__WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* AppComponent */]],
     })
 ], AppModule);
@@ -1208,7 +1211,7 @@ var StorageStatus = (function () {
 /***/ "../../../../../src/app/partials/book-delete/book-delete.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<section class=\"unpad border--round \">\n    <div class=\"container\">\n        <div class=\"row\">\n            <div class=\"col-sm-6 col-md-offset-3 col-sm-offset-3 col-xs-12\">\n                <div class=\"feature feature-1 text-center\">\n                    <div class=\"feature__body boxed boxed--lg\">\n                        <div (click)=\"closeModalBookDelete()\" class=\"modal-close modal-close-cross\"></div>\n                        <div class=\"text-block\">\n                            <h3>Delete \"{{ book.title }}\"?</h3>\n                            <p>\n                                Are you sure you should like to remove this book from your library?\n                                <span *ngIf=\"book.storage_type && book.storage_type != 'quietthyme'\">Removing this book will also delete it from <strong>{{ storageDetails[book.storage_type].display_name }}</strong>.</span>\n\n                            </p>\n\n                        </div>\n                        <button (click)=\"deleteBook()\" [disabled]=\"loading.delete\" class=\"btn bg--error type--uppercase\">Remove from {{ book.storage_type }}</button>\n\n                    </div>\n                </div>\n                <!--end feature-->\n            </div>\n        </div>\n        <!--end of row-->\n    </div>\n    <!--end of container-->\n</section>"
+module.exports = "<section class=\"unpad border--round \">\n    <div class=\"container\">\n        <div class=\"row\">\n            <div class=\"col-sm-6 col-md-offset-3 col-sm-offset-3 col-xs-12\">\n                <div class=\"feature feature-1 text-center\">\n                    <div class=\"feature__body boxed boxed--lg\">\n                        <div (click)=\"closeModalBookDelete()\" class=\"modal-close modal-close-cross\"></div>\n                        <div class=\"text-block\">\n                            <h3>Delete \"{{ book.title }}\"?</h3>\n                            <p>\n                                Are you sure you should like to remove this book from your library?\n                                <span *ngIf=\"book.storage_type && book.storage_type != 'quietthyme'\">Removing this book will also delete it from <strong>{{ storageDetails[book.storage_type].display_name }}</strong>.</span>\n                            </p>\n\n                        </div>\n                        <button (click)=\"deleteBook()\" [disabled]=\"loading.delete\" class=\"btn bg--error type--uppercase\">Remove from {{ book.storage_type }}</button>\n\n                    </div>\n                </div>\n                <!--end feature-->\n            </div>\n        </div>\n        <!--end of row-->\n    </div>\n    <!--end of container-->\n</section>"
 
 /***/ }),
 
@@ -1701,10 +1704,119 @@ var _a;
 
 /***/ }),
 
+/***/ "../../../../../src/app/partials/storage-detach/storage-detach.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<section class=\"unpad border--round \">\n    <div class=\"container\">\n        <div class=\"row\">\n            <div class=\"col-sm-6 col-md-offset-3 col-sm-offset-3 col-xs-12\">\n                <div class=\"feature feature-1 text-center\">\n                    <div class=\"feature__body boxed boxed--lg\">\n                        <div (click)=\"closeModalStorageDetach()\" class=\"modal-close modal-close-cross\"></div>\n                        <div class=\"text-block\">\n                            <h3>Detach {{ storageDetails[storageData.storage_type || 'quietthyme'].display_name }} Storage?</h3>\n                            <p>\n\n                                Are you sure you should like to detach this storage provider? <br/>\n                                <span>This will remove all {{ storageDetails[storageData.storage_type || 'quietthyme'].display_name }} books from your library <strong></strong>.</span>\n\n                            </p>\n                        </div>\n\n                        <div class=\"input-checkbox\">\n                            <input class=\"validate-required\" type=\"checkbox\" name=\"deleteBooks\" [(ngModel)]=\"deleteStorage\" id=\"input-assigned-0\">\n                            <label for=\"input-assigned-0\"></label>\n                        </div>\n                        <span>Also delete books files in storage provider</span>\n                        <br/>\n\n                        <button (click)=\"detachStorage()\" [disabled]=\"loading.detach\" class=\"btn bg--error type--uppercase\">Detach {{ storageDetails[storageData.storage_type || 'quietthyme'].display_name }}</button>\n\n                    </div>\n                </div>\n                <!--end feature-->\n            </div>\n        </div>\n        <!--end of row-->\n    </div>\n    <!--end of container-->\n</section>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/partials/storage-detach/storage-detach.component.less":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/partials/storage-detach/storage-detach.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return StorageDetachComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ngx_bootstrap_modal_modal_options_class__ = __webpack_require__("../../../../ngx-bootstrap/modal/modal-options.class.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_api_service__ = __webpack_require__("../../../../../src/app/services/api.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__models_storage_status__ = __webpack_require__("../../../../../src/app/models/storage-status.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_settings__ = __webpack_require__("../../../../../src/app/app-settings.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+var StorageDetachComponent = (function () {
+    function StorageDetachComponent(bsModalRef, apiService, router) {
+        this.bsModalRef = bsModalRef;
+        this.apiService = apiService;
+        this.router = router;
+        this.storageData = new __WEBPACK_IMPORTED_MODULE_4__models_storage_status__["a" /* StorageStatus */]();
+        this.storageDetails = __WEBPACK_IMPORTED_MODULE_5__app_settings__["a" /* AppSettings */].STORAGE_DETAILS;
+        this.deleteStorage = false; //determines if we should delete the actual book files as well.
+        this.loading = {
+            detach: false
+        };
+    }
+    StorageDetachComponent.prototype.ngOnInit = function () {
+    };
+    StorageDetachComponent.prototype.closeModalStorageDetach = function (e) {
+        if (this.loading.detach) {
+            return;
+        }
+        this.bsModalRef.hide();
+    };
+    StorageDetachComponent.prototype.detachStorage = function () {
+        var _this = this;
+        console.log("detaching storage");
+        console.log(this.deleteStorage);
+        if (this.loading.detach) {
+            return; //dont do anything if we're already deleting this storage provider.
+        }
+        this.loading.detach = true;
+        this.apiService
+            .storageDetach(this.storageData.storage_id, this.deleteStorage)
+            .finally(function () {
+            _this.loading.detach = false;
+        })
+            .subscribe(function (response) {
+            console.log('deleted book');
+            _this.bsModalRef.hide();
+            //TODO bust the cache here, we've modified the credentials.
+            _this.router.navigate(['/storage']);
+        }, function (error) {
+            // this.notificationService.error('An error occurred!', error);
+        });
+    };
+    return StorageDetachComponent;
+}());
+StorageDetachComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+        selector: 'app-storage-detach',
+        template: __webpack_require__("../../../../../src/app/partials/storage-detach/storage-detach.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/partials/storage-detach/storage-detach.component.less")]
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ngx_bootstrap_modal_modal_options_class__["a" /* BsModalRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ngx_bootstrap_modal_modal_options_class__["a" /* BsModalRef */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__services_api_service__["a" /* ApiService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_api_service__["a" /* ApiService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["d" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_router__["d" /* Router */]) === "function" && _c || Object])
+], StorageDetachComponent);
+
+var _a, _b, _c;
+//# sourceMappingURL=storage-detach.component.js.map
+
+/***/ }),
+
 /***/ "../../../../../src/app/partials/storage-panel/storage-panel.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div [ngClass]=\"{'feature--featured': storageData}\" class=\"feature feature-1 boxed boxed--border\">\n    <h5>{{ StorageDetails[storageData.storage_type].display_name }}</h5>\n    <p>\n        <span>{{ StorageDetails[storageData.storage_type].details }}</span>\n    </p>\n    <br/>\n    <p *ngIf=\"StorageDetails[storageData.storage_type].blackhole_path\">\n        Blackhole: \"<strong>{{ StorageDetails[storageData.storage_type].blackhole_path }}</strong>\"\n    </p>\n    <a routerLink=\"/library\">\n        Show Books\n    </a>\n    <span *ngIf=\"storageData.storage_type == 'quietthyme'\" class=\"label\">∞ GB</span>\n    <span *ngIf=\"storageData.storage_type != 'quietthyme'\" class=\"label\">{{ storageData.free_space |  fileSize}}</span>\n</div>\n"
+module.exports = "<div [ngClass]=\"{'feature--featured': storageData}\" class=\"feature feature-1 boxed boxed--border\">\n    <h5>{{ StorageDetails[storageData.storage_type].display_name }}</h5>\n    <p>\n        <span>{{ StorageDetails[storageData.storage_type].details }}</span>\n    </p>\n    <br/>\n    <p *ngIf=\"StorageDetails[storageData.storage_type].blackhole_path\">\n        Blackhole: \"<strong>{{ StorageDetails[storageData.storage_type].blackhole_path }}</strong>\"\n    </p>\n    <a class=\"small-text\" routerLink=\"/library\">\n        Show Books\n    </a>\n    <span *ngIf=\"storageData.storage_type != 'quietthyme'\">\n        |\n    </span>\n    <a *ngIf=\"storageData.storage_type != 'quietthyme'\" class=\" small-text\" (click)=\"openModalStorageDetach()\" >\n        Detach\n    </a>\n    <span *ngIf=\"storageData.storage_type == 'quietthyme'\" class=\"label\">∞ GB</span>\n    <span *ngIf=\"storageData.storage_type != 'quietthyme'\" class=\"label\">{{ storageData.free_space |  fileSize}}</span>\n</div>\n"
 
 /***/ }),
 
@@ -1734,6 +1846,8 @@ module.exports = module.exports.toString();
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__models_storage_status__ = __webpack_require__("../../../../../src/app/models/storage-status.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_settings__ = __webpack_require__("../../../../../src/app/app-settings.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ngx_bootstrap_modal__ = __webpack_require__("../../../../ngx-bootstrap/modal/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__storage_detach_storage_detach_component__ = __webpack_require__("../../../../../src/app/partials/storage-detach/storage-detach.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1746,12 +1860,23 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
+
 var StoragePanelComponent = (function () {
-    function StoragePanelComponent() {
+    function StoragePanelComponent(modalService) {
+        this.modalService = modalService;
     }
     StoragePanelComponent.prototype.ngOnInit = function () {
         console.log(this.storageData);
         this.StorageDetails = __WEBPACK_IMPORTED_MODULE_2__app_settings__["a" /* AppSettings */].STORAGE_DETAILS;
+    };
+    StoragePanelComponent.prototype.openModalStorageDetach = function () {
+        this.bsModalRef = this.modalService.show(__WEBPACK_IMPORTED_MODULE_4__storage_detach_storage_detach_component__["a" /* StorageDetachComponent */], {
+            animated: true,
+            backdrop: 'static',
+            class: 'modal-container modal-active',
+        });
+        this.bsModalRef.content.storageData = this.storageData;
     };
     return StoragePanelComponent;
 }());
@@ -1765,10 +1890,10 @@ StoragePanelComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/partials/storage-panel/storage-panel.component.html"),
         styles: [__webpack_require__("../../../../../src/app/partials/storage-panel/storage-panel.component.less")],
     }),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3_ngx_bootstrap_modal__["a" /* BsModalService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ngx_bootstrap_modal__["a" /* BsModalService */]) === "function" && _b || Object])
 ], StoragePanelComponent);
 
-var _a;
+var _a, _b;
 //# sourceMappingURL=storage-panel.component.js.map
 
 /***/ }),
@@ -2050,6 +2175,13 @@ var ApiService = (function () {
         //TODO: this should bust the /storage/status cache
         return this.authHttp
             .post(__WEBPACK_IMPORTED_MODULE_4__app_settings__["a" /* AppSettings */].API_ENDPOINT + "/storage/link", kloudlessData)
+            .map(this.extractData)
+            .catch(this.handleError);
+    };
+    ApiService.prototype.storageDetach = function (credentialId, deleteStorage) {
+        var url = __WEBPACK_IMPORTED_MODULE_4__app_settings__["a" /* AppSettings */].API_ENDPOINT + "/storage/detach";
+        return this.authHttp
+            .post(url, { credential_id: credentialId, deleteStorage: deleteStorage })
             .map(this.extractData)
             .catch(this.handleError);
     };
