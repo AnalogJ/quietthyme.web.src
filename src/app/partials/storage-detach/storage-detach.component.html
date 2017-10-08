@@ -1,0 +1,35 @@
+<section class="unpad border--round ">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 col-md-offset-3 col-sm-offset-3 col-xs-12">
+                <div class="feature feature-1 text-center">
+                    <div class="feature__body boxed boxed--lg">
+                        <div (click)="closeModalStorageDetach()" class="modal-close modal-close-cross"></div>
+                        <div class="text-block">
+                            <h3>Detach {{ storageDetails[storageData.storage_type || 'quietthyme'].display_name }} Storage?</h3>
+                            <p>
+
+                                Are you sure you should like to detach this storage provider? <br/>
+                                <span>This will remove all {{ storageDetails[storageData.storage_type || 'quietthyme'].display_name }} books from your library <strong></strong>.</span>
+
+                            </p>
+                        </div>
+
+                        <div class="input-checkbox">
+                            <input class="validate-required" type="checkbox" name="deleteBooks" [(ngModel)]="deleteBooks" id="input-assigned-0">
+                            <label for="input-assigned-0"></label>
+                        </div>
+                        <span>Also delete books files in storage provider</span>
+                        <br/>
+
+                        <button (click)="detachStorage()" [disabled]="loading.detach" class="btn bg--error type--uppercase">Detach {{ storageDetails[storageData.storage_type || 'quietthyme'].display_name }}</button>
+
+                    </div>
+                </div>
+                <!--end feature-->
+            </div>
+        </div>
+        <!--end of row-->
+    </div>
+    <!--end of container-->
+</section>

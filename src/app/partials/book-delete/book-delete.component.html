@@ -10,7 +10,6 @@
                             <p>
                                 Are you sure you should like to remove this book from your library?
                                 <span *ngIf="book.storage_type && book.storage_type != 'quietthyme'">Removing this book will also delete it from <strong>{{ storageDetails[book.storage_type].display_name }}</strong>.</span>
-
                             </p>
 
                         </div>

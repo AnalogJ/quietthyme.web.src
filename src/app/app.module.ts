@@ -33,6 +33,7 @@ import { BookDeleteComponent } from './partials/book-delete/book-delete.componen
 import { AccountRegisterPlanComponent } from './account-register-plan/account-register-plan.component';
 // import { RollbarErrorHandler, getRollbar } from './services/rollbar-error-handler';
 import { RollbarErrorHandler } from './services/rollbar-error-handler';
+import { StorageDetachComponent } from './partials/storage-detach/storage-detach.component';
 
 
 //Third party
@@ -97,7 +98,8 @@ export function getAuthHttp(http: Http, options: RequestOptions) {
     NotificationComponent,
     BookUploadComponent,
     DropzoneDirective,
-    BookDeleteComponent
+    BookDeleteComponent,
+    StorageDetachComponent
   ],
   imports: [
     BrowserModule,
@@ -173,7 +175,7 @@ export function getAuthHttp(http: Http, options: RequestOptions) {
     { provide: ErrorHandler, useClass: RollbarErrorHandler },
     { provide: Rollbar, useFactory: getRollbar }
   ],
-  entryComponents: [ BookUploadComponent, BookDeleteComponent ],
+  entryComponents: [ BookUploadComponent, BookDeleteComponent, StorageDetachComponent ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

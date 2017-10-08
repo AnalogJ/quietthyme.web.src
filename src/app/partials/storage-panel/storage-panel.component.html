@@ -7,8 +7,14 @@
     <p *ngIf="StorageDetails[storageData.storage_type].blackhole_path">
         Blackhole: "<strong>{{ StorageDetails[storageData.storage_type].blackhole_path }}</strong>"
     </p>
-    <a routerLink="/library">
+    <a class="small-text" routerLink="/library">
         Show Books
+    </a>
+    <span *ngIf="storageData.storage_type != 'quietthyme'">
+        |
+    </span>
+    <a *ngIf="storageData.storage_type != 'quietthyme'" class=" small-text" (click)="openModalStorageDetach()" >
+        Detach
     </a>
     <span *ngIf="storageData.storage_type == 'quietthyme'" class="label">∞ GB</span>
     <span *ngIf="storageData.storage_type != 'quietthyme'" class="label">{{ storageData.free_space |  fileSize}}</span>
