@@ -13,7 +13,7 @@ import { AppSettings } from '../../app-settings';
 export class StorageDetachComponent implements OnInit {
   storageData: StorageStatus = new StorageStatus();
   storageDetails = AppSettings.STORAGE_DETAILS;
-  deleteStorage: Boolean = false; //determines if we should delete the actual book files as well.
+  deleteStorage: boolean = false; //determines if we should delete the actual book files as well.
   loading = {
     detach: false
   };
@@ -48,7 +48,7 @@ export class StorageDetachComponent implements OnInit {
             response => {
               console.log('deleted book')
               this.bsModalRef.hide()
-              //TODO bust the cache here, we've modified the credentials. 
+              //TODO bust the cache here, we've modified the credentials.
               this.router.navigate(['/storage']);
 
             },
