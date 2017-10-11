@@ -100,6 +100,7 @@ export class StorageComponent implements OnInit {
         this.loading.status = false;
         this.slimLoadingBarService.complete();
         this.getStorageStatus(true)
+        //TODO: instead of re-requestin the storage status here, we should immediately add a placehoder storage status object
       })
       .subscribe(
         data => {
