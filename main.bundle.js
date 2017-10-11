@@ -3654,6 +3654,7 @@ var StorageComponent = (function () {
             _this.loading.status = false;
             _this.slimLoadingBarService.complete();
             _this.getStorageStatus(true);
+            //TODO: instead of re-requestin the storage status here, we should immediately add a placehoder storage status object
         })
             .subscribe(function (data) {
             console.log("Connected a new storage.");
