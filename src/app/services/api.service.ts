@@ -183,8 +183,14 @@ export class ApiService {
   }
 
   storageDetach(credentialId: string, deleteStorage: boolean): Observable<any> {
-    var url = `${AppSettings.API_ENDPOINT}/storage/detach`;
 
+    //bust the storageStatus cache
+    var storageStatusUrl = `${AppSettings.API_ENDPOINT}/storage/status`;
+    var cacheKey = this.cacheKey('GET', storageStatusUrl);
+    this.cacheService.delete(cacheKey)
+
+
+    var url = `${AppSettings.API_ENDPOINT}/storage/detach`;
     return this.authHttp
         .post(url, { credential_id: credentialId, deleteStorage: deleteStorage })
         .map(this.extractData)
