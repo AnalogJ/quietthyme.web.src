@@ -17,6 +17,7 @@ export class StorageDetachComponent implements OnInit {
   loading = {
     detach: false
   };
+  isStorageDetached:  boolean = false; //this will become true after the specified storage provider was deleted
 
   constructor(public bsModalRef: BsModalRef, private apiService: ApiService, private router: Router) {
   }
@@ -46,11 +47,9 @@ export class StorageDetachComponent implements OnInit {
         })
         .subscribe(
             response => {
-              console.log('deleted book')
+              console.log('deleted stroage')
+              this.isStorageDetached = true
               this.bsModalRef.hide()
-              //TODO bust the cache here, we've modified the credentials.
-              this.router.navigate(['/storage']);
-
             },
             error => {
               // this.notificationService.error('An error occurred!', error);

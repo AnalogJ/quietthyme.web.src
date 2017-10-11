@@ -76,7 +76,7 @@
 
                 <masonry>
                     <masonry-brick *ngFor="let storageData of connected; let myIndex = index" class="col-sm-4 masonry__item">
-                        <quietthyme-storage-panel [storageData]="storageData"></quietthyme-storage-panel>
+                        <quietthyme-storage-panel [storageData]="storageData" (onStorageDetached)="kloudlessStorageDetached($event)"></quietthyme-storage-panel>
                     </masonry-brick>
                 </masonry><!-- #shop end -->
 

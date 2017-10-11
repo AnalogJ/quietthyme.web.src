@@ -13,8 +13,8 @@ declare var ga: any;
   styleUrls: ['./storage.component.less'],
 })
 export class StorageComponent implements OnInit {
-  kloudlessStorageTypes: string[] = AppSettings.KLOUDLESS_STORAGE_TYPES;
-  connected: StorageStatus[] = [];
+  kloudlessStorageTypes: string[] = AppSettings.KLOUDLESS_STORAGE_TYPES; //contains a list of all the storage types that are unconnected.
+  connected: StorageStatus[] = []; //contains a list of all the connected storage provider data.
 
   loading = {
     status: false,
@@ -110,5 +110,20 @@ export class StorageComponent implements OnInit {
           this.notificationService.error('An error occurred!', error);
         }
       );
+  }
+  kloudlessStorageDetached(detachedStorageStatus){
+    console.log("Storage Detached: " + detachedStorageStatus.storage_type)
+
+
+    //update the kloudlessStorageTypes array (remove any connected services)
+    var kndx = this.connected.indexOf(
+        detachedStorageStatus,
+        0
+    );
+    if (kndx > -1) {
+      this.connected.splice(kndx, 1)
+      this.kloudlessStorageTypes.push(detachedStorageStatus.storage_type);
+    }
+
   }
 }

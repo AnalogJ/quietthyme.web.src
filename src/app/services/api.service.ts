@@ -17,6 +17,9 @@ import { Observer } from 'rxjs';
 
 @Injectable()
 export class ApiService {
+  private tagStorageStatus = 'tagStorageStatus'
+  private tagLibrary = 'tagLibrary'
+
   constructor(
     public authHttp: AuthHttp,
     private http: Http,
@@ -46,7 +49,7 @@ export class ApiService {
     return Observable.throw(errMsg);
   }
   cacheKey(method, url, query?: URLSearchParams): string {
-    return '[' + method + ']' + url + '?' + (query || {}).toString();
+    return '[' + method + ']' + url + (query ? '?' + query.toString() : '');
   }
 
   loggedIn() {
@@ -163,13 +166,14 @@ export class ApiService {
     var cacheKey = this.cacheKey('GET', url);
 
     if(bustCache){
-      this.cacheService.delete(cacheKey)
+      this.cacheService.deleteTagged(this.tagStorageStatus)
     }
     return (
       this.cacheService.get(cacheKey) ||
       this.cacheService.put(
         cacheKey,
-        this.authHttp.get(url).map(this.extractData).catch(this.handleError)
+        this.authHttp.get(url).map(this.extractData).catch(this.handleError),
+          {tag: this.tagStorageStatus}
       )
     );
   }
@@ -185,9 +189,8 @@ export class ApiService {
   storageDetach(credentialId: string, deleteStorage: boolean): Observable<any> {
 
     //bust the storageStatus cache
-    var storageStatusUrl = `${AppSettings.API_ENDPOINT}/storage/status`;
-    var cacheKey = this.cacheKey('GET', storageStatusUrl);
-    this.cacheService.delete(cacheKey)
+    this.cacheService.deleteTagged(this.tagStorageStatus)
+    this.cacheService.deleteTagged(this.tagLibrary)
 
 
     var url = `${AppSettings.API_ENDPOINT}/storage/detach`;
@@ -226,7 +229,8 @@ export class ApiService {
         this.authHttp
           .get(url, { search: params })
           .map(this.extractData)
-          .catch(this.handleError)
+          .catch(this.handleError),
+          {tag: this.tagLibrary}
       )
     );
   }
@@ -245,14 +249,15 @@ export class ApiService {
         this.authHttp
           .get(url, { search: params })
           .map(this.extractData)
-          .catch(this.handleError)
+          .catch(this.handleError),
+          {tag: this.tagLibrary}
       )
     );
   }
 
   bookDestroy(bookId: string): Observable<any> {
+    this.cacheService.deleteTagged(this.tagLibrary);
     var url = `${AppSettings.API_ENDPOINT}/book/${bookId.toString()}`;
-
     let params: URLSearchParams = new URLSearchParams();
     params.set('deleteStorage', 'true');
 

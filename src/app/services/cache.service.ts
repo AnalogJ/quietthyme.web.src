@@ -7,6 +7,7 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class CacheService {
   private _cache: { [s: string]: ReplaySubject<any> } = {};
+  private _tags: { [k: string]: string[] } = {};
 
   constructor() {}
 
@@ -14,11 +15,17 @@ export class CacheService {
     return this._cache[cacheKey];
   }
 
-  put(cacheKey: string, observable: Observable<any>): ReplaySubject<any> {
+  put(cacheKey: string, observable: Observable<any>, options?: CacheOptions): ReplaySubject<any> {
     let currentSubject = this.get(cacheKey);
     if (!currentSubject) {
       this._cache[cacheKey] = new ReplaySubject<any>(1);
       currentSubject = this._cache[cacheKey]; //if the current cacheKey doesn't exist in the cache, lets ensure that we create it.
+
+      if(options && options.tag){
+        //lets add this key to the tags.
+        var taggedCacheKeys = this._tags[options.tag] || []
+        this._tags[options.tag] = taggedCacheKeys.concat(cacheKey)
+      }
     }
     observable.subscribe(
       data => currentSubject.next(data),
@@ -30,4 +37,17 @@ export class CacheService {
   delete(cacheKey: string) {
     delete this._cache[cacheKey];
   }
+
+  deleteTagged(tag: string){
+    var taggedCacheKeys = this._tags[tag] || []
+
+    for(let cacheKey of taggedCacheKeys){
+      console.log(`Deleting ${tag} cache key: ${cacheKey}`)
+      this.delete(cacheKey)
+    }
+  }
+}
+
+export class CacheOptions {
+  tag: string
 }
