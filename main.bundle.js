@@ -2179,6 +2179,10 @@ var ApiService = (function () {
             .catch(this.handleError);
     };
     ApiService.prototype.storageDetach = function (credentialId, deleteStorage) {
+        //bust the storageStatus cache
+        var storageStatusUrl = __WEBPACK_IMPORTED_MODULE_4__app_settings__["a" /* AppSettings */].API_ENDPOINT + "/storage/status";
+        var cacheKey = this.cacheKey('GET', storageStatusUrl);
+        this.cacheService.delete(cacheKey);
         var url = __WEBPACK_IMPORTED_MODULE_4__app_settings__["a" /* AppSettings */].API_ENDPOINT + "/storage/detach";
         return this.authHttp
             .post(url, { credential_id: credentialId, deleteStorage: deleteStorage })
