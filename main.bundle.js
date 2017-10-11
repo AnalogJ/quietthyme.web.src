@@ -1766,6 +1766,7 @@ var StorageDetachComponent = (function () {
         this.loading = {
             detach: false
         };
+        this.isStorageDetached = false; //this will become true after the specified storage provider was deleted
     }
     StorageDetachComponent.prototype.ngOnInit = function () {
     };
@@ -1789,10 +1790,9 @@ var StorageDetachComponent = (function () {
             _this.loading.detach = false;
         })
             .subscribe(function (response) {
-            console.log('deleted book');
+            console.log('deleted stroage');
+            _this.isStorageDetached = true;
             _this.bsModalRef.hide();
-            //TODO bust the cache here, we've modified the credentials.
-            _this.router.navigate(['/storage']);
         }, function (error) {
             // this.notificationService.error('An error occurred!', error);
         });
@@ -1865,12 +1865,22 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var StoragePanelComponent = (function () {
     function StoragePanelComponent(modalService) {
         this.modalService = modalService;
+        this.onStorageDetached = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]();
+        this.subscriptions = [];
     }
     StoragePanelComponent.prototype.ngOnInit = function () {
         console.log(this.storageData);
         this.StorageDetails = __WEBPACK_IMPORTED_MODULE_2__app_settings__["a" /* AppSettings */].STORAGE_DETAILS;
     };
     StoragePanelComponent.prototype.openModalStorageDetach = function () {
+        var _this = this;
+        //listen for the hide event on the modal. Then check if the storage has been detached.
+        //if it has emit an event to the listener to remove the storage provider from the UI.
+        this.subscriptions.push(this.modalService.onHide.subscribe(function (reason) {
+            if (_this.bsModalRef.content.isStorageDetached) {
+                _this.onStorageDetached.emit(_this.storageData);
+            }
+        }));
         this.bsModalRef = this.modalService.show(__WEBPACK_IMPORTED_MODULE_4__storage_detach_storage_detach_component__["a" /* StorageDetachComponent */], {
             animated: true,
             backdrop: 'static',
@@ -1878,22 +1888,32 @@ var StoragePanelComponent = (function () {
         });
         this.bsModalRef.content.storageData = this.storageData;
     };
+    StoragePanelComponent.prototype.unsubscribe = function () {
+        this.subscriptions.forEach(function (subscription) {
+            subscription.unsubscribe();
+        });
+        this.subscriptions = [];
+    };
     return StoragePanelComponent;
 }());
 __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
     __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__models_storage_status__["a" /* StorageStatus */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__models_storage_status__["a" /* StorageStatus */]) === "function" && _a || Object)
 ], StoragePanelComponent.prototype, "storageData", void 0);
+__decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"])(),
+    __metadata("design:type", typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]) === "function" && _b || Object)
+], StoragePanelComponent.prototype, "onStorageDetached", void 0);
 StoragePanelComponent = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'quietthyme-storage-panel',
         template: __webpack_require__("../../../../../src/app/partials/storage-panel/storage-panel.component.html"),
         styles: [__webpack_require__("../../../../../src/app/partials/storage-panel/storage-panel.component.less")],
     }),
-    __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3_ngx_bootstrap_modal__["a" /* BsModalService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ngx_bootstrap_modal__["a" /* BsModalService */]) === "function" && _b || Object])
+    __metadata("design:paramtypes", [typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3_ngx_bootstrap_modal__["a" /* BsModalService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ngx_bootstrap_modal__["a" /* BsModalService */]) === "function" && _c || Object])
 ], StoragePanelComponent);
 
-var _a, _b;
+var _a, _b, _c;
 //# sourceMappingURL=storage-panel.component.js.map
 
 /***/ }),
@@ -2041,6 +2061,8 @@ var ApiService = (function () {
         this.authHttp = authHttp;
         this.http = http;
         this.cacheService = cacheService;
+        this.tagStorageStatus = 'tagStorageStatus';
+        this.tagLibrary = 'tagLibrary';
     }
     /////////////////////////////////////////////////////////////////////////////
     //Helper functions
@@ -2065,7 +2087,7 @@ var ApiService = (function () {
         return __WEBPACK_IMPORTED_MODULE_3_rxjs_Observable__["Observable"].throw(errMsg);
     };
     ApiService.prototype.cacheKey = function (method, url, query) {
-        return '[' + method + ']' + url + '?' + (query || {}).toString();
+        return '[' + method + ']' + url + (query ? '?' + query.toString() : '');
     };
     ApiService.prototype.loggedIn = function () {
         return Object(__WEBPACK_IMPORTED_MODULE_1_angular2_jwt__["tokenNotExpired"])('id_token');
@@ -2166,10 +2188,10 @@ var ApiService = (function () {
         var url = __WEBPACK_IMPORTED_MODULE_4__app_settings__["a" /* AppSettings */].API_ENDPOINT + "/storage/status";
         var cacheKey = this.cacheKey('GET', url);
         if (bustCache) {
-            this.cacheService.delete(cacheKey);
+            this.cacheService.deleteTagged(this.tagStorageStatus);
         }
         return (this.cacheService.get(cacheKey) ||
-            this.cacheService.put(cacheKey, this.authHttp.get(url).map(this.extractData).catch(this.handleError)));
+            this.cacheService.put(cacheKey, this.authHttp.get(url).map(this.extractData).catch(this.handleError), { tag: this.tagStorageStatus }));
     };
     ApiService.prototype.storageLink = function (kloudlessData) {
         //TODO: this should bust the /storage/status cache
@@ -2180,9 +2202,8 @@ var ApiService = (function () {
     };
     ApiService.prototype.storageDetach = function (credentialId, deleteStorage) {
         //bust the storageStatus cache
-        var storageStatusUrl = __WEBPACK_IMPORTED_MODULE_4__app_settings__["a" /* AppSettings */].API_ENDPOINT + "/storage/status";
-        var cacheKey = this.cacheKey('GET', storageStatusUrl);
-        this.cacheService.delete(cacheKey);
+        this.cacheService.deleteTagged(this.tagStorageStatus);
+        this.cacheService.deleteTagged(this.tagLibrary);
         var url = __WEBPACK_IMPORTED_MODULE_4__app_settings__["a" /* AppSettings */].API_ENDPOINT + "/storage/detach";
         return this.authHttp
             .post(url, { credential_id: credentialId, deleteStorage: deleteStorage })
@@ -2214,7 +2235,7 @@ var ApiService = (function () {
             this.cacheService.put(cacheKey, this.authHttp
                 .get(url, { search: params })
                 .map(this.extractData)
-                .catch(this.handleError)));
+                .catch(this.handleError), { tag: this.tagLibrary }));
     };
     ApiService.prototype.book = function (bookId) {
         var url = __WEBPACK_IMPORTED_MODULE_4__app_settings__["a" /* AppSettings */].API_ENDPOINT + "/book";
@@ -2225,9 +2246,10 @@ var ApiService = (function () {
             this.cacheService.put(cacheKey, this.authHttp
                 .get(url, { search: params })
                 .map(this.extractData)
-                .catch(this.handleError)));
+                .catch(this.handleError), { tag: this.tagLibrary }));
     };
     ApiService.prototype.bookDestroy = function (bookId) {
+        this.cacheService.deleteTagged(this.tagLibrary);
         var url = __WEBPACK_IMPORTED_MODULE_4__app_settings__["a" /* AppSettings */].API_ENDPOINT + "/book/" + bookId.toString();
         var params = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["URLSearchParams"]();
         params.set('deleteStorage', 'true');
@@ -2333,6 +2355,7 @@ var _a, _b;
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CacheService; });
+/* unused harmony export CacheOptions */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_rxjs_ReplaySubject__ = __webpack_require__("../../../../rxjs/ReplaySubject.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_rxjs_ReplaySubject___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_rxjs_ReplaySubject__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
@@ -2351,15 +2374,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var CacheService = (function () {
     function CacheService() {
         this._cache = {};
+        this._tags = {};
     }
     CacheService.prototype.get = function (cacheKey) {
         return this._cache[cacheKey];
     };
-    CacheService.prototype.put = function (cacheKey, observable) {
+    CacheService.prototype.put = function (cacheKey, observable, options) {
         var currentSubject = this.get(cacheKey);
         if (!currentSubject) {
             this._cache[cacheKey] = new __WEBPACK_IMPORTED_MODULE_0_rxjs_ReplaySubject__["ReplaySubject"](1);
             currentSubject = this._cache[cacheKey]; //if the current cacheKey doesn't exist in the cache, lets ensure that we create it.
+            if (options && options.tag) {
+                //lets add this key to the tags.
+                var taggedCacheKeys = this._tags[options.tag] || [];
+                this._tags[options.tag] = taggedCacheKeys.concat(cacheKey);
+            }
         }
         observable.subscribe(function (data) { return currentSubject.next(data); }, function (error) { return currentSubject.error(error); }, function () { return currentSubject.complete(); });
         return currentSubject;
@@ -2367,12 +2396,26 @@ var CacheService = (function () {
     CacheService.prototype.delete = function (cacheKey) {
         delete this._cache[cacheKey];
     };
+    CacheService.prototype.deleteTagged = function (tag) {
+        var taggedCacheKeys = this._tags[tag] || [];
+        for (var _i = 0, taggedCacheKeys_1 = taggedCacheKeys; _i < taggedCacheKeys_1.length; _i++) {
+            var cacheKey = taggedCacheKeys_1[_i];
+            console.log("Deleting " + tag + " cache key: " + cacheKey);
+            this.delete(cacheKey);
+        }
+    };
     return CacheService;
 }());
 CacheService = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["Injectable"])(),
     __metadata("design:paramtypes", [])
 ], CacheService);
+
+var CacheOptions = (function () {
+    function CacheOptions() {
+    }
+    return CacheOptions;
+}());
 
 //# sourceMappingURL=cache.service.js.map
 
@@ -3486,7 +3529,7 @@ var _a, _b, _c;
 /***/ "../../../../../src/app/storage/storage.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<ng2-slim-loading-bar class=\"navbar-fixed-top\" [color]=\"'#128950'\" [height]=\"'3px'\"></ng2-slim-loading-bar>\n<quietthyme-header></quietthyme-header>\n<div class=\"main-container\">\n\n    <section class=\"switchable feature-large \">\n        <div class=\"container\">\n            <div class=\"row\">\n                <div class=\"col-md-5 col-sm-6 switchable__text\">\n                    <h2>Storage</h2>\n                    <p class=\"lead\">\n                        Connecting your cloud storage providers ensure that you always have access to your books. QuietThyme will only have access to a custom folder on each provider, ensuring that your other data is always safe.\n                    </p>\n                    <button kloudlessAuthenticator\n                       [disabled]=\"loading.link\"\n                       [clientId]=\"'mddXeszdchTlRQEFN3LGhxLzqaTjgYwbXGLHCeXOqJdrzRyd'\"\n                       [scope]=\"kloudlessStorageTypes.join(' ')\"\n                       (onAuthenticated)=\"kloudlessAuthenticatedStorage($event)\"\n                            [ngClass]=\"{'disabled': kloudlessStorageTypes.length == 0}\"\n                       class=\"btn btn--primary type--uppercase\">\n                                                    <span class=\"btn__text\">\n                                                        Connect Storage\n                                                    </span>\n                    </button>\n                </div>\n                <div class=\"col-md-4 col-sm-6 col-md-pull-1 col-xs-12\">\n                    <div class=\"boxed boxed--lg boxed--border box-shadow-wide\">\n\n                        <carousel id=\"storage-carousel\">\n                            <slide>\n                                <div class=\"feature feature-3 text-center\">\n                                    <i class=\"icon icon--lg icon-Twister color--primary\"></i>\n                                    <h4>Blackhole Folder</h4>\n                                    <p>\n                                        It's easy to import your existing library. Just drag and drop your books into a special Blackhole folder, and we'll process and add them to your library.\n                                    </p>\n                                    <a href=\"https://quietthyme.uservoice.com/knowledgebase/articles/123761#blackhole\" target=\"_blank\">\n                                        Learn More\n                                    </a>\n                                </div>\n                            </slide>\n                            <slide>\n                                <div class=\"feature feature-3 text-center\">\n                                    <i class=\"icon icon--lg icon-Data-Cloud color--primary\"></i>\n                                    <h4>Calibre Support</h4>\n                                    <p>\n                                        QuietThyme fully integrates with Calibre. Once you install the QuietThyme plugin, you can import and export books just like you would to any ebook reader.\n                                    </p>\n                                    <a href=\"https://github.com/AnalogJ/quietthyme.plugin/releases\" target=\"_blank\">\n                                        Download Plugin\n                                    </a>\n                                </div>\n                            </slide>\n                            <slide>\n                                <div class=\"feature feature-3 text-center\">\n                                    <i class=\"icon icon--lg icon-Folder-Archive color--primary\"></i>\n                                    <h4>QuietThyme Storage</h4>\n                                    <p>\n                                        Unlimited storage. QuietThyme doesn't care if you have 10 books or 10,000 books, we can handle any size library.\n                                    </p>\n\n                                </div>\n                            </slide>\n\n                        </carousel>\n                    </div>\n                </div>\n            </div>\n            <!--end of row-->\n        </div>\n        <!--end of container-->\n    </section>\n\n    <section class=\" \">\n        <div class=\"container\">\n            <div class=\"row\">\n\n                <masonry>\n                    <masonry-brick *ngFor=\"let storageData of connected; let myIndex = index\" class=\"col-sm-4 masonry__item\">\n                        <quietthyme-storage-panel [storageData]=\"storageData\"></quietthyme-storage-panel>\n                    </masonry-brick>\n                </masonry><!-- #shop end -->\n\n            </div>\n            <!--end of row-->\n        </div>\n        <!--end of container-->\n    </section>\n\n    <quietthyme-footer></quietthyme-footer>\n</div>"
+module.exports = "<ng2-slim-loading-bar class=\"navbar-fixed-top\" [color]=\"'#128950'\" [height]=\"'3px'\"></ng2-slim-loading-bar>\n<quietthyme-header></quietthyme-header>\n<div class=\"main-container\">\n\n    <section class=\"switchable feature-large \">\n        <div class=\"container\">\n            <div class=\"row\">\n                <div class=\"col-md-5 col-sm-6 switchable__text\">\n                    <h2>Storage</h2>\n                    <p class=\"lead\">\n                        Connecting your cloud storage providers ensure that you always have access to your books. QuietThyme will only have access to a custom folder on each provider, ensuring that your other data is always safe.\n                    </p>\n                    <button kloudlessAuthenticator\n                       [disabled]=\"loading.link\"\n                       [clientId]=\"'mddXeszdchTlRQEFN3LGhxLzqaTjgYwbXGLHCeXOqJdrzRyd'\"\n                       [scope]=\"kloudlessStorageTypes.join(' ')\"\n                       (onAuthenticated)=\"kloudlessAuthenticatedStorage($event)\"\n                            [ngClass]=\"{'disabled': kloudlessStorageTypes.length == 0}\"\n                       class=\"btn btn--primary type--uppercase\">\n                                                    <span class=\"btn__text\">\n                                                        Connect Storage\n                                                    </span>\n                    </button>\n                </div>\n                <div class=\"col-md-4 col-sm-6 col-md-pull-1 col-xs-12\">\n                    <div class=\"boxed boxed--lg boxed--border box-shadow-wide\">\n\n                        <carousel id=\"storage-carousel\">\n                            <slide>\n                                <div class=\"feature feature-3 text-center\">\n                                    <i class=\"icon icon--lg icon-Twister color--primary\"></i>\n                                    <h4>Blackhole Folder</h4>\n                                    <p>\n                                        It's easy to import your existing library. Just drag and drop your books into a special Blackhole folder, and we'll process and add them to your library.\n                                    </p>\n                                    <a href=\"https://quietthyme.uservoice.com/knowledgebase/articles/123761#blackhole\" target=\"_blank\">\n                                        Learn More\n                                    </a>\n                                </div>\n                            </slide>\n                            <slide>\n                                <div class=\"feature feature-3 text-center\">\n                                    <i class=\"icon icon--lg icon-Data-Cloud color--primary\"></i>\n                                    <h4>Calibre Support</h4>\n                                    <p>\n                                        QuietThyme fully integrates with Calibre. Once you install the QuietThyme plugin, you can import and export books just like you would to any ebook reader.\n                                    </p>\n                                    <a href=\"https://github.com/AnalogJ/quietthyme.plugin/releases\" target=\"_blank\">\n                                        Download Plugin\n                                    </a>\n                                </div>\n                            </slide>\n                            <slide>\n                                <div class=\"feature feature-3 text-center\">\n                                    <i class=\"icon icon--lg icon-Folder-Archive color--primary\"></i>\n                                    <h4>QuietThyme Storage</h4>\n                                    <p>\n                                        Unlimited storage. QuietThyme doesn't care if you have 10 books or 10,000 books, we can handle any size library.\n                                    </p>\n\n                                </div>\n                            </slide>\n\n                        </carousel>\n                    </div>\n                </div>\n            </div>\n            <!--end of row-->\n        </div>\n        <!--end of container-->\n    </section>\n\n    <section class=\" \">\n        <div class=\"container\">\n            <div class=\"row\">\n\n                <masonry>\n                    <masonry-brick *ngFor=\"let storageData of connected; let myIndex = index\" class=\"col-sm-4 masonry__item\">\n                        <quietthyme-storage-panel [storageData]=\"storageData\" (onStorageDetached)=\"kloudlessStorageDetached($event)\"></quietthyme-storage-panel>\n                    </masonry-brick>\n                </masonry><!-- #shop end -->\n\n            </div>\n            <!--end of row-->\n        </div>\n        <!--end of container-->\n    </section>\n\n    <quietthyme-footer></quietthyme-footer>\n</div>"
 
 /***/ }),
 
@@ -3540,8 +3583,8 @@ var StorageComponent = (function () {
         this.notificationService = notificationService;
         this.apiService = apiService;
         this.router = router;
-        this.kloudlessStorageTypes = __WEBPACK_IMPORTED_MODULE_3__app_settings__["a" /* AppSettings */].KLOUDLESS_STORAGE_TYPES;
-        this.connected = [];
+        this.kloudlessStorageTypes = __WEBPACK_IMPORTED_MODULE_3__app_settings__["a" /* AppSettings */].KLOUDLESS_STORAGE_TYPES; //contains a list of all the storage types that are unconnected.
+        this.connected = []; //contains a list of all the connected storage provider data.
         this.loading = {
             status: false,
             link: false,
@@ -3618,6 +3661,15 @@ var StorageComponent = (function () {
         }, function (error) {
             _this.notificationService.error('An error occurred!', error);
         });
+    };
+    StorageComponent.prototype.kloudlessStorageDetached = function (detachedStorageStatus) {
+        console.log("Storage Detached: " + detachedStorageStatus.storage_type);
+        //update the kloudlessStorageTypes array (remove any connected services)
+        var kndx = this.connected.indexOf(detachedStorageStatus, 0);
+        if (kndx > -1) {
+            this.connected.splice(kndx, 1);
+            this.kloudlessStorageTypes.push(detachedStorageStatus.storage_type);
+        }
     };
     return StorageComponent;
 }());
