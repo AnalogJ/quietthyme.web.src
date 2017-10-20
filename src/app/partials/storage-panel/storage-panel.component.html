@@ -13,7 +13,7 @@
     <span *ngIf="storageData.storage_type != 'quietthyme'">
         |
     </span>
-    <a *ngIf="storageData.storage_type != 'quietthyme'" class=" small-text" (click)="openModalStorageDetach()" >
+    <a *ngIf="storageData.storage_type != 'quietthyme'" class="link small-text" (click)="openModalStorageDetach()" >
         Detach
     </a>
     <span *ngIf="storageData.storage_type == 'quietthyme'" class="label">∞ GB</span>
