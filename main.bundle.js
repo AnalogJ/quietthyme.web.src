@@ -930,7 +930,7 @@ var _a, _b, _c, _d, _e, _f;
 /***/ "../../../../../src/app/library/library.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<ng2-slim-loading-bar class=\"navbar-fixed-top\" [color]=\"'#128950'\" [height]=\"'3px'\"></ng2-slim-loading-bar>\n<quietthyme-header></quietthyme-header>\n<div class=\"main-container\">\n    <section class=\"space--sm switchable switchable--switch  \">\n        <div class=\"container\">\n            <div class=\"row\">\n                <div class=\"col-sm-12\">\n                    <div class=\"height-50 imagebg border--round\" data-overlay=\"2\">\n                        <div class=\"background-image-holder library-bg\">\n                        </div>\n                        <div class=\"pos-vertical-center col-sm-6 boxed boxed--lg bg--none\">\n                            <h2>Library</h2>\n                            <p class=\"lead\">\n                                Your library is accessible anytime, anywhere, on any device\n\n                                It doesn't matter if your have 10 books or 1000's of books. Quietthyme can help you easily manage a library of any size.\n                            </p>\n                        </div>\n                    </div>\n                </div>\n            </div>\n            <!--end of row-->\n        </div>\n        <!--end of container-->\n    </section>\n\n\n    <quietthyme-opds-panel></quietthyme-opds-panel>\n\n    <section class=\" \">\n        <div class=\"container\">\n            <div class=\"row\">\n                <div class=\"col-sm-4\">\n                    <div class=\"masonry-filter-container\">\n                        <span>Storage:</span>\n                        <div class=\"masonry-filter-holder\">\n                            <div class=\"masonry__filters\" data-filter-all-text=\"Storage\">\n                                <ul>\n                                    <li [ngClass]=\"{'active': !filter.storage}\" (click)=\"setStorage(null)\">All Storage</li>\n\n                                    <li *ngFor=\"let serviceStatus of connected\" [ngClass]=\"{'active': filter.storage == serviceStatus}\" (click)=\"setStorage(serviceStatus)\">{{ storageDetails[serviceStatus.storage_type].display_name }}</li>\n\n                                </ul>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"col-sm-4\">\n                    <div class=\"masonry-filter-container\">\n                        <span>Sort By:</span>\n                        <div class=\"masonry-filter-holder\">\n                            <div class=\"masonry__filters\" data-filter-all-text=\"Storage\">\n                                <ul>\n                                    <li [ngClass]=\"{'active': !filter.sort}\" (click)=\"setSort(null)\">Title</li>\n                                    <li [ngClass]=\"{'active': filter.sort == 'authors'}\" (click)=\"setSort('authors')\">Author</li>\n                                    <li [ngClass]=\"{'active': filter.sort == 'series_name'}\" (click)=\"setSort('series_name')\">Series</li>\n                                    <li [ngClass]=\"{'active': filter.sort == 'updated_at'}\" (click)=\"setSort('updated_at')\">Added Date</li>\n\n                                </ul>\n                            </div>\n                        </div>\n                    </div>\n\n                </div>\n                <div class=\"col-sm-4\">\n                    <button type=\"button\" class=\"btn btn--primary pull-right\" (click)=\"openModalBookUpload()\">Add Books</button>\n                </div>\n\n            </div>\n            <div\n                    infiniteScroll\n                    [infiniteScrollDistance]=\"2\"\n                    [infiniteScrollThrottle]=\"500\"\n                    [infiniteScrollDisabled]=\"bookListAll\"\n                    (scrolled)=\"onScroll()\"\n                    class=\"row library-books\">\n\n\n                <masonry [useImagesLoaded]=\"true\">\n\n\n                    <masonry-brick *ngFor=\"let book of bookList; let myIndex = index\" class=\"col-sm-3 masonry__item\">\n                        <div class=\"card card-2 text-center\">\n                            <div class=\"card__top\">\n                                <span class=\"label\" *ngIf=\"book.series_name\">{{ book.series_name }}</span>\n\n                                <a routerLink=\"/book/{{ book.id }}\" class=\"library-book-cover-wrapper\">\n                                    <img *ngIf=\"book.cover\" class=\"library-book-cover\" src=\"https://s3.amazonaws.com/{{ book.cover }}\" alt=\"{{ book.title }}\">\n                                    <img *ngIf=\"!book.cover\" class=\"library-book-cover\" src=\"assets/images/noart.png\" alt=\"{{ book.title }}\">\n                                </a>\n                            </div>\n                            <div class=\"card__body\">\n                                <h4>{{ book.title }}</h4>\n                                <span class=\"type--fade\">{{ book.authors}}</span>\n\n                            </div>\n                            <div class=\"card__bottom text-center\">\n                                <div class=\"card__action\">\n                                    <span class=\"h6 type--uppercase\">Info</span>\n                                    <a routerLink=\"/book/{{ book.id }}\">\n                                        <i class=\"glyphicon glyphicon-info-sign\"></i>\n                                    </a>\n                                </div>\n                                <div class=\"card__action\">\n                                    <span class=\"h6 type--uppercase\">Download</span>\n                                    <a (click)=\"downloadBook(book)\" [ngClass]=\"{'downloading': loading.download[book.id]}\">\n                                        <i class=\"glyphicon glyphicon-download\"></i>\n                                    </a>\n                                </div>\n                            </div>\n                        </div>\n                    </masonry-brick>\n\n                </masonry><!-- #shop end -->\n\n            </div>\n            <!--end of row-->\n        </div>\n        <!--end of container-->\n    </section>\n\n    <section *ngIf=\"bookList.length == 0 && !loading.list\" class=\"text-center\">\n        <div class=\"container\">\n            <div class=\"row\">\n                <div class=\"col-sm-10 col-md-8\" style=\"padding-bottom:50px;\">\n                    <h1>Your {{ storageDetails[filter.storage ? filter.storage.storage_type : 'quietthyme' ].display_name + ' ' }}Library is empty :(</h1>\n                    <p class=\"lead\">\n                        It doesn't look like you've added any books to your {{ storageDetails[filter.storage ? filter.storage.storage_type : 'quietthyme' ].display_name + ' ' }}library yet.\n                        <br/>Don't worry, there's a couple of ways to do so.\n                    </p>\n                </div>\n            </div>\n            <div class=\"row\">\n                <div class=\"col-sm-4\">\n                    <div class=\"feature feature-2 boxed boxed--border\">\n                        <i class=\"icon icon-Clock-Back color--primary\"></i>\n                        <div class=\"feature__body\">\n                            <p>\n                                On the go? Just drag some books into your <a href=\"https://quietthyme.uservoice.com/knowledgebase/articles/123761#blackhole\" target=\"_blank\">Cloud Storage blackhole folder</a>, and we'll add them to your library automatically\n                            </p>\n                        </div>\n                    </div>\n                    <!--end feature-->\n                </div>\n                <div class=\"col-sm-4\">\n                    <div class=\"feature feature-2 boxed boxed--border\">\n                        <i class=\"icon icon-Life-Jacket color--primary\"></i>\n                        <div class=\"feature__body\">\n                            <p>\n                                Add books using the <a class=\"link\" (click)=\"openModalBookUpload()\">Web Uploader</a>. Simple, easy to use. What more do you want?\n                            </p>\n                        </div>\n                    </div>\n                    <!--end feature-->\n                </div>\n                <div class=\"col-sm-4\">\n                    <div class=\"feature feature-2 boxed boxed--border\">\n                        <i class=\"icon icon-Duplicate-Window color--primary\"></i>\n                        <div class=\"feature__body\">\n                            <p>\n                                Manage your library using Calibre? No problem, we have a <a href=\"https://quietthyme.uservoice.com/knowledgebase/articles/123761#calibre\" target=\"_blank\">powerful plugin</a> waiting for you.\n                            </p>\n                        </div>\n                    </div>\n                    <!--end feature-->\n                </div>\n\n            </div>\n            <!--end of row-->\n        </div>\n        <!--end of container-->\n    </section>\n    <section *ngIf=\"bookList.length == 0 && loading.list\" class=\"text-center\">\n        <div class=\"container\">\n            <div class=\"row\">\n                <div class=\"col-sm-10 col-md-8\" style=\"padding-bottom:50px;\">\n                    <h1>Loading your {{ storageDetails[filter.storage ? filter.storage.storage_type : 'quietthyme' ].display_name + ' ' }}Library. Please wait.</h1>\n                    <p class=\"lead\">\n                        We're loading your {{ storageDetails[filter.storage ? filter.storage.storage_type : 'quietthyme' ].display_name + ' ' }}library right now, it may take a few moments.\n                    </p>\n                </div>\n            </div>\n        </div>\n        <!--end of container-->\n    </section>\n\n\n    <quietthyme-footer></quietthyme-footer>\n</div>\n"
+module.exports = "<ng2-slim-loading-bar class=\"navbar-fixed-top\" [color]=\"'#128950'\" [height]=\"'3px'\"></ng2-slim-loading-bar>\n<quietthyme-header></quietthyme-header>\n<div class=\"main-container\">\n    <section class=\"space--sm switchable switchable--switch  \">\n        <div class=\"container\">\n            <div class=\"row\">\n                <div class=\"col-sm-12\">\n                    <div class=\"height-50 imagebg border--round\" data-overlay=\"2\">\n                        <div class=\"background-image-holder library-bg\">\n                        </div>\n                        <div class=\"pos-vertical-center col-sm-6 boxed boxed--lg bg--none\">\n                            <h2>Library</h2>\n                            <p class=\"lead\">\n                                Your library is accessible anytime, anywhere, on any device\n\n                                It doesn't matter if your have 10 books or 1000's of books. Quietthyme can help you easily manage a library of any size.\n                            </p>\n                        </div>\n                    </div>\n                </div>\n            </div>\n            <!--end of row-->\n        </div>\n        <!--end of container-->\n    </section>\n\n\n    <quietthyme-opds-panel></quietthyme-opds-panel>\n\n    <section class=\" \">\n        <div class=\"container\">\n            <div class=\"row\">\n                <div class=\"col-sm-4\">\n                    <div class=\"masonry-filter-container\">\n                        <span>Storage:</span>\n                        <div class=\"masonry-filter-holder\">\n                            <div class=\"masonry__filters\" data-filter-all-text=\"Storage\">\n                                <ul>\n                                    <li [ngClass]=\"{'active': !filter.storage_id}\" (click)=\"setStorage(null)\">All Storage</li>\n\n                                    <li *ngFor=\"let serviceStatus of connected\" [ngClass]=\"{'active': filter.storage_id == serviceStatus.storage_id}\" (click)=\"setStorage(serviceStatus)\">{{ storageDetails[serviceStatus.storage_type].display_name }}</li>\n\n                                </ul>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"col-sm-4\">\n                    <div class=\"masonry-filter-container\">\n                        <span>Sort By:</span>\n                        <div class=\"masonry-filter-holder\">\n                            <div class=\"masonry__filters\" data-filter-all-text=\"Storage\">\n                                <ul>\n                                    <li [ngClass]=\"{'active': !filter.sort}\" (click)=\"setSort(null)\">Title</li>\n                                    <li [ngClass]=\"{'active': filter.sort == 'authors'}\" (click)=\"setSort('authors')\">Author</li>\n                                    <li [ngClass]=\"{'active': filter.sort == 'series_name'}\" (click)=\"setSort('series_name')\">Series</li>\n                                    <li [ngClass]=\"{'active': filter.sort == 'updated_at'}\" (click)=\"setSort('updated_at')\">Added Date</li>\n\n                                </ul>\n                            </div>\n                        </div>\n                    </div>\n\n                </div>\n                <div class=\"col-sm-4\">\n                    <button type=\"button\" class=\"btn btn--primary pull-right\" (click)=\"openModalBookUpload()\">Add Books</button>\n                </div>\n\n            </div>\n            <div\n                    infiniteScroll\n                    [infiniteScrollDistance]=\"2\"\n                    [infiniteScrollThrottle]=\"500\"\n                    [infiniteScrollDisabled]=\"bookListAll\"\n                    (scrolled)=\"onScroll()\"\n                    class=\"row library-books\">\n\n\n                <masonry [useImagesLoaded]=\"true\">\n\n\n                    <masonry-brick *ngFor=\"let book of bookList; let myIndex = index\" class=\"col-sm-3 masonry__item\">\n                        <div class=\"card card-2 text-center\">\n                            <div class=\"card__top\">\n                                <span class=\"label\" *ngIf=\"book.series_name\">{{ book.series_name }}</span>\n\n                                <a routerLink=\"/book/{{ book.id }}\" class=\"library-book-cover-wrapper\">\n                                    <img *ngIf=\"book.cover\" class=\"library-book-cover\" src=\"https://s3.amazonaws.com/{{ book.cover }}\" alt=\"{{ book.title }}\">\n                                    <img *ngIf=\"!book.cover\" class=\"library-book-cover\" src=\"assets/images/noart.png\" alt=\"{{ book.title }}\">\n                                </a>\n                            </div>\n                            <div class=\"card__body\">\n                                <h4>{{ book.title }}</h4>\n                                <span class=\"type--fade\">{{ book.authors}}</span>\n\n                            </div>\n                            <div class=\"card__bottom text-center\">\n                                <div class=\"card__action\">\n                                    <span class=\"h6 type--uppercase\">Info</span>\n                                    <a routerLink=\"/book/{{ book.id }}\">\n                                        <i class=\"glyphicon glyphicon-info-sign\"></i>\n                                    </a>\n                                </div>\n                                <div class=\"card__action\">\n                                    <span class=\"h6 type--uppercase\">Download</span>\n                                    <a (click)=\"downloadBook(book)\" [ngClass]=\"{'downloading': loading.download[book.id]}\">\n                                        <i class=\"glyphicon glyphicon-download\"></i>\n                                    </a>\n                                </div>\n                            </div>\n                        </div>\n                    </masonry-brick>\n\n                </masonry><!-- #shop end -->\n\n            </div>\n            <!--end of row-->\n        </div>\n        <!--end of container-->\n    </section>\n\n    <section *ngIf=\"bookList.length == 0 && !loading.list\" class=\"text-center\">\n        <div class=\"container\">\n            <div class=\"row\">\n                <div class=\"col-sm-10 col-md-8\" style=\"padding-bottom:50px;\">\n                    <h1>Your {{ displayNameForStorageId(filter.storage_id) }} Library is empty :(</h1>\n                    <p class=\"lead\">\n                        It doesn't look like you've added any books to your {{ displayNameForStorageId(filter.storage_id) }} library yet.\n                        <br/>Don't worry, there's a couple of ways to do so.\n                    </p>\n                </div>\n            </div>\n            <div class=\"row\">\n                <div class=\"col-sm-4\">\n                    <div class=\"feature feature-2 boxed boxed--border\">\n                        <i class=\"icon icon-Clock-Back color--primary\"></i>\n                        <div class=\"feature__body\">\n                            <p>\n                                On the go? Just drag some books into your <a href=\"https://quietthyme.uservoice.com/knowledgebase/articles/123761#blackhole\" target=\"_blank\">Cloud Storage blackhole folder</a>, and we'll add them to your library automatically\n                            </p>\n                        </div>\n                    </div>\n                    <!--end feature-->\n                </div>\n                <div class=\"col-sm-4\">\n                    <div class=\"feature feature-2 boxed boxed--border\">\n                        <i class=\"icon icon-Life-Jacket color--primary\"></i>\n                        <div class=\"feature__body\">\n                            <p>\n                                Add books using the <a class=\"link\" (click)=\"openModalBookUpload()\">Web Uploader</a>. Simple, easy to use. What more do you want?\n                            </p>\n                        </div>\n                    </div>\n                    <!--end feature-->\n                </div>\n                <div class=\"col-sm-4\">\n                    <div class=\"feature feature-2 boxed boxed--border\">\n                        <i class=\"icon icon-Duplicate-Window color--primary\"></i>\n                        <div class=\"feature__body\">\n                            <p>\n                                Manage your library using Calibre? No problem, we have a <a href=\"https://quietthyme.uservoice.com/knowledgebase/articles/123761#calibre\" target=\"_blank\">powerful plugin</a> waiting for you.\n                            </p>\n                        </div>\n                    </div>\n                    <!--end feature-->\n                </div>\n\n            </div>\n            <!--end of row-->\n        </div>\n        <!--end of container-->\n    </section>\n    <section *ngIf=\"bookList.length == 0 && loading.list\" class=\"text-center\">\n        <div class=\"container\">\n            <div class=\"row\">\n                <div class=\"col-sm-10 col-md-8\" style=\"padding-bottom:50px;\">\n                    <h1>Loading your {{ displayNameForStorageId(filter.storage_id) }} Library. Please wait.</h1>\n                    <p class=\"lead\">\n                        We're loading your {{ displayNameForStorageId(filter.storage_id) }} library right now, it may take a few moments.\n                    </p>\n                </div>\n            </div>\n        </div>\n        <!--end of container-->\n    </section>\n\n\n    <quietthyme-footer></quietthyme-footer>\n</div>\n"
 
 /***/ }),
 
@@ -989,13 +989,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 var LibraryComponent = (function () {
-    function LibraryComponent(slimLoadingBarService, notificationService, apiService, scrollSpyService, modalService, router) {
+    function LibraryComponent(slimLoadingBarService, notificationService, apiService, scrollSpyService, modalService, router, activatedRoute) {
+        var _this = this;
         this.slimLoadingBarService = slimLoadingBarService;
         this.notificationService = notificationService;
         this.apiService = apiService;
         this.scrollSpyService = scrollSpyService;
         this.modalService = modalService;
         this.router = router;
+        this.activatedRoute = activatedRoute;
         this.bookList = [];
         this.bookListAll = false;
         this.loading = {
@@ -1005,7 +1007,6 @@ var LibraryComponent = (function () {
         };
         this.filter = {
             sort: null,
-            storage: null,
             storage_id: null,
             page: '',
         };
@@ -1015,11 +1016,16 @@ var LibraryComponent = (function () {
             if (event instanceof __WEBPACK_IMPORTED_MODULE_9__angular_router__["b" /* NavigationEnd */]) {
                 ga('set', 'page', event.urlAfterRedirects);
                 ga('send', 'pageview');
+                //the filter parameters in the url bar always take presidence over internal state
+                //because the user may have bookmarked the page, or it was linked to the library with a filter.
+                //so all filters just update the url query string, which bubbles an event, and kicks off a Clean getBookList
+                //call
+                Object.assign(_this.filter, _this.activatedRoute.snapshot.queryParams);
+                _this.getBookList(true);
             }
         });
     }
     LibraryComponent.prototype.ngAfterViewInit = function () {
-        // this.getBookList();
         this.getStorage();
         // this.scrollSpyService.getObservable('sidebar').subscribe((e: any) => {
         //     console.log('ScrollSpy::sidebar: ', e);
@@ -1040,7 +1046,7 @@ var LibraryComponent = (function () {
     };
     LibraryComponent.prototype.onScroll = function () {
         console.log('SCROLLING');
-        this.getBookList();
+        this.getBookList(); //when scrolling, dont reset the page info or current list. 
     };
     LibraryComponent.prototype.getStorage = function () {
         var _this = this;
@@ -1061,8 +1067,19 @@ var LibraryComponent = (function () {
             _this.notificationService.error('An error occurred!', error);
         });
     };
-    LibraryComponent.prototype.getBookList = function () {
+    LibraryComponent.prototype.navigateToFilteredLibrary = function (filter) {
+        var filterClone = Object.assign({}, filter);
+        //make sure we dont store page info in the browser history
+        delete filterClone.page;
+        console.log("PUSHING STATE", filterClone);
+        this.router.navigate(['.'], { queryParams: filterClone });
+    };
+    LibraryComponent.prototype.getBookList = function (reset) {
         var _this = this;
+        if (reset) {
+            this.bookListAll = false;
+            this.bookList = [];
+        }
         if (this.loading.list || this.bookListAll) {
             console.log('List is already loading, or all books retrieved already. ');
             return;
@@ -1091,6 +1108,31 @@ var LibraryComponent = (function () {
             _this.notificationService.error('An error occurred!', error);
         });
     };
+    LibraryComponent.prototype.setStorage = function (storageStatus) {
+        var next_storage_id = storageStatus ? storageStatus.storage_id : null;
+        if (next_storage_id == this.filter.storage_id)
+            return; //user clicked an active filter
+        this.filter.storage_id = next_storage_id;
+        this.filter.page = '';
+        console.log("FILTER CONTENT", this.filter);
+        this.navigateToFilteredLibrary(this.filter);
+    };
+    LibraryComponent.prototype.setSort = function (sort) {
+        if (sort == this.filter.sort)
+            return; //user clicked an active filter
+        this.filter.sort = sort || null;
+        this.filter.page = '';
+        console.log('CHANGED SORT FILTER', this.filter.sort);
+        this.navigateToFilteredLibrary(this.filter);
+    };
+    LibraryComponent.prototype.openModalBookUpload = function () {
+        this.bsModalRef = this.modalService.show(__WEBPACK_IMPORTED_MODULE_4__partials_book_upload_book_upload_component__["a" /* BookUploadComponent */], {
+            animated: true,
+            backdrop: 'static',
+            class: 'modal-container modal-active',
+        });
+        this.bsModalRef.content.connected = this.connected;
+    };
     LibraryComponent.prototype.downloadBook = function (book) {
         var _this = this;
         console.log(book.id);
@@ -1114,36 +1156,21 @@ var LibraryComponent = (function () {
             _this.notificationService.error('An error occurred!', error);
         });
     };
-    LibraryComponent.prototype.setStorage = function (storageStatus) {
-        if (storageStatus == this.filter.storage)
-            return; //user clicked an active filter
-        this.filter.storage = storageStatus || null;
-        this.filter.storage_id = storageStatus != null
-            ? storageStatus.storage_id
-            : null;
-        this.filter.page = '';
-        console.log('CHANGED STORAGE FILTER', this.filter.storage);
-        this.bookListAll = false;
-        this.bookList = [];
-        this.getBookList();
-    };
-    LibraryComponent.prototype.setSort = function (sort) {
-        if (sort == this.filter.sort)
-            return; //user clicked an active filter
-        this.filter.sort = sort || null;
-        this.filter.page = '';
-        console.log('CHANGED SORT FILTER', this.filter.sort);
-        this.bookListAll = false;
-        this.bookList = [];
-        this.getBookList();
-    };
-    LibraryComponent.prototype.openModalBookUpload = function () {
-        this.bsModalRef = this.modalService.show(__WEBPACK_IMPORTED_MODULE_4__partials_book_upload_book_upload_component__["a" /* BookUploadComponent */], {
-            animated: true,
-            backdrop: 'static',
-            class: 'modal-container modal-active',
-        });
-        this.bsModalRef.content.connected = this.connected;
+    LibraryComponent.prototype.displayNameForStorageId = function (storage_id) {
+        var connectedStorageStatus = null;
+        for (var _i = 0, _a = this.connected; _i < _a.length; _i++) {
+            var storageStatus = _a[_i];
+            if (storageStatus.storage_id == storage_id) {
+                connectedStorageStatus = storageStatus;
+                break;
+            }
+        }
+        if (connectedStorageStatus) {
+            return this.storageDetails[connectedStorageStatus.storage_type].display_name;
+        }
+        else {
+            return this.storageDetails['quietthyme'].display_name;
+        }
     };
     return LibraryComponent;
 }());
@@ -1153,10 +1180,10 @@ LibraryComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/library/library.component.html"),
         styles: [__webpack_require__("../../../../../src/app/library/library.component.less")],
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__services_notification_service__["a" /* NotificationService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_notification_service__["a" /* NotificationService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_6_ng2_scrollspy__["ScrollSpyService"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6_ng2_scrollspy__["ScrollSpyService"]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_5_ngx_bootstrap_modal__["a" /* BsModalService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5_ngx_bootstrap_modal__["a" /* BsModalService */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_9__angular_router__["d" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_9__angular_router__["d" /* Router */]) === "function" && _f || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__services_notification_service__["a" /* NotificationService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_notification_service__["a" /* NotificationService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_6_ng2_scrollspy__["ScrollSpyService"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6_ng2_scrollspy__["ScrollSpyService"]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_5_ngx_bootstrap_modal__["a" /* BsModalService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5_ngx_bootstrap_modal__["a" /* BsModalService */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_9__angular_router__["d" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_9__angular_router__["d" /* Router */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_9__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_9__angular_router__["a" /* ActivatedRoute */]) === "function" && _g || Object])
 ], LibraryComponent);
 
-var _a, _b, _c, _d, _e, _f;
+var _a, _b, _c, _d, _e, _f, _g;
 //# sourceMappingURL=library.component.js.map
 
 /***/ }),
@@ -1816,7 +1843,7 @@ var _a, _b, _c;
 /***/ "../../../../../src/app/partials/storage-panel/storage-panel.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div [ngClass]=\"{'feature--featured': storageData}\" class=\"feature feature-1 boxed boxed--border\">\n    <h5>{{ StorageDetails[storageData.storage_type].display_name }}</h5>\n    <p>\n        <span>{{ StorageDetails[storageData.storage_type].details }}</span>\n    </p>\n    <br/>\n    <p *ngIf=\"StorageDetails[storageData.storage_type].blackhole_path\">\n        Blackhole: \"<strong>{{ StorageDetails[storageData.storage_type].blackhole_path }}</strong>\"\n    </p>\n    <a class=\"small-text\" routerLink=\"/library\">\n        Show Books\n    </a>\n    <span *ngIf=\"storageData.storage_type != 'quietthyme'\">\n        |\n    </span>\n    <a *ngIf=\"storageData.storage_type != 'quietthyme'\" class=\"link small-text\" (click)=\"openModalStorageDetach()\" >\n        Detach\n    </a>\n    <span *ngIf=\"storageData.storage_type == 'quietthyme'\" class=\"label\">∞ GB</span>\n    <span *ngIf=\"storageData.storage_type != 'quietthyme'\" class=\"label\">{{ storageData.free_space |  fileSize}}</span>\n</div>\n"
+module.exports = "<div [ngClass]=\"{'feature--featured': storageData}\" class=\"feature feature-1 boxed boxed--border\">\n    <h5>{{ StorageDetails[storageData.storage_type].display_name }}</h5>\n    <p>\n        <span>{{ StorageDetails[storageData.storage_type].details }}</span>\n    </p>\n    <br/>\n    <p *ngIf=\"StorageDetails[storageData.storage_type].blackhole_path\">\n        Blackhole: \"<strong>{{ StorageDetails[storageData.storage_type].blackhole_path }}</strong>\"\n    </p>\n    <a class=\"small-text\" routerLink=\"/library\" [queryParams]=\"{storage_id: storageData.storage_id}\">\n        Show Books\n    </a>\n    <span *ngIf=\"storageData.storage_type != 'quietthyme'\">\n        |\n    </span>\n    <a *ngIf=\"storageData.storage_type != 'quietthyme'\" class=\"link small-text\" (click)=\"openModalStorageDetach()\" >\n        Detach\n    </a>\n    <span *ngIf=\"storageData.storage_type == 'quietthyme'\" class=\"label\">∞ GB</span>\n    <span *ngIf=\"storageData.storage_type != 'quietthyme'\" class=\"label\">{{ storageData.free_space |  fileSize}}</span>\n</div>\n"
 
 /***/ }),
 
