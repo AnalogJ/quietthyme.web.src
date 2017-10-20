@@ -29,7 +29,6 @@ export class LibraryComponent implements AfterViewInit {
   };
   filter = {
     sort: null,
-    storage: null,
     storage_id: null,
     page: '',
   };
@@ -44,18 +43,27 @@ export class LibraryComponent implements AfterViewInit {
     private apiService: ApiService,
     private scrollSpyService: ScrollSpyService,
     private modalService: BsModalService,
-    private router: Router
+    private router: Router,
+    private activatedRoute: ActivatedRoute,
   ) {
+
       this.router.events.subscribe(event => {
           if (event instanceof NavigationEnd) {
               ga('set', 'page', event.urlAfterRedirects);
               ga('send', 'pageview');
+
+
+              //the filter parameters in the url bar always take presidence over internal state
+              //because the user may have bookmarked the page, or it was linked to the library with a filter.
+              //so all filters just update the url query string, which bubbles an event, and kicks off a Clean getBookList
+              //call
+              Object.assign(this.filter, this.activatedRoute.snapshot.queryParams);
+              this.getBookList(true);
           }
       });
   }
 
   ngAfterViewInit() {
-    // this.getBookList();
     this.getStorage();
 
     // this.scrollSpyService.getObservable('sidebar').subscribe((e: any) => {
@@ -78,7 +86,7 @@ export class LibraryComponent implements AfterViewInit {
 
   onScroll() {
     console.log('SCROLLING');
-    this.getBookList();
+    this.getBookList(); //when scrolling, dont reset the page info or current list. 
   }
 
   getStorage() {
@@ -102,7 +110,23 @@ export class LibraryComponent implements AfterViewInit {
         }
       );
   }
-  getBookList() {
+
+    private navigateToFilteredLibrary(filter){
+
+        let filterClone = Object.assign({}, filter);
+        //make sure we dont store page info in the browser history
+        delete filterClone.page
+        console.log("PUSHING STATE", filterClone)
+        this.router.navigate(['.'], { queryParams: filterClone });
+    }
+
+  getBookList(reset?: boolean) {
+
+    if(reset){
+        this.bookListAll = false;
+        this.bookList = [];
+    }
+
     if (this.loading.list || this.bookListAll) {
       console.log('List is already loading, or all books retrieved already. ');
       return;
@@ -136,48 +160,16 @@ export class LibraryComponent implements AfterViewInit {
       );
   }
 
-  downloadBook(book) {
-    console.log(book.id);
-    if (this.loading.download[book.id]) {
-      return; //dont do anything if we're already downloading this book.
-    }
 
-    this.loading.download[book.id] = true;
-    this.slimLoadingBarService.start();
-    this.apiService
-      .download(book.id)
-      .finally(() => {
-        this.loading.download[book.id] = false;
-        this.slimLoadingBarService.complete();
-      })
-      .subscribe(
-        response => {
-          var filename = book.storage_filename + book.storage_format;
-          let file = response.blob();
-          console.log(
-            file.size + ' bytes file downloaded. File type: ',
-            file.type
-          );
-          FileSaver.saveAs(file, filename);
-        },
-        error => {
-          this.notificationService.error('An error occurred!', error);
-        }
-      );
-  }
 
   setStorage(storageStatus) {
-    if (storageStatus == this.filter.storage) return; //user clicked an active filter
-    this.filter.storage = storageStatus || null;
-    this.filter.storage_id = storageStatus != null
-      ? storageStatus.storage_id
-      : null;
-    this.filter.page = '';
 
-    console.log('CHANGED STORAGE FILTER', this.filter.storage);
-    this.bookListAll = false;
-    this.bookList = [];
-    this.getBookList();
+    var next_storage_id = storageStatus ? storageStatus.storage_id : null;
+      if (next_storage_id == this.filter.storage_id) return; //user clicked an active filter
+    this.filter.storage_id = next_storage_id
+    this.filter.page = '';
+      console.log("FILTER CONTENT", this.filter)
+    this.navigateToFilteredLibrary(this.filter)
   }
   setSort(sort) {
     if (sort == this.filter.sort) return; //user clicked an active filter
@@ -185,9 +177,9 @@ export class LibraryComponent implements AfterViewInit {
     this.filter.sort = sort || null;
     this.filter.page = '';
     console.log('CHANGED SORT FILTER', this.filter.sort);
-    this.bookListAll = false;
-    this.bookList = [];
-    this.getBookList();
+
+    this.navigateToFilteredLibrary(this.filter)
+
   }
 
   public openModalBookUpload() {
@@ -198,6 +190,55 @@ export class LibraryComponent implements AfterViewInit {
       class: 'modal-container modal-active',
     });
     this.bsModalRef.content.connected = this.connected
+
+  }
+
+    downloadBook(book) {
+        console.log(book.id);
+        if (this.loading.download[book.id]) {
+            return; //dont do anything if we're already downloading this book.
+        }
+
+        this.loading.download[book.id] = true;
+        this.slimLoadingBarService.start();
+        this.apiService
+            .download(book.id)
+            .finally(() => {
+                this.loading.download[book.id] = false;
+                this.slimLoadingBarService.complete();
+            })
+            .subscribe(
+                response => {
+                    var filename = book.storage_filename + book.storage_format;
+                    let file = response.blob();
+                    console.log(
+                        file.size + ' bytes file downloaded. File type: ',
+                        file.type
+                    );
+                    FileSaver.saveAs(file, filename);
+                },
+                error => {
+                    this.notificationService.error('An error occurred!', error);
+                }
+            );
+    }
+
+  displayNameForStorageId(storage_id){
+
+      var connectedStorageStatus = null
+      for(let storageStatus of this.connected){
+          if(storageStatus.storage_id == storage_id){
+              connectedStorageStatus = storageStatus
+              break;
+          }
+      }
+
+      if(connectedStorageStatus){
+          return this.storageDetails[connectedStorageStatus.storage_type].display_name
+      }
+      else {
+          return this.storageDetails['quietthyme'].display_name
+      }
 
   }
 }

@@ -7,7 +7,7 @@
     <p *ngIf="StorageDetails[storageData.storage_type].blackhole_path">
         Blackhole: "<strong>{{ StorageDetails[storageData.storage_type].blackhole_path }}</strong>"
     </p>
-    <a class="small-text" routerLink="/library">
+    <a class="small-text" routerLink="/library" [queryParams]="{storage_id: storageData.storage_id}">
         Show Books
     </a>
     <span *ngIf="storageData.storage_type != 'quietthyme'">
