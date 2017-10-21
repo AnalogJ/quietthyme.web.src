@@ -1046,7 +1046,7 @@ var LibraryComponent = (function () {
     };
     LibraryComponent.prototype.onScroll = function () {
         console.log('SCROLLING');
-        this.getBookList(); //when scrolling, dont reset the page info or current list. 
+        this.getBookList(); //when scrolling, dont reset the page info or current list.
     };
     LibraryComponent.prototype.getStorage = function () {
         var _this = this;
@@ -2210,18 +2210,14 @@ var ApiService = (function () {
             .map(this.extractData)
             .catch(this.handleError);
     };
-    ApiService.prototype.storageStatus = function (bustCache) {
-        if (bustCache === void 0) { bustCache = false; }
+    ApiService.prototype.storageStatus = function () {
         var url = __WEBPACK_IMPORTED_MODULE_4__app_settings__["a" /* AppSettings */].API_ENDPOINT + "/storage/status";
         var cacheKey = this.cacheKey('GET', url);
-        if (bustCache) {
-            this.cacheService.deleteTagged(this.tagStorageStatus);
-        }
         return (this.cacheService.get(cacheKey) ||
             this.cacheService.put(cacheKey, this.authHttp.get(url).map(this.extractData).catch(this.handleError), { tag: this.tagStorageStatus }));
     };
     ApiService.prototype.storageLink = function (kloudlessData) {
-        //TODO: this should bust the /storage/status cache
+        this.cacheService.deleteTagged(this.tagStorageStatus);
         return this.authHttp
             .post(__WEBPACK_IMPORTED_MODULE_4__app_settings__["a" /* AppSettings */].API_ENDPOINT + "/storage/link", kloudlessData)
             .map(this.extractData)
@@ -3640,13 +3636,12 @@ var StorageComponent = (function () {
             },
         ];
     };
-    StorageComponent.prototype.getStorageStatus = function (bustCache) {
+    StorageComponent.prototype.getStorageStatus = function () {
         var _this = this;
-        if (bustCache === void 0) { bustCache = false; }
         this.loading.status = true;
         this.slimLoadingBarService.start();
         this.apiService
-            .storageStatus(bustCache)
+            .storageStatus()
             .finally(function () {
             _this.loading.status = false;
             _this.slimLoadingBarService.complete();
@@ -3680,12 +3675,17 @@ var StorageComponent = (function () {
             .finally(function () {
             _this.loading.status = false;
             _this.slimLoadingBarService.complete();
-            _this.getStorageStatus(true);
-            //TODO: instead of re-requestin the storage status here, we should immediately add a placehoder storage status object
         })
             .subscribe(function (data) {
             console.log("Connected a new storage.");
             console.log(data);
+            _this.connected.push(data);
+            //update the kloudlessStorageTypes array (remove any connected services)
+            var kndx = _this.kloudlessStorageTypes.indexOf(data.storage_type, 0);
+            if (kndx > -1) {
+                console.log('removed: ' + data.storage_type);
+                _this.kloudlessStorageTypes.splice(kndx, 1);
+            }
         }, function (error) {
             _this.notificationService.error('An error occurred!', error);
         });
