@@ -54,11 +54,11 @@ export class StorageComponent implements OnInit {
     ];
   }
 
-  getStorageStatus(bustCache: boolean = false) {
+  getStorageStatus() {
     this.loading.status = true;
     this.slimLoadingBarService.start();
     this.apiService
-      .storageStatus(bustCache)
+      .storageStatus()
       .finally(() => {
         this.loading.status = false;
         this.slimLoadingBarService.complete();
@@ -99,13 +99,24 @@ export class StorageComponent implements OnInit {
       .finally(() => {
         this.loading.status = false;
         this.slimLoadingBarService.complete();
-        this.getStorageStatus(true)
-        //TODO: instead of re-requestin the storage status here, we should immediately add a placehoder storage status object
       })
       .subscribe(
         data => {
           console.log("Connected a new storage.")
           console.log(data);
+
+          this.connected.push(data);
+
+          //update the kloudlessStorageTypes array (remove any connected services)
+          var kndx = this.kloudlessStorageTypes.indexOf(
+              data.storage_type,
+              0
+          );
+          if (kndx > -1) {
+            console.log('removed: ' + data.storage_type);
+            this.kloudlessStorageTypes.splice(kndx, 1);
+          }
+
         },
         error => {
           this.notificationService.error('An error occurred!', error);

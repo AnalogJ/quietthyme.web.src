@@ -161,13 +161,10 @@ export class ApiService {
       .catch(this.handleError);
   }
 
-  storageStatus(bustCache: boolean = false): Observable<any> {
+  storageStatus(): Observable<any> {
     var url = `${AppSettings.API_ENDPOINT}/storage/status`;
     var cacheKey = this.cacheKey('GET', url);
-
-    if(bustCache){
-      this.cacheService.deleteTagged(this.tagStorageStatus)
-    }
+    
     return (
       this.cacheService.get(cacheKey) ||
       this.cacheService.put(
@@ -179,7 +176,8 @@ export class ApiService {
   }
 
   storageLink(kloudlessData: any): Observable<any> {
-    //TODO: this should bust the /storage/status cache
+    this.cacheService.deleteTagged(this.tagStorageStatus)
+
     return this.authHttp
       .post(`${AppSettings.API_ENDPOINT}/storage/link`, kloudlessData)
       .map(this.extractData)

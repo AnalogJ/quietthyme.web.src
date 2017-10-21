@@ -86,7 +86,7 @@ export class LibraryComponent implements AfterViewInit {
 
   onScroll() {
     console.log('SCROLLING');
-    this.getBookList(); //when scrolling, dont reset the page info or current list. 
+    this.getBookList(); //when scrolling, dont reset the page info or current list.
   }
 
   getStorage() {
