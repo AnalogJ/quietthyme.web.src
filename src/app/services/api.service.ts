@@ -164,7 +164,7 @@ export class ApiService {
   storageStatus(): Observable<any> {
     var url = `${AppSettings.API_ENDPOINT}/storage/status`;
     var cacheKey = this.cacheKey('GET', url);
-    
+
     return (
       this.cacheService.get(cacheKey) ||
       this.cacheService.put(
