@@ -52,7 +52,7 @@
                             <div class="masonry__filters" data-filter-all-text="Storage">
                                 <ul>
                                     <li [ngClass]="{'active': !filter.sort}" (click)="setSort(null)">Title</li>
-                                    <li [ngClass]="{'active': filter.sort == 'authors'}" (click)="setSort('primary_author')">Author</li>
+                                    <li [ngClass]="{'active': filter.sort == 'primary_author'}" (click)="setSort('primary_author')">Author</li>
                                     <li [ngClass]="{'active': filter.sort == 'series_name'}" (click)="setSort('series_name')">Series</li>
                                     <li [ngClass]="{'active': filter.sort == 'updated_at'}" (click)="setSort('updated_at')">Added Date</li>
 
