@@ -33,10 +33,20 @@
                 <div class="col-sm-5 col-md-4">
                     <div class="row">
                         <div class="col-md-12">
-                            <img *ngIf="book.cover" class="border--round box-shadow-wide book-details-cover-image" src="https://s3.amazonaws.com/{{ book.cover }}" alt="{{ book.title }}">
-                            <img *ngIf="!book.cover" class="border--round box-shadow-wide" src="assets/images/noart.png" alt="{{ book.title }}">
-
+                            <img *ngIf="book.cover" [ngClass]="{'disabled': editing}" class="border--round box-shadow-wide book-details-cover-image" src="https://s3.amazonaws.com/{{ book.cover }}" alt="{{ book.title }}">
+                            <img *ngIf="!book.cover" [ngClass]="{'disabled': editing}" class="border--round box-shadow-wide" src="assets/images/noart.png" alt="{{ book.title }}">
                         </div>
+                    </div>
+                    <div *ngIf="editing" class="row" style="padding-top: 25px;">
+                        <form dropzone
+                              [storageId]="'quietthyme'"
+                              [book]="book"
+                              [acceptedFiles]="'.jpeg,.png,.jpg'"
+                              [uploadType]="'cover'"
+                              [maxFiles]="1"
+                              (bookCover)="updateBookCover($event)"
+                              class="dropzone"
+                              id="my-awesome-dropzone"></form>
                     </div>
                     <div class="row" style="padding-top:40px">
                         <div class="col-md-6">
@@ -51,7 +61,7 @@
                         <div class="text-block">
                             <span class="h4 inline-block">{{ book.authors }}</span>
                         </div>
-                        <markdown [data]="book.short_summary"></markdown>
+                        <markdown [data]="book.short_summary || ''"></markdown>
 
                         <accordion style="padding-top: 30px;" class="accordion accordion-1 accordion--oneopen">
 

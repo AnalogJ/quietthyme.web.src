@@ -12,6 +12,7 @@ import { Observable } from 'rxjs/Observable';
 import { AppSettings } from '../app-settings';
 import { CacheService } from '../services/cache.service';
 import { StoragePrepareBookModel } from '../models/storage-prepare-book-model'
+import { StoragePrepareCoverModel } from '../models/storage-prepare-cover-model'
 import { BookModel } from '../models/book'
 import { Observer } from 'rxjs';
 
@@ -209,6 +210,15 @@ export class ApiService {
         .catch(this.handleError);
   }
 
+  storagePrepareCover(prepare_data: StoragePrepareCoverModel): Observable<any> {
+    let params: URLSearchParams = new URLSearchParams();
+    params.set('source', 'web'); //if we dont specify the source, we'll get the wrong kind of signedUrl from the API (one without a policy)
+
+    return this.authHttp
+        .post(`${AppSettings.API_ENDPOINT}/storage/prepare/cover`, prepare_data, {search: params})
+        .map(this.extractData)
+        .catch(this.handleError);
+  }
 
   bookList(filter): Observable<any> {
     var url = `${AppSettings.API_ENDPOINT}/book`;

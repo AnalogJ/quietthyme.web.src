@@ -14,6 +14,8 @@ import { AppSettings } from '../app-settings';
 
 import { environment } from '../../environments/environment';
 import { StoragePrepareBookModel } from '../models/storage-prepare-book-model';
+import { StoragePrepareCoverModel } from '../models/storage-prepare-cover-model';
+import { BookModel } from '../models/book';
 import { ApiService } from '../services/api.service';
 declare var Dropzone: any;
 
@@ -21,30 +23,49 @@ declare var Dropzone: any;
   selector: '[dropzone]',
 })
 export class DropzoneDirective {
-  @Output() onCheckout: EventEmitter<any> = new EventEmitter();
-  @Input() storageId: string;
+  @Output() bookCover: EventEmitter<any> = new EventEmitter();
+  @Input() storageId?: string = 'quietthyme';
+  @Input() book?: BookModel;
+  @Input() acceptedFiles?: string = AppSettings.SUPPORTED_BOOK_TYPES.join(',');
+  @Input() maxFiles?: number;
+  @Input() uploadType?: string = "book";
 
   signedCredData = {};
 
-
-  acceptedFiles = AppSettings.SUPPORTED_BOOK_TYPES.join(',');
   handler: any;
 
   elt: ElementRef;
   constructor(_elt: ElementRef, private apiService: ApiService) {
     this.elt = _elt;
-      var prepareData = new StoragePrepareBookModel();
-      prepareData.storage_id = 'quietthyme'
-      this.signedCredData['quietthyme'] = this.apiService.storagePrepareBook(prepareData)
+      var key = this.getSignedCredKey()
+    this.signedCredData[key] = this.getSignedData(this.storageId, this.uploadType)
+  }
+
+  getSignedCredKey(){
+      return `${this.storageId}-${this.uploadType}`;
+  }
+
+  getSignedData(storageId, uploadType){
+      if(uploadType == 'book'){
+        var bookPrepareData = new StoragePrepareBookModel();
+        bookPrepareData.storage_id = storageId;
+        return this.apiService.storagePrepareBook(bookPrepareData)
+      }
+      else if(uploadType == 'cover'){
+          var coverPrepareData = new StoragePrepareCoverModel();
+          coverPrepareData.book_id = this.book.id;
+          coverPrepareData.filename = 'cover-'+ (new Date()).getTime(); //upload with timestamp for cache busting.
+          coverPrepareData.format = '.jpg';
+          return this.apiService.storagePrepareCover(coverPrepareData);
+      }
   }
 
     ngOnChanges(changes) {
-        console.log(changes);
+        console.log("CHANGES:", changes);
 
-        if(!this.signedCredData[this.storageId]){
-            var prepareData = new StoragePrepareBookModel();
-            prepareData.storage_id = this.storageId
-            this.signedCredData[this.storageId] = this.apiService.storagePrepareBook(prepareData)
+        var key = this.getSignedCredKey()
+        if(!this.signedCredData[key]){
+            this.signedCredData[key] = this.getSignedData(this.storageId,this.uploadType)
         }
     }
 
@@ -58,10 +79,11 @@ export class DropzoneDirective {
           url: `https://s3.amazonaws.com/placeholder`,
           paramName: "file",
           maxThumbnailFilesize: 5,
-          // uploadMultiple: false,
+          maxFiles: self.maxFiles ? self.maxFiles : null,
+          uploadMultiple: false,
           // headers: {"Accept": "text/plain"},
           // In the `accept` function we request a signed upload URL when a file being accepted
-            acceptedFiles: self.acceptedFiles,
+          acceptedFiles: self.acceptedFiles,
             accept: function(file, done){
                 var filename_parts =  file.name.split(".");
                 if(filename_parts.length == 1){
@@ -82,18 +104,28 @@ export class DropzoneDirective {
 
                 console.log("Storage Destination data:");
 
-                self.signedCredData[self.storageId]
+                self.signedCredData[self.getSignedCredKey()]
                     .subscribe(
                         data => {
-                            // do a deep copy of the subscribe data.
-                            var respData = JSON.parse(JSON.stringify(data))
+                            try{
+                                // do a deep copy of the subscribe data.
+                                var respData = JSON.parse(JSON.stringify(data))
+                                if(self.uploadType == 'cover'){
+                                    respData.fields.key = respData.fields.key;
+                                } else{
+                                    respData.fields.key = respData.fields.key + file.name;
+                                }
+                                file.signedFormFields = respData.fields;
+                                file.upload_url = respData.url; // url has a trailing suffix.
+                                done()
+                            }
+                            catch(e){
+                                done(e)
+                            }
 
-                            respData.fields.key = respData.fields.key + file.name;
-                            file.signedFormFields = respData.fields;
-                            file.upload_url = respData.url; // url has a trailing suffix.
-                            done()
                         },
                         error => {
+                            console.log("An error occured", error)
                             done(error);
                         }
                     );
@@ -112,9 +144,26 @@ export class DropzoneDirective {
     );
     // Set signed upload URL for each file being processing
     myDropzone.on('processing', (file) => {
-      myDropzone.options.url = file.upload_url
+        console.log("procesing event", file)
+        myDropzone.options.url = file.upload_url
     })
 
+    // myDropzone.on('success', (resp) => {
+    //   console.log("success event", resp)
+    // })
+
+      myDropzone.on('complete', (resp) => {
+          console.log("complete event", resp)
+          self.bookCover.emit(`${resp.signedFormFields.bucket}/${resp.signedFormFields.key}`)
+      })
+
+      // myDropzone.on('canceled', (resp) => {
+      //     console.log("canceled event", resp)
+      // })
+      //
+      // myDropzone.on('error', (resp) => {
+      //     console.log("error event", resp)
+      // })
   }
 
   // @HostListener('click', ['$event'])

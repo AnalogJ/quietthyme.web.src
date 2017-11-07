@@ -142,8 +142,14 @@ export class BookDetailsComponent implements OnInit {
             );
     }
 
+    updateBookCover(key){
+        this.updateBook.cover = key
+    }
+
     cancelEdit(){
         this.editing = false
+
+        //todo delete any uploaded book cover that doesnt get saved.
     }
 
     trackByIndex(index: number, value: number) {
