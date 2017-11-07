@@ -746,7 +746,7 @@ AppModule = __decorate([
 /***/ "../../../../../src/app/book-details/book-details.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<ng2-slim-loading-bar class=\"navbar-fixed-top\" [color]=\"'#128950'\" [height]=\"'3px'\"></ng2-slim-loading-bar>\n<quietthyme-header></quietthyme-header>\n<div class=\"main-container\">\n    <section>\n        <div class=\"container\">\n            <div class=\"row\">\n                <div class=\"col-sm-12\">\n                    <h1>{{ book.title }}</h1>\n                    <ol class=\"breadcrumbs\">\n                        <li>\n                            <a routerLink=\"/library\">Library</a>\n                        </li>\n                        <li>\n                            <a routerLink=\"/library\">{{ book.authors }}</a>\n                        </li>\n                        <li *ngIf=\"book.series_name\">\n                            <a routerLink=\"/library\">{{ book.series_name }}</a> #{{ book.series_number }}\n                        </li>\n                        <li *ngIf=\"book.isbn || book.isbn10\">\n                            ISBN &mdash; {{ book.isbn || book.isbn10 }}\n                        </li>\n                    </ol>\n                    <hr>\n                </div>\n            </div>\n            <!--end of row-->\n        </div>\n        <!--end of container-->\n    </section>\n    <section class=\"space--lg\">\n        <div class=\"container\">\n            <div class=\"row\">\n                <div class=\"col-sm-5 col-md-4\">\n                    <div class=\"row\">\n                        <div class=\"col-md-12\">\n                            <img *ngIf=\"book.cover\" class=\"border--round box-shadow-wide book-details-cover-image\" src=\"https://s3.amazonaws.com/{{ book.cover }}\" alt=\"{{ book.title }}\">\n                            <img *ngIf=\"!book.cover\" class=\"border--round box-shadow-wide\" src=\"assets/images/noart.png\" alt=\"{{ book.title }}\">\n\n                        </div>\n                    </div>\n                    <div class=\"row\" style=\"padding-top:40px\">\n                        <div class=\"col-md-6\">\n                            <button [disabled]=\"loading.download\" (click)=\"downloadBook()\" class=\"btn btn--primary\" >Download {{ book.storage_format}}</button>\n                        </div>\n                    </div>\n\n                </div>\n                <div  class=\"col-sm-7 col-md-6 col-md-offset-1\">\n                    <div *ngIf=\"!editing\" class=\"view-book-panel\">\n                        <h2>{{ book.title }}</h2>\n                        <div class=\"text-block\">\n                            <span class=\"h4 inline-block\">{{ book.authors }}</span>\n                        </div>\n                        <markdown [data]=\"book.short_summary\"></markdown>\n\n                        <accordion style=\"padding-top: 30px;\" class=\"accordion accordion-1 accordion--oneopen\">\n\n                            <accordion-group heading=\"Details\">\n                                <ul class=\"bullets\">\n                                    <li>\n                                        <span>Title &mdash; {{ book.title }}</span>\n                                    </li>\n                                    <li>\n                                        <span>Authors &mdash; {{ book.authors }}</span>\n                                    </li>\n                                    <li *ngIf=\"book.series_name\">\n                                        <span>Series &mdash; {{ book.series_name }} #{{ book.series_number }}</span>\n                                    </li>\n\n                                    <li>\n                                        <span>ISBN &mdash; {{ book.isbn || book.isbn10 }}</span>\n                                    </li>\n\n                                    <li *ngIf=\"book.average_rating\">\n                                        <span>Rating &mdash; {{ book.average_rating }}</span>\n                                    </li>\n\n                                    <li *ngIf=\"book.publisher\">\n                                        <span>Publisher &mdash; {{ book.publisher }}</span>\n                                    </li>\n                                    <li *ngIf=\"book.published_date\">\n                                        <span>Published &mdash; {{ book.published_date | amDateFormat:'LL' }}</span>\n                                    </li>\n                                    <li *ngIf=\"book.language\">\n                                        <span>Language &mdash; {{ book.language }}</span>\n                                    </li>\n                                    <li *ngIf=\"book.pages\">\n                                        <span>Pages &mdash; {{ book.pages }}</span>\n                                    </li>\n                                    <li *ngIf=\"book.last_modified\">\n                                        <span>Modified on &mdash; {{ book.last_modified | amDateFormat:'LL' }}</span>\n                                    </li>\n\n                                    <li *ngIf=\"book.storage_type\">\n                                        <span>Stored on &mdash; {{ book.storage_type }}</span>\n                                    </li>\n\n                                    <li *ngIf=\"book.storage_size\">\n                                        <span>Size &mdash; {{ book.storage_size |  fileSize}}</span>\n                                    </li>\n\n                                    <li *ngIf=\"book.storage_format\">\n                                        <span>Format &mdash; {{ book.storage_format}}</span>\n                                    </li>\n                                </ul>\n                            </accordion-group>\n\n                            <accordion-group heading=\"Tags\">\n                                <span class=\"label label-default\" *ngFor=\"let tag of book.tags; let myIndex = index\">{{ tag }}</span>\n                            </accordion-group>\n\n                            <accordion-group heading=\"External Links\">\n                                <a *ngIf=\"book.amazon_id\" href=\"https://www.amazon.com/exec/obidos/ASIN/{{ book.amazon_id }}\" class=\"book-details-icons\">\n                                    <i class=\"socicon socicon-amazon icon icon--s\"></i>\n                                </a>\n\n                                <a *ngIf=\"book.google_id\" href=\"https://books.google.com/books?id={{ book.google_id }}\" class=\"book-details-icons\">\n                                    <i class=\"socicon socicon-google icon icon--s\"></i>\n                                </a>\n\n                                <a *ngIf=\"book.goodreads_id\" href=\"https://www.goodreads.com/book/show/{{ book.goodreads_id }}\" class=\"book-details-icons\">\n                                    <i class=\"socicon socicon-goodreads icon icon--s\"></i>\n                                </a>\n                            </accordion-group>\n\n                        </accordion>\n\n                        <!--end accordion-->\n                        <div class=\"row\" style=\"padding-top:40px\">\n                            <div class=\"col-md-12\">\n                                <button [disabled]=\"loading.edit\" (click)=\"editBook()\" style=\"color: white;\" class=\"btn btn--primary-1\" >Edit</button>\n\n                                <button [disabled]=\"loading.delete\" (click)=\"openModalBookDelete()\" class=\"btn btn--secondary\" >Delete</button>\n                            </div>\n                        </div>\n                    </div>\n                    <div *ngIf=\"editing\" class=\"edit-book-panel\">\n                        <form>\n                            <div class=\"col-sm-12\">\n                                <label>Title:</label>\n                                <input [(ngModel)]=\"updateBook.title\" type=\"text\" name=\"title\" placeholder=\"Book Title\" />\n                            </div>\n                            <div class=\"col-sm-12\">\n                                <label>Authors:</label>\n                                <input *ngFor=\"let author of updateBook.authors; let index = index; trackBy:trackByIndex;\" [(ngModel)]=\"updateBook.authors[index]\" type=\"text\" name=\"author{{index}}\" placeholder=\"Firstname Lastname\" />\n                                <button [disabled]=\"updateBook.authors.includes('')\" (click)=\"addAuthor()\" class=\"btn btn--sm btn--secondary\" >Add Author</button>\n\n                            </div>\n                            <div class=\"col-sm-8\">\n                                <label>Series Name:</label>\n                                <input [(ngModel)]=\"updateBook.series_name\" type=\"text\" name=\"series_name\" placeholder=\"Series Name\" />\n                            </div>\n                            <div class=\"col-sm-4\">\n                                <label>Series Number:</label>\n                                <input [(ngModel)]=\"updateBook.series_number\" type=\"text\" name=\"series_number\" placeholder=\"Number\" />\n                            </div>\n                            <div class=\"col-sm-12\">\n                                <label>ISBN:</label>\n                                <input [(ngModel)]=\"updateBook.isbn\" type=\"text\" name=\"isbn\" placeholder=\"ISBN\" />\n                            </div>\n                            <div class=\"col-sm-12\">\n                                <label>Description:</label>\n                                <textarea [(ngModel)]=\"updateBook.short_summary\" name=\"text\" placeholder=\"Book Description\" rows=\"10\"></textarea>\n                            </div>\n                        </form>\n                        <div class=\"row\" style=\"padding-top:40px\">\n                            <div class=\"col-md-12\">\n                                <button [disabled]=\"loading.edit\" (click)=\"saveBook()\" style=\"color: white;\" class=\"btn btn--primary-1\" >Save Changes</button>\n\n                                <button [disabled]=\"loading.edit\" (click)=\"cancelEdit()\" class=\"btn btn--secondary\" >Cancel</button>\n                            </div>\n                        </div>\n                    </div>\n\n                </div>\n\n            </div>\n            <!--end of row-->\n        </div>\n        <!--end of container-->\n    </section>\n\n    <quietthyme-footer></quietthyme-footer>\n</div>\n\n\n"
+module.exports = "<ng2-slim-loading-bar class=\"navbar-fixed-top\" [color]=\"'#128950'\" [height]=\"'3px'\"></ng2-slim-loading-bar>\n<quietthyme-header></quietthyme-header>\n<div class=\"main-container\">\n    <section>\n        <div class=\"container\">\n            <div class=\"row\">\n                <div class=\"col-sm-12\">\n                    <h1>{{ book.title }}</h1>\n                    <ol class=\"breadcrumbs\">\n                        <li>\n                            <a routerLink=\"/library\">Library</a>\n                        </li>\n                        <li>\n                            <a routerLink=\"/library\">{{ book.authors }}</a>\n                        </li>\n                        <li *ngIf=\"book.series_name\">\n                            <a routerLink=\"/library\">{{ book.series_name }}</a> #{{ book.series_number }}\n                        </li>\n                        <li *ngIf=\"book.isbn || book.isbn10\">\n                            ISBN &mdash; {{ book.isbn || book.isbn10 }}\n                        </li>\n                    </ol>\n                    <hr>\n                </div>\n            </div>\n            <!--end of row-->\n        </div>\n        <!--end of container-->\n    </section>\n    <section class=\"space--lg\">\n        <div class=\"container\">\n            <div class=\"row\">\n                <div class=\"col-sm-5 col-md-4\">\n                    <div class=\"row\">\n                        <div class=\"col-md-12\">\n                            <img *ngIf=\"book.cover\" [ngClass]=\"{'disabled': editing}\" class=\"border--round box-shadow-wide book-details-cover-image\" src=\"https://s3.amazonaws.com/{{ book.cover }}\" alt=\"{{ book.title }}\">\n                            <img *ngIf=\"!book.cover\" [ngClass]=\"{'disabled': editing}\" class=\"border--round box-shadow-wide\" src=\"assets/images/noart.png\" alt=\"{{ book.title }}\">\n                        </div>\n                    </div>\n                    <div *ngIf=\"editing\" class=\"row\" style=\"padding-top: 25px;\">\n                        <form dropzone\n                              [storageId]=\"'quietthyme'\"\n                              [book]=\"book\"\n                              [acceptedFiles]=\"'.jpeg,.png,.jpg'\"\n                              [uploadType]=\"'cover'\"\n                              [maxFiles]=\"1\"\n                              (bookCover)=\"updateBookCover($event)\"\n                              class=\"dropzone\"\n                              id=\"my-awesome-dropzone\"></form>\n                    </div>\n                    <div class=\"row\" style=\"padding-top:40px\">\n                        <div class=\"col-md-6\">\n                            <button [disabled]=\"loading.download\" (click)=\"downloadBook()\" class=\"btn btn--primary\" >Download {{ book.storage_format}}</button>\n                        </div>\n                    </div>\n\n                </div>\n                <div  class=\"col-sm-7 col-md-6 col-md-offset-1\">\n                    <div *ngIf=\"!editing\" class=\"view-book-panel\">\n                        <h2>{{ book.title }}</h2>\n                        <div class=\"text-block\">\n                            <span class=\"h4 inline-block\">{{ book.authors }}</span>\n                        </div>\n                        <markdown [data]=\"book.short_summary || ''\"></markdown>\n\n                        <accordion style=\"padding-top: 30px;\" class=\"accordion accordion-1 accordion--oneopen\">\n\n                            <accordion-group heading=\"Details\">\n                                <ul class=\"bullets\">\n                                    <li>\n                                        <span>Title &mdash; {{ book.title }}</span>\n                                    </li>\n                                    <li>\n                                        <span>Authors &mdash; {{ book.authors }}</span>\n                                    </li>\n                                    <li *ngIf=\"book.series_name\">\n                                        <span>Series &mdash; {{ book.series_name }} #{{ book.series_number }}</span>\n                                    </li>\n\n                                    <li>\n                                        <span>ISBN &mdash; {{ book.isbn || book.isbn10 }}</span>\n                                    </li>\n\n                                    <li *ngIf=\"book.average_rating\">\n                                        <span>Rating &mdash; {{ book.average_rating }}</span>\n                                    </li>\n\n                                    <li *ngIf=\"book.publisher\">\n                                        <span>Publisher &mdash; {{ book.publisher }}</span>\n                                    </li>\n                                    <li *ngIf=\"book.published_date\">\n                                        <span>Published &mdash; {{ book.published_date | amDateFormat:'LL' }}</span>\n                                    </li>\n                                    <li *ngIf=\"book.language\">\n                                        <span>Language &mdash; {{ book.language }}</span>\n                                    </li>\n                                    <li *ngIf=\"book.pages\">\n                                        <span>Pages &mdash; {{ book.pages }}</span>\n                                    </li>\n                                    <li *ngIf=\"book.last_modified\">\n                                        <span>Modified on &mdash; {{ book.last_modified | amDateFormat:'LL' }}</span>\n                                    </li>\n\n                                    <li *ngIf=\"book.storage_type\">\n                                        <span>Stored on &mdash; {{ book.storage_type }}</span>\n                                    </li>\n\n                                    <li *ngIf=\"book.storage_size\">\n                                        <span>Size &mdash; {{ book.storage_size |  fileSize}}</span>\n                                    </li>\n\n                                    <li *ngIf=\"book.storage_format\">\n                                        <span>Format &mdash; {{ book.storage_format}}</span>\n                                    </li>\n                                </ul>\n                            </accordion-group>\n\n                            <accordion-group heading=\"Tags\">\n                                <span class=\"label label-default\" *ngFor=\"let tag of book.tags; let myIndex = index\">{{ tag }}</span>\n                            </accordion-group>\n\n                            <accordion-group heading=\"External Links\">\n                                <a *ngIf=\"book.amazon_id\" href=\"https://www.amazon.com/exec/obidos/ASIN/{{ book.amazon_id }}\" class=\"book-details-icons\">\n                                    <i class=\"socicon socicon-amazon icon icon--s\"></i>\n                                </a>\n\n                                <a *ngIf=\"book.google_id\" href=\"https://books.google.com/books?id={{ book.google_id }}\" class=\"book-details-icons\">\n                                    <i class=\"socicon socicon-google icon icon--s\"></i>\n                                </a>\n\n                                <a *ngIf=\"book.goodreads_id\" href=\"https://www.goodreads.com/book/show/{{ book.goodreads_id }}\" class=\"book-details-icons\">\n                                    <i class=\"socicon socicon-goodreads icon icon--s\"></i>\n                                </a>\n                            </accordion-group>\n\n                        </accordion>\n\n                        <!--end accordion-->\n                        <div class=\"row\" style=\"padding-top:40px\">\n                            <div class=\"col-md-12\">\n                                <button [disabled]=\"loading.edit\" (click)=\"editBook()\" style=\"color: white;\" class=\"btn btn--primary-1\" >Edit</button>\n\n                                <button [disabled]=\"loading.delete\" (click)=\"openModalBookDelete()\" class=\"btn btn--secondary\" >Delete</button>\n                            </div>\n                        </div>\n                    </div>\n                    <div *ngIf=\"editing\" class=\"edit-book-panel\">\n                        <form>\n                            <div class=\"col-sm-12\">\n                                <label>Title:</label>\n                                <input [(ngModel)]=\"updateBook.title\" type=\"text\" name=\"title\" placeholder=\"Book Title\" />\n                            </div>\n                            <div class=\"col-sm-12\">\n                                <label>Authors:</label>\n                                <input *ngFor=\"let author of updateBook.authors; let index = index; trackBy:trackByIndex;\" [(ngModel)]=\"updateBook.authors[index]\" type=\"text\" name=\"author{{index}}\" placeholder=\"Firstname Lastname\" />\n                                <button [disabled]=\"updateBook.authors.includes('')\" (click)=\"addAuthor()\" class=\"btn btn--sm btn--secondary\" >Add Author</button>\n\n                            </div>\n                            <div class=\"col-sm-8\">\n                                <label>Series Name:</label>\n                                <input [(ngModel)]=\"updateBook.series_name\" type=\"text\" name=\"series_name\" placeholder=\"Series Name\" />\n                            </div>\n                            <div class=\"col-sm-4\">\n                                <label>Series Number:</label>\n                                <input [(ngModel)]=\"updateBook.series_number\" type=\"text\" name=\"series_number\" placeholder=\"Number\" />\n                            </div>\n                            <div class=\"col-sm-12\">\n                                <label>ISBN:</label>\n                                <input [(ngModel)]=\"updateBook.isbn\" type=\"text\" name=\"isbn\" placeholder=\"ISBN\" />\n                            </div>\n                            <div class=\"col-sm-12\">\n                                <label>Description:</label>\n                                <textarea [(ngModel)]=\"updateBook.short_summary\" name=\"text\" placeholder=\"Book Description\" rows=\"10\"></textarea>\n                            </div>\n                        </form>\n                        <div class=\"row\" style=\"padding-top:40px\">\n                            <div class=\"col-md-12\">\n                                <button [disabled]=\"loading.edit\" (click)=\"saveBook()\" style=\"color: white;\" class=\"btn btn--primary-1\" >Save Changes</button>\n\n                                <button [disabled]=\"loading.edit\" (click)=\"cancelEdit()\" class=\"btn btn--secondary\" >Cancel</button>\n                            </div>\n                        </div>\n                    </div>\n\n                </div>\n\n            </div>\n            <!--end of row-->\n        </div>\n        <!--end of container-->\n    </section>\n\n    <quietthyme-footer></quietthyme-footer>\n</div>\n\n\n"
 
 /***/ }),
 
@@ -904,8 +904,12 @@ var BookDetailsComponent = (function () {
             _this.notificationService.error('An error occurred!', error);
         });
     };
+    BookDetailsComponent.prototype.updateBookCover = function (key) {
+        this.updateBook.cover = key;
+    };
     BookDetailsComponent.prototype.cancelEdit = function () {
         this.editing = false;
+        //todo delete any uploaded book cover that doesnt get saved.
     };
     BookDetailsComponent.prototype.trackByIndex = function (index, value) {
         // console.log("TRACK BY INDEX CALLED", index)
@@ -1217,6 +1221,21 @@ var StoragePrepareBookModel = (function () {
 }());
 
 //# sourceMappingURL=storage-prepare-book-model.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/models/storage-prepare-cover-model.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return StoragePrepareCoverModel; });
+var StoragePrepareCoverModel = (function () {
+    function StoragePrepareCoverModel() {
+    }
+    return StoragePrepareCoverModel;
+}());
+
+//# sourceMappingURL=storage-prepare-cover-model.js.map
 
 /***/ }),
 
@@ -2242,6 +2261,14 @@ var ApiService = (function () {
             .map(this.extractData)
             .catch(this.handleError);
     };
+    ApiService.prototype.storagePrepareCover = function (prepare_data) {
+        var params = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["URLSearchParams"]();
+        params.set('source', 'web'); //if we dont specify the source, we'll get the wrong kind of signedUrl from the API (one without a policy)
+        return this.authHttp
+            .post(__WEBPACK_IMPORTED_MODULE_4__app_settings__["a" /* AppSettings */].API_ENDPOINT + "/storage/prepare/cover", prepare_data, { search: params })
+            .map(this.extractData)
+            .catch(this.handleError);
+    };
     ApiService.prototype.bookList = function (filter) {
         var url = __WEBPACK_IMPORTED_MODULE_4__app_settings__["a" /* AppSettings */].API_ENDPOINT + "/book";
         var params = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["URLSearchParams"]();
@@ -3234,7 +3261,9 @@ var _a, _b, _c, _d, _e, _f;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_settings__ = __webpack_require__("../../../../../src/app/app-settings.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__models_storage_prepare_book_model__ = __webpack_require__("../../../../../src/app/models/storage-prepare-book-model.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_api_service__ = __webpack_require__("../../../../../src/app/services/api.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__models_storage_prepare_cover_model__ = __webpack_require__("../../../../../src/app/models/storage-prepare-cover-model.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__models_book__ = __webpack_require__("../../../../../src/app/models/book.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__services_api_service__ = __webpack_require__("../../../../../src/app/services/api.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3248,23 +3277,42 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
+
 var DropzoneDirective = (function () {
     function DropzoneDirective(_elt, apiService) {
         this.apiService = apiService;
-        this.onCheckout = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]();
-        this.signedCredData = {};
+        this.bookCover = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]();
+        this.storageId = 'quietthyme';
         this.acceptedFiles = __WEBPACK_IMPORTED_MODULE_1__app_settings__["a" /* AppSettings */].SUPPORTED_BOOK_TYPES.join(',');
+        this.uploadType = "book";
+        this.signedCredData = {};
         this.elt = _elt;
-        var prepareData = new __WEBPACK_IMPORTED_MODULE_2__models_storage_prepare_book_model__["a" /* StoragePrepareBookModel */]();
-        prepareData.storage_id = 'quietthyme';
-        this.signedCredData['quietthyme'] = this.apiService.storagePrepareBook(prepareData);
+        var key = this.getSignedCredKey();
+        this.signedCredData[key] = this.getSignedData(this.storageId, this.uploadType);
     }
+    DropzoneDirective.prototype.getSignedCredKey = function () {
+        return this.storageId + "-" + this.uploadType;
+    };
+    DropzoneDirective.prototype.getSignedData = function (storageId, uploadType) {
+        if (uploadType == 'book') {
+            var bookPrepareData = new __WEBPACK_IMPORTED_MODULE_2__models_storage_prepare_book_model__["a" /* StoragePrepareBookModel */]();
+            bookPrepareData.storage_id = storageId;
+            return this.apiService.storagePrepareBook(bookPrepareData);
+        }
+        else if (uploadType == 'cover') {
+            var coverPrepareData = new __WEBPACK_IMPORTED_MODULE_3__models_storage_prepare_cover_model__["a" /* StoragePrepareCoverModel */]();
+            coverPrepareData.book_id = this.book.id;
+            coverPrepareData.filename = 'cover-' + (new Date()).getTime(); //upload with timestamp for cache busting.
+            coverPrepareData.format = '.jpg';
+            return this.apiService.storagePrepareCover(coverPrepareData);
+        }
+    };
     DropzoneDirective.prototype.ngOnChanges = function (changes) {
-        console.log(changes);
-        if (!this.signedCredData[this.storageId]) {
-            var prepareData = new __WEBPACK_IMPORTED_MODULE_2__models_storage_prepare_book_model__["a" /* StoragePrepareBookModel */]();
-            prepareData.storage_id = this.storageId;
-            this.signedCredData[this.storageId] = this.apiService.storagePrepareBook(prepareData);
+        console.log("CHANGES:", changes);
+        var key = this.getSignedCredKey();
+        if (!this.signedCredData[key]) {
+            this.signedCredData[key] = this.getSignedData(this.storageId, this.uploadType);
         }
     };
     DropzoneDirective.prototype.ngAfterViewInit = function () {
@@ -3273,7 +3321,8 @@ var DropzoneDirective = (function () {
             url: "https://s3.amazonaws.com/placeholder",
             paramName: "file",
             maxThumbnailFilesize: 5,
-            // uploadMultiple: false,
+            maxFiles: self.maxFiles ? self.maxFiles : null,
+            uploadMultiple: false,
             // headers: {"Accept": "text/plain"},
             // In the `accept` function we request a signed upload URL when a file being accepted
             acceptedFiles: self.acceptedFiles,
@@ -3292,15 +3341,26 @@ var DropzoneDirective = (function () {
                 // prepareData.storage_filename = filename;
                 // prepareData.storage_format = extension;
                 console.log("Storage Destination data:");
-                self.signedCredData[self.storageId]
+                self.signedCredData[self.getSignedCredKey()]
                     .subscribe(function (data) {
-                    // do a deep copy of the subscribe data.
-                    var respData = JSON.parse(JSON.stringify(data));
-                    respData.fields.key = respData.fields.key + file.name;
-                    file.signedFormFields = respData.fields;
-                    file.upload_url = respData.url; // url has a trailing suffix.
-                    done();
+                    try {
+                        // do a deep copy of the subscribe data.
+                        var respData = JSON.parse(JSON.stringify(data));
+                        if (self.uploadType == 'cover') {
+                            respData.fields.key = respData.fields.key;
+                        }
+                        else {
+                            respData.fields.key = respData.fields.key + file.name;
+                        }
+                        file.signedFormFields = respData.fields;
+                        file.upload_url = respData.url; // url has a trailing suffix.
+                        done();
+                    }
+                    catch (e) {
+                        done(e);
+                    }
                 }, function (error) {
+                    console.log("An error occured", error);
                     done(error);
                 });
             },
@@ -3315,27 +3375,58 @@ var DropzoneDirective = (function () {
         });
         // Set signed upload URL for each file being processing
         myDropzone.on('processing', function (file) {
+            console.log("procesing event", file);
             myDropzone.options.url = file.upload_url;
         });
+        // myDropzone.on('success', (resp) => {
+        //   console.log("success event", resp)
+        // })
+        myDropzone.on('complete', function (resp) {
+            console.log("complete event", resp);
+            self.bookCover.emit(resp.signedFormFields.bucket + "/" + resp.signedFormFields.key);
+        });
+        // myDropzone.on('canceled', (resp) => {
+        //     console.log("canceled event", resp)
+        // })
+        //
+        // myDropzone.on('error', (resp) => {
+        //     console.log("error event", resp)
+        // })
     };
     return DropzoneDirective;
 }());
 __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"])(),
     __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]) === "function" && _a || Object)
-], DropzoneDirective.prototype, "onCheckout", void 0);
+], DropzoneDirective.prototype, "bookCover", void 0);
 __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
     __metadata("design:type", String)
 ], DropzoneDirective.prototype, "storageId", void 0);
+__decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+    __metadata("design:type", typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_4__models_book__["a" /* BookModel */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__models_book__["a" /* BookModel */]) === "function" && _b || Object)
+], DropzoneDirective.prototype, "book", void 0);
+__decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+    __metadata("design:type", String)
+], DropzoneDirective.prototype, "acceptedFiles", void 0);
+__decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+    __metadata("design:type", Number)
+], DropzoneDirective.prototype, "maxFiles", void 0);
+__decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+    __metadata("design:type", String)
+], DropzoneDirective.prototype, "uploadType", void 0);
 DropzoneDirective = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Directive"])({
         selector: '[dropzone]',
     }),
-    __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__services_api_service__["a" /* ApiService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_api_service__["a" /* ApiService */]) === "function" && _c || Object])
+    __metadata("design:paramtypes", [typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_5__services_api_service__["a" /* ApiService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__services_api_service__["a" /* ApiService */]) === "function" && _d || Object])
 ], DropzoneDirective);
 
-var _a, _b, _c;
+var _a, _b, _c, _d;
 //# sourceMappingURL=dropzone.directive.js.map
 
 /***/ }),
