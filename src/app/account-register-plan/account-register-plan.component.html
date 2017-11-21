@@ -53,11 +53,16 @@
                     <div class="pricing pricing-1 boxed boxed--border boxed--lg text-center">
                         <h4>Reader Plan</h4>
                         <span class="h1">
-                                                        <span class="pricing__dollar">$</span>Beta</span>
-                        <p>
-                            All plans come with a <span style="font-weight:900">15 day</span> trial. You can cancel at any time, no questions asked.
-                        </p>
+                        <span class="pricing__dollar">$</span>Beta</span>
+
+                        <div>
+                            <p>
+                                All plans come with a <span style="font-weight:900">15 day</span> trial. You can cancel at any time, no questions asked.
+                            </p>
+                        </div>
+
                         <span class="label">Monthly</span>
+
                         <a stripeCheckoutButton
                            [planId]="'reader_1'"
                            [planName]="'Reader Plan'"

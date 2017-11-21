@@ -148,7 +148,7 @@ export class SettingsComponent implements OnInit {
         })
         .subscribe(
             data => {
-              console.log("Finsihed successfully")
+              console.log("Test notification sent successfully")
             },
             error => {
               console.log("An error occured")
