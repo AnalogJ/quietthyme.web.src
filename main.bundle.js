@@ -46,9 +46,10 @@ module.exports = module.exports.toString();
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_api_service__ = __webpack_require__("../../../../../src/app/services/api.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_uservoice_service__ = __webpack_require__("../../../../../src/app/services/uservoice.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_notification_service__ = __webpack_require__("../../../../../src/app/services/notification.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_ng2_slim_loading_bar__ = __webpack_require__("../../../../ng2-slim-loading-bar/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_analytics_service__ = __webpack_require__("../../../../../src/app/services/analytics.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_notification_service__ = __webpack_require__("../../../../../src/app/services/notification.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_ng2_slim_loading_bar__ = __webpack_require__("../../../../ng2-slim-loading-bar/index.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -65,22 +66,24 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var AccountLoginComponent = (function () {
-    function AccountLoginComponent(slimLoadingBarService, apiService, uservoiceService, notificationService, router, activatedRoute) {
+    function AccountLoginComponent(slimLoadingBarService, apiService, uservoiceService, notificationService, router, activatedRoute, analyticsService) {
+        var _this = this;
         this.slimLoadingBarService = slimLoadingBarService;
         this.apiService = apiService;
         this.uservoiceService = uservoiceService;
         this.notificationService = notificationService;
         this.router = router;
         this.activatedRoute = activatedRoute;
+        this.analyticsService = analyticsService;
         this.loading = {
             login: false,
             oauth: true,
         };
         this.router.events.subscribe(function (event) {
-            if (event instanceof __WEBPACK_IMPORTED_MODULE_4__angular_router__["b" /* NavigationEnd */]) {
-                ga('set', 'page', event.urlAfterRedirects);
-                ga('send', 'pageview');
+            if (event instanceof __WEBPACK_IMPORTED_MODULE_5__angular_router__["b" /* NavigationEnd */]) {
+                _this.analyticsService.visitPage(event.urlAfterRedirects);
             }
         });
     }
@@ -122,10 +125,10 @@ AccountLoginComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/account-login/account-login.component.html"),
         styles: [__webpack_require__("../../../../../src/app/account-login/account-login.component.less")],
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_5_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__services_uservoice_service__["a" /* UservoiceService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_uservoice_service__["a" /* UservoiceService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__services_notification_service__["a" /* NotificationService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_notification_service__["a" /* NotificationService */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_4__angular_router__["d" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__angular_router__["d" /* Router */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_4__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__angular_router__["a" /* ActivatedRoute */]) === "function" && _f || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_6_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__services_uservoice_service__["a" /* UservoiceService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_uservoice_service__["a" /* UservoiceService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_4__services_notification_service__["a" /* NotificationService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__services_notification_service__["a" /* NotificationService */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_5__angular_router__["d" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__angular_router__["d" /* Router */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_5__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__angular_router__["a" /* ActivatedRoute */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_3__services_analytics_service__["a" /* AnalyticsService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_analytics_service__["a" /* AnalyticsService */]) === "function" && _g || Object])
 ], AccountLoginComponent);
 
-var _a, _b, _c, _d, _e, _f;
+var _a, _b, _c, _d, _e, _f, _g;
 //# sourceMappingURL=account-login.component.js.map
 
 /***/ }),
@@ -165,7 +168,8 @@ module.exports = module.exports.toString();
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_api_service__ = __webpack_require__("../../../../../src/app/services/api.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_uservoice_service__ = __webpack_require__("../../../../../src/app/services/uservoice.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_notification_service__ = __webpack_require__("../../../../../src/app/services/notification.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__services_analytics_service__ = __webpack_require__("../../../../../src/app/services/analytics.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -181,20 +185,22 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var AccountRegisterPlanComponent = (function () {
-    function AccountRegisterPlanComponent(slimLoadingBarService, uservoiceService, notificationService, apiService, router) {
+    function AccountRegisterPlanComponent(slimLoadingBarService, uservoiceService, notificationService, apiService, router, analyticsService) {
+        var _this = this;
         this.slimLoadingBarService = slimLoadingBarService;
         this.uservoiceService = uservoiceService;
         this.notificationService = notificationService;
         this.apiService = apiService;
         this.router = router;
+        this.analyticsService = analyticsService;
         this.loading = {
             setPlan: false,
         };
         this.router.events.subscribe(function (event) {
-            if (event instanceof __WEBPACK_IMPORTED_MODULE_5__angular_router__["b" /* NavigationEnd */]) {
-                ga('set', 'page', event.urlAfterRedirects);
-                ga('send', 'pageview');
+            if (event instanceof __WEBPACK_IMPORTED_MODULE_6__angular_router__["b" /* NavigationEnd */]) {
+                _this.analyticsService.visitPage(event.urlAfterRedirects);
             }
         });
     }
@@ -230,10 +236,10 @@ AccountRegisterPlanComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/account-register-plan/account-register-plan.component.html"),
         styles: [__webpack_require__("../../../../../src/app/account-register-plan/account-register-plan.component.less")],
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__services_uservoice_service__["a" /* UservoiceService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_uservoice_service__["a" /* UservoiceService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4__services_notification_service__["a" /* NotificationService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__services_notification_service__["a" /* NotificationService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__services_api_service__["a" /* ApiService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_api_service__["a" /* ApiService */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_5__angular_router__["d" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__angular_router__["d" /* Router */]) === "function" && _e || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__services_uservoice_service__["a" /* UservoiceService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_uservoice_service__["a" /* UservoiceService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4__services_notification_service__["a" /* NotificationService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__services_notification_service__["a" /* NotificationService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__services_api_service__["a" /* ApiService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_api_service__["a" /* ApiService */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_6__angular_router__["d" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__angular_router__["d" /* Router */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_5__services_analytics_service__["a" /* AnalyticsService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__services_analytics_service__["a" /* AnalyticsService */]) === "function" && _f || Object])
 ], AccountRegisterPlanComponent);
 
-var _a, _b, _c, _d, _e;
+var _a, _b, _c, _d, _e, _f;
 //# sourceMappingURL=account-register-plan.component.js.map
 
 /***/ }),
@@ -272,8 +278,9 @@ module.exports = module.exports.toString();
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_api_service__ = __webpack_require__("../../../../../src/app/services/api.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_uservoice_service__ = __webpack_require__("../../../../../src/app/services/uservoice.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_notification_service__ = __webpack_require__("../../../../../src/app/services/notification.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_ng2_slim_loading_bar__ = __webpack_require__("../../../../ng2-slim-loading-bar/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_analytics_service__ = __webpack_require__("../../../../../src/app/services/analytics.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_ng2_slim_loading_bar__ = __webpack_require__("../../../../ng2-slim-loading-bar/index.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -289,22 +296,24 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var AccountRegisterComponent = (function () {
-    function AccountRegisterComponent(slimLoadingBarService, apiService, uservoiceService, notificationService, router, activatedRoute) {
+    function AccountRegisterComponent(slimLoadingBarService, apiService, uservoiceService, notificationService, router, activatedRoute, analyticsService) {
+        var _this = this;
         this.slimLoadingBarService = slimLoadingBarService;
         this.apiService = apiService;
         this.uservoiceService = uservoiceService;
         this.notificationService = notificationService;
         this.router = router;
         this.activatedRoute = activatedRoute;
+        this.analyticsService = analyticsService;
         this.loading = {
             register: false,
             oauth: false,
         };
         this.router.events.subscribe(function (event) {
-            if (event instanceof __WEBPACK_IMPORTED_MODULE_4__angular_router__["b" /* NavigationEnd */]) {
-                ga('set', 'page', event.urlAfterRedirects);
-                ga('send', 'pageview');
+            if (event instanceof __WEBPACK_IMPORTED_MODULE_5__angular_router__["b" /* NavigationEnd */]) {
+                _this.analyticsService.visitPage(event.urlAfterRedirects);
             }
         });
     }
@@ -340,10 +349,10 @@ AccountRegisterComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/account-register/account-register.component.html"),
         styles: [__webpack_require__("../../../../../src/app/account-register/account-register.component.less")],
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_5_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__services_uservoice_service__["a" /* UservoiceService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_uservoice_service__["a" /* UservoiceService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__services_notification_service__["a" /* NotificationService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_notification_service__["a" /* NotificationService */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_4__angular_router__["d" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__angular_router__["d" /* Router */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_4__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__angular_router__["a" /* ActivatedRoute */]) === "function" && _f || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_6_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__services_uservoice_service__["a" /* UservoiceService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_uservoice_service__["a" /* UservoiceService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__services_notification_service__["a" /* NotificationService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_notification_service__["a" /* NotificationService */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_5__angular_router__["d" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__angular_router__["d" /* Router */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_5__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__angular_router__["a" /* ActivatedRoute */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_4__services_analytics_service__["a" /* AnalyticsService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__services_analytics_service__["a" /* AnalyticsService */]) === "function" && _g || Object])
 ], AccountRegisterComponent);
 
-var _a, _b, _c, _d, _e, _f;
+var _a, _b, _c, _d, _e, _f, _g;
 //# sourceMappingURL=account-register.component.js.map
 
 /***/ }),
@@ -779,10 +788,11 @@ module.exports = module.exports.toString();
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ng2_slim_loading_bar__ = __webpack_require__("../../../../ng2-slim-loading-bar/index.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__services_notification_service__ = __webpack_require__("../../../../../src/app/services/notification.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_ngx_bootstrap_modal__ = __webpack_require__("../../../../ngx-bootstrap/modal/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__partials_book_delete_book_delete_component__ = __webpack_require__("../../../../../src/app/partials/book-delete/book-delete.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_file_saver__ = __webpack_require__("../../../../file-saver/FileSaver.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_file_saver___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_file_saver__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__services_analytics_service__ = __webpack_require__("../../../../../src/app/services/analytics.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_ngx_bootstrap_modal__ = __webpack_require__("../../../../ngx-bootstrap/modal/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__partials_book_delete_book_delete_component__ = __webpack_require__("../../../../../src/app/partials/book-delete/book-delete.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_file_saver__ = __webpack_require__("../../../../file-saver/FileSaver.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_file_saver___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9_file_saver__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -801,14 +811,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var BookDetailsComponent = (function () {
-    function BookDetailsComponent(slimLoadingBarService, apiService, notificationService, router, activatedRoute, modalService) {
+    function BookDetailsComponent(slimLoadingBarService, apiService, notificationService, router, activatedRoute, modalService, analyticsService) {
+        var _this = this;
         this.slimLoadingBarService = slimLoadingBarService;
         this.apiService = apiService;
         this.notificationService = notificationService;
         this.router = router;
         this.activatedRoute = activatedRoute;
         this.modalService = modalService;
+        this.analyticsService = analyticsService;
         this.book = new __WEBPACK_IMPORTED_MODULE_2__models_book__["a" /* BookModel */]();
         this.updateBook = {};
         this.loading = {
@@ -820,8 +833,7 @@ var BookDetailsComponent = (function () {
         this.editing = false;
         this.router.events.subscribe(function (event) {
             if (event instanceof __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* NavigationEnd */]) {
-                ga('set', 'page', event.urlAfterRedirects);
-                ga('send', 'pageview');
+                _this.analyticsService.visitPage(event.urlAfterRedirects);
             }
         });
     }
@@ -859,13 +871,13 @@ var BookDetailsComponent = (function () {
             var filename = _this.book.storage_filename + _this.book.storage_format;
             var file = response.blob();
             console.log(file.size + ' bytes file downloaded. File type: ', file.type);
-            __WEBPACK_IMPORTED_MODULE_8_file_saver__["saveAs"](file, filename);
+            __WEBPACK_IMPORTED_MODULE_9_file_saver__["saveAs"](file, filename);
         }, function (error) {
             _this.notificationService.error('An error occurred!', error);
         });
     };
     BookDetailsComponent.prototype.openModalBookDelete = function () {
-        this.bsModalRef = this.modalService.show(__WEBPACK_IMPORTED_MODULE_7__partials_book_delete_book_delete_component__["a" /* BookDeleteComponent */], {
+        this.bsModalRef = this.modalService.show(__WEBPACK_IMPORTED_MODULE_8__partials_book_delete_book_delete_component__["a" /* BookDeleteComponent */], {
             animated: true,
             backdrop: 'static',
             class: 'modal-container modal-active',
@@ -923,10 +935,10 @@ BookDetailsComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/book-details/book-details.component.html"),
         styles: [__webpack_require__("../../../../../src/app/book-details/book-details.component.less")],
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_4_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_5__services_notification_service__["a" /* NotificationService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__services_notification_service__["a" /* NotificationService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["d" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_router__["d" /* Router */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* ActivatedRoute */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_6_ngx_bootstrap_modal__["a" /* BsModalService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6_ngx_bootstrap_modal__["a" /* BsModalService */]) === "function" && _f || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_4_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_5__services_notification_service__["a" /* NotificationService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__services_notification_service__["a" /* NotificationService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["d" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_router__["d" /* Router */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* ActivatedRoute */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_7_ngx_bootstrap_modal__["a" /* BsModalService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_7_ngx_bootstrap_modal__["a" /* BsModalService */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_6__services_analytics_service__["a" /* AnalyticsService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__services_analytics_service__["a" /* AnalyticsService */]) === "function" && _g || Object])
 ], BookDetailsComponent);
 
-var _a, _b, _c, _d, _e, _f;
+var _a, _b, _c, _d, _e, _f, _g;
 //# sourceMappingURL=book-details.component.js.map
 
 /***/ }),
@@ -965,14 +977,15 @@ module.exports = module.exports.toString();
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_api_service__ = __webpack_require__("../../../../../src/app/services/api.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ng2_slim_loading_bar__ = __webpack_require__("../../../../ng2-slim-loading-bar/index.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_notification_service__ = __webpack_require__("../../../../../src/app/services/notification.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__partials_book_upload_book_upload_component__ = __webpack_require__("../../../../../src/app/partials/book-upload/book-upload.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_ngx_bootstrap_modal__ = __webpack_require__("../../../../ngx-bootstrap/modal/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_ng2_scrollspy__ = __webpack_require__("../../../../ng2-scrollspy/dist/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_ng2_scrollspy___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_ng2_scrollspy__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_file_saver__ = __webpack_require__("../../../../file-saver/FileSaver.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_file_saver___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_file_saver__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__app_settings__ = __webpack_require__("../../../../../src/app/app-settings.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_analytics_service__ = __webpack_require__("../../../../../src/app/services/analytics.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__partials_book_upload_book_upload_component__ = __webpack_require__("../../../../../src/app/partials/book-upload/book-upload.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_ngx_bootstrap_modal__ = __webpack_require__("../../../../ngx-bootstrap/modal/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_ng2_scrollspy__ = __webpack_require__("../../../../ng2-scrollspy/dist/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_ng2_scrollspy___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_ng2_scrollspy__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_file_saver__ = __webpack_require__("../../../../file-saver/FileSaver.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_file_saver___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_file_saver__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__app_settings__ = __webpack_require__("../../../../../src/app/app-settings.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -992,8 +1005,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var LibraryComponent = (function () {
-    function LibraryComponent(slimLoadingBarService, notificationService, apiService, scrollSpyService, modalService, router, activatedRoute) {
+    function LibraryComponent(slimLoadingBarService, notificationService, apiService, scrollSpyService, modalService, router, activatedRoute, analyticsService) {
         var _this = this;
         this.slimLoadingBarService = slimLoadingBarService;
         this.notificationService = notificationService;
@@ -1002,6 +1016,7 @@ var LibraryComponent = (function () {
         this.modalService = modalService;
         this.router = router;
         this.activatedRoute = activatedRoute;
+        this.analyticsService = analyticsService;
         this.bookList = [];
         this.bookListAll = false;
         this.loading = {
@@ -1015,11 +1030,10 @@ var LibraryComponent = (function () {
             page: '',
         };
         this.connected = [];
-        this.storageDetails = __WEBPACK_IMPORTED_MODULE_8__app_settings__["a" /* AppSettings */].STORAGE_DETAILS;
+        this.storageDetails = __WEBPACK_IMPORTED_MODULE_9__app_settings__["a" /* AppSettings */].STORAGE_DETAILS;
         this.router.events.subscribe(function (event) {
-            if (event instanceof __WEBPACK_IMPORTED_MODULE_9__angular_router__["b" /* NavigationEnd */]) {
-                ga('set', 'page', event.urlAfterRedirects);
-                ga('send', 'pageview');
+            if (event instanceof __WEBPACK_IMPORTED_MODULE_10__angular_router__["b" /* NavigationEnd */]) {
+                _this.analyticsService.visitPage(event.urlAfterRedirects);
                 //the filter parameters in the url bar always take presidence over internal state
                 //because the user may have bookmarked the page, or it was linked to the library with a filter.
                 //so all filters just update the url query string, which bubbles an event, and kicks off a Clean getBookList
@@ -1130,7 +1144,7 @@ var LibraryComponent = (function () {
         this.navigateToFilteredLibrary(this.filter);
     };
     LibraryComponent.prototype.openModalBookUpload = function () {
-        this.bsModalRef = this.modalService.show(__WEBPACK_IMPORTED_MODULE_4__partials_book_upload_book_upload_component__["a" /* BookUploadComponent */], {
+        this.bsModalRef = this.modalService.show(__WEBPACK_IMPORTED_MODULE_5__partials_book_upload_book_upload_component__["a" /* BookUploadComponent */], {
             animated: true,
             backdrop: 'static',
             class: 'modal-container modal-active',
@@ -1155,7 +1169,7 @@ var LibraryComponent = (function () {
             var filename = book.storage_filename + book.storage_format;
             var file = response.blob();
             console.log(file.size + ' bytes file downloaded. File type: ', file.type);
-            __WEBPACK_IMPORTED_MODULE_7_file_saver__["saveAs"](file, filename);
+            __WEBPACK_IMPORTED_MODULE_8_file_saver__["saveAs"](file, filename);
         }, function (error) {
             _this.notificationService.error('An error occurred!', error);
         });
@@ -1184,10 +1198,10 @@ LibraryComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/library/library.component.html"),
         styles: [__webpack_require__("../../../../../src/app/library/library.component.less")],
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__services_notification_service__["a" /* NotificationService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_notification_service__["a" /* NotificationService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_6_ng2_scrollspy__["ScrollSpyService"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6_ng2_scrollspy__["ScrollSpyService"]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_5_ngx_bootstrap_modal__["a" /* BsModalService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5_ngx_bootstrap_modal__["a" /* BsModalService */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_9__angular_router__["d" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_9__angular_router__["d" /* Router */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_9__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_9__angular_router__["a" /* ActivatedRoute */]) === "function" && _g || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__services_notification_service__["a" /* NotificationService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_notification_service__["a" /* NotificationService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_7_ng2_scrollspy__["ScrollSpyService"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_7_ng2_scrollspy__["ScrollSpyService"]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_6_ngx_bootstrap_modal__["a" /* BsModalService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6_ngx_bootstrap_modal__["a" /* BsModalService */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_10__angular_router__["d" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_10__angular_router__["d" /* Router */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_10__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_10__angular_router__["a" /* ActivatedRoute */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_4__services_analytics_service__["a" /* AnalyticsService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__services_analytics_service__["a" /* AnalyticsService */]) === "function" && _h || Object])
 ], LibraryComponent);
 
-var _a, _b, _c, _d, _e, _f, _g;
+var _a, _b, _c, _d, _e, _f, _g, _h;
 //# sourceMappingURL=library.component.js.map
 
 /***/ }),
@@ -1996,6 +2010,7 @@ module.exports = module.exports.toString();
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PrivacyComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_analytics_service__ = __webpack_require__("../../../../../src/app/services/analytics.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2007,13 +2022,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
 var PrivacyComponent = (function () {
-    function PrivacyComponent(router) {
+    function PrivacyComponent(router, analyticsService) {
+        var _this = this;
         this.router = router;
+        this.analyticsService = analyticsService;
         this.router.events.subscribe(function (event) {
             if (event instanceof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* NavigationEnd */]) {
-                ga('set', 'page', event.urlAfterRedirects);
-                ga('send', 'pageview');
+                _this.analyticsService.visitPage(event.urlAfterRedirects);
             }
         });
     }
@@ -2026,10 +2043,10 @@ PrivacyComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/privacy/privacy.component.html"),
         styles: [__webpack_require__("../../../../../src/app/privacy/privacy.component.less")],
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["d" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["d" /* Router */]) === "function" && _a || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["d" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["d" /* Router */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__services_analytics_service__["a" /* AnalyticsService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_analytics_service__["a" /* AnalyticsService */]) === "function" && _b || Object])
 ], PrivacyComponent);
 
-var _a;
+var _a, _b;
 //# sourceMappingURL=privacy.component.js.map
 
 /***/ }),
@@ -2071,6 +2088,46 @@ var _a;
 
 
 //# sourceMappingURL=rxjs-operators.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/services/analytics.service.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AnalyticsService; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var AnalyticsService = (function () {
+    function AnalyticsService() {
+    }
+    AnalyticsService.prototype.visitPage = function (url) {
+        try {
+            ga('set', 'page', url);
+            ga('send', 'pageview');
+        }
+        catch (e) {
+            //"Google Analytics event has failed. Possible popup blocker"
+            //ignore.
+        }
+    };
+    return AnalyticsService;
+}());
+AnalyticsService = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
+    __metadata("design:paramtypes", [])
+], AnalyticsService);
+
+//# sourceMappingURL=analytics.service.js.map
 
 /***/ }),
 
@@ -2627,6 +2684,10 @@ var PushNotifyService = (function () {
         var self = this;
         navigator.serviceWorker.register('service-worker.js')
             .then(function (sw) {
+            //exit if sw is null after registration
+            if (!sw) {
+                return;
+            }
             self.serviceWorkerRegistration = sw;
             // Set the initial subscription value
             console.log(sw);
@@ -2645,6 +2706,10 @@ var PushNotifyService = (function () {
     };
     PushNotifyService.prototype.subscribeUser = function () {
         var self = this;
+        if (!self.serviceWorkerRegistration) {
+            console.log('No serviceworker found');
+            return;
+        }
         this.serviceWorkerRegistration.pushManager.subscribe({
             userVisibleOnly: true,
             applicationServerKey: self.urlB64ToUint8Array(__WEBPACK_IMPORTED_MODULE_2__environments_environment__["a" /* environment */].pushNotifyPublicKey)
@@ -2671,6 +2736,10 @@ var PushNotifyService = (function () {
     };
     PushNotifyService.prototype.unsubscribeUser = function () {
         var self = this;
+        if (!self.serviceWorkerRegistration) {
+            console.log('No serviceworker found');
+            return;
+        }
         this.serviceWorkerRegistration.pushManager.getSubscription()
             .then(function (subscription) {
             if (!subscription) {
@@ -2882,6 +2951,7 @@ module.exports = module.exports.toString();
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_push_notify_service__ = __webpack_require__("../../../../../src/app/services/push-notify.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__services_notification_service__ = __webpack_require__("../../../../../src/app/services/notification.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__services_analytics_service__ = __webpack_require__("../../../../../src/app/services/analytics.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2897,8 +2967,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var SettingsComponent = (function () {
-    function SettingsComponent(slimLoadingBarService, apiService, activatedRoute, router, pushNotifyService, notificationService) {
+    function SettingsComponent(slimLoadingBarService, apiService, activatedRoute, router, pushNotifyService, notificationService, analyticsService) {
         var _this = this;
         this.slimLoadingBarService = slimLoadingBarService;
         this.apiService = apiService;
@@ -2906,6 +2977,7 @@ var SettingsComponent = (function () {
         this.router = router;
         this.pushNotifyService = pushNotifyService;
         this.notificationService = notificationService;
+        this.analyticsService = analyticsService;
         this.userData = {};
         this.updateData = {};
         this.oldPassword = '';
@@ -2922,8 +2994,7 @@ var SettingsComponent = (function () {
         this.hasPushNotificationSubscription = false;
         this.router.events.subscribe(function (event) {
             if (event instanceof __WEBPACK_IMPORTED_MODULE_4__angular_router__["b" /* NavigationEnd */]) {
-                ga('set', 'page', event.urlAfterRedirects);
-                ga('send', 'pageview');
+                _this.analyticsService.visitPage(event.urlAfterRedirects);
             }
         });
         this.pushNotifyService.init();
@@ -3245,10 +3316,10 @@ SettingsComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/settings/settings.component.html"),
         styles: [__webpack_require__("../../../../../src/app/settings/settings.component.less")],
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__angular_router__["a" /* ActivatedRoute */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_4__angular_router__["d" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__angular_router__["d" /* Router */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_3__services_push_notify_service__["a" /* PushNotifyService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_push_notify_service__["a" /* PushNotifyService */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_5__services_notification_service__["a" /* NotificationService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__services_notification_service__["a" /* NotificationService */]) === "function" && _f || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__angular_router__["a" /* ActivatedRoute */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_4__angular_router__["d" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__angular_router__["d" /* Router */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_3__services_push_notify_service__["a" /* PushNotifyService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_push_notify_service__["a" /* PushNotifyService */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_5__services_notification_service__["a" /* NotificationService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__services_notification_service__["a" /* NotificationService */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_6__services_analytics_service__["a" /* AnalyticsService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__services_analytics_service__["a" /* AnalyticsService */]) === "function" && _g || Object])
 ], SettingsComponent);
 
-var _a, _b, _c, _d, _e, _f;
+var _a, _b, _c, _d, _e, _f, _g;
 //# sourceMappingURL=settings.component.js.map
 
 /***/ }),
@@ -3676,6 +3747,7 @@ module.exports = module.exports.toString();
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_settings__ = __webpack_require__("../../../../../src/app/app-settings.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_notification_service__ = __webpack_require__("../../../../../src/app/services/notification.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__services_analytics_service__ = __webpack_require__("../../../../../src/app/services/analytics.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3691,12 +3763,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var StorageComponent = (function () {
-    function StorageComponent(slimLoadingBarService, notificationService, apiService, router) {
+    function StorageComponent(slimLoadingBarService, notificationService, apiService, router, analyticsService) {
+        var _this = this;
         this.slimLoadingBarService = slimLoadingBarService;
         this.notificationService = notificationService;
         this.apiService = apiService;
         this.router = router;
+        this.analyticsService = analyticsService;
         this.kloudlessStorageTypes = __WEBPACK_IMPORTED_MODULE_3__app_settings__["a" /* AppSettings */].KLOUDLESS_STORAGE_TYPES; //contains a list of all the storage types that are unconnected.
         this.connected = []; //contains a list of all the connected storage provider data.
         this.loading = {
@@ -3705,8 +3780,7 @@ var StorageComponent = (function () {
         };
         this.router.events.subscribe(function (event) {
             if (event instanceof __WEBPACK_IMPORTED_MODULE_5__angular_router__["b" /* NavigationEnd */]) {
-                ga('set', 'page', event.urlAfterRedirects);
-                ga('send', 'pageview');
+                _this.analyticsService.visitPage(event.urlAfterRedirects);
             }
         });
     }
@@ -3798,10 +3872,10 @@ StorageComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/storage/storage.component.html"),
         styles: [__webpack_require__("../../../../../src/app/storage/storage.component.less")],
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_4__services_notification_service__["a" /* NotificationService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__services_notification_service__["a" /* NotificationService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_5__angular_router__["d" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__angular_router__["d" /* Router */]) === "function" && _d || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ng2_slim_loading_bar__["b" /* SlimLoadingBarService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_4__services_notification_service__["a" /* NotificationService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__services_notification_service__["a" /* NotificationService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_api_service__["a" /* ApiService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_5__angular_router__["d" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__angular_router__["d" /* Router */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_6__services_analytics_service__["a" /* AnalyticsService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__services_analytics_service__["a" /* AnalyticsService */]) === "function" && _e || Object])
 ], StorageComponent);
 
-var _a, _b, _c, _d;
+var _a, _b, _c, _d, _e;
 //# sourceMappingURL=storage.component.js.map
 
 /***/ }),
@@ -3838,6 +3912,7 @@ module.exports = module.exports.toString();
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TermsComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_analytics_service__ = __webpack_require__("../../../../../src/app/services/analytics.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3849,13 +3924,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
 var TermsComponent = (function () {
-    function TermsComponent(router) {
+    function TermsComponent(router, analyticsService) {
+        var _this = this;
         this.router = router;
+        this.analyticsService = analyticsService;
         this.router.events.subscribe(function (event) {
             if (event instanceof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* NavigationEnd */]) {
-                ga('set', 'page', event.urlAfterRedirects);
-                ga('send', 'pageview');
+                _this.analyticsService.visitPage(event.urlAfterRedirects);
             }
         });
     }
@@ -3868,10 +3945,10 @@ TermsComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/terms/terms.component.html"),
         styles: [__webpack_require__("../../../../../src/app/terms/terms.component.less")],
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["d" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["d" /* Router */]) === "function" && _a || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["d" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["d" /* Router */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__services_analytics_service__["a" /* AnalyticsService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_analytics_service__["a" /* AnalyticsService */]) === "function" && _b || Object])
 ], TermsComponent);
 
-var _a;
+var _a, _b;
 //# sourceMappingURL=terms.component.js.map
 
 /***/ }),
@@ -3945,6 +4022,8 @@ var map = {
 	"./be.js": "../../../../moment/locale/be.js",
 	"./bg": "../../../../moment/locale/bg.js",
 	"./bg.js": "../../../../moment/locale/bg.js",
+	"./bm": "../../../../moment/locale/bm.js",
+	"./bm.js": "../../../../moment/locale/bm.js",
 	"./bn": "../../../../moment/locale/bn.js",
 	"./bn.js": "../../../../moment/locale/bn.js",
 	"./bo": "../../../../moment/locale/bo.js",
@@ -3988,6 +4067,8 @@ var map = {
 	"./es": "../../../../moment/locale/es.js",
 	"./es-do": "../../../../moment/locale/es-do.js",
 	"./es-do.js": "../../../../moment/locale/es-do.js",
+	"./es-us": "../../../../moment/locale/es-us.js",
+	"./es-us.js": "../../../../moment/locale/es-us.js",
 	"./es.js": "../../../../moment/locale/es.js",
 	"./et": "../../../../moment/locale/et.js",
 	"./et.js": "../../../../moment/locale/et.js",
@@ -4013,6 +4094,8 @@ var map = {
 	"./gl.js": "../../../../moment/locale/gl.js",
 	"./gom-latn": "../../../../moment/locale/gom-latn.js",
 	"./gom-latn.js": "../../../../moment/locale/gom-latn.js",
+	"./gu": "../../../../moment/locale/gu.js",
+	"./gu.js": "../../../../moment/locale/gu.js",
 	"./he": "../../../../moment/locale/he.js",
 	"./he.js": "../../../../moment/locale/he.js",
 	"./hi": "../../../../moment/locale/hi.js",
@@ -4067,6 +4150,8 @@ var map = {
 	"./ms-my": "../../../../moment/locale/ms-my.js",
 	"./ms-my.js": "../../../../moment/locale/ms-my.js",
 	"./ms.js": "../../../../moment/locale/ms.js",
+	"./mt": "../../../../moment/locale/mt.js",
+	"./mt.js": "../../../../moment/locale/mt.js",
 	"./my": "../../../../moment/locale/my.js",
 	"./my.js": "../../../../moment/locale/my.js",
 	"./nb": "../../../../moment/locale/nb.js",
