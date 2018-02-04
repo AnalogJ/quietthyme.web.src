@@ -39,6 +39,11 @@ export class PushNotifyService {
 
     navigator.serviceWorker.register('service-worker.js')
         .then(function(sw) {
+            //exit if sw is null after registration
+            if(!sw){
+                return
+            }
+
           self.serviceWorkerRegistration = sw;
 
           // Set the initial subscription value
@@ -63,6 +68,10 @@ export class PushNotifyService {
 
   public subscribeUser() {
     var self = this;
+      if(!self.serviceWorkerRegistration){
+          console.log('No serviceworker found');
+          return
+      }
     this.serviceWorkerRegistration.pushManager.subscribe({
       userVisibleOnly: true,
       applicationServerKey: self.urlB64ToUint8Array(environment.pushNotifyPublicKey)
@@ -93,6 +102,10 @@ export class PushNotifyService {
 
   public unsubscribeUser() {
     var self = this;
+      if(!self.serviceWorkerRegistration){
+          console.log('No serviceworker found');
+          return
+      }
     this.serviceWorkerRegistration.pushManager.getSubscription()
         .then(function(subscription) {
           if (!subscription) {
