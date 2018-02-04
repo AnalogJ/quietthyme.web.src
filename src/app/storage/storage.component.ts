@@ -5,7 +5,8 @@ import { StorageStatus } from '../models/storage-status';
 import { AppSettings } from '../app-settings';
 import { NotificationService } from '../services/notification.service';
 import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
-declare var ga: any;
+import { AnalyticsService } from '../services/analytics.service';
+
 
 @Component({
   selector: 'app-storage',
@@ -25,12 +26,12 @@ export class StorageComponent implements OnInit {
     private slimLoadingBarService: SlimLoadingBarService,
     private notificationService: NotificationService,
     private apiService: ApiService,
-    private router: Router
+    private router: Router,
+    private analyticsService: AnalyticsService
   ) {
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
-        ga('set', 'page', event.urlAfterRedirects);
-        ga('send', 'pageview');
+        this.analyticsService.visitPage(event.urlAfterRedirects);
       }
     });
   }

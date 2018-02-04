@@ -4,7 +4,7 @@ import { SlimLoadingBarService } from 'ng2-slim-loading-bar';
 import { PushNotifyService,PushNotificationState } from '../services/push-notify.service';
 import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 import { NotificationService } from '../services/notification.service';
-declare var ga: any;
+import { AnalyticsService } from '../services/analytics.service';
 declare var UserVoice: any;
 
 @Component({
@@ -36,13 +36,14 @@ export class SettingsComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private router: Router,
     private pushNotifyService: PushNotifyService,
-    private notificationService: NotificationService
+    private notificationService: NotificationService,
+    private analyticsService: AnalyticsService
+
 
   ) {
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
-        ga('set', 'page', event.urlAfterRedirects);
-        ga('send', 'pageview');
+        this.analyticsService.visitPage(event.urlAfterRedirects);
       }
     });
 

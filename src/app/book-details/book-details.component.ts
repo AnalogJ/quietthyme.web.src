@@ -5,12 +5,12 @@ import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 import { MarkdownModule } from 'angular2-markdown';
 import { SlimLoadingBarService } from 'ng2-slim-loading-bar';
 import { NotificationService } from '../services/notification.service';
+import { AnalyticsService } from '../services/analytics.service';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/modal-options.class';
 import { BookDeleteComponent } from '../partials/book-delete/book-delete.component';
 
 import * as FileSaver from 'file-saver';
-declare var ga: any;
 
 @Component({
   selector: 'app-book-details',
@@ -34,12 +34,13 @@ export class BookDetailsComponent implements OnInit {
     private notificationService: NotificationService,
     private router: Router,
     private activatedRoute: ActivatedRoute,
-    private modalService: BsModalService
+    private modalService: BsModalService,
+    private analyticsService: AnalyticsService
+
   ) {
       this.router.events.subscribe(event => {
           if (event instanceof NavigationEnd) {
-              ga('set', 'page', event.urlAfterRedirects);
-              ga('send', 'pageview');
+              this.analyticsService.visitPage(event.urlAfterRedirects);
           }
       });
   }

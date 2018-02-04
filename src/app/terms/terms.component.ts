@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
-declare var ga: any;
+import { AnalyticsService } from '../services/analytics.service';
 
 @Component({
   selector: 'app-terms',
@@ -8,11 +8,13 @@ declare var ga: any;
   styleUrls: ['./terms.component.less'],
 })
 export class TermsComponent implements OnInit {
-  constructor(private router: Router) {
+  constructor(
+      private router: Router,
+      private analyticsService: AnalyticsService
+  ) {
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
-        ga('set', 'page', event.urlAfterRedirects);
-        ga('send', 'pageview');
+        this.analyticsService.visitPage(event.urlAfterRedirects);
       }
     });
   }

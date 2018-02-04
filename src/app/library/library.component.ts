@@ -4,6 +4,7 @@ import { SlimLoadingBarService } from 'ng2-slim-loading-bar';
 import { BookModel } from '../models/book';
 import { StorageStatus } from '../models/storage-status';
 import { NotificationService } from '../services/notification.service';
+import { AnalyticsService } from '../services/analytics.service';
 import { BookUploadComponent } from '../partials/book-upload/book-upload.component';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/modal-options.class';
@@ -12,7 +13,6 @@ import { ScrollSpyAffixModule } from 'ng2-scrollspy/dist/plugin/affix';
 import * as FileSaver from 'file-saver';
 import { AppSettings } from '../app-settings';
 import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
-declare var ga: any;
 
 @Component({
   selector: 'app-library',
@@ -45,13 +45,12 @@ export class LibraryComponent implements AfterViewInit {
     private modalService: BsModalService,
     private router: Router,
     private activatedRoute: ActivatedRoute,
+    private analyticsService: AnalyticsService
   ) {
 
       this.router.events.subscribe(event => {
           if (event instanceof NavigationEnd) {
-              ga('set', 'page', event.urlAfterRedirects);
-              ga('send', 'pageview');
-
+              this.analyticsService.visitPage(event.urlAfterRedirects);
 
               //the filter parameters in the url bar always take presidence over internal state
               //because the user may have bookmarked the page, or it was linked to the library with a filter.
