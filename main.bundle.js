@@ -538,40 +538,42 @@ var _a;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__shared_file_size_pipe__ = __webpack_require__("../../../../../src/app/shared/file-size.pipe.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__services_api_service__ = __webpack_require__("../../../../../src/app/services/api.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__services_push_notify_service__ = __webpack_require__("../../../../../src/app/services/push-notify.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__services_cache_service__ = __webpack_require__("../../../../../src/app/services/cache.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__services_auth_guard_service__ = __webpack_require__("../../../../../src/app/services/auth-guard.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__services_uservoice_service__ = __webpack_require__("../../../../../src/app/services/uservoice.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__services_notification_service__ = __webpack_require__("../../../../../src/app/services/notification.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__shared_dropzone_directive__ = __webpack_require__("../../../../../src/app/shared/dropzone.directive.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__terms_terms_component__ = __webpack_require__("../../../../../src/app/terms/terms.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__partials_notification_notification_component__ = __webpack_require__("../../../../../src/app/partials/notification/notification.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__partials_book_upload_book_upload_component__ = __webpack_require__("../../../../../src/app/partials/book-upload/book-upload.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__partials_book_delete_book_delete_component__ = __webpack_require__("../../../../../src/app/partials/book-delete/book-delete.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__account_register_plan_account_register_plan_component__ = __webpack_require__("../../../../../src/app/account-register-plan/account-register-plan.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__services_rollbar_error_handler__ = __webpack_require__("../../../../../src/app/services/rollbar-error-handler.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__partials_storage_detach_storage_detach_component__ = __webpack_require__("../../../../../src/app/partials/storage-detach/storage-detach.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34_angular2_jwt__ = __webpack_require__("../../../../angular2-jwt/angular2-jwt.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34_angular2_jwt___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_34_angular2_jwt__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35_ngx_bootstrap__ = __webpack_require__("../../../../ngx-bootstrap/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_36_ng2_slim_loading_bar__ = __webpack_require__("../../../../ng2-slim-loading-bar/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_37_angular2_markdown__ = __webpack_require__("../../../../angular2-markdown/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_38_angular2_masonry__ = __webpack_require__("../../../../angular2-masonry/index.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_39_ng2_scrollspy__ = __webpack_require__("../../../../ng2-scrollspy/dist/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_39_ng2_scrollspy___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_39_ng2_scrollspy__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_40_ng2_scrollspy_dist_plugin_affix_directive__ = __webpack_require__("../../../../ng2-scrollspy/dist/plugin/affix.directive.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_40_ng2_scrollspy_dist_plugin_affix_directive___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_40_ng2_scrollspy_dist_plugin_affix_directive__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_41_angular2_moment__ = __webpack_require__("../../../../angular2-moment/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_41_angular2_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_41_angular2_moment__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_42_ngx_infinite_scroll__ = __webpack_require__("../../../../ngx-infinite-scroll/modules/ngx-infinite-scroll.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_43_rollbar__ = __webpack_require__("../../../../rollbar/dist/rollbar.umd.min.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_43_rollbar___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_43_rollbar__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_44__environments_environment__ = __webpack_require__("../../../../../src/environments/environment.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__services_analytics_service__ = __webpack_require__("../../../../../src/app/services/analytics.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__services_cache_service__ = __webpack_require__("../../../../../src/app/services/cache.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__services_auth_guard_service__ = __webpack_require__("../../../../../src/app/services/auth-guard.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__services_uservoice_service__ = __webpack_require__("../../../../../src/app/services/uservoice.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__services_notification_service__ = __webpack_require__("../../../../../src/app/services/notification.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__shared_dropzone_directive__ = __webpack_require__("../../../../../src/app/shared/dropzone.directive.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__terms_terms_component__ = __webpack_require__("../../../../../src/app/terms/terms.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__partials_notification_notification_component__ = __webpack_require__("../../../../../src/app/partials/notification/notification.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__partials_book_upload_book_upload_component__ = __webpack_require__("../../../../../src/app/partials/book-upload/book-upload.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__partials_book_delete_book_delete_component__ = __webpack_require__("../../../../../src/app/partials/book-delete/book-delete.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__account_register_plan_account_register_plan_component__ = __webpack_require__("../../../../../src/app/account-register-plan/account-register-plan.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__services_rollbar_error_handler__ = __webpack_require__("../../../../../src/app/services/rollbar-error-handler.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__partials_storage_detach_storage_detach_component__ = __webpack_require__("../../../../../src/app/partials/storage-detach/storage-detach.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35_angular2_jwt__ = __webpack_require__("../../../../angular2-jwt/angular2-jwt.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35_angular2_jwt___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_35_angular2_jwt__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_36_ngx_bootstrap__ = __webpack_require__("../../../../ngx-bootstrap/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_37_ng2_slim_loading_bar__ = __webpack_require__("../../../../ng2-slim-loading-bar/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_38_angular2_markdown__ = __webpack_require__("../../../../angular2-markdown/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_39_angular2_masonry__ = __webpack_require__("../../../../angular2-masonry/index.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_40_ng2_scrollspy__ = __webpack_require__("../../../../ng2-scrollspy/dist/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_40_ng2_scrollspy___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_40_ng2_scrollspy__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_41_ng2_scrollspy_dist_plugin_affix_directive__ = __webpack_require__("../../../../ng2-scrollspy/dist/plugin/affix.directive.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_41_ng2_scrollspy_dist_plugin_affix_directive___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_41_ng2_scrollspy_dist_plugin_affix_directive__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_42_angular2_moment__ = __webpack_require__("../../../../angular2-moment/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_42_angular2_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_42_angular2_moment__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_43_ngx_infinite_scroll__ = __webpack_require__("../../../../ngx-infinite-scroll/modules/ngx-infinite-scroll.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_44_rollbar__ = __webpack_require__("../../../../rollbar/dist/rollbar.umd.min.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_44_rollbar___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_44_rollbar__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_45__environments_environment__ = __webpack_require__("../../../../../src/environments/environment.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -620,18 +622,18 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 function getRollbar() {
-    return new __WEBPACK_IMPORTED_MODULE_43_rollbar__({
-        accessToken: __WEBPACK_IMPORTED_MODULE_44__environments_environment__["a" /* environment */].rollbarClientApiKey,
+    return new __WEBPACK_IMPORTED_MODULE_44_rollbar__({
+        accessToken: __WEBPACK_IMPORTED_MODULE_45__environments_environment__["a" /* environment */].rollbarClientApiKey,
         captureUncaught: true,
         captureUnhandledRejections: false,
-        enabled: !!__WEBPACK_IMPORTED_MODULE_44__environments_environment__["a" /* environment */].rollbarClientApiKey,
+        enabled: !!__WEBPACK_IMPORTED_MODULE_45__environments_environment__["a" /* environment */].rollbarClientApiKey,
         payload: {
-            environment: __WEBPACK_IMPORTED_MODULE_44__environments_environment__["a" /* environment */].name
+            environment: __WEBPACK_IMPORTED_MODULE_45__environments_environment__["a" /* environment */].name
         }
     });
 }
 function getAuthHttp(http, options) {
-    return new __WEBPACK_IMPORTED_MODULE_34_angular2_jwt__["AuthHttp"](new __WEBPACK_IMPORTED_MODULE_34_angular2_jwt__["AuthConfig"]({
+    return new __WEBPACK_IMPORTED_MODULE_35_angular2_jwt__["AuthHttp"](new __WEBPACK_IMPORTED_MODULE_35_angular2_jwt__["AuthConfig"]({
         tokenName: 'id_token',
         noJwtError: true,
         headerPrefix: 'JWT',
@@ -656,68 +658,68 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_11__storage_storage_component__["a" /* StorageComponent */],
             __WEBPACK_IMPORTED_MODULE_12__library_library_component__["a" /* LibraryComponent */],
             __WEBPACK_IMPORTED_MODULE_13__book_details_book_details_component__["a" /* BookDetailsComponent */],
-            __WEBPACK_IMPORTED_MODULE_40_ng2_scrollspy_dist_plugin_affix_directive__["ScrollSpyAffixDirective"],
+            __WEBPACK_IMPORTED_MODULE_41_ng2_scrollspy_dist_plugin_affix_directive__["ScrollSpyAffixDirective"],
             __WEBPACK_IMPORTED_MODULE_14__partials_storage_panel_storage_panel_component__["a" /* StoragePanelComponent */],
             __WEBPACK_IMPORTED_MODULE_19__shared_file_size_pipe__["a" /* FileSizePipe */],
             __WEBPACK_IMPORTED_MODULE_15__settings_settings_component__["a" /* SettingsComponent */],
             __WEBPACK_IMPORTED_MODULE_16__privacy_privacy_component__["a" /* PrivacyComponent */],
             __WEBPACK_IMPORTED_MODULE_18__shared_stripe_checkout_button_directive__["a" /* StripeCheckoutButtonDirective */],
-            __WEBPACK_IMPORTED_MODULE_31__account_register_plan_account_register_plan_component__["a" /* AccountRegisterPlanComponent */],
+            __WEBPACK_IMPORTED_MODULE_32__account_register_plan_account_register_plan_component__["a" /* AccountRegisterPlanComponent */],
             __WEBPACK_IMPORTED_MODULE_17__partials_opds_panel_opds_panel_component__["a" /* OpdsPanelComponent */],
-            __WEBPACK_IMPORTED_MODULE_27__terms_terms_component__["a" /* TermsComponent */],
-            __WEBPACK_IMPORTED_MODULE_28__partials_notification_notification_component__["a" /* NotificationComponent */],
-            __WEBPACK_IMPORTED_MODULE_29__partials_book_upload_book_upload_component__["a" /* BookUploadComponent */],
-            __WEBPACK_IMPORTED_MODULE_26__shared_dropzone_directive__["a" /* DropzoneDirective */],
-            __WEBPACK_IMPORTED_MODULE_30__partials_book_delete_book_delete_component__["a" /* BookDeleteComponent */],
-            __WEBPACK_IMPORTED_MODULE_33__partials_storage_detach_storage_detach_component__["a" /* StorageDetachComponent */]
+            __WEBPACK_IMPORTED_MODULE_28__terms_terms_component__["a" /* TermsComponent */],
+            __WEBPACK_IMPORTED_MODULE_29__partials_notification_notification_component__["a" /* NotificationComponent */],
+            __WEBPACK_IMPORTED_MODULE_30__partials_book_upload_book_upload_component__["a" /* BookUploadComponent */],
+            __WEBPACK_IMPORTED_MODULE_27__shared_dropzone_directive__["a" /* DropzoneDirective */],
+            __WEBPACK_IMPORTED_MODULE_31__partials_book_delete_book_delete_component__["a" /* BookDeleteComponent */],
+            __WEBPACK_IMPORTED_MODULE_34__partials_storage_detach_storage_detach_component__["a" /* StorageDetachComponent */]
         ],
         imports: [
             __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
             __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormsModule */],
             __WEBPACK_IMPORTED_MODULE_3__angular_http__["HttpModule"],
-            __WEBPACK_IMPORTED_MODULE_35_ngx_bootstrap__["a" /* Ng2BootstrapModule */].forRoot(),
-            __WEBPACK_IMPORTED_MODULE_36_ng2_slim_loading_bar__["a" /* SlimLoadingBarModule */].forRoot(),
-            __WEBPACK_IMPORTED_MODULE_37_angular2_markdown__["a" /* MarkdownModule */].forRoot(),
-            __WEBPACK_IMPORTED_MODULE_38_angular2_masonry__["a" /* MasonryModule */],
-            __WEBPACK_IMPORTED_MODULE_42_ngx_infinite_scroll__["a" /* InfiniteScrollModule */],
-            __WEBPACK_IMPORTED_MODULE_39_ng2_scrollspy__["ScrollSpyModule"].forRoot(),
-            __WEBPACK_IMPORTED_MODULE_41_angular2_moment__["MomentModule"],
+            __WEBPACK_IMPORTED_MODULE_36_ngx_bootstrap__["a" /* Ng2BootstrapModule */].forRoot(),
+            __WEBPACK_IMPORTED_MODULE_37_ng2_slim_loading_bar__["a" /* SlimLoadingBarModule */].forRoot(),
+            __WEBPACK_IMPORTED_MODULE_38_angular2_markdown__["a" /* MarkdownModule */].forRoot(),
+            __WEBPACK_IMPORTED_MODULE_39_angular2_masonry__["a" /* MasonryModule */],
+            __WEBPACK_IMPORTED_MODULE_43_ngx_infinite_scroll__["a" /* InfiniteScrollModule */],
+            __WEBPACK_IMPORTED_MODULE_40_ng2_scrollspy__["ScrollSpyModule"].forRoot(),
+            __WEBPACK_IMPORTED_MODULE_42_angular2_moment__["MomentModule"],
             __WEBPACK_IMPORTED_MODULE_4__angular_router__["e" /* RouterModule */].forRoot([
                 //Public Endpoints
                 { path: 'login', component: __WEBPACK_IMPORTED_MODULE_6__account_login_account_login_component__["a" /* AccountLoginComponent */] },
                 { path: 'register', component: __WEBPACK_IMPORTED_MODULE_7__account_register_account_register_component__["a" /* AccountRegisterComponent */] },
                 { path: 'privacy', component: __WEBPACK_IMPORTED_MODULE_16__privacy_privacy_component__["a" /* PrivacyComponent */] },
-                { path: 'terms', component: __WEBPACK_IMPORTED_MODULE_27__terms_terms_component__["a" /* TermsComponent */] },
+                { path: 'terms', component: __WEBPACK_IMPORTED_MODULE_28__terms_terms_component__["a" /* TermsComponent */] },
                 //Auth Endpoints
                 {
                     path: 'register/plan',
-                    component: __WEBPACK_IMPORTED_MODULE_31__account_register_plan_account_register_plan_component__["a" /* AccountRegisterPlanComponent */],
-                    canActivate: [__WEBPACK_IMPORTED_MODULE_23__services_auth_guard_service__["a" /* AuthGuard */]],
+                    component: __WEBPACK_IMPORTED_MODULE_32__account_register_plan_account_register_plan_component__["a" /* AccountRegisterPlanComponent */],
+                    canActivate: [__WEBPACK_IMPORTED_MODULE_24__services_auth_guard_service__["a" /* AuthGuard */]],
                 },
                 {
                     path: 'storage',
                     component: __WEBPACK_IMPORTED_MODULE_11__storage_storage_component__["a" /* StorageComponent */],
-                    canActivate: [__WEBPACK_IMPORTED_MODULE_23__services_auth_guard_service__["a" /* AuthGuard */]],
+                    canActivate: [__WEBPACK_IMPORTED_MODULE_24__services_auth_guard_service__["a" /* AuthGuard */]],
                 },
                 {
                     path: 'settings',
                     component: __WEBPACK_IMPORTED_MODULE_15__settings_settings_component__["a" /* SettingsComponent */],
-                    canActivate: [__WEBPACK_IMPORTED_MODULE_23__services_auth_guard_service__["a" /* AuthGuard */]],
+                    canActivate: [__WEBPACK_IMPORTED_MODULE_24__services_auth_guard_service__["a" /* AuthGuard */]],
                 },
                 {
                     path: 'storage/:source',
                     component: __WEBPACK_IMPORTED_MODULE_11__storage_storage_component__["a" /* StorageComponent */],
-                    canActivate: [__WEBPACK_IMPORTED_MODULE_23__services_auth_guard_service__["a" /* AuthGuard */]],
+                    canActivate: [__WEBPACK_IMPORTED_MODULE_24__services_auth_guard_service__["a" /* AuthGuard */]],
                 },
                 {
                     path: 'library',
                     component: __WEBPACK_IMPORTED_MODULE_12__library_library_component__["a" /* LibraryComponent */],
-                    canActivate: [__WEBPACK_IMPORTED_MODULE_23__services_auth_guard_service__["a" /* AuthGuard */]],
+                    canActivate: [__WEBPACK_IMPORTED_MODULE_24__services_auth_guard_service__["a" /* AuthGuard */]],
                 },
                 {
                     path: 'book/:bookId',
                     component: __WEBPACK_IMPORTED_MODULE_13__book_details_book_details_component__["a" /* BookDetailsComponent */],
-                    canActivate: [__WEBPACK_IMPORTED_MODULE_23__services_auth_guard_service__["a" /* AuthGuard */]],
+                    canActivate: [__WEBPACK_IMPORTED_MODULE_24__services_auth_guard_service__["a" /* AuthGuard */]],
                 },
                 // { path: 'project/create', component: ProjectCreateComponent, canActivate: [AuthGuard] },
                 // { path: 'project/:serviceType/:orgId/:repoId/edit', component: ProjectEditComponent, canActivate: [AuthGuard] },
@@ -730,20 +732,21 @@ AppModule = __decorate([
         ],
         providers: [
             __WEBPACK_IMPORTED_MODULE_20__services_api_service__["a" /* ApiService */],
-            __WEBPACK_IMPORTED_MODULE_22__services_cache_service__["a" /* CacheService */],
-            __WEBPACK_IMPORTED_MODULE_24__services_uservoice_service__["a" /* UservoiceService */],
-            __WEBPACK_IMPORTED_MODULE_25__services_notification_service__["a" /* NotificationService */],
+            __WEBPACK_IMPORTED_MODULE_23__services_cache_service__["a" /* CacheService */],
+            __WEBPACK_IMPORTED_MODULE_25__services_uservoice_service__["a" /* UservoiceService */],
+            __WEBPACK_IMPORTED_MODULE_26__services_notification_service__["a" /* NotificationService */],
+            __WEBPACK_IMPORTED_MODULE_22__services_analytics_service__["a" /* AnalyticsService */],
             __WEBPACK_IMPORTED_MODULE_21__services_push_notify_service__["a" /* PushNotifyService */],
-            __WEBPACK_IMPORTED_MODULE_23__services_auth_guard_service__["a" /* AuthGuard */],
+            __WEBPACK_IMPORTED_MODULE_24__services_auth_guard_service__["a" /* AuthGuard */],
             {
-                provide: __WEBPACK_IMPORTED_MODULE_34_angular2_jwt__["AuthHttp"],
+                provide: __WEBPACK_IMPORTED_MODULE_35_angular2_jwt__["AuthHttp"],
                 useFactory: getAuthHttp,
                 deps: [__WEBPACK_IMPORTED_MODULE_3__angular_http__["Http"], __WEBPACK_IMPORTED_MODULE_3__angular_http__["RequestOptions"]],
             },
-            { provide: __WEBPACK_IMPORTED_MODULE_1__angular_core__["ErrorHandler"], useClass: __WEBPACK_IMPORTED_MODULE_32__services_rollbar_error_handler__["a" /* RollbarErrorHandler */] },
-            { provide: __WEBPACK_IMPORTED_MODULE_43_rollbar__, useFactory: getRollbar }
+            { provide: __WEBPACK_IMPORTED_MODULE_1__angular_core__["ErrorHandler"], useClass: __WEBPACK_IMPORTED_MODULE_33__services_rollbar_error_handler__["a" /* RollbarErrorHandler */] },
+            { provide: __WEBPACK_IMPORTED_MODULE_44_rollbar__, useFactory: getRollbar }
         ],
-        entryComponents: [__WEBPACK_IMPORTED_MODULE_29__partials_book_upload_book_upload_component__["a" /* BookUploadComponent */], __WEBPACK_IMPORTED_MODULE_30__partials_book_delete_book_delete_component__["a" /* BookDeleteComponent */], __WEBPACK_IMPORTED_MODULE_33__partials_storage_detach_storage_detach_component__["a" /* StorageDetachComponent */]],
+        entryComponents: [__WEBPACK_IMPORTED_MODULE_30__partials_book_upload_book_upload_component__["a" /* BookUploadComponent */], __WEBPACK_IMPORTED_MODULE_31__partials_book_delete_book_delete_component__["a" /* BookDeleteComponent */], __WEBPACK_IMPORTED_MODULE_34__partials_storage_detach_storage_detach_component__["a" /* StorageDetachComponent */]],
         bootstrap: [__WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* AppComponent */]],
     })
 ], AppModule);
@@ -2822,23 +2825,27 @@ var RollbarErrorHandler = (function () {
         this.apiService = apiService;
     }
     RollbarErrorHandler.prototype.handleError = function (err) {
-        var rollbar = this.injector.get(__WEBPACK_IMPORTED_MODULE_1_rollbar__);
-        var configurePayload = {
-            payload: {
-                // context: this.router.url,
-                person: null
-            }
-        };
-        if (this.apiService.loggedIn()) {
-            var tokenData = this.apiService.tokenPayload();
-            configurePayload.payload.person = {
-                id: tokenData.uid,
-                username: tokenData.first_name + ' ' + tokenData.last_name,
-                email: tokenData.email
+        try {
+            var rollbar = this.injector.get(__WEBPACK_IMPORTED_MODULE_1_rollbar__);
+            var configurePayload = {
+                payload: {
+                    // context: this.router.url,
+                    person: null
+                }
             };
+            if (this.apiService.loggedIn()) {
+                var tokenData = this.apiService.tokenPayload();
+                configurePayload.payload.person = {
+                    id: tokenData.uid,
+                    username: tokenData.first_name + ' ' + tokenData.last_name,
+                    email: tokenData.email
+                };
+            }
+            rollbar.configure(configurePayload);
+            rollbar.error(err.originalError || err);
         }
-        rollbar.configure(configurePayload);
-        rollbar.error(err.originalError || err);
+        catch (e) {
+        }
     };
     return RollbarErrorHandler;
 }());
